@@ -1,0 +1,35 @@
+{
+  "name": "cortexcn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cortexcn studio site.",
+  "homepage": "https://cortexcn.studio",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "check-types": "tsc --noEmit --pretty"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "geist": "^1.7.0",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@syedmoin/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^20.14.12",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4.3.0",
+    "typescript": "5.8.3"
+  }
+}
