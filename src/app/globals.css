@@ -1,6 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
+  /* Colors — dark by default, matching syedmoin's dark palette */
+  --color-background: oklch(0.141 0.005 285.823);
+  --color-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.21 0.006 285.885);
+  --color-muted-foreground: oklch(0.705 0.015 286.067);
+  --color-border: oklch(0.274 0.006 286.033);
+  --color-line: color-mix(in oklab, var(--color-border) 64%, var(--color-background));
+  --color-accent: oklch(0.274 0.006 286.033);
+  --color-accent-muted: color-mix(in oklab, var(--color-accent) 20%, transparent);
+  --color-info: oklch(0.67 0.17 244.98);
+  --color-surface: oklch(0.21 0.006 285.885);
+
+  /* Fonts — Doto for headings, Space Mono for body */
+  --font-sans: var(--font-space-mono);
+  --font-mono: var(--font-space-mono);
+  --font-heading: var(--font-doto);
+}
+
+/* Screen-line decorations — horizontal rules that extend across the viewport
+   beyond the container. Same pattern as syedmoin. */
+@utility screen-line-top {
+  position: relative;
+}
+@utility screen-line-top {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200vw;
+    height: 1px;
+    background-color: var(--color-line);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+
+@utility screen-line-bottom {
+  position: relative;
+}
+@utility screen-line-bottom {
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 200vw;
+    height: 1px;
+    background-color: var(--color-line);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
