@@ -1,22 +1,99 @@
 @import "tailwindcss";
 
-@theme {
-  /* Colors — dark by default, matching syedmoin's dark palette */
-  --color-background: oklch(0.141 0.005 285.823);
-  --color-foreground: oklch(0.985 0 0);
-  --color-muted: oklch(0.21 0.006 285.885);
-  --color-muted-foreground: oklch(0.705 0.015 286.067);
-  --color-border: oklch(0.274 0.006 286.033);
-  --color-line: color-mix(in oklab, var(--color-border) 64%, var(--color-background));
-  --color-accent: oklch(0.274 0.006 286.033);
-  --color-accent-muted: color-mix(in oklab, var(--color-accent) 20%, transparent);
-  --color-info: oklch(0.67 0.17 244.98);
-  --color-surface: oklch(0.21 0.006 285.885);
+@custom-variant dark (&:where(.dark, .dark *));
+
+@custom-variant data-horizontal {
+  &:where([data-orientation="horizontal"]) {
+    @slot;
+  }
+}
+
+@custom-variant data-vertical {
+  &:where([data-orientation="vertical"]) {
+    @slot;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-muted: var(--accent-muted);
+  --color-border: var(--border);
+  --color-line: var(--line);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-info: var(--info);
+  --color-surface: var(--surface);
+  --color-destructive: var(--destructive);
 
   /* Fonts — Doto for headings, Space Mono for body */
   --font-sans: var(--font-space-mono);
   --font-mono: var(--font-space-mono);
   --font-heading: var(--font-doto);
+}
+
+:root {
+  /* white */
+  --background: oklch(1 0 0);
+  /* zinc-950 */
+  --foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.141 0.005 285.823);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.141 0.005 285.823);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --accent-muted: color-mix(in oklab, var(--accent) 50%, transparent);
+  --border: oklch(0.92 0.004 286.32);
+  --line: color-mix(in oklab, var(--border) 64%, var(--background));
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.015 286.067);
+  --info: oklch(0.67 0.17 244.98);
+  --surface: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+}
+
+.dark {
+  /* zinc-950 */
+  --background: oklch(0.141 0.005 285.823);
+  /* zinc-50 */
+  --foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.141 0.005 285.823);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --accent-muted: color-mix(in oklab, var(--accent) 20%, transparent);
+  --border: oklch(0.274 0.006 286.033);
+  --input: lab(100% 0 0 / 0.15);
+  --ring: oklch(0.552 0.016 285.938);
+  --surface: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.505 0.213 27.518);
 }
 
 /* Screen-line decorations — horizontal rules that extend across the viewport
@@ -53,6 +130,10 @@
     transform: translateX(-50%);
     pointer-events: none;
   }
+}
+
+@utility link-underline {
+  @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
 }
 
 html {
