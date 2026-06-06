@@ -1,0 +1,39 @@
+---
+title: Changelog
+description: What's new in Cortexcn — every release, newest first.
+---
+
+## 0.2.0
+
+_June 7, 2026 — New components._
+
+### Added
+
+- **Badge** — six variants, icon spacing, `asChild`, and a spinner-friendly layout.
+- **Card** — upgraded with a `size` prop and a `--card-spacing` variable for custom spacing.
+- **Button Group** — upgraded with `orientation`, `ButtonGroupSeparator`, and `ButtonGroupText`.
+- **Alert** and **Alert Dialog** — callouts and modal confirmations (with `AlertAction`, `size`, and `AlertDialogMedia`).
+- **Dropdown Menu**, **Select**, **Popover**, **Toggle**, **Toggle Group**, **Input**, **Label**, **Textarea**, **Field**, and **Input Group** — the building blocks behind the richer examples.
+
+### Changed
+
+- Added `tw-animate-css` so overlay components (Alert Dialog, Dropdown Menu, …) animate in and out.
+
+## 0.1.0
+
+_June 6, 2026 — Initial release._
+
+The first public version of Cortexcn: the docs site, the `@cortexcn` registry,
+and the first set of components you can install with `npx shadcn add`.
+
+### Added
+
+- **Docs & registry** — Fumadocs-powered documentation with live component
+  previews and a shadcn-compatible registry served at `/r/*.json`.
+- **Button** — six variants, icon sizes, `asChild`, and icon spacing helpers.
+- **Button Group** — group related buttons together.
+- **Spinner** — animated loading indicator for buttons and more.
+- **Accordion** — vertically stacked, collapsible sections.
+- **Card** — header / content / footer container.
+- **Morphing Popover** — a popover that smoothly morphs out of its trigger.
+- **`useClickOutside`** — hook to detect clicks outside an element.

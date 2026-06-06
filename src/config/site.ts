@@ -17,6 +17,10 @@ export const MAIN_NAV: NavItem[] = [
     href: "/#studio",
   },
   {
+    title: "Components",
+    href: "/docs",
+  },
+  {
     title: "Contact",
     href: "/#contact",
   },

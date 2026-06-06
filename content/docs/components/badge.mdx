@@ -1,0 +1,98 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+---
+
+<ComponentPreview name="badge-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @cortexcn/badge
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/ui/badge.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+```
+
+```tsx
+<Badge variant="default | secondary | destructive | outline | ghost | link">
+  Badge
+</Badge>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the variant of the badge.
+
+<ComponentPreview name="badge-variants" />
+
+### With Icon
+
+You can render an icon inside the badge. Use `data-icon="inline-start"` for a leading icon and `data-icon="inline-end"` for a trailing icon.
+
+<ComponentPreview name="badge-with-icon" />
+
+### With Spinner
+
+Render a spinner inside the badge to show a loading state.
+
+<ComponentPreview name="badge-with-spinner" />
+
+### Link
+
+Use the `asChild` prop to render a link as a badge.
+
+<ComponentPreview name="badge-link" />
+
+### Custom Colors
+
+Customize the colors of a badge by adding custom classes such as `bg-green-50 dark:bg-green-800`.
+
+<ComponentPreview name="badge-custom-colors" />
+
+### RTL
+
+Badges respect the document direction — pass `dir="rtl"` to flip the layout.
+
+<ComponentPreview name="badge-rtl" />
+
+## API Reference
+
+### Badge
+
+| Prop      | Type                                                                          | Default     |
+| --------- | ----------------------------------------------------------------------------- | ----------- |
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | `"default"` |
+| `asChild` | `boolean`                                                                     | `false`     |

@@ -1,0 +1,20 @@
+{
+  "title": "Components",
+  "pages": [
+    "accordion",
+    "alert",
+    "alert-dialog",
+    "badge",
+    "button",
+    "button-group",
+    "card",
+    "dropdown-menu",
+    "field",
+    "input-group",
+    "popover",
+    "select",
+    "textarea",
+    "toggle",
+    "toggle-group"
+  ]
+}

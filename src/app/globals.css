@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Enter/exit animation utilities (animate-in, fade-in-0, zoom-in-95, …). */
+@import "tw-animate-css";
+
+/* Fumadocs UI — `shadcn.css` bridges `--color-fd-*` onto the existing shadcn-style
+   tokens below (no manual mapping needed); `preset.css` brings the docs UI styles. */
+@import "fumadocs-ui/css/shadcn.css";
+@import "fumadocs-ui/css/preset.css";
+@source "../../node_modules/fumadocs-ui/dist/**/*.js";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @custom-variant data-horizontal {
@@ -42,6 +51,28 @@
   --font-sans: var(--font-space-mono);
   --font-mono: var(--font-space-mono);
   --font-heading: var(--font-doto);
+
+  /* Accordion open/close animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
 :root {
@@ -69,6 +100,15 @@
   --info: oklch(0.67 0.17 244.98);
   --surface: oklch(0.985 0 0);
   --destructive: oklch(0.577 0.245 27.325);
+
+  /* Sidebar tokens consumed by fumadocs-ui/css/shadcn.css */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-border: var(--line);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-ring: var(--ring);
+  --sidebar-primary-foreground: var(--primary-foreground);
 }
 
 .dark {
