@@ -33,6 +33,55 @@
       ]
     },
     {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "For sighted users to preview content available behind a link.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/hover-card/hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toc-minimap",
+      "type": "registry:ui",
+      "title": "TOC Minimap",
+      "description": "Navigate page sections with a compact, hoverable table-of-contents minimap.",
+      "registryDependencies": ["utils", "hover-card"],
+      "files": [
+        {
+          "path": "src/registry/ui/toc-minimap/toc-minimap.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toc-minimap.tsx"
+        },
+        {
+          "path": "src/lib/soundcn/sound-types.ts",
+          "type": "registry:lib",
+          "target": "lib/soundcn/sound-types.ts"
+        },
+        {
+          "path": "src/lib/soundcn/sound-engine.ts",
+          "type": "registry:lib",
+          "target": "lib/soundcn/sound-engine.ts"
+        },
+        {
+          "path": "src/lib/soundcn/u-mini-map-open.ts",
+          "type": "registry:lib",
+          "target": "lib/soundcn/u-mini-map-open.ts"
+        },
+        {
+          "path": "src/hooks/soundcn/use-sound.ts",
+          "type": "registry:hook",
+          "target": "hooks/soundcn/use-sound.ts"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",

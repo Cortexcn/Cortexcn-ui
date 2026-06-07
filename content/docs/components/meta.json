@@ -10,10 +10,12 @@
     "card",
     "dropdown-menu",
     "field",
+    "hover-card",
     "input-group",
     "popover",
     "select",
     "textarea",
+    "toc-minimap",
     "toggle",
     "toggle-group"
   ]

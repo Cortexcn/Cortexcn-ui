@@ -1,0 +1,111 @@
+---
+title: TOC Minimap
+description: Navigate page sections with a compact, hoverable table-of-contents minimap.
+---
+
+<ComponentPreview name="toc-minimap-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @cortexcn/toc-minimap
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npx shadcn@latest add @cortexcn/hover-card
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="toc-minimap" title="components/ui/toc-minimap.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { TOCMinimap } from "@/components/ui/toc-minimap";
+```
+
+```tsx
+<TOCMinimap
+  items={[
+    { title: "Introduction", url: "#introduction", depth: 2 },
+    { title: "Installation", url: "#installation", depth: 2 },
+    { title: "Usage", url: "#usage", depth: 2 },
+  ]}
+/>
+```
+
+Each `url` must point to the `id` of a section on the page. The dash for the
+section currently in view is highlighted automatically.
+
+## Examples
+
+### Basic
+
+A flat list of sections. Hover the dashes to reveal the section titles.
+
+<ComponentPreview name="toc-minimap-demo" />
+
+### Nested depths
+
+Items with `depth` 3 and 4 render as shorter, indented dashes — mirror your
+heading hierarchy for an at-a-glance map of the page.
+
+<ComponentPreview name="toc-minimap-nested" />
+
+### Long outline
+
+When the outline is long, the expanded panel scrolls instead of overflowing.
+
+<ComponentPreview name="toc-minimap-many" />
+
+### In a page
+
+Pin the minimap beside your content with `sticky`. Clicking an item smooth-scrolls
+to its section, and scroll-spy keeps the active item highlighted as you read.
+
+<ComponentPreview name="toc-minimap-page" />
+
+## Props
+
+| Prop        | Type                       | Default                           | Description                                                   |
+| ----------- | -------------------------- | --------------------------------- | ------------------------------------------------------------- |
+| `items`     | `TOCItemType[]`            | —                                 | Outline entries. Each `url` is a `#hash` to a section `id`.   |
+| `className` | `string`                   | —                                 | Classes merged onto the root (e.g. `ml-0` to undo `ml-auto`). |
+| `options`   | `IntersectionObserverInit` | `{ rootMargin: "0% 0% -80% 0%" }` | Scroll-spy observer options.                                  |
+| `sound`     | `boolean`                  | `true`                            | Play a soft sound when the outline expands on hover.          |
+
+### TOCItemType
+
+```ts
+type TOCItemType = {
+  title: React.ReactNode;
+  url: string; // "#section-id"
+  depth: number; // 2 | 3 | 4
+};
+```
