@@ -229,6 +229,20 @@
       ]
     },
     {
+      "name": "border-button",
+      "type": "registry:ui",
+      "title": "Border Button",
+      "description": "A button with animated corner brackets that highlight its border on hover.",
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        {
+          "path": "src/registry/ui/border-button/border-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/border-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "title": "Input",

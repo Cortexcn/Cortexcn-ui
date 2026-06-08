@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "border-button",
+  "title": "Border Button",
+  "description": "A button with animated corner brackets that highlight its border on hover.",
+  "registryDependencies": ["utils", "button"],
+  "files": [
+    {
+      "path": "src/registry/ui/border-button/border-button.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\n\n// Decorative L-shaped bracket drawn in one corner. The four corners are\n// produced by mirroring this single shape with scale transforms.\nfunction BorderButtonCorner({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 12 12\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      aria-hidden=\"true\"\n      className={cn(\n        \"pointer-events-none absolute size-3 text-foreground/40 transition-all duration-200 group-hover/button:text-foreground\",\n        className,\n      )}\n    >\n      <path\n        d=\"M0 0V12\"\n        stroke=\"currentColor\"\n        strokeWidth=\"1\"\n        strokeLinecap=\"square\"\n      />\n      <path\n        d=\"M0 12H12\"\n        stroke=\"currentColor\"\n        strokeWidth=\"1\"\n        strokeLinecap=\"square\"\n      />\n    </svg>\n  );\n}\n\nfunction BorderButton({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof Button>) {\n  return (\n    <Button\n      variant=\"outline\"\n      className={cn(\n        \"relative overflow-visible rounded-none px-4! shadow-none\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n\n      {/* Animated corner brackets — they ease outward on hover to highlight\n          the button's border. */}\n      <BorderButtonCorner className=\"-bottom-px -left-px group-hover/button:-bottom-0.5 group-hover/button:-left-0.5\" />\n      <BorderButtonCorner className=\"-right-px -bottom-px scale-x-[-1] group-hover/button:-right-0.5 group-hover/button:-bottom-0.5\" />\n      <BorderButtonCorner className=\"-top-px -left-px scale-y-[-1] group-hover/button:-top-0.5 group-hover/button:-left-0.5\" />\n      <BorderButtonCorner className=\"-top-px -right-px scale-[-1] group-hover/button:-top-0.5 group-hover/button:-right-0.5\" />\n    </Button>\n  );\n}\n\nexport { BorderButton };\n",
+      "type": "registry:ui",
+      "target": "components/ui/border-button.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

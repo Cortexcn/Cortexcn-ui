@@ -21,6 +21,10 @@ export const MAIN_NAV: NavItem[] = [
     href: "/docs",
   },
   {
+    title: "Blocks",
+    href: "/docs/blocks",
+  },
+  {
     title: "Contact",
     href: "/#contact",
   },

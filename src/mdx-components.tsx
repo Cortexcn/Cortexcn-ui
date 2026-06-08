@@ -11,6 +11,9 @@ import type { MDXComponents } from "mdx/types";
 
 import { ComponentPreview } from "@/components/docs/component-preview";
 import { ComponentSource } from "@/components/docs/component-source";
+import { ComponentsOverview } from "@/components/docs/components-overview";
+import { BlocksOverview } from "@/components/docs/blocks-overview";
+import { ComingSoon } from "@/components/docs/coming-soon";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -24,6 +27,9 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Step,
     ComponentPreview,
     ComponentSource,
+    ComponentsOverview,
+    BlocksOverview,
+    ComingSoon,
     ...components,
   };
 }
