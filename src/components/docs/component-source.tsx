@@ -1,9 +1,10 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 
-// Reads a registry component's source from disk and renders it as a code block.
-// Used in the "Manual" installation step.
+import { CodeBlock } from "@/components/docs/mdx/code-block";
+
+// Reads a registry component's source from disk and renders it as a highlighted
+// code block. Used in the "Manual" installation step.
 export async function ComponentSource({
   name,
   title,
@@ -30,17 +31,18 @@ export async function ComponentSource({
 
   if (code === undefined) {
     return (
-      <p className="text-sm text-fd-muted-foreground">
+      <p className="text-sm text-muted-foreground">
         Source for <code>{name}</code> not found.
       </p>
     );
   }
 
   return (
-    <DynamicCodeBlock
-      lang="tsx"
+    <CodeBlock
       code={code}
-      codeblock={{ title: title ?? `components/ui/${name}.tsx` }}
+      language="tsx"
+      title={title ?? `components/ui/${name}.tsx`}
+      withWrapper
     />
   );
 }
