@@ -8,9 +8,7 @@ export default function Page() {
       <SiteHeader />
 
       <main className="max-w-screen overflow-x-clip">
-        <div className="mx-auto border-x border-line md:max-w-3xl">
-          <Hero />
-        </div>
+        <Hero />
       </main>
 
       <SiteFooter />
