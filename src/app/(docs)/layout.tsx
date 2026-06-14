@@ -1,35 +1,44 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
+import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import { RootProvider } from "fumadocs-ui/provider/next";
 
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { DocsSidebar } from "@/components/docs/sidebar";
-import { DocsHeader } from "@/components/docs/sidebar/header";
-import { DecorativeBorder } from "@/components/docs/layout/decorative-border-svg";
-import { cn } from "@/lib/utils";
+import packageJson from "../../../package.json";
+import { source } from "@/lib/source";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { CortexcnMark } from "@/components/cortexcn-mark";
 
 export default function DocsRootLayout({ children }: { children: ReactNode }) {
   return (
-    // The app root layout already provides next-themes; keep Fumadocs' RootProvider
-    // (theme disabled) for its search context, used by the command menu.
+    // The app root layout already provides next-themes, so disable Fumadocs' own.
     <RootProvider theme={{ enabled: false }}>
-      <SidebarProvider>
-        <DocsSidebar />
-        <div className="w-full bg-sidebar p-0 sm:p-2">
-          <DecorativeBorder />
-          <div
-            className={cn(
-              "no-scrollbar overflow-scroll bg-background sm:h-[calc(100vh-1rem)] sm:overscroll-none sm:border",
-              // bottom-right XL to echo a mac-style window radius
-              "sm:rounded-tl-md sm:rounded-br-xl sm:rounded-bl-md",
-            )}
-          >
-            <SidebarInset>
-              <DocsHeader />
-              {children}
-            </SidebarInset>
-          </div>
-        </div>
-      </SidebarProvider>
+      <DocsLayout
+        tree={source.pageTree}
+        nav={{ title: <CortexcnMark />, url: "/" }}
+        // Replace Fumadocs' default sidebar theme switch with our own footer row
+        // so the version badge fills the gap beside the toggle.
+        themeSwitch={{ enabled: false }}
+        sidebar={{
+          footer: (
+            <div className="flex items-center justify-between gap-2 rounded-lg border bg-secondary/50 p-0.5 ps-2.5">
+              <Link
+                href="/docs/changelog"
+                aria-label={`cortexcn version ${packageJson.version} — view changelog`}
+                className="flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <span className="font-medium text-foreground/80">
+                  @cortexcn
+                </span>
+                <span aria-hidden>·</span>
+                <span className="font-mono">{packageJson.version}</span>
+              </Link>
+              <ThemeToggle />
+            </div>
+          ),
+        }}
+      >
+        {children}
+      </DocsLayout>
     </RootProvider>
   );
 }
