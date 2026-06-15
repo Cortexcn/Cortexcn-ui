@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { FOUNDER_URL, MAIN_NAV } from "@/config/site";
+import { MAIN_NAV } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { CortexcnMark } from "@/components/cortexcn-mark";
 import { CommandMenu } from "@/components/command-menu";
@@ -37,44 +37,25 @@ export function SiteHeader() {
           : "border-b border-border bg-background/80 py-0 backdrop-blur-md",
       )}
     >
-      <div className="flex w-full items-center gap-3 px-4 sm:px-6">
-        {/* Pill: logo (far left) · built by (center) · nav (far right).
-            Collapses into a rounded, floating bar on scroll. */}
+      <div className="mx-auto flex w-full max-w-5xl items-center gap-3 px-4 sm:px-6">
+        {/* Pill: logo (left) · nav (right). Collapses into a rounded,
+            floating bar on scroll. */}
         <div
           className={cn(
-            "grid h-14 flex-1 grid-cols-[1fr_auto_1fr] items-center gap-3 px-4",
+            "flex h-14 flex-1 items-center justify-between gap-3 px-4",
             FLOAT_BASE,
             scrolled ? FLOAT_ON : FLOAT_OFF,
           )}
         >
-          {/* Left: logo */}
-          <div className="flex items-center">
-            <Link
-              href="/"
-              aria-label="Home"
-              className="transition-[scale] ease-out active:scale-[0.98]"
-            >
-              <CortexcnMark />
-            </Link>
-          </div>
+          <Link
+            href="/"
+            aria-label="Home"
+            className="flex items-center transition-[scale] ease-out active:scale-[0.98]"
+          >
+            <CortexcnMark />
+          </Link>
 
-          {/* Center: built by */}
-          <div className="hidden items-center justify-center gap-1.5 text-sm sm:flex">
-            <span className="text-muted-foreground">Built by</span>
-            <a
-              href={FOUNDER_URL}
-              target="_blank"
-              rel="noopener"
-              className="link-underline font-medium text-foreground"
-            >
-              Syed Moinuddin
-            </a>
-          </div>
-
-          {/* Right: nav */}
-          <div className="flex items-center justify-end">
-            <NavDesktop items={MAIN_NAV} />
-          </div>
+          <NavDesktop items={MAIN_NAV} />
         </div>
 
         {/* Outside the pill: search + theme. Gets its own floating surface on
