@@ -10,7 +10,7 @@ import { CommandMenu } from "@/components/command-menu";
 import { NavDesktop } from "@/components/nav-desktop";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-// Shared floating-surface styles for the pill + the search/theme cluster.
+// Floating-surface styles for the pill: a rounded, blurred bar on scroll.
 const FLOAT_BASE =
   "transition-[background-color,border-color,border-radius,box-shadow] duration-300 ease-out";
 const FLOAT_ON =
@@ -37,9 +37,14 @@ export function SiteHeader() {
           : "border-b border-border bg-background/80 py-0 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex w-full max-w-5xl items-center gap-3 px-4 sm:px-6">
-        {/* Pill: logo (left) · nav (right). Collapses into a rounded,
-            floating bar on scroll. */}
+      {/* Full width at the top; collapses to a centered, compact bar on scroll. */}
+      <div
+        className={cn(
+          "mx-auto flex w-full items-center gap-3 px-4 transition-[max-width] duration-300 ease-out sm:px-6",
+          scrolled ? "max-w-5xl" : "max-w-none",
+        )}
+      >
+        {/* Pill: logo (left) · nav + theme toggle (right). */}
         <div
           className={cn(
             "flex h-14 flex-1 items-center justify-between gap-3 px-4",
@@ -55,21 +60,15 @@ export function SiteHeader() {
             <CortexcnMark />
           </Link>
 
-          <NavDesktop items={MAIN_NAV} />
+          <div className="flex items-center gap-1">
+            <NavDesktop items={MAIN_NAV} />
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Outside the pill: search + theme. Gets its own floating surface on
-            scroll so it stays visible against the page behind it. */}
-        <div
-          className={cn(
-            "flex h-14 items-center gap-1 px-1.5",
-            FLOAT_BASE,
-            scrolled ? FLOAT_ON : FLOAT_OFF,
-            "max-sm:**:data-[slot=command-menu-trigger]:hidden",
-          )}
-        >
+        {/* Search: standalone, no background of its own. */}
+        <div className="flex h-14 items-center max-sm:**:data-[slot=command-menu-trigger]:hidden **:data-[slot=command-menu-trigger]:border-transparent **:data-[slot=command-menu-trigger]:bg-transparent **:data-[slot=command-menu-trigger]:shadow-none">
           <CommandMenu />
-          <ThemeToggle />
         </div>
       </div>
     </header>
