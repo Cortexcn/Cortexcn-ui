@@ -40,6 +40,14 @@ const fontSatoshi = localFont({
   display: "swap",
 });
 
+// Chillax (self-hosted variable font) — loaded and ready; not applied yet.
+const fontChillax = localFont({
+  src: "../fonts/Chillax-Variable.woff2",
+  variable: "--font-chillax",
+  weight: "200 700",
+  display: "swap",
+});
+
 // globals.css @theme maps --font-sans → geist and --font-mono → jetbrains,
 // so we no longer override them inline.
 export const fontVariables = cn(
@@ -49,5 +57,6 @@ export const fontVariables = cn(
   fontDoto.variable,
   fontSpaceMono.variable,
   fontSatoshi.variable,
+  fontChillax.variable,
   GeistPixelSquare.variable,
 );
