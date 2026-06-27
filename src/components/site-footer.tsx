@@ -16,7 +16,7 @@ export function SiteFooter() {
         <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
           A studio crafted by{" "}
           <a
-            className="font-medium text-foreground link-underline"
+            className="font-[family-name:var(--font-chillax)] font-medium text-foreground link-underline"
             href={FOUNDER_URL}
             target="_blank"
             rel="noopener"
