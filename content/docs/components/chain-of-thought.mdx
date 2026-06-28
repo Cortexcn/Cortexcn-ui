@@ -1,0 +1,178 @@
+---
+title: Chain of Thought
+description: Display step-by-step reasoning and collapsible thought processes in AI interfaces.
+---
+
+<ComponentPreview name="chain-of-thought-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @cortexcn/chain-of-thought
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install radix-ui lucide-react
+```
+
+<Step>Add the `collapsible` component that Chain of Thought builds on:</Step>
+
+```bash
+npx shadcn@latest add @cortexcn/collapsible
+```
+
+<Step>Add the collapsible animations to your global CSS:</Step>
+
+```css
+@theme {
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes collapsible-up {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="chain-of-thought"
+  title="components/ui/chain-of-thought.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  ChainOfThought,
+  ChainOfThoughtContent,
+  ChainOfThoughtItem,
+  ChainOfThoughtStep,
+  ChainOfThoughtTrigger,
+} from "@/components/ui/chain-of-thought";
+```
+
+```tsx
+<ChainOfThought>
+  <ChainOfThoughtStep>
+    <ChainOfThoughtTrigger>Analyzing the request</ChainOfThoughtTrigger>
+    <ChainOfThoughtContent>
+      <ChainOfThoughtItem>Breaking the task into steps.</ChainOfThoughtItem>
+    </ChainOfThoughtContent>
+  </ChainOfThoughtStep>
+</ChainOfThought>
+```
+
+## Composition
+
+Use the following composition to build a `ChainOfThought`:
+
+```text
+ChainOfThought
+├── ChainOfThoughtStep
+│   ├── ChainOfThoughtTrigger
+│   └── ChainOfThoughtContent
+│       └── ChainOfThoughtItem
+└── ChainOfThoughtStep
+    ├── ChainOfThoughtTrigger
+    └── ChainOfThoughtContent
+        └── ChainOfThoughtItem
+```
+
+`ChainOfThought` clones each `ChainOfThoughtStep` to mark the last one, so the
+connecting timeline stops at the final step. Each step is a `Collapsible`, so it
+accepts the usual `open`, `defaultOpen`, and `onOpenChange` props.
+
+## Examples
+
+### With icons
+
+Pass a `leftIcon` to a `ChainOfThoughtTrigger` to replace the default bullet.
+By default the icon swaps to a chevron on hover; set `swapIconOnHover={false}`
+to keep the icon static.
+
+<ComponentPreview name="chain-of-thought-icons" />
+
+### Open by default
+
+Pass `defaultOpen` to a `ChainOfThoughtStep` to render it expanded, and add
+multiple `ChainOfThoughtItem` children to break a step into separate lines.
+
+<ComponentPreview name="chain-of-thought-open" />
+
+## API Reference
+
+### ChainOfThought
+
+| Prop        | Type              | Description                             |
+| ----------- | ----------------- | --------------------------------------- |
+| `children`  | `React.ReactNode` | One or more `ChainOfThoughtStep` items. |
+| `className` | `string`          | Additional classes for the wrapper.     |
+
+### ChainOfThoughtStep
+
+Extends `Collapsible` (Radix `Collapsible.Root`), so it also accepts `open`,
+`defaultOpen`, and `onOpenChange`.
+
+| Prop        | Type              | Default | Description                            |
+| ----------- | ----------------- | ------- | -------------------------------------- |
+| `children`  | `React.ReactNode` |         | A trigger and its content.             |
+| `className` | `string`          |         | Additional classes for the step.       |
+| `isLast`    | `boolean`         | `false` | Set automatically by `ChainOfThought`. |
+
+### ChainOfThoughtTrigger
+
+Extends Radix `Collapsible.Trigger`.
+
+| Prop              | Type              | Default | Description                                        |
+| ----------------- | ----------------- | ------- | -------------------------------------------------- |
+| `leftIcon`        | `React.ReactNode` |         | Icon shown before the label instead of the bullet. |
+| `swapIconOnHover` | `boolean`         | `true`  | Swap `leftIcon` for a chevron on hover.            |
+
+### ChainOfThoughtContent
+
+Extends Radix `Collapsible.Content`. Renders the timeline rail and its children.
+
+### ChainOfThoughtItem
+
+Extends `div`. A single line of reasoning inside a `ChainOfThoughtContent`.

@@ -389,6 +389,36 @@
           "target": "components/ui/input-group.tsx"
         }
       ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "An interactive component which expands and collapses a panel.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/collapsible/collapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/collapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:ui",
+      "title": "Chain of Thought",
+      "description": "Display step-by-step reasoning and collapsible thought processes in AI interfaces.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "collapsible"],
+      "files": [
+        {
+          "path": "src/registry/ui/chain-of-thought/chain-of-thought.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chain-of-thought.tsx"
+        }
+      ]
     }
   ]
 }
