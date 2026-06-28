@@ -17,6 +17,7 @@
     "input-group",
     "select",
     "textarea",
+    "timeline",
     "toc-minimap",
     "toggle",
     "toggle-group"
