@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
@@ -25,7 +26,7 @@ function HeroHeader() {
         <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-transparent px-6 py-3 transition-all duration-300 lg:px-12">
           <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0">
             <div className="flex w-full justify-between lg:w-auto">
-              <a
+              <Link
                 href="/"
                 aria-label="home"
                 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground"
@@ -34,7 +35,7 @@ function HeroHeader() {
                   C
                 </span>
                 Cortexcn
-              </a>
+              </Link>
 
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -60,12 +61,12 @@ function HeroHeader() {
               <ul className="flex gap-8 text-sm">
                 {navLinks.map((item) => (
                   <li key={item.name}>
-                    <a
+                    <Link
                       href={item.href}
                       className="block text-muted-foreground duration-150 hover:text-foreground"
                     >
                       <span>{item.name}</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -81,26 +82,26 @@ function HeroHeader() {
                 <ul className="space-y-6 text-base">
                   {navLinks.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="block text-muted-foreground duration-150 hover:text-foreground"
                       >
                         <span>{item.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button asChild variant="outline" size="sm">
-                  <a href="/docs">
+                  <Link href="/docs">
                     <span>Get started</span>
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="sm">
-                  <a href="/docs/components">
+                  <Link href="/docs/components">
                     <span>Browse components</span>
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -140,7 +141,7 @@ export default function HeroSection1() {
                   animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                   transition={{ duration: 0.9, ease: "easeOut" }}
                 >
-                  <a
+                  <Link
                     href="/docs/blocks"
                     className="group mx-auto flex w-fit items-center gap-4 rounded-full border bg-muted p-1 pl-4 shadow-md shadow-black/5 transition-colors duration-300 hover:bg-background"
                   >
@@ -158,7 +159,7 @@ export default function HeroSection1() {
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </motion.div>
 
                 {/* Headline */}
@@ -196,9 +197,9 @@ export default function HeroSection1() {
                       size="lg"
                       className="rounded-xl px-5 text-base"
                     >
-                      <a href="/docs/components">
+                      <Link href="/docs/components">
                         <span className="text-nowrap">Browse components</span>
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                   <Button
@@ -207,9 +208,9 @@ export default function HeroSection1() {
                     variant="ghost"
                     className="h-[2.625rem] rounded-xl px-5"
                   >
-                    <a href="/docs">
+                    <Link href="/docs">
                       <span className="text-nowrap">Get started</span>
-                    </a>
+                    </Link>
                   </Button>
                 </motion.div>
               </div>

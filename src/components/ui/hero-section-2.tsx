@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Menu, X } from "lucide-react";
@@ -40,7 +41,7 @@ function HeroHeader() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
-              <a
+              <Link
                 href="/"
                 aria-label="home"
                 className="flex items-center space-x-2 text-lg font-semibold tracking-tight text-foreground"
@@ -49,7 +50,7 @@ function HeroHeader() {
                   C
                 </span>
                 <span>Cortexcn</span>
-              </a>
+              </Link>
 
               <button
                 onClick={() => setMenuState(!menuState)}
@@ -74,12 +75,12 @@ function HeroHeader() {
                 <ul className="flex gap-8 text-sm">
                   {menuItems.map((item, index) => (
                     <li key={index}>
-                      <a
+                      <Link
                         href={item.href}
                         className="block text-muted-foreground duration-150 hover:text-foreground"
                       >
                         <span>{item.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -96,26 +97,26 @@ function HeroHeader() {
                 <ul className="space-y-6 text-base">
                   {menuItems.map((item, index) => (
                     <li key={index}>
-                      <a
+                      <Link
                         href={item.href}
                         className="block text-muted-foreground duration-150 hover:text-foreground"
                       >
                         <span>{item.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button asChild variant="outline" size="sm">
-                  <a href="/docs">
+                  <Link href="/docs">
                     <span>Get started</span>
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="sm">
-                  <a href="/docs/components">
+                  <Link href="/docs/components">
                     <span>Browse components</span>
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -193,10 +194,10 @@ export default function HeroSection2() {
                       size="lg"
                       className="rounded-xl px-5 text-base"
                     >
-                      <a href="/docs/components">
+                      <Link href="/docs/components">
                         <span className="text-nowrap">Browse components</span>
                         <ArrowRight className="size-4" />
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                   <Button
@@ -205,9 +206,9 @@ export default function HeroSection2() {
                     variant="ghost"
                     className="rounded-xl px-5 text-base"
                   >
-                    <a href="/docs">
+                    <Link href="/docs">
                       <span className="text-nowrap">Get started</span>
-                    </a>
+                    </Link>
                   </Button>
                 </motion.div>
               </div>

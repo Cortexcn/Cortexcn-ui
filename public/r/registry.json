@@ -4,6 +4,51 @@
   "homepage": "https://cortexcn.studio",
   "items": [
     {
+      "name": "hero-section-1",
+      "type": "registry:ui",
+      "title": "Hero Section 1",
+      "description": "A marketing hero with a sticky brand nav, animated headline, and dual CTAs.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        {
+          "path": "src/registry/ui/hero-section-1/hero-section-1.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hero-section-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-2",
+      "type": "registry:ui",
+      "title": "Hero Section 2",
+      "description": "A marketing hero with a sticky brand nav, motion fade-in copy, and a preview card.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        {
+          "path": "src/registry/ui/hero-section-2/hero-section-2.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hero-section-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-3",
+      "type": "registry:ui",
+      "title": "Hero Section 3",
+      "description": "A marketing hero variant with a sticky brand nav and a gradient placeholder card.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        {
+          "path": "src/registry/ui/hero-section-3/hero-section-3.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hero-section-3.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "title": "Utils",
@@ -432,6 +477,21 @@
           "path": "src/registry/ui/timeline/timeline.tsx",
           "type": "registry:ui",
           "target": "components/ui/timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-swap",
+      "type": "registry:ui",
+      "title": "Card Swap",
+      "description": "An animated stack of cards that cycle in 3D on an interval.",
+      "dependencies": ["gsap"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/card-swap/card-swap.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-swap.tsx"
         }
       ]
     }
