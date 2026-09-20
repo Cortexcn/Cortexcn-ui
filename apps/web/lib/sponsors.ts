@@ -1,7 +1,6 @@
 import type { ComponentType } from "react";
 import { ShadcnStudio } from "@/components/brands/shadcn-studio";
 import { UiRules } from "@/components/brands/ui-rules";
-import { Vercel } from "@/components/brands/vercel";
 
 function sponsorHref(origin: string, term: string) {
   const url = new URL(origin);
@@ -32,12 +31,7 @@ export interface Sponsor {
 export type SponsorSlot = Sponsor | "placeholder";
 
 export const premiumSponsorSlots: SponsorSlot[] = [
-  {
-    id: "vercel",
-    name: "Vercel",
-    href: sponsorHref("https://vercel.com", "premium-vercel"),
-    Logo: Vercel,
-  },
+  "placeholder",
   "placeholder",
   "placeholder",
 ];

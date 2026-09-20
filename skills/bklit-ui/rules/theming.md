@@ -52,4 +52,4 @@ Override chart variables in `:root` and `.dark` — do not sprinkle `dark:` on i
 
 ## Docs
 
-- Full theming guide: https://ui.bklit.com/docs/theming
+- Full theming guide: https://cortexcn.dev/docs/theming

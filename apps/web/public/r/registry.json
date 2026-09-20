@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "bklit-ui",
-  "homepage": "https://ui.bklit.com",
+  "homepage": "https://cortexcn.dev",
   "items": [
     {
       "name": "utils",

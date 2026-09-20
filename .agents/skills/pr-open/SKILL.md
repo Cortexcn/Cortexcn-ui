@@ -248,7 +248,7 @@ Return the PR URL to the user.
 Add extra sections only when useful:
 
 - **Context** — link to a merged PR or issue (e.g. "Follow-up to #70")
-- **Deploy notes** — e.g. registry JSON must be live on `ui.bklit.com` for Open in v0
+- **Deploy notes** — e.g. registry JSON must be live on `cortexcn.dev` for Open in v0
 
 ### Repo-specific PR notes
 

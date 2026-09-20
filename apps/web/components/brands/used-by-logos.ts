@@ -13,7 +13,6 @@ import { Shopify } from "./shopify";
 import { Stripe } from "./stripe";
 import { Supabase } from "./supabase";
 import { Tela } from "./tela";
-import { Vercel } from "./vercel";
 import { Wealthsimple } from "./wealthsimple";
 
 interface BrandLogoProps {
@@ -44,12 +43,6 @@ export const usedByLogos: UsedByLogo[] = [
     name: "Motion",
     href: trustedByHref("https://motion.dev", "motion"),
     Logo: Motion,
-  },
-  {
-    id: "vercel",
-    name: "Vercel",
-    href: trustedByHref("https://vercel.com", "vercel"),
-    Logo: Vercel,
   },
   {
     id: "prisma",

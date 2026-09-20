@@ -9,8 +9,8 @@ const canonicalOrigin = new URL(SITE_URL).origin;
 /** Legacy/alternate hosts that should proxy with the canonical origin. */
 const productionOrigins = new Set([
   canonicalOrigin,
-  "https://ui.bklit.com",
-  "https://www.bklit.com",
+  "https://cortexcn.dev",
+  "https://www.cortexcn.dev",
 ]);
 
 function shouldNormalizeOrigin(request: Request) {
@@ -23,7 +23,7 @@ function shouldNormalizeOrigin(request: Request) {
     request.headers.get("origin") ??
     `${new URL(request.url).protocol}//${new URL(request.url).host}`;
 
-  return productionOrigins.has(origin) || origin.endsWith(".vercel.app");
+  return productionOrigins.has(origin);
 }
 
 function withCanonicalOrigin(request: Request) {

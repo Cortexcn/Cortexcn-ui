@@ -38,5 +38,5 @@ Respect `prefers-reduced-motion` when adding custom animation wrappers around ch
 
 ## Inspiration
 
-Browse animated variants: https://ui.bklit.com/charts/<chart-slug>  
-Tune motion interactively: https://ui.bklit.com/studio?chart=<chart-slug>
+Browse animated variants: https://cortexcn.dev/charts/<chart-slug>  
+Tune motion interactively: https://cortexcn.dev/studio?chart=<chart-slug>

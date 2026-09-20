@@ -51,7 +51,7 @@ Charts use a composable API. Always wrap series, axes, and overlays inside the r
 
 ## Docs
 
-- Composition patterns: https://ui.bklit.com/docs/components/line-chart
-- `useChart` hook: https://ui.bklit.com/docs/utility/use-chart
-- Grid: https://ui.bklit.com/docs/utility/grid
-- Legend: https://ui.bklit.com/docs/utility/legend
+- Composition patterns: https://cortexcn.dev/docs/components/line-chart
+- `useChart` hook: https://cortexcn.dev/docs/utility/use-chart
+- Grid: https://cortexcn.dev/docs/utility/grid
+- Legend: https://cortexcn.dev/docs/utility/legend

@@ -28,8 +28,8 @@ Use the JSON above for framework, aliases, Tailwind version, installed component
 1. **Install before inventing.** Use `npx shadcn@latest add @bklit/<chart>` — charts are registry components, not hand-rolled SVG.
 2. **Compose, don't flatten.** Root chart → `Grid` → series → axes → `ChartTooltip`. See [composition.md](./rules/composition.md).
 3. **Theme with tokens.** Use `chartCssVars` and `--chart-*` variables — never hardcode one-off colors. See [theming.md](./rules/theming.md).
-4. **Read the doc page first.** Each chart has props, data shape, and examples at `https://ui.bklit.com/docs/components/<slug>`.
-5. **Browse variants.** Gallery: `https://ui.bklit.com/charts/<slug>` — Studio: `https://ui.bklit.com/studio?chart=<slug>`.
+4. **Read the doc page first.** Each chart has props, data shape, and examples at `https://cortexcn.dev/docs/components/<slug>`.
+5. **Browse variants.** Gallery: `https://cortexcn.dev/charts/<slug>` — Studio: `https://cortexcn.dev/studio?chart=<slug>`.
 
 ## Critical Rules
 
@@ -70,20 +70,20 @@ These rules are **always enforced**. Each links to Incorrect/Correct examples.
 
 | Slug                | Use when                                      | Install                    | Docs                                                                                         | Gallery                                                                    |
 | ------------------- | --------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `area-chart`        | Trends with filled regions under lines        | `@bklit/area-chart`        | [/docs/components/area-chart](https://ui.bklit.com/docs/components/area-chart)               | [/charts/area-chart](https://ui.bklit.com/charts/area-chart)               |
-| `bar-chart`         | Category comparisons, stacked or grouped bars | `@bklit/bar-chart`         | [/docs/components/bar-chart](https://ui.bklit.com/docs/components/bar-chart)                 | [/charts/bar-chart](https://ui.bklit.com/charts/bar-chart)                 |
-| `line-chart`        | Time series, multi-line trends, markers       | `@bklit/line-chart`        | [/docs/components/line-chart](https://ui.bklit.com/docs/components/line-chart)               | [/charts/line-chart](https://ui.bklit.com/charts/line-chart)               |
-| `live-line-chart`   | Streaming / real-time data                    | `@bklit/live-line-chart`   | [/docs/components/live-line-chart](https://ui.bklit.com/docs/components/live-line-chart)     | [/charts/live-line-chart](https://ui.bklit.com/charts/live-line-chart)     |
-| `composed-chart`    | Mixed bar + line (or similar) on one axis     | `@bklit/composed-chart`    | [/docs/components/composed-chart](https://ui.bklit.com/docs/components/composed-chart)       | [/charts/composed-chart](https://ui.bklit.com/charts/composed-chart)       |
-| `scatter-chart`     | Correlation, distribution, bubble sizing      | `@bklit/scatter-chart`     | [/docs/components/scatter-chart](https://ui.bklit.com/docs/components/scatter-chart)         | [/charts/scatter-chart](https://ui.bklit.com/charts/scatter-chart)         |
-| `candlestick-chart` | OHLC financial data, brushes                  | `@bklit/candlestick-chart` | [/docs/components/candlestick-chart](https://ui.bklit.com/docs/components/candlestick-chart) | [/charts/candlestick-chart](https://ui.bklit.com/charts/candlestick-chart) |
-| `pie-chart`         | Part-to-whole slices                          | `@bklit/pie-chart`         | [/docs/components/pie-chart](https://ui.bklit.com/docs/components/pie-chart)                 | [/charts/pie-chart](https://ui.bklit.com/charts/pie-chart)                 |
-| `ring-chart`        | Donut / ring KPIs                             | `@bklit/ring-chart`        | [/docs/components/ring-chart](https://ui.bklit.com/docs/components/ring-chart)               | [/charts/ring-chart](https://ui.bklit.com/charts/ring-chart)               |
-| `radar-chart`       | Multi-axis comparison                         | `@bklit/radar-chart`       | [/docs/components/radar-chart](https://ui.bklit.com/docs/components/radar-chart)             | [/charts/radar-chart](https://ui.bklit.com/charts/radar-chart)             |
-| `gauge-chart`       | Single-value KPI dial                         | `@bklit/gauge-chart`       | [/docs/components/gauge-chart](https://ui.bklit.com/docs/components/gauge-chart)             | [/charts/gauge-chart](https://ui.bklit.com/charts/gauge-chart)             |
-| `funnel-chart`      | Stage conversion funnels                      | `@bklit/funnel-chart`      | [/docs/components/funnel-chart](https://ui.bklit.com/docs/components/funnel-chart)           | [/charts/funnel-chart](https://ui.bklit.com/charts/funnel-chart)           |
-| `sankey-chart`      | Flow between nodes                            | `@bklit/sankey-chart`      | [/docs/components/sankey-chart](https://ui.bklit.com/docs/components/sankey-chart)           | [/charts/sankey-chart](https://ui.bklit.com/charts/sankey-chart)           |
-| `choropleth-chart`  | Geo regions colored by value                  | `@bklit/choropleth-chart`  | [/docs/components/choropleth-chart](https://ui.bklit.com/docs/components/choropleth-chart)   | [/charts/choropleth-chart](https://ui.bklit.com/charts/choropleth-chart)   |
+| `area-chart`        | Trends with filled regions under lines        | `@bklit/area-chart`        | [/docs/components/area-chart](https://cortexcn.dev/docs/components/area-chart)               | [/charts/area-chart](https://cortexcn.dev/charts/area-chart)               |
+| `bar-chart`         | Category comparisons, stacked or grouped bars | `@bklit/bar-chart`         | [/docs/components/bar-chart](https://cortexcn.dev/docs/components/bar-chart)                 | [/charts/bar-chart](https://cortexcn.dev/charts/bar-chart)                 |
+| `line-chart`        | Time series, multi-line trends, markers       | `@bklit/line-chart`        | [/docs/components/line-chart](https://cortexcn.dev/docs/components/line-chart)               | [/charts/line-chart](https://cortexcn.dev/charts/line-chart)               |
+| `live-line-chart`   | Streaming / real-time data                    | `@bklit/live-line-chart`   | [/docs/components/live-line-chart](https://cortexcn.dev/docs/components/live-line-chart)     | [/charts/live-line-chart](https://cortexcn.dev/charts/live-line-chart)     |
+| `composed-chart`    | Mixed bar + line (or similar) on one axis     | `@bklit/composed-chart`    | [/docs/components/composed-chart](https://cortexcn.dev/docs/components/composed-chart)       | [/charts/composed-chart](https://cortexcn.dev/charts/composed-chart)       |
+| `scatter-chart`     | Correlation, distribution, bubble sizing      | `@bklit/scatter-chart`     | [/docs/components/scatter-chart](https://cortexcn.dev/docs/components/scatter-chart)         | [/charts/scatter-chart](https://cortexcn.dev/charts/scatter-chart)         |
+| `candlestick-chart` | OHLC financial data, brushes                  | `@bklit/candlestick-chart` | [/docs/components/candlestick-chart](https://cortexcn.dev/docs/components/candlestick-chart) | [/charts/candlestick-chart](https://cortexcn.dev/charts/candlestick-chart) |
+| `pie-chart`         | Part-to-whole slices                          | `@bklit/pie-chart`         | [/docs/components/pie-chart](https://cortexcn.dev/docs/components/pie-chart)                 | [/charts/pie-chart](https://cortexcn.dev/charts/pie-chart)                 |
+| `ring-chart`        | Donut / ring KPIs                             | `@bklit/ring-chart`        | [/docs/components/ring-chart](https://cortexcn.dev/docs/components/ring-chart)               | [/charts/ring-chart](https://cortexcn.dev/charts/ring-chart)               |
+| `radar-chart`       | Multi-axis comparison                         | `@bklit/radar-chart`       | [/docs/components/radar-chart](https://cortexcn.dev/docs/components/radar-chart)             | [/charts/radar-chart](https://cortexcn.dev/charts/radar-chart)             |
+| `gauge-chart`       | Single-value KPI dial                         | `@bklit/gauge-chart`       | [/docs/components/gauge-chart](https://cortexcn.dev/docs/components/gauge-chart)             | [/charts/gauge-chart](https://cortexcn.dev/charts/gauge-chart)             |
+| `funnel-chart`      | Stage conversion funnels                      | `@bklit/funnel-chart`      | [/docs/components/funnel-chart](https://cortexcn.dev/docs/components/funnel-chart)           | [/charts/funnel-chart](https://cortexcn.dev/charts/funnel-chart)           |
+| `sankey-chart`      | Flow between nodes                            | `@bklit/sankey-chart`      | [/docs/components/sankey-chart](https://cortexcn.dev/docs/components/sankey-chart)           | [/charts/sankey-chart](https://cortexcn.dev/charts/sankey-chart)           |
+| `choropleth-chart`  | Geo regions colored by value                  | `@bklit/choropleth-chart`  | [/docs/components/choropleth-chart](https://cortexcn.dev/docs/components/choropleth-chart)   | [/charts/choropleth-chart](https://cortexcn.dev/charts/choropleth-chart)   |
 
 ## Workflow
 
@@ -127,12 +127,12 @@ import {
 
 ## Utility docs
 
-- Theming: https://ui.bklit.com/docs/theming
-- Grid: https://ui.bklit.com/docs/utility/grid
-- Legend: https://ui.bklit.com/docs/utility/legend
-- Tooltip: https://ui.bklit.com/docs/utility/tooltip
-- Custom indicator: https://ui.bklit.com/docs/utility/custom-indicator
-- useChart: https://ui.bklit.com/docs/utility/use-chart
+- Theming: https://cortexcn.dev/docs/theming
+- Grid: https://cortexcn.dev/docs/utility/grid
+- Legend: https://cortexcn.dev/docs/utility/legend
+- Tooltip: https://cortexcn.dev/docs/utility/tooltip
+- Custom indicator: https://cortexcn.dev/docs/utility/custom-indicator
+- useChart: https://cortexcn.dev/docs/utility/use-chart
 
 ## Detailed References
 

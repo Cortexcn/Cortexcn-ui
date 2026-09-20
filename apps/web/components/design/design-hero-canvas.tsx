@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { VercelOss } from "@/components/brands/vercel-oss";
 import { HeroPlayPill, HeroStudioPill } from "@/components/hero";
 import { HomeStudioVideo } from "@/components/home-studio-video";
 import { buttonVariants } from "@/components/ui/button";
@@ -89,17 +88,6 @@ export function DesignHeroCanvas() {
                 Get started
               </Link>
             </div>
-          </div>
-
-          <div className="pointer-events-auto flex shrink-0 justify-start">
-            <a
-              className="inline-flex text-foreground"
-              href="https://vercel.com/oss"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <VercelOss className="h-auto w-[180px] max-w-full sm:w-[220px] md:w-[280px]" />
-            </a>
           </div>
         </div>
       </div>

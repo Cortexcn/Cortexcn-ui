@@ -67,5 +67,5 @@ function CustomIndicator() {
 
 ## Docs
 
-- ChartTooltip: https://ui.bklit.com/docs/utility/tooltip
-- Custom indicators: https://ui.bklit.com/docs/utility/custom-indicator
+- ChartTooltip: https://cortexcn.dev/docs/utility/tooltip
+- Custom indicators: https://cortexcn.dev/docs/utility/custom-indicator

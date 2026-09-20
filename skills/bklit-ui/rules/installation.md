@@ -15,7 +15,7 @@ Add the `@bklit` namespace to `components.json` if it is not already present:
 ```json
 {
   "registries": {
-    "@bklit": "https://ui.bklit.com/r/{name}.json"
+    "@bklit": "https://cortexcn.dev/r/{name}.json"
   }
 }
 ```
@@ -76,5 +76,5 @@ The CLI installs these when adding a chart — do not guess versions; let `shadc
 
 ## Docs
 
-- Installation: https://ui.bklit.com/docs/installation
-- Per-chart install tabs: https://ui.bklit.com/docs/components/<slug>
+- Installation: https://cortexcn.dev/docs/installation
+- Per-chart install tabs: https://cortexcn.dev/docs/components/<slug>

@@ -13,7 +13,6 @@
     <a href="https://github.com/bklit/bklit-ui/actions"><img src="https://www.shieldcn.dev/github/ci/bklit/bklit-ui.svg?variant=secondary&size=xs&theme=zinc" alt="CI" /></a>
     <a href="https://discord.gg/75s4frfE8X"><img src="https://www.shieldcn.dev/discord/members/75s4frfE8X.svg?variant=secondary&size=xs&theme=zinc" alt="Discord Members" /></a>
     <a href="https://x.com/uixmat"><img src="https://www.shieldcn.dev/x/follow/uixmat.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
-    <a href="https://vercel.com/oss"><img src="https://shieldcn.dev/badge/Vercel_OSS_Program_Member.svg?variant=branded&size=xs&theme=zinc&logo=vercel" alt="Vercel OSS Program Member" /></a>
   </p>
 </p>
 
@@ -28,124 +27,124 @@ Bklit UI is supported by our sponsors. [Become a sponsor](https://github.com/spo
 <table>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/area-chart">
+      <a href="https://cortexcn.dev/docs/components/area-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/area-chart.svg" alt="Area Chart" width="280" />
       </a>
       <br />
       <strong>Area Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/area-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=area-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/area-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=area-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/bar-chart">
+      <a href="https://cortexcn.dev/docs/components/bar-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/bar-chart.svg" alt="Bar Chart" width="280" />
       </a>
       <br />
       <strong>Bar Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/bar-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=bar-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/bar-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=bar-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/candlestick-chart">
+      <a href="https://cortexcn.dev/docs/components/candlestick-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/candlestick-chart.svg" alt="Candlestick Chart" width="280" />
       </a>
       <br />
       <strong>Candlestick Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/candlestick-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=candlestick-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/candlestick-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=candlestick-chart">Studio</a>
     </td>
   </tr>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/choropleth-chart">
+      <a href="https://cortexcn.dev/docs/components/choropleth-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/choropleth-chart.svg" alt="Choropleth Chart" width="280" />
       </a>
       <br />
       <strong>Choropleth Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/choropleth-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=choropleth-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/choropleth-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=choropleth-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/composed-chart">
+      <a href="https://cortexcn.dev/docs/components/composed-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/composed-chart.svg" alt="Composed Chart" width="280" />
       </a>
       <br />
       <strong>Composed Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/composed-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=composed-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/composed-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=composed-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/funnel-chart">
+      <a href="https://cortexcn.dev/docs/components/funnel-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/funnel-chart.svg" alt="Funnel Chart" width="280" />
       </a>
       <br />
       <strong>Funnel Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/funnel-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=funnel-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/funnel-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=funnel-chart">Studio</a>
     </td>
   </tr>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/gauge-chart">
+      <a href="https://cortexcn.dev/docs/components/gauge-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/gauge-chart.svg" alt="Gauge" width="280" />
       </a>
       <br />
       <strong>Gauge</strong><br />
-      <a href="https://ui.bklit.com/docs/components/gauge-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=gauge-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/gauge-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=gauge-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/line-chart">
+      <a href="https://cortexcn.dev/docs/components/line-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/line-chart.svg" alt="Line Chart" width="280" />
       </a>
       <br />
       <strong>Line Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/line-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=line-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/line-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=line-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/live-line-chart">
+      <a href="https://cortexcn.dev/docs/components/live-line-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/live-line-chart.svg" alt="Live Line Chart" width="280" />
       </a>
       <br />
       <strong>Live Line Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/live-line-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=live-line-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/live-line-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=live-line-chart">Studio</a>
     </td>
   </tr>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/pie-chart">
+      <a href="https://cortexcn.dev/docs/components/pie-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/pie-chart.svg" alt="Pie Chart" width="280" />
       </a>
       <br />
       <strong>Pie Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/pie-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=pie-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/pie-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=pie-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/radar-chart">
+      <a href="https://cortexcn.dev/docs/components/radar-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/radar-chart.svg" alt="Radar Chart" width="280" />
       </a>
       <br />
       <strong>Radar Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/radar-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=radar-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/radar-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=radar-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/ring-chart">
+      <a href="https://cortexcn.dev/docs/components/ring-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/ring-chart.svg" alt="Ring Chart" width="280" />
       </a>
       <br />
       <strong>Ring Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/ring-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=ring-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/ring-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=ring-chart">Studio</a>
     </td>
   </tr>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/scatter-chart">
+      <a href="https://cortexcn.dev/docs/components/scatter-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/scatter-chart.svg" alt="Scatter Chart" width="280" />
       </a>
       <br />
       <strong>Scatter Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/scatter-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=scatter-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/scatter-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=scatter-chart">Studio</a>
     </td>
     <td align="center" valign="top" width="33%">
-      <a href="https://ui.bklit.com/docs/components/sankey-chart">
+      <a href="https://cortexcn.dev/docs/components/sankey-chart">
         <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/sankey-chart.svg" alt="Sankey Chart" width="280" />
       </a>
       <br />
       <strong>Sankey Chart</strong><br />
-      <a href="https://ui.bklit.com/docs/components/sankey-chart">Docs</a> · <a href="https://ui.bklit.com/studio?chart=sankey-chart">Studio</a>
+      <a href="https://cortexcn.dev/docs/components/sankey-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=sankey-chart">Studio</a>
     </td>
     <td></td>
   </tr>
@@ -159,7 +158,7 @@ Studio is Bklit's interactive chart playground. Pick a chart, tweak styling and 
   <a href="https://www.youtube.com/watch?v=I3PLqHImYbE"><img src="https://img.youtube.com/vi/I3PLqHImYbE/maxresdefault.jpg" alt="Bklit Studio" width="720" /></a>
 </p>
 
-[Open Studio →](https://ui.bklit.com/studio)
+[Open Studio →](https://cortexcn.dev/studio)
 
 ## Getting Started
 
@@ -170,7 +169,7 @@ npx shadcn@latest init
 npx shadcn@latest add @bklit/line-chart
 ```
 
-See [Installation](https://ui.bklit.com/docs/installation) for registry setup and all components.
+See [Installation](https://cortexcn.dev/docs/installation) for registry setup and all components.
 
 ## Repo activity
 
@@ -180,6 +179,6 @@ See [Installation](https://ui.bklit.com/docs/installation) for registry setup an
 
 **Chart components** (`packages/ui`, shadcn registry) are [MIT licensed](./LICENSE).
 
-**Bklit Studio** (`packages/studio`, hosted at [ui.bklit.com/studio](https://ui.bklit.com/studio))
+**Bklit Studio** (`packages/studio`, hosted at [cortexcn.dev/studio](https://cortexcn.dev/studio))
 is proprietary. See [LICENSE-STUDIO.md](./LICENSE-STUDIO.md). You may not reuse,
 resell, or redistribute Studio without written permission.
