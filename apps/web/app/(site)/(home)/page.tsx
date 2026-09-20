@@ -4,23 +4,25 @@ import { FeaturesSection } from "@/components/landing/features-section";
 import { HeroSection } from "@/components/landing/hero-section";
 import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { LandingFooter } from "@/components/landing/landing-footer";
-import { LogoCloud } from "@/components/landing/logo-cloud";
 import { MetricsSection } from "@/components/landing/metrics-section";
+import { NewsletterSection } from "@/components/landing/newsletter-section";
+import { PricingSection } from "@/components/landing/pricing-section";
 import { ProblemSection } from "@/components/landing/problem-section";
-import { TrustSection } from "@/components/landing/trust-section";
+import { ReviewsSection } from "@/components/landing/reviews-section";
 import { UseCasesSection } from "@/components/landing/use-cases-section";
 
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col">
       <HeroSection />
-      <LogoCloud />
       <ProblemSection />
+      <MetricsSection />
       <FeaturesSection />
       <HowItWorksSection />
       <UseCasesSection />
-      <MetricsSection />
-      <TrustSection />
+      <ReviewsSection />
+      <PricingSection />
+      <NewsletterSection />
       <FaqSection />
       <CtaSection />
       <LandingFooter />

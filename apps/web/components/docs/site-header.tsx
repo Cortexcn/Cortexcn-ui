@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ChartThemeSelector } from "@/components/chart-theme/chart-theme-selector";
@@ -136,6 +137,7 @@ interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   staggerDelay: number;
+  overDark?: boolean;
 }
 
 function MobileMenu({
@@ -145,6 +147,7 @@ function MobileMenu({
   isOpen,
   onClose,
   staggerDelay,
+  overDark,
 }: MobileMenuProps) {
   useEffect(() => {
     if (!isOpen) {
@@ -187,7 +190,7 @@ function MobileMenu({
 
       {/* Sheet */}
       <div
-        className={`fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out md:hidden ${
+        className={`${overDark ? "syntiq dark " : ""}fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out md:hidden ${
           isOpen
             ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-4 opacity-0"
@@ -386,6 +389,10 @@ export function SiteHeader({
   const isScrolled = useIsScrolled();
   const headerRef = useRef<HTMLElement>(null);
   const { resolvedTheme } = useTheme();
+  const pathname = usePathname();
+  // The landing page ("/") uses the dark Syntiq theme, so the header renders
+  // dark there regardless of the site's light/dark toggle.
+  const isHome = pathname === "/";
 
   // Calculate stagger delay based on total items to complete in STAGGER_DURATION
   const utilitiesCount =
@@ -428,14 +435,17 @@ export function SiteHeader({
     return () => observer.disconnect();
   }, []);
 
-  // Only use resolved theme after mount to avoid hydration mismatch
-  const logoTheme = mounted && resolvedTheme === "dark" ? "dark" : "light";
+  // Only use resolved theme after mount to avoid hydration mismatch. On the
+  // dark landing page the logo is always the dark-mode variant.
+  const logoTheme =
+    isHome || (mounted && resolvedTheme === "dark") ? "dark" : "light";
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 right-0 left-0 z-50 px-2.5",
+          isHome && "syntiq dark",
           mobileMenuOpen && "max-md:bg-background",
         )}
         data-scrolled={isScrolled ? "" : undefined}
@@ -546,6 +556,7 @@ export function SiteHeader({
         isOpen={mobileMenuOpen}
         links={links}
         onClose={() => setMobileMenuOpen(false)}
+        overDark={isHome}
         staggerDelay={staggerDelay}
       />
     </>

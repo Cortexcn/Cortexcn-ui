@@ -3,44 +3,46 @@ import { Container, Section, SectionHeading, Surface } from "./primitives";
 const steps: { number: string; title: string; body: string }[] = [
   {
     number: "01",
-    title: "Connect the MCP server",
-    body: "Run one command to link Cortexcn to your agent.",
+    title: "Understand",
+    body: "We identify the high-impact AI opportunities across your operations.",
   },
   {
     number: "02",
-    title: "Pick components",
-    body: "Browse the library and choose what your page needs.",
+    title: "Design",
+    body: "We architect structured AI systems aligned with your business logic.",
   },
   {
     number: "03",
-    title: "Describe the page",
-    body: "Tell your agent the layout and content in plain words.",
+    title: "Implement",
+    body: "We integrate cleanly into your existing stack and workflows.",
   },
   {
     number: "04",
-    title: "Ship",
-    body: "Your agent assembles the page. You review, edit, and deploy.",
+    title: "Optimize",
+    body: "We refine and scale performance based on real usage.",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <Section id="how-it-works">
+    <Section id="process">
       <Container>
         <SectionHeading
-          description="From an empty project to a real page, without leaving your agent."
-          eyebrow="How it works"
-          title="Four steps to a shipped page"
+          description="From analysis to optimization, a systematic AI implementation process built for long-term performance."
+          eyebrow="Process"
+          title="A simple process built for complex systems"
         />
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
-            <Surface className="p-6" key={step.number}>
-              <span className="font-mono text-foreground text-sm dark:text-foreground">
+            <Surface className="flex flex-col gap-4 p-6" key={step.number}>
+              <span className="flex size-11 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-mono text-primary text-sm">
                 {step.number}
               </span>
-              <h3 className="mt-4 font-medium text-foreground">{step.title}</h3>
-              <p className="mt-2 text-muted-foreground text-sm">{step.body}</p>
+              <h3 className="font-medium text-foreground text-lg">
+                {step.title}
+              </h3>
+              <p className="text-muted-foreground text-sm">{step.body}</p>
             </Surface>
           ))}
         </div>

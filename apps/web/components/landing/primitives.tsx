@@ -4,24 +4,30 @@ import { cn } from "@/lib/utils";
 
 /**
  * Shared building blocks for the marketing landing page, styled to match the
- * AgentLab template: light editorial look, serif display headings, and a
- * monochrome (black/cream) UI accent. Every section composes these so the whole
- * page stays consistent.
+ * Syntiq template: dark navy surfaces, a warm orange accent, rounded cards, and
+ * Manrope / IBM Plex Mono type. Every section composes these so the whole page
+ * stays consistent. The palette and fonts come from the `.syntiq` scope in
+ * globals.css, applied on the home layout wrapper.
  */
 
-/** Primary CTA color: solid black (foreground) button. Layer over `linkButtonBaseClassName`. */
+/** Primary CTA: light pill with dark text, echoing the template's hero buttons. */
 export const accentButtonClassName =
-  "rounded-[10px] border-transparent bg-foreground text-background shadow-sm hover:bg-foreground/90";
+  "rounded-full border-transparent bg-foreground text-background shadow-sm hover:bg-white";
 
-/** Secondary CTA color: quiet outline button. Layer over `linkButtonBaseClassName`. */
+/** Secondary CTA: quiet outline pill on the dark surface. */
 export const secondaryButtonClassName =
-  "rounded-[10px] border-border bg-transparent text-foreground hover:bg-muted";
+  "rounded-full border-white/15 bg-white/5 text-foreground hover:bg-white/10";
 
-/** Inline emphasis color (monochrome). */
-export const accentTextClassName = "text-foreground";
+/** Orange accent CTA, used for the pricing "get in touch" and key actions. */
+export const orangeButtonClassName =
+  "rounded-full border-transparent bg-primary text-primary-foreground shadow-[0_8px_24px_-8px_var(--syntiq-accent)] hover:brightness-110";
+
+/** Inline emphasis color (warm orange). */
+export const accentTextClassName = "text-primary";
 
 /** Card / panel surface. */
-export const surfaceClassName = "rounded-[14px] border border-border bg-card";
+export const surfaceClassName =
+  "rounded-[20px] border border-border bg-card shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]";
 
 /**
  * Base button shape for links rendered inside server components. Avoids importing
@@ -29,7 +35,7 @@ export const surfaceClassName = "rounded-[14px] border border-border bg-card";
  * a server component throws). Layer `accentButtonClassName` / `secondaryButtonClassName`.
  */
 export const linkButtonBaseClassName =
-  "inline-flex h-12 shrink-0 select-none items-center justify-center gap-2 whitespace-nowrap rounded-[10px] border border-transparent px-5 font-medium text-base outline-none transition-all focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0";
+  "inline-flex h-12 shrink-0 select-none items-center justify-center gap-2 whitespace-nowrap rounded-full border border-transparent px-6 font-medium text-base outline-none transition-all focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0";
 
 export function Container({
   className,
@@ -64,7 +70,7 @@ export function Surface({ className, ...props }: React.ComponentProps<"div">) {
   return <div className={cn(surfaceClassName, className)} {...props} />;
 }
 
-/** Small mono pill used above section titles (AgentLab "eyebrow" style). */
+/** Small bracketed mono chip used above section titles (Syntiq "eyebrow" style). */
 export function Eyebrow({
   className,
   children,
@@ -75,11 +81,11 @@ export function Eyebrow({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 font-medium font-mono text-muted-foreground text-xs uppercase tracking-[0.2em]",
+        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-medium font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]",
         className,
       )}
     >
-      <span aria-hidden className="size-1.5 rounded-full bg-foreground" />
+      <span aria-hidden className="size-1.5 rounded-full bg-primary" />
       {children}
     </span>
   );
@@ -112,7 +118,7 @@ export function SectionHeading({
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
       <h2
-        className="max-w-3xl text-balance font-display font-normal text-4xl leading-[1.05] tracking-[-0.02em] sm:text-5xl md:text-6xl"
+        className="max-w-3xl text-balance font-semibold text-4xl leading-[1.05] tracking-[-0.02em] sm:text-5xl md:text-[3.5rem]"
         id={titleId}
       >
         {title}

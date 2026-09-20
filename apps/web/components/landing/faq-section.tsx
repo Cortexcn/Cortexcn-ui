@@ -4,34 +4,34 @@ import { Container, Section, SectionHeading } from "./primitives";
 
 const faqs: AccordionItemData[] = [
   {
-    question: "What is Cortexcn?",
+    question: "How quickly do you integrate with our existing systems?",
     answer:
-      "A component platform your AI coding agent can build with. You connect it to your agent over MCP, pick components, and the agent assembles real pages.",
+      "Most integrations connect to your current stack within the first few weeks. A typical rollout runs 4 to 8 weeks from audit to live.",
   },
   {
-    question: "How does the MCP server work?",
+    question: "Do we need special technical knowledge to work with you?",
     answer:
-      "Cortexcn runs an MCP server that your agent connects to. The agent can browse the library, read component code, and pull the pieces it needs while it builds.",
+      "No. We handle the architecture and the build. Your team describes the workflows and reviews the results.",
   },
   {
-    question: "Which agents does it support?",
+    question: "How is data security handled?",
     answer:
-      "Claude, Cursor, and Codex today. Any agent that speaks MCP can connect.",
+      "Your data stays in your environment. We work with your keys and follow your access, retention, and compliance policies.",
   },
   {
-    question: "Do I need to know how to code?",
+    question: "Can workflows be customized to our specific needs?",
     answer:
-      "It helps, but you do not need to be an expert. You describe the page, review what the agent builds, and edit from there.",
+      "Yes. Every system is built around your actual workflows and tools, not a generic template.",
   },
   {
-    question: "Can I use my own components?",
+    question: "What results can we expect after implementation?",
     answer:
-      "Yes. Cortexcn works alongside your own components and your existing design system.",
+      "Fewer manual tasks, faster decisions, and clearer reporting. We define the target metrics with you up front so the results are measurable.",
   },
   {
-    question: "What does it cost?",
+    question: "Does it support multi-team collaboration?",
     answer:
-      "The components are open source and MIT licensed. Paid plans for teams are coming.",
+      "Yes. Systems are designed for multiple teams, with shared visibility and role-based access.",
   },
 ];
 
@@ -40,7 +40,7 @@ export function FaqSection() {
     <Section id="faq">
       <Container>
         <SectionHeading
-          description="Everything you need to know before you connect Cortexcn."
+          description="Clear, practical answers before we start."
           eyebrow="FAQ"
           title="Questions, answered"
         />

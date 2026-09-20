@@ -279,6 +279,50 @@
   @apply bg-background;
 }
 
+/*
+ * Syntiq landing theme.
+ * Scoped to `.syntiq` (the marketing landing page) so docs and studio keep the
+ * default theme. Dark navy palette + warm orange/red accent + Manrope / IBM Plex
+ * Mono, matching the reference template. Declared after the imported `.dark`
+ * tokens so it wins the specificity tie when the wrapper carries both classes.
+ */
+.syntiq {
+  --background: #0b0d14;
+  --foreground: #e8e8e8;
+  --card: #14171d;
+  --card-foreground: #e8e8e8;
+  --popover: #14171d;
+  --popover-foreground: #e8e8e8;
+  --primary: #ed8200;
+  --primary-foreground: #0b0d14;
+  --secondary: #191c23;
+  --secondary-foreground: #e8e8e8;
+  --muted: #14171d;
+  --muted-foreground: #9ca0aa;
+  --accent: #191c23;
+  --accent-foreground: #f5f5f5;
+  --destructive: #fa2b2b;
+  --destructive-foreground: #ffffff;
+  --border: #23262e;
+  --input: #23262e;
+  --ring: #ed8200;
+  --radius: 0.9rem;
+
+  /* Reroute the font utilities within the landing to the Syntiq typefaces. */
+  --font-geist-sans: var(--font-manrope);
+  --font-geist-mono: var(--font-ibm-plex-mono);
+  --font-instrument-serif: var(--font-manrope);
+
+  /* Brand accents for gradients and glows. */
+  --syntiq-accent: #ed8200;
+  --syntiq-accent-2: #fa0505;
+
+  color-scheme: dark;
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 /* Docs ComponentShowcase code panels */
 .showcase-code-block {
   --showcase-code-line-height: 1.625;

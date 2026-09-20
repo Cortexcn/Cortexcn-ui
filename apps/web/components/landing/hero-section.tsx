@@ -27,116 +27,143 @@ function ArrowIcon({ className }: { className?: string }) {
   );
 }
 
-const terminalLines: { prompt: string; text: string; done?: boolean }[] = [
-  { prompt: "$", text: "npx cortexcn mcp add" },
-  { prompt: "", text: "Connected to Claude, Cursor, and Codex", done: true },
-  { prompt: ">", text: "Build a pricing page with three tiers" },
-  { prompt: "", text: "Assembled from 7 components", done: true },
+const pipeline: { label: string; state: "done" | "active" | "idle" }[] = [
+  { label: "Ingest and validate data", state: "done" },
+  { label: "Route work automatically", state: "done" },
+  { label: "Score and prioritize", state: "active" },
+  { label: "Trigger the next action", state: "idle" },
 ];
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Soft violet wash echoing the template artwork. */}
+      {/* Warm radial glow echoing the template artwork. */}
       <div
         aria-hidden
-        className="-z-10 -translate-x-1/2 pointer-events-none absolute top-24 left-1/2 h-[420px] w-[900px] max-w-none rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklch,var(--color-violet-500)_16%,transparent),transparent)] blur-2xl"
+        className="-z-10 -translate-x-1/2 pointer-events-none absolute top-16 left-1/2 h-[460px] w-[900px] max-w-none rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklch,var(--syntiq-accent)_22%,transparent),transparent)] blur-3xl"
       />
 
       <Container className="flex flex-col items-center text-center">
-        {/* Announcement chip (AgentLab-style top bar, folded into the hero). */}
-        <Link
-          className="group inline-flex items-center gap-2 rounded-full bg-foreground py-1.5 pr-3 pl-1.5 font-medium text-background text-xs"
-          href="/docs"
-        >
-          <span className="rounded-full bg-background/15 px-2 py-0.5 text-[10px] uppercase tracking-wide">
-            New
-          </span>
-          The Cortexcn MCP server for Claude, Cursor, and Codex
-          <ArrowIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-        </Link>
+        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-medium font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]">
+          <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+          Structured AI
+        </span>
 
-        <p className="mt-10 flex items-center gap-2 font-medium font-mono text-muted-foreground text-xs uppercase tracking-[0.2em]">
-          <span aria-hidden className="size-1.5 rounded-full bg-foreground" />
-          Built for developers, freelancers, and startups
-        </p>
-
-        <h1 className="mt-6 max-w-4xl text-balance font-display font-normal text-5xl leading-[1.02] tracking-[-0.02em] sm:text-6xl md:text-7xl lg:text-[5.25rem]">
-          Turn a prompt into a production website
+        <h1 className="mt-7 max-w-4xl text-balance font-semibold text-5xl leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[5rem]">
+          AI systems built on structure, not hype
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-lg text-muted-foreground md:text-xl">
-          Cortexcn connects your AI coding agent to a real component library
-          over MCP. Pick a component, describe the page, and your agent ships
-          it.
+          We design structured AI systems for teams that value clarity, logic,
+          and scale. Real infrastructure, not scattered experiments.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
           <Link
             className={cn(
               linkButtonBaseClassName,
-              secondaryButtonClassName,
+              accentButtonClassName,
               "w-full sm:w-auto",
             )}
-            href="/docs/components"
+            href="#services"
           >
-            Browse components
+            See how it works
+            <ArrowIcon className="size-4" />
           </Link>
           <Link
             className={cn(
               linkButtonBaseClassName,
-              accentButtonClassName,
+              secondaryButtonClassName,
               "w-full sm:w-auto",
             )}
-            href="/docs"
+            href="#contact"
           >
-            Get started
-            <ArrowIcon className="size-4" />
+            Talk to us
           </Link>
         </div>
 
-        {/* Two product-mockup panels echoing the template's paired hero art. */}
-        <div className="mt-16 grid w-full max-w-5xl gap-4 sm:grid-cols-2">
-          <div className="relative overflow-hidden rounded-[16px] border border-border bg-gradient-to-br from-violet-500/15 via-indigo-500/10 to-transparent p-5 text-left shadow-sm">
-            <div className="mb-4 flex items-center gap-2">
-              <span className="size-2.5 rounded-full bg-foreground/20" />
-              <span className="size-2.5 rounded-full bg-foreground/20" />
-              <span className="size-2.5 rounded-full bg-foreground/20" />
-              <span className="ml-1 font-mono text-muted-foreground text-xs">
-                cortexcn
-              </span>
-            </div>
-            <div className="space-y-2 font-mono text-sm">
-              {terminalLines.map((line) => (
-                <div className="flex gap-2" key={line.text}>
-                  <span className="select-none text-muted-foreground">
-                    {line.done ? "✓" : line.prompt}
-                  </span>
-                  <span
-                    className={
-                      line.done ? "text-foreground" : "text-muted-foreground"
-                    }
-                  >
-                    {line.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="mt-8 flex items-center gap-3 text-muted-foreground text-sm">
+          <span className="font-semibold text-2xl text-foreground tracking-tight">
+            200+
+          </span>
+          Teams building with structure
+        </div>
 
-          <div className="relative overflow-hidden rounded-[16px] border border-border bg-gradient-to-br from-indigo-500/15 via-violet-500/10 to-transparent p-5 text-left shadow-sm">
-            <div className="grid h-full grid-cols-2 gap-3">
-              {["Hero", "Pricing", "Features", "FAQ"].map((label) => (
-                <div
-                  className="flex flex-col justify-between rounded-[10px] border border-border/70 bg-card/70 p-3"
-                  key={label}
-                >
-                  <div className="h-1.5 w-8 rounded-full bg-foreground/25" />
-                  <span className="mt-6 font-medium text-foreground text-xs">
-                    {label}
+        {/* Product-mockup panel echoing the template's systems dashboard art. */}
+        <div className="mt-16 w-full max-w-4xl">
+          <div className="overflow-hidden rounded-[24px] border border-border bg-card p-3 shadow-2xl">
+            <div className="rounded-[16px] border border-border bg-background/60 p-5 text-left sm:p-7">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                  <span className="size-2.5 rounded-full bg-white/20" />
+                  <span className="ml-2 font-mono text-muted-foreground text-xs">
+                    workflow pipeline
                   </span>
                 </div>
-              ))}
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[10px] text-primary uppercase tracking-widest">
+                  Live
+                </span>
+              </div>
+
+              <div className="mt-6 grid gap-6 md:grid-cols-[1.4fr_1fr]">
+                <ul className="flex flex-col gap-3">
+                  {pipeline.map((step) => (
+                    <li
+                      className="flex items-center gap-3 rounded-[12px] border border-border bg-card/60 px-4 py-3"
+                      key={step.label}
+                    >
+                      <span
+                        aria-hidden
+                        className={cn(
+                          "flex size-6 shrink-0 items-center justify-center rounded-full border text-[11px]",
+                          step.state === "done" &&
+                            "border-primary/40 bg-primary/15 text-primary",
+                          step.state === "active" &&
+                            "border-primary bg-primary text-primary-foreground",
+                          step.state === "idle" &&
+                            "border-border text-muted-foreground",
+                        )}
+                      >
+                        {step.state === "done" ? "✓" : "•"}
+                      </span>
+                      <span
+                        className={cn(
+                          "text-sm",
+                          step.state === "idle"
+                            ? "text-muted-foreground"
+                            : "text-foreground",
+                        )}
+                      >
+                        {step.label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col justify-between gap-4 rounded-[12px] border border-border bg-card/60 p-4">
+                  <span className="font-mono text-muted-foreground text-xs uppercase tracking-widest">
+                    Operational efficiency
+                  </span>
+                  <span className="font-semibold text-4xl text-foreground tracking-tight">
+                    +40%
+                  </span>
+                  <div className="flex items-end gap-1.5" aria-hidden>
+                    {[35, 52, 44, 68, 60, 82, 76].map((height, index) => (
+                      <span
+                        className={cn(
+                          "w-full rounded-t-[3px]",
+                          index >= 5 ? "bg-primary" : "bg-white/15",
+                        )}
+                        // biome-ignore lint/suspicious/noArrayIndexKey: static decorative bars
+                        key={index}
+                        style={{ height: `${height}%` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

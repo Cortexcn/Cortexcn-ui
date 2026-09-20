@@ -1,5 +1,18 @@
 # Cortexcn landing page - build brief
 
+> UPDATE: the landing page now follows the "Syntiq" template look, not the older
+> AgentLab/monochrome direction described lower in this file. Source of truth for
+> the visual system: the `.syntiq` scope in `app/globals.css` (dark navy palette,
+> warm orange accent `--primary`, Manrope + IBM Plex Mono) plus `primitives.tsx`.
+> The theme is scoped to the home layout wrapper (`app/(site)/(home)/layout.tsx`)
+> so docs and studio keep the default theme. Accent is orange (`text-primary`,
+> `bg-primary`), surfaces are `bg-card` on `bg-background`, headings are Manrope
+> semibold. The section copy is original text written to match the template's
+> structure. Testimonials, metrics, pricing, and contact details are marked as
+> placeholders in code and must be replaced with real values before launch. The
+> notes below about indigo, serif display headings, and the monochrome accent are
+> superseded by the Syntiq theme.
+
 You are building ONE section of the new Cortexcn marketing landing page. Read this
 whole file before writing code. Match it exactly. Other agents are building the
 other sections in parallel against this same brief, so consistency is critical.
