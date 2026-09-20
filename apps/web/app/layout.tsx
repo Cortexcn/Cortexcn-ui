@@ -5,7 +5,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { Source_Serif_4 } from "next/font/google";
+import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
 import type { ReactNode } from "react";
 import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provider";
 import { ChartThemeScript } from "@/components/chart-theme/chart-theme-script";
@@ -22,26 +22,35 @@ const geistSerif = Source_Serif_4({
   variable: "--font-serif",
 });
 
+/** High-contrast display serif for large editorial headings (AgentLab-style hero). */
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+});
+
+const SITE_NAME = "Cortexcn";
+const SITE_TITLE = "Cortexcn - Components your AI agent can build with";
+const SITE_DESCRIPTION =
+  "Cortexcn connects your AI coding agent to a real component library over MCP. Pick a component, describe the page, and your agent ships it. Built for freelancers, developers, and startups who move fast.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Bklit UI - Charts & Data Visualization Components",
-    template: "%s | Bklit UI",
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Bklit UI is a component library built on top of shadcn/ui to help you build charts and data visualizations more easily.",
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "Bklit UI - Charts & Data Visualization Components",
-    description:
-      "Bklit UI is a component library built on top of shadcn/ui to help you build charts and data visualizations more easily.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     type: "website",
     url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bklit UI - Charts & Data Visualization Components",
-    description:
-      "Bklit UI is a component library built on top of shadcn/ui to help you build charts and data visualizations more easily.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 
@@ -59,6 +68,7 @@ export default async function RootLayout({
         GeistSans.variable,
         GeistMono.variable,
         geistSerif.variable,
+        instrumentSerif.variable,
         GeistSans.className,
       )}
       lang="en"

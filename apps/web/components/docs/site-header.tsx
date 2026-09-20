@@ -8,7 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
 import { cn } from "@/lib/utils";
 import { GithubStarCount } from "../github-star-count";
-import { BklitLogo } from "../icons/bklit";
+import { CortexcnLogo } from "../icons/cortexcn";
 import { DiscordIcon } from "../icons/discord";
 import { GitHubIcon } from "../icons/github";
 import { Button } from "../ui/button";
@@ -463,7 +463,7 @@ export function SiteHeader({
                 className="font-semibold text-foreground text-lg no-underline transition-opacity hover:opacity-80"
                 href="/"
               >
-                <BklitLogo size={24} theme={logoTheme} />
+                <CortexcnLogo size={24} theme={logoTheme} />
               </Link>
 
               {/* Desktop nav */}
