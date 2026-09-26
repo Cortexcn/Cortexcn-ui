@@ -7,41 +7,9 @@ import {
   type TOCItemType,
 } from "fumadocs-core/toc";
 import { useRef } from "react";
-import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
-import { Button } from "../ui/button";
 
 interface TableOfContentsProps {
   items: TOCItemType[];
-}
-
-function SidebarCTA() {
-  return (
-    <div className="group relative mt-6 flex flex-col gap-2 rounded-lg bg-muted/50 p-4 text-sm">
-      <div className="text-balance font-semibold text-foreground leading-tight group-hover:underline">
-        Join the community
-      </div>
-      <div className="text-muted-foreground text-xs">
-        Get help, share feedback, and connect with other developers.
-      </div>
-      <Button className="mt-2 w-fit" size="sm">
-        Join Discord
-      </Button>
-      <a
-        className="absolute inset-0"
-        href="https://discord.gg/75s4frfE8X"
-        onClick={() => {
-          trackEvent("discord_click", {
-            location: "docs_toc",
-            url: getAnalyticsUrl(),
-          });
-        }}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <span className="sr-only">Join Discord</span>
-      </a>
-    </div>
-  );
 }
 
 export function TableOfContents({ items }: TableOfContentsProps) {
@@ -78,7 +46,6 @@ export function TableOfContents({ items }: TableOfContentsProps) {
             </AnchorProvider>
           </>
         )}
-        <SidebarCTA />
       </div>
     </aside>
   );

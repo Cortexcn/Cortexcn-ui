@@ -6,23 +6,11 @@ import { useTheme } from "next-themes";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ChartThemeSelector } from "@/components/chart-theme/chart-theme-selector";
 import { ModeToggle } from "@/components/mode-toggle";
-import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
 import { cn } from "@/lib/utils";
-import { GithubStarCount } from "../github-star-count";
 import { CortexcnLogo } from "../icons/cortexcn";
-import { DiscordIcon } from "../icons/discord";
-import { GitHubIcon } from "../icons/github";
 import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
 import { DocsSearchTrigger } from "./docs-search-trigger";
 import { NavLinkLabel } from "./nav-link-label";
-
-function trackDiscordClick(location: "header" | "mobile_menu") {
-  trackEvent("discord_click", {
-    location,
-    url: getAnalyticsUrl(),
-  });
-}
 
 interface NavLink {
   text: string;
@@ -32,8 +20,6 @@ interface NavLink {
 
 interface SiteHeaderProps {
   links?: NavLink[];
-  githubUrl?: string;
-  discordUrl?: string;
 }
 
 const components = [
@@ -132,8 +118,6 @@ function useIsScrolled() {
 
 interface MobileMenuProps {
   links: NavLink[];
-  githubUrl?: string;
-  discordUrl?: string;
   isOpen: boolean;
   onClose: () => void;
   staggerDelay: number;
@@ -142,8 +126,6 @@ interface MobileMenuProps {
 
 function MobileMenu({
   links,
-  githubUrl,
-  discordUrl,
   isOpen,
   onClose,
   staggerDelay,
@@ -169,11 +151,7 @@ function MobileMenu({
   });
 
   const componentsStartIndex = links.length + 1;
-  const utilitiesLinksCount = utilities.flatMap((u) =>
-    "children" in u && u.children ? u.children : [u],
-  ).length;
   const utilitiesStartIndex = componentsStartIndex + components.length + 1;
-  const externalLinksStartIndex = utilitiesStartIndex + 1 + utilitiesLinksCount; // +1 for Utility header
 
   return (
     <>
@@ -321,69 +299,13 @@ function MobileMenu({
               })}
             </div>
           </div>
-
-          {/* External links */}
-          {(githubUrl || discordUrl) && (
-            <div className="mt-3 flex flex-col gap-0.5 border-border border-t pt-3">
-              {githubUrl && (
-                <Link
-                  aria-label="GitHub"
-                  className="transition-[opacity,transform] duration-300 ease-out"
-                  href={githubUrl}
-                  onClick={onClose}
-                  rel="noopener noreferrer"
-                  style={getStaggerStyle(externalLinksStartIndex)}
-                  target="_blank"
-                >
-                  <Button
-                    className="w-full justify-start gap-2 font-light font-mono text-muted-foreground text-xs"
-                    size="default"
-                    variant="ghost"
-                  >
-                    <GitHubIcon />
-                    <span>GitHub</span>
-                    <GithubStarCount />
-                  </Button>
-                </Link>
-              )}
-              {discordUrl && (
-                <Link
-                  aria-label="Discord"
-                  className="transition-[opacity,transform] duration-300 ease-out"
-                  href={discordUrl}
-                  onClick={() => {
-                    trackDiscordClick("mobile_menu");
-                    onClose();
-                  }}
-                  rel="noopener noreferrer"
-                  style={getStaggerStyle(
-                    externalLinksStartIndex + (githubUrl ? 1 : 0),
-                  )}
-                  target="_blank"
-                >
-                  <Button
-                    className="w-full justify-start gap-2 text-muted-foreground"
-                    size="default"
-                    variant="ghost"
-                  >
-                    <DiscordIcon className="size-4" />
-                    <span>Discord</span>
-                  </Button>
-                </Link>
-              )}
-            </div>
-          )}
         </nav>
       </div>
     </>
   );
 }
 
-export function SiteHeader({
-  links = [],
-  githubUrl,
-  discordUrl,
-}: SiteHeaderProps) {
+export function SiteHeader({ links = [] }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const isScrolled = useIsScrolled();
@@ -405,9 +327,7 @@ export function SiteHeader({
     1 + // Components header
     components.length +
     1 + // Utilities header
-    utilitiesCount +
-    (githubUrl ? 1 : 0) +
-    (discordUrl ? 1 : 0);
+    utilitiesCount;
   const staggerDelay = totalItems > 1 ? STAGGER_DURATION / (totalItems - 1) : 0;
 
   // Wait for mount to avoid hydration mismatch with theme
@@ -493,44 +413,6 @@ export function SiteHeader({
                 className="hidden w-30 justify-between md:inline-flex"
                 hideIfDisabled
               />
-              {githubUrl && (
-                <>
-                  <Separator
-                    className="mx-1 hidden h-5 self-center data-vertical:self-center md:block"
-                    orientation="vertical"
-                  />
-                  <Link
-                    aria-label="GitHub"
-                    className="hidden md:block"
-                    href={githubUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Button
-                      className="gap-2 font-light font-mono text-muted-foreground text-xs"
-                      size="default"
-                      variant="ghost"
-                    >
-                      <GitHubIcon />
-                      <GithubStarCount />
-                    </Button>
-                  </Link>
-                </>
-              )}
-              {discordUrl && (
-                <Link
-                  aria-label="Discord"
-                  className="hidden md:block"
-                  href={discordUrl}
-                  onClick={() => trackDiscordClick("header")}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <Button size="default" variant="ghost">
-                    <DiscordIcon />
-                  </Button>
-                </Link>
-              )}
               <ChartThemeSelector />
               <ModeToggle />
 
@@ -551,8 +433,6 @@ export function SiteHeader({
       </header>
 
       <MobileMenu
-        discordUrl={discordUrl}
-        githubUrl={githubUrl}
         isOpen={mobileMenuOpen}
         links={links}
         onClose={() => setMobileMenuOpen(false)}
