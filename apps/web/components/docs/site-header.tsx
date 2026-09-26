@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import {
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { ChartThemeSelector } from "@/components/chart-theme/chart-theme-selector";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
@@ -133,7 +139,8 @@ interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   staggerDelay: number;
-  overDark?: boolean;
+  /** Adopt the landing page theme (fonts and palette). */
+  landing?: boolean;
 }
 
 function MobileMenu({
@@ -141,7 +148,7 @@ function MobileMenu({
   isOpen,
   onClose,
   staggerDelay,
-  overDark,
+  landing,
 }: MobileMenuProps) {
   useEffect(() => {
     if (!isOpen) {
@@ -181,11 +188,13 @@ function MobileMenu({
 
       {/* Sheet */}
       <div
-        className={`${overDark ? "syntiq dark " : ""}fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out md:hidden ${
+        className={cn(
+          "fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out md:hidden",
+          landing && "syntiq",
           isOpen
             ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-4 opacity-0"
-        }`}
+            : "pointer-events-none -translate-y-4 opacity-0",
+        )}
       >
         <nav className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] [-webkit-overflow-scrolling:touch]">
           {/* Main links */}
@@ -347,6 +356,98 @@ function MobileMenu({
   );
 }
 
+function MobileMenuButton({
+  open,
+  onToggle,
+  className,
+}: {
+  open: boolean;
+  onToggle: () => void;
+  className?: string;
+}) {
+  return (
+    <Button
+      aria-expanded={open}
+      aria-label={open ? "Close menu" : "Open menu"}
+      className={cn("md:hidden", className)}
+      onClick={onToggle}
+      size="default"
+      variant="ghost"
+    >
+      <MenuIcon open={open} />
+    </Button>
+  );
+}
+
+function ArrowUpRightIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="size-3.5"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="square"
+      strokeWidth="1.5"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4.5 11.5l7-7M5.5 4.5h6v6" />
+    </svg>
+  );
+}
+
+/** Landing header: a brand tab, joined nav tabs, and boxed utilities. */
+function LandingHeaderItems({
+  links,
+  menuButton,
+}: {
+  links: NavLink[];
+  menuButton: ReactNode;
+}) {
+  const tabClassName =
+    "inline-flex h-9 items-center border-border border-y border-r bg-background px-3 font-mono text-foreground text-sm uppercase transition-colors hover:bg-primary hover:text-primary-foreground";
+
+  return (
+    <>
+      <div className="flex items-center">
+        <Link
+          className="inline-flex h-9 items-center gap-2 bg-primary px-3 font-medium font-mono text-primary-foreground text-sm uppercase transition-opacity hover:opacity-90"
+          href="/"
+        >
+          <CortexcnLogo size={18} theme="dark" />
+          Cortexcn
+        </Link>
+        <nav className="hidden items-center md:flex">
+          {links.map((link) => (
+            <Link className={tabClassName} href={link.url} key={link.url}>
+              {link.text}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      <div className="flex items-center gap-2">
+        <div className="flex h-9 items-center gap-0.5 border border-border bg-background px-0.5">
+          <DocsSearchTrigger
+            className="hidden w-30 justify-between md:inline-flex"
+            hideIfDisabled
+          />
+          <ChartThemeSelector />
+          <ModeToggle />
+          {menuButton}
+        </div>
+        <Link
+          className="hidden h-9 items-center gap-2.5 border border-border bg-background px-4 font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground lg:inline-flex"
+          href="/docs/installation"
+        >
+          <ArrowUpRightIcon />
+          Get started
+        </Link>
+      </div>
+    </>
+  );
+}
+
 export function SiteHeader({ links = [] }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -354,8 +455,8 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
   const { resolvedTheme } = useTheme();
   const pathname = usePathname();
-  // The landing page ("/") uses the dark Syntiq theme, so the header renders
-  // dark there regardless of the site's light/dark toggle.
+  // The landing page ("/") opens on a dark grid band, so its header draws every
+  // item as a solid box that stays readable on the band in either theme.
   const isHome = pathname === "/";
 
   // Calculate stagger delay based on total items to complete in STAGGER_DURATION
@@ -399,17 +500,15 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Only use resolved theme after mount to avoid hydration mismatch. On the
-  // dark landing page the logo is always the dark-mode variant.
-  const logoTheme =
-    isHome || (mounted && resolvedTheme === "dark") ? "dark" : "light";
+  // Only use resolved theme after mount to avoid hydration mismatch.
+  const logoTheme = mounted && resolvedTheme === "dark" ? "dark" : "light";
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 right-0 left-0 z-50 px-2.5",
-          isHome && "syntiq dark",
+          isHome && "syntiq",
           mobileMenuOpen && "max-md:bg-background",
         )}
         data-scrolled={isScrolled ? "" : undefined}
@@ -417,7 +516,11 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
       >
         <div
           className={cn(
-            "container mx-auto",
+            // On the landing page, line items up with the page's Container
+            // (1264px wide with 16/24/32px gutters) after the header's own 10px inset.
+            isHome
+              ? "mx-auto w-full max-w-[1244px] px-1.5 sm:px-3.5 lg:px-5.5"
+              : "container mx-auto",
             mobileMenuOpen && "max-md:max-w-none",
           )}
         >
@@ -432,56 +535,63 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
             )}
             style={{ viewTransitionName: "site-header" }}
           >
-            <div className="flex items-center gap-2">
-              <Link
-                className="mr-2 inline-flex items-center gap-2 font-semibold text-foreground text-lg no-underline tracking-tight transition-opacity hover:opacity-80"
-                href="/"
-              >
-                <CortexcnLogo size={24} theme={logoTheme} />
-                <span>Cortexcn</span>
-              </Link>
-
-              {/* Desktop nav */}
-              <nav className="hidden items-center gap-1 md:flex">
-                {links.map((link) => (
-                  <Link href={link.url} key={link.url}>
-                    <Button variant="ghost">
-                      <NavLinkLabel text={link.text} url={link.url} />
-                    </Button>
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            <div className="flex items-center gap-1">
-              <DocsSearchTrigger
-                className="hidden w-30 justify-between md:inline-flex"
-                hideIfDisabled
+            {isHome ? (
+              <LandingHeaderItems
+                links={links}
+                menuButton={
+                  <MobileMenuButton
+                    className="size-8"
+                    onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    open={mobileMenuOpen}
+                  />
+                }
               />
-              <ChartThemeSelector />
-              <ModeToggle />
+            ) : (
+              <>
+                <div className="flex items-center gap-2">
+                  <Link
+                    className="mr-2 inline-flex items-center gap-2 font-semibold text-foreground text-lg tracking-tight no-underline transition-opacity hover:opacity-80"
+                    href="/"
+                  >
+                    <CortexcnLogo size={24} theme={logoTheme} />
+                    <span>Cortexcn</span>
+                  </Link>
 
-              {/* Mobile menu button */}
-              <Button
-                aria-expanded={mobileMenuOpen}
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                className="md:hidden"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                size="default"
-                variant="ghost"
-              >
-                <MenuIcon open={mobileMenuOpen} />
-              </Button>
-            </div>
+                  {/* Desktop nav */}
+                  <nav className="hidden items-center gap-1 md:flex">
+                    {links.map((link) => (
+                      <Link href={link.url} key={link.url}>
+                        <Button variant="ghost">
+                          <NavLinkLabel text={link.text} url={link.url} />
+                        </Button>
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <DocsSearchTrigger
+                    className="hidden w-30 justify-between md:inline-flex"
+                    hideIfDisabled
+                  />
+                  <ChartThemeSelector />
+                  <ModeToggle />
+                  <MobileMenuButton
+                    onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    open={mobileMenuOpen}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
       </header>
 
       <MobileMenu
         isOpen={mobileMenuOpen}
+        landing={isHome}
         links={links}
         onClose={() => setMobileMenuOpen(false)}
-        overDark={isHome}
         staggerDelay={staggerDelay}
       />
     </>

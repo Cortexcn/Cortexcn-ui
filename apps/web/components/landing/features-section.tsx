@@ -35,12 +35,12 @@ function AutomationVisual() {
     <div className="flex h-full flex-col justify-center gap-2.5 p-6">
       {steps.map((step, index) => (
         <div
-          className="flex items-center gap-3 rounded-[10px] border border-border bg-background/40 px-4 py-2.5"
+          className="flex items-center gap-3 border border-border bg-background/40 px-4 py-2.5"
           key={step}
         >
           <span
             className={cn(
-              "flex size-5 shrink-0 items-center justify-center rounded-full text-[10px]",
+              "flex size-5 shrink-0 items-center justify-center text-[10px]",
               index === steps.length - 1
                 ? "border border-border text-muted-foreground"
                 : "bg-primary/15 text-primary",
@@ -72,7 +72,7 @@ function AgentVisual() {
       <div className="flex items-center justify-between gap-2">
         {nodes.map((node, index) => (
           <div className="flex flex-1 items-center gap-2" key={node}>
-            <div className="flex-1 rounded-[10px] border border-border bg-background/40 px-3 py-2.5 text-center">
+            <div className="flex-1 border border-border bg-background/40 px-3 py-2.5 text-center">
               <span className="font-mono text-[11px] text-foreground">
                 {node}
               </span>
@@ -89,7 +89,7 @@ function AgentVisual() {
         {states.map((state) => (
           <span
             className={cn(
-              "rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest",
+              "border px-3 py-1 font-mono text-[10px] uppercase tracking-widest",
               state.active
                 ? "border-primary/40 bg-primary/10 text-primary"
                 : "border-border text-muted-foreground",
@@ -114,16 +114,16 @@ function DecisionVisual() {
         <span className="font-mono text-muted-foreground text-xs uppercase tracking-widest">
           Forecast accuracy
         </span>
-        <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] text-primary">
+        <span className="border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] text-primary">
           +38%
         </span>
       </div>
-      <div className="flex flex-1 items-end gap-2" aria-hidden>
+      <div aria-hidden className="flex flex-1 items-end gap-2">
         {bars.map((height, index) => (
           <span
             className={cn(
-              "w-full rounded-t-[4px]",
-              index >= bars.length - 2 ? "bg-primary" : "bg-white/12",
+              "w-full",
+              index >= bars.length - 2 ? "bg-primary" : "bg-foreground/10",
             )}
             // biome-ignore lint/suspicious/noArrayIndexKey: static decorative bars
             key={index}

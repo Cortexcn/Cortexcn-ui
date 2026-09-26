@@ -50,7 +50,7 @@ export function NewsletterSection() {
             >
               <input
                 aria-label="Email address"
-                className="h-12 flex-1 rounded-full border border-border bg-background/60 px-5 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="h-12 flex-1 border border-border bg-background/60 px-5 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@company.com"
                 required

@@ -3,14 +3,10 @@ import "./globals.css";
 import { OpenPanelComponent } from "@openpanel/nextjs";
 import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
+import { GeistPixelSquare } from "geist/font/pixel";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import {
-  IBM_Plex_Mono,
-  Instrument_Serif,
-  Manrope,
-  Source_Serif_4,
-} from "next/font/google";
+import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
 import type { ReactNode } from "react";
 import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provider";
 import { ChartThemeScript } from "@/components/chart-theme/chart-theme-script";
@@ -32,18 +28,6 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-instrument-serif",
-});
-
-/** Syntiq landing typefaces: Manrope for everything, IBM Plex Mono for labels. */
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
 });
 
 const SITE_NAME = "Cortexcn";
@@ -86,8 +70,7 @@ export default async function RootLayout({
         GeistMono.variable,
         geistSerif.variable,
         instrumentSerif.variable,
-        manrope.variable,
-        ibmPlexMono.variable,
+        GeistPixelSquare.variable,
         GeistSans.className,
       )}
       lang="en"

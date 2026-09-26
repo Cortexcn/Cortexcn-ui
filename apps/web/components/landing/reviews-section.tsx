@@ -70,7 +70,7 @@ export function ReviewsSection() {
               <div className="mt-auto flex items-center gap-3">
                 <span
                   aria-hidden
-                  className="size-9 shrink-0 rounded-full border border-border bg-background/60"
+                  className="size-9 shrink-0 border border-border bg-background/60"
                 />
                 <div className="flex flex-col">
                   <span className="font-medium text-foreground text-sm">

@@ -43,19 +43,19 @@ export function UseCasesSection() {
 
         <Surface className="mt-14 overflow-hidden p-6 sm:p-8">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-[16px] border border-border bg-background/40 p-6">
+            <div className="border border-border bg-background/40 p-6">
               <span className="font-mono text-muted-foreground text-xs uppercase tracking-widest">
                 Before
               </span>
               <ul className="mt-4 flex flex-col gap-3">
                 {beforeItems.map((item) => (
                   <li
-                    className="flex items-center gap-3 rounded-[10px] border border-border bg-card/60 px-4 py-3"
+                    className="flex items-center gap-3 border border-border bg-card/60 px-4 py-3"
                     key={item}
                   >
                     <span
                       aria-hidden
-                      className="size-2 rounded-full bg-muted-foreground/50"
+                      className="size-2 bg-muted-foreground/50"
                     />
                     <span className="text-muted-foreground text-sm">
                       {item}
@@ -65,20 +65,17 @@ export function UseCasesSection() {
               </ul>
             </div>
 
-            <div className="rounded-[16px] border border-primary/25 bg-primary/[0.06] p-6">
+            <div className="border border-primary/25 bg-primary/[0.06] p-6">
               <span className="font-mono text-primary text-xs uppercase tracking-widest">
                 After
               </span>
               <ul className="mt-4 flex flex-col gap-3">
                 {afterItems.map((item) => (
                   <li
-                    className="flex items-center gap-3 rounded-[10px] border border-border bg-card/60 px-4 py-3"
+                    className="flex items-center gap-3 border border-border bg-card/60 px-4 py-3"
                     key={item}
                   >
-                    <span
-                      aria-hidden
-                      className="size-2 rounded-full bg-primary"
-                    />
+                    <span aria-hidden className="size-2 bg-primary" />
                     <span className="text-foreground text-sm">{item}</span>
                   </li>
                 ))}

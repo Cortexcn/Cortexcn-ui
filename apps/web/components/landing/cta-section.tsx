@@ -13,7 +13,7 @@ import {
 } from "./primitives";
 
 const inputClassName =
-  "h-12 w-full rounded-[12px] border border-border bg-background/60 px-4 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50";
+  "h-12 w-full border border-border bg-background/60 px-4 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function CtaSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -27,11 +27,11 @@ export function CtaSection() {
   return (
     <Section id="contact">
       <Container>
-        <div className="relative overflow-hidden rounded-[28px] border border-border bg-card p-6 md:p-12">
+        <div className="relative overflow-hidden border border-border bg-card p-6 md:p-12">
           {/* Warm glow echoing the hero artwork. */}
           <div
             aria-hidden
-            className="-z-0 -translate-x-1/2 pointer-events-none absolute top-0 left-1/2 h-[320px] w-[720px] max-w-none rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklch,var(--syntiq-accent)_22%,transparent),transparent)] blur-3xl"
+            className="pointer-events-none absolute top-0 left-1/2 -z-0 h-[320px] w-[720px] max-w-none -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklch,var(--syntiq-accent)_22%,transparent),transparent)] blur-3xl"
           />
 
           <div className="relative grid gap-10 md:grid-cols-2 md:gap-16">
@@ -63,7 +63,7 @@ export function CtaSection() {
             </div>
 
             {submitted ? (
-              <div className="flex items-center justify-center rounded-[16px] border border-border bg-background/40 p-8 text-center">
+              <div className="flex items-center justify-center border border-border bg-background/40 p-8 text-center">
                 <p className="text-foreground">
                   Thanks. We will get back to you within 24 hours.
                 </p>
@@ -92,7 +92,7 @@ export function CtaSection() {
                 />
                 <textarea
                   aria-label="Tell us about your workflows or challenges"
-                  className="min-h-28 w-full rounded-[12px] border border-border bg-background/60 px-4 py-3 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+                  className="min-h-28 w-full border border-border bg-background/60 px-4 py-3 text-foreground text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
                   placeholder="Tell us about your workflows or challenges"
                 />
                 <button

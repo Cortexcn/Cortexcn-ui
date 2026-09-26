@@ -9,8 +9,7 @@ import {
   accentButtonClassName,
   Container,
   linkButtonBaseClassName,
-  orangeButtonClassName,
-  secondaryButtonClassName,
+  primaryButtonClassName,
   Section,
   SectionHeading,
   Surface,
@@ -94,10 +93,10 @@ export function PricingSection() {
           title="Flexible engagement, structured value"
         />
 
-        <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
+        <div className="mt-8 inline-flex items-center gap-1 border border-border bg-card p-1">
           <button
             className={cn(
-              "rounded-full px-4 py-1.5 font-medium text-sm transition-colors",
+              "px-4 py-1.5 font-medium text-sm transition-colors",
               annual
                 ? "text-muted-foreground hover:text-foreground"
                 : "bg-foreground text-background",
@@ -109,7 +108,7 @@ export function PricingSection() {
           </button>
           <button
             className={cn(
-              "rounded-full px-4 py-1.5 font-medium text-sm transition-colors",
+              "px-4 py-1.5 font-medium text-sm transition-colors",
               annual
                 ? "bg-foreground text-background"
                 : "text-muted-foreground hover:text-foreground",
@@ -142,7 +141,7 @@ export function PricingSection() {
                       {plan.name}
                     </h3>
                     {plan.popular ? (
-                      <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[10px] text-primary uppercase tracking-widest">
+                      <span className="border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[10px] text-primary uppercase tracking-widest">
                         Popular
                       </span>
                     ) : null}
@@ -163,7 +162,7 @@ export function PricingSection() {
                   className={cn(
                     linkButtonBaseClassName,
                     plan.popular
-                      ? orangeButtonClassName
+                      ? primaryButtonClassName
                       : accentButtonClassName,
                     "w-full",
                   )}

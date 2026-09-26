@@ -1,73 +1,72 @@
 "use client";
 
-import { Marquee } from "@bklitui/ui/components/marquee";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { DashedLine } from "./dashed-line";
+import { CortexcnLogo } from "@/components/icons/cortexcn";
+import { cn } from "@/lib/utils";
+
+import { InteractiveGrid } from "./interactive-grid";
 import { Container } from "./primitives";
 
-const HERO_IMAGE =
-  "https://framerusercontent.com/images/uJE8NQyYXC4kBsQ6uhdSVoUQPzM.png";
-const SIDE_IMAGE =
-  "https://framerusercontent.com/images/wJo5NFOD9xOtFS68OXbtzXivQ0.png";
-
-/** Prompts the demo input types out, one after another. */
-const PROMPTS = [
-  "How can I automate support tickets?",
-  "Qualify the leads in my inbox",
-  "Summarize this week's sales data",
-  "Draft replies to customer emails",
+/** What the agent builds; typed into the bracket in the headline, one by one. */
+const BUILD_TARGETS = [
+  "Landing Pages",
+  "Dashboards",
+  "Portfolios",
+  "Storefronts",
+  "Pricing Pages",
 ];
 
-const AGENTS = [
-  "Customer support agent",
-  "Sales Lead Qualifier",
-  "Data Analysis Agent",
-  "Email Responder",
-];
+const TYPE_DELAY = 75;
+const DELETE_DELAY = 40;
+const HOLD_DELAY = 2000;
+const NEXT_DELAY = 350;
 
-const TYPE_DELAY = 60;
-const DELETE_DELAY = 30;
-const HOLD_DELAY = 1600;
-
+/**
+ * Starts with the first phrase fully shown (so the server HTML reads well),
+ * then deletes it and types the next one, forever.
+ */
 function useTypewriter(phrases: string[]) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(phrases[0] ?? "");
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setText(phrases[0] ?? "");
       return;
     }
 
     let phraseIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+    let length = phrases[0]?.length ?? 0;
+    let deleting = true;
     let timer: ReturnType<typeof setTimeout>;
 
     const tick = () => {
       const phrase = phrases[phraseIndex] ?? "";
       if (deleting) {
-        charIndex -= 1;
-        if (charIndex <= 0) {
+        length -= 1;
+        setText(phrase.slice(0, length));
+        if (length <= 0) {
           deleting = false;
           phraseIndex = (phraseIndex + 1) % phrases.length;
-        }
-      } else {
-        charIndex += 1;
-        if (charIndex >= phrase.length) {
-          deleting = true;
-          setText(phrase);
-          timer = setTimeout(tick, HOLD_DELAY);
+          timer = setTimeout(tick, NEXT_DELAY);
           return;
         }
+        timer = setTimeout(tick, DELETE_DELAY);
+        return;
       }
-      setText(phrase.slice(0, Math.max(charIndex, 0)));
-      timer = setTimeout(tick, deleting ? DELETE_DELAY : TYPE_DELAY);
+
+      length += 1;
+      setText(phrase.slice(0, length));
+      if (length >= phrase.length) {
+        deleting = true;
+        timer = setTimeout(tick, HOLD_DELAY);
+        return;
+      }
+      timer = setTimeout(tick, TYPE_DELAY);
     };
 
-    timer = setTimeout(tick, 600);
+    timer = setTimeout(tick, HOLD_DELAY);
     return () => clearTimeout(timer);
   }, [phrases]);
 
@@ -79,10 +78,7 @@ function RollingText({ text }: { text: string }) {
   return (
     <>
       <span className="sr-only">{text}</span>
-      <span
-        aria-hidden="true"
-        className="flex overflow-hidden font-medium text-sm uppercase leading-none"
-      >
+      <span aria-hidden="true" className="flex overflow-hidden leading-none">
         {Array.from(text).map((char, index) => (
           <span
             className="block whitespace-pre transition-transform duration-300 ease-out [text-shadow:0_1em_0_currentColor] group-hover:-translate-y-full motion-reduce:transition-none"
@@ -98,156 +94,198 @@ function RollingText({ text }: { text: string }) {
   );
 }
 
-function SparkleIcon() {
-  return (
-    <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-neutral-950 text-white">
-      <svg
-        aria-hidden="true"
-        className="size-3.5"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 2l1.6 4.4a6 6 0 0 0 3.6 3.6L19.6 11.6l-4.4 1.6a6 6 0 0 0-3.6 3.6L10 21.2l-1.6-4.4a6 6 0 0 0-3.6-3.6L.4 11.6l4.4-1.6a6 6 0 0 0 3.6-3.6L10 2z" />
-        <path d="M19 15l.8 2.2a3 3 0 0 0 1.9 1.9l2.2.8-2.2.8a3 3 0 0 0-1.9 1.9L19 24.8l-.8-2.2a3 3 0 0 0-1.9-1.9l-2.2-.8 2.2-.8a3 3 0 0 0 1.9-1.9L19 15z" />
-      </svg>
-    </span>
-  );
-}
-
-function SendIcon() {
+function ArrowDownIcon({ className }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
-      className="size-4"
+      className={className}
       fill="none"
       stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
+      strokeLinecap="square"
+      strokeWidth="1.25"
+      viewBox="0 0 12 12"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M5 12L3.5 4.5l17 7.5-17 7.5L5 12zm0 0h7" />
+      <path d="M6 1.5v8.5M2.75 6.75 6 10l3.25-3.25" />
     </svg>
   );
 }
 
-/** Glass card over the hero image: a typing prompt and a scrolling list of agents. */
-function AgentCard() {
-  const typed = useTypewriter(PROMPTS);
-
+function ArrowRightIcon({ className }: { className?: string }) {
   return (
-    <div className="w-full max-w-[380px] scale-90 rounded-xl bg-white/15 p-2 shadow-[1px_1px_0_0_rgba(255,255,255,0.5),-1px_-1px_0_0_rgba(255,255,255,0.5)] backdrop-blur-[10px]">
-      <div className="rounded-lg bg-white p-4 text-left text-neutral-950">
-        <p className="font-medium text-sm">Automate Tasks with AI Agent</p>
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="square"
+      strokeWidth="1.5"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M2.5 8h10.5M9 4l4 4-4 4" />
+    </svg>
+  );
+}
 
-        <div className="mt-3 flex items-center gap-2 rounded border border-black/10 bg-white py-1.5 pr-1.5 pl-3">
-          <span className="min-w-0 flex-1 truncate text-black/70 text-sm">
-            {typed}
-            <span
-              aria-hidden="true"
-              className="ml-0.5 inline-block h-4 w-0.5 translate-y-0.5 animate-caret-blink bg-black/60"
+/** CSS-only entrance so the copy animates in before hydration finishes. */
+const enterClassName =
+  "animate-in fade-in slide-in-from-bottom-3 fill-mode-both duration-700 ease-out motion-reduce:animate-none";
+
+/** Dark band under the header: the interactive grid, the brand, and a scroll cue. */
+function GridBand() {
+  return (
+    <div className="relative h-75 pt-(--site-header-height) text-(--band-foreground) md:h-90">
+      <InteractiveGrid className="absolute inset-0" />
+
+      {/* The row lets pointer events through so the grid under it still reacts. */}
+      <Container className="pointer-events-none relative flex h-full flex-col justify-center gap-6 md:flex-row md:items-center md:justify-between">
+        <div className={cn("flex items-center gap-3", enterClassName)}>
+          <CortexcnLogo className="size-9 md:size-11" size={44} theme="dark" />
+          <span className="font-medium text-4xl tracking-[-0.04em] md:text-5xl">
+            Cortexcn
+          </span>
+          <span className="mt-1 self-center bg-(--band-line) px-1.5 py-0.5 font-mono text-(--band-foreground) text-xs uppercase">
+            shadcn registry
+          </span>
+        </div>
+
+        <a
+          className={cn(
+            "pointer-events-auto flex items-center gap-2 self-start font-mono text-(--band-muted) text-sm uppercase transition-colors delay-300 hover:text-(--band-foreground) md:self-auto",
+            enterClassName,
+          )}
+          href="#hero-headline"
+        >
+          Scroll for more
+          <ArrowDownIcon className="size-3 animate-scroll-cue motion-reduce:animate-none" />
+        </a>
+      </Container>
+    </div>
+  );
+}
+
+/** Tools the registry is built for; shown as small tiles in the proof row. */
+const PROOF_LOGOS = [
+  { name: "shadcn/ui", slug: "shadcn" },
+  { name: "Next.js", slug: "nextjs" },
+  { name: "Cursor", slug: "cursor" },
+];
+
+function ProofRow() {
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground text-sm">
+      <div className="flex">
+        {PROOF_LOGOS.map((logo) => (
+          <span
+            className="-ml-px flex size-8 items-center justify-center border border-border bg-background first:ml-0"
+            key={logo.slug}
+            title={logo.name}
+          >
+            <Image
+              alt={logo.name}
+              className="size-4 dark:hidden"
+              height={16}
+              src={`/logos/stack/${logo.slug}-light.svg`}
+              unoptimized
+              width={16}
+            />
+            <Image
+              alt=""
+              className="hidden size-4 dark:block"
+              height={16}
+              src={`/logos/stack/${logo.slug}-dark.svg`}
+              unoptimized
+              width={16}
             />
           </span>
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-neutral-950 text-white">
-            <SendIcon />
-          </span>
-        </div>
-
-        <p className="mt-4 text-black/50 text-xs">Actions</p>
-        <div className="relative mt-2 h-36 overflow-hidden">
-          <Marquee
-            className="h-full p-0 [--duration:14s] [--gap:0.625rem]"
-            repeat={3}
-            vertical
-          >
-            {AGENTS.map((agent) => (
-              <div
-                className="flex items-center gap-2.5 rounded border border-neutral-100 bg-neutral-50 p-2 text-sm"
-                key={agent}
-              >
-                <SparkleIcon />
-                {agent}
-              </div>
-            ))}
-          </Marquee>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-linear-to-b from-white to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-linear-to-t from-white to-transparent" />
-        </div>
+        ))}
       </div>
+      <span>Built for shadcn/ui and Next.js</span>
+      <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
+      <span className="flex items-center gap-1.5">
+        <span aria-hidden="true" className="size-2 bg-primary" />
+        20+ components
+      </span>
     </div>
+  );
+}
+
+function Headline() {
+  const typed = useTypewriter(BUILD_TARGETS);
+
+  return (
+    <h1 className="font-medium text-[clamp(2.25rem,10.5vw,2.75rem)] leading-[1.08] tracking-[-0.045em] sm:text-6xl lg:text-[4.5rem]">
+      <span className={cn("block", enterClassName)}>Your AI agent ships</span>
+      <span className="sr-only">
+        landing pages, dashboards, portfolios, and storefronts
+      </span>
+      <span
+        aria-hidden="true"
+        className={cn(
+          // Slightly smaller on phones so the longest phrase fits on one line.
+          "flex items-center font-normal font-pixel text-[0.86em] text-primary tracking-normal delay-100 sm:text-[1em]",
+          enterClassName,
+        )}
+      >
+        <span className="whitespace-pre">[{typed}]</span>
+        <span className="ml-1 inline-block h-[0.9em] w-[0.55em] animate-caret-blink bg-primary/25 motion-reduce:animate-none" />
+      </span>
+      <span className={cn("block delay-200", enterClassName)}>
+        from real components.
+      </span>
+    </h1>
   );
 }
 
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden pt-32 md:pt-40">
-      {/* Bottom padding lives on the Container so the frame lines reach the logo strip below. */}
-      <Container className="relative pb-16 md:pb-24">
-        <DashedLine className="left-0 hidden lg:block" orientation="vertical" />
-        <DashedLine
-          className="right-0 hidden lg:block"
-          orientation="vertical"
-        />
+    // Pulled up behind the fixed site header so the grid starts at the top edge.
+    <section className="relative -mt-(--site-header-height) w-full">
+      <GridBand />
 
-        <div className="flex flex-col items-center text-center lg:px-10">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm">
-            <span
-              aria-hidden="true"
-              className="size-1.5 rounded-full bg-primary"
-            />
-            Components your AI agent can build with
-          </span>
+      <Container
+        className="grid scroll-mt-(--site-header-height) gap-10 pt-14 pb-16 md:pt-16 md:pb-20 xl:grid-cols-[minmax(0,1fr)_28rem] xl:gap-12"
+        id="hero-headline"
+      >
+        <Headline />
 
-          <h1 className="mt-7 max-w-4xl text-balance font-semibold text-5xl leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
-            Turn Your AI Product Into a Website That Sells
-          </h1>
+        <div className="flex flex-col gap-7 xl:pt-3">
+          <div className={cn("delay-300", enterClassName)}>
+            <ProofRow />
+          </div>
 
-          <p className="mt-6 max-w-2xl text-balance text-lg text-muted-foreground md:text-xl">
-            Create intelligent agents that understand context, automate
-            workflows, and execute tasks reliably across your operations.
+          <p
+            className={cn(
+              "max-w-md text-balance text-lg text-muted-foreground leading-relaxed delay-300",
+              enterClassName,
+            )}
+          >
+            Add components from the Cortexcn registry with one command, or let
+            your AI agent pull them in. Real React code that you own and can
+            change.
           </p>
 
-          <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+          <div
+            className={cn(
+              "flex flex-col gap-3 delay-500 sm:flex-row sm:items-stretch",
+              enterClassName,
+            )}
+          >
             <Link
-              className="group inline-flex h-12 w-full items-center justify-center rounded-lg border border-border bg-background px-6 text-foreground transition-colors hover:bg-muted sm:w-auto"
-              href="#contact"
+              className="group inline-flex h-12 items-center justify-between gap-10 bg-foreground px-5 font-medium font-mono text-background text-sm uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
+              href="/docs/installation"
             >
-              <RollingText text="Talk to sales" />
+              <span aria-hidden="true" className="size-2 bg-current" />
+              <RollingText text="Get started" />
             </Link>
             <Link
-              className="group inline-flex h-12 w-full items-center justify-center rounded-lg bg-foreground px-6 text-background transition-opacity hover:opacity-90 sm:w-auto"
-              href="#pricing"
+              className="group inline-flex h-12 flex-1 items-center justify-between gap-10 border-foreground border-b font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:text-primary"
+              href="/docs/components"
             >
-              <RollingText text="Start for free" />
+              <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <RollingText text="Browse components" />
             </Link>
-          </div>
-        </div>
-
-        <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-[2.05fr_1fr] lg:px-10">
-          {/* Taller on phones so the agent card fits inside the image. */}
-          <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-muted sm:aspect-1690/1160">
-            <Image
-              alt="AI agent automation interface over an abstract blue digital background"
-              className="object-cover"
-              fill
-              priority
-              sizes="(min-width: 768px) 66vw, 100vw"
-              src={HERO_IMAGE}
-            />
-            <div className="absolute inset-0 flex items-center justify-center p-4">
-              <AgentCard />
-            </div>
-          </div>
-          <div className="relative hidden overflow-hidden rounded-2xl bg-muted md:block">
-            <Image
-              alt="Professional working with AI automation tools"
-              className="object-cover"
-              fill
-              sizes="33vw"
-              src={SIDE_IMAGE}
-            />
           </div>
         </div>
       </Container>

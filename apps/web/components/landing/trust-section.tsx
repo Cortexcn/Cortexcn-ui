@@ -93,7 +93,7 @@ export function TrustSection() {
           <ul className="flex flex-col gap-8">
             {points.map((point) => (
               <li className="flex items-start gap-4" key={point.title}>
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-[10px] border border-foreground/20 bg-foreground/10 text-foreground dark:text-foreground">
+                <span className="flex size-10 shrink-0 items-center justify-center border border-foreground/20 bg-foreground/10 text-foreground dark:text-foreground">
                   <point.icon className="size-5" />
                 </span>
                 <div className="flex flex-col gap-1">

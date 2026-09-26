@@ -78,6 +78,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --font-heading: var(--font-geist-sans);
   --font-display: var(--font-instrument-serif);
+  --font-pixel: var(--font-geist-pixel-square);
   --color-fd-input: var(--input);
 
   --shadow-color: var(--shadow);
@@ -93,19 +94,16 @@
   --animate-caret-blink: caret-blink 1.06s step-end infinite;
   --animate-studio-pill-border-spin: studio-pill-border-spin 3.75s linear
     infinite;
-  /* Landing hero: dashed frame lines that crawl downward. */
-  --animate-dash-scroll: dash-scroll 1s linear infinite;
-  --animate-dash-scroll-x: dash-scroll-x 1s linear infinite;
+  /* Landing hero: the "scroll for more" arrow nudging downward. */
+  --animate-scroll-cue: scroll-cue 1.6s ease-in-out infinite;
 
-  @keyframes dash-scroll {
-    to {
-      background-position: 0 18px;
+  @keyframes scroll-cue {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-  }
-
-  @keyframes dash-scroll-x {
-    to {
-      background-position: 18px 0;
+    50% {
+      transform: translateY(3px);
     }
   }
 
@@ -289,47 +287,68 @@
 }
 
 /*
- * Syntiq landing theme.
- * Scoped to `.syntiq` (the marketing landing page) so docs and studio keep the
- * default theme. Dark navy palette + warm orange/red accent + Manrope / IBM Plex
- * Mono, matching the reference template. Declared after the imported `.dark`
- * tokens so it wins the specificity tie when the wrapper carries both classes.
+ * Landing theme.
+ * Scoped to `.syntiq` (the marketing landing page, its header and mobile menu)
+ * so docs and studio keep the default theme. Neutral surfaces, square corners,
+ * a violet accent, and Geist / Geist Mono / Geist Pixel type. Follows the site
+ * light/dark toggle; the `.dark` rule is more specific than the imported `.dark`
+ * tokens, so it wins inside the scope.
  */
 .syntiq {
-  --background: #0b0d14;
-  --foreground: #e8e8e8;
-  --card: #14171d;
-  --card-foreground: #e8e8e8;
-  --popover: #14171d;
-  --popover-foreground: #e8e8e8;
-  --primary: #ed8200;
-  --primary-foreground: #0b0d14;
-  --secondary: #191c23;
-  --secondary-foreground: #e8e8e8;
-  --muted: #14171d;
-  --muted-foreground: #9ca0aa;
-  --accent: #191c23;
-  --accent-foreground: #f5f5f5;
-  --destructive: #fa2b2b;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #fafafa;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #6a2bff;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5;
+  --muted-foreground: #7a7a7a;
+  --accent: #f0f0f0;
+  --accent-foreground: #1a1a1a;
+  --destructive: #e5484d;
   --destructive-foreground: #ffffff;
-  --border: #23262e;
-  --input: #23262e;
-  --ring: #ed8200;
-  --radius: 0.9rem;
+  --border: #e0e0e0;
+  --input: #e0e0e0;
+  --ring: #6a2bff;
+  --radius: 0.25rem;
 
-  /* Reroute the font utilities within the landing to the Syntiq typefaces. */
-  --font-geist-sans: var(--font-manrope);
-  --font-geist-mono: var(--font-ibm-plex-mono);
-  --font-instrument-serif: var(--font-manrope);
+  /* The hero grid band is dark in both themes. */
+  --band: #1a1a1a;
+  --band-line: #474747;
+  --band-foreground: #f5f5f5;
+  --band-muted: #adadad;
 
-  /* Brand accents for gradients and glows. */
-  --syntiq-accent: #ed8200;
-  --syntiq-accent-2: #fa0505;
+  /* Kept for the sections that draw a glow with it. */
+  --syntiq-accent: var(--primary);
+
+  color-scheme: light;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:is(.dark .syntiq, .syntiq.dark) {
+  --background: #0f0f0f;
+  --foreground: #ededed;
+  --card: #161616;
+  --card-foreground: #ededed;
+  --popover: #161616;
+  --popover-foreground: #ededed;
+  --primary: #8f66ff;
+  --primary-foreground: #ffffff;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #ededed;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --accent: #222222;
+  --accent-foreground: #ededed;
+  --border: #2b2b2b;
+  --input: #2b2b2b;
+  --ring: #8f66ff;
 
   color-scheme: dark;
-  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
 }
 
 /* Docs ComponentShowcase code panels */

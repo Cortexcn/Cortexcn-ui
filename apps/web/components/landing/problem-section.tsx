@@ -54,8 +54,8 @@ export function ProblemSection() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-6">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-medium font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]">
-              <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+            <span className="inline-flex w-fit items-center gap-2.5 font-mono text-muted-foreground text-sm uppercase">
+              <span aria-hidden className="size-2 bg-primary" />
               Reality
             </span>
             <h2 className="max-w-xl text-balance font-semibold text-3xl leading-[1.1] tracking-[-0.02em] sm:text-4xl md:text-5xl">
@@ -70,7 +70,7 @@ export function ProblemSection() {
 
           <Surface className="p-6 sm:p-8">
             <div className="flex items-center gap-3 border-border/70 border-b pb-5">
-              <span className="flex size-10 items-center justify-center rounded-full border border-border bg-background/60 font-mono text-muted-foreground text-sm">
+              <span className="flex size-10 items-center justify-center border border-border bg-background/60 font-mono text-muted-foreground text-sm">
                 OP
               </span>
               <div className="flex flex-col">

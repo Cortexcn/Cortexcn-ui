@@ -99,7 +99,7 @@ export function LandingFooter() {
               {socials.map(({ label, href, Icon }) => (
                 <Link
                   aria-label={label}
-                  className="flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground"
+                  className="flex size-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:text-foreground"
                   href={href}
                   key={label}
                   rel="noopener noreferrer"

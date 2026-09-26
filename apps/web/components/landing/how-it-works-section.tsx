@@ -36,7 +36,7 @@ export function HowItWorksSection() {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <Surface className="flex flex-col gap-4 p-6" key={step.number}>
-              <span className="flex size-11 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-mono text-primary text-sm">
+              <span className="flex size-11 items-center justify-center border border-primary/30 bg-primary/10 font-mono text-primary text-sm">
                 {step.number}
               </span>
               <h3 className="font-medium text-foreground text-lg">
