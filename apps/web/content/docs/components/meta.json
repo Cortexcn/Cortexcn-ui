@@ -1,6 +1,11 @@
 {
   "title": "Components",
   "pages": [
+    "---UI---",
+    "line-nav",
+    "logos-carousel",
+    "marquee",
+    "theme-toggle-effect",
     "---Charts---",
     "area-chart",
     "bar-chart",

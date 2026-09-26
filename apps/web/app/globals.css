@@ -5,6 +5,7 @@
 @import "shadcn/tailwind.css";
 @import "../../../packages/studio/src/styles/studio-theme.css";
 @import "../../../packages/studio/src/styles/studio-chrome.css";
+@import "../../../packages/ui/src/styles/theme-toggle-effect.css";
 
 /* Note: Run `npx shadcn@latest init` to generate shadcn/tailwind.css if needed */
 
@@ -92,6 +93,27 @@
   --animate-caret-blink: caret-blink 1.06s step-end infinite;
   --animate-studio-pill-border-spin: studio-pill-border-spin 3.75s linear
     infinite;
+  /* Marquee: mirrors the cssVars/css shipped with the `marquee` registry item. */
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 
   @keyframes caret-blink {
     0%,

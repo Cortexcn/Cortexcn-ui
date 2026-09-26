@@ -1,0 +1,72 @@
+---
+title: Line Nav
+description: Vertical navigation with a line marker that expands on hover and active state.
+---
+
+import { lineNavControlledCode } from "@/components/docs/ui-demo-code";
+import { LineNavDemo } from "@/components/docs/line-nav-demo";
+
+<ComponentPreview>
+  <LineNavDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="line-nav" dependencies={["motion"]} />
+
+## Usage
+
+```tsx
+import { LineNav } from "@/components/line-nav";
+```
+
+```tsx
+const items = [
+  { title: "Introduction", href: "#introduction" },
+  { title: "Installation", href: "#installation" },
+  { title: "Usage", href: "#usage" },
+];
+
+<LineNav items={items} activeHref="#introduction" />;
+```
+
+## Examples
+
+### Controlled active item
+
+Track the active item in state and update it from `onItemClick`.
+
+<ComponentShowcase code={lineNavControlledCode}>
+  <LineNavDemo />
+</ComponentShowcase>
+
+### Next.js client-side navigation
+
+Items render as plain anchors so the component works in any framework. For client-side navigation in Next.js, open `components/line-nav.tsx` and swap `motion.a` for `motion.create(Link)`:
+
+```tsx
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
+
+// Inside LineNavItem, render <MotionLink ...> instead of <motion.a ...>
+```
+
+## Props
+
+### LineNav
+
+| Prop                   | Type                                                                | Default  | Description                               |
+| ---------------------- | ------------------------------------------------------------------- | -------- | ----------------------------------------- |
+| `items`                | [`LineNavItem[]`](#linenavitem)                                     | required | Navigation items, top to bottom           |
+| `activeHref`           | `string`                                                            | -        | Href of the active item                   |
+| `scrollActiveIntoView` | `boolean`                                                           | `true`   | Scroll the active item into view on mount |
+| `onItemClick`          | `(item: LineNavItem, event: MouseEvent<HTMLAnchorElement>) => void` | -        | Called when an item is clicked            |
+| `className`            | `string`                                                            | -        | Extra classes for the `nav` element       |
+
+### LineNavItem
+
+| Property | Type     | Description                       |
+| -------- | -------- | --------------------------------- |
+| `title`  | `string` | Label shown next to the line      |
+| `href`   | `string` | Link target, also used as the key |

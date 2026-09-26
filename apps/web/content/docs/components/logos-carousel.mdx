@@ -1,0 +1,69 @@
+---
+title: Logos Carousel
+description: Cycle through logos column by column in a staggered wave.
+---
+
+import {
+  logosCarouselRtlCode,
+  logosCarouselColumnsCode,
+} from "@/components/docs/ui-demo-code";
+import { LogosCarouselDemo } from "@/components/docs/logos-carousel-demo";
+
+<ComponentPreview>
+  <LogosCarouselDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="logos-carousel" dependencies={["motion"]} />
+
+## Usage
+
+```tsx
+import { LogosCarousel } from "@/components/logos-carousel";
+```
+
+```tsx
+<LogosCarousel className="h-16" columnCount={4}>
+  <img src="/logos/vercel.svg" alt="Vercel" />
+  <img src="/logos/nextjs.svg" alt="Next.js" />
+  <img src="/logos/react.svg" alt="React" />
+  <img src="/logos/stripe.svg" alt="Stripe" />
+  {/* ...more logos */}
+</LogosCarousel>
+```
+
+Each child is one logo. Logos are spread across the columns in order, so with 12 logos and 4 columns each column cycles through 3 logos. Give the carousel a height so the logos have room to animate.
+
+## Examples
+
+### Right to left
+
+Set `direction="rtl"` to start the wave from the last column.
+
+<ComponentShowcase code={logosCarouselRtlCode}>
+  <LogosCarouselDemo direction="rtl" />
+</ComponentShowcase>
+
+### Fewer columns
+
+`columnCount` controls how many logos are visible at once. It is capped at the number of logos.
+
+<ComponentShowcase code={logosCarouselColumnsCode}>
+  <LogosCarouselDemo columnCount={3} />
+</ComponentShowcase>
+
+## Behavior
+
+- The carousel only cycles while it is on screen and the browser tab is visible.
+- With reduced motion enabled, logos cross-fade in place instead of sliding and blurring.
+- Set the `--column-count` CSS variable to change the visible columns at a breakpoint, for example `className="[--column-count:2] md:[--column-count:4]"`.
+
+## Props
+
+| Prop          | Type             | Default  | Description                                   |
+| ------------- | ---------------- | -------- | --------------------------------------------- |
+| `children`    | `ReactNode`      | required | Logo elements to cycle through                |
+| `columnCount` | `number`         | `4`      | Number of columns, capped at the logo count   |
+| `direction`   | `"ltr" \| "rtl"` | `"ltr"`  | Direction the wave travels across the columns |
+| `className`   | `string`         | -        | Extra classes for the grid container          |

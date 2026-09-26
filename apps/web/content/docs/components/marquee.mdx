@@ -1,0 +1,81 @@
+---
+title: Marquee
+description: An infinite scrolling component that can be used to display text, images, or videos.
+---
+
+import {
+  marqueeRowsCode,
+  marqueeVerticalCode,
+} from "@/components/docs/ui-demo-code";
+import {
+  MarqueeDemo,
+  MarqueeVerticalDemo,
+} from "@/components/docs/marquee-demo";
+
+<ComponentPreview>
+  <MarqueeDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="marquee" />
+
+The CLI also adds the `animate-marquee` and `animate-marquee-vertical` animations to your `globals.css`. For a manual install, copy the CSS shown in the **Manual** tab.
+
+## Usage
+
+```tsx
+import { Marquee } from "@/components/marquee";
+```
+
+```tsx
+<Marquee pauseOnHover>
+  <span>Next.js</span>
+  <span>React</span>
+  <span>Tailwind CSS</span>
+</Marquee>
+```
+
+## Examples
+
+### Two rows
+
+Pair a normal row with a `reverse` row, then fade the edges with gradients.
+
+<ComponentShowcase code={marqueeRowsCode}>
+  <MarqueeDemo />
+</ComponentShowcase>
+
+### Vertical
+
+Set `vertical` to scroll top to bottom. Give the parent a fixed height.
+
+<ComponentShowcase code={marqueeVerticalCode} previewMinHeight={320}>
+  <MarqueeVerticalDemo />
+</ComponentShowcase>
+
+### Speed and spacing
+
+The marquee reads two CSS variables. Override them with a class:
+
+```tsx
+<Marquee className="[--duration:20s] [--gap:2rem]">{children}</Marquee>
+```
+
+| Variable     | Default | Description                                   |
+| ------------ | ------- | --------------------------------------------- |
+| `--duration` | `40s`   | Time for one full loop. Lower is faster.      |
+| `--gap`      | `1rem`  | Space between items and between repeated sets |
+
+## Props
+
+| Prop           | Type        | Default  | Description                                   |
+| -------------- | ----------- | -------- | --------------------------------------------- |
+| `children`     | `ReactNode` | required | Content to scroll                             |
+| `reverse`      | `boolean`   | `false`  | Scroll in the opposite direction              |
+| `pauseOnHover` | `boolean`   | `false`  | Pause the animation while hovered             |
+| `vertical`     | `boolean`   | `false`  | Scroll vertically instead of horizontally     |
+| `repeat`       | `number`    | `4`      | How many copies of the content are rendered   |
+| `className`    | `string`    | -        | Extra classes, including `--duration`/`--gap` |
+
+All other `div` props are passed to the root element.

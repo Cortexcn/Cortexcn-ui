@@ -26,12 +26,14 @@ const REGISTRY_DEP_RE = /^@cortexcn\/(.+)$/;
 const RESOLVE_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx"];
 
 function resolveRelativeImport(fromFilePath, spec) {
-  const dir = path.dirname(fromFilePath);
-  const base = path.normalize(path.join(dir, spec));
+  // Registry paths are POSIX; platform `path` would emit `\` on Windows and
+  // never match the closure, flagging every import as missing.
+  const dir = path.posix.dirname(fromFilePath);
+  const base = path.posix.normalize(path.posix.join(dir, spec));
   const candidates = [
     base,
     ...RESOLVE_EXTENSIONS.map((ext) => base + ext),
-    ...RESOLVE_EXTENSIONS.map((ext) => path.join(base, `index${ext}`)),
+    ...RESOLVE_EXTENSIONS.map((ext) => path.posix.join(base, `index${ext}`)),
   ];
 
   for (const candidate of candidates) {

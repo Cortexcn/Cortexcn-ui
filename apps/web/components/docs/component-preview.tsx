@@ -7,6 +7,7 @@ import { isChartSlug } from "@/components/charts/chart-slugs";
 import { DocsChartPreviewShell } from "@/components/docs/docs-chart-preview-shell";
 import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 import { OpenInV0Button } from "@/components/docs/open-in-v0-button";
+import { PreviewCodeTabs } from "@/components/docs/preview-code-tabs";
 import {
   Card,
   CardContent,
@@ -22,10 +23,13 @@ import { cn } from "@/lib/utils";
 export function ComponentPreview({
   children,
   className,
+  code,
   registryName,
 }: {
   children: ReactNode;
   className?: string;
+  /** Source for a Code tab next to the preview. */
+  code?: string;
   /** Registry item name for Open in v0 / Studio actions on the primary preview. */
   registryName?: string;
 }) {
@@ -37,6 +41,20 @@ export function ComponentPreview({
   }
   const studioSlug =
     registryName && isChartSlug(registryName) ? registryName : undefined;
+
+  const previewCard = (
+    <Card className={cn("flex flex-col", previewCardClassName)}>
+      <CardContent
+        className={cn(previewCardContentClassName, "min-h-[200px] shrink-0")}
+      >
+        <DocsChartPreviewShell>
+          <div className="flex w-full items-center justify-center">
+            {children}
+          </div>
+        </DocsChartPreviewShell>
+      </CardContent>
+    </Card>
+  );
 
   return (
     <div className={cn("not-prose my-6", className)}>
@@ -54,17 +72,11 @@ export function ComponentPreview({
           </div>
         </div>
       ) : null}
-      <Card className={cn("flex flex-col", previewCardClassName)}>
-        <CardContent
-          className={cn(previewCardContentClassName, "min-h-[200px] shrink-0")}
-        >
-          <DocsChartPreviewShell>
-            <div className="flex w-full items-center justify-center">
-              {children}
-            </div>
-          </DocsChartPreviewShell>
-        </CardContent>
-      </Card>
+      {code ? (
+        <PreviewCodeTabs code={code} preview={previewCard} />
+      ) : (
+        previewCard
+      )}
     </div>
   );
 }

@@ -22,6 +22,13 @@ interface SiteHeaderProps {
   links?: NavLink[];
 }
 
+const uiComponents = [
+  { text: "Line Nav", url: "/docs/components/line-nav" },
+  { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
+  { text: "Marquee", url: "/docs/components/marquee" },
+  { text: "Theme Toggle Effect", url: "/docs/components/theme-toggle-effect" },
+];
+
 const components = [
   { text: "Area Chart", url: "/docs/components/area-chart" },
   { text: "Bar Chart", url: "/docs/components/bar-chart" },
@@ -150,7 +157,8 @@ function MobileMenu({
     transitionDelay: isOpen ? `${index * staggerDelay}ms` : "0ms",
   });
 
-  const componentsStartIndex = links.length + 1;
+  const uiStartIndex = links.length + 1;
+  const componentsStartIndex = uiStartIndex + uiComponents.length + 1;
   const utilitiesStartIndex = componentsStartIndex + components.length + 1;
 
   return (
@@ -196,11 +204,40 @@ function MobileMenu({
             ))}
           </div>
 
+          {/* UI section */}
+          <div className="mt-3 border-border border-t pt-3">
+            <span
+              className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
+              style={getStaggerStyle(uiStartIndex - 1)}
+            >
+              UI
+            </span>
+            <div className="flex flex-col gap-0.5">
+              {uiComponents.map((component, index) => (
+                <Link
+                  className="transition-[opacity,transform] duration-300 ease-out"
+                  href={component.url}
+                  key={component.url}
+                  onClick={onClose}
+                  style={getStaggerStyle(uiStartIndex + index)}
+                >
+                  <Button
+                    className="h-10 w-full justify-start px-3"
+                    size="default"
+                    variant="ghost"
+                  >
+                    {component.text}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Charts section */}
           <div className="mt-3 border-border border-t pt-3">
             <span
               className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
-              style={getStaggerStyle(links.length)}
+              style={getStaggerStyle(componentsStartIndex - 1)}
             >
               Charts
             </span>
@@ -324,7 +361,9 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
     ).length;
   const totalItems =
     links.length +
-    1 + // Components header
+    1 + // UI header
+    uiComponents.length +
+    1 + // Charts header
     components.length +
     1 + // Utilities header
     utilitiesCount;

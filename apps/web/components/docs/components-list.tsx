@@ -1,12 +1,36 @@
+import type * as PageTree from "fumadocs-core/page-tree";
 import Link from "next/link";
 import { source } from "@/lib/source";
 
-export function ComponentsList() {
-  // Get pages directly from source
-  const pages = source
-    .getPages()
-    .filter((page) => page.slugs[0] === "components" && page.slugs.length > 1)
-    .sort((a, b) => (a.data.title ?? "").localeCompare(b.data.title ?? ""));
+/**
+ * Pages listed under a sidebar separator (e.g. `---Charts---` in
+ * content/docs/components/meta.json), up to the next separator.
+ */
+function getCategoryPages(category: string): PageTree.Item[] {
+  const nodes = source.pageTree.children;
+  const start = nodes.findIndex(
+    (node) => node.type === "separator" && node.name === category,
+  );
+  if (start === -1) {
+    return [];
+  }
+
+  const pages: PageTree.Item[] = [];
+  for (const node of nodes.slice(start + 1)) {
+    if (node.type === "separator") {
+      break;
+    }
+    if (node.type === "page") {
+      pages.push(node);
+    }
+  }
+  return pages;
+}
+
+export function ComponentsList({ category }: { category: string }) {
+  const pages = getCategoryPages(category).sort((a, b) =>
+    String(a.name).localeCompare(String(b.name)),
+  );
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">
@@ -16,7 +40,7 @@ export function ComponentsList() {
           href={page.url}
           key={page.url}
         >
-          {page.data.title}
+          {page.name}
         </Link>
       ))}
     </div>

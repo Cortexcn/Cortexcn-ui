@@ -14,17 +14,54 @@ import { cn } from "@/lib/utils";
 import { CodeTabs } from "./code-tabs";
 import { PackageManagerTabs } from "./package-manager-tabs";
 
-interface RegistryFile {
+export interface RegistryFile {
   path: string;
   content: string;
   type: string;
   target: string;
 }
 
-interface RegistryData {
+interface CssBlock {
+  [key: string]: string | CssBlock;
+}
+
+export interface RegistryData {
   name: string;
   dependencies?: string[];
   files: RegistryFile[];
+  css?: CssBlock;
+  cssVars?: Partial<Record<"theme" | "light" | "dark", Record<string, string>>>;
+}
+
+function cssBlockToString(block: CssBlock, depth = 0): string {
+  const indent = "  ".repeat(depth);
+  return Object.entries(block)
+    .map(([key, value]) =>
+      typeof value === "string"
+        ? `${indent}${key}: ${value};`
+        : `${indent}${key} {\n${cssBlockToString(value, depth + 1)}\n${indent}}`,
+    )
+    .join(depth === 0 ? "\n\n" : "\n");
+}
+
+const CSS_VAR_SCOPES = {
+  theme: "@theme inline",
+  light: ":root",
+  dark: ".dark",
+} as const;
+
+/** The CSS `shadcn add` would write to globals.css, for manual installs. */
+export function registryGlobalCss({ css, cssVars }: RegistryData): string {
+  const blocks: CssBlock = {};
+  for (const [scope, selector] of Object.entries(CSS_VAR_SCOPES)) {
+    const vars = cssVars?.[scope as keyof typeof CSS_VAR_SCOPES];
+    if (vars) {
+      blocks[selector] = Object.fromEntries(
+        Object.entries(vars).map(([name, value]) => [`--${name}`, value]),
+      );
+    }
+  }
+  return cssBlockToString({ ...blocks, ...css });
 }
 
 interface InstallationTabsProps {
@@ -32,7 +69,7 @@ interface InstallationTabsProps {
   dependencies?: string[];
 }
 
-function CodeFileBlock({
+export function CodeFileBlock({
   file,
   defaultOpen = false,
 }: {
@@ -40,6 +77,7 @@ function CodeFileBlock({
   defaultOpen?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const isCss = file.target.endsWith(".css");
 
   return (
     <Collapsible
@@ -50,7 +88,9 @@ function CodeFileBlock({
       {/* Header with filename */}
       <div className="relative z-10 flex items-center justify-between border-border border-b bg-muted/20 px-4 py-2">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-foreground/70 text-xs">TS</span>
+          <span className="font-mono text-foreground/70 text-xs">
+            {isCss ? "CSS" : "TS"}
+          </span>
           <span className="font-mono text-foreground text-sm">
             {file.target}
           </span>
@@ -73,7 +113,7 @@ function CodeFileBlock({
       >
         <DynamicCodeBlock
           code={file.content}
-          lang="tsx"
+          lang={isCss ? "css" : "tsx"}
           options={{ themes: codeThemes }}
         />
       </CollapsibleContent>
@@ -179,6 +219,7 @@ export function InstallationTabs({
   // Use registry dependencies if available, otherwise fall back to prop
   const deps = registryData?.dependencies || dependencies || [];
   const files = registryData?.files || [];
+  const globalCss = registryData ? registryGlobalCss(registryData) : "";
 
   return (
     <CodeTabs onTabChange={setInstallTab}>
@@ -209,6 +250,24 @@ export function InstallationTabs({
                 <CodeFilesContent files={files} loading={loading} name={name} />
               </div>
             </Step>
+
+            {globalCss ? (
+              <Step>
+                <h4 className="font-medium">
+                  Add the following CSS to your globals.css.
+                </h4>
+                <div className="mt-3">
+                  <CodeFileBlock
+                    file={{
+                      path: "globals.css",
+                      content: globalCss,
+                      type: "registry:style",
+                      target: "app/globals.css",
+                    }}
+                  />
+                </div>
+              </Step>
+            ) : null}
 
             <Step>
               <h4 className="font-medium">

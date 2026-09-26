@@ -1,0 +1,75 @@
+---
+title: Theme Toggle Effect
+description: Animated transitions when switching between light and dark themes.
+---
+
+import { themeToggleEffectDemoCode } from "@/components/docs/ui-demo-code";
+import { ThemeToggleEffectDemo } from "@/components/docs/theme-toggle-effect-demo";
+import { ThemeToggleEffectInstallation } from "@/components/docs/theme-toggle-effect-installation";
+
+<ComponentPreview code={themeToggleEffectDemoCode}>
+  <ThemeToggleEffectDemo />
+</ComponentPreview>
+
+## Browser compatibility
+
+This component uses the [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API). Check the latest [browser compatibility on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition#browser_compatibility) before using it in production. Browsers without the API, and users who prefer reduced motion, switch themes instantly.
+
+## Installation
+
+<ThemeToggleEffectInstallation />
+
+## Usage
+
+Wrap your theme setter with `startThemeTransition` and pass the effect you installed:
+
+```tsx
+"use client";
+
+import { useTheme } from "next-themes";
+import { startThemeTransition } from "@/components/theme-toggle-effect";
+
+export function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  function toggleTheme() {
+    const next = resolvedTheme === "dark" ? "light" : "dark";
+    startThemeTransition(() => setTheme(next), "circle");
+  }
+
+  return <button onClick={toggleTheme}>Toggle theme</button>;
+}
+```
+
+It works with any theme setter, not only `next-themes`:
+
+```tsx
+startThemeTransition(() => {
+  document.documentElement.classList.toggle("dark");
+}, "polygon");
+```
+
+The preview above has every effect installed so you can compare them. In your app, install the effect you use and pass the same name to `startThemeTransition`.
+
+`startThemeTransition` sets `data-theme-toggle-effect` on `<html>` for the length of the switch, and every effect rule is scoped to that attribute. The effect CSS never runs for other view transitions, such as page navigations.
+
+## API
+
+```ts
+function startThemeTransition(
+  update: () => void,
+  effect?: ThemeToggleEffect,
+): void;
+```
+
+| Parameter | Type                | Default    | Description                               |
+| --------- | ------------------- | ---------- | ----------------------------------------- |
+| `update`  | `() => void`        | required   | Applies the new theme, usually `setTheme` |
+| `effect`  | `ThemeToggleEffect` | `"circle"` | Which reveal effect to play               |
+
+`THEME_TOGGLE_EFFECTS` is a readonly array of every effect name, and `ThemeToggleEffect` is the union of its values.
+
+## References
+
+- [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
+- [Document: startViewTransition()](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition)
