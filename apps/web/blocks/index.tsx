@@ -1,28 +1,28 @@
+import type { ComponentType } from "react";
 import { readBlockFiles } from "@/lib/blocks/read-block-files";
-import {
-  statCardArea01Files,
-  statCardChoropleth01Files,
-  statCardLine01Files,
-} from "./manifest";
+import type { BlockCategory } from "./categories";
+import { type BlockSlug, blockFileManifests } from "./manifest";
 import { StatCardAreaBlock } from "./stat-card-area-01";
+import type { BlockDisplayProps } from "./stat-card-area-01/meta";
 import { StatCardChoroplethBlock } from "./stat-card-choropleth-01";
 import { StatCardLineBlock } from "./stat-card-line-01";
 
-export function getFeaturedBlockElements() {
-  const areaFiles = readBlockFiles("stat-card-area-01", statCardArea01Files);
-  const lineFiles = readBlockFiles("stat-card-line-01", statCardLine01Files);
-  const choroplethFiles = readBlockFiles(
-    "stat-card-choropleth-01",
-    statCardChoropleth01Files,
-  );
+const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
+  "stat-card-area-01": StatCardAreaBlock,
+  "stat-card-line-01": StatCardLineBlock,
+  "stat-card-choropleth-01": StatCardChoroplethBlock,
+};
 
-  return [
-    <StatCardAreaBlock embedded files={areaFiles} key="stat-card-area-01" />,
-    <StatCardLineBlock embedded files={lineFiles} key="stat-card-line-01" />,
-    <StatCardChoroplethBlock
-      embedded
-      files={choroplethFiles}
-      key="stat-card-choropleth-01"
-    />,
-  ];
+/** Block viewers (preview, code, install) for every block in a category. */
+export function getCategoryBlockElements(category: BlockCategory) {
+  return category.blocks.map((slug) => {
+    const Viewer = BLOCK_VIEWERS[slug];
+    return (
+      <Viewer
+        embedded
+        files={readBlockFiles(slug, blockFileManifests[slug])}
+        key={slug}
+      />
+    );
+  });
 }

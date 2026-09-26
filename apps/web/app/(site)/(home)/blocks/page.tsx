@@ -1,4 +1,4 @@
-import { BlockExamplesGrid } from "@/components/blocks/block-examples";
+import { BlockCategoryGrid } from "@/components/blocks/block-examples";
 import { BlocksHero } from "@/components/blocks/blocks-hero";
 
 export default function BlocksPage() {
@@ -15,7 +15,7 @@ export default function BlocksPage() {
         id="blocks"
       >
         <div className="container mx-auto w-full overflow-visible">
-          <BlockExamplesGrid />
+          <BlockCategoryGrid />
         </div>
       </section>
     </main>
