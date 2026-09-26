@@ -1,5 +1,5 @@
 /**
- * Syncs stat-card blocks from apps/web/blocks into registry sources and registry.json
+ * Syncs blocks from apps/web/blocks into registry sources and registry.json
  * (shadcn add + Open in v0). Run from packages/ui after generate-v0-examples.mjs.
  */
 import {
@@ -240,8 +240,9 @@ for (const [blockId, spec] of Object.entries(BLOCKS)) {
   }
 
   const exportName = COMPONENT_EXPORTS[blockId];
+  // The first component listed is the block entry point.
   const mainComponentPath = spec.files.find((file) =>
-    file.startsWith("components/stat-card-"),
+    file.startsWith("components/"),
   );
   const importPath = `@/components/${mainComponentPath
     ?.replace("components/", "")
@@ -275,9 +276,12 @@ export default function Component() {
 
 const registry = JSON.parse(readFileSync(registryPath, "utf8"));
 
+const blockItemNames = new Set(
+  Object.keys(BLOCKS).flatMap((blockId) => [blockId, `${blockId}-example`]),
+);
+
 registry.items = registry.items.filter(
-  (item) =>
-    item.name !== "chart-stat-flow" && !item.name.startsWith("stat-card-"),
+  (item) => item.name !== "chart-stat-flow" && !blockItemNames.has(item.name),
 );
 
 registry.items.push(chartStatFlowItem);
@@ -324,5 +328,5 @@ for (const [blockId, spec] of Object.entries(BLOCKS)) {
 
 writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
 console.log(
-  `Synced ${Object.keys(BLOCKS).length} stat-card blocks into registry (${Object.keys(BLOCKS).length * 2 + 1} items).`,
+  `Synced ${Object.keys(BLOCKS).length} blocks into registry (${Object.keys(BLOCKS).length * 2 + 1} items).`,
 );

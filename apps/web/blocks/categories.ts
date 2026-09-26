@@ -23,6 +23,7 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "stat-card-line-01",
       "stat-card-choropleth-01",
     ],
+    thumbnail: "stat-card-area-01",
   },
 ];
 
