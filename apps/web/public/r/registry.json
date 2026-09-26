@@ -2492,6 +2492,96 @@
       ]
     },
     {
+      "name": "feature-spotlight-grid-01",
+      "type": "registry:block",
+      "title": "Feature Spotlight Grid",
+      "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at",
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/blocks/feature-spotlight-grid-01/components/feature-spotlight-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-spotlight-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-spotlight-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Spotlight Grid Example",
+      "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-spotlight-grid-01"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/examples/feature-spotlight-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-media-cards-01",
+      "type": "registry:block",
+      "title": "Feature Media Cards",
+      "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-media-cards-01/components/feature-media-cards.tsx",
+          "type": "registry:component",
+          "target": "components/feature-media-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-media-cards-01-example",
+      "type": "registry:example",
+      "title": "Feature Media Cards Example",
+      "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-media-cards-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-media-cards-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-image-columns-01",
+      "type": "registry:block",
+      "title": "Feature Image Columns",
+      "description": "Label, headline, and intro over three image columns, closed by one shared call to action",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-image-columns-01/components/feature-image-columns.tsx",
+          "type": "registry:component",
+          "target": "components/feature-image-columns.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-image-columns-01-example",
+      "type": "registry:example",
+      "title": "Feature Image Columns Example",
+      "description": "Label, headline, and intro over three image columns, closed by one shared call to action — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-image-columns-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-image-columns-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-card-area-01",
       "type": "registry:block",
       "title": "Stat Card Area",

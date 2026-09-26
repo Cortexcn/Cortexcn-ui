@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-image-columns-01-example",
+  "type": "registry:example",
+  "title": "Feature Image Columns Example",
+  "description": "Label, headline, and intro over three image columns, closed by one shared call to action — demo for Open in v0",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/feature-image-columns-01"],
+  "files": [
+    {
+      "path": "registry/examples/feature-image-columns-01.tsx",
+      "content": "\"use client\";\n\nimport { FeatureImageColumns } from \"@/components/feature-image-columns\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-6xl\">\n        <FeatureImageColumns />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}

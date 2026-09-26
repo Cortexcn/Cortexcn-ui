@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-media-cards-01-example",
+  "type": "registry:example",
+  "title": "Feature Media Cards Example",
+  "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile — demo for Open in v0",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/feature-media-cards-01"],
+  "files": [
+    {
+      "path": "registry/examples/feature-media-cards-01.tsx",
+      "content": "\"use client\";\n\nimport { FeatureMediaCards } from \"@/components/feature-media-cards\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-6xl\">\n        <FeatureMediaCards />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}

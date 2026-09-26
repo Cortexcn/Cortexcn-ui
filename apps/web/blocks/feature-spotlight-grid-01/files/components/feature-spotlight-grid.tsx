@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useRef, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export interface SpotlightFeature {
@@ -19,11 +19,14 @@ export interface FeatureSpotlightGridProps {
   className?: string;
 }
 
-interface HighlightRect {
+interface Highlight {
   x: number;
   y: number;
   width: number;
   height: number;
+  visible: boolean;
+  /** Jump straight to the card instead of gliding (first hover after leaving). */
+  snap: boolean;
 }
 
 const SPRING = { type: "spring", stiffness: 420, damping: 38 } as const;
@@ -124,29 +127,24 @@ export function FeatureSpotlightGrid({
   className,
 }: FeatureSpotlightGridProps) {
   const reduceMotion = useReducedMotion();
-  const [highlight, setHighlight] = useState<HighlightRect | null>(null);
-  // Snap into place when the highlight first appears; glide between cards after.
-  const isVisibleRef = useRef(false);
+  const [highlight, setHighlight] = useState<Highlight | null>(null);
 
   const moveHighlightTo = (card: HTMLElement) => {
-    setHighlight({
+    setHighlight((current) => ({
       x: card.offsetLeft,
       y: card.offsetTop,
       width: card.offsetWidth,
       height: card.offsetHeight,
-    });
+      visible: true,
+      snap: !current?.visible,
+    }));
   };
 
   const hideHighlight = () => {
-    isVisibleRef.current = false;
-    setHighlight((current) => (current ? { ...current } : null));
-    setHighlight(null);
+    setHighlight((current) => current && { ...current, visible: false });
   };
 
-  const snap = !isVisibleRef.current || reduceMotion;
-  if (highlight) {
-    isVisibleRef.current = true;
-  }
+  const snap = reduceMotion || highlight?.snap !== false;
 
   return (
     <section className={cn("px-6 py-24 sm:py-32", className)}>
@@ -166,7 +164,17 @@ export function FeatureSpotlightGrid({
           onPointerLeave={hideHighlight}
         >
           <motion.div
-            animate={highlight ? { opacity: 1, ...highlight } : { opacity: 0 }}
+            animate={
+              highlight
+                ? {
+                    opacity: highlight.visible ? 1 : 0,
+                    x: highlight.x,
+                    y: highlight.y,
+                    width: highlight.width,
+                    height: highlight.height,
+                  }
+                : { opacity: 0 }
+            }
             aria-hidden="true"
             className="pointer-events-none absolute top-0 left-0 rounded-3xl bg-muted"
             initial={false}

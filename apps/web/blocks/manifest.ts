@@ -22,7 +22,22 @@ export const statCardChoropleth01Files = [
   "data/visitors.ts",
 ] as const;
 
+export const featureSpotlightGrid01Files = [
+  "components/feature-spotlight-grid.tsx",
+] as const;
+
+export const featureMediaCards01Files = [
+  "components/feature-media-cards.tsx",
+] as const;
+
+export const featureImageColumns01Files = [
+  "components/feature-image-columns.tsx",
+] as const;
+
 export const blockFileManifests = {
+  "feature-spotlight-grid-01": featureSpotlightGrid01Files,
+  "feature-media-cards-01": featureMediaCards01Files,
+  "feature-image-columns-01": featureImageColumns01Files,
   "stat-card-area-01": statCardArea01Files,
   "stat-card-line-01": statCardLine01Files,
   "stat-card-choropleth-01": statCardChoropleth01Files,

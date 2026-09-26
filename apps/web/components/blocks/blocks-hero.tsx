@@ -19,7 +19,7 @@ export function BlocksHero() {
           Browse blocks
         </Button>
       }
-      subtitle="Ready-to-go chart blocks for dashboards and analytics"
+      subtitle="Ready-to-go sections and cards for landing pages and dashboards"
       title="Blocks"
     />
   );

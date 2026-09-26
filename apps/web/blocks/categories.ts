@@ -14,6 +14,18 @@ export interface BlockCategory {
 /** Add a category here and it gets a card on /blocks and its own page. */
 export const BLOCK_CATEGORIES: BlockCategory[] = [
   {
+    slug: "features",
+    name: "Features",
+    description:
+      "Feature sections that explain what your product does, with icons, images, and motion.",
+    blocks: [
+      "feature-spotlight-grid-01",
+      "feature-media-cards-01",
+      "feature-image-columns-01",
+    ],
+    thumbnail: "feature-spotlight-grid-01",
+  },
+  {
     slug: "stat-cards",
     name: "Stat Cards",
     description:

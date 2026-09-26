@@ -1,6 +1,9 @@
 import type { ComponentType } from "react";
 import { readBlockFiles } from "@/lib/blocks/read-block-files";
 import type { BlockCategory } from "./categories";
+import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
+import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
+import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
 import { type BlockSlug, blockFileManifests } from "./manifest";
 import { StatCardAreaBlock } from "./stat-card-area-01";
 import type { BlockDisplayProps } from "./stat-card-area-01/meta";
@@ -8,6 +11,9 @@ import { StatCardChoroplethBlock } from "./stat-card-choropleth-01";
 import { StatCardLineBlock } from "./stat-card-line-01";
 
 const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
+  "feature-spotlight-grid-01": FeatureSpotlightGridBlock,
+  "feature-media-cards-01": FeatureMediaCardsBlock,
+  "feature-image-columns-01": FeatureImageColumnsBlock,
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
   "stat-card-choropleth-01": StatCardChoroplethBlock,

@@ -75,6 +75,33 @@ export { ChartStatFlow } from "./chart-stat-flow";`,
 
 /** @type {Record<string, { title: string, description: string, previewMaxWidth: string, registryDependencies: string[], dependencies: string[], files: string[], extraFiles?: { path: string, target: string, content?: string }[] }>} */
 const BLOCKS = {
+  "feature-spotlight-grid-01": {
+    title: "Feature Spotlight Grid",
+    description:
+      "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils"],
+    dependencies: ["motion"],
+    files: ["components/feature-spotlight-grid.tsx"],
+  },
+  "feature-media-cards-01": {
+    title: "Feature Media Cards",
+    description:
+      "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: [],
+    files: ["components/feature-media-cards.tsx"],
+  },
+  "feature-image-columns-01": {
+    title: "Feature Image Columns",
+    description:
+      "Label, headline, and intro over three image columns, closed by one shared call to action",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: [],
+    files: ["components/feature-image-columns.tsx"],
+  },
   "stat-card-area-01": {
     title: "Stat Card Area",
     description:
@@ -154,6 +181,9 @@ const BLOCKS = {
 };
 
 const COMPONENT_EXPORTS = {
+  "feature-spotlight-grid-01": "FeatureSpotlightGrid",
+  "feature-media-cards-01": "FeatureMediaCards",
+  "feature-image-columns-01": "FeatureImageColumns",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
