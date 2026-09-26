@@ -15,8 +15,31 @@ import { PackageManagerTabs } from "@/components/docs/package-manager-tabs";
 import { PageFooter } from "@/components/docs/page-footer";
 import { StudioEmbedPreview } from "@/components/docs/studio-embed-preview";
 import { TableOfContents } from "@/components/docs/toc";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  breadcrumbJsonLd,
+  type Crumb,
+  docsArticleJsonLd,
+  pageMetadata,
+  SITE_DESCRIPTION,
+} from "@/lib/seo";
 import { canonicalUrlFor } from "@/lib/site-url";
 import { source } from "@/lib/source";
+
+/** Docs home, then every parent page that exists, then this page. */
+function docsCrumbs(slugs: string[], title: string, url: string): Crumb[] {
+  const crumbs: Crumb[] = [{ name: "Docs", path: "/docs" }];
+  for (let depth = 1; depth < slugs.length; depth += 1) {
+    const parent = source.getPage(slugs.slice(0, depth));
+    if (parent) {
+      crumbs.push({ name: parent.data.title ?? "Docs", path: parent.url });
+    }
+  }
+  if (slugs.length > 0) {
+    crumbs.push({ name: title, path: url });
+  }
+  return crumbs;
+}
 
 // Extended page data types from fumadocs-mdx
 interface PageData {
@@ -53,6 +76,18 @@ export default async function Page(props: {
 
   return (
     <div className="flex w-full justify-center">
+      <JsonLd
+        data={breadcrumbJsonLd(
+          docsCrumbs(params.slug ?? [], data.title, page.url),
+        )}
+      />
+      <JsonLd
+        data={docsArticleJsonLd({
+          title: data.title,
+          description: data.description,
+          path: page.url,
+        })}
+      />
       <article className="w-full max-w-[790px] px-10 pt-24 pb-16">
         <header className="mb-8">
           <div className="flex items-start justify-between gap-4">
@@ -108,9 +143,18 @@ export async function generateMetadata(props: {
     notFound();
   }
 
+  const metadata = pageMetadata({
+    title: page.data.title ?? "Docs",
+    description: page.data.description ?? SITE_DESCRIPTION,
+    path: page.url,
+    type: "article",
+  });
   return {
-    title: page.data.title,
-    description: page.data.description,
-    alternates: { canonical: canonicalUrlFor(page.url) },
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      // A plain markdown copy of this page, for AI agents.
+      types: { "text/markdown": `${canonicalUrlFor(page.url)}.md` },
+    },
   };
 }

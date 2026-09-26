@@ -3,10 +3,11 @@ import "./globals.css";
 import { OpenPanelComponent } from "@openpanel/nextjs";
 import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
-import { GeistPixelSquare } from "geist/font/pixel";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provider";
 import { ChartThemeScript } from "@/components/chart-theme/chart-theme-script";
@@ -24,6 +25,19 @@ import {
 import { SITE_URL } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 
+/*
+ * Only the Square cut of Geist Pixel is used (landing headlines). Loaded
+ * directly because `geist/font/pixel` registers, and preloads, all five cuts.
+ */
+const geistPixelSquare = localFont({
+  src: "../node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2",
+  variable: "--font-geist-pixel-square",
+  weight: "500",
+  display: "swap",
+  fallback: ["Geist Mono", "ui-monospace", "monospace"],
+  adjustFontFallback: false,
+});
+
 /** Paired serif until `geist/font/serif` ships in the geist package. */
 const geistSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -38,6 +52,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
+/** Cloudflare Web Analytics: visits and page views, read by the portfolio's Insights. */
+const cloudflareBeaconToken =
+  process.env.NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
 const bingVerification = process.env.BING_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
@@ -110,7 +127,7 @@ export default async function RootLayout({
         GeistMono.variable,
         geistSerif.variable,
         instrumentSerif.variable,
-        GeistPixelSquare.variable,
+        geistPixelSquare.variable,
         GeistSans.className,
       )}
       lang="en"
@@ -118,6 +135,13 @@ export default async function RootLayout({
     >
       <body className="relative flex min-h-screen flex-col">
         <ChartThemeScript />
+        {cloudflareBeaconToken ? (
+          <Script
+            data-cf-beacon={JSON.stringify({ token: cloudflareBeaconToken })}
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            strategy="afterInteractive"
+          />
+        ) : null}
         <SiteLeftDotGrid />
         {openPanelClientId ? (
           <OpenPanelComponent

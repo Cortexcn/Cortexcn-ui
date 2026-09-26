@@ -40,6 +40,25 @@ const RESOURCE_ICON_PATHS: Record<ResourceIcon, string> = {
     "M10 2.5a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15zM2.5 10h15M10 2.5c2.2 2.4 2.2 12.6 0 15M10 2.5c-2.2 2.4-2.2 12.6 0 15",
 };
 
+/**
+ * What the site runs on. Cloudflare serves DNS only (Vercel advises against
+ * proxying through it), so it is credited for DNS, not for traffic protection.
+ */
+const INFRASTRUCTURE = [
+  {
+    name: "Vercel",
+    role: "Hosting, firewall, and DDoS protection",
+    href: "https://vercel.com/security",
+    icon: "M10 3l7.5 13h-15z",
+  },
+  {
+    name: "Cloudflare",
+    role: "DNS",
+    href: "https://www.cloudflare.com/dns/",
+    icon: "M6 15.5h9.5a3 3 0 0 0 .4-6A4.5 4.5 0 0 0 7.3 8 3.75 3.75 0 0 0 6 15.5z",
+  },
+];
+
 /** Sites and people whose craft shaped Cortexcn. */
 const INSPIRATIONS = [
   { name: "Tailwind CSS", href: "https://tailwindcss.com" },
@@ -208,6 +227,41 @@ export function LandingFooter() {
                   </li>
                 ))}
               </ol>
+            </div>
+            <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
+              <FooterHeading>Secured and served by</FooterHeading>
+              <ul className="flex flex-col gap-2">
+                {INFRASTRUCTURE.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      className="group flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]"
+                      href={item.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="size-5 shrink-0 text-foreground"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d={item.icon} />
+                      </svg>
+                      <span className="font-medium text-foreground transition-colors group-hover:text-primary">
+                        {item.name}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="h-px min-w-6 flex-1 border-border border-t border-dashed"
+                      />
+                      <span className="text-balance text-right">
+                        {item.role}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

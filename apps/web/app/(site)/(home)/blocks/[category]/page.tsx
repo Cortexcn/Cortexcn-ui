@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { BLOCK_CATEGORIES, getBlockCategory } from "@/blocks/categories";
 import { BlockCategoryList } from "@/components/blocks/block-examples";
 import { GridPageHero } from "@/components/design/grid-page-hero";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 interface BlockCategoryPageProps {
   params: Promise<{ category: string }>;
@@ -21,10 +23,11 @@ export async function generateMetadata({
   if (!category) {
     notFound();
   }
-  return {
+  return pageMetadata({
     title: `${category.name} blocks`,
     description: category.description,
-  };
+    path: `/blocks/${category.slug}`,
+  });
 }
 
 export default async function BlockCategoryPage({
@@ -39,6 +42,13 @@ export default async function BlockCategoryPage({
 
   return (
     <main className="flex flex-1 flex-col space-y-24">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Blocks", path: "/blocks" },
+          { name: category.name, path: `/blocks/${category.slug}` },
+        ])}
+      />
       <section className="relative w-full">
         <div className="container mx-auto w-full overflow-visible">
           <GridPageHero
