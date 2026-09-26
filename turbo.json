@@ -6,7 +6,9 @@
     "OPENPANEL_CLIENT_ID",
     "OPENPANEL_CLIENT_SECRET",
     "CLIENT_ID",
-    "CLIENT_SECRET"
+    "CLIENT_SECRET",
+    "GOOGLE_SITE_VERIFICATION",
+    "BING_SITE_VERIFICATION"
   ],
   "tasks": {
     "build": {

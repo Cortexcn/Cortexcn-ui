@@ -79,6 +79,11 @@
   --font-heading: var(--font-geist-sans);
   --font-display: var(--font-instrument-serif);
   --font-pixel: var(--font-geist-pixel-square);
+  /* Landing-only text tones (defined in the .syntiq scope). */
+  --color-body: var(--body);
+  --color-label-strong: var(--label-strong);
+  --color-label-weak: var(--label-weak);
+  --color-faint: var(--faint);
   --color-fd-input: var(--input);
 
   --shadow-color: var(--shadow);
@@ -94,6 +99,15 @@
   --animate-caret-blink: caret-blink 1.06s step-end infinite;
   --animate-studio-pill-border-spin: studio-pill-border-spin 3.75s linear
     infinite;
+  /* Landing diagram: dashed connectors that flow toward their target. */
+  --animate-dash-flow: dash-flow 0.6s linear infinite;
+
+  @keyframes dash-flow {
+    to {
+      stroke-dashoffset: -8;
+    }
+  }
+
   /* Landing hero: the "scroll for more" arrow nudging downward. */
   --animate-scroll-cue: scroll-cue 1.6s ease-in-out infinite;
 
@@ -316,6 +330,12 @@
   --ring: #6a2bff;
   --radius: 0.25rem;
 
+  /* Text tones: body copy, the two label weights, and the faintest marks. */
+  --body: #474747;
+  --label-strong: #7a7a7a;
+  --label-weak: #adadad;
+  --faint: #cccccc;
+
   /* The hero grid band is dark in both themes. */
   --band: #1a1a1a;
   --band-line: #474747;
@@ -347,6 +367,42 @@
   --border: #2b2b2b;
   --input: #2b2b2b;
   --ring: #8f66ff;
+  --body: #b3b3b3;
+  --label-strong: #8f8f8f;
+  --label-weak: #5c5c5c;
+  --faint: #474747;
+
+  color-scheme: dark;
+}
+
+/*
+ * Always-dark landing sections (capabilities, CTA band), in both themes.
+ * Put `dark` on the same element so `dark:` utilities inside pick the dark art;
+ * every token is restated here because the site's own `.dark` tokens would
+ * otherwise apply to that element.
+ */
+.syntiq .band-dark {
+  --primary: #7a4dff;
+  --primary-foreground: #fff;
+  --ring: #7a4dff;
+  --secondary: #242424;
+  --secondary-foreground: #ffffff;
+  --accent: #242424;
+  --accent-foreground: #ffffff;
+  --popover: #141414;
+  --popover-foreground: #ffffff;
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #141414;
+  --card-foreground: #ffffff;
+  --muted: #242424;
+  --muted-foreground: #7a7a7a;
+  --border: #474747;
+  --input: #474747;
+  --body: #adadad;
+  --label-strong: #adadad;
+  --label-weak: #7a7a7a;
+  --faint: #474747;
 
   color-scheme: dark;
 }

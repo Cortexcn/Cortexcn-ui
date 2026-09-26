@@ -1,10 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
+import {
+  DotTexture,
+  scrambleChar,
+  TypedText,
+  typedCount,
+  useTypeInOnView,
+} from "./kit";
 import { Container } from "./primitives";
 
 interface StackLogo {
@@ -179,8 +186,6 @@ const TAGLINE_GROUPS: TaglineSegment[][] = [
 
 const TAGLINE_TEXT = "shadcn registry, the UI layer for your AI agent";
 
-/** Characters flashed at the edge of the text as it types in. */
-const SCRAMBLE_CHARS = "{}[]<>/_#+=*?!";
 const CHAR_MS = 50;
 /** Each segment starts typing this long after the previous one starts. */
 const SEGMENT_STAGGER_MS = 250;
@@ -198,101 +203,19 @@ const TYPE_DURATION_MS =
   Math.max(...SEGMENTS.map(segmentLength)) * CHAR_MS +
   CHAR_MS;
 
-/**
- * Plays the type-in once the tagline scrolls into view and returns the elapsed
- * time, or null when the full text should show (server render, reduced motion,
- * finished).
- */
-function useTypeInOnView() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [elapsed, setElapsed] = useState<number | null>(null);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (
-      !element ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
-
-    setElapsed(0);
-    let frame = 0;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) {
-          return;
-        }
-        observer.disconnect();
-        const start = performance.now();
-        const tick = (now: number) => {
-          const time = now - start;
-          if (time >= TYPE_DURATION_MS) {
-            setElapsed(null);
-            return;
-          }
-          setElapsed(time);
-          frame = requestAnimationFrame(tick);
-        };
-        frame = requestAnimationFrame(tick);
-      },
-      { threshold: 0.6 },
-    );
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  return { ref, elapsed };
-}
-
-/** Characters shown so far; -1 means the segment has not started yet. */
-function typedCount(elapsed: number | null, index: number, length: number) {
-  if (elapsed === null) {
-    return length;
-  }
-  const time = elapsed - index * SEGMENT_STAGGER_MS;
-  if (time < 0) {
-    return -1;
-  }
-  return Math.min(length, Math.floor(time / CHAR_MS));
-}
-
-function TypedText({
-  text,
-  typed,
-  scramble,
-}: {
-  text: string;
-  typed: number;
-  scramble: string;
-}) {
-  if (typed >= text.length) {
-    return text;
-  }
-  // Untyped letters stay in the layout (invisible), so nothing shifts.
-  const started = typed >= 0;
-  const shown = Math.max(typed, 0);
-  return (
-    <>
-      {text.slice(0, shown)}
-      {started ? <span>{scramble}</span> : null}
-      <span className="invisible">{text.slice(started ? shown + 1 : 0)}</span>
-    </>
-  );
-}
-
 function Tagline() {
-  const { ref, elapsed } = useTypeInOnView();
+  const { ref, elapsed } = useTypeInOnView<HTMLDivElement>(TYPE_DURATION_MS);
   let segmentIndex = 0;
 
   const renderSegment = (segment: TaglineSegment, key: string): ReactNode => {
     const index = segmentIndex;
     segmentIndex += 1;
-    const typed = typedCount(elapsed, index, segmentLength(segment));
+    const typed = typedCount(
+      elapsed,
+      index * SEGMENT_STAGGER_MS,
+      segmentLength(segment),
+      CHAR_MS,
+    );
 
     if (segment.kind === "arrow") {
       return (
@@ -310,9 +233,7 @@ function Tagline() {
         </span>
       );
     }
-    const step = elapsed === null ? 0 : Math.floor(elapsed / 40);
-    const scramble =
-      SCRAMBLE_CHARS[(step + index * 5) % SCRAMBLE_CHARS.length] ?? "_";
+    const scramble = scrambleChar(elapsed, index * 5);
     return (
       <span key={key}>
         <TypedText scramble={scramble} text={segment.text} typed={typed} />
@@ -367,10 +288,6 @@ function TaglineCap({ side }: { side: "left" | "right" }) {
   );
 }
 
-/** 2px diamonds on a 7.09px grid, masked so the dot color follows the theme. */
-const DOT_TEXTURE =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7.092' height='7.092'%3E%3Cpath d='M3.5 2.5l1 1-1 1-1-1z'/%3E%3C/svg%3E\")";
-
 export function StackSection() {
   return (
     <section aria-label="Built on your stack" className="relative w-full">
@@ -382,11 +299,7 @@ export function StackSection() {
         </div>
 
         <div className="relative flex min-h-70 items-center bg-muted p-8">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[color-mix(in_oklab,var(--foreground)_20%,transparent)]"
-            style={{ maskImage: DOT_TEXTURE, maskSize: "7.092px 7.092px" }}
-          />
+          <DotTexture />
           <div className="relative flex w-full items-center gap-8">
             <TaglineCap side="left" />
             <Tagline />

@@ -5,7 +5,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
 import { GeistSans } from "geist/font/sans";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
 import type { ReactNode } from "react";
 import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provider";
@@ -14,6 +14,13 @@ import { SiteLeftDotGrid } from "@/components/design/site-left-dot-grid";
 import { DocsSearchDialog } from "@/components/docs/docs-search-dialog";
 import { getChartThemeIdFromCookie } from "@/lib/chart-theme-cookie.server";
 import { getOpenPanelClientId } from "@/lib/openpanel-env";
+import {
+  AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_TITLE,
+} from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 
@@ -30,10 +37,8 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
 });
 
-const SITE_NAME = "Cortexcn";
-const SITE_TITLE = "Cortexcn - Components your AI agent can build with";
-const SITE_DESCRIPTION =
-  "Cortexcn connects your AI coding agent to a real component library over MCP. Pick a component, describe the page, and your agent ships it. Built for freelancers, developers, and startups who move fast.";
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.BING_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,17 +47,52 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: SITE_KEYWORDS,
+  authors: [AUTHOR],
+  creator: AUTHOR.name,
+  publisher: SITE_NAME,
+  category: "technology",
+  formatDetection: { telephone: false, email: false, address: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    locale: "en_US",
     type: "website",
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
+  // Search Console and Bing Webmaster verification tokens, set per deployment.
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+    ...(bingVerification
+      ? { other: { "msvalidate.01": bingVerification } }
+      : {}),
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default async function RootLayout({
