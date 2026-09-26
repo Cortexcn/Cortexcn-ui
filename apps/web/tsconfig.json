@@ -1,7 +1,6 @@
 {
   "extends": "@bklitui/typescript-config/nextjs.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*", "../../packages/studio/src/*"],
       "@/lib/utils": ["./lib/utils.ts", "../ui/src/lib/utils.ts"]

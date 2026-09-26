@@ -10,6 +10,7 @@ import {
 
 import { CloudflareIcon } from "@/components/icons/cloudflare";
 import { CortexcnLogo } from "@/components/icons/cortexcn";
+import { SyedMoinMark } from "@/components/icons/syedmoin-mark";
 import { VercelIcon } from "@/components/icons/vercel";
 
 import { ArrowUpRightIcon } from "./kit";
@@ -300,9 +301,10 @@ export function LandingFooter() {
             target="_blank"
           >
             Created by
-            <span className="flex size-6 items-center justify-center rounded-full bg-foreground font-semibold text-[10px] text-background">
-              SM
-            </span>
+            <SyedMoinMark
+              aria-hidden="true"
+              className="h-2.5 w-auto text-foreground"
+            />
             <span className="font-semibold text-foreground">
               Syed Moinuddin
             </span>
