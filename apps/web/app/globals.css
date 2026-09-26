@@ -95,10 +95,17 @@
     infinite;
   /* Landing hero: dashed frame lines that crawl downward. */
   --animate-dash-scroll: dash-scroll 1s linear infinite;
+  --animate-dash-scroll-x: dash-scroll-x 1s linear infinite;
 
   @keyframes dash-scroll {
     to {
       background-position: 0 18px;
+    }
+  }
+
+  @keyframes dash-scroll-x {
+    to {
+      background-position: 18px 0;
     }
   }
 

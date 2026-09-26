@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { cn } from "@/lib/utils";
-
+import { DashedLine } from "./dashed-line";
 import { Container } from "./primitives";
 
 const HERO_IMAGE =
@@ -181,24 +180,16 @@ function AgentCard() {
   );
 }
 
-function DashedFrameLine({ side }: { side: "left" | "right" }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={cn(
-        "pointer-events-none absolute inset-y-0 hidden w-px animate-dash-scroll bg-[length:1px_18px] bg-[linear-gradient(to_bottom,var(--border)_66%,transparent_0)] lg:block",
-        side === "left" ? "left-0" : "right-0",
-      )}
-    />
-  );
-}
-
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-      <Container className="relative">
-        <DashedFrameLine side="left" />
-        <DashedFrameLine side="right" />
+    <section className="relative w-full overflow-hidden pt-32 md:pt-40">
+      {/* Bottom padding lives on the Container so the frame lines reach the logo strip below. */}
+      <Container className="relative pb-16 md:pb-24">
+        <DashedLine className="left-0 hidden lg:block" orientation="vertical" />
+        <DashedLine
+          className="right-0 hidden lg:block"
+          orientation="vertical"
+        />
 
         <div className="flex flex-col items-center text-center lg:px-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm">
