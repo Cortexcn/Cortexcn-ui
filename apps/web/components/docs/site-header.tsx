@@ -26,6 +26,10 @@ const uiComponents = [
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
   { text: "Marquee", url: "/docs/components/marquee" },
+  {
+    text: "Perspective Marquee",
+    url: "/docs/components/perspective-marquee",
+  },
   { text: "Theme Toggle Effect", url: "/docs/components/theme-toggle-effect" },
   { text: "Work Experience", url: "/docs/components/work-experience" },
 ];

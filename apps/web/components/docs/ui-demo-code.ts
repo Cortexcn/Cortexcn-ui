@@ -176,3 +176,17 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
 export function WorkExperienceDemo() {
   return <WorkExperience className="w-full" experiences={WORK_EXPERIENCE} />;
 }`;
+
+export const perspectiveMarqueeDemoCode = `import { PerspectiveMarquee } from "@/components/perspective-marquee";
+
+const images = [
+  { src: "/screens/dashboard.png", alt: "Dashboard" },
+  { src: "/screens/pricing.png", alt: "Pricing page" },
+  { src: "/screens/checkout.png", alt: "Checkout" },
+  { src: "/screens/settings.png", alt: "Settings" },
+  // ...more images
+];
+
+export function ScreensWall() {
+  return <PerspectiveMarquee images={images} />;
+}`;

@@ -71,6 +71,20 @@
       }
     },
     {
+      "name": "perspective-marquee",
+      "type": "registry:component",
+      "title": "Perspective Marquee",
+      "description": "A tilted wall of images that scrolls endlessly in alternating columns.",
+      "registryDependencies": ["@cortexcn/marquee", "@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/perspective-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/perspective-marquee.tsx"
+        }
+      ]
+    },
+    {
       "name": "line-nav",
       "type": "registry:component",
       "title": "Line Nav",

@@ -9,6 +9,7 @@
     "./lib/utils": "./src/lib/utils.ts",
     "./components/shimmering-text": "./src/components/shimmering-text.tsx",
     "./components/marquee": "./src/components/marquee.tsx",
+    "./components/perspective-marquee": "./src/components/perspective-marquee.tsx",
     "./components/line-nav": "./src/components/line-nav.tsx",
     "./components/logos-carousel": "./src/components/logos-carousel.tsx",
     "./components/theme-toggle-effect": "./src/components/theme-toggle-effect.tsx",
