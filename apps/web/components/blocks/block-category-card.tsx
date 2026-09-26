@@ -5,10 +5,9 @@ import { type ReactNode, useEffect, useRef, useState } from "react";
 import type { BlockCategory } from "@/blocks/categories";
 import { BLOCK_PREVIEWS } from "@/blocks/previews";
 
-/** Thumbnails render the real blocks on a fixed canvas, then scale it to fit. */
-const CANVAS_WIDTH = 1200;
-const CANVAS_HEIGHT = 750;
-const THUMBNAIL_BLOCK_LIMIT = 3;
+/** Thumbnails render the real block on a fixed canvas, then scale it to fit. */
+const CANVAS_WIDTH = 720;
+const CANVAS_HEIGHT = 450;
 
 function ScaledCanvas({ children }: { children: ReactNode }) {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -51,16 +50,15 @@ function ScaledCanvas({ children }: { children: ReactNode }) {
 
 export function BlockCategoryCard({ category }: { category: BlockCategory }) {
   const count = category.blocks.length;
+  const thumbnailSlug = category.thumbnail ?? category.blocks[0];
+  const Thumbnail = thumbnailSlug ? BLOCK_PREVIEWS[thumbnailSlug] : null;
 
   return (
     <div className="group relative flex flex-col gap-5 rounded-2xl bg-muted/50 p-4 transition-colors hover:bg-muted">
       <div className="overflow-hidden rounded-xl border bg-background shadow-xs transition-shadow group-hover:shadow-md">
         <ScaledCanvas>
-          <div className="flex size-full flex-wrap content-center items-center justify-center gap-10 p-14">
-            {category.blocks.slice(0, THUMBNAIL_BLOCK_LIMIT).map((slug) => {
-              const Preview = BLOCK_PREVIEWS[slug];
-              return <Preview key={slug} />;
-            })}
+          <div className="flex size-full items-center justify-center p-12">
+            {Thumbnail ? <Thumbnail /> : null}
           </div>
         </ScaledCanvas>
       </div>
