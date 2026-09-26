@@ -1,9 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { type FormEvent, useState } from "react";
+import {
+  type ComponentType,
+  type FormEvent,
+  type SVGProps,
+  useState,
+} from "react";
 
+import { CloudflareIcon } from "@/components/icons/cloudflare";
 import { CortexcnLogo } from "@/components/icons/cortexcn";
+import { VercelIcon } from "@/components/icons/vercel";
 
 import { ArrowUpRightIcon } from "./kit";
 import { Container } from "./primitives";
@@ -44,18 +51,23 @@ const RESOURCE_ICON_PATHS: Record<ResourceIcon, string> = {
  * What the site runs on. Cloudflare serves DNS only (Vercel advises against
  * proxying through it), so it is credited for DNS, not for traffic protection.
  */
-const INFRASTRUCTURE = [
+const INFRASTRUCTURE: {
+  name: string;
+  role: string;
+  href: string;
+  Logo: ComponentType<SVGProps<SVGSVGElement>>;
+}[] = [
   {
     name: "Vercel",
     role: "Hosting, firewall, and DDoS protection",
     href: "https://vercel.com/security",
-    icon: "M10 3l7.5 13h-15z",
+    Logo: VercelIcon,
   },
   {
     name: "Cloudflare",
     role: "DNS",
     href: "https://www.cloudflare.com/dns/",
-    icon: "M6 15.5h9.5a3 3 0 0 0 .4-6A4.5 4.5 0 0 0 7.3 8 3.75 3.75 0 0 0 6 15.5z",
+    Logo: CloudflareIcon,
   },
 ];
 
@@ -231,7 +243,7 @@ export function LandingFooter() {
             <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
               <FooterHeading>Secured and served by</FooterHeading>
               <ul className="flex flex-col gap-2">
-                {INFRASTRUCTURE.map((item) => (
+                {INFRASTRUCTURE.map(({ Logo, ...item }) => (
                   <li key={item.name}>
                     <a
                       className="group flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]"
@@ -239,15 +251,13 @@ export function LandingFooter() {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <svg
+                      {/* A fixed slot keeps the names lined up, since the logos differ in width. */}
+                      <span
                         aria-hidden="true"
-                        className="size-5 shrink-0 text-foreground"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                        className="flex w-8 shrink-0 justify-center text-foreground"
                       >
-                        <path d={item.icon} />
-                      </svg>
+                        <Logo className="h-3.5 w-auto" />
+                      </span>
                       <span className="font-medium text-foreground transition-colors group-hover:text-primary">
                         {item.name}
                       </span>
