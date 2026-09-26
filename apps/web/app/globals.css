@@ -93,6 +93,15 @@
   --animate-caret-blink: caret-blink 1.06s step-end infinite;
   --animate-studio-pill-border-spin: studio-pill-border-spin 3.75s linear
     infinite;
+  /* Landing hero: dashed frame lines that crawl downward. */
+  --animate-dash-scroll: dash-scroll 1s linear infinite;
+
+  @keyframes dash-scroll {
+    to {
+      background-position: 0 18px;
+    }
+  }
+
   /* Marquee: mirrors the cssVars/css shipped with the `marquee` registry item. */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;

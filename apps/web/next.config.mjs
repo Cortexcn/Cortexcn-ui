@@ -56,6 +56,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.pravatar.cc",
       },
+      {
+        // Landing hero artwork.
+        protocol: "https",
+        hostname: "framerusercontent.com",
+      },
     ],
   },
 };
