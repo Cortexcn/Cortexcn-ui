@@ -1,16 +1,67 @@
 ---
 title: Introduction
-description: Beautiful, modern UI components for React applications
+description: Cortexcn is a set of beautifully designed components and a code distribution platform. Works with your favorite React frameworks and AI models. Open Code.
 ---
 
-Bklit UI is a component library built on top of shadcn/ui to help you build charts and data visualizations more easily.
+**This is not a component library you install. It is code you own and build on.**
 
-### Community
+You know how most traditional component libraries work: you install a package from npm, import the components, and use them in your app.
 
-Join our community to get help, share your projects, stay updated on new releases, and connect with other developers building with Bklit UI.
+This approach works well until you need to customize a component to fit your design system or need one that isn't included in the library. **Often, you end up wrapping library components, writing workarounds to override styles, or mixing components from different libraries with incompatible APIs.**
 
-<SocialLinks />
+This is what Cortexcn aims to solve. It is built around the following principles:
 
-### Author
+- **Open Code:** The top layer of your component code is open for modification.
+- **Composition:** Every component uses a common, composable interface, making them predictable.
+- **Distribution:** A shadcn registry and a single CLI command bring components into any project.
+- **Beautiful Defaults:** Carefully chosen default styles, so you get great design out of the box.
+- **AI-Ready:** Open code for LLMs to read, understand, and improve.
 
-Bklit UI is built and maintained by <a href="https://x.com/uixmat" target="_blank" rel="noreferrer">uixmat</a>.
+## Open Code
+
+Cortexcn hands you the actual component code. You have full control to customize and extend the components to your needs. This means:
+
+- **Full Transparency:** You see exactly how each component is built.
+- **Easy Customization:** Modify any part of a component to fit your design and functionality requirements.
+- **AI Integration:** Access to the code makes it straightforward for LLMs to read, understand, and even improve your components.
+
+_In a typical library, if you need to change a component's behavior, you have to override styles or wrap the component. With Cortexcn, you edit the component code directly._
+
+<Accordions type="single">
+  <Accordion title="How do I pull upstream updates in an Open Code approach?">
+
+Cortexcn components are built on well-maintained libraries such as `motion`, `d3`, and `@visx`. The core of your app receives fixes when you update those dependencies.
+
+The topmost layer, the one closest to your design system, is not coupled to the implementation of any library. It stays open for modification. When a component gets a new version, run the add command again and review the changes in your diff before you keep them.
+
+  </Accordion>
+</Accordions>
+
+## Composition
+
+Every component in Cortexcn shares a common, composable interface. **If a component does not exist, we build it, make it composable, and adjust its style to match and work with the rest of the design system.**
+
+_A shared, composable interface means it's predictable for both your team and LLMs. You are not learning a different API for every new component._
+
+## Distribution
+
+Cortexcn is also a code distribution system. It publishes every component to a registry that follows the shadcn registry schema, and you install components with the shadcn CLI.
+
+- **Schema:** A flat-file structure that defines each component, its dependencies, and its files.
+- **CLI:** A command-line tool that installs components and their dependencies into your project.
+
+_Add the `@cortexcn` registry to your `components.json` once, then run `npx shadcn@latest add @cortexcn/<component>` to add any component. See [Installation](/docs/installation)._
+
+## Beautiful Defaults
+
+Cortexcn comes with a growing collection of components that have carefully chosen default styles. They are designed to look good on their own and to work well together as a consistent system:
+
+- **Good Out of the Box:** Your UI has a clean and minimal look without extra work.
+- **Unified Design:** Components naturally fit with one another. Each component is built to match the others, keeping your UI consistent.
+- **Easily Customizable:** Styles come from CSS variables and Tailwind classes, so it's simple to override and extend the defaults.
+
+## AI-Ready
+
+The design of Cortexcn makes it easy for AI tools to work with your code. Its open code and consistent API allow AI models to read, understand, and even generate new components.
+
+_An AI model can learn how your components work and suggest improvements or even create new components that integrate with your existing design._

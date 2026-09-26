@@ -10,7 +10,7 @@
     "@number-flow/react",
     "@central-icons-react/all"
   ],
-  "registryDependencies": ["@bklit/stat-card-area-01"],
+  "registryDependencies": ["@cortexcn/stat-card-area-01"],
   "files": [
     {
       "path": "registry/examples/stat-card-area-01.tsx",

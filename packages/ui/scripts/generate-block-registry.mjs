@@ -81,8 +81,8 @@ const BLOCKS = {
       "Revenue stat card with gradient area sparkline, NumberFlow, and trend badge",
     previewMaxWidth: "max-w-md",
     registryDependencies: [
-      "@bklit/area-chart",
-      "@bklit/chart-stat-flow",
+      "@cortexcn/area-chart",
+      "@cortexcn/chart-stat-flow",
       "card",
       "badge",
     ],
@@ -106,8 +106,8 @@ const BLOCKS = {
       "Sessions stat card with line sparkline, overlaid NumberFlow, and trend badge",
     previewMaxWidth: "max-w-md",
     registryDependencies: [
-      "@bklit/line-chart",
-      "@bklit/chart-stat-flow",
+      "@cortexcn/line-chart",
+      "@cortexcn/chart-stat-flow",
       "card",
       "badge",
     ],
@@ -130,8 +130,8 @@ const BLOCKS = {
       "Visitor map stat card with choropleth sparkline, NumberFlow, and trend badge",
     previewMaxWidth: "max-w-3xl",
     registryDependencies: [
-      "@bklit/choropleth-chart",
-      "@bklit/chart-stat-flow",
+      "@cortexcn/choropleth-chart",
+      "@cortexcn/chart-stat-flow",
       "card",
       "badge",
     ],
@@ -220,7 +220,7 @@ const chartStatFlowItem = {
   type: "registry:component",
   title: "Chart Stat Flow",
   description: "Animated stat value and label for chart overlays",
-  registryDependencies: ["@bklit/utils"],
+  registryDependencies: ["@cortexcn/utils"],
   dependencies: ["@number-flow/react", "motion"],
   files: [
     {
@@ -316,7 +316,7 @@ for (const [blockId, spec] of Object.entries(BLOCKS)) {
     type: "registry:example",
     title: `${spec.title} Example`,
     description: `${spec.description} — demo for Open in v0`,
-    registryDependencies: [`@bklit/${blockId}`],
+    registryDependencies: [`@cortexcn/${blockId}`],
     dependencies: spec.dependencies,
     files: exampleFiles,
   });

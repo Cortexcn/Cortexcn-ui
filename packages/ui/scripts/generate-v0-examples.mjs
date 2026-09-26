@@ -89,10 +89,10 @@ export { ChartTooltip } from "./tooltip";`,
 const EXAMPLES = {
   "area-chart": {
     registryDependencies: [
-      "@bklit/area-chart",
-      "@bklit/grid",
-      "@bklit/x-axis",
-      "@bklit/chart-tooltip",
+      "@cortexcn/area-chart",
+      "@cortexcn/grid",
+      "@cortexcn/x-axis",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: [
       "@visx/curve@4.0.1-alpha.0",
@@ -118,9 +118,9 @@ const EXAMPLES = {
   },
   "bar-chart": {
     registryDependencies: [
-      "@bklit/bar-chart",
-      "@bklit/grid",
-      "@bklit/chart-tooltip",
+      "@cortexcn/bar-chart",
+      "@cortexcn/grid",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: [
       "@visx/gradient@4.0.1-alpha.0",
@@ -147,10 +147,10 @@ const EXAMPLES = {
   },
   "line-chart": {
     registryDependencies: [
-      "@bklit/line-chart",
-      "@bklit/grid",
-      "@bklit/x-axis",
-      "@bklit/chart-tooltip",
+      "@cortexcn/line-chart",
+      "@cortexcn/grid",
+      "@cortexcn/x-axis",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: [
       "@visx/curve@4.0.1-alpha.0",
@@ -176,10 +176,10 @@ const EXAMPLES = {
   },
   "scatter-chart": {
     registryDependencies: [
-      "@bklit/scatter-chart",
-      "@bklit/grid",
-      "@bklit/x-axis",
-      "@bklit/chart-tooltip",
+      "@cortexcn/scatter-chart",
+      "@cortexcn/grid",
+      "@cortexcn/x-axis",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: ["d3-scale", "d3-array", "motion", "react-use-measure"],
     importFrom: "ScatterChart, Scatter, Grid, XAxis, ChartTooltip",
@@ -200,7 +200,7 @@ const EXAMPLES = {
 </ScatterChart>`,
   },
   "pie-chart": {
-    registryDependencies: ["@bklit/pie-chart"],
+    registryDependencies: ["@cortexcn/pie-chart"],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom: "PieChart, PieSlice, PieCenter",
     data: `const pieData = [
@@ -217,7 +217,7 @@ const EXAMPLES = {
 </PieChart>`,
   },
   "gauge-chart": {
-    registryDependencies: ["@bklit/gauge-chart"],
+    registryDependencies: ["@cortexcn/gauge-chart"],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom: "Gauge",
     data: "",
@@ -230,7 +230,7 @@ const EXAMPLES = {
 />`,
   },
   "heatmap-chart": {
-    registryDependencies: ["@bklit/heatmap-chart"],
+    registryDependencies: ["@cortexcn/heatmap-chart"],
     dependencies: [
       "@visx/heatmap@4.0.1-alpha.0",
       "@visx/shape@4.0.1-alpha.0",
@@ -279,7 +279,7 @@ const EXAMPLES = {
 </HeatmapInteractionProvider>`,
   },
   "ring-chart": {
-    registryDependencies: ["@bklit/ring-chart"],
+    registryDependencies: ["@cortexcn/ring-chart"],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom: "RingChart, Ring, RingCenter",
     data: `const ringData = [
@@ -296,7 +296,7 @@ const EXAMPLES = {
 </RingChart>`,
   },
   "radar-chart": {
-    registryDependencies: ["@bklit/radar-chart"],
+    registryDependencies: ["@cortexcn/radar-chart"],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom: "RadarChart, RadarGrid, RadarAxis, RadarLabels, RadarArea",
     data: `const metrics = [
@@ -320,10 +320,10 @@ const data = [
   },
   "composed-chart": {
     registryDependencies: [
-      "@bklit/composed-chart",
-      "@bklit/grid",
-      "@bklit/x-axis",
-      "@bklit/chart-tooltip",
+      "@cortexcn/composed-chart",
+      "@cortexcn/grid",
+      "@cortexcn/x-axis",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: [
       "@visx/curve@4.0.1-alpha.0",
@@ -349,7 +349,7 @@ const data = [
     extraImports: `import { curveNatural } from "@visx/curve";`,
   },
   "funnel-chart": {
-    registryDependencies: ["@bklit/funnel-chart"],
+    registryDependencies: ["@cortexcn/funnel-chart"],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom: "FunnelChart",
     data: `const funnelData = [
@@ -361,7 +361,7 @@ const data = [
     body: `<FunnelChart data={funnelData} aspectRatio="2 / 1" />`,
   },
   "sankey-chart": {
-    registryDependencies: ["@bklit/sankey-chart"],
+    registryDependencies: ["@cortexcn/sankey-chart"],
     dependencies: [
       "@visx/sankey@4.0.1-alpha.0",
       "@visx/shape@4.0.1-alpha.0",
@@ -390,7 +390,7 @@ const data = [
 </SankeyChart>`,
   },
   "sunburst-chart": {
-    registryDependencies: ["@bklit/sunburst-chart"],
+    registryDependencies: ["@cortexcn/sunburst-chart"],
     dependencies: ["motion"],
     importFrom:
       "buildArcs, SunburstBreadcrumb, SunburstCenter, SunburstChart, SunburstHint, SunburstLabels, SunburstSegment",
@@ -435,11 +435,11 @@ const { arcs } = buildArcs(data);`,
   },
   "candlestick-chart": {
     registryDependencies: [
-      "@bklit/candlestick-chart",
-      "@bklit/grid",
-      "@bklit/x-axis",
-      "@bklit/y-axis",
-      "@bklit/chart-tooltip",
+      "@cortexcn/candlestick-chart",
+      "@cortexcn/grid",
+      "@cortexcn/x-axis",
+      "@cortexcn/y-axis",
+      "@cortexcn/chart-tooltip",
     ],
     dependencies: ["@visx/shape@4.0.1-alpha.0", "motion"],
     importFrom:
@@ -459,7 +459,7 @@ const { arcs } = buildArcs(data);`,
 </CandlestickChart>`,
   },
   "choropleth-chart": {
-    registryDependencies: ["@bklit/choropleth-chart"],
+    registryDependencies: ["@cortexcn/choropleth-chart"],
     dependencies: ["@visx/geo@4.0.1-alpha.0", "d3-geo", "topojson-client"],
     importFrom:
       "ChoroplethChart, ChoroplethFeatureComponent, ChoroplethTooltip",
@@ -474,7 +474,10 @@ const { arcs } = buildArcs(data);`,
 </ChoroplethChart>`,
   },
   "live-line-chart": {
-    registryDependencies: ["@bklit/live-line-chart", "@bklit/chart-tooltip"],
+    registryDependencies: [
+      "@cortexcn/live-line-chart",
+      "@cortexcn/chart-tooltip",
+    ],
     dependencies: [
       "@visx/curve@4.0.1-alpha.0",
       "@visx/shape@4.0.1-alpha.0",

@@ -5,7 +5,7 @@
   "title": "Sunburst Chart Example",
   "description": "Composable sunburst-chart demo for Open in v0",
   "dependencies": ["motion"],
-  "registryDependencies": ["@bklit/sunburst-chart"],
+  "registryDependencies": ["@cortexcn/sunburst-chart"],
   "files": [
     {
       "path": "registry/examples/sunburst-chart.tsx",

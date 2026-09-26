@@ -9,7 +9,10 @@
     "@visx/shape@4.0.1-alpha.0",
     "motion"
   ],
-  "registryDependencies": ["@bklit/live-line-chart", "@bklit/chart-tooltip"],
+  "registryDependencies": [
+    "@cortexcn/live-line-chart",
+    "@cortexcn/chart-tooltip"
+  ],
   "files": [
     {
       "path": "registry/examples/live-line-chart.tsx",

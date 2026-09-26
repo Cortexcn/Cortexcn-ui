@@ -196,13 +196,13 @@ function MobileMenu({
             ))}
           </div>
 
-          {/* Components section */}
+          {/* Charts section */}
           <div className="mt-3 border-border border-t pt-3">
             <span
               className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
               style={getStaggerStyle(links.length)}
             >
-              Components
+              Charts
             </span>
             <div className="flex flex-col gap-0.5">
               {components.map((component, index) => (
@@ -225,13 +225,13 @@ function MobileMenu({
             </div>
           </div>
 
-          {/* Utility section */}
+          {/* Chart utilities section */}
           <div className="mt-3 border-border border-t pt-3">
             <span
               className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
               style={getStaggerStyle(utilitiesStartIndex - 1)}
             >
-              Utility
+              Chart Utilities
             </span>
             <div className="flex flex-col gap-0.5">
               {utilities.flatMap((utility, i) => {
@@ -390,10 +390,11 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
           >
             <div className="flex items-center gap-2">
               <Link
-                className="font-semibold text-foreground text-lg no-underline transition-opacity hover:opacity-80"
+                className="mr-2 inline-flex items-center gap-2 font-semibold text-foreground text-lg no-underline tracking-tight transition-opacity hover:opacity-80"
                 href="/"
               >
                 <CortexcnLogo size={24} theme={logoTheme} />
+                <span>Cortexcn</span>
               </Link>
 
               {/* Desktop nav */}

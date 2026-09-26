@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <NextProvider>
       <DocsLayout
         nav={{
-          links: [...siteNavLinks],
+          links: [{ text: "Introduction", url: "/docs" }, ...siteNavLinks],
         }}
         tree={source.pageTree}
       >

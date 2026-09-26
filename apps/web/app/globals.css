@@ -225,32 +225,6 @@
       transparent 328deg 360deg
     );
   }
-
-  .docs-scroll-area {
-    --studio-scrollbar-width: 4px;
-    scrollbar-gutter: stable;
-    scrollbar-width: thin;
-    scrollbar-color: color-mix(in oklch, var(--foreground) 32%, transparent)
-      transparent;
-  }
-
-  .docs-scroll-area::-webkit-scrollbar {
-    width: var(--studio-scrollbar-width);
-  }
-
-  .docs-scroll-area::-webkit-scrollbar-track {
-    margin-block: 6px;
-    background: transparent;
-  }
-
-  .docs-scroll-area::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: color-mix(in oklch, var(--foreground) 24%, transparent);
-  }
-
-  .docs-scroll-area::-webkit-scrollbar-thumb:hover {
-    background: color-mix(in oklch, var(--foreground) 38%, transparent);
-  }
 }
 
 /* Align Fumadocs UI tokens with shadcn card surfaces */

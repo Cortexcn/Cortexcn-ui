@@ -11,7 +11,7 @@
     "@central-icons-react/all",
     "topojson-client"
   ],
-  "registryDependencies": ["@bklit/stat-card-choropleth-01"],
+  "registryDependencies": ["@cortexcn/stat-card-choropleth-01"],
   "files": [
     {
       "path": "registry/examples/stat-card-choropleth-01.tsx",

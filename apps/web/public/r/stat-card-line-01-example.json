@@ -9,7 +9,7 @@
     "@number-flow/react",
     "@central-icons-react/all"
   ],
-  "registryDependencies": ["@bklit/stat-card-line-01"],
+  "registryDependencies": ["@cortexcn/stat-card-line-01"],
   "files": [
     {
       "path": "registry/examples/stat-card-line-01.tsx",

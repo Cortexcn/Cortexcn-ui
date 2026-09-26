@@ -1719,7 +1719,7 @@ function makeAreaExamples(): ChartExample[] {
 />
 // Uses curveNatural for the loading pulse path`,
       footer:
-        "Uses @bklit/shimmering-text for the label — installed with @bklit/area-chart",
+        "Uses @cortexcn/shimmering-text for the label — installed with @cortexcn/area-chart",
       render: () => <AreaChartLoadingExample />,
     },
     {
@@ -3257,7 +3257,7 @@ const autoProjectionPath = buildProjectionPath({
 />
 // Uses curveNatural for the loading pulse path`,
       footer:
-        "Uses @bklit/shimmering-text for the label — installed with @bklit/line-chart",
+        "Uses @cortexcn/shimmering-text for the label — installed with @cortexcn/line-chart",
       render: () => <LineChartLoadingExample />,
     },
     {

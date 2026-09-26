@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { validChartSlugs } from "@/components/charts/chart-slugs";
-import { SITE_URL } from "@/lib/site-url";
+import { canonicalUrlFor, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const docRoutes: MetadataRoute.Sitemap = source.getPages().map((page) => ({
-    url: `${SITE_URL}${page.url}`,
+    url: canonicalUrlFor(page.url),
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: page.url === "/docs" ? 0.95 : 0.8,

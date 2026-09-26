@@ -1,4 +1,4 @@
 {
   "title": "Documentation",
-  "pages": ["---Components---", "...components", "---Utility---", "...utility"]
+  "pages": ["...components", "---Chart Utilities---", "...utility"]
 }

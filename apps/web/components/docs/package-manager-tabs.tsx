@@ -1,17 +1,19 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
 import { shadcnAddItem } from "@bklitui/studio";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { useEffect, useState } from "react";
 import { CopyButton } from "@/components/copy-button";
+import { CortexcnLogo } from "@/components/icons/cortexcn";
+import {
+  type PackageManager,
+  PackageManagerIcon,
+} from "@/components/icons/package-manager-icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { codeThemes } from "@/lib/code-theme";
 import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "bklit-package-manager";
-
-type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
 const PM_SHADCN_COMMANDS: Record<PackageManager, string> = {
   pnpm: "pnpm dlx shadcn@latest add",
@@ -62,9 +64,7 @@ export function PackageManagerTabs({ name }: PackageManagerTabsProps) {
     <figure className="not-prose relative my-4 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
       <Tabs onValueChange={handleValueChange} value={pm}>
         <div className="flex items-center gap-2 border-border border-b bg-muted/40 px-3 py-1.5">
-          <div className="flex size-4 items-center justify-center rounded-[1px] bg-foreground/80">
-            <Icon className="size-3 text-background" name="IconConsole" />
-          </div>
+          <CortexcnLogo className="rounded-[3px]" size={16} theme="auto" />
           <TabsList
             className="h-auto gap-0 rounded-none bg-transparent p-0"
             variant="line"
@@ -78,6 +78,7 @@ export function PackageManagerTabs({ name }: PackageManagerTabsProps) {
                 key={manager}
                 value={manager}
               >
+                <PackageManagerIcon manager={manager} />
                 {manager}
               </TabsTrigger>
             ))}

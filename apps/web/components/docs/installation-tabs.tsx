@@ -124,7 +124,7 @@ function CodeFilesContent({
       Visit the{" "}
       <a
         className="font-medium underline underline-offset-4"
-        href={`https://cortexcn.dev/r/${name}.json`}
+        href={`https://ui.cortexcn.dev/r/${name}.json`}
         rel="noopener noreferrer"
         target="_blank"
       >

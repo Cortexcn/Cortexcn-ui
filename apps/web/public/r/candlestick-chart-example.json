@@ -6,11 +6,11 @@
   "description": "Composable candlestick-chart demo for Open in v0",
   "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
   "registryDependencies": [
-    "@bklit/candlestick-chart",
-    "@bklit/grid",
-    "@bklit/x-axis",
-    "@bklit/y-axis",
-    "@bklit/chart-tooltip"
+    "@cortexcn/candlestick-chart",
+    "@cortexcn/grid",
+    "@cortexcn/x-axis",
+    "@cortexcn/y-axis",
+    "@cortexcn/chart-tooltip"
   ],
   "files": [
     {

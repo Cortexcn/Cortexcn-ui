@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "bklit-ui",
-  "homepage": "https://cortexcn.dev",
+  "name": "cortexcn",
+  "homepage": "https://ui.cortexcn.dev",
   "items": [
     {
       "name": "utils",
@@ -22,7 +22,7 @@
       "type": "registry:component",
       "title": "Shimmering Text",
       "description": "Per-character shimmer animation for loading labels and badges",
-      "registryDependencies": ["@bklit/utils"],
+      "registryDependencies": ["@cortexcn/utils"],
       "dependencies": ["motion"],
       "files": [
         {
@@ -60,7 +60,7 @@
       "type": "registry:component",
       "title": "Chart Context",
       "description": "Shared context and hooks for Bklit chart components",
-      "registryDependencies": ["@bklit/utils", "@bklit/chart-utils"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
       "dependencies": [
         "@visx/event@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -234,9 +234,9 @@
       "title": "Chart Series Layer",
       "description": "Shared line and area series rendering helpers (paths, markers, highlights, dash tails)",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/chart-tooltip"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "d3-shape", "motion"],
       "files": [
@@ -322,7 +322,7 @@
       "type": "registry:component",
       "title": "Chart Grid",
       "description": "Grid lines for charts",
-      "registryDependencies": ["@bklit/chart-context"],
+      "registryDependencies": ["@cortexcn/chart-context"],
       "dependencies": ["@visx/grid@4.0.1-alpha.0"],
       "files": [
         {
@@ -342,7 +342,10 @@
       "type": "registry:component",
       "title": "Reference Area",
       "description": "Shaded data-coordinate band for target ranges and thresholds on time-series charts",
-      "registryDependencies": ["@bklit/chart-context", "@bklit/background"],
+      "registryDependencies": [
+        "@cortexcn/chart-context",
+        "@cortexcn/background"
+      ],
       "dependencies": ["motion"],
       "files": [
         {
@@ -367,7 +370,10 @@
       "type": "registry:component",
       "title": "Projection Line",
       "description": "Forecast segment extending a line series past the last data point",
-      "registryDependencies": ["@bklit/chart-context", "@bklit/line-chart"],
+      "registryDependencies": [
+        "@cortexcn/chart-context",
+        "@cortexcn/line-chart"
+      ],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -397,7 +403,7 @@
       "type": "registry:component",
       "title": "Chart Background",
       "description": "Pattern fill for the plot area when grid lines are hidden",
-      "registryDependencies": ["@bklit/chart-context"],
+      "registryDependencies": ["@cortexcn/chart-context"],
       "dependencies": ["@visx/pattern@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -422,7 +428,7 @@
       "type": "registry:component",
       "title": "X Axis",
       "description": "X-axis component for time-series charts",
-      "registryDependencies": ["@bklit/chart-context", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
       "files": [
         {
           "path": "src/charts/x-axis.tsx",
@@ -436,7 +442,7 @@
       "type": "registry:component",
       "title": "Y Axis",
       "description": "Y-axis component for value labels in line and area charts",
-      "registryDependencies": ["@bklit/chart-context", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
       "files": [
         {
           "path": "src/charts/y-axis.tsx",
@@ -455,7 +461,7 @@
       "type": "registry:component",
       "title": "Chart Tooltip",
       "description": "Composable tooltip components for charts",
-      "registryDependencies": ["@bklit/chart-context", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
       "dependencies": ["@number-flow/react", "motion"],
       "files": [
         {
@@ -510,7 +516,7 @@
       "type": "registry:component",
       "title": "Chart Legend",
       "description": "Composable legend components for charts",
-      "registryDependencies": ["@bklit/utils", "@bklit/chart-utils"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
       "dependencies": ["@base-ui/react", "@number-flow/react"],
       "cssVars": {
         "light": {
@@ -577,9 +583,9 @@
       "title": "Chart Markers",
       "description": "Marker components for highlighting data points on charts",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils"
       ],
       "files": [
         {
@@ -605,14 +611,14 @@
       "title": "Area Chart",
       "description": "A composable area chart with gradient fills and animations",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/chart-series",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/shimmering-text",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/chart-series",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/shimmering-text",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -699,14 +705,14 @@
       "title": "Composed Chart",
       "description": "Time-series chart composing Line, Area, and SeriesBar on one shared scale (Recharts ComposedChart-style)",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/y-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/utils",
-        "@bklit/line-chart",
-        "@bklit/area-chart"
+        "@cortexcn/chart-context",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/y-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils",
+        "@cortexcn/line-chart",
+        "@cortexcn/area-chart"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -765,11 +771,11 @@
       "title": "Bar Chart",
       "description": "A composable bar chart with horizontal/vertical orientations and animations",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/grid",
-        "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/grid",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/gradient@4.0.1-alpha.0",
@@ -851,14 +857,14 @@
       "title": "Line Chart",
       "description": "A composable line chart with multiple series support",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/chart-series",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/shimmering-text",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/chart-series",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/shimmering-text",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -954,12 +960,12 @@
       "title": "Profit/Loss Line",
       "description": "Sign-colored line segments for profit and loss on LineChart",
       "registryDependencies": [
-        "@bklit/line-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/legend",
-        "@bklit/utils"
+        "@cortexcn/line-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/legend",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -993,7 +999,7 @@
       "type": "registry:component",
       "title": "Bar Depth",
       "description": "3D depth and glossy glass surfaces for BarChart bars",
-      "registryDependencies": ["@bklit/bar-chart"],
+      "registryDependencies": ["@cortexcn/bar-chart"],
       "dependencies": ["motion"],
       "files": [
         {
@@ -1009,13 +1015,13 @@
       "title": "Scatter Chart",
       "description": "A composable time-series scatter chart with offset rings, hover dimming, and animated enter",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/chart-series",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/chart-series",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils"
       ],
       "dependencies": ["d3-array", "d3-scale", "motion", "react-use-measure"],
       "files": [
@@ -1082,9 +1088,9 @@
       "title": "Live Line Chart",
       "description": "Real-time streaming line chart with smooth scrolling, crosshair, and animated axes",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -1129,13 +1135,13 @@
       "title": "Candlestick Chart",
       "description": "A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/y-axis",
-        "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/y-axis",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/utils"
       ],
       "dependencies": [
         "@visx/scale@4.0.1-alpha.0",
@@ -1171,7 +1177,7 @@
       "type": "registry:component",
       "title": "Pie Chart",
       "description": "A composable pie chart with animations and customizable slices",
-      "registryDependencies": ["@bklit/chart-animation", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@number-flow/react",
         "@visx/group@4.0.1-alpha.0",
@@ -1223,7 +1229,7 @@
       "type": "registry:component",
       "title": "Radar Chart",
       "description": "A composable radar/spider chart with multiple data series",
-      "registryDependencies": ["@bklit/chart-animation", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -1270,7 +1276,7 @@
       "type": "registry:component",
       "title": "Ring Chart",
       "description": "A composable donut/ring chart with progress indicators",
-      "registryDependencies": ["@bklit/chart-animation", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -1316,7 +1322,7 @@
       "type": "registry:component",
       "title": "Gauge",
       "description": "Notch-based radial or linear gauge with optional center label, patterns, and optional gradients",
-      "registryDependencies": ["@bklit/utils"],
+      "registryDependencies": ["@cortexcn/utils"],
       "dependencies": [
         "@visx/responsive@4.0.1-alpha.0",
         "@visx/pattern@4.0.1-alpha.0",
@@ -1373,13 +1379,13 @@
       "title": "Heatmap Chart",
       "description": "A contribution heatmap with animated cells and configurable level colors",
       "registryDependencies": [
-        "@bklit/chart-context",
-        "@bklit/chart-animation",
-        "@bklit/utils",
-        "@bklit/chart-utils",
-        "@bklit/chart-tooltip",
-        "@bklit/background",
-        "@bklit/shimmering-text"
+        "@cortexcn/chart-context",
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils",
+        "@cortexcn/chart-tooltip",
+        "@cortexcn/background",
+        "@cortexcn/shimmering-text"
       ],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
@@ -1508,10 +1514,10 @@
       "title": "Choropleth Map",
       "description": "A geographic map chart with zoom, pan, and data visualization",
       "registryDependencies": [
-        "@bklit/chart-animation",
-        "@bklit/utils",
-        "@bklit/chart-utils",
-        "@bklit/chart-tooltip"
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@types/geojson",
@@ -1566,9 +1572,9 @@
       "title": "Funnel Chart",
       "description": "An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations",
       "registryDependencies": [
-        "@bklit/chart-animation",
-        "@bklit/utils",
-        "@bklit/chart-utils"
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils"
       ],
       "dependencies": ["motion"],
       "files": [
@@ -1585,10 +1591,10 @@
       "title": "Sankey Diagram",
       "description": "A flow diagram for visualizing data transfers between nodes",
       "registryDependencies": [
-        "@bklit/chart-animation",
-        "@bklit/utils",
-        "@bklit/chart-utils",
-        "@bklit/chart-tooltip"
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/event@4.0.1-alpha.0",
@@ -1637,7 +1643,7 @@
       "type": "registry:component",
       "title": "Sunburst Chart",
       "description": "A composable hierarchical sunburst chart with drill-down zoom and animated segments",
-      "registryDependencies": ["@bklit/chart-animation", "@bklit/utils"],
+      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": ["motion"],
       "files": [
         {
@@ -1693,10 +1699,10 @@
       "title": "Area Chart Example",
       "description": "Composable area-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/area-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip"
+        "@cortexcn/area-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -1722,9 +1728,9 @@
       "title": "Bar Chart Example",
       "description": "Composable bar-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/bar-chart",
-        "@bklit/grid",
-        "@bklit/chart-tooltip"
+        "@cortexcn/bar-chart",
+        "@cortexcn/grid",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/gradient@4.0.1-alpha.0",
@@ -1751,10 +1757,10 @@
       "title": "Line Chart Example",
       "description": "Composable line-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/line-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip"
+        "@cortexcn/line-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -1780,10 +1786,10 @@
       "title": "Scatter Chart Example",
       "description": "Composable scatter-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/scatter-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip"
+        "@cortexcn/scatter-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": ["d3-scale", "d3-array", "motion", "react-use-measure"],
       "files": [
@@ -1804,7 +1810,7 @@
       "type": "registry:example",
       "title": "Pie Chart Example",
       "description": "Composable pie-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/pie-chart"],
+      "registryDependencies": ["@cortexcn/pie-chart"],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -1824,7 +1830,7 @@
       "type": "registry:example",
       "title": "Gauge Chart Example",
       "description": "Composable gauge-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/gauge-chart"],
+      "registryDependencies": ["@cortexcn/gauge-chart"],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -1844,7 +1850,7 @@
       "type": "registry:example",
       "title": "Heatmap Chart Example",
       "description": "Composable heatmap-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/heatmap-chart"],
+      "registryDependencies": ["@cortexcn/heatmap-chart"],
       "dependencies": [
         "@visx/heatmap@4.0.1-alpha.0",
         "@visx/shape@4.0.1-alpha.0",
@@ -1868,7 +1874,7 @@
       "type": "registry:example",
       "title": "Ring Chart Example",
       "description": "Composable ring-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/ring-chart"],
+      "registryDependencies": ["@cortexcn/ring-chart"],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -1888,7 +1894,7 @@
       "type": "registry:example",
       "title": "Radar Chart Example",
       "description": "Composable radar-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/radar-chart"],
+      "registryDependencies": ["@cortexcn/radar-chart"],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -1909,10 +1915,10 @@
       "title": "Composed Chart Example",
       "description": "Composable composed-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/composed-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/chart-tooltip"
+        "@cortexcn/composed-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -1937,7 +1943,7 @@
       "type": "registry:example",
       "title": "Funnel Chart Example",
       "description": "Composable funnel-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/funnel-chart"],
+      "registryDependencies": ["@cortexcn/funnel-chart"],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
         {
@@ -1957,7 +1963,7 @@
       "type": "registry:example",
       "title": "Sankey Chart Example",
       "description": "Composable sankey-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/sankey-chart"],
+      "registryDependencies": ["@cortexcn/sankey-chart"],
       "dependencies": [
         "@visx/sankey@4.0.1-alpha.0",
         "@visx/shape@4.0.1-alpha.0",
@@ -1981,7 +1987,7 @@
       "type": "registry:example",
       "title": "Sunburst Chart Example",
       "description": "Composable sunburst-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/sunburst-chart"],
+      "registryDependencies": ["@cortexcn/sunburst-chart"],
       "dependencies": ["motion"],
       "files": [
         {
@@ -2002,11 +2008,11 @@
       "title": "Candlestick Chart Example",
       "description": "Composable candlestick-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/candlestick-chart",
-        "@bklit/grid",
-        "@bklit/x-axis",
-        "@bklit/y-axis",
-        "@bklit/chart-tooltip"
+        "@cortexcn/candlestick-chart",
+        "@cortexcn/grid",
+        "@cortexcn/x-axis",
+        "@cortexcn/y-axis",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
       "files": [
@@ -2027,7 +2033,7 @@
       "type": "registry:example",
       "title": "Choropleth Chart Example",
       "description": "Composable choropleth-chart demo for Open in v0",
-      "registryDependencies": ["@bklit/choropleth-chart"],
+      "registryDependencies": ["@cortexcn/choropleth-chart"],
       "dependencies": ["@visx/geo@4.0.1-alpha.0", "d3-geo", "topojson-client"],
       "files": [
         {
@@ -2048,8 +2054,8 @@
       "title": "Live Line Chart Example",
       "description": "Composable live-line-chart demo for Open in v0",
       "registryDependencies": [
-        "@bklit/live-line-chart",
-        "@bklit/chart-tooltip"
+        "@cortexcn/live-line-chart",
+        "@cortexcn/chart-tooltip"
       ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
@@ -2074,7 +2080,7 @@
       "type": "registry:component",
       "title": "Chart Stat Flow",
       "description": "Animated stat value and label for chart overlays",
-      "registryDependencies": ["@bklit/utils"],
+      "registryDependencies": ["@cortexcn/utils"],
       "dependencies": ["@number-flow/react", "motion"],
       "files": [
         {
@@ -2090,8 +2096,8 @@
       "title": "Stat Card Area",
       "description": "Revenue stat card with gradient area sparkline, NumberFlow, and trend badge",
       "registryDependencies": [
-        "@bklit/area-chart",
-        "@bklit/chart-stat-flow",
+        "@cortexcn/area-chart",
+        "@cortexcn/chart-stat-flow",
         "card",
         "badge"
       ],
@@ -2139,7 +2145,7 @@
       "type": "registry:example",
       "title": "Stat Card Area Example",
       "description": "Revenue stat card with gradient area sparkline, NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@bklit/stat-card-area-01"],
+      "registryDependencies": ["@cortexcn/stat-card-area-01"],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
         "@visx/gradient@4.0.1-alpha.0",
@@ -2165,8 +2171,8 @@
       "title": "Stat Card Line",
       "description": "Sessions stat card with line sparkline, overlaid NumberFlow, and trend badge",
       "registryDependencies": [
-        "@bklit/line-chart",
-        "@bklit/chart-stat-flow",
+        "@cortexcn/line-chart",
+        "@cortexcn/chart-stat-flow",
         "card",
         "badge"
       ],
@@ -2213,7 +2219,7 @@
       "type": "registry:example",
       "title": "Stat Card Line Example",
       "description": "Sessions stat card with line sparkline, overlaid NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@bklit/stat-card-line-01"],
+      "registryDependencies": ["@cortexcn/stat-card-line-01"],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
         "@number-flow/react",
@@ -2238,8 +2244,8 @@
       "title": "Stat Card Choropleth",
       "description": "Visitor map stat card with choropleth sparkline, NumberFlow, and trend badge",
       "registryDependencies": [
-        "@bklit/choropleth-chart",
-        "@bklit/chart-stat-flow",
+        "@cortexcn/choropleth-chart",
+        "@cortexcn/chart-stat-flow",
         "card",
         "badge"
       ],
@@ -2293,7 +2299,7 @@
       "type": "registry:example",
       "title": "Stat Card Choropleth Example",
       "description": "Visitor map stat card with choropleth sparkline, NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@bklit/stat-card-choropleth-01"],
+      "registryDependencies": ["@cortexcn/stat-card-choropleth-01"],
       "dependencies": [
         "@number-flow/react",
         "@types/geojson",

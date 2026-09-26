@@ -1,6 +1,7 @@
 {
   "title": "Components",
   "pages": [
+    "---Charts---",
     "area-chart",
     "bar-chart",
     "candlestick-chart",

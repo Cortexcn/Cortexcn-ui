@@ -18,7 +18,7 @@ interface CopyPageButtonProps {
 }
 
 function getPromptUrl(baseURL: string, url: string, content: string) {
-  const prompt = `I'm looking at the Bklit UI documentation page: ${url}
+  const prompt = `I'm looking at the Cortexcn documentation page: ${url}
 
 Here is the markdown content:
 
@@ -87,7 +87,7 @@ export function CopyPageButton({ content, url, title }: CopyPageButtonProps) {
         <DropdownMenuTrigger
           render={
             <Button
-              className="rounded-l-none px-2.5"
+              className="cursor-pointer rounded-l-none px-2.5"
               size="default"
               variant="outline"
             />
@@ -97,7 +97,7 @@ export function CopyPageButton({ content, url, title }: CopyPageButtonProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="!w-auto min-w-max">
           <DropdownMenuItem
-            className="text-sm"
+            className="cursor-pointer text-sm"
             nativeButton={false}
             render={
               // biome-ignore lint/a11y/useAnchorContent: Base UI merges menu item children into this anchor
@@ -115,7 +115,7 @@ export function CopyPageButton({ content, url, title }: CopyPageButtonProps) {
             Open in ChatGPT
           </DropdownMenuItem>
           <DropdownMenuItem
-            className="text-sm"
+            className="cursor-pointer text-sm"
             nativeButton={false}
             render={
               // biome-ignore lint/a11y/useAnchorContent: Base UI merges menu item children into this anchor

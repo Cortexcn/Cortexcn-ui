@@ -9,7 +9,7 @@
     "@visx/shape@4.0.1-alpha.0",
     "motion"
   ],
-  "registryDependencies": ["@bklit/sankey-chart"],
+  "registryDependencies": ["@cortexcn/sankey-chart"],
   "files": [
     {
       "path": "registry/examples/sankey-chart.tsx",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Verifies registry item `dependencies` cover all npm imports in the item's
- * file tree plus transitive @bklit registryDependencies (shadcn / v0 install closure).
+ * file tree plus transitive @cortexcn registryDependencies (shadcn / v0 install closure).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -19,7 +19,7 @@ const byName = Object.fromEntries(
 const importRe =
   /(?:import|export)\s+(?:type\s+)?(?:[^'"]+\s+from\s+)?['"]([^'"]+)['"]/g;
 const DEP_VERSION_SUFFIX_RE = /@[\d.]+(-[\w.]+)?$/;
-const BKLIT_REGISTRY_DEP_RE = /^@bklit\/(.+)$/;
+const REGISTRY_DEP_RE = /^@cortexcn\/(.+)$/;
 
 function getPackageName(spec) {
   if (spec.startsWith(".") || spec.startsWith("@/")) {
@@ -74,7 +74,7 @@ function scanFiles(files) {
 }
 
 function getRegistryDepName(dep) {
-  const m = dep.match(BKLIT_REGISTRY_DEP_RE);
+  const m = dep.match(REGISTRY_DEP_RE);
   return m ? m[1] : null;
 }
 

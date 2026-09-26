@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { findNeighbour } from "fumadocs-core/server";
 import type { TOCItemType } from "fumadocs-core/toc";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
@@ -12,9 +13,9 @@ import { CopyPageButton } from "@/components/docs/copy-page-button";
 import { InstallationTabs } from "@/components/docs/installation-tabs";
 import { PackageManagerTabs } from "@/components/docs/package-manager-tabs";
 import { PageFooter } from "@/components/docs/page-footer";
-import { SocialLinks } from "@/components/docs/social-links";
 import { StudioEmbedPreview } from "@/components/docs/studio-embed-preview";
 import { TableOfContents } from "@/components/docs/toc";
+import { canonicalUrlFor } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
 // Extended page data types from fumadocs-mdx
@@ -76,12 +77,13 @@ export default async function Page(props: {
           <MDX
             components={{
               ...defaultMdxComponents,
+              Accordion,
+              Accordions,
               ComponentPreview,
               ComponentShowcase,
               ComponentsList,
               InstallationTabs,
               PackageManagerTabs,
-              SocialLinks,
               StudioEmbedPreview,
             }}
           />
@@ -109,5 +111,6 @@ export async function generateMetadata(props: {
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: { canonical: canonicalUrlFor(page.url) },
   };
 }

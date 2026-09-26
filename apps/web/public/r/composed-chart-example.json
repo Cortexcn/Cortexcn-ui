@@ -10,10 +10,10 @@
     "motion"
   ],
   "registryDependencies": [
-    "@bklit/composed-chart",
-    "@bklit/grid",
-    "@bklit/x-axis",
-    "@bklit/chart-tooltip"
+    "@cortexcn/composed-chart",
+    "@cortexcn/grid",
+    "@cortexcn/x-axis",
+    "@cortexcn/chart-tooltip"
   ],
   "files": [
     {

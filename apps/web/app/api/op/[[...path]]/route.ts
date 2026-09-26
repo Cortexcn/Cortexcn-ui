@@ -1,16 +1,16 @@
 import { createRouteHandler } from "@openpanel/nextjs/server";
 
-import { SITE_URL } from "@/lib/site-url";
+import { DOCS_URL, SITE_URL } from "@/lib/site-url";
 
 const { GET: baseGET, POST: basePOST } = createRouteHandler();
 
 const canonicalOrigin = new URL(SITE_URL).origin;
 
-/** Legacy/alternate hosts that should proxy with the canonical origin. */
+/** Production hosts whose events are reported under the canonical origin. */
 const productionOrigins = new Set([
   canonicalOrigin,
+  new URL(DOCS_URL).origin,
   "https://cortexcn.dev",
-  "https://www.cortexcn.dev",
 ]);
 
 function shouldNormalizeOrigin(request: Request) {

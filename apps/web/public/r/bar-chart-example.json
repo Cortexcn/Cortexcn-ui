@@ -11,9 +11,9 @@
     "motion"
   ],
   "registryDependencies": [
-    "@bklit/bar-chart",
-    "@bklit/grid",
-    "@bklit/chart-tooltip"
+    "@cortexcn/bar-chart",
+    "@cortexcn/grid",
+    "@cortexcn/chart-tooltip"
   ],
   "files": [
     {

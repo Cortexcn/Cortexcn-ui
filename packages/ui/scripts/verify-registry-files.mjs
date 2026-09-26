@@ -21,7 +21,7 @@ const byName = Object.fromEntries(
 
 const importRe =
   /(?:import|export)\s+(?:type\s+)?(?:[^'"]+\s+from\s+)?['"](\.[^'"]+)['"]/g;
-const BKLIT_REGISTRY_DEP_RE = /^@bklit\/(.+)$/;
+const REGISTRY_DEP_RE = /^@cortexcn\/(.+)$/;
 
 const RESOLVE_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx"];
 
@@ -59,7 +59,7 @@ function collectItemFiles(itemName, visited = new Set()) {
       files.add(file.path);
     }
     for (const regDep of item.registryDependencies ?? []) {
-      const nested = regDep.match(BKLIT_REGISTRY_DEP_RE)?.[1];
+      const nested = regDep.match(REGISTRY_DEP_RE)?.[1];
       if (nested) {
         visit(nested);
       }

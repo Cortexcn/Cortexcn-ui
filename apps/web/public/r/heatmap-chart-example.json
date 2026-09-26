@@ -9,7 +9,7 @@
     "@visx/shape@4.0.1-alpha.0",
     "motion"
   ],
-  "registryDependencies": ["@bklit/heatmap-chart"],
+  "registryDependencies": ["@cortexcn/heatmap-chart"],
   "files": [
     {
       "path": "registry/examples/heatmap-chart.tsx",

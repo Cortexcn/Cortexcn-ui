@@ -1,32 +1,26 @@
-"use client";
-
 import Link from "fumadocs-core/link";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { BklitLogo } from "../icons/bklit";
+import { CortexcnLogo } from "../icons/cortexcn";
+
+const PORTFOLIO_URL = "https://syedmoinuddin.com";
 
 export function SiteFooter() {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const logoTheme = mounted && resolvedTheme === "dark" ? "dark" : "light";
-
   return (
     <footer className="py-8">
-      <div className="mx-auto flex items-center justify-center gap-2 px-6">
-        <BklitLogo size={16} theme={logoTheme} />
-        <span className="text-muted-foreground text-sm">
+      <div className="mx-auto flex flex-wrap items-center justify-center gap-2 px-6 text-sm">
+        {/* "auto" also follows the forced-dark landing scope, not just the site theme. */}
+        <CortexcnLogo size={16} theme="auto" />
+        <span className="font-medium text-foreground">Cortexcn</span>
+        <span aria-hidden className="text-muted-foreground">
+          ·
+        </span>
+        <span className="text-muted-foreground">
           built by{" "}
           <Link
             className="text-foreground underline-offset-4 hover:underline"
             external
-            href="https://x.com/uixmat"
+            href={PORTFOLIO_URL}
           >
-            uixmat
+            Syed Moinuddin
           </Link>
         </span>
       </div>

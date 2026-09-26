@@ -71,7 +71,7 @@ export function DocsScrollArea({
   return (
     <div className={cn("relative min-h-0 overflow-hidden", className)}>
       <div
-        className="docs-scroll-area h-full min-w-0 overflow-y-auto overflow-x-hidden overscroll-contain"
+        className="no-scrollbar h-full min-w-0 overflow-y-auto overflow-x-hidden overscroll-contain"
         ref={scrollRef}
       >
         <div className={cn("min-w-0 pb-4", contentClassName)}>{children}</div>

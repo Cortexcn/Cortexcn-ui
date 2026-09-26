@@ -1,46 +1,46 @@
 ---
 title: Installation
-description: How to install and configure Bklit UI in your project
+description: How to install and configure Cortexcn in your project.
 ---
 
-Bklit UI is a trusted registry for shadcn/ui. Follow the steps below to get started.
+Cortexcn components are distributed through a shadcn registry. You add them with the shadcn CLI, and the component source is copied into your project.
 
 ## Prerequisites
 
-Before installing Bklit UI components, make sure you have shadcn/ui set up in your project. If you haven't already, run:
+Before installing Cortexcn components, make sure you have shadcn/ui set up in your project. If you haven't already, run:
 
 ```bash
 npx shadcn@latest init
 ```
 
-## Registry namespace
+## Add the registry
 
-Bklit is published on the shadcn registry index as `@bklit`. Add it to your `components.json` if it is not already configured:
+Add the `@cortexcn` namespace to the `registries` field in your `components.json`:
 
 ```json
 {
   "registries": {
-    "@bklit": "https://cortexcn.dev/r/{name}.json"
+    "@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"
   }
 }
 ```
 
-Then install components with the namespace, for example `npx shadcn@latest add @bklit/area-chart`.
+You only need to do this once per project.
 
-Chart loading labels use `@bklit/shimmering-text`, included automatically when you install `@bklit/line-chart`, `@bklit/area-chart`, or `@bklit/heatmap-chart`.
+## Install components
 
-## Install Components
-
-Install any Bklit UI component using the CLI:
+Install any Cortexcn component using the CLI:
 
 <PackageManagerTabs name="area-chart" />
 
-The `@bklit` namespace is configured automatically for new projects — no manual setup needed. This will:
+This will:
 
-- Download the component source code
-- Install any required dependencies
-- Place files in your configured component directory
+- Download the component source code into your project
+- Install any npm packages the component needs
+- Install any other Cortexcn components it depends on
+
+For example, `@cortexcn/line-chart`, `@cortexcn/area-chart`, and `@cortexcn/heatmap-chart` pull in `@cortexcn/shimmering-text` for their loading labels.
 
 ## Next Steps
 
-You're all set! Browse the [Components](/docs/components) section to start adding charts and visualizations to your project.
+You're all set. Browse the [Components](/docs/components) section to start adding components to your project.

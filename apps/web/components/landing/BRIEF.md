@@ -4,7 +4,7 @@
 > AgentLab/monochrome direction described lower in this file. Source of truth for
 > the visual system: the `.syntiq` scope in `app/globals.css` (dark navy palette,
 > warm orange accent `--primary`, Manrope + IBM Plex Mono) plus `primitives.tsx`.
-> The theme is scoped to the home layout wrapper (`app/(site)/(home)/layout.tsx`)
+> The theme is scoped to the home layout wrapper (`app/(site)/(landing)/layout.tsx`)
 > so docs and studio keep the default theme. Accent is orange (`text-primary`,
 > `bg-primary`), surfaces are `bg-card` on `bg-background`, headings are Manrope
 > semibold. The section copy is original text written to match the template's
