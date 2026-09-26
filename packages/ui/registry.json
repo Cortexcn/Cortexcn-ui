@@ -400,6 +400,26 @@
       }
     },
     {
+      "name": "work-experience",
+      "type": "registry:component",
+      "title": "Work Experience",
+      "description": "Display work experiences with role details, company logos, and durations.",
+      "registryDependencies": ["@cortexcn/utils", "collapsible", "separator"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/components/work-experience.tsx",
+          "type": "registry:component",
+          "target": "components/work-experience.tsx"
+        },
+        {
+          "path": "src/components/chevrons-up-down-icon.tsx",
+          "type": "registry:component",
+          "target": "components/chevrons-up-down-icon.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-utils",
       "type": "registry:lib",
       "title": "Chart Utilities",

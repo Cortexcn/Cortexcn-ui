@@ -1,0 +1,91 @@
+---
+title: Work Experience
+description: Display work experiences with role details, company logos, and durations.
+---
+
+import { workExperienceDemoCode } from "@/components/docs/ui-demo-code";
+import { WorkExperienceDemo } from "@/components/docs/work-experience-demo";
+
+<ComponentPreview code={workExperienceDemoCode}>
+  <WorkExperienceDemo />
+</ComponentPreview>
+
+## Features
+
+- Supports multiple positions per company.
+- Markdown in position descriptions: paragraphs, lists, **bold**, `code`, and links.
+- Company logos, employment type, period, and a calculated duration.
+- Positions with a description expand and collapse; positions without one stay static.
+- No markdown, date, or icon libraries required.
+
+## Installation
+
+<InstallationTabs name="work-experience" dependencies={["motion"]} />
+
+The CLI also installs the shadcn/ui [Collapsible](https://ui.shadcn.com/docs/components/collapsible) and [Separator](https://ui.shadcn.com/docs/components/separator) components.
+
+## Usage
+
+```tsx
+import { WorkExperience } from "@/components/work-experience";
+import type { ExperienceItemType } from "@/components/work-experience";
+```
+
+```tsx
+const experiences: ExperienceItemType[] = [
+  {
+    id: "acme",
+    companyName: "Acme",
+    companyWebsite: "https://acme.com",
+    isCurrentEmployer: true,
+    positions: [
+      {
+        id: "engineer",
+        title: "Software Engineer",
+        employmentPeriod: { start: "03.2024" },
+        employmentType: "Full-time",
+        description:
+          "- Shipped the new billing flow.\n- Led the design system.",
+        skills: ["React", "TypeScript"],
+      },
+    ],
+  },
+];
+
+<WorkExperience experiences={experiences} />;
+```
+
+Dates use `MM.YYYY` or `YYYY`. Leave `end` out for a current role; the period then ends with an infinity sign and the duration counts up to today. `icon` accepts any element, so you can use whichever icon set your project already has.
+
+## API reference
+
+### WorkExperience
+
+| Prop          | Type                                          | Default  | Description                    |
+| ------------- | --------------------------------------------- | -------- | ------------------------------ |
+| `experiences` | [`ExperienceItemType[]`](#experienceitemtype) | required | Companies to list, in order    |
+| `className`   | `string`                                      | -        | Extra classes for the root div |
+
+### ExperienceItemType
+
+| Property            | Type                                                          | Description                                |
+| ------------------- | ------------------------------------------------------------- | ------------------------------------------ |
+| `id`                | `string`                                                      | Unique identifier for the experience item  |
+| `companyName`       | `string`                                                      | Name of the company                        |
+| `companyLogo`       | `string?`                                                     | URL or path to the company's logo image    |
+| `companyWebsite`    | `string?`                                                     | URL to the company's website               |
+| `positions`         | [`ExperiencePositionItemType[]`](#experiencepositionitemtype) | Positions held at the company              |
+| `isCurrentEmployer` | `boolean?`                                                    | Shows a live indicator next to the company |
+
+### ExperiencePositionItemType
+
+| Property           | Type                              | Description                                                 |
+| ------------------ | --------------------------------- | ----------------------------------------------------------- |
+| `id`               | `string`                          | Unique identifier for the position                          |
+| `title`            | `string`                          | The job title or position name                              |
+| `employmentPeriod` | `{ start: string; end?: string }` | `MM.YYYY` or `YYYY`. Omit `end` for current roles           |
+| `employmentType`   | `string?`                         | For example `"Full-time"`, `"Part-time"`, or `"Contract"`   |
+| `description`      | `string?`                         | Markdown description; the position collapses when it is set |
+| `icon`             | `ReactElement?`                   | Icon for the position. Defaults to a briefcase              |
+| `skills`           | `string[]?`                       | Skills shown as tags under the position                     |
+| `isExpanded`       | `boolean?`                        | Whether the description starts expanded                     |

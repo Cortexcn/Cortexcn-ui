@@ -28,6 +28,7 @@ interface CssBlock {
 export interface RegistryData {
   name: string;
   dependencies?: string[];
+  registryDependencies?: string[];
   files: RegistryFile[];
   css?: CssBlock;
   cssVars?: Partial<Record<"theme" | "light" | "dark", Record<string, string>>>;
@@ -220,6 +221,10 @@ export function InstallationTabs({
   const deps = registryData?.dependencies || dependencies || [];
   const files = registryData?.files || [];
   const globalCss = registryData ? registryGlobalCss(registryData) : "";
+  // Un-namespaced registry dependencies are shadcn/ui components (e.g. "collapsible").
+  const shadcnComponents = (registryData?.registryDependencies ?? []).filter(
+    (dep) => !(dep.startsWith("@") || dep.includes("/")),
+  );
 
   return (
     <CodeTabs onTabChange={setInstallTab}>
@@ -241,6 +246,29 @@ export function InstallationTabs({
                 </p>
               )}
             </Step>
+
+            {shadcnComponents.length > 0 ? (
+              <Step>
+                <h4 className="font-medium">
+                  Install the required shadcn/ui components:
+                </h4>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                  {shadcnComponents.map((component) => (
+                    <li key={component}>
+                      <a
+                        className="font-medium underline underline-offset-4"
+                        href={`https://ui.shadcn.com/docs/components/${component}`}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {component}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <PackageManagerTabs name={shadcnComponents.join(" ")} raw />
+              </Step>
+            ) : null}
 
             <Step>
               <h4 className="font-medium">

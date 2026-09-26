@@ -128,3 +128,51 @@ export function ThemeToggleEffectDemo() {
     </div>
   );
 }`;
+
+export const workExperienceDemoCode = `import { CodeXmlIcon, GraduationCapIcon } from "lucide-react";
+
+import {
+  type ExperienceItemType,
+  WorkExperience,
+} from "@/components/work-experience";
+
+const WORK_EXPERIENCE: ExperienceItemType[] = [
+  {
+    id: "virallens",
+    companyName: "Virallens",
+    positions: [
+      {
+        id: "software-engineer",
+        title: "Software Engineer",
+        employmentPeriod: { start: "06.2025" },
+        employmentType: "Full-time",
+        icon: <CodeXmlIcon />,
+        description: \`I build complete digital products end to end.
+
+- **Citera:** Built the claim-verification pipeline.
+- **L-K Drop Analysis:** Built the front-end over the analysis engine.\`,
+        skills: ["TypeScript", "React 19", "Next.js 16", "Tailwind CSS"],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
+    id: "education",
+    companyName: "Education",
+    positions: [
+      {
+        id: "reva-university",
+        title: "REVA University",
+        employmentPeriod: { start: "08.2019", end: "08.2023" },
+        icon: <GraduationCapIcon />,
+        description: "Bachelor of Technology, Mechatronics, Robotics, and Automation Engineering.",
+        skills: ["C++", "Python", "Control Systems"],
+      },
+    ],
+  },
+];
+
+export function WorkExperienceDemo() {
+  return <WorkExperience className="w-full" experiences={WORK_EXPERIENCE} />;
+}`;

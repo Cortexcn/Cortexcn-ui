@@ -31,9 +31,14 @@ const PM_ADD_COMMANDS: Record<PackageManager, string> = {
 
 interface PackageManagerTabsProps {
   name: string;
+  /** Pass `name` to `shadcn add` as-is, e.g. for shadcn/ui's own components. */
+  raw?: boolean;
 }
 
-export function PackageManagerTabs({ name }: PackageManagerTabsProps) {
+export function PackageManagerTabs({
+  name,
+  raw = false,
+}: PackageManagerTabsProps) {
   const [pm, setPm] = useState<PackageManager>("pnpm");
 
   useEffect(() => {
@@ -55,7 +60,7 @@ export function PackageManagerTabs({ name }: PackageManagerTabsProps) {
     if (isDepsOnly) {
       return `${PM_ADD_COMMANDS[manager]} ${depsString}`;
     }
-    return `${PM_SHADCN_COMMANDS[manager]} ${shadcnAddItem(name)}`;
+    return `${PM_SHADCN_COMMANDS[manager]} ${raw ? name : shadcnAddItem(name)}`;
   };
 
   const command = getCommand(pm);
