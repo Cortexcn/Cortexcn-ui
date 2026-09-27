@@ -23,11 +23,25 @@ const STEPS: InstallStep[] = [
 npx shadcn@latest init
 
 # 2. Add the registry to components.json
-#    "@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"
+{
+  "registries": {
+    "@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"
+  }
+}
 
-# 3. Install any component
-npx shadcn@latest add @cortexcn/marquee
-npx shadcn@latest add @cortexcn/area-chart`,
+# 3. Install a chart and a marquee in one command
+npx shadcn@latest add @cortexcn/area-chart @cortexcn/marquee
+
+✔ Checking registry.
+✔ Installing dependencies.
+✔ Created files:
+  - components/charts/area-chart.tsx
+  - components/charts/area.tsx
+  - components/charts/grid.tsx
+  - components/charts/x-axis.tsx
+  - components/charts/tooltip/chart-tooltip.tsx
+  - components/marquee.tsx
+  # ...and the chart helpers they share`,
   },
   {
     title: "AI agent",
@@ -35,24 +49,71 @@ npx shadcn@latest add @cortexcn/area-chart`,
       "Give your agent the shadcn MCP server, then ask for a component by name.",
     code: `# Add the shadcn MCP server to Claude Code
 npx shadcn@latest mcp init --client claude
+# Cursor and VS Code: --client cursor, --client vscode
 
 # Then ask your agent in plain words
-> Add the @cortexcn marquee to my landing page
-> and fill it with our customer logos.`,
+> Build a revenue section for the dashboard: an
+> @cortexcn area chart of monthly revenue and costs,
+> with a marquee of our customers underneath.
+
+● shadcn  search_items_in_registries  "area chart"
+● shadcn  view_items_in_registries    @cortexcn/area-chart
+● shadcn  get_add_command_for_items   @cortexcn/area-chart
+● Bash    npx shadcn@latest add @cortexcn/area-chart
+● Bash    npx shadcn@latest add @cortexcn/marquee
+● Write   components/revenue-section.tsx
+
+✔ Added RevenueSection with an area chart for revenue
+  and costs, and a marquee of customers below it.`,
   },
   {
     title: "React",
     description:
-      "Import it like any other component in your app and pass your own content.",
-    code: `import { Marquee } from "@/components/marquee";
+      "Import it like any other component in your app and pass your own data.",
+    code: `import { Area } from "@/components/charts/area";
+import { AreaChart } from "@/components/charts/area-chart";
+import { Grid } from "@/components/charts/grid";
+import { ChartTooltip } from "@/components/charts/tooltip";
+import { XAxis } from "@/components/charts/x-axis";
+import { Marquee } from "@/components/marquee";
 
-export function Logos() {
+// Monthly totals in thousands of dollars.
+const revenue = [
+  { date: new Date("2026-06"), revenue: 48.2, costs: 31.4 },
+  { date: new Date("2026-07"), revenue: 53.9, costs: 33.8 },
+  { date: new Date("2026-08"), revenue: 61.8, costs: 35.1 },
+  { date: new Date("2026-09"), revenue: 70.4, costs: 36.9 },
+];
+
+const customers = ["Acme", "Globex", "Initech"];
+
+export function RevenueSection() {
   return (
-    <Marquee pauseOnHover className="[--duration:30s]">
-      <img src="/logos/nextjs.svg" alt="Next.js" />
-      <img src="/logos/react.svg" alt="React" />
-      <img src="/logos/tailwind.svg" alt="Tailwind CSS" />
-    </Marquee>
+    <section className="grid gap-6 border p-6">
+      <h2 className="font-medium text-lg">Revenue</h2>
+
+      <AreaChart data={revenue}>
+        <Grid horizontal />
+        <Area
+          dataKey="revenue"
+          fill="var(--chart-line-primary)"
+        />
+        <Area
+          dataKey="costs"
+          fill="var(--chart-line-secondary)"
+        />
+        <XAxis />
+        <ChartTooltip />
+      </AreaChart>
+
+      <Marquee pauseOnHover className="[--duration:30s]">
+        {customers.map((name) => (
+          <span className="px-6" key={name}>
+            {name}
+          </span>
+        ))}
+      </Marquee>
+    </section>
   );
 }`,
   },
@@ -67,7 +128,7 @@ export function Logos() {
  * with two groups: the bracket stays plain and the name is colored.
  */
 const TOKEN_PATTERN =
-  /(#.*$|\/\/.*$)|("[^"]*"|'[^']*')|\b(import|from|export|function|return|const)\b|(--[a-z][\w-]*)|(@cortexcn[\w./-]*)|(<\/?)([A-Za-z]+)|\b([a-zA-Z]+)(?==)|(^>)/g;
+  /(#.*$|\/\/.*$)|("[^"]*"|'[^']*')|\b(import|from|export|function|return|const|new)\b|(--[a-z][\w-]*)|(@cortexcn[\w./-]*)|(<\/?)([A-Za-z]+)|\b([a-zA-Z]+)(?==)|(^>)|(^✔)|(^●)|(?<=:\s)(\d+(?:\.\d+)?)\b/g;
 
 /** Class per capture group, by group number (group 6 is the JSX bracket). */
 const GROUP_CLASS: Record<number, string> = {
@@ -79,7 +140,11 @@ const GROUP_CLASS: Record<number, string> = {
   7: "text-[#82aaff]",
   8: "text-[#ffcb6b]",
   9: "text-[#9d7bff]",
+  10: "text-[#c3e88d]",
+  11: "text-[#9d7bff]",
+  12: "text-[#f78c6c]",
 };
+const COLORED_GROUPS = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12];
 
 function highlightLine(line: string): ReactNode[] {
   const parts: ReactNode[] = [];
@@ -92,7 +157,7 @@ function highlightLine(line: string): ReactNode[] {
     if (match[6]) {
       parts.push(match[6]);
     }
-    const group = [1, 2, 3, 4, 5, 7, 8, 9].find((number) => match[number]);
+    const group = COLORED_GROUPS.find((number) => match[number]);
     if (group) {
       parts.push(
         <span className={GROUP_CLASS[group]} key={`${index}-${group}`}>
@@ -249,14 +314,15 @@ export function InstallationSection() {
               </div>
 
               <div className="relative mt-auto flex flex-col gap-4 pl-8">
-                {/* Rail: dashed track, accent progress, square caps. */}
+                {/* Rail: dashed track, accent progress, square caps. The 2px
+                    track and bar sit at 3px so they center on the 8px caps. */}
                 <span
                   aria-hidden="true"
-                  className="absolute inset-y-1 left-0.75 border-border border-l border-dashed"
+                  className="absolute inset-y-1 left-0.75 border-border border-l-2 border-dashed"
                 />
                 <motion.span
                   aria-hidden="true"
-                  className="absolute inset-y-1 left-0.5 hidden w-0.5 origin-top bg-primary lg:block"
+                  className="absolute inset-y-1 left-0.75 hidden w-0.5 origin-top bg-primary lg:block"
                   style={{ scaleY: scrollYProgress }}
                 />
                 <span
