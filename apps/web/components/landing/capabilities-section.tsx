@@ -1,8 +1,9 @@
 "use client";
 
 import { Marquee } from "@bklitui/ui/components/marquee";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import { usePauseWhenOffscreen } from "@/lib/use-pause-when-offscreen";
 import { cn } from "@/lib/utils";
@@ -41,81 +42,88 @@ const CAPABILITIES: Capability[] = [
 /* Diagram: registry -> Cortexcn -> agents, and down into your app.          */
 /* ------------------------------------------------------------------------ */
 
-type IconName =
-  | "chart"
-  | "blocks"
-  | "square"
-  | "hook"
-  | "terminal"
-  | "pointer"
-  | "spark"
-  | "code"
-  | "layout"
-  | "bag";
+type IconName = "chart" | "blocks" | "square" | "hook" | "spark" | "example";
 
-/** 14 x 14 line icons for the diagram rows. */
+/** 14 x 14 line icons for the registry rows. */
 const ICON_PATHS: Record<IconName, string> = {
   chart: "M1.5 12.5h11M3.5 10V6.5M7 10V3.5M10.5 10V8",
   blocks:
     "M1.5 1.5h4.5v4.5H1.5zM8 1.5h4.5v4.5H8zM1.5 8h4.5v4.5H1.5zM8 8h4.5v4.5H8z",
   square: "M1.5 1.5h11v11h-11zM1.5 5h11",
   hook: "M5.5 8.5l3-3M4 7l-1.5 1.5a2.1 2.1 0 0 0 3 3L7 10M10 7l1.5-1.5a2.1 2.1 0 0 0-3-3L7 4",
-  terminal: "M1.5 2.5h11v9h-11zM4 5.5l2 1.5-2 1.5M7.5 9h2.5",
-  pointer: "M3 1.5v10l2.6-2.4 1.8 3.9 1.7-.8-1.8-3.8H11z",
-  spark:
-    "M7 1.5v3M7 9.5v3M1.5 7h3M9.5 7h3M3.2 3.2l2 2M8.8 8.8l2 2M10.8 3.2l-2 2M5.2 8.8l-2 2",
-  code: "M4.5 4L1.5 7l3 3M9.5 4l3 3-3 3M8 2.5l-2 9",
-  layout: "M1.5 1.5h11v11h-11zM1.5 5h11M5 5v7.5",
-  bag: "M2.5 4.5h9l-.8 8h-7.4zM5 4.5V3.5a2 2 0 0 1 4 0v1",
+  spark: "M7 1.5l1.4 3.6 3.6 1.4-3.6 1.4L7 11.5 5.6 7.9 2 6.5l3.6-1.4z",
+  example: "M3 1.5h5.5L11 4v8.5H3zM8.5 1.5V4H11M5 7h4M5 9.5h2.5",
 };
 
-function DiagramIcon({
-  name,
-  x,
-  y,
-  size = 14,
-  className,
-}: {
-  name: IconName;
-  x: number;
-  y: number;
-  size?: number;
-  className?: string;
-}) {
+function DiagramIcon({ name, x, y }: { name: IconName; x: number; y: number }) {
   return (
     <path
-      className={className}
       d={ICON_PATHS[name]}
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.1}
-      transform={`translate(${x} ${y}) scale(${size / 14})`}
+      transform={`translate(${x} ${y})`}
     />
   );
 }
 
-interface DiagramRow {
-  label: string;
-  icon: IconName;
-}
+/** A row shows a line icon (registry kinds) or a real logo (agents). */
+type DiagramRow = { label: string } & ({ icon: IconName } | { logo: string });
 
 const REGISTRY_ROWS: DiagramRow[] = [
   { label: "Charts", icon: "chart" },
   { label: "Blocks", icon: "blocks" },
   { label: "UI", icon: "square" },
   { label: "Hooks", icon: "hook" },
+  { label: "Effects", icon: "spark" },
+  { label: "Examples", icon: "example" },
 ];
 
 const AGENT_ROWS: DiagramRow[] = [
-  { label: "Claude Code", icon: "terminal" },
-  { label: "Cursor", icon: "pointer" },
-  { label: "Codex", icon: "spark" },
-  { label: "VS Code", icon: "code" },
+  { label: "Claude Code", logo: "/logos/claude.svg" },
+  { label: "Cursor", logo: "/logos/cursor-dark.svg" },
+  { label: "Codex", logo: "/logos/openai-dark.svg" },
+  { label: "VS Code", logo: "/logos/stack/vscode.svg" },
+  { label: "OpenCode", logo: "/logos/opencode-dark.svg" },
+  { label: "Windsurf", logo: "/logos/windsurf-dark.svg" },
 ];
 
-const APP_TILES: IconName[] = ["layout", "chart", "bag"];
+const APP_TILES = [
+  { name: "Next.js", logo: "/logos/stack/nextjs-dark.svg" },
+  { name: "React", logo: "/logos/react-dark.svg" },
+  { name: "Angular", logo: "/logos/angular.svg" },
+  { name: "Vite", logo: "/logos/vite.svg" },
+];
+
+/** Both boxes hold six rows and the app holds four tiles, so one cycle covers both. */
+const HIGHLIGHT_STEPS = 12;
+
+/* Diagram geometry, in viewBox units. */
+const BOX_HEIGHT = 297;
+const ROW_TOP = 48;
+const ROW_STEP = 39;
+const HUB = { x: 217.5, y: 102.5, size: 94 } as const;
+const APP = { x: 78.5, y: 347.5, width: 372, height: 123 } as const;
+const TILE = { size: 52, gap: 26, left: 121, top: 391.5 } as const;
+const HUB_CENTER = {
+  x: HUB.x + HUB.size / 2,
+  y: HUB.y + HUB.size / 2,
+} as const;
+/** The bracket spans the box rows and stays centered on the hub. */
+const BRACKET_LENGTH = (HUB_CENTER.y - 30.5) * 2;
+const TILES_RIGHT =
+  TILE.left + APP_TILES.length * TILE.size + (APP_TILES.length - 1) * TILE.gap;
+/** Small squares between the tiles and larger ones near the box edges. */
+const APP_DOTS = [
+  { x: (APP.x + TILE.left) / 2, size: 6 },
+  ...APP_TILES.slice(1).map((_, index) => ({
+    x: TILE.left + (index + 1) * (TILE.size + TILE.gap) - TILE.gap / 2 + 0.5,
+    size: 4,
+  })),
+  { x: (TILES_RIGHT + APP.x + APP.width) / 2 + 0.5, size: 6 },
+];
 
 const DIM_STROKE = "stroke-[color-mix(in_oklab,var(--border)_70%,transparent)]";
 
@@ -139,7 +147,7 @@ function DiagramBox({
           "fill-background transition-[stroke] duration-500",
           active ? "stroke-primary" : DIM_STROKE,
         )}
-        height={249}
+        height={BOX_HEIGHT}
         width={151}
         x={x + 0.5}
         y={0.5}
@@ -157,8 +165,8 @@ function DiagramBox({
         {title}
       </text>
       {rows.map((row, index) => {
-        const top = 48 + index * 39;
-        const lit = active && index === highlight;
+        const top = ROW_TOP + index * ROW_STEP;
+        const lit = active && index === highlight % rows.length;
         return (
           <g
             className={cn(
@@ -167,7 +175,21 @@ function DiagramBox({
             )}
             key={row.label}
           >
-            <DiagramIcon name={row.icon} x={x + 17} y={top + 10} />
+            {"logo" in row ? (
+              <image
+                className={cn(
+                  "transition-opacity duration-300",
+                  lit ? "opacity-100" : "opacity-60",
+                )}
+                height={15}
+                href={row.logo}
+                width={15}
+                x={x + 16.5}
+                y={top + 9.5}
+              />
+            ) : (
+              <DiagramIcon name={row.icon} x={x + 17} y={top + 10} />
+            )}
             <text
               className="fill-current"
               fontSize={14}
@@ -221,7 +243,7 @@ function CapabilityDiagram({
     <svg
       aria-hidden="true"
       className="h-auto w-full max-w-132"
-      viewBox="0 0 528 442"
+      viewBox="0 0 528 472"
       xmlns="http://www.w3.org/2000/svg"
     >
       <DiagramBox
@@ -242,28 +264,31 @@ function CapabilityDiagram({
       {/* Brackets from each box into the Cortexcn tile. */}
       <Connector
         active={active === 0}
-        d="M152 30.5h29.5v189H152M181.5 124.5H217"
+        d={`M152 30.5h29.5v${BRACKET_LENGTH}H152M181.5 ${HUB_CENTER.y}H${HUB.x - 0.5}`}
       />
       <Connector
         active={active === 1}
-        d="M376 30.5h-29.5v189H376M346.5 124.5H311"
+        d={`M376 30.5h-29.5v${BRACKET_LENGTH}H376M346.5 ${HUB_CENTER.y}H${HUB.x + HUB.size - 0.5}`}
       />
       {/* Twin lines down into your app. */}
-      <Connector active={active === 2} d="M261.5 171v147M267.5 171v147" />
+      <Connector
+        active={active === 2}
+        d={`M${HUB_CENTER.x - 3} ${HUB.y + HUB.size}V${APP.y}M${HUB_CENTER.x + 3} ${HUB.y + HUB.size}V${APP.y}`}
+      />
 
       <rect
         className="fill-[#0a0a0a] stroke-[color-mix(in_oklab,var(--border)_70%,transparent)]"
-        height={94}
-        width={94}
-        x={217.5}
-        y={77.5}
+        height={HUB.size}
+        width={HUB.size}
+        x={HUB.x}
+        y={HUB.y}
       />
       <image
         height={40}
         href="/img/cortexcn/icon-dark.png"
         width={40}
-        x={244.5}
-        y={104.5}
+        x={HUB_CENTER.x - 20}
+        y={HUB_CENTER.y - 20}
       />
 
       <g>
@@ -272,10 +297,10 @@ function CapabilityDiagram({
             "fill-background transition-[stroke] duration-500",
             active === 2 ? "stroke-primary" : DIM_STROKE,
           )}
-          height={123}
-          width={300}
-          x={114.5}
-          y={318.5}
+          height={APP.height}
+          width={APP.width}
+          x={APP.x}
+          y={APP.y}
         />
         <text
           className={cn(
@@ -285,44 +310,48 @@ function CapabilityDiagram({
           fontSize={12}
           letterSpacing="-0.04em"
           textAnchor="middle"
-          x={264.5}
-          y={346}
+          x={HUB_CENTER.x}
+          y={APP.y + 27.5}
         >
           Your app
         </text>
-        {APP_TILES.map((icon, index) => {
-          const x = 164 + index * 74;
+        {APP_TILES.map((tile, index) => {
+          const x = TILE.left + index * (TILE.size + TILE.gap);
           const lit = active === 2 && index === highlight % APP_TILES.length;
           return (
-            <g
-              className={cn(
-                "transition-colors duration-300",
-                lit ? "text-primary" : "text-muted-foreground",
-              )}
-              key={icon}
-            >
+            <g key={tile.name}>
               <rect
                 className={cn(
                   "fill-background transition-[stroke] duration-300",
                   lit ? "stroke-primary" : DIM_STROKE,
                 )}
-                height={52}
-                width={52}
+                height={TILE.size}
+                width={TILE.size}
                 x={x + 0.5}
-                y={362.5}
+                y={TILE.top}
               />
-              <DiagramIcon name={icon} size={20} x={x + 16} y={378} />
+              <image
+                className={cn(
+                  "transition-opacity duration-300",
+                  lit ? "opacity-100" : "opacity-60",
+                )}
+                height={24}
+                href={tile.logo}
+                width={24}
+                x={x + 14.5}
+                y={TILE.top + 14}
+              />
             </g>
           );
         })}
-        {[146, 230, 304, 386].map((x, index) => (
+        {APP_DOTS.map((dot) => (
           <rect
             className="fill-muted-foreground"
-            height={index === 0 || index === 3 ? 6 : 4}
-            key={x}
-            width={index === 0 || index === 3 ? 6 : 4}
-            x={index === 0 || index === 3 ? x - 1 : x}
-            y={index === 0 || index === 3 ? 386 : 387}
+            height={dot.size}
+            key={dot.x}
+            width={dot.size}
+            x={dot.x - dot.size / 2}
+            y={TILE.top + TILE.size / 2 - dot.size / 2}
           />
         ))}
       </g>
@@ -510,11 +539,31 @@ function InfoCard({
 }
 
 const HIGHLIGHT_MS = 900;
+const DESKTOP_QUERY = "(min-width: 1024px)";
 
 export function CapabilitiesSection() {
+  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [highlight, setHighlight] = useState(0);
   const { ref, paused } = usePauseWhenOffscreen<HTMLElement>();
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ["start start", "end end"],
+  });
+
+  // On desktop the diagram stays pinned for three screens, one per capability,
+  // like the installation steps.
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!window.matchMedia(DESKTOP_QUERY).matches) {
+      return;
+    }
+    setActive(
+      Math.min(
+        CAPABILITIES.length - 1,
+        Math.floor(progress * CAPABILITIES.length),
+      ),
+    );
+  });
 
   // Rows in the active box light up one after another.
   useEffect(() => {
@@ -525,53 +574,79 @@ export function CapabilitiesSection() {
       return;
     }
     const timer = setInterval(() => {
-      setHighlight((current) => (current + 1) % 4);
+      setHighlight((current) => (current + 1) % HIGHLIGHT_STEPS);
     }, HIGHLIGHT_MS);
     return () => clearInterval(timer);
   }, [paused]);
 
+  // A click scrolls to that capability's screen, so scrolling on from there
+  // still steps through the rest.
+  const select = (index: number) => {
+    const track = trackRef.current;
+    if (!(track && window.matchMedia(DESKTOP_QUERY).matches)) {
+      setActive(index);
+      setHighlight(0);
+      return;
+    }
+    const travel = track.offsetHeight - window.innerHeight;
+    const top =
+      track.getBoundingClientRect().top +
+      window.scrollY +
+      ((index + 0.5) / CAPABILITIES.length) * travel;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   return (
     <section
       aria-label="Core capabilities"
-      className="band-dark dark w-full bg-background py-20 text-foreground"
+      className="band-dark dark w-full bg-background pb-20 text-foreground"
       ref={ref}
     >
-      <Container>
-        <div className="grid border-border border-b lg:grid-cols-2">
-          <div className="flex flex-col gap-12 pb-12 lg:gap-16 lg:pb-20">
-            <SectionLabel label="Core capabilities" section="capabilities" />
-            <div className="flex flex-col gap-6 lg:pr-12" role="tablist">
-              {CAPABILITIES.map((capability, index) => (
-                <CapabilityTab
-                  capability={capability}
-                  index={index}
-                  key={capability.title}
-                  onSelect={() => {
-                    setActive(index);
-                    setHighlight(0);
-                  }}
-                  selected={active === index}
+      {/* Pinned at its own height, roughly centered under the header (the
+          content is about 38rem tall), so the cards follow straight after it
+          once the three screens have passed. */}
+      <div className="relative pt-20 lg:h-[300vh]" ref={trackRef}>
+        <div className="lg:sticky lg:top-[max(calc(var(--site-header-height)+1.5rem),calc(50svh-19rem))]">
+          <Container>
+            <div className="grid border-border border-b lg:grid-cols-2">
+              <div className="flex flex-col gap-12 pb-12">
+                <SectionLabel
+                  label="Core capabilities"
+                  section="capabilities"
                 />
-              ))}
-            </div>
-            <TypeHeading
-              className="mt-auto text-foreground"
-              lines={["Components in.", "Finished pages out."]}
-            />
-          </div>
+                <div className="flex flex-col gap-6 lg:pr-12" role="tablist">
+                  {CAPABILITIES.map((capability, index) => (
+                    <CapabilityTab
+                      capability={capability}
+                      index={index}
+                      key={capability.title}
+                      onSelect={() => select(index)}
+                      selected={active === index}
+                    />
+                  ))}
+                </div>
+                <TypeHeading
+                  className="mt-auto text-foreground"
+                  lines={["Components in.", "Finished pages out."]}
+                />
+              </div>
 
-          <div
-            className="relative flex min-h-105 items-center justify-center overflow-hidden border-border border-t bg-card px-6 py-12 sm:px-9 lg:mt-2.25 lg:border-l"
-            id="capability-diagram"
-            role="tabpanel"
-          >
-            <DotTexture className="bg-[color-mix(in_oklab,var(--foreground)_12%,transparent)]" />
-            <div className="relative w-full max-w-132">
-              <CapabilityDiagram active={active} highlight={highlight} />
+              <div
+                className="relative flex min-h-105 items-center justify-center overflow-hidden border-border border-t bg-card px-6 py-10 sm:px-9 lg:mt-2.25 lg:border-l"
+                id="capability-diagram"
+                role="tabpanel"
+              >
+                <DotTexture className="bg-[color-mix(in_oklab,var(--foreground)_12%,transparent)]" />
+                <div className="relative w-full max-w-132">
+                  <CapabilityDiagram active={active} highlight={highlight} />
+                </div>
+              </div>
             </div>
-          </div>
+          </Container>
         </div>
+      </div>
 
+      <Container>
         {/* Keeps the center line running into the cards below. */}
         <div aria-hidden="true" className="relative h-8">
           <span className="absolute inset-y-0 left-1/2 hidden w-px bg-border lg:block" />
