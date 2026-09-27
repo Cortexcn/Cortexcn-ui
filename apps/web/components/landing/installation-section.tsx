@@ -218,7 +218,7 @@ function CodeWindow({ step }: { step: InstallStep }) {
           <CopyIcon className="size-3.5" />
         </button>
       </div>
-      <pre className="min-h-0 flex-1 overflow-auto p-4 font-mono text-[13px] leading-5">
+      <pre className="no-scrollbar min-h-0 flex-1 overflow-auto p-4 font-mono text-[13px] leading-5">
         <code>
           {step.code.split("\n").map((line, index) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: lines are static and positional
