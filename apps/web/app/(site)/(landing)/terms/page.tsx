@@ -92,9 +92,11 @@ const SECTIONS: LegalSection[] = [
     title: "Pricing",
     content: (
       <p>
-        The pricing shown on the site is a preview. Nothing is for sale yet. If
-        paid plans launch, they will come with their own terms, and you will see
-        them before you pay.
+        Prices on the <LegalLink href="/pricing">pricing page</LegalLink> are
+        starting prices for client work, in US dollars. Every project gets a
+        written quote with its scope, price, and timeline, and that quote is
+        what you agree to and pay. Projects are paid half up front and half
+        before launch, and retainers are billed monthly in advance.
       </p>
     ),
   },

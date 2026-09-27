@@ -24,8 +24,11 @@ Core promise: your agent builds from real, tested components instead of making u
   fast-paced", "whether you are", "it's not just X, it's Y".
 - No emojis. No exclamation marks. Sentence case for headings.
 - Only honest claims. No fake metrics, testimonials, customer logos, emails, or
-  addresses. Pricing is labelled a preview until paid plans exist, the changelog
-  uses real release dates, and the footer newsletter says signups open at launch.
+  addresses. Prices are for client work, shown as starting prices in US dollars
+  from `lib/service-pricing.ts` (the landing section, /pricing, the FAQ, and
+  /index.md all read them there); every project still gets a written quote. The
+  changelog uses real release dates, and the footer newsletter says signups
+  open at launch.
 - The infrastructure row in the footer lists only what the site really runs on
   (Vercel for hosting, firewall, and DDoS protection; Cloudflare for DNS and the
   contact form's Turnstile check). Do not add providers that are not in the
@@ -82,7 +85,8 @@ Core promise: your agent builds from real, tested components instead of making u
 5. `installation-section.tsx` -> `InstallationSection` (N.03, sticky scroll steps)
 6. `services-section.tsx` -> `ServicesSection` (N.04, `id="services"`, dark band
    of client services that link to /contact)
-7. `pricing-section.tsx` -> `PricingSection` (N.05, `id="pricing"`, preview only)
+7. `pricing-section.tsx` -> `PricingSection` (N.05, `id="pricing"`, project and
+   retainer packages; `PricingPlans` is shared with the /pricing page)
 8. `changelog-section.tsx` -> `ChangelogSection` (N.06)
 9. `faq-section.tsx` -> `FaqSection` (N.07, `id="faq"`)
 10. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card)
