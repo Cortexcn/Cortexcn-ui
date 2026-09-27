@@ -34,9 +34,12 @@ const neuronComponents = [
 ];
 
 const cortexComponents = [
+  { text: "Command Search", url: "/docs/components/command-search" },
+  { text: "FAQ Tabs Card", url: "/docs/components/faq-tabs-card" },
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
   { text: "Marquee", url: "/docs/components/marquee" },
+  { text: "Number Ticker", url: "/docs/components/number-ticker" },
   {
     text: "Perspective Marquee",
     url: "/docs/components/perspective-marquee",
