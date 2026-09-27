@@ -1,26 +1,51 @@
 import {
   ADD_ONS,
+  COMPONENT_PLAN_PRICES,
+  COMPONENT_PLANS,
   cadenceLabel,
+  countLabel,
+  ESTIMATOR_OPTIONS,
+  ESTIMATOR_PROJECTS,
+  FREE_PLAN_LIMITS,
   formatUsd,
-  LOWEST_PROJECT_PRICE,
-  LOWEST_RETAINER_PRICE,
   PROJECT_PACKAGES,
+  PROJECT_STARTING_PRICES,
   type PricedPackage,
   RETAINERS,
+  RUSH,
   SERVICE_PRICES,
 } from "@/lib/service-pricing";
 import { DOCS_URL, SITE_URL } from "@/lib/site-url";
+
+function planPrice(item: PricedPackage) {
+  if (item.cadence === "once") {
+    return item.price === 0 ? "free" : `${formatUsd(item.price)}, paid once`;
+  }
+  return `from ${formatUsd(item.price)}${cadenceLabel(item.cadence)}`;
+}
 
 function packageLines(packages: PricedPackage[]) {
   return packages
     .map((item) =>
       [
-        `- **${item.name}** (from ${formatUsd(item.price)}${cadenceLabel(item.cadence)}, ${item.timeline.toLowerCase()}): ${item.summary}`,
+        `- **${item.name}** (${planPrice(item)}, ${item.tag.toLowerCase()}): ${item.summary}`,
         ...item.features.map((feature) => `  - ${feature}`),
       ].join("\n"),
     )
     .join("\n");
 }
+
+const ESTIMATOR_LINES = [
+  ...ESTIMATOR_PROJECTS.map(
+    (project) =>
+      `- **${project.label}:** from ${formatUsd(project.base)} with ${countLabel(project, project.basePages)}, then ${formatUsd(project.pagePrice)} for each extra ${project.unit.one}.`,
+  ),
+  ...ESTIMATOR_OPTIONS.map(
+    (option) =>
+      `- **${option.label}:** ${formatUsd(option.price.amount)}${option.price.perPage ? " a page" : ""}. ${option.detail}`,
+  ),
+  `- **${RUSH.label}:** ${RUSH.priceLabel}. ${RUSH.detail}`,
+].join("\n");
 
 /**
  * The landing page as markdown, served at /index.md for AI agents. Keep it in
@@ -146,7 +171,11 @@ Need more than components? Hire the team behind them. We build for clients too, 
 
 ## Pricing
 
-Starting prices in US dollars for client work. Every project gets a written quote with scope, price, and timeline before work starts. The registry components themselves are MIT licensed. Full list: [${SITE_URL}/pricing](${SITE_URL}/pricing).
+Prices in US dollars. Components are free to start, and the paid plans are paid once, with no subscription. Client work has starting prices, and every project gets a written quote with scope, price, and timeline before work starts. Every price and a project estimator: [${SITE_URL}/pricing](${SITE_URL}/pricing).
+
+### Component plans
+
+${packageLines(COMPONENT_PLANS)}
 
 ### Project packages
 
@@ -155,6 +184,12 @@ ${packageLines(PROJECT_PACKAGES)}
 ### Monthly retainers
 
 ${packageLines(RETAINERS)}
+
+### Estimate a project
+
+The [estimator](${SITE_URL}/pricing#estimate) adds up a project from its starting price, the page count, and the extras it needs.
+
+${ESTIMATOR_LINES}
 
 ### Every service
 
@@ -185,7 +220,7 @@ Yes. Any agent that can run the shadcn CLI or use the shadcn MCP server can inst
 Yes. Components live in your repo as plain React and Tailwind. Edit the markup, props, or styles, and theme everything with your own CSS variables.
 
 **What does it cost?**
-The registry components are MIT licensed, so installing them costs nothing. Client work is paid: projects start at ${formatUsd(LOWEST_PROJECT_PRICE)}, and monthly retainers at ${formatUsd(LOWEST_RETAINER_PRICE)}. The [pricing page](${SITE_URL}/pricing) lists every service.
+${FREE_PLAN_LIMITS.components} components and ${FREE_PLAN_LIMITS.templates} templates are free. Pro, with every component, is ${formatUsd(COMPONENT_PLAN_PRICES.pro)}, and Ultra, with every template and every future release, is ${formatUsd(COMPONENT_PLAN_PRICES.ultra)}. Both are paid once. Client work starts at ${formatUsd(PROJECT_STARTING_PRICES.landing)} for a landing page, and the [pricing page](${SITE_URL}/pricing) has an estimator for bigger projects.
 
 ## Links
 

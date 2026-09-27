@@ -3,9 +3,10 @@
 import { useId, useState } from "react";
 
 import {
+  COMPONENT_PLAN_PRICES,
+  FREE_PLAN_LIMITS,
   formatUsd,
-  LOWEST_PROJECT_PRICE,
-  LOWEST_RETAINER_PRICE,
+  PROJECT_STARTING_PRICES,
 } from "@/lib/service-pricing";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +36,7 @@ const FAQS = [
   },
   {
     question: "What does it cost?",
-    answer: `The registry components are MIT licensed, so installing them costs nothing. Client work is paid: projects start at ${formatUsd(LOWEST_PROJECT_PRICE)}, and monthly retainers at ${formatUsd(LOWEST_RETAINER_PRICE)}. The pricing page lists every service.`,
+    answer: `${FREE_PLAN_LIMITS.components} components and ${FREE_PLAN_LIMITS.templates} templates are free. Pro, with every component, is ${formatUsd(COMPONENT_PLAN_PRICES.pro)}, and Ultra, with every template and every future release, is ${formatUsd(COMPONENT_PLAN_PRICES.ultra)}. Both are paid once. Client work starts at ${formatUsd(PROJECT_STARTING_PRICES.landing)} for a landing page, and the pricing page has an estimator for bigger projects.`,
   },
 ];
 
