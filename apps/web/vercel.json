@@ -1,11 +1,3 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "app/api/og/studio/chart/route.ts": {
-      "maxDuration": 60
-    },
-    "app/api/og/studio/route.tsx": {
-      "maxDuration": 60
-    }
-  }
+  "$schema": "https://openapi.vercel.sh/vercel.json"
 }
