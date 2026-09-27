@@ -1,11 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import {
+  cadenceLabel,
+  formatUsd,
+  PROJECT_PACKAGES,
+  type PricedPackage,
+  RETAINERS,
+} from "@/lib/service-pricing";
 import { cn } from "@/lib/utils";
 
 import {
   ActionLink,
+  ArrowRightIcon,
   PixelArt,
   SectionLabel,
   TypeHeading,
@@ -13,63 +22,12 @@ import {
 } from "./kit";
 import { Container } from "./primitives";
 
-type Billing = "monthly" | "annually";
+type Kind = "projects" | "retainers";
 
-interface Plan {
-  name: string;
-  description: string;
-  /** USD per month when billed monthly. */
-  monthly: number;
-  includes: string;
-  features: string[];
-  featured?: boolean;
-}
-
-/*
- * Plan names, prices, and features are a preview for launch; the paid plans
- * are not live yet, which the note under the cards says.
- */
-const PLANS: Plan[] = [
-  {
-    name: "Free",
-    description: "For side projects and trying Cortexcn",
-    monthly: 0,
-    includes: "Includes:",
-    features: [
-      "Every component in the registry",
-      "Charts, blocks, and UI",
-      "Install with the shadcn CLI",
-      "Community support",
-    ],
-  },
-  {
-    name: "Pro",
-    description: "For freelancers and small teams",
-    monthly: 19,
-    includes: "Includes everything in Free, plus:",
-    features: [
-      "Premium blocks and page templates",
-      "Guided MCP setup for your agent",
-      "Early access to new components",
-      "Email support",
-    ],
-    featured: true,
-  },
-  {
-    name: "Team",
-    description: "For teams shipping client work",
-    monthly: 49,
-    includes: "Includes everything in Free & Pro, plus:",
-    features: [
-      "Seats for your whole team",
-      "A private registry for your components",
-      "Priority component requests",
-      "Priority support",
-    ],
-  },
-];
-
-const ANNUAL_DISCOUNT = 0.2;
+const PACKAGES: Record<Kind, PricedPackage[]> = {
+  projects: PROJECT_PACKAGES,
+  retainers: RETAINERS,
+};
 
 const BOLT_ROWS = [
   ".....####",
@@ -102,41 +60,42 @@ function CheckIcon({ className }: { className?: string }) {
   );
 }
 
-/** "$19.00": dollars in the text color, cents lighter; re-types on change. */
-function Price({ amount }: { amount: number }) {
-  const text = amount.toFixed(2);
+/** "$1,500 /project": the starting price, re-typed when it changes. */
+function Price({ plan }: { plan: PricedPackage }) {
+  const text = formatUsd(plan.price);
   const [display, play] = useScrambleText(text, 45);
 
   useEffect(() => {
     play();
   }, [play]);
 
-  const [dollars = "", cents = ""] = display.split(".");
   return (
-    <p className="flex items-baseline gap-1">
-      <span className="sr-only">${text} per month</span>
-      <span
-        aria-hidden="true"
-        className="whitespace-pre text-[4rem] leading-[1.1] tracking-[-0.06em]"
-      >
-        ${dollars}.<span className="text-label-weak">{cents}</span>
+    <div className="flex flex-col gap-1">
+      <span className="font-medium font-mono text-label-strong text-xs uppercase leading-[1.3] tracking-[-0.04em]">
+        Starting at
       </span>
-      <span
-        aria-hidden="true"
-        className="text-lg text-muted-foreground leading-[1.3] tracking-[-0.05em]"
-      >
-        /month
-      </span>
-    </p>
+      <p className="flex items-baseline gap-1">
+        <span className="sr-only">
+          {text} {plan.cadence === "month" ? "per month" : "per project"}
+        </span>
+        <span
+          aria-hidden="true"
+          className="whitespace-pre text-[4rem] leading-[1.1] tracking-[-0.06em]"
+        >
+          {display}
+        </span>
+        <span
+          aria-hidden="true"
+          className="text-lg text-muted-foreground leading-[1.3] tracking-[-0.05em]"
+        >
+          {cadenceLabel(plan.cadence)}
+        </span>
+      </p>
+    </div>
   );
 }
 
-function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
-  const amount =
-    billing === "annually"
-      ? plan.monthly * (1 - ANNUAL_DISCOUNT)
-      : plan.monthly;
-
+function PlanCard({ plan }: { plan: PricedPackage }) {
   return (
     <article
       className={cn(
@@ -163,6 +122,9 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
             </span>
           ) : null}
           <span aria-hidden="true" className="h-px flex-1 bg-border" />
+          <span className="font-medium font-mono text-label-strong text-xs uppercase leading-[1.3] tracking-[-0.04em]">
+            {plan.timeline}
+          </span>
         </div>
 
         <div className="mt-7.5 flex items-center gap-2">
@@ -173,25 +135,25 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
             {plan.name}
           </h3>
         </div>
-        <p className="mt-1.5 text-body text-lg leading-[1.3] tracking-[-0.05em]">
-          {plan.description}
+        <p className="mt-1.5 min-h-12 text-body text-lg leading-[1.3] tracking-[-0.05em]">
+          {plan.summary}
         </p>
 
-        <div className="mt-13">
-          <Price amount={amount} />
+        <div className="mt-10">
+          <Price plan={plan} />
         </div>
 
         <ActionLink
           block
-          className="mt-12"
-          href="/docs/installation"
-          label={plan.monthly === 0 ? "Start free" : "Get started"}
+          className="mt-10"
+          href="/contact"
+          label="Get a quote"
         />
       </div>
 
       <div className="flex flex-col gap-4 px-6 pt-8 pb-10">
         <p className="font-medium text-base leading-[1.3] tracking-[-0.05em]">
-          {plan.includes}
+          {plan.cadence === "month" ? "Every month:" : "What you get:"}
         </p>
         <ul className="flex flex-col gap-2">
           {plan.features.map((feature) => (
@@ -214,15 +176,15 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
   );
 }
 
-function BillingToggle({
-  billing,
+function KindToggle({
+  kind,
   onChange,
 }: {
-  billing: Billing;
-  onChange: (billing: Billing) => void;
+  kind: Kind;
+  onChange: (kind: Kind) => void;
 }) {
-  const option = (value: Billing, label: string) => {
-    const selected = billing === value;
+  const option = (value: Kind, label: string) => {
+    const selected = kind === value;
     return (
       <button
         aria-pressed={selected}
@@ -243,47 +205,60 @@ function BillingToggle({
           )}
         />
         {label}
-        {value === "annually" ? (
-          <span className="bg-primary px-0.5 font-medium font-mono text-primary-foreground text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-            Save 20%
-          </span>
-        ) : null}
       </button>
     );
   };
 
   return (
     <fieldset className="flex">
-      <legend className="sr-only">Billing period</legend>
-      {option("monthly", "Monthly")}
-      {option("annually", "Annually")}
+      <legend className="sr-only">Kind of work</legend>
+      {option("projects", "Projects")}
+      {option("retainers", "Monthly retainers")}
     </fieldset>
   );
 }
 
-export function PricingSection() {
-  const [billing, setBilling] = useState<Billing>("monthly");
+/**
+ * The package cards with the projects and retainers toggle. Used by the
+ * landing pricing section and the /pricing page.
+ */
+export function PricingPlans({ heading }: { heading?: string[] }) {
+  const [kind, setKind] = useState<Kind>("projects");
 
+  return (
+    <div className="flex flex-col gap-16">
+      <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+        {heading ? <TypeHeading lines={heading} /> : null}
+        <KindToggle kind={kind} onChange={setKind} />
+      </div>
+      <div className="flex flex-col gap-6">
+        <div className="grid gap-6 lg:grid-cols-3 lg:gap-0">
+          {PACKAGES[kind].map((plan) => (
+            <PlanCard key={plan.name} plan={plan} />
+          ))}
+        </div>
+        <p className="font-medium font-mono text-muted-foreground text-xs uppercase leading-[1.3] tracking-[-0.04em]">
+          Starting prices in US dollars. Every project gets a written quote
+          before work starts.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function PricingSection() {
   return (
     <section aria-label="Pricing" className="w-full py-20" id="pricing">
       <Container className="flex flex-col gap-6">
         <SectionLabel label="Pricing" section="pricing" />
-        <div className="flex flex-col gap-16">
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
-            <TypeHeading lines={["Simple pricing.", "Free to start."]} />
-            <BillingToggle billing={billing} onChange={setBilling} />
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-6 lg:grid-cols-3 lg:gap-0">
-              {PLANS.map((plan) => (
-                <PlanCard billing={billing} key={plan.name} plan={plan} />
-              ))}
-            </div>
-            <p className="font-medium font-mono text-muted-foreground text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-              Pricing preview. Paid plans are not live yet.
-            </p>
-          </div>
-        </div>
+        <PricingPlans heading={["Clear prices.", "Quoted before we start."]} />
+        <Link
+          className="group inline-flex items-center gap-2 self-start font-medium font-mono text-sm uppercase leading-[1.3] tracking-[-0.04em] transition-colors hover:text-primary"
+          href="/pricing"
+        >
+          See every service and add-on
+          <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
       </Container>
     </section>
   );
