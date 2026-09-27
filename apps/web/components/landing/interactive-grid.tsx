@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 
 const CELL_SIZE = 48;
 const FADE_MS = 700;
-/** Idle pulses keep the grid alive on touch screens, where nothing hovers. */
-const AMBIENT_INTERVAL_MS = 1400;
 
 const FADE_EASING = "cubic-bezier(0.23, 1, 0.32, 1)";
 
@@ -142,27 +140,6 @@ export function InteractiveGrid({ className }: { className?: string }) {
       setActive(null);
     };
   }, [containerRef, paused, size]);
-
-  useEffect(() => {
-    const cells = cellsRef.current?.children;
-    if (!(cells && size) || paused) {
-      return;
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    const timer = setInterval(() => {
-      const cell = cells[Math.floor(Math.random() * cells.length)];
-      if (cell instanceof HTMLElement && cell.style.opacity !== "1") {
-        cell.animate([{ opacity: 0 }, { opacity: 0.7 }, { opacity: 0 }], {
-          duration: FADE_MS * 2.5,
-          easing: "ease-in-out",
-        });
-      }
-    }, AMBIENT_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, [paused, size]);
 
   return (
     <div
