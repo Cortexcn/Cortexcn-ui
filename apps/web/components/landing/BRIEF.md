@@ -78,7 +78,7 @@ Core promise: your agent builds from real, tested components instead of making u
 2. `stack-section.tsx` -> `StackSection` (logo cells and the typed tagline panel)
 3. `benefits-section.tsx` -> `BenefitsSection` (N.01, "Why Cortexcn")
 4. `capabilities-section.tsx` -> `CapabilitiesSection` (N.02, dark band with the
-   registry diagram)
+   registry diagram, sticky scroll steps like the installation section)
 5. `installation-section.tsx` -> `InstallationSection` (N.03, sticky scroll steps)
 6. `pricing-section.tsx` -> `PricingSection` (N.04, `id="pricing"`, preview only)
 7. `changelog-section.tsx` -> `ChangelogSection` (N.05)
