@@ -3,6 +3,7 @@ import { PricingPlans } from "@/components/landing/pricing-section";
 import { Container } from "@/components/landing/primitives";
 import { TitleBand } from "@/components/landing/title-band";
 import { PricingDetails } from "@/components/pricing/pricing-details";
+import { PricingFaq } from "@/components/pricing/pricing-faq";
 import { ProjectEstimator } from "@/components/pricing/project-estimator";
 import { ServicePriceList } from "@/components/pricing/service-price-list";
 import { pageMetadata } from "@/lib/seo";
@@ -29,6 +30,7 @@ export default function PricingPage() {
         <ProjectEstimator />
         <ServicePriceList />
         <PricingDetails />
+        <PricingFaq />
       </main>
       <LandingFooter />
     </>
