@@ -4,7 +4,8 @@ import { join } from "node:path";
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
 import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
-import { SITE_TEMPLATES } from "@/lib/site-templates";
+// Hidden until Templates comes back; see apps/cortexcn/checklist.md.
+// import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
@@ -38,6 +39,8 @@ const ESM_END = /(;\s*$)|(\sfrom\s+["'][^"']+["']\s*;?\s*$)/;
 const NAME_PROP = /\bname=["']([\w-]+)["']/;
 const CATEGORY_PROP = /\bcategory=["']([^"']+)["']/;
 const LOCAL_LINK = /\]\((\/[^)\s]*)\)/g;
+const COMMENT_START = "{/*";
+const COMMENT_END = "*/}";
 
 /** True once the JSX element starting in `text` has fully closed. */
 function elementIsComplete(text: string, name: string) {
@@ -110,6 +113,56 @@ function collectElement(lines: string[], index: number, name: string) {
   return { text, end };
 }
 
+/** The comment opening on line `index`: its last line and the text around it. */
+function skipComment(lines: string[], index: number) {
+  const first = lines[index] ?? "";
+  const start = first.indexOf(COMMENT_START);
+  let end = index;
+  let text = first.slice(start);
+  while (!text.includes(COMMENT_END) && end < lines.length - 1) {
+    end += 1;
+    text += `\n${lines[end] ?? ""}`;
+  }
+  const after = text.slice(text.indexOf(COMMENT_END) + COMMENT_END.length);
+  return { end, rest: `${first.slice(0, start)}${after}` };
+}
+
+/**
+ * Drops MDX comments (`{/* ... *\/}`) outside code fences. Pages never render
+ * them, so copies of a page's source must not show them either.
+ */
+export function stripMdxComments(mdx: string) {
+  const lines = mdx.split(LINE_BREAK);
+  const out: string[] = [];
+  let fence: string | null = null;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index] ?? "";
+    const marker = line.match(FENCE)?.[1];
+
+    if (fence || marker) {
+      out.push(line);
+      if (!fence) {
+        fence = marker ?? null;
+      } else if (marker?.startsWith(fence)) {
+        fence = null;
+      }
+      continue;
+    }
+    if (line.includes(COMMENT_START)) {
+      const comment = skipComment(lines, index);
+      index = comment.end;
+      if (comment.rest.trim()) {
+        out.push(comment.rest);
+      }
+      continue;
+    }
+    out.push(line);
+  }
+
+  return out.join("\n");
+}
+
 function absolutizeLinks(line: string) {
   return line.replace(
     LOCAL_LINK,
@@ -119,7 +172,9 @@ function absolutizeLinks(line: string) {
 
 /** Drop frontmatter, imports, and demo JSX; keep prose, tables, and code. */
 export function mdxToMarkdown(mdx: string) {
-  const lines = mdx.replace(FRONTMATTER, "").split(LINE_BREAK);
+  const lines = stripMdxComments(mdx.replace(FRONTMATTER, "")).split(
+    LINE_BREAK,
+  );
   const out: string[] = [];
   let fence: string | null = null;
 
@@ -230,19 +285,21 @@ export function llmsTxt() {
           `- [${category.name}](${SITE_URL}/blocks/${category.slug}): ${category.description}`,
       ),
     ].join("\n"),
-    [
-      "## Templates",
-      ...SITE_TEMPLATES.map(
-        (template) =>
-          `- [${template.name}](${SITE_URL}/templates/${template.slug}): ${template.summary}. ${template.price}, MIT licensed.`,
-      ),
-    ].join("\n"),
+    // Hidden until Templates comes back; see apps/cortexcn/checklist.md.
+    // [
+    //   "## Templates",
+    //   ...SITE_TEMPLATES.map(
+    //     (template) =>
+    //       `- [${template.name}](${SITE_URL}/templates/${template.slug}): ${template.summary}. ${template.price}, MIT licensed.`,
+    //   ),
+    // ].join("\n"),
     [
       "## Optional",
       `- [Full documentation](${SITE_URL}/llms-full.txt): every docs page in one markdown file`,
       `- [Home page](${SITE_URL}/index.md): the landing page in markdown`,
       `- [Chart gallery](${SITE_URL}/charts/area-chart): live examples of every chart`,
-      `- [Studio](${SITE_URL}/studio): interactive chart editor with code export`,
+      // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
+      // `- [Studio](${SITE_URL}/studio): interactive chart editor with code export`,
     ].join("\n"),
   ];
   return `${sections.join("\n\n")}\n`;

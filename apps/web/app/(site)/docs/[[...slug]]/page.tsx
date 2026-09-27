@@ -18,6 +18,7 @@ import { StudioEmbedPreview } from "@/components/docs/studio-embed-preview";
 import { TableOfContents } from "@/components/docs/toc";
 import { JsonLd } from "@/components/seo/json-ld";
 import { componentGroupOf } from "@/lib/component-groups";
+import { stripMdxComments } from "@/lib/llms";
 import {
   breadcrumbJsonLd,
   type Crumb,
@@ -71,7 +72,7 @@ export default async function Page(props: {
   const mdxPath = join(process.cwd(), "content/docs", `${slugPath}.mdx`);
   let rawContent = "";
   try {
-    rawContent = await readFile(mdxPath, "utf-8");
+    rawContent = stripMdxComments(await readFile(mdxPath, "utf-8"));
   } catch {
     // Fallback if file read fails
     rawContent = "";
