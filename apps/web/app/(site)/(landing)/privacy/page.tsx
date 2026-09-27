@@ -129,7 +129,8 @@ const SECTIONS: LegalSection[] = [
             <LegalLink href="https://resend.com/legal/privacy-policy">
               Resend
             </LegalLink>{" "}
-            delivers contact form messages to our inbox.
+            delivers contact form messages to our inbox, and the confirmation
+            email back to you.
           </LegalItem>
           <LegalItem>
             <LegalLink href="https://openpanel.dev">OpenPanel</LegalLink>{" "}

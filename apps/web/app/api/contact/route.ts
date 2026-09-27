@@ -1,8 +1,11 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 
 import { emailDomainAcceptsMail } from "@/lib/contact/email-domain";
 import { takeRateLimit } from "@/lib/contact/rate-limit";
-import { sendContactEmail } from "@/lib/contact/send-email";
+import {
+  sendContactConfirmation,
+  sendContactEmail,
+} from "@/lib/contact/send-email";
 import { verifyTurnstile } from "@/lib/contact/turnstile";
 import { validateContact } from "@/lib/contact/validation";
 import { CONTACT_EMAIL } from "@/lib/contact-details";
@@ -127,5 +130,9 @@ export async function POST(request: Request) {
       502,
     );
   }
+
+  // The confirmation is a courtesy: it goes out after the response and never
+  // fails a message that already reached the team.
+  after(() => sendContactConfirmation(result.data));
   return reply({ ok: true }, 200);
 }
