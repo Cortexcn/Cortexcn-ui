@@ -10,7 +10,6 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import { ChartThemeSelector } from "@/components/chart-theme/chart-theme-selector";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import { CortexcnLogo } from "../icons/cortexcn";
@@ -134,6 +133,26 @@ const LANDING_PATHS = new Set([
   "/terms",
 ]);
 
+/**
+ * Whether a nav link stands for the section the page is in, so its tab stays
+ * lit on every page inside it: Docs covers /docs, except the component pages,
+ * which belong to Components, and Charts covers the whole /charts gallery.
+ */
+function isNavLinkActive(url: string, pathname: string) {
+  const inDocs = pathname === "/docs" || pathname.startsWith("/docs/");
+  const inComponents = pathname.startsWith("/docs/components");
+  if (url.startsWith("/docs/components")) {
+    return inComponents;
+  }
+  if (url.startsWith("/docs")) {
+    return inDocs && !inComponents;
+  }
+  const section = `/${url.split("/")[1] ?? ""}`;
+  return pathname === section || pathname.startsWith(`${section}/`);
+}
+
+const activeMenuItemClassName = "bg-muted text-foreground";
+
 function getScrollTop() {
   return (
     window.scrollY ||
@@ -172,6 +191,7 @@ function MobileMenu({
   staggerDelay,
   landing,
 }: MobileMenuProps) {
+  const pathname = usePathname();
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -233,23 +253,30 @@ function MobileMenu({
         <nav className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] [-webkit-overflow-scrolling:touch]">
           {/* Main links */}
           <div className="flex flex-col gap-0.5">
-            {links.map((link, index) => (
-              <Link
-                className="transition-[opacity,transform] duration-300 ease-out"
-                href={link.url}
-                key={link.url}
-                onClick={onClose}
-                style={getStaggerStyle(index)}
-              >
-                <Button
-                  className="h-10 w-full justify-start px-3"
-                  size="default"
-                  variant="ghost"
+            {links.map((link, index) => {
+              const active = isNavLinkActive(link.url, pathname);
+              return (
+                <Link
+                  aria-current={active ? "page" : undefined}
+                  className="transition-[opacity,transform] duration-300 ease-out"
+                  href={link.url}
+                  key={link.url}
+                  onClick={onClose}
+                  style={getStaggerStyle(index)}
                 >
-                  <NavLinkLabel text={link.text} url={link.url} />
-                </Button>
-              </Link>
-            ))}
+                  <Button
+                    className={cn(
+                      "h-10 w-full justify-start px-3",
+                      active && activeMenuItemClassName,
+                    )}
+                    size="default"
+                    variant="ghost"
+                  >
+                    <NavLinkLabel text={link.text} url={link.url} />
+                  </Button>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Neurons, Cortex, and Backgrounds sections */}
@@ -264,6 +291,9 @@ function MobileMenu({
               <div className="flex flex-col gap-0.5">
                 {group.items.map((component, index) => (
                   <Link
+                    aria-current={
+                      pathname === component.url ? "page" : undefined
+                    }
                     className="transition-[opacity,transform] duration-300 ease-out"
                     href={component.url}
                     key={component.url}
@@ -271,7 +301,10 @@ function MobileMenu({
                     style={getStaggerStyle(group.start + index)}
                   >
                     <Button
-                      className="h-10 w-full justify-start px-3"
+                      className={cn(
+                        "h-10 w-full justify-start px-3",
+                        pathname === component.url && activeMenuItemClassName,
+                      )}
                       size="default"
                       variant="ghost"
                     >
@@ -440,6 +473,7 @@ function LandingHeaderItems({
   links: NavLink[];
   menuButton: ReactNode;
 }) {
+  const pathname = usePathname();
   const tabClassName =
     "inline-flex h-9 items-center border-border border-y border-r bg-background px-3 font-mono text-foreground text-sm uppercase transition-colors hover:bg-primary hover:text-primary-foreground";
 
@@ -454,11 +488,24 @@ function LandingHeaderItems({
           Cortexcn
         </Link>
         <nav className="hidden items-center md:flex">
-          {links.map((link) => (
-            <Link className={tabClassName} href={link.url} key={link.url}>
-              {link.text}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const active = isNavLinkActive(link.url, pathname);
+            return (
+              <Link
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  tabClassName,
+                  // The page you are on stays filled in, like a pressed key.
+                  active &&
+                    "border-foreground bg-foreground text-background hover:bg-foreground hover:text-background",
+                )}
+                href={link.url}
+                key={link.url}
+              >
+                {link.text}
+              </Link>
+            );
+          })}
         </nav>
       </div>
 
@@ -469,7 +516,6 @@ function LandingHeaderItems({
             className="hidden w-30 justify-between lg:inline-flex"
             hideIfDisabled
           />
-          <ChartThemeSelector />
           <ModeToggle />
           {menuButton}
         </div>
@@ -601,13 +647,23 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
 
                   {/* Desktop nav */}
                   <nav className="hidden items-center gap-1 md:flex">
-                    {links.map((link) => (
-                      <Link href={link.url} key={link.url}>
-                        <Button variant="ghost">
-                          <NavLinkLabel text={link.text} url={link.url} />
-                        </Button>
-                      </Link>
-                    ))}
+                    {links.map((link) => {
+                      const active = isNavLinkActive(link.url, pathname);
+                      return (
+                        <Link
+                          aria-current={active ? "page" : undefined}
+                          href={link.url}
+                          key={link.url}
+                        >
+                          <Button
+                            className={cn(active && activeMenuItemClassName)}
+                            variant="ghost"
+                          >
+                            <NavLinkLabel text={link.text} url={link.url} />
+                          </Button>
+                        </Link>
+                      );
+                    })}
                   </nav>
                 </div>
 
@@ -617,7 +673,6 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
                     className="hidden w-30 justify-between lg:inline-flex"
                     hideIfDisabled
                   />
-                  <ChartThemeSelector />
                   <ModeToggle />
                   <MobileMenuButton
                     onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
