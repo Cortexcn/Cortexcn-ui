@@ -1,4 +1,26 @@
+import {
+  ADD_ONS,
+  cadenceLabel,
+  formatUsd,
+  LOWEST_PROJECT_PRICE,
+  LOWEST_RETAINER_PRICE,
+  PROJECT_PACKAGES,
+  type PricedPackage,
+  RETAINERS,
+  SERVICE_PRICES,
+} from "@/lib/service-pricing";
 import { DOCS_URL, SITE_URL } from "@/lib/site-url";
+
+function packageLines(packages: PricedPackage[]) {
+  return packages
+    .map((item) =>
+      [
+        `- **${item.name}** (from ${formatUsd(item.price)}${cadenceLabel(item.cadence)}, ${item.timeline.toLowerCase()}): ${item.summary}`,
+        ...item.features.map((feature) => `  - ${feature}`),
+      ].join("\n"),
+    )
+    .join("\n");
+}
 
 /**
  * The landing page as markdown, served at /index.md for AI agents. Keep it in
@@ -122,13 +144,25 @@ Need more than components? Hire the team behind them. We build for clients too, 
 9. **Research papers.** Support for research papers: code, experiments, figures, and editing.
 10. **Freelance work.** An extra engineer on your team, for a sprint or on a monthly retainer.
 
-## Pricing (preview)
+## Pricing
 
-Paid plans are not live yet. Every component in the registry can be browsed and installed today.
+Starting prices in US dollars for client work. Every project gets a written quote with scope, price, and timeline before work starts. The registry components themselves are MIT licensed. Full list: [${SITE_URL}/pricing](${SITE_URL}/pricing).
 
-- **Free:** every component in the registry, charts, blocks, and UI, install with the shadcn CLI, community support.
-- **Pro (preview):** premium blocks and page templates, guided MCP setup for your agent, early access to new components, email support.
-- **Team (preview):** seats for your whole team, a private registry for your components, priority component requests, priority support.
+### Project packages
+
+${packageLines(PROJECT_PACKAGES)}
+
+### Monthly retainers
+
+${packageLines(RETAINERS)}
+
+### Every service
+
+${SERVICE_PRICES.map((service) => `- **${service.title}:** from ${formatUsd(service.price)}${cadenceLabel(service.cadence)}, ${service.timeline.toLowerCase()}. ${service.includes.join(", ")}.`).join("\n")}
+
+### Add-ons
+
+${ADD_ONS.map((addOn) => `- **${addOn.name}:** ${addOn.price}. ${addOn.detail}`).join("\n")}
 
 ## Changelog
 
@@ -151,7 +185,7 @@ Yes. Any agent that can run the shadcn CLI or use the shadcn MCP server can inst
 Yes. Components live in your repo as plain React and Tailwind. Edit the markup, props, or styles, and theme everything with your own CSS variables.
 
 **What does it cost?**
-You can browse and install every component in the registry today. Paid plans with premium blocks and templates are on the way.
+The registry components are MIT licensed, so installing them costs nothing. Client work is paid: projects start at ${formatUsd(LOWEST_PROJECT_PRICE)}, and monthly retainers at ${formatUsd(LOWEST_RETAINER_PRICE)}. The [pricing page](${SITE_URL}/pricing) lists every service.
 
 ## Links
 

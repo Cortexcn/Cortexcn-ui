@@ -2,6 +2,11 @@
 
 import { useId, useState } from "react";
 
+import {
+  formatUsd,
+  LOWEST_PROJECT_PRICE,
+  LOWEST_RETAINER_PRICE,
+} from "@/lib/service-pricing";
 import { cn } from "@/lib/utils";
 
 import { DotTexture, IndexMark, SectionLabel, TypeHeading } from "./kit";
@@ -30,8 +35,7 @@ const FAQS = [
   },
   {
     question: "What does it cost?",
-    answer:
-      "You can browse and install every component in the registry today. Paid plans with premium blocks and templates are on the way.",
+    answer: `The registry components are MIT licensed, so installing them costs nothing. Client work is paid: projects start at ${formatUsd(LOWEST_PROJECT_PRICE)}, and monthly retainers at ${formatUsd(LOWEST_RETAINER_PRICE)}. The pricing page lists every service.`,
   },
 ];
 
