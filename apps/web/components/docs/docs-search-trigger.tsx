@@ -52,7 +52,10 @@ export function DocsSearchTrigger({
       }}
       type="button"
     >
-      <Icon className="size-3.5 text-muted-foreground" name="IconQuickSearch" />
+      <Icon
+        className="size-3.5 text-muted-foreground"
+        name="IconMagnifyingGlass"
+      />
       <SearchShortcut />
     </button>
   );
