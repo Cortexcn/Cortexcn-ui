@@ -7,6 +7,7 @@ import { HeroSection } from "@/components/landing/hero-section";
 import { InstallationSection } from "@/components/landing/installation-section";
 import { LandingFooter } from "@/components/landing/landing-footer";
 import { PricingSection } from "@/components/landing/pricing-section";
+import { ServicesSection } from "@/components/landing/services-section";
 import { StackSection } from "@/components/landing/stack-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
@@ -33,6 +34,7 @@ export default function HomePage() {
         <BenefitsSection />
         <CapabilitiesSection />
         <InstallationSection />
+        <ServicesSection />
         <PricingSection />
         <ChangelogSection />
         <FaqSection />

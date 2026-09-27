@@ -42,12 +42,11 @@ Add the registry once, then install any component with the shadcn CLI.
 # 1. Set up shadcn/ui (skip if you have it)
 npx shadcn@latest init
 
-# 2. Add the registry to components.json
-#    "@cortexcn": "${DOCS_URL}/r/{name}.json"
+# 2. Add the registry to components.json:
+#    "registries": { "@cortexcn": "${DOCS_URL}/r/{name}.json" }
 
-# 3. Install any component
-npx shadcn@latest add @cortexcn/marquee
-npx shadcn@latest add @cortexcn/area-chart
+# 3. Install a chart and a marquee in one command
+npx shadcn@latest add @cortexcn/area-chart @cortexcn/marquee
 \`\`\`
 
 ### AI agent
@@ -56,26 +55,72 @@ Give your agent the shadcn MCP server, then ask for a component by name.
 
 \`\`\`bash
 npx shadcn@latest mcp init --client claude
+# Cursor and VS Code: --client cursor, --client vscode
 \`\`\`
 
-Then ask, for example: "Add the @cortexcn marquee to my landing page and fill it with our customer logos."
+Then ask, for example: "Build a revenue section for the dashboard: an @cortexcn area chart of monthly revenue and costs, with a marquee of our customers underneath."
 
 ### React
 
-Import it like any other component in your app and pass your own content.
+Import it like any other component in your app and pass your own data.
 
 \`\`\`tsx
+import { Area } from "@/components/charts/area";
+import { AreaChart } from "@/components/charts/area-chart";
+import { Grid } from "@/components/charts/grid";
+import { ChartTooltip } from "@/components/charts/tooltip";
+import { XAxis } from "@/components/charts/x-axis";
 import { Marquee } from "@/components/marquee";
 
-export function Logos() {
+// Monthly totals in thousands of dollars.
+const revenue = [
+  { date: new Date("2026-06"), revenue: 48.2, costs: 31.4 },
+  { date: new Date("2026-07"), revenue: 53.9, costs: 33.8 },
+  { date: new Date("2026-08"), revenue: 61.8, costs: 35.1 },
+  { date: new Date("2026-09"), revenue: 70.4, costs: 36.9 },
+];
+
+const customers = ["Acme", "Globex", "Initech"];
+
+export function RevenueSection() {
   return (
-    <Marquee pauseOnHover className="[--duration:30s]">
-      <img src="/logos/nextjs.svg" alt="Next.js" />
-      <img src="/logos/react.svg" alt="React" />
-    </Marquee>
+    <section className="grid gap-6 border p-6">
+      <h2 className="font-medium text-lg">Revenue</h2>
+
+      <AreaChart data={revenue}>
+        <Grid horizontal />
+        <Area dataKey="revenue" fill="var(--chart-line-primary)" />
+        <Area dataKey="costs" fill="var(--chart-line-secondary)" />
+        <XAxis />
+        <ChartTooltip />
+      </AreaChart>
+
+      <Marquee pauseOnHover className="[--duration:30s]">
+        {customers.map((name) => (
+          <span className="px-6" key={name}>
+            {name}
+          </span>
+        ))}
+      </Marquee>
+    </section>
   );
 }
 \`\`\`
+
+## Services
+
+Need more than components? Hire the team behind them. We build for clients too, from a single landing page to a full product, an AI pipeline, or a research paper. Every build ships with its code in your repo. Work per project or on retainer, and [start a project](${SITE_URL}/contact) through the contact form.
+
+1. **Websites.** Company sites and portfolios on Next.js, fast to load and easy to update.
+2. **Landing pages.** Launch and campaign pages, from the first sketch to the live URL.
+3. **E-commerce stores.** Product pages, cart, checkout, and payments, ready for real orders.
+4. **Web applications.** Dashboards, portals, and SaaS products with sign-in, roles, and data.
+5. **Backend and APIs.** APIs, databases, auth, and background jobs that hold up in production.
+6. **Microservices.** Split a monolith or design new services, with queues and clean deploys.
+7. **AI pipelines.** AI features built into your product: retrieval, agents, and tool calls.
+8. **SEO.** Technical SEO: metadata, structured data, sitemaps, and page speed.
+9. **Research papers.** Support for research papers: code, experiments, figures, and editing.
+10. **Freelance work.** An extra engineer on your team, for a sprint or on a monthly retainer.
 
 ## Pricing (preview)
 
