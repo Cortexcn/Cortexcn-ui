@@ -105,7 +105,9 @@ const SECTIONS: LegalSection[] = [
         and the estimator gives an estimate, not a quote. Every project gets a
         written quote with its scope, price, and timeline, and that quote is
         what you agree to and pay. Projects are paid half up front and half
-        before launch, and retainers are billed monthly in advance.
+        before launch, and retainers are billed monthly in advance. The{" "}
+        <LegalLink href="/refunds">refund policy</LegalLink> covers when a
+        payment can be refunded.
       </p>
     ),
   },
