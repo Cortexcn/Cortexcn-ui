@@ -118,7 +118,13 @@ const STAGGER_DURATION = 650; // Total duration for all staggered items (ms)
 const HEADER_SCROLL_THRESHOLD = 8;
 
 /** Pages built from the landing kit, which get the boxed landing header. */
-const LANDING_PATHS = new Set(["/", "/contact", "/privacy", "/terms"]);
+const LANDING_PATHS = new Set([
+  "/",
+  "/contact",
+  "/pricing",
+  "/privacy",
+  "/terms",
+]);
 
 function getScrollTop() {
   return (
