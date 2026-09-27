@@ -13,14 +13,14 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Terms and conditions",
   description:
-    "The terms for using Cortexcn: the site, the docs, the registry, and the MIT licensed components you install.",
+    "The terms for using Cortexcn: the site, the docs, the registry, the component plans, and client work.",
   path: "/terms",
 });
 
 const UPDATED = "September 27, 2026";
 
 const SUMMARY =
-  "Use the site, the docs, and the components freely. The code is MIT licensed, comes with no warranty, and is yours once you install it.";
+  "Free components are MIT licensed. Paid plans are paid once and licensed to you. Client work follows a written quote. The code comes with no warranty.";
 
 const SECTIONS: LegalSection[] = [
   {
@@ -40,10 +40,17 @@ const SECTIONS: LegalSection[] = [
     content: (
       <LegalList>
         <LegalItem>
-          Cortexcn components, charts, blocks, and examples are released under
-          the MIT License. You can use them in personal and commercial projects,
+          Free components, charts, blocks, and templates are released under the
+          MIT License. You can use them in personal and commercial projects,
           change them, and ship them, as long as the license notice stays with
           the code.
+        </LegalItem>
+        <LegalItem>
+          Pro and Ultra items are paid once and licensed to the person or team
+          that bought them. Use them in as many personal and client projects as
+          you like, and change them freely. Do not resell, share, or publish
+          their source on its own, for example as a component library, a
+          template, or a public repository.
         </LegalItem>
         <LegalItem>
           When you install an item with the shadcn CLI or an AI agent, the code
@@ -81,7 +88,7 @@ const SECTIONS: LegalSection[] = [
     title: "Name and logo",
     content: (
       <p>
-        The MIT License covers the code, not the Cortexcn name or logo. You can
+        The code licenses cover the code, not the Cortexcn name or logo. You can
         say your project uses Cortexcn, but do not use the name or logo in a way
         that suggests we made or endorse your product.
       </p>
@@ -92,8 +99,10 @@ const SECTIONS: LegalSection[] = [
     title: "Pricing",
     content: (
       <p>
-        Prices on the <LegalLink href="/pricing">pricing page</LegalLink> are
-        starting prices for client work, in US dollars. Every project gets a
+        Prices on the <LegalLink href="/pricing">pricing page</LegalLink> are in
+        US dollars. Component plans are paid once, with no subscription, and
+        include what each plan lists. Client work prices are starting prices,
+        and the estimator gives an estimate, not a quote. Every project gets a
         written quote with its scope, price, and timeline, and that quote is
         what you agree to and pay. Projects are paid half up front and half
         before launch, and retainers are billed monthly in advance.
