@@ -1,4 +1,5 @@
-// From the Cortexcn registry: npx shadcn@latest add @cortexcn/marquee
+// From the Cortexcn registry (npx shadcn@latest add @cortexcn/marquee),
+// adapted from the Magic UI Marquee (MIT, https://magicui.design).
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
