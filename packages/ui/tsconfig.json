@@ -2,6 +2,11 @@
   "extends": "@bklitui/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
+    // The package ships source to bundlers (Next.js, the shadcn CLI), and some
+    // ESM dependencies, such as @react-three/postprocessing, only type-check
+    // under bundler resolution.
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "types": ["node"],
     "paths": {
       "@/*": ["./src/*"]
