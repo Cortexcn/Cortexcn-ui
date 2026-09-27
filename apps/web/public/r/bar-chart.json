@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Bar Chart",
   "description": "A composable bar chart with horizontal/vertical orientations and animations",
+  "categories": ["charts"],
   "dependencies": [
     "@visx/gradient@4.0.1-alpha.0",
     "@visx/pattern@4.0.1-alpha.0",

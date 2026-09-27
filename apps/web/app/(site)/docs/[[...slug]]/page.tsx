@@ -4,6 +4,7 @@ import { findNeighbour } from "fumadocs-core/server";
 import type { TOCItemType } from "fumadocs-core/toc";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 import { ComponentPreview } from "@/components/docs/component-preview";
@@ -16,6 +17,7 @@ import { PageFooter } from "@/components/docs/page-footer";
 import { StudioEmbedPreview } from "@/components/docs/studio-embed-preview";
 import { TableOfContents } from "@/components/docs/toc";
 import { JsonLd } from "@/components/seo/json-ld";
+import { componentGroupOf } from "@/lib/component-groups";
 import {
   breadcrumbJsonLd,
   type Crumb,
@@ -62,6 +64,7 @@ export default async function Page(props: {
   const data = page.data as PageData;
   const MDX = data.body;
   const neighbours = findNeighbour(source.pageTree, page.url);
+  const group = componentGroupOf(page.url);
 
   // Read raw MDX content for copy functionality
   const slugPath = params.slug?.join("/") || "index";
@@ -92,6 +95,15 @@ export default async function Page(props: {
         <header className="mb-8">
           <div className="flex items-start justify-between gap-4">
             <div>
+              {group ? (
+                <Link
+                  className="mb-3 inline-flex rounded-md border border-border px-2 py-0.5 font-medium font-mono text-muted-foreground text-xs uppercase tracking-wide transition-colors hover:text-foreground"
+                  href={`/docs/components#${group.category}`}
+                  title={group.description}
+                >
+                  {group.name}
+                </Link>
+              ) : null}
               <h1 className="m-0 font-bold text-3xl text-foreground leading-tight">
                 {data.title}
               </h1>

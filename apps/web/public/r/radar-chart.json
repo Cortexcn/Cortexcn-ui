@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Radar Chart",
   "description": "A composable radar/spider chart with multiple data series",
+  "categories": ["charts"],
   "dependencies": [
     "@visx/group@4.0.1-alpha.0",
     "@visx/responsive@4.0.1-alpha.0",

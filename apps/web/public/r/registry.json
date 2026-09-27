@@ -37,6 +37,7 @@
       "type": "registry:component",
       "title": "Marquee",
       "description": "An infinite scrolling component that can be used to display text, images, or videos.",
+      "categories": ["cortex"],
       "registryDependencies": ["@cortexcn/utils"],
       "files": [
         {
@@ -75,6 +76,7 @@
       "type": "registry:component",
       "title": "Accordion",
       "description": "A vertically stacked set of headings that each reveal a section of content.",
+      "categories": ["neurons"],
       "dependencies": ["radix-ui"],
       "registryDependencies": ["@cortexcn/utils"],
       "files": [
@@ -90,6 +92,7 @@
       "type": "registry:component",
       "title": "Card",
       "description": "Displays a card with a header, content, and footer.",
+      "categories": ["neurons"],
       "registryDependencies": ["@cortexcn/utils"],
       "files": [
         {
@@ -104,6 +107,7 @@
       "type": "registry:component",
       "title": "Perspective Marquee",
       "description": "A tilted wall of images that scrolls endlessly in alternating columns.",
+      "categories": ["cortex"],
       "registryDependencies": ["@cortexcn/marquee", "@cortexcn/utils"],
       "files": [
         {
@@ -118,6 +122,7 @@
       "type": "registry:component",
       "title": "Line Nav",
       "description": "Vertical navigation with a line marker that expands on hover and active state.",
+      "categories": ["cortex"],
       "registryDependencies": ["@cortexcn/utils"],
       "dependencies": ["motion"],
       "files": [
@@ -133,6 +138,7 @@
       "type": "registry:component",
       "title": "Logos Carousel",
       "description": "Cycle through logos column by column in a staggered wave.",
+      "categories": ["cortex"],
       "registryDependencies": ["@cortexcn/utils"],
       "dependencies": ["motion"],
       "files": [
@@ -148,6 +154,7 @@
       "type": "registry:component",
       "title": "Theme Toggle Effect",
       "description": "Animated transitions when switching between light and dark themes.",
+      "categories": ["cortex"],
       "files": [
         {
           "path": "src/components/theme-toggle-effect.tsx",
@@ -447,6 +454,7 @@
       "type": "registry:component",
       "title": "Work Experience",
       "description": "Display work experiences with role details, company logos, and durations.",
+      "categories": ["cortex"],
       "registryDependencies": ["@cortexcn/utils", "collapsible", "separator"],
       "dependencies": ["motion"],
       "files": [
@@ -1040,6 +1048,7 @@
       "type": "registry:component",
       "title": "Area Chart",
       "description": "A composable area chart with gradient fills and animations",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1134,6 +1143,7 @@
       "type": "registry:component",
       "title": "Composed Chart",
       "description": "Time-series chart composing Line, Area, and SeriesBar on one shared scale (Recharts ComposedChart-style)",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/grid",
@@ -1200,6 +1210,7 @@
       "type": "registry:component",
       "title": "Bar Chart",
       "description": "A composable bar chart with horizontal/vertical orientations and animations",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1286,6 +1297,7 @@
       "type": "registry:component",
       "title": "Line Chart",
       "description": "A composable line chart with multiple series support",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1389,6 +1401,7 @@
       "type": "registry:component",
       "title": "Profit/Loss Line",
       "description": "Sign-colored line segments for profit and loss on LineChart",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/line-chart",
         "@cortexcn/grid",
@@ -1444,6 +1457,7 @@
       "type": "registry:component",
       "title": "Scatter Chart",
       "description": "A composable time-series scatter chart with offset rings, hover dimming, and animated enter",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1517,6 +1531,7 @@
       "type": "registry:component",
       "title": "Live Line Chart",
       "description": "Real-time streaming line chart with smooth scrolling, crosshair, and animated axes",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-tooltip",
@@ -1564,6 +1579,7 @@
       "type": "registry:component",
       "title": "Candlestick Chart",
       "description": "A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1607,6 +1623,7 @@
       "type": "registry:component",
       "title": "Pie Chart",
       "description": "A composable pie chart with animations and customizable slices",
+      "categories": ["charts"],
       "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@number-flow/react",
@@ -1659,6 +1676,7 @@
       "type": "registry:component",
       "title": "Radar Chart",
       "description": "A composable radar/spider chart with multiple data series",
+      "categories": ["charts"],
       "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
@@ -1706,6 +1724,7 @@
       "type": "registry:component",
       "title": "Ring Chart",
       "description": "A composable donut/ring chart with progress indicators",
+      "categories": ["charts"],
       "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
@@ -1752,6 +1771,7 @@
       "type": "registry:component",
       "title": "Gauge",
       "description": "Notch-based radial or linear gauge with optional center label, patterns, and optional gradients",
+      "categories": ["charts"],
       "registryDependencies": ["@cortexcn/utils"],
       "dependencies": [
         "@visx/responsive@4.0.1-alpha.0",
@@ -1808,6 +1828,7 @@
       "type": "registry:component",
       "title": "Heatmap Chart",
       "description": "A contribution heatmap with animated cells and configurable level colors",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -1943,6 +1964,7 @@
       "type": "registry:component",
       "title": "Choropleth Map",
       "description": "A geographic map chart with zoom, pan, and data visualization",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
@@ -2001,6 +2023,7 @@
       "type": "registry:component",
       "title": "Funnel Chart",
       "description": "An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
@@ -2020,6 +2043,7 @@
       "type": "registry:component",
       "title": "Sankey Diagram",
       "description": "A flow diagram for visualizing data transfers between nodes",
+      "categories": ["charts"],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
@@ -2073,6 +2097,7 @@
       "type": "registry:component",
       "title": "Sunburst Chart",
       "description": "A composable hierarchical sunburst chart with drill-down zoom and animated segments",
+      "categories": ["charts"],
       "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
       "dependencies": ["motion"],
       "files": [

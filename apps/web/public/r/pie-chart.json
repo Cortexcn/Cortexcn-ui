@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Pie Chart",
   "description": "A composable pie chart with animations and customizable slices",
+  "categories": ["charts"],
   "dependencies": [
     "@number-flow/react",
     "@visx/group@4.0.1-alpha.0",

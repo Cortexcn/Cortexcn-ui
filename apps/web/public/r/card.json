@@ -3,6 +3,7 @@
   "name": "card",
   "title": "Card",
   "description": "Displays a card with a header, content, and footer.",
+  "categories": ["neurons"],
   "registryDependencies": ["@cortexcn/utils"],
   "files": [
     {

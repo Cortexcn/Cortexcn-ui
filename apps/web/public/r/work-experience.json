@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Work Experience",
   "description": "Display work experiences with role details, company logos, and durations.",
+  "categories": ["cortex"],
   "dependencies": ["motion"],
   "registryDependencies": ["@cortexcn/utils", "collapsible", "separator"],
   "files": [

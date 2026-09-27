@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Funnel Chart",
   "description": "An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations",
+  "categories": ["charts"],
   "dependencies": ["motion"],
   "registryDependencies": [
     "@cortexcn/chart-animation",

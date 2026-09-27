@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Perspective Marquee",
   "description": "A tilted wall of images that scrolls endlessly in alternating columns.",
+  "categories": ["cortex"],
   "registryDependencies": ["@cortexcn/marquee", "@cortexcn/utils"],
   "files": [
     {

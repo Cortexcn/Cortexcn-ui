@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Sankey Diagram",
   "description": "A flow diagram for visualizing data transfers between nodes",
+  "categories": ["charts"],
   "dependencies": [
     "@visx/event@4.0.1-alpha.0",
     "@visx/gradient@4.0.1-alpha.0",

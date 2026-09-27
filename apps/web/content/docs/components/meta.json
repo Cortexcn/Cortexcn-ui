@@ -1,9 +1,10 @@
 {
   "title": "Components",
   "pages": [
-    "---UI---",
+    "---Neurons---",
     "accordion",
     "card",
+    "---Cortex---",
     "line-nav",
     "logos-carousel",
     "marquee",

@@ -3,6 +3,7 @@
   "name": "accordion",
   "title": "Accordion",
   "description": "A vertically stacked set of headings that each reveal a section of content.",
+  "categories": ["neurons"],
   "dependencies": ["radix-ui"],
   "registryDependencies": ["@cortexcn/utils"],
   "files": [

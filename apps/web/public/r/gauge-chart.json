@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Gauge",
   "description": "Notch-based radial or linear gauge with optional center label, patterns, and optional gradients",
+  "categories": ["charts"],
   "dependencies": [
     "@visx/responsive@4.0.1-alpha.0",
     "@visx/pattern@4.0.1-alpha.0",

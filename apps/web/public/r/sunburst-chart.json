@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Sunburst Chart",
   "description": "A composable hierarchical sunburst chart with drill-down zoom and animated segments",
+  "categories": ["charts"],
   "dependencies": ["motion"],
   "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
   "files": [

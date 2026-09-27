@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Composed Chart",
   "description": "Time-series chart composing Line, Area, and SeriesBar on one shared scale (Recharts ComposedChart-style)",
+  "categories": ["charts"],
   "dependencies": [
     "@visx/curve@4.0.1-alpha.0",
     "@visx/scale@4.0.1-alpha.0",

@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
+import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
@@ -34,6 +35,7 @@ const FENCE = /^\s*(`{3,}|~{3,})/;
 const ESM = /^(import|export)\s/;
 const ESM_END = /(;\s*$)|(\sfrom\s+["'][^"']+["']\s*;?\s*$)/;
 const NAME_PROP = /\bname=["']([\w-]+)["']/;
+const CATEGORY_PROP = /\bcategory=["']([^"']+)["']/;
 const LOCAL_LINK = /\]\((\/[^)\s]*)\)/g;
 
 /** True once the JSX element starting in `text` has fully closed. */
@@ -71,8 +73,10 @@ function replaceElement(name: string, text: string) {
       : "";
   }
   if (name === "ComponentsList") {
+    const category = text.match(CATEGORY_PROP)?.[1] ?? "";
+    const urls = new Set(componentGroupPages(category).map((page) => page.url));
     return docsPages()
-      .filter((page) => page.slugs[0] === "components" && page.slugs.length > 1)
+      .filter((page) => urls.has(page.url))
       .map(
         (page) =>
           `- [${page.data.title}](${markdownUrlFor(page.url)}): ${page.data.description ?? ""}`,
@@ -198,17 +202,25 @@ function linkLine(page: DocsPage) {
 /** /llms.txt: what Cortexcn is and where every docs page lives. */
 export function llmsTxt() {
   const pages = docsPages();
-  const guides = pages.filter(
-    (page) => page.slugs.length <= 1 && page.slugs[0] !== "components",
-  );
-  const components = pages.filter((page) => page.slugs[0] === "components");
+  const guides = pages.filter((page) => page.slugs.length <= 1);
   const utilities = pages.filter((page) => page.slugs[0] === "utility");
+  const groups = COMPONENT_GROUPS.map((group) => {
+    const urls = new Set(
+      componentGroupPages(group.name).map((page) => page.url),
+    );
+    return [
+      `## ${group.name}`,
+      group.description,
+      "",
+      ...pages.filter((page) => urls.has(page.url)).map(linkLine),
+    ].join("\n");
+  });
 
   const sections = [
     `# ${SITE_NAME}`,
     INTRO,
     ["## Docs", ...guides.map(linkLine)].join("\n"),
-    ["## Components", ...components.map(linkLine)].join("\n"),
+    ...groups,
     ["## Chart utilities", ...utilities.map(linkLine)].join("\n"),
     [
       "## Blocks",

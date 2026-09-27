@@ -28,9 +28,12 @@ interface SiteHeaderProps {
   links?: NavLink[];
 }
 
-const uiComponents = [
+const neuronComponents = [
   { text: "Accordion", url: "/docs/components/accordion" },
   { text: "Card", url: "/docs/components/card" },
+];
+
+const cortexComponents = [
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
   { text: "Marquee", url: "/docs/components/marquee" },
@@ -171,8 +174,13 @@ function MobileMenu({
     transitionDelay: isOpen ? `${index * staggerDelay}ms` : "0ms",
   });
 
-  const uiStartIndex = links.length + 1;
-  const componentsStartIndex = uiStartIndex + uiComponents.length + 1;
+  const neuronsStartIndex = links.length + 1;
+  const cortexStartIndex = neuronsStartIndex + neuronComponents.length + 1;
+  const componentsStartIndex = cortexStartIndex + cortexComponents.length + 1;
+  const componentGroups = [
+    { title: "Neurons", items: neuronComponents, start: neuronsStartIndex },
+    { title: "Cortex", items: cortexComponents, start: cortexStartIndex },
+  ];
   const utilitiesStartIndex = componentsStartIndex + components.length + 1;
 
   return (
@@ -220,34 +228,36 @@ function MobileMenu({
             ))}
           </div>
 
-          {/* UI section */}
-          <div className="mt-3 border-border border-t pt-3">
-            <span
-              className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
-              style={getStaggerStyle(uiStartIndex - 1)}
-            >
-              UI
-            </span>
-            <div className="flex flex-col gap-0.5">
-              {uiComponents.map((component, index) => (
-                <Link
-                  className="transition-[opacity,transform] duration-300 ease-out"
-                  href={component.url}
-                  key={component.url}
-                  onClick={onClose}
-                  style={getStaggerStyle(uiStartIndex + index)}
-                >
-                  <Button
-                    className="h-10 w-full justify-start px-3"
-                    size="default"
-                    variant="ghost"
+          {/* Neurons and Cortex sections */}
+          {componentGroups.map((group) => (
+            <div className="mt-3 border-border border-t pt-3" key={group.title}>
+              <span
+                className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
+                style={getStaggerStyle(group.start - 1)}
+              >
+                {group.title}
+              </span>
+              <div className="flex flex-col gap-0.5">
+                {group.items.map((component, index) => (
+                  <Link
+                    className="transition-[opacity,transform] duration-300 ease-out"
+                    href={component.url}
+                    key={component.url}
+                    onClick={onClose}
+                    style={getStaggerStyle(group.start + index)}
                   >
-                    {component.text}
-                  </Button>
-                </Link>
-              ))}
+                    <Button
+                      className="h-10 w-full justify-start px-3"
+                      size="default"
+                      variant="ghost"
+                    >
+                      {component.text}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
 
           {/* Charts section */}
           <div className="mt-3 border-border border-t pt-3">
@@ -469,8 +479,10 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
     ).length;
   const totalItems =
     links.length +
-    1 + // UI header
-    uiComponents.length +
+    1 + // Neurons header
+    neuronComponents.length +
+    1 + // Cortex header
+    cortexComponents.length +
     1 + // Charts header
     components.length +
     1 + // Utilities header

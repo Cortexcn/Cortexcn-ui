@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Line Nav",
   "description": "Vertical navigation with a line marker that expands on hover and active state.",
+  "categories": ["cortex"],
   "dependencies": ["motion"],
   "registryDependencies": ["@cortexcn/utils"],
   "files": [

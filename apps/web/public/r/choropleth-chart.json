@@ -4,6 +4,7 @@
   "type": "registry:component",
   "title": "Choropleth Map",
   "description": "A geographic map chart with zoom, pan, and data visualization",
+  "categories": ["charts"],
   "dependencies": [
     "@types/geojson",
     "@visx/geo@4.0.1-alpha.0",
