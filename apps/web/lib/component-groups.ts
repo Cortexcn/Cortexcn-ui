@@ -21,6 +21,12 @@ export const COMPONENT_GROUPS = [
       "Cortexcn originals you won't find in shadcn/ui: motion, navigation, and theming.",
   },
   {
+    name: "Backgrounds",
+    category: "backgrounds",
+    description:
+      "Animated full-bleed backgrounds for heroes and sections, drawn with WebGL.",
+  },
+  {
     name: "Charts",
     category: "charts",
     description: "Composable charts with animation, tooltips, and themes.",
