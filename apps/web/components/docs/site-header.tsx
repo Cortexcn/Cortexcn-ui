@@ -123,6 +123,7 @@ const LANDING_PATHS = new Set([
   "/contact",
   "/pricing",
   "/privacy",
+  "/refunds",
   "/terms",
 ]);
 

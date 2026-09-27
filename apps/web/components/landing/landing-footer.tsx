@@ -348,6 +348,13 @@ export function LandingFooter() {
             >
               Terms and conditions
             </Link>
+            <span>/</span>
+            <Link
+              className="underline underline-offset-2 hover:text-foreground"
+              href="/refunds"
+            >
+              Refund policy
+            </Link>
           </p>
           <a
             className="flex items-center gap-2 text-muted-foreground"
