@@ -22,10 +22,12 @@ const PAGE_LINKS = [
   { label: "Installation", href: "/docs/installation" },
   { label: "Components", href: "/docs/components" },
   { label: "Blocks", href: "/blocks" },
-  { label: "Templates", href: "/templates" },
+  // Hidden until Templates comes back; see apps/cortexcn/checklist.md.
+  // { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
-  { label: "Studio", href: "/studio" },
+  // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
+  // { label: "Studio", href: "/studio" },
 ];
 
 type ResourceIcon = "docs" | "registry" | "agents" | "portfolio";
