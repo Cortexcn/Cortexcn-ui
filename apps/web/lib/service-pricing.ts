@@ -329,6 +329,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
 export interface AddOn {
   name: string;
   price: string;
+  /** Shown smaller after the price, such as "/month". */
+  unit?: string;
   detail: string;
 }
 
@@ -345,16 +347,18 @@ export const ADD_ONS: AddOn[] = [
   },
   {
     name: "Care plan",
-    price: `${formatUsd(CARE_PLAN_MONTHLY_PRICE)}/month`,
+    price: formatUsd(CARE_PLAN_MONTHLY_PRICE),
+    unit: "/month",
     detail: "Updates, backups, and up to 2 hours of fixes a month.",
   },
   {
     name: "Copywriting",
-    price: `${formatUsd(COPY_PAGE_PRICE)}/page`,
+    price: formatUsd(COPY_PAGE_PRICE),
+    unit: "/page",
     detail: "Clear, plain copy written for each page.",
   },
   {
-    name: "Domain and hosting setup",
+    name: "Domain and hosting",
     price: "$200",
     detail: "Domain, DNS, hosting, and email set up for you.",
   },

@@ -197,7 +197,7 @@ ${SERVICE_PRICES.map((service) => `- **${service.title}:** from ${formatUsd(serv
 
 ### Add-ons
 
-${ADD_ONS.map((addOn) => `- **${addOn.name}:** ${addOn.price}. ${addOn.detail}`).join("\n")}
+${ADD_ONS.map((addOn) => `- **${addOn.name}:** ${addOn.price}${addOn.unit ?? ""}. ${addOn.detail}`).join("\n")}
 
 ## Changelog
 
