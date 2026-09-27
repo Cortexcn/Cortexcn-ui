@@ -23,7 +23,7 @@ export function DocsLayout({ children, tree, nav }: DocsLayoutProps) {
       <Sidebar links={nav?.links} tree={tree} />
       <main className="w-full lg:pl-80 xl:pr-[300px]">
         {children}
-        <SiteFooter />
+        <SiteFooter className="lg:pl-80 xl:pr-[300px]" />
       </main>
     </div>
   );
