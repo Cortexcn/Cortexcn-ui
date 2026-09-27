@@ -10,6 +10,7 @@ import {
 
 import { ActionButton } from "@/components/landing/kit";
 import { trackEvent } from "@/lib/analytics/track-client";
+import { readContactPrefill } from "@/lib/contact/prefill";
 import {
   CONTACT_FIELDS,
   CONTACT_LIMITS,
@@ -126,6 +127,19 @@ export function ContactForm() {
 
   const isSent = status.state === "sent";
   const isSending = status.state === "sending";
+
+  useEffect(() => {
+    // Links from the pricing page carry a topic and a draft message. Read after
+    // hydration, so the server and the first client render match.
+    const prefill = readContactPrefill(window.location.search);
+    if (prefill.topic || prefill.message) {
+      setValues((current) => ({
+        ...current,
+        topic: prefill.topic ?? current.topic,
+        message: prefill.message ?? current.message,
+      }));
+    }
+  }, []);
 
   useEffect(() => {
     // The form is swapped out, so move focus to the confirmation that replaces it.
