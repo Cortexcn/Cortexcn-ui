@@ -351,10 +351,12 @@ Wrap the main chart in `ChartBrushLayout`, render a simplified mini chart in `br
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
+  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   <OpenInStudioButton
     href={studioChartHref("area-chart", { showBrush: true })}
     slug="area-chart"
   />
+  */}
 </div>
 
 <ComponentShowcase
@@ -393,7 +395,9 @@ Wrap the main chart in `ChartBrushLayout`, render a simplified mini chart in `br
   <AreaChartBrushDemo />
 </ComponentShowcase>
 
+{/_ Hidden until Studio comes back; see apps/cortexcn/checklist.md.
 Open [Studio with brush enabled](/studio?chart=area-chart&showBrush=true) to tune strip height, blur, and selection pattern.
+_/}
 
 ## Loading state
 
@@ -409,10 +413,12 @@ Pair `Grid` `stroke` / `loadingStroke` with shimmer props. Pair `Area` `loadingS
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
+  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   <OpenInStudioButton
     href={studioChartHref("area-chart", { areaChartState: "loading" })}
     slug="area-chart"
   />
+  */}
 </div>
 
 <ComponentShowcase
@@ -451,6 +457,8 @@ const [loadingStyle, setLoadingStyle] = useState<"pulse" | "sweep">("pulse");
 
 Toggle **Loading** / **Ready** in the preview to replay the transition, and **Pulse** / **Sweep** to switch the loading animation style. When target data spans a different y-range than the skeleton, `yDomainTween` morphs the scale before the area reveals.
 
+{/\* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
+
 ### Studio
 
 Open [Studio in loading mode](/studio?chart=area-chart&areaChartState=loading) and set **State** to **Loading**. In **Settings**, choose **Loading style** — **Pulse** (traveling segment) or **Sweep** (diagonal shimmer). The components tree exposes **Grid**, **Label**, and **Area**:
@@ -463,6 +471,7 @@ Open [Studio in loading mode](/studio?chart=area-chart&areaChartState=loading) a
 | **Area**     | Pulse stroke color and opacity                                                                                    |
 
 Data and animation panels stay collapsed in loading mode; scramble data is disabled. See the [area chart gallery](/charts/area-chart) (**Loading** example).
+\*/}
 
 Installing `@cortexcn/area-chart` pulls in `@cortexcn/shimmering-text` automatically.
 
