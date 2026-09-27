@@ -85,3 +85,15 @@
     color: var(--accent-foreground);
   }
 }
+
+/* Unlayered so it wins over the animate-* utilities. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee,
+  .animate-marquee-vertical {
+    animation-play-state: paused;
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import type { RefObject } from "react";
 
 import { cn } from "@/lib/utils";
@@ -135,8 +135,6 @@ export function Stickers({
 }: {
   constraints: RefObject<HTMLElement | null>;
 }) {
-  const reduceMotion = useReducedMotion();
-
   return STICKERS.map((sticker, index) => (
     <motion.div
       animate={{ opacity: 1, scale: 1, rotate: sticker.rotate }}
@@ -147,23 +145,19 @@ export function Stickers({
       drag
       dragConstraints={constraints}
       dragElastic={0.2}
-      initial={
-        reduceMotion
-          ? { opacity: 1, scale: 1, rotate: sticker.rotate }
-          : { opacity: 0, scale: 0.4, rotate: sticker.rotate - 30 }
-      }
+      initial={{ opacity: 0, scale: 0.4, rotate: sticker.rotate - 30 }}
       key={sticker.key}
       transition={{
         type: "spring",
         stiffness: 260,
         damping: 18,
-        delay: reduceMotion ? 0 : sticker.delay,
+        delay: sticker.delay,
       }}
       whileDrag={{ scale: 1.1 }}
       whileHover={{ scale: 1.05 }}
     >
       <motion.div
-        animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
+        animate={{ y: [0, -8, 0] }}
         className="size-full"
         transition={{
           duration: 5 + index,

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { useRef } from "react";
 
 import { site } from "@/config/site";
@@ -11,7 +11,6 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const reduceMotion = useReducedMotion();
   const words = site.role.split(" ");
 
   return (
@@ -31,7 +30,7 @@ export function Hero() {
             <motion.span
               animate={{ y: 0 }}
               className="block"
-              initial={reduceMotion ? { y: 0 } : { y: "105%" }}
+              initial={{ y: "105%" }}
               transition={{
                 duration: 0.9,
                 delay: 0.1 + index * 0.12,
@@ -47,7 +46,7 @@ export function Hero() {
       <motion.p
         animate={{ opacity: 1, y: 0 }}
         className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-3 font-mono text-sm uppercase tracking-widest"
-        initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 12 }}
         transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
       >
         <mark className="bg-accent px-2 py-1 text-accent-foreground">

@@ -3,7 +3,6 @@
 import {
   type MotionValue,
   motion,
-  useReducedMotion,
   useScroll,
   useTransform,
 } from "motion/react";
@@ -22,7 +21,11 @@ function Word({
 }) {
   const opacity = useTransform(progress, range, [0.15, 1]);
   return (
-    <motion.span className="mr-[0.25em] inline-block" style={{ opacity }}>
+    // Reduced motion shows every word at full strength from the start.
+    <motion.span
+      className="mr-[0.25em] inline-block motion-reduce:opacity-100!"
+      style={{ opacity }}
+    >
       {children}
     </motion.span>
   );
@@ -31,7 +34,6 @@ function Word({
 /** A short statement that lights up word by word as it scrolls past. */
 export function Statement() {
   const ref = useRef<HTMLParagraphElement>(null);
-  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.85", "end 0.4"],
@@ -44,17 +46,15 @@ export function Statement() {
         className="mx-auto max-w-4xl text-balance text-center font-medium text-3xl leading-[1.15] tracking-tight md:text-5xl"
         ref={ref}
       >
-        {reduceMotion
-          ? site.statement
-          : words.map((word, index) => (
-              <Word
-                key={`${index}-${word}`}
-                progress={scrollYProgress}
-                range={[index / words.length, (index + 1) / words.length]}
-              >
-                {word}
-              </Word>
-            ))}
+        {words.map((word, index) => (
+          <Word
+            key={`${index}-${word}`}
+            progress={scrollYProgress}
+            range={[index / words.length, (index + 1) / words.length]}
+          >
+            {word}
+          </Word>
+        ))}
       </p>
     </section>
   );

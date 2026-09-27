@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+import { MotionProvider } from "@/components/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -40,9 +41,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <body>
         <ThemeProvider>
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
+          <MotionProvider>
+            <SiteHeader />
+            <main>{children}</main>
+            <SiteFooter />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>
