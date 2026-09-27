@@ -256,6 +256,32 @@
   }
 }
 
+/*
+ * The page scrollbar is drawn by components/smooth-scroll/page-scrollbar.tsx,
+ * which fades in while the page moves, so the native one is hidden. Nested
+ * scroll areas keep their own scrollbars.
+ */
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* The thumb is a dark or light shade of whatever is behind it, set in JS. */
+.page-scrollbar {
+  --scrollbar-under: #ffffff;
+  --scrollbar-thumb: color-mix(in oklch, var(--scrollbar-under) 25%, black);
+  --scrollbar-thumb-opacity: 0.55;
+}
+.page-scrollbar[data-tone="dark"] {
+  --scrollbar-thumb: color-mix(in oklch, var(--scrollbar-under) 10%, white);
+  --scrollbar-thumb-opacity: 0.9;
+}
+.page-scrollbar[data-active="true"] {
+  --scrollbar-thumb-opacity: 1;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
