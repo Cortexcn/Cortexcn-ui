@@ -52,7 +52,9 @@ import {
 | `formatLargeNumbers` | `boolean`                   | `true`   | Format values ≥1000 as "1k", "2k", etc.                                                          |
 | `formatValue`        | `(value: number) => string` | —        | Custom tick formatter (overrides `formatLargeNumbers`)                                           |
 
+{/_ Hidden until Studio comes back; see apps/cortexcn/checklist.md.
 In **Studio** (`/studio`), open a time-series chart (line, area, composed, scatter, vertical bar, or profit/loss line) and select **YAxis · left** or **YAxis · right** in the components tree to edit `numTicks` and `formatLargeNumbers` per axis. Each series exposes a **Y axis** control (left / right) except horizontal bar charts (categorical `BarYAxis` only).
+_/}
 
 ## Multiple Y axes (biaxial)
 
