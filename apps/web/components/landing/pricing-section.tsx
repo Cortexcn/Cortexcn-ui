@@ -23,22 +23,56 @@ import {
 } from "./kit";
 import { Container } from "./primitives";
 
+/* 7x7 pixel icons for the toggle: blocks, a browser window, and a calendar. */
+const COMPONENTS_ICON = [
+  "###.###",
+  "###.###",
+  "###.###",
+  ".......",
+  "###.###",
+  "###.###",
+  "###.###",
+];
+
+const PROJECTS_ICON = [
+  "#######",
+  "#######",
+  "#.....#",
+  "#.....#",
+  "#.....#",
+  "#.....#",
+  "#######",
+];
+
+const RETAINERS_ICON = [
+  ".#...#.",
+  "#######",
+  "#######",
+  "#.....#",
+  "#.#.#.#",
+  "#.....#",
+  "#######",
+];
+
 const KINDS = [
   {
     value: "components",
     label: "Components",
+    icon: COMPONENTS_ICON,
     plans: COMPONENT_PLANS,
     note: "One-time payments in US dollars. No subscriptions and no renewals.",
   },
   {
     value: "projects",
     label: "Projects",
+    icon: PROJECTS_ICON,
     plans: PROJECT_PACKAGES,
     note: "Starting prices in US dollars. Every project gets a written quote before work starts.",
   },
   {
     value: "retainers",
     label: "Retainers",
+    icon: RETAINERS_ICON,
     plans: RETAINERS,
     note: "Billed monthly in US dollars. Pause or cancel with 2 weeks notice.",
   },
@@ -229,7 +263,7 @@ function KindToggle({
           <button
             aria-pressed={selected}
             className={cn(
-              "-ml-px flex h-12 flex-1 items-center justify-center gap-2 border bg-background px-3 text-sm leading-[1.3] tracking-[-0.05em] outline-none transition-colors first-of-type:ml-0 focus-visible:ring-2 focus-visible:ring-ring/50 sm:flex-none sm:px-4 sm:text-base",
+              "group -ml-px flex h-12 flex-1 items-center justify-center gap-2 border bg-background px-3 text-sm leading-[1.3] tracking-[-0.05em] outline-none transition-colors first-of-type:ml-0 focus-visible:ring-2 focus-visible:ring-ring/50 sm:flex-none sm:px-4 sm:text-base",
               selected
                 ? "z-1 border-primary font-medium text-primary"
                 : "border-border text-muted-foreground hover:text-foreground",
@@ -238,12 +272,9 @@ function KindToggle({
             onClick={() => onChange(option.value)}
             type="button"
           >
-            <span
-              aria-hidden="true"
-              className={cn(
-                "size-2 bg-primary transition-[width,opacity] duration-300",
-                selected ? "w-2 opacity-100" : "-mr-2 w-0 opacity-0",
-              )}
+            <PixelArt
+              className="size-3.5 shrink-0 transition-transform duration-300 group-hover:scale-110"
+              rows={option.icon}
             />
             {option.label}
           </button>
