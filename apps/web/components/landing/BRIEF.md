@@ -80,11 +80,13 @@ Core promise: your agent builds from real, tested components instead of making u
 4. `capabilities-section.tsx` -> `CapabilitiesSection` (N.02, dark band with the
    registry diagram, sticky scroll steps like the installation section)
 5. `installation-section.tsx` -> `InstallationSection` (N.03, sticky scroll steps)
-6. `pricing-section.tsx` -> `PricingSection` (N.04, `id="pricing"`, preview only)
-7. `changelog-section.tsx` -> `ChangelogSection` (N.05)
-8. `faq-section.tsx` -> `FaqSection` (N.06, `id="faq"`)
-9. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card)
-10. `landing-footer.tsx` -> `LandingFooter`
+6. `services-section.tsx` -> `ServicesSection` (N.04, `id="services"`, dark band
+   of client services that link to /contact)
+7. `pricing-section.tsx` -> `PricingSection` (N.05, `id="pricing"`, preview only)
+8. `changelog-section.tsx` -> `ChangelogSection` (N.06)
+9. `faq-section.tsx` -> `FaqSection` (N.07, `id="faq"`)
+10. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card)
+11. `landing-footer.tsx` -> `LandingFooter`
 
 ## Keep in sync
 
