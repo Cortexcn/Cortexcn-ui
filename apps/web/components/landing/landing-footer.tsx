@@ -31,6 +31,7 @@ const PAGE_LINKS = [
   // { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
   // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   // { label: "Studio", href: "/studio" },
