@@ -166,7 +166,7 @@
 
   /* Text selection */
   --text-highlight-background: var(--color-indigo-500);
-  --text-highlight-foreground: var(--color-indigo-800);
+  --text-highlight-foreground: var(--color-white);
 }
 
 @layer base {
