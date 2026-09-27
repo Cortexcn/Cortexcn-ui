@@ -12,6 +12,11 @@ import { CloudflareIcon } from "@/components/icons/cloudflare";
 import { CortexcnLogo } from "@/components/icons/cortexcn";
 import { SyedMoinMark } from "@/components/icons/syedmoin-mark";
 import { VercelIcon } from "@/components/icons/vercel";
+import {
+  CONTACT_EMAIL,
+  CONTACT_LOCATION,
+  CONTACT_PHONE,
+} from "@/lib/contact-details";
 
 import { ArrowUpRightIcon } from "./kit";
 import { Container } from "./primitives";
@@ -26,6 +31,7 @@ const PAGE_LINKS = [
   // { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
+  { label: "Contact", href: "/contact" },
   // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   // { label: "Studio", href: "/studio" },
 ];
@@ -52,8 +58,9 @@ const RESOURCE_ICON_PATHS: Record<ResourceIcon, string> = {
 };
 
 /**
- * What the site runs on. Cloudflare serves DNS only (Vercel advises against
- * proxying through it), so it is credited for DNS, not for traffic protection.
+ * What the site runs on. Cloudflare serves DNS and the Turnstile check on the
+ * contact form; traffic is not proxied through it (Vercel advises against
+ * that), so it is not credited for traffic protection.
  */
 const INFRASTRUCTURE: {
   name: string;
@@ -69,7 +76,7 @@ const INFRASTRUCTURE: {
   },
   {
     name: "Cloudflare",
-    role: "DNS",
+    role: "DNS and contact form bot checks",
     href: "https://www.cloudflare.com/dns/",
     Logo: CloudflareIcon,
   },
@@ -147,13 +154,43 @@ function FooterHeading({ children }: { children: string }) {
   );
 }
 
+function GetInTouch() {
+  return (
+    <div className="flex flex-col gap-4">
+      <FooterHeading>Get in touch</FooterHeading>
+      <ul className="flex flex-col gap-2 text-base text-body leading-[1.3] tracking-[-0.05em]">
+        <li>
+          <a
+            className="transition-colors hover:text-primary"
+            href={`mailto:${CONTACT_EMAIL}`}
+          >
+            {CONTACT_EMAIL}
+          </a>
+        </li>
+        <li>
+          <a
+            className="transition-colors hover:text-primary"
+            href={`tel:${CONTACT_PHONE.e164}`}
+          >
+            {CONTACT_PHONE.display}
+          </a>
+        </li>
+        <li>Working from {CONTACT_LOCATION}</li>
+      </ul>
+    </div>
+  );
+}
+
 export function LandingFooter() {
   return (
     <footer className="w-full border-border border-t bg-background">
       <Container>
         <div className="grid border-border border-b lg:grid-cols-2">
           <div className="flex flex-col justify-between gap-16 border-border border-x p-6 sm:p-10">
-            <Newsletter />
+            <div className="flex flex-col gap-12">
+              <Newsletter />
+              <GetInTouch />
+            </div>
             <div className="flex items-center gap-4">
               <CortexcnLogo
                 className="size-16 rounded-[10px] sm:size-22"
@@ -295,6 +332,20 @@ export function LandingFooter() {
               href="/docs/components"
             >
               Components
+            </Link>
+            <span>/</span>
+            <Link
+              className="underline underline-offset-2 hover:text-foreground"
+              href="/privacy"
+            >
+              Privacy policy
+            </Link>
+            <span>/</span>
+            <Link
+              className="underline underline-offset-2 hover:text-foreground"
+              href="/terms"
+            >
+              Terms and conditions
             </Link>
           </p>
           <a
