@@ -1,7 +1,12 @@
 import Link from "next/link";
 
 import { Container } from "@/components/landing/primitives";
-import { cadenceLabel, formatUsd, SERVICE_PRICES } from "@/lib/service-pricing";
+import {
+  cadenceLabel,
+  formatUsd,
+  quoteHref,
+  SERVICE_PRICES,
+} from "@/lib/service-pricing";
 
 /** Every service on one list, each row linking to the contact form. */
 export function ServicePriceList() {
@@ -10,7 +15,7 @@ export function ServicePriceList() {
       <Container className="flex flex-col gap-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <h2
-            className="font-normal text-[2.5rem] leading-[1.1] tracking-[-0.06em] sm:text-5xl lg:text-[3.5rem]"
+            className="scroll-mt-[calc(var(--site-header-height)+1.5rem)] font-normal text-[2.5rem] leading-[1.1] tracking-[-0.06em] sm:text-5xl lg:text-[3.5rem]"
             id="every-service"
           >
             Every service
@@ -41,7 +46,7 @@ export function ServicePriceList() {
                 <h3 className="font-medium text-2xl leading-[1.2] tracking-[-0.05em] transition-colors duration-300 group-focus-within:text-primary-foreground group-hover:text-primary-foreground">
                   <Link
                     className="outline-none after:absolute after:inset-0 focus-visible:after:ring-2 focus-visible:after:ring-primary-foreground/70 focus-visible:after:ring-inset"
-                    href="/contact"
+                    href={quoteHref(`this service: ${service.title}`)}
                   >
                     <span className="sr-only">Get a quote for </span>
                     {service.title}
