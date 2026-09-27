@@ -1,0 +1,61 @@
+---
+title: Number Ticker
+description: A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.
+---
+
+import { NumberTickerDemo } from "@/components/docs/number-ticker-demo";
+
+<ComponentPreview>
+  <NumberTickerDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="number-ticker" dependencies={["motion"]} />
+
+## Usage
+
+```tsx
+import { NumberTicker } from "@/components/number-ticker";
+```
+
+```tsx
+<NumberTicker value={12480} prefix="$" locale blur />
+```
+
+Each digit is a column of 0 to 9 that rolls to its place. The first time the ticker scrolls into view, the digits roll in one after another; after that, a new `value` rolls every digit at once, so live updates never lag.
+
+## Examples
+
+### Padded
+
+`pad` adds leading zeros, which suits counters and scoreboards.
+
+<ComponentPreview>
+  <NumberTickerDemo blur={false} locale={false} pad={6} prefix="" />
+</ComponentPreview>
+
+## Behavior
+
+- Screen readers get the full value once, as plain text, instead of every digit.
+- With reduced motion enabled, digits jump straight to the new value with no roll or blur.
+- `locale` is safe in server components. `format` takes a function, so it only works where the ticker renders on the client.
+
+## Props
+
+| Prop             | Type                        | Default | Description                                      |
+| ---------------- | --------------------------- | ------- | ------------------------------------------------ |
+| `value`          | `number`                    | -       | The number to show, rounded to a whole number    |
+| `pad`            | `number`                    | -       | Pad with leading zeros to this many digits       |
+| `duration`       | `number`                    | `0.9`   | Seconds each digit takes to roll                 |
+| `stagger`        | `number`                    | `0.04`  | Seconds between digits on the first roll         |
+| `startOnView`    | `boolean`                   | `true`  | Wait until the ticker scrolls into view          |
+| `prefix`         | `string`                    | -       | Text before the number, such as `$`              |
+| `suffix`         | `string`                    | -       | Text after the number, such as `%`               |
+| `blur`           | `boolean`                   | `false` | Blur the digits briefly while they roll          |
+| `locale`         | `boolean`                   | -       | Add thousands separators for the reader's locale |
+| `format`         | `(value: number) => string` | -       | Custom formatting, used instead of `locale`      |
+| `className`      | `string`                    | -       | Extra classes for the ticker                     |
+| `digitClassName` | `string`                    | -       | Extra classes for each digit column              |
+
+Adapted from the [beUI Number Ticker](https://beui.dev) (MIT).

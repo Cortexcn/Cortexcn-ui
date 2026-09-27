@@ -1,0 +1,59 @@
+---
+title: Command Search
+description: A command palette that types queries and live-filters grouped results, with keyboard navigation.
+---
+
+import { CommandSearchDemo } from "@/components/docs/command-search-demo";
+
+<ComponentPreview>
+  <CommandSearchDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs
+  name="command-search"
+  dependencies={["motion", "lucide-react"]}
+/>
+
+## Usage
+
+```tsx
+import { CommandSearch } from "@/components/command-search";
+```
+
+```tsx
+<CommandSearch
+  queries={["chart", "marquee"]}
+  groups={[
+    {
+      label: "Components",
+      items: [{ label: "Area Chart" }, { label: "Marquee" }],
+    },
+  ]}
+  onSelect={(item) => console.log(item.label)}
+/>
+```
+
+While it is on screen, the palette types each query in, filters the groups to matching rows, and highlights the match inside each label. Set `autoType={false}` and pass `query` to show a fixed search instead.
+
+## Behavior
+
+- The highlight follows the item under the pointer, or moves with the up and down arrow keys once the palette has focus. Enter calls `onSelect` with the highlighted item.
+- The typing only runs while the palette is on screen. With reduced motion enabled, it shows the first query and stays still.
+- Rows without an `icon` show an arrow. Pass any icon element to replace it.
+
+## Props
+
+| Prop          | Type                                | Default                     | Description                                        |
+| ------------- | ----------------------------------- | --------------------------- | -------------------------------------------------- |
+| `queries`     | `string[]`                          | Four sample queries         | Queries to type out and filter by                  |
+| `autoType`    | `boolean`                           | `true`                      | Type the queries automatically                     |
+| `query`       | `string`                            | `"anim"`                    | Fixed search text, used when `autoType` is `false` |
+| `placeholder` | `string`                            | `"Search…"`                 | Shown while the field is empty                     |
+| `groups`      | `CommandSearchGroup[]`              | Sample pages and components | Grouped results under the field                    |
+| `onSelect`    | `(item: CommandSearchItem) => void` | -                           | Called when a row is clicked or chosen with Enter  |
+| `height`      | `number`                            | `408`                       | Height of the palette in pixels                    |
+| `className`   | `string`                            | -                           | Extra classes for the palette                      |
+
+Adapted from the [Spectrum UI Command Search](https://ui.spectrumhq.in/docs/command-search) (Apache 2.0).
