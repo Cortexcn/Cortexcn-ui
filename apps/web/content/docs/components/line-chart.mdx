@@ -229,10 +229,12 @@ Projections extend the x-domain to the horizon and are not supported together wi
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
+  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   <OpenInStudioButton
     href={studioChartHref("line-chart", { projectionCount: 1 })}
     slug="line-chart"
   />
+  */}
 </div>
 
 <ComponentShowcase
@@ -268,7 +270,11 @@ horizonPoints: 8,
   <ProjectionLineDemo />
 </ComponentShowcase>
 
-Open [Studio with a projection](/studio?chart=line-chart) via **Settings → Projections** or the series context menu. See the [Projection Line utility](/docs/utility/projection-line) for props and `buildProjectionPath` options.
+{/_ Hidden until Studio comes back; see apps/cortexcn/checklist.md.
+Open [Studio with a projection](/studio?chart=line-chart) via **Settings → Projections** or the series context menu.
+_/}
+
+See the [Projection Line utility](/docs/utility/projection-line) for props and `buildProjectionPath` options.
 
 ## Brush zoom
 
@@ -278,10 +284,12 @@ Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/c
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
+  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   <OpenInStudioButton
     href={studioChartHref("line-chart", { showBrush: true })}
     slug="line-chart"
   />
+  */}
 </div>
 
 <ComponentShowcase
@@ -320,7 +328,9 @@ Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/c
   <LineChartBrushDemo />
 </ComponentShowcase>
 
+{/_ Hidden until Studio comes back; see apps/cortexcn/checklist.md.
 Open [Studio with brush enabled](/studio?chart=line-chart&showBrush=true) to tune strip height, blur, and selection pattern.
+_/}
 
 ## Loading state
 
@@ -336,10 +346,12 @@ Pair `Grid` `stroke` / `loadingStroke` with shimmer props. Pair `Line` `loadingS
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
+  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   <OpenInStudioButton
     href={studioChartHref("line-chart", { lineChartState: "loading" })}
     slug="line-chart"
   />
+  */}
 </div>
 
 <ComponentShowcase
@@ -376,6 +388,8 @@ const [loadingStyle, setLoadingStyle] = useState<"pulse" | "sweep">("pulse");
 
 Toggle **Loading** / **Ready** in the preview to replay the transition, and **Pulse** / **Sweep** to switch the loading animation style. When target data spans a different y-range than the skeleton, `yDomainTween` morphs the scale before the line reveals.
 
+{/\* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
+
 ### Studio
 
 Open [Studio in loading mode](/studio?chart=line-chart&lineChartState=loading) and set **State** to **Loading**. In **Settings**, choose **Loading style** — **Pulse** (traveling segment) or **Sweep** (diagonal shimmer). The components tree exposes **Grid**, **Label**, and **Line**:
@@ -388,6 +402,7 @@ Open [Studio in loading mode](/studio?chart=line-chart&lineChartState=loading) a
 | **Line**     | Pulse stroke color and opacity                                                                                   |
 
 Data and animation panels stay collapsed in loading mode; scramble data is disabled. See the [line chart gallery](/charts/line-chart) (**Loading** example).
+\*/}
 
 Installing `@cortexcn/line-chart` pulls in `@cortexcn/shimmering-text` automatically.
 
