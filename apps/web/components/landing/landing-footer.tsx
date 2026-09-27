@@ -22,6 +22,7 @@ const PAGE_LINKS = [
   { label: "Installation", href: "/docs/installation" },
   { label: "Components", href: "/docs/components" },
   { label: "Blocks", href: "/blocks" },
+  { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
   { label: "Studio", href: "/studio" },

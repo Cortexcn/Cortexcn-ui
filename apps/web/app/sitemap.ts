@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
 import { validChartSlugs } from "@/components/charts/chart-slugs";
+import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { canonicalUrlFor, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/blocks`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/templates`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/studio`, changeFrequency: "monthly", priority: 0.7 },
   ];
 
@@ -22,6 +24,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (category) => ({
       url: `${SITE_URL}/blocks/${category.slug}`,
       changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }),
+  );
+
+  const templateRoutes: MetadataRoute.Sitemap = SITE_TEMPLATES.map(
+    (template) => ({
+      url: `${SITE_URL}/templates/${template.slug}`,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     }),
   );
@@ -41,5 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
     .sort((a, b) => a.url.localeCompare(b.url));
 
-  return [...pages, ...blockRoutes, ...chartRoutes, ...docRoutes];
+  return [
+    ...pages,
+    ...blockRoutes,
+    ...templateRoutes,
+    ...chartRoutes,
+    ...docRoutes,
+  ];
 }

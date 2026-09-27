@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
 import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
+import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
@@ -227,6 +228,13 @@ export function llmsTxt() {
       ...BLOCK_CATEGORIES.map(
         (category) =>
           `- [${category.name}](${SITE_URL}/blocks/${category.slug}): ${category.description}`,
+      ),
+    ].join("\n"),
+    [
+      "## Templates",
+      ...SITE_TEMPLATES.map(
+        (template) =>
+          `- [${template.name}](${SITE_URL}/templates/${template.slug}): ${template.summary}. ${template.price}, MIT licensed.`,
       ),
     ].join("\n"),
     [

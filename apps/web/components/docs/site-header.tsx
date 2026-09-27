@@ -440,16 +440,18 @@ function LandingHeaderItems({
 
       <div className="flex items-center gap-2">
         <div className="flex h-9 items-center gap-0.5 border border-border bg-background px-0.5">
+          {/* From lg up: at tablet widths the nav tabs need the room. */}
           <DocsSearchTrigger
-            className="hidden w-30 justify-between md:inline-flex"
+            className="hidden w-30 justify-between lg:inline-flex"
             hideIfDisabled
           />
           <ChartThemeSelector />
           <ModeToggle />
           {menuButton}
         </div>
+        {/* Same page as the Docs tab, so it only joins once everything fits. */}
         <Link
-          className="hidden h-9 items-center gap-2.5 border border-border bg-background px-4 font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground lg:inline-flex"
+          className="hidden h-9 items-center gap-2.5 border border-border bg-background px-4 font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground xl:inline-flex"
           href="/docs/installation"
         >
           <ArrowUpRightIcon />
@@ -584,8 +586,9 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
                 </div>
 
                 <div className="flex items-center gap-1">
+                  {/* From lg up: at tablet widths the nav links need the room. */}
                   <DocsSearchTrigger
-                    className="hidden w-30 justify-between md:inline-flex"
+                    className="hidden w-30 justify-between lg:inline-flex"
                     hideIfDisabled
                   />
                   <ChartThemeSelector />

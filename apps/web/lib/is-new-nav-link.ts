@@ -1,3 +1,3 @@
 export function isNewNavLink(url: string) {
-  return url === "/studio";
+  return url === "/studio" || url === "/templates";
 }
