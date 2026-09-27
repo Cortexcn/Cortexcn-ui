@@ -9,13 +9,10 @@ import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provider";
-import { ChartThemeScript } from "@/components/chart-theme/chart-theme-script";
 import { SiteLeftDotGrid } from "@/components/design/site-left-dot-grid";
 import { DocsSearchDialog } from "@/components/docs/docs-search-dialog";
 import { PageScrollbar } from "@/components/smooth-scroll/page-scrollbar";
 import { SmoothScroll } from "@/components/smooth-scroll/smooth-scroll";
-import { getChartThemeIdFromCookie } from "@/lib/chart-theme-cookie.server";
 import { getOpenPanelClientId } from "@/lib/openpanel-env";
 import {
   AUTHOR,
@@ -114,13 +111,8 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const openPanelClientId = getOpenPanelClientId();
-  const chartThemeId = await getChartThemeIdFromCookie();
 
   return (
     <html
@@ -136,7 +128,6 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative flex min-h-screen flex-col">
-        <ChartThemeScript />
         <SmoothScroll />
         {cloudflareBeaconToken ? (
           <Script
@@ -171,9 +162,7 @@ export default async function RootLayout({
               enableSystem: true,
             }}
           >
-            <ChartThemeProvider initialThemeId={chartThemeId}>
-              {children}
-            </ChartThemeProvider>
+            {children}
           </RootProvider>
         </GithubStatsProvider>
         <PageScrollbar />

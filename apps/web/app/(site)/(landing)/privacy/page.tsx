@@ -21,7 +21,7 @@ export const metadata = pageMetadata({
   path: "/privacy",
 });
 
-const UPDATED = "September 27, 2026";
+const UPDATED = "September 28, 2026";
 
 const SUMMARY =
   "We collect as little as we can: what you send through the contact form, usage numbers, and the preferences your browser keeps. We never sell any of it.";
@@ -68,10 +68,9 @@ const SECTIONS: LegalSection[] = [
             service.
           </LegalItem>
           <LegalItem>
-            Preferences in your browser: your light or dark theme, your chart
-            theme (a cookie named bklit-chart-theme), and the code tab and
-            package manager you picked last. They only change how the site looks
-            for you.
+            Preferences in your browser: your light or dark theme, and the code
+            tab and package manager you picked last. They only change how the
+            site looks for you.
           </LegalItem>
         </LegalList>
         <p>
