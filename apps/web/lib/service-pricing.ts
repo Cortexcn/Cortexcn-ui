@@ -66,6 +66,9 @@ export const FREE_PLAN_LIMITS = { components: 20, templates: 2 } as const;
 
 export const COMPONENT_PLAN_PRICES = { pro: 149, ultra: 449 } as const;
 
+/** Days after purchase that a component plan can be refunded in full. */
+export const PLAN_REFUND_DAYS = 14;
+
 function earlyAccessAction(plan: string): PlanAction {
   return {
     label: "Get early access",
@@ -140,6 +143,7 @@ const SITE_PAGE_PRICE = 350;
 /** Each screen past the ones a web app includes. */
 const APP_SCREEN_PRICE = 600;
 const COPY_PAGE_PRICE = 150;
+export const CARE_PLAN_MONTHLY_PRICE = 250;
 const RUSH_SHARE = 0.4;
 
 export const PROJECT_PACKAGES: PricedPackage[] = [
@@ -341,7 +345,7 @@ export const ADD_ONS: AddOn[] = [
   },
   {
     name: "Care plan",
-    price: "$250/month",
+    price: `${formatUsd(CARE_PLAN_MONTHLY_PRICE)}/month`,
     detail: "Updates, backups, and up to 2 hours of fixes a month.",
   },
   {
