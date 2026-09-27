@@ -117,6 +117,9 @@ const STAGGER_DURATION = 650; // Total duration for all staggered items (ms)
 
 const HEADER_SCROLL_THRESHOLD = 8;
 
+/** Pages built from the landing kit, which get the boxed landing header. */
+const LANDING_PATHS = new Set(["/", "/contact", "/privacy", "/terms"]);
+
 function getScrollTop() {
   return (
     window.scrollY ||
@@ -469,9 +472,9 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
   const { resolvedTheme } = useTheme();
   const pathname = usePathname();
-  // The landing page ("/") opens on a dark grid band, so its header draws every
+  // The landing-styled pages open on a grid band, so their header draws every
   // item as a solid box that stays readable on the band in either theme.
-  const isHome = pathname === "/";
+  const isHome = LANDING_PATHS.has(pathname);
 
   // Calculate stagger delay based on total items to complete in STAGGER_DURATION
   const utilitiesCount =
