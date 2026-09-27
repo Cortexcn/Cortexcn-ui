@@ -13,6 +13,8 @@ import { ChartThemeProvider } from "@/components/chart-theme/chart-theme-provide
 import { ChartThemeScript } from "@/components/chart-theme/chart-theme-script";
 import { SiteLeftDotGrid } from "@/components/design/site-left-dot-grid";
 import { DocsSearchDialog } from "@/components/docs/docs-search-dialog";
+import { PageScrollbar } from "@/components/smooth-scroll/page-scrollbar";
+import { SmoothScroll } from "@/components/smooth-scroll/smooth-scroll";
 import { getChartThemeIdFromCookie } from "@/lib/chart-theme-cookie.server";
 import { getOpenPanelClientId } from "@/lib/openpanel-env";
 import {
@@ -135,6 +137,7 @@ export default async function RootLayout({
     >
       <body className="relative flex min-h-screen flex-col">
         <ChartThemeScript />
+        <SmoothScroll />
         {cloudflareBeaconToken ? (
           <Script
             data-cf-beacon={JSON.stringify({ token: cloudflareBeaconToken })}
@@ -173,6 +176,7 @@ export default async function RootLayout({
             </ChartThemeProvider>
           </RootProvider>
         </GithubStatsProvider>
+        <PageScrollbar />
       </body>
     </html>
   );
