@@ -300,6 +300,38 @@ export function ArrowUpRightIcon({ className }: { className?: string }) {
   );
 }
 
+function actionClassName(block: boolean, className?: string) {
+  return cn(
+    "group relative isolate inline-flex h-12 shrink-0 items-center justify-between gap-8 overflow-hidden bg-foreground px-4 text-background outline-none transition-colors duration-300 hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
+    block ? "w-full" : "min-w-45",
+    className,
+  );
+}
+
+function ActionContent({ label, display }: { label: string; display: string }) {
+  return (
+    <>
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -z-1 -translate-x-full bg-primary transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0 group-focus-visible:translate-x-0 group-disabled:translate-x-0"
+      />
+      <span aria-hidden="true" className="size-2 shrink-0 bg-current" />
+      <span className="flex items-center font-mono font-semibold text-base uppercase leading-[1.3] tracking-[-0.05em]">
+        <span className="sr-only">{label}</span>
+        <span aria-hidden="true" className="whitespace-pre">
+          {display}
+        </span>
+        <span
+          aria-hidden="true"
+          className="flex w-0 justify-end overflow-hidden transition-[width] duration-300 ease-out group-hover:w-6 group-focus-visible:w-6"
+        >
+          <ArrowRightIcon className="size-4 shrink-0" />
+        </span>
+      </span>
+    </>
+  );
+}
+
 /**
  * Square button: a dot, a mono label, and on hover an accent fill that sweeps
  * in from the left while the label re-types and an arrow slides out.
@@ -317,34 +349,42 @@ export function ActionLink({
   const [display, play] = useScrambleText(label);
   return (
     <Link
-      className={cn(
-        "group relative isolate inline-flex h-12 shrink-0 items-center justify-between gap-8 overflow-hidden bg-foreground px-4 text-background outline-none transition-colors duration-300 hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
-        block ? "w-full" : "min-w-45",
-        className,
-      )}
+      className={actionClassName(block, className)}
       href={href}
       onFocus={play}
       onPointerEnter={play}
       {...props}
     >
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 -z-1 -translate-x-full bg-primary transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0 group-focus-visible:translate-x-0"
-      />
-      <span aria-hidden="true" className="size-2 shrink-0 bg-current" />
-      <span className="flex items-center font-mono font-semibold text-base uppercase leading-[1.3] tracking-[-0.05em]">
-        <span className="sr-only">{label}</span>
-        <span aria-hidden="true" className="whitespace-pre">
-          {display}
-        </span>
-        <span
-          aria-hidden="true"
-          className="flex w-0 justify-end overflow-hidden transition-[width] duration-300 ease-out group-hover:w-6 group-focus-visible:w-6"
-        >
-          <ArrowRightIcon className="size-4 shrink-0" />
-        </span>
-      </span>
+      <ActionContent display={display} label={label} />
     </Link>
+  );
+}
+
+/** `ActionLink` as a real button, for forms. The fill stays while it is disabled. */
+export function ActionButton({
+  label,
+  className,
+  block = false,
+  type = "button",
+  ...props
+}: Omit<ComponentProps<"button">, "children"> & {
+  label: string;
+  block?: boolean;
+}) {
+  const [display, play] = useScrambleText(label);
+  return (
+    <button
+      className={actionClassName(
+        block,
+        cn("disabled:cursor-wait disabled:text-primary-foreground", className),
+      )}
+      onFocus={play}
+      onPointerEnter={play}
+      type={type}
+      {...props}
+    >
+      <ActionContent display={display} label={label} />
+    </button>
   );
 }
 
