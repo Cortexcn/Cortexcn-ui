@@ -1,0 +1,62 @@
+---
+title: FAQ Tabs Card
+description: A tabbed FAQ card with animated accordion answers and a support footer.
+---
+
+import { FaqTabsCardDemo } from "@/components/docs/faq-tabs-card-demo";
+
+<ComponentPreview>
+  <FaqTabsCardDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs
+  name="faq-tabs-card"
+  dependencies={["motion", "lucide-react"]}
+/>
+
+## Usage
+
+```tsx
+import { FAQTabsCard } from "@/components/faq-tabs-card";
+```
+
+```tsx
+<FAQTabsCard
+  tabs={[
+    {
+      label: "General",
+      faqs: [
+        {
+          question: "How do I get started?",
+          answer: "Create an account and pick a template.",
+        },
+      ],
+    },
+  ]}
+  footerLabel="Contact support"
+  onFooterClick={() => router.push("/contact")}
+/>
+```
+
+The card ships with sample questions so it looks complete out of the box. Pass your own `tabs` in real use.
+
+## Behavior
+
+- A pill slides between tabs, and switching tabs opens the question at `defaultOpenIndex` again.
+- Each question opens and closes with a height animation, and only one is open at a time.
+- The tab pill is scoped to each card, so two cards on one page never animate into each other.
+
+## Props
+
+| Prop               | Type         | Default             | Description                                        |
+| ------------------ | ------------ | ------------------- | -------------------------------------------------- |
+| `tabs`             | `FaqTab[]`   | Sample questions    | Tabs, each with a label and its questions          |
+| `defaultTab`       | `number`     | `0`                 | Index of the tab selected at first                 |
+| `defaultOpenIndex` | `number`     | `0`                 | Index of the question open at first, `-1` for none |
+| `footerLabel`      | `string`     | `"Contact Support"` | Text on the button at the bottom                   |
+| `onFooterClick`    | `() => void` | -                   | Called when the bottom button is clicked           |
+| `className`        | `string`     | -                   | Extra classes for the card                         |
+
+Adapted from the [Spectrum UI FAQ Tabs Card](https://ui.spectrumhq.in) (Apache 2.0).
