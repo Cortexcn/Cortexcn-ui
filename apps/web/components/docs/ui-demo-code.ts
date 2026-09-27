@@ -513,3 +513,8 @@ export const cardImageCode = `<Card className="w-full max-w-sm">
     <Button className="w-full">View component</Button>
   </CardFooter>
 </Card>`;
+
+export const lightSpeedColorCode = `<section className="relative isolate flex h-[420px] items-center justify-center overflow-hidden">
+  <LightSpeed lightColor="#33b2ff" particleCount={600} speed={1.2} />
+  <h2 className="relative text-4xl font-medium text-white">Ship at light speed</h2>
+</section>`;
