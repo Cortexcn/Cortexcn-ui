@@ -31,13 +31,9 @@ Core promise: your agent builds from real, tested components instead of making u
   starting prices, and every project still gets a written quote. The changelog
   uses real release dates, and the footer newsletter says signups open at
   launch.
-- The infrastructure row in the footer lists only what the site really runs on
-  (Vercel for hosting, firewall, and DDoS protection; Cloudflare for DNS and the
-  contact form's Turnstile check). Do not add providers that are not in the
-  request path.
 - The contact details (email, phone, location) are real and live in
-  `lib/contact-details.ts`; the footer, `/contact`, and the legal pages read them
-  from there.
+  `lib/contact-details.ts`; the footer's "Get in touch" panel, `/contact`, and
+  the legal pages read them from there.
 
 ## Design system
 

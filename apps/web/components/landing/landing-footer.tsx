@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import {
-  type ComponentType,
-  type FormEvent,
-  type SVGProps,
-  useState,
-} from "react";
+import { type FormEvent, useState } from "react";
 
-import { CloudflareIcon } from "@/components/icons/cloudflare";
 import { CortexcnLogo } from "@/components/icons/cortexcn";
 import { SyedMoinMark } from "@/components/icons/syedmoin-mark";
-import { VercelIcon } from "@/components/icons/vercel";
 import {
   CONTACT_EMAIL,
   CONTACT_LOCATION,
@@ -57,31 +50,6 @@ const RESOURCE_ICON_PATHS: Record<ResourceIcon, string> = {
   portfolio:
     "M10 2.5a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15zM2.5 10h15M10 2.5c2.2 2.4 2.2 12.6 0 15M10 2.5c-2.2 2.4-2.2 12.6 0 15",
 };
-
-/**
- * What the site runs on. Cloudflare serves DNS and the Turnstile check on the
- * contact form; traffic is not proxied through it (Vercel advises against
- * that), so it is not credited for traffic protection.
- */
-const INFRASTRUCTURE: {
-  name: string;
-  role: string;
-  href: string;
-  Logo: ComponentType<SVGProps<SVGSVGElement>>;
-}[] = [
-  {
-    name: "Vercel",
-    role: "Hosting, firewall, and DDoS protection",
-    href: "https://vercel.com/security",
-    Logo: VercelIcon,
-  },
-  {
-    name: "Cloudflare",
-    role: "DNS and contact form bot checks",
-    href: "https://www.cloudflare.com/dns/",
-    Logo: CloudflareIcon,
-  },
-];
 
 /** Sites and people whose craft shaped Cortexcn. */
 const INSPIRATIONS = [
@@ -155,28 +123,52 @@ function FooterHeading({ children }: { children: string }) {
   );
 }
 
+const CONTACT_ROWS = [
+  { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+  {
+    label: "Phone",
+    value: CONTACT_PHONE.display,
+    href: `tel:${CONTACT_PHONE.e164}`,
+  },
+  { label: "Location", value: CONTACT_LOCATION },
+];
+
+const contactRowClassName =
+  "flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]";
+
+function ContactRow({ label, value }: { label: string; value: string }) {
+  return (
+    <>
+      <span className="w-18 shrink-0 font-medium text-foreground">{label}</span>
+      <span
+        aria-hidden="true"
+        className="h-px min-w-6 flex-1 border-border border-t border-dashed"
+      />
+      <span className="text-right transition-colors group-hover:text-primary">
+        {value}
+      </span>
+    </>
+  );
+}
+
 function GetInTouch() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
       <FooterHeading>Get in touch</FooterHeading>
-      <ul className="flex flex-col gap-2 text-base text-body leading-[1.3] tracking-[-0.05em]">
-        <li>
-          <a
-            className="transition-colors hover:text-primary"
-            href={`mailto:${CONTACT_EMAIL}`}
-          >
-            {CONTACT_EMAIL}
-          </a>
-        </li>
-        <li>
-          <a
-            className="transition-colors hover:text-primary"
-            href={`tel:${CONTACT_PHONE.e164}`}
-          >
-            {CONTACT_PHONE.display}
-          </a>
-        </li>
-        <li>Working from {CONTACT_LOCATION}</li>
+      <ul className="flex flex-col gap-2">
+        {CONTACT_ROWS.map((row) => (
+          <li key={row.label}>
+            {row.href ? (
+              <a className={`group ${contactRowClassName}`} href={row.href}>
+                <ContactRow label={row.label} value={row.value} />
+              </a>
+            ) : (
+              <p className={contactRowClassName}>
+                <ContactRow label={row.label} value={row.value} />
+              </p>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -188,10 +180,7 @@ export function LandingFooter() {
       <Container>
         <div className="grid border-border border-b lg:grid-cols-2">
           <div className="flex flex-col justify-between gap-16 border-border border-x p-6 sm:p-10">
-            <div className="flex flex-col gap-12">
-              <Newsletter />
-              <GetInTouch />
-            </div>
+            <Newsletter />
             <div className="flex items-center gap-4">
               <CortexcnLogo
                 className="size-16 rounded-[10px] sm:size-22"
@@ -282,39 +271,7 @@ export function LandingFooter() {
                 ))}
               </ol>
             </div>
-            <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
-              <FooterHeading>Secured and served by</FooterHeading>
-              <ul className="flex flex-col gap-2">
-                {INFRASTRUCTURE.map(({ Logo, ...item }) => (
-                  <li key={item.name}>
-                    <a
-                      className="group flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]"
-                      href={item.href}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      {/* A fixed slot keeps the names lined up, since the logos differ in width. */}
-                      <span
-                        aria-hidden="true"
-                        className="flex w-8 shrink-0 justify-center text-foreground"
-                      >
-                        <Logo className="h-3.5 w-auto" />
-                      </span>
-                      <span className="font-medium text-foreground transition-colors group-hover:text-primary">
-                        {item.name}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="h-px min-w-6 flex-1 border-border border-t border-dashed"
-                      />
-                      <span className="text-balance text-right">
-                        {item.role}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <GetInTouch />
           </div>
         </div>
 
