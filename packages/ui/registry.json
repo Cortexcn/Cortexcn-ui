@@ -495,6 +495,54 @@
       ]
     },
     {
+      "name": "number-ticker",
+      "type": "registry:component",
+      "title": "Number Ticker",
+      "description": "A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.",
+      "categories": ["cortex"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/components/number-ticker.tsx",
+          "type": "registry:component",
+          "target": "components/number-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-search",
+      "type": "registry:component",
+      "title": "Command Search",
+      "description": "A command palette that types queries and live-filters grouped results, with keyboard navigation.",
+      "categories": ["cortex"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/command-search.tsx",
+          "type": "registry:component",
+          "target": "components/command-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-tabs-card",
+      "type": "registry:component",
+      "title": "FAQ Tabs Card",
+      "description": "A tabbed FAQ card with animated accordion answers and a support footer.",
+      "categories": ["cortex"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/faq-tabs-card.tsx",
+          "type": "registry:component",
+          "target": "components/faq-tabs-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-utils",
       "type": "registry:lib",
       "title": "Chart Utilities",
