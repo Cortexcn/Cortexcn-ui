@@ -5,6 +5,7 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
+import { useSmoothScrollTo } from "@/components/smooth-scroll/use-smooth-scroll-to";
 import { usePauseWhenOffscreen } from "@/lib/use-pause-when-offscreen";
 import { cn } from "@/lib/utils";
 
@@ -543,6 +544,7 @@ const DESKTOP_QUERY = "(min-width: 1024px)";
 
 export function CapabilitiesSection() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const scrollTo = useSmoothScrollTo();
   const [active, setActive] = useState(0);
   const [highlight, setHighlight] = useState(0);
   const { ref, paused } = usePauseWhenOffscreen<HTMLElement>();
@@ -593,7 +595,7 @@ export function CapabilitiesSection() {
       track.getBoundingClientRect().top +
       window.scrollY +
       ((index + 0.5) / CAPABILITIES.length) * travel;
-    window.scrollTo({ top, behavior: "smooth" });
+    scrollTo(top);
   };
 
   return (

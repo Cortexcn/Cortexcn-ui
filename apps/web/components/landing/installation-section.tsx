@@ -3,6 +3,7 @@
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { type ReactNode, useRef, useState } from "react";
 
+import { useSmoothScrollTo } from "@/components/smooth-scroll/use-smooth-scroll-to";
 import { cn } from "@/lib/utils";
 
 import { ActionLink, DotTexture, SectionLabel, TypeHeading } from "./kit";
@@ -257,6 +258,7 @@ const DESKTOP_QUERY = "(min-width: 1024px)";
 
 export function InstallationSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const scrollTo = useSmoothScrollTo();
   const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -282,7 +284,7 @@ export function InstallationSection() {
       section.getBoundingClientRect().top +
       window.scrollY +
       ((index + 0.5) / STEPS.length) * travel;
-    window.scrollTo({ top, behavior: "smooth" });
+    scrollTo(top);
   };
 
   const step = STEPS[active] ?? STEPS[0];
