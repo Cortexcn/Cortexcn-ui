@@ -1,0 +1,121 @@
+---
+title: Accordion
+description: A vertically stacked set of headings that each reveal a section of content.
+---
+
+import {
+  accordionBasicCode,
+  accordionCardCode,
+  accordionDisabledCode,
+  accordionMultipleCode,
+} from "@/components/docs/ui-demo-code";
+import {
+  AccordionBasic,
+  AccordionCard,
+  AccordionDisabled,
+  AccordionMultiple,
+} from "@/components/docs/accordion-demo";
+
+<ComponentPreview>
+  <AccordionBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="accordion" />
+
+The open and close animations use `animate-accordion-down` and `animate-accordion-up` from `tw-animate-css`, which `shadcn init` adds to your project.
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/accordion";
+```
+
+```tsx
+<Accordion type="single" collapsible defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Basic
+
+A basic accordion that shows one item at a time. The first item is open by default.
+
+<ComponentShowcase code={accordionBasicCode}>
+  <AccordionBasic />
+</ComponentShowcase>
+
+### Multiple
+
+Use `type="multiple"` to allow multiple items to be open at the same time.
+
+<ComponentShowcase code={accordionMultipleCode}>
+  <AccordionMultiple />
+</ComponentShowcase>
+
+### Disabled
+
+Use the `disabled` prop on `AccordionItem` to disable individual items.
+
+<ComponentShowcase code={accordionDisabledCode}>
+  <AccordionDisabled />
+</ComponentShowcase>
+
+### Card
+
+Wrap the accordion in a [Card](/docs/components/card).
+
+<ComponentShowcase code={accordionCardCode} previewMinHeight={420}>
+  <AccordionCard />
+</ComponentShowcase>
+
+## API Reference
+
+The accordion is built on the [Radix UI Accordion](https://www.radix-ui.com/primitives/docs/components/accordion), so every Radix prop works.
+
+### Accordion
+
+| Prop            | Type                     | Default  | Description                                        |
+| --------------- | ------------------------ | -------- | -------------------------------------------------- |
+| `type`          | `"single" \| "multiple"` | required | Whether one or several items can be open at a time |
+| `collapsible`   | `boolean`                | `false`  | With `type="single"`, lets the open item close     |
+| `defaultValue`  | `string \| string[]`     | -        | Items open on first render                         |
+| `value`         | `string \| string[]`     | -        | Controlled open items                              |
+| `onValueChange` | `(value) => void`        | -        | Called when the open items change                  |
+| `disabled`      | `boolean`                | `false`  | Disables every item                                |
+| `className`     | `string`                 | -        | Extra classes for the root                         |
+
+### AccordionItem
+
+| Prop        | Type      | Default  | Description                  |
+| ----------- | --------- | -------- | ---------------------------- |
+| `value`     | `string`  | required | Unique value for the item    |
+| `disabled`  | `boolean` | `false`  | Stops the item from toggling |
+| `className` | `string`  | -        | Extra classes for the item   |
+
+### AccordionTrigger
+
+| Prop        | Type     | Default | Description                   |
+| ----------- | -------- | ------- | ----------------------------- |
+| `className` | `string` | -       | Extra classes for the heading |
+
+### AccordionContent
+
+| Prop        | Type     | Default | Description                         |
+| ----------- | -------- | ------- | ----------------------------------- |
+| `className` | `string` | -       | Extra classes for the content panel |
+
+Adapted from the [shadcn/ui Accordion](https://ui.shadcn.com/docs/components/accordion) (MIT).

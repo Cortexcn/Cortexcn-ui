@@ -29,6 +29,8 @@ interface SiteHeaderProps {
 }
 
 const uiComponents = [
+  { text: "Accordion", url: "/docs/components/accordion" },
+  { text: "Card", url: "/docs/components/card" },
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
   { text: "Marquee", url: "/docs/components/marquee" },
