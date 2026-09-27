@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { HomeHeroSection } from "@/components/design/home-hero-section";
-import { LineGrid } from "@/components/design/line-grid";
+import { InteractiveGrid } from "@/components/landing/interactive-grid";
 import { cn } from "@/lib/utils";
 
 export function SubPageHeroGrid({
@@ -15,22 +15,19 @@ export function SubPageHeroGrid({
   return (
     <HomeHeroSection>
       <div className="w-full overflow-visible pt-8 md:pt-16">
-        <LineGrid
+        <div
           className={cn(
-            "aspect-3/1 [--grid-cell-height:calc(100%/1)] [--grid-cell-width:calc(100%/3)] md:aspect-4/1 md:[--grid-cell-width:calc(100%/4)]",
+            "relative aspect-3/1 min-h-64 w-full overflow-hidden border border-border md:aspect-4/1",
             className,
           )}
-          columns={3}
-          columnsMd={4}
-          pulse
-          pulseMaxActive={0}
-          pulseMinActive={0}
-          pulseStaticCells={[{ col: 0, row: 0 }]}
-          rows={1}
-          variant="solid"
         >
+          {/* The landing's hover grid. `syntiq` brings its violet cells; the band
+              and line colors are the light ones the landing title band uses. */}
+          <div aria-hidden="true" className="syntiq absolute inset-0">
+            <InteractiveGrid className="absolute inset-0 [--band-line:var(--border)] [--band:var(--muted)]" />
+          </div>
           {children}
-        </LineGrid>
+        </div>
       </div>
     </HomeHeroSection>
   );
