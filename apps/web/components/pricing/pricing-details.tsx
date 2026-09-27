@@ -14,23 +14,26 @@ export function PricingDetails() {
           <h2 className="font-normal text-[2.5rem] leading-[1.1] tracking-[-0.06em] sm:text-5xl">
             Add-ons
           </h2>
+          {/* Each card spans three shared rows (price, name, detail), so names
+              and details line up across a row even when one of them wraps. */}
           <ul className="grid border-border border-t border-l sm:grid-cols-2 lg:grid-cols-5">
             {ADD_ONS.map((addOn) => (
               <li
-                className="flex min-h-48 flex-col gap-6 border-border border-r border-b p-6"
+                className="row-span-3 grid grid-rows-subgrid gap-y-1.5 border-border border-r border-b p-6"
                 key={addOn.name}
               >
-                <p className="font-pixel text-4xl text-primary leading-none">
-                  {addOn.price}
+                <p className="mb-14 flex flex-wrap items-baseline gap-x-1 font-pixel text-primary leading-none">
+                  <span className="text-4xl">{addOn.price}</span>
+                  {addOn.unit ? (
+                    <span className="text-xl">{addOn.unit}</span>
+                  ) : null}
                 </p>
-                <div className="mt-auto flex flex-col gap-1.5">
-                  <h3 className="font-medium text-xl leading-[1.2] tracking-[-0.05em]">
-                    {addOn.name}
-                  </h3>
-                  <p className="text-base text-body leading-[1.3] tracking-[-0.05em]">
-                    {addOn.detail}
-                  </p>
-                </div>
+                <h3 className="font-medium text-xl leading-[1.2] tracking-[-0.05em]">
+                  {addOn.name}
+                </h3>
+                <p className="text-base text-body leading-[1.3] tracking-[-0.05em]">
+                  {addOn.detail}
+                </p>
               </li>
             ))}
           </ul>
@@ -43,20 +46,18 @@ export function PricingDetails() {
           <ol className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {PRICING_STEPS.map((step, index) => (
               <li
-                className="flex min-h-48 flex-col gap-10 bg-background p-6"
+                className="row-span-3 grid grid-rows-subgrid gap-y-1.5 bg-background p-6"
                 key={step.title}
               >
-                <span className="font-medium font-mono text-label-strong text-sm uppercase leading-[1.3] tracking-[-0.04em]">
+                <span className="mb-16 font-medium font-mono text-label-strong text-sm uppercase leading-[1.3] tracking-[-0.04em]">
                   Step {String(index + 1).padStart(2, "0")}
                 </span>
-                <div className="mt-auto flex flex-col gap-1.5">
-                  <h3 className="font-medium text-xl leading-[1.2] tracking-[-0.05em]">
-                    {step.title}
-                  </h3>
-                  <p className="text-base text-body leading-[1.3] tracking-[-0.05em]">
-                    {step.detail}
-                  </p>
-                </div>
+                <h3 className="font-medium text-xl leading-[1.2] tracking-[-0.05em]">
+                  {step.title}
+                </h3>
+                <p className="text-base text-body leading-[1.3] tracking-[-0.05em]">
+                  {step.detail}
+                </p>
               </li>
             ))}
           </ol>
