@@ -45,6 +45,10 @@ const cortexComponents = [
   { text: "Work Experience", url: "/docs/components/work-experience" },
 ];
 
+const backgroundComponents = [
+  { text: "Light Speed", url: "/docs/components/light-speed" },
+];
+
 const components = [
   { text: "Area Chart", url: "/docs/components/area-chart" },
   { text: "Bar Chart", url: "/docs/components/bar-chart" },
@@ -186,10 +190,17 @@ function MobileMenu({
 
   const neuronsStartIndex = links.length + 1;
   const cortexStartIndex = neuronsStartIndex + neuronComponents.length + 1;
-  const componentsStartIndex = cortexStartIndex + cortexComponents.length + 1;
+  const backgroundsStartIndex = cortexStartIndex + cortexComponents.length + 1;
+  const componentsStartIndex =
+    backgroundsStartIndex + backgroundComponents.length + 1;
   const componentGroups = [
     { title: "Neurons", items: neuronComponents, start: neuronsStartIndex },
     { title: "Cortex", items: cortexComponents, start: cortexStartIndex },
+    {
+      title: "Backgrounds",
+      items: backgroundComponents,
+      start: backgroundsStartIndex,
+    },
   ];
   const utilitiesStartIndex = componentsStartIndex + components.length + 1;
 
@@ -238,7 +249,7 @@ function MobileMenu({
             ))}
           </div>
 
-          {/* Neurons and Cortex sections */}
+          {/* Neurons, Cortex, and Backgrounds sections */}
           {componentGroups.map((group) => (
             <div className="mt-3 border-border border-t pt-3" key={group.title}>
               <span
@@ -495,6 +506,8 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
     neuronComponents.length +
     1 + // Cortex header
     cortexComponents.length +
+    1 + // Backgrounds header
+    backgroundComponents.length +
     1 + // Charts header
     components.length +
     1 + // Utilities header
