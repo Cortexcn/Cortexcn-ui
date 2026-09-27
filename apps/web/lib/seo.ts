@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/contact-details";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 
 /*
@@ -124,6 +125,32 @@ export function homeJsonLd() {
         url: AUTHOR.url,
       },
     ],
+  };
+}
+
+/** Contact page: how to reach the organization behind the site. */
+export function contactJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${SITE_URL}/contact#webpage`,
+    url: `${SITE_URL}/contact`,
+    name: `Contact ${SITE_NAME}`,
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+      email: CONTACT_EMAIL,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: CONTACT_EMAIL,
+        telephone: CONTACT_PHONE.e164,
+        availableLanguage: ["English"],
+      },
+    },
   };
 }
 
