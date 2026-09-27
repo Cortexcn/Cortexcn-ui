@@ -471,6 +471,30 @@
       ]
     },
     {
+      "name": "light-speed",
+      "type": "registry:component",
+      "title": "Light Speed",
+      "description": "A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.",
+      "categories": ["backgrounds"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/postprocessing",
+        "postprocessing",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "devDependencies": ["@types/three"],
+      "files": [
+        {
+          "path": "src/components/light-speed.tsx",
+          "type": "registry:component",
+          "target": "components/light-speed.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-utils",
       "type": "registry:lib",
       "title": "Chart Utilities",
