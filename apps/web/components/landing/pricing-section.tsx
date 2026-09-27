@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 
 import {
+  COMPONENT_PLANS,
   cadenceLabel,
   formatUsd,
   PROJECT_PACKAGES,
@@ -22,12 +23,28 @@ import {
 } from "./kit";
 import { Container } from "./primitives";
 
-type Kind = "projects" | "retainers";
+const KINDS = [
+  {
+    value: "components",
+    label: "Components",
+    plans: COMPONENT_PLANS,
+    note: "One-time payments in US dollars. No subscriptions and no renewals.",
+  },
+  {
+    value: "projects",
+    label: "Projects",
+    plans: PROJECT_PACKAGES,
+    note: "Starting prices in US dollars. Every project gets a written quote before work starts.",
+  },
+  {
+    value: "retainers",
+    label: "Retainers",
+    plans: RETAINERS,
+    note: "Billed monthly in US dollars. Pause or cancel with 2 weeks notice.",
+  },
+] as const;
 
-const PACKAGES: Record<Kind, PricedPackage[]> = {
-  projects: PROJECT_PACKAGES,
-  retainers: RETAINERS,
-};
+type Kind = (typeof KINDS)[number]["value"];
 
 const BOLT_ROWS = [
   ".....####",
@@ -60,10 +77,28 @@ function CheckIcon({ className }: { className?: string }) {
   );
 }
 
-/** "$1,500 /project": the starting price, re-typed when it changes. */
+function priceLabel(plan: PricedPackage) {
+  if (plan.cadence !== "once") {
+    return "Starting at";
+  }
+  return plan.price === 0 ? "Free forever" : "One-time payment";
+}
+
+function spokenPrice(plan: PricedPackage, text: string) {
+  if (plan.price === 0) {
+    return "Free";
+  }
+  if (plan.cadence === "once") {
+    return `${text}, paid once`;
+  }
+  return `${text} ${plan.cadence === "month" ? "per month" : "per project"}`;
+}
+
+/** "$1,500 /project": the price, re-typed when it changes. */
 function Price({ plan }: { plan: PricedPackage }) {
   const text = formatUsd(plan.price);
   const [display, play] = useScrambleText(text, 45);
+  const suffix = cadenceLabel(plan.cadence);
 
   useEffect(() => {
     play();
@@ -72,40 +107,42 @@ function Price({ plan }: { plan: PricedPackage }) {
   return (
     <div className="flex flex-col gap-1">
       <span className="font-medium font-mono text-label-strong text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-        Starting at
+        {priceLabel(plan)}
       </span>
-      <p className="flex items-baseline gap-1">
-        <span className="sr-only">
-          {text} {plan.cadence === "month" ? "per month" : "per project"}
-        </span>
+      {/* Five-figure prices wrap the suffix on narrow phones instead of overflowing. */}
+      <p className="flex flex-wrap items-baseline gap-x-1">
+        <span className="sr-only">{spokenPrice(plan, text)}</span>
         <span
           aria-hidden="true"
-          className="whitespace-pre text-[4rem] leading-[1.1] tracking-[-0.06em]"
+          className="whitespace-pre text-[4rem] leading-[1.1] tracking-[-0.06em] lg:text-[3.5rem] xl:text-[4rem]"
         >
           {display}
         </span>
-        <span
-          aria-hidden="true"
-          className="text-lg text-muted-foreground leading-[1.3] tracking-[-0.05em]"
-        >
-          {cadenceLabel(plan.cadence)}
-        </span>
+        {suffix ? (
+          <span
+            aria-hidden="true"
+            className="text-lg text-muted-foreground leading-[1.3] tracking-[-0.05em]"
+          >
+            {suffix}
+          </span>
+        ) : null}
       </p>
     </div>
   );
 }
 
 function PlanCard({ plan }: { plan: PricedPackage }) {
+  const highlighted = Boolean(plan.badge);
   return (
     <article
       className={cn(
         "relative flex flex-col bg-background",
-        plan.featured
+        highlighted
           ? "z-1 border border-primary outline-8 outline-muted"
           : "border border-border",
       )}
     >
-      {plan.featured ? (
+      {highlighted ? (
         <>
           <span className="absolute -top-px -left-px size-1.5 bg-primary" />
           <span className="absolute -top-px -right-px size-1.5 bg-primary" />
@@ -116,19 +153,19 @@ function PlanCard({ plan }: { plan: PricedPackage }) {
 
       <div className="flex flex-col border-border border-b px-6 pt-8 pb-8">
         <div className="flex h-4.5 items-center gap-2">
-          {plan.featured ? (
+          {plan.badge ? (
             <span className="bg-muted px-0.5 font-medium font-mono text-body text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-              Most popular
+              {plan.badge}
             </span>
           ) : null}
           <span aria-hidden="true" className="h-px flex-1 bg-border" />
           <span className="font-medium font-mono text-label-strong text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-            {plan.timeline}
+            {plan.tag}
           </span>
         </div>
 
         <div className="mt-7.5 flex items-center gap-2">
-          {plan.featured ? (
+          {highlighted ? (
             <PixelArt className="h-8 w-7 text-primary" rows={BOLT_ROWS} />
           ) : null}
           <h3 className="font-medium text-[2rem] leading-[1.2] tracking-[-0.05em]">
@@ -146,8 +183,8 @@ function PlanCard({ plan }: { plan: PricedPackage }) {
         <ActionLink
           block
           className="mt-10"
-          href="/contact"
-          label="Get a quote"
+          href={plan.action.href}
+          label={plan.action.label}
         />
       </div>
 
@@ -164,7 +201,7 @@ function PlanCard({ plan }: { plan: PricedPackage }) {
               <CheckIcon
                 className={cn(
                   "size-4 shrink-0",
-                  plan.featured ? "text-primary" : "text-muted-foreground",
+                  highlighted ? "text-primary" : "text-muted-foreground",
                 )}
               />
               {feature}
@@ -183,47 +220,46 @@ function KindToggle({
   kind: Kind;
   onChange: (kind: Kind) => void;
 }) {
-  const option = (value: Kind, label: string) => {
-    const selected = kind === value;
-    return (
-      <button
-        aria-pressed={selected}
-        className={cn(
-          "-ml-px flex h-12 items-center gap-2 border bg-background px-4 text-base leading-[1.3] tracking-[-0.05em] outline-none transition-colors first:ml-0 focus-visible:ring-2 focus-visible:ring-ring/50",
-          selected
-            ? "z-1 border-primary font-medium text-primary"
-            : "border-border text-muted-foreground hover:text-foreground",
-        )}
-        onClick={() => onChange(value)}
-        type="button"
-      >
-        <span
-          aria-hidden="true"
-          className={cn(
-            "size-2 bg-primary transition-[width,opacity] duration-300",
-            selected ? "w-2 opacity-100" : "-mr-2 w-0 opacity-0",
-          )}
-        />
-        {label}
-      </button>
-    );
-  };
-
   return (
-    <fieldset className="flex">
-      <legend className="sr-only">Kind of work</legend>
-      {option("projects", "Projects")}
-      {option("retainers", "Monthly retainers")}
+    <fieldset className="flex w-full sm:w-auto">
+      <legend className="sr-only">Show prices for</legend>
+      {KINDS.map((option) => {
+        const selected = kind === option.value;
+        return (
+          <button
+            aria-pressed={selected}
+            className={cn(
+              "-ml-px flex h-12 flex-1 items-center justify-center gap-2 border bg-background px-3 text-sm leading-[1.3] tracking-[-0.05em] outline-none transition-colors first-of-type:ml-0 focus-visible:ring-2 focus-visible:ring-ring/50 sm:flex-none sm:px-4 sm:text-base",
+              selected
+                ? "z-1 border-primary font-medium text-primary"
+                : "border-border text-muted-foreground hover:text-foreground",
+            )}
+            key={option.value}
+            onClick={() => onChange(option.value)}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                "size-2 bg-primary transition-[width,opacity] duration-300",
+                selected ? "w-2 opacity-100" : "-mr-2 w-0 opacity-0",
+              )}
+            />
+            {option.label}
+          </button>
+        );
+      })}
     </fieldset>
   );
 }
 
 /**
- * The package cards with the projects and retainers toggle. Used by the
- * landing pricing section and the /pricing page.
+ * The plan cards with the components, projects, and retainers toggle. Used by
+ * the landing pricing section and the /pricing page.
  */
 export function PricingPlans({ heading }: { heading?: string[] }) {
-  const [kind, setKind] = useState<Kind>("projects");
+  const [kind, setKind] = useState<Kind>("components");
+  const active = KINDS.find((option) => option.value === kind) ?? KINDS[0];
 
   return (
     <div className="flex flex-col gap-16">
@@ -233,16 +269,33 @@ export function PricingPlans({ heading }: { heading?: string[] }) {
       </div>
       <div className="flex flex-col gap-6">
         <div className="grid gap-6 lg:grid-cols-3 lg:gap-0">
-          {PACKAGES[kind].map((plan) => (
+          {active.plans.map((plan) => (
             <PlanCard key={plan.name} plan={plan} />
           ))}
         </div>
         <p className="font-medium font-mono text-muted-foreground text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-          Starting prices in US dollars. Every project gets a written quote
-          before work starts.
+          {active.note}
         </p>
       </div>
     </div>
+  );
+}
+
+function PricingLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      className="group inline-flex items-center gap-2 font-medium font-mono text-sm uppercase leading-[1.3] tracking-[-0.04em] transition-colors hover:text-primary"
+      href={href}
+    >
+      {children}
+      <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </Link>
   );
 }
 
@@ -251,14 +304,15 @@ export function PricingSection() {
     <section aria-label="Pricing" className="w-full py-20" id="pricing">
       <Container className="flex flex-col gap-6">
         <SectionLabel label="Pricing" section="pricing" />
-        <PricingPlans heading={["Clear prices.", "Quoted before we start."]} />
-        <Link
-          className="group inline-flex items-center gap-2 self-start font-medium font-mono text-sm uppercase leading-[1.3] tracking-[-0.04em] transition-colors hover:text-primary"
-          href="/pricing"
-        >
-          See every service and add-on
-          <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
+        <PricingPlans heading={["Clear prices.", "Pay once, or hire us."]} />
+        <div className="flex flex-wrap gap-x-8 gap-y-3">
+          <PricingLink href="/pricing#estimate">
+            Estimate your project
+          </PricingLink>
+          <PricingLink href="/pricing#every-service">
+            See every service
+          </PricingLink>
+        </div>
       </Container>
     </section>
   );
