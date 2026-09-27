@@ -1,0 +1,75 @@
+---
+title: Light Speed
+description: A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.
+---
+
+import { lightSpeedColorCode } from "@/components/docs/ui-demo-code";
+import { LightSpeedDemo } from "@/components/docs/light-speed-demo";
+
+<ComponentPreview>
+  <LightSpeedDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs
+  name="light-speed"
+  dependencies={[
+    "three",
+    "@react-three/fiber",
+    "@react-three/postprocessing",
+    "postprocessing",
+    "clsx",
+    "tailwind-merge",
+  ]}
+/>
+
+Using TypeScript? Add the three.js types as well with `pnpm add -D @types/three`. The CLI adds them for you.
+
+## Usage
+
+```tsx
+import { LightSpeed } from "@/components/light-speed";
+```
+
+```tsx
+<section className="relative isolate flex h-[480px] items-center justify-center overflow-hidden">
+  <LightSpeed />
+  <h1 className="relative text-4xl font-medium text-white">
+    Ship at light speed
+  </h1>
+</section>
+```
+
+The background fills its nearest positioned parent, so give that parent `relative` and a height. Content placed after it with `relative` sits on top.
+
+## Examples
+
+### Color and speed
+
+A cooler color with fewer, slower streaks.
+
+<ComponentShowcase code={lightSpeedColorCode}>
+  <LightSpeedDemo lightColor="#33b2ff" particleCount={600} speed={1.2} />
+</ComponentShowcase>
+
+## Behavior
+
+- Draws with WebGL through React Three Fiber, and a bloom pass from `@react-three/postprocessing` turns the bright streaks into a glow.
+- Ignores the pointer, so buttons and links on top stay clickable, and it is hidden from screen readers.
+- Renders at up to twice the device pixel ratio, which keeps it sharp without overworking large screens.
+- With reduced motion enabled, it holds a still frame instead of animating.
+- Set `paused` to hold the frame yourself, for example while the section is off screen.
+
+## Props
+
+| Prop             | Type      | Default     | Description                                                  |
+| ---------------- | --------- | ----------- | ------------------------------------------------------------ |
+| `particleCount`  | `number`  | `1000`      | Number of light streaks                                      |
+| `speed`          | `number`  | `2.4`       | Base speed of the warp effect                                |
+| `lightColor`     | `string`  | `"#b026ff"` | Color of the streaks                                         |
+| `intensity`      | `number`  | `3`         | How far the color is pushed past full brightness; more glows |
+| `radius`         | `number`  | `25`        | Radius of the tunnel the streaks spawn in                    |
+| `cylinderLength` | `number`  | `150`       | Length of the tunnel before streaks loop back                |
+| `paused`         | `boolean` | `false`     | Hold the current frame                                       |
+| `className`      | `string`  | -           | Extra classes for the wrapper                                |
