@@ -10,6 +10,7 @@ import {
   CONTACT_LOCATION,
   CONTACT_PHONE,
 } from "@/lib/contact-details";
+import { DOCS_URL } from "@/lib/site-url";
 
 import { ArrowUpRightIcon } from "./kit";
 import { Container } from "./primitives";
@@ -123,6 +124,80 @@ function FooterHeading({ children }: { children: string }) {
   );
 }
 
+function InspiredBy() {
+  return (
+    <div className="flex flex-col gap-4">
+      <FooterHeading>Inspired by</FooterHeading>
+      <ol className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+        {INSPIRATIONS.map((item, index) => (
+          <li key={item.href}>
+            <a
+              className="group flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]"
+              href={item.href}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="w-5 shrink-0 font-medium font-mono text-label-weak text-xs tracking-[-0.04em]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="transition-colors group-hover:text-primary">
+                {item.name}
+              </span>
+              <ArrowUpRightIcon className="size-3.5 shrink-0 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+const productRowClassName =
+  "flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]";
+
+/** What Cortexcn makes. Pro has no page yet, so it only says it is coming. */
+function Products() {
+  return (
+    <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
+      <FooterHeading>Products</FooterHeading>
+      <ul className="flex flex-col gap-2">
+        <li>
+          <a
+            className={`group ${productRowClassName}`}
+            href={`${DOCS_URL}/`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <CortexcnLogo size={20} theme="auto" />
+            <span className="font-medium text-foreground transition-colors group-hover:text-primary">
+              Cortexcn
+            </span>
+            <span
+              aria-hidden="true"
+              className="h-px min-w-6 flex-1 border-border border-t border-dashed"
+            />
+            <span className="hidden text-right sm:inline">
+              Components, charts, and blocks
+            </span>
+            <ArrowUpRightIcon className="size-3.5 shrink-0 text-faint transition-colors group-hover:text-primary" />
+          </a>
+        </li>
+        <li className={productRowClassName}>
+          <CortexcnLogo size={20} theme="auto" />
+          <span className="font-medium text-foreground">Cortexcn Pro</span>
+          <span
+            aria-hidden="true"
+            className="h-px min-w-6 flex-1 border-border border-t border-dashed"
+          />
+          <span className="shrink-0 bg-primary/10 px-1.5 py-1 font-medium font-mono text-primary text-xs uppercase leading-none tracking-normal">
+            Coming soon
+          </span>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 const CONTACT_ROWS = [
   { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   {
@@ -180,7 +255,10 @@ export function LandingFooter() {
       <Container>
         <div className="grid border-border border-b lg:grid-cols-2">
           <div className="flex flex-col justify-between gap-16 border-border border-x p-6 sm:p-10">
-            <Newsletter />
+            <div className="flex flex-col gap-14">
+              <Newsletter />
+              <InspiredBy />
+            </div>
             <div className="flex items-center gap-4">
               <CortexcnLogo
                 className="size-16 rounded-[10px] sm:size-22"
@@ -248,29 +326,7 @@ export function LandingFooter() {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
-              <FooterHeading>Inspired by</FooterHeading>
-              <ol className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
-                {INSPIRATIONS.map((item, index) => (
-                  <li key={item.href}>
-                    <a
-                      className="group flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]"
-                      href={item.href}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      <span className="w-5 shrink-0 font-medium font-mono text-label-weak text-xs tracking-[-0.04em]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="transition-colors group-hover:text-primary">
-                        {item.name}
-                      </span>
-                      <ArrowUpRightIcon className="size-3.5 shrink-0 text-primary opacity-0 transition-opacity group-hover:opacity-100" />
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <Products />
             <GetInTouch />
           </div>
         </div>
