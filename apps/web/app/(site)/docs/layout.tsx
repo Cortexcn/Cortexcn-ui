@@ -1,7 +1,7 @@
 import { NextProvider } from "fumadocs-core/framework/next";
 import type { ReactNode } from "react";
 import { DocsLayout } from "@/components/docs/docs-layout";
-import { siteNavLinks } from "@/lib/site-nav-links";
+import { libraryNavLinks } from "@/lib/library-nav-links";
 import { source } from "@/lib/source";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <NextProvider>
       <DocsLayout
         nav={{
-          links: [{ text: "Introduction", url: "/docs" }, ...siteNavLinks],
+          links: [{ text: "Introduction", url: "/docs" }, ...libraryNavLinks],
         }}
         tree={source.pageTree}
       >
