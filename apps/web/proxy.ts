@@ -3,7 +3,7 @@ import {
   canonicalUrlFor,
   DEV_DOCS_HOSTNAME,
   DOCS_URL,
-  isDocsPath,
+  isLibraryPath,
   LIBRARY_HOME_ROUTE,
   SITE_URL,
 } from "@/lib/site-url";
@@ -39,8 +39,8 @@ function libraryHomeUrl(host: string) {
 /**
  * Where a production request should be sent instead, or null to serve it.
  * One deployment answers on both domains: the component library (its home,
- * docs, and registry) lives on ui.cortexcn.dev, and everything else on
- * www.cortexcn.dev.
+ * docs, blocks, charts, and registry) lives on ui.cortexcn.dev, and
+ * everything else on www.cortexcn.dev.
  */
 function productionRedirectFor(host: string, pathname: string): URL | null {
   if (HOST_AGNOSTIC_PATH_RE.test(pathname)) {
@@ -51,11 +51,11 @@ function productionRedirectFor(host: string, pathname: string): URL | null {
     if (pathname === "/") {
       return null;
     }
-    return isDocsPath(pathname) ? null : new URL(pathname, SITE_URL);
+    return isLibraryPath(pathname) ? null : new URL(pathname, SITE_URL);
   }
 
   if (host === SITE_HOST) {
-    return isDocsPath(pathname) ? new URL(pathname, DOCS_URL) : null;
+    return isLibraryPath(pathname) ? new URL(pathname, DOCS_URL) : null;
   }
 
   // Vercel already redirects the apex; this covers a missing domain-level rule.

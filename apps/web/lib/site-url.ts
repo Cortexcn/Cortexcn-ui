@@ -5,8 +5,8 @@
 export const SITE_URL = "https://www.cortexcn.dev";
 
 /**
- * Canonical origin of the component library site: its home page, the docs, and
- * the shadcn registry (`/r/*`).
+ * Canonical origin of the component library site: its home page, the docs, the
+ * blocks and chart galleries, and the shadcn registry (`/r/*`).
  */
 export const DOCS_URL = "https://ui.cortexcn.dev";
 
@@ -24,10 +24,11 @@ export const DEV_DOCS_HOSTNAME = "ui.localhost";
  */
 export const LIBRARY_HOME_ROUTE = "/ui-home";
 
-const DOCS_PATH_RE = /^\/docs(?:\/|$)/;
+const LIBRARY_PATH_RE = /^\/(?:docs|blocks|charts)(?:\/|$)/;
 
-export function isDocsPath(pathname: string) {
-  return DOCS_PATH_RE.test(pathname);
+/** Pages of the component library site: the docs and the two galleries. */
+export function isLibraryPath(pathname: string) {
+  return LIBRARY_PATH_RE.test(pathname);
 }
 
 /** Absolute canonical URL for a path, on whichever domain owns it. */
@@ -35,5 +36,5 @@ export function canonicalUrlFor(pathname: string) {
   if (pathname === LIBRARY_HOME_ROUTE) {
     return `${DOCS_URL}/`;
   }
-  return new URL(pathname, isDocsPath(pathname) ? DOCS_URL : SITE_URL).href;
+  return new URL(pathname, isLibraryPath(pathname) ? DOCS_URL : SITE_URL).href;
 }
