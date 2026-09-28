@@ -11,6 +11,7 @@ import {
   useSyncExternalStore,
 } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { isLibraryPath } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 import { CortexcnLogo } from "../icons/cortexcn";
 import { Button } from "../ui/button";
@@ -25,6 +26,11 @@ interface NavLink {
 
 interface SiteHeaderProps {
   links?: NavLink[];
+  /**
+   * Nav for the component library pages (docs, blocks, and charts), which
+   * belong to ui.cortexcn.dev rather than the services site.
+   */
+  libraryLinks?: NavLink[];
   /**
    * Header style. By default the landing-kit pages get the boxed landing
    * header and every other page the plain one; pass it where the URL alone
@@ -538,7 +544,11 @@ function LandingHeaderItems({
   );
 }
 
-export function SiteHeader({ links = [], variant }: SiteHeaderProps) {
+export function SiteHeader({
+  links: siteLinks = [],
+  libraryLinks,
+  variant,
+}: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const isScrolled = useIsScrolled();
@@ -548,6 +558,8 @@ export function SiteHeader({ links = [], variant }: SiteHeaderProps) {
   // The landing-styled pages open on a grid band, so their header draws every
   // item as a solid box that stays readable on the band in either theme.
   const isHome = variant ? variant === "landing" : LANDING_PATHS.has(pathname);
+  const links =
+    libraryLinks && isLibraryPath(pathname) ? libraryLinks : siteLinks;
 
   // Calculate stagger delay based on total items to complete in STAGGER_DURATION
   const utilitiesCount =
