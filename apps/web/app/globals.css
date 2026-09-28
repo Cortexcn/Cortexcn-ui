@@ -79,6 +79,8 @@
   --font-heading: var(--font-geist-sans);
   --font-display: var(--font-instrument-serif);
   --font-pixel: var(--font-geist-pixel-square);
+  /* Library home headings (Sentient Light, loaded by app/(ui-home)/layout.tsx). */
+  --font-sentient: "Sentient", Georgia, "Times New Roman", serif;
   /* Landing-only text tones (defined in the .syntiq scope). */
   --color-body: var(--body);
   --color-label-strong: var(--label-strong);
@@ -431,6 +433,143 @@ html::-webkit-scrollbar {
   --faint: #474747;
 
   color-scheme: dark;
+}
+
+/*
+ * Component library home (ui.cortexcn.dev).
+ * Scoped to `.ui-home`, applied by `app/(ui-home)/layout.tsx`, so the services
+ * landing and the docs keep their own themes. Warm paper neutrals, rounded
+ * shapes, and painted art panels. Follows the site light/dark toggle.
+ */
+.ui-home {
+  --background: #fbfaf6;
+  --foreground: #1c1a15;
+  --card: #ffffff;
+  --card-foreground: #1c1a15;
+  --popover: #ffffff;
+  --popover-foreground: #1c1a15;
+  --primary: #1c1a15;
+  --primary-foreground: #fbfaf6;
+  --secondary: #f4f2ec;
+  --secondary-foreground: #1c1a15;
+  --muted: #f4f2ec;
+  --muted-foreground: #6b6963;
+  --accent: #efece4;
+  --accent-foreground: #1c1a15;
+  --border: #e8e5dc;
+  --input: #e8e5dc;
+  --ring: #1c1a15;
+  --radius: 0.625rem;
+
+  /* Raised panels (tab rails, sticky cards) and their inner wells. */
+  --surface: #f4f2ec;
+  --surface-strong: #ebe8df;
+
+  /* Text tones: body copy, the quiet half of headings, and the faintest marks. */
+  --body: #52524e;
+  --heading-muted: #8c8982;
+  --faint: #c9c6bd;
+
+  --ui-ease: cubic-bezier(0.22, 0.61, 0.24, 1);
+
+  /* The shared palette only sets a shadow color for dark mode. */
+  --shadow: rgb(28 26 21 / 0.08);
+
+  color-scheme: light;
+  font-family: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+}
+
+:is(.dark .ui-home, .ui-home.dark) {
+  --background: #0f0e0c;
+  --foreground: #f2f0ea;
+  --card: #181714;
+  --card-foreground: #f2f0ea;
+  --popover: #1b1a17;
+  --popover-foreground: #f2f0ea;
+  --primary: #f2f0ea;
+  --primary-foreground: #1c1a15;
+  --secondary: #1d1c19;
+  --secondary-foreground: #f2f0ea;
+  --muted: #1d1c19;
+  --muted-foreground: #a19e95;
+  --accent: #24231f;
+  --accent-foreground: #f2f0ea;
+  --border: #2a2925;
+  --input: #2a2925;
+  --ring: #f2f0ea;
+  --surface: #161512;
+  --surface-strong: #1f1e1a;
+  --body: #b2afa6;
+  --heading-muted: #74716a;
+  --faint: #3d3b36;
+  --shadow: rgb(0 0 0 / 0.45);
+
+  color-scheme: dark;
+}
+
+/* Headline words rise in on load, one after another. */
+.ui-home .ui-word {
+  display: inline-block;
+}
+
+.ui-home .ui-word-enter {
+  animation: ui-word-in 0.8s var(--ui-ease) both;
+  animation-delay: calc(var(--word-index, 0) * 60ms + var(--reveal-delay, 0ms));
+}
+
+/* Below the fold, words and blocks wait until they scroll into view. */
+.ui-home [data-reveal="pending"] .ui-word {
+  opacity: 0;
+  transform: translateY(0.35em);
+  filter: blur(8px);
+}
+
+.ui-home [data-reveal="shown"] .ui-word {
+  transition:
+    opacity 0.7s var(--ui-ease),
+    transform 0.7s var(--ui-ease),
+    filter 0.7s var(--ui-ease);
+  transition-delay: calc(
+    var(--word-index, 0) * 55ms + var(--reveal-delay, 0ms)
+  );
+}
+
+.ui-home .ui-rise[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.ui-home .ui-rise[data-reveal="shown"] {
+  transition:
+    opacity 0.8s var(--ui-ease),
+    transform 0.8s var(--ui-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes ui-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-home .ui-word,
+  .ui-home .ui-rise {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Faint noise over the art panels (components/ui-home/painting.tsx), as in the template. */
+.ui-grain {
+  background-image: url("/images/ui-home/noise.png");
+  background-size: 160px 160px;
+  opacity: 0.05;
 }
 
 /* Docs ComponentShowcase code panels */
