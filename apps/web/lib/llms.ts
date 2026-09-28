@@ -282,7 +282,7 @@ export function llmsTxt() {
       "## Blocks",
       ...BLOCK_CATEGORIES.map(
         (category) =>
-          `- [${category.name}](${SITE_URL}/blocks/${category.slug}): ${category.description}`,
+          `- [${category.name}](${DOCS_URL}/blocks/${category.slug}): ${category.description}`,
       ),
     ].join("\n"),
     // Hidden until Templates comes back; see apps/cortexcn/checklist.md.
@@ -297,7 +297,7 @@ export function llmsTxt() {
       "## Optional",
       `- [Full documentation](${SITE_URL}/llms-full.txt): every docs page in one markdown file`,
       `- [Home page](${SITE_URL}/index.md): the landing page in markdown`,
-      `- [Chart gallery](${SITE_URL}/charts/area-chart): live examples of every chart`,
+      `- [Chart gallery](${DOCS_URL}/charts/area-chart): live examples of every chart`,
       `- [Pricing](${SITE_URL}/pricing): the one-time component plans, starting prices for every client service and retainer, and a project estimator, in US dollars`,
       `- [Contact](${SITE_URL}/contact): email, phone, and a contact form for questions, support, and custom work`,
       // Hidden until Studio comes back; see apps/cortexcn/checklist.md.

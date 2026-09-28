@@ -8,9 +8,9 @@ import { source } from "@/lib/source";
 
 /*
  * Every indexable page, at its canonical URL: marketing pages on
- * www.cortexcn.dev, and the component library home and docs on
- * ui.cortexcn.dev (both hosts belong to the same Search Console domain
- * property, so one sitemap can list both). Redirects
+ * www.cortexcn.dev, and the component library (its home, docs, blocks, and
+ * charts) on ui.cortexcn.dev (both hosts belong to the same Search Console
+ * domain property, so one sitemap can list both). Redirects
  * such as /charts and /playground are left out. `lastmod` is omitted rather
  * than guessed, since Google only trusts it when it is accurate.
  */
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${DOCS_URL}/`, changeFrequency: "weekly", priority: 1 },
-    { url: `${SITE_URL}/blocks`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${DOCS_URL}/blocks`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/pricing`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blockRoutes: MetadataRoute.Sitemap = BLOCK_CATEGORIES.map(
     (category) => ({
-      url: `${SITE_URL}/blocks/${category.slug}`,
+      url: `${DOCS_URL}/blocks/${category.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     }),
@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // );
 
   const chartRoutes: MetadataRoute.Sitemap = validChartSlugs.map((slug) => ({
-    url: `${SITE_URL}/charts/${slug}`,
+    url: `${DOCS_URL}/charts/${slug}`,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
