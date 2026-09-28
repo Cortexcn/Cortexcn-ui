@@ -4,6 +4,7 @@ import type { BlockCategory } from "./categories";
 import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
 import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
 import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
+import { FeatureStudioGridBlock } from "./feature-studio-grid-01";
 import { type BlockSlug, blockFileManifests } from "./manifest";
 import { StatCardAreaBlock } from "./stat-card-area-01";
 import type { BlockDisplayProps } from "./stat-card-area-01/meta";
@@ -14,6 +15,7 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "feature-spotlight-grid-01": FeatureSpotlightGridBlock,
   "feature-media-cards-01": FeatureMediaCardsBlock,
   "feature-image-columns-01": FeatureImageColumnsBlock,
+  "feature-studio-grid-01": FeatureStudioGridBlock,
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
   "stat-card-choropleth-01": StatCardChoroplethBlock,

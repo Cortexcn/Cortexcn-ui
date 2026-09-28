@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import { FeatureImageColumnsPreview } from "./feature-image-columns-01/preview";
 import { FeatureMediaCardsPreview } from "./feature-media-cards-01/preview";
 import { FeatureSpotlightGridPreview } from "./feature-spotlight-grid-01/preview";
+import { FeatureStudioGridPreview } from "./feature-studio-grid-01/preview";
 import type { BlockSlug } from "./manifest";
 import { StatCardAreaPreview } from "./stat-card-area-01/preview";
 import { StatCardChoroplethPreview } from "./stat-card-choropleth-01/preview";
@@ -12,6 +13,7 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "feature-spotlight-grid-01": FeatureSpotlightGridPreview,
   "feature-media-cards-01": FeatureMediaCardsPreview,
   "feature-image-columns-01": FeatureImageColumnsPreview,
+  "feature-studio-grid-01": FeatureStudioGridPreview,
   "stat-card-area-01": StatCardAreaPreview,
   "stat-card-line-01": StatCardLinePreview,
   "stat-card-choropleth-01": StatCardChoroplethPreview,
