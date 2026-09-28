@@ -4,8 +4,25 @@
  */
 export const SITE_URL = "https://www.cortexcn.dev";
 
-/** Canonical origin of the documentation and the shadcn registry (`/r/*`). */
+/**
+ * Canonical origin of the component library site: its home page, the docs, and
+ * the shadcn registry (`/r/*`).
+ */
 export const DOCS_URL = "https://ui.cortexcn.dev";
+
+/**
+ * Local stand-in for the library host. Browsers resolve every `*.localhost`
+ * name to this machine, so `http://ui.localhost:3000` works like
+ * ui.cortexcn.dev in dev.
+ */
+export const DEV_DOCS_HOSTNAME = "ui.localhost";
+
+/**
+ * Internal route of the component library home. The proxy rewrites `/` on the
+ * library host to it and sends direct visits to that root, so it never shows
+ * up in the address bar.
+ */
+export const LIBRARY_HOME_ROUTE = "/ui-home";
 
 const DOCS_PATH_RE = /^\/docs(?:\/|$)/;
 
@@ -15,5 +32,8 @@ export function isDocsPath(pathname: string) {
 
 /** Absolute canonical URL for a path, on whichever domain owns it. */
 export function canonicalUrlFor(pathname: string) {
+  if (pathname === LIBRARY_HOME_ROUTE) {
+    return `${DOCS_URL}/`;
+  }
   return new URL(pathname, isDocsPath(pathname) ? DOCS_URL : SITE_URL).href;
 }
