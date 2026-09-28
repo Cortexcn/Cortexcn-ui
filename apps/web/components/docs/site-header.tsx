@@ -25,6 +25,12 @@ interface NavLink {
 
 interface SiteHeaderProps {
   links?: NavLink[];
+  /**
+   * Header style. By default the landing-kit pages get the boxed landing
+   * header and every other page the plain one; pass it where the URL alone
+   * cannot tell, such as a page served at `/` through a rewrite.
+   */
+  variant?: "landing" | "plain";
 }
 
 const neuronComponents = [
@@ -532,7 +538,7 @@ function LandingHeaderItems({
   );
 }
 
-export function SiteHeader({ links = [] }: SiteHeaderProps) {
+export function SiteHeader({ links = [], variant }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const isScrolled = useIsScrolled();
@@ -541,7 +547,7 @@ export function SiteHeader({ links = [] }: SiteHeaderProps) {
   const pathname = usePathname();
   // The landing-styled pages open on a grid band, so their header draws every
   // item as a solid box that stays readable on the band in either theme.
-  const isHome = LANDING_PATHS.has(pathname);
+  const isHome = variant ? variant === "landing" : LANDING_PATHS.has(pathname);
 
   // Calculate stagger delay based on total items to complete in STAGGER_DURATION
   const utilitiesCount =
