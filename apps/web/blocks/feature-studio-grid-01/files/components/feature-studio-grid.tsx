@@ -8,6 +8,8 @@ interface StudioAction {
 
 interface StudioImage {
   src: string;
+  /** Shown in dark mode instead of `src`, for a logo with a light version. */
+  srcDark?: string;
   alt: string;
 }
 
@@ -37,7 +39,13 @@ export interface FeatureStudioGridProps {
   className?: string;
 }
 
-/** Sample photos from Unsplash (free to use under the Unsplash License). */
+const CORTEXCN_LOGO: StudioImage = {
+  src: "https://www.cortexcn.dev/img/cortexcn/icon-light.png",
+  srcDark: "https://www.cortexcn.dev/img/cortexcn/icon-dark.png",
+  alt: "Cortexcn logo",
+};
+
+/** Sample photo from Unsplash (free to use under the Unsplash License). */
 function unsplash(id: string, width: number) {
   return `https://images.unsplash.com/photo-${id}?w=${width}&q=80&auto=format&fit=crop`;
 }
@@ -49,10 +57,7 @@ const DEFAULT_POSTS: StudioPost[] = [
     description:
       "How we pace animation so it guides the eye, and keep it still when a visitor asks for reduced motion.",
     href: "#",
-    image: {
-      src: unsplash("1618005182384-a83a8bd57fbe", 320),
-      alt: "Soft waves of blue, violet, and pink color",
-    },
+    image: CORTEXCN_LOGO,
   },
   {
     date: "August 29, 2026",
@@ -60,10 +65,7 @@ const DEFAULT_POSTS: StudioPost[] = [
     description:
       "The shared color tokens that keep charts, cards, and blocks consistent in light and dark mode.",
     href: "#",
-    image: {
-      src: unsplash("1561070791-2526d30994b5", 320),
-      alt: "Color swatches and paint samples spread across a desk",
-    },
+    image: CORTEXCN_LOGO,
   },
 ];
 
@@ -121,6 +123,51 @@ function ArrowUpRightIcon() {
   );
 }
 
+const thumbnailClassName =
+  "size-24 rounded-xl border bg-muted object-cover lg:size-32";
+
+function Thumbnail({ image }: { image: StudioImage }) {
+  if (!image.srcDark) {
+    return (
+      // biome-ignore lint/performance/noImgElement: framework-agnostic registry block
+      <img
+        alt={image.alt}
+        className={thumbnailClassName}
+        decoding="async"
+        height={128}
+        loading="lazy"
+        src={image.src}
+        width={128}
+      />
+    );
+  }
+
+  return (
+    <>
+      {/* biome-ignore lint/performance/noImgElement: framework-agnostic registry block */}
+      <img
+        alt={image.alt}
+        className={cn(thumbnailClassName, "dark:hidden")}
+        decoding="async"
+        height={128}
+        loading="lazy"
+        src={image.src}
+        width={128}
+      />
+      {/* biome-ignore lint/performance/noImgElement: framework-agnostic registry block */}
+      <img
+        alt=""
+        className={cn(thumbnailClassName, "hidden dark:block")}
+        decoding="async"
+        height={128}
+        loading="lazy"
+        src={image.srcDark}
+        width={128}
+      />
+    </>
+  );
+}
+
 function PostCard({ post }: { post: StudioPost }) {
   return (
     <a
@@ -128,16 +175,7 @@ function PostCard({ post }: { post: StudioPost }) {
       href={post.href}
     >
       <div className="flex items-start justify-between gap-4">
-        {/* biome-ignore lint/performance/noImgElement: framework-agnostic registry block */}
-        <img
-          alt={post.image.alt}
-          className="size-24 rounded-xl border bg-muted object-cover lg:size-32"
-          decoding="async"
-          height={128}
-          loading="lazy"
-          src={post.image.src}
-          width={128}
-        />
+        <Thumbnail image={post.image} />
         <PlusIcon className="bg-secondary text-secondary-foreground" />
       </div>
       <div className="flex flex-col gap-3">
