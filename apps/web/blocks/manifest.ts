@@ -34,10 +34,15 @@ export const featureImageColumns01Files = [
   "components/feature-image-columns.tsx",
 ] as const;
 
+export const featureStudioGrid01Files = [
+  "components/feature-studio-grid.tsx",
+] as const;
+
 export const blockFileManifests = {
   "feature-spotlight-grid-01": featureSpotlightGrid01Files,
   "feature-media-cards-01": featureMediaCards01Files,
   "feature-image-columns-01": featureImageColumns01Files,
+  "feature-studio-grid-01": featureStudioGrid01Files,
   "stat-card-area-01": statCardArea01Files,
   "stat-card-line-01": statCardLine01Files,
   "stat-card-choropleth-01": statCardChoropleth01Files,

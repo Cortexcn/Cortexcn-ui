@@ -22,6 +22,7 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "feature-spotlight-grid-01",
       "feature-media-cards-01",
       "feature-image-columns-01",
+      "feature-studio-grid-01",
     ],
     thumbnail: "feature-spotlight-grid-01",
   },
