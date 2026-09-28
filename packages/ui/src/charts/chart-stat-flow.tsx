@@ -37,17 +37,15 @@ function formatStatValue(
   return `${prefix ?? ""}${formatted}${suffix ?? ""}`;
 }
 
+/**
+ * False on the server and on the first client render alike, so hydration
+ * matches the plain-text fallback; the effect then swaps in NumberFlow once
+ * its custom element is defined (right away when it already is).
+ */
 function useNumberFlowElementReady(): boolean {
-  const [ready, setReady] = useState(
-    () =>
-      typeof customElements !== "undefined" &&
-      Boolean(customElements.get("number-flow-react")),
-  );
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (ready) {
-      return;
-    }
     let cancelled = false;
     customElements.whenDefined("number-flow-react").then(() => {
       if (!cancelled) {
@@ -57,7 +55,7 @@ function useNumberFlowElementReady(): boolean {
     return () => {
       cancelled = true;
     };
-  }, [ready]);
+  }, []);
 
   return ready;
 }
