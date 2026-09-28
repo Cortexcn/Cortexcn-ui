@@ -31,43 +31,23 @@ export const ARTWORKS = {
 
 export type Artwork = keyof typeof ARTWORKS;
 
-/** Retired with the drawn paintings; call sites move to `art`. */
-export type PaintingPalette = "meadow" | "coast" | "linen" | "dusk";
-
-/** Which painting each drawn-painting seed stood for, until call sites pass `art`. */
-const ART_BY_SEED: Record<number, Artwork> = {
-  7: "wildflower-meadow",
-  11: "blue-cream-florals",
-  23: "white-blossoms",
-  37: "blue-white-flowers",
-  41: "meadow-grass",
-  53: "pastel-daisies",
-  67: "neutral-florals",
-  71: "pastel-meadow-flowers",
-};
-
 /**
  * A painted art panel with a faint noise layer on top. It fills its
  * positioned parent and crops the painting to cover it.
  */
 export function Painting({
   art,
-  seed,
   className,
   preload = false,
   sizes = "(min-width: 1280px) 720px, (min-width: 768px) 60vw, 100vw",
 }: {
-  art?: Artwork;
-  palette?: PaintingPalette;
-  seed?: number;
+  art: Artwork;
   className?: string;
   /** Load it with the page, for a panel above the fold. */
   preload?: boolean;
+  /** The panel's rendered width at each breakpoint, so the right size loads. */
   sizes?: string;
 }) {
-  const artwork =
-    art ?? ART_BY_SEED[seed ?? 0] ?? ("pastel-meadow-flowers" as const);
-
   return (
     <div
       aria-hidden="true"
@@ -83,7 +63,7 @@ export function Painting({
         placeholder="blur"
         preload={preload}
         sizes={sizes}
-        src={ARTWORKS[artwork]}
+        src={ARTWORKS[art]}
       />
       <div className="ui-grain absolute inset-0" />
     </div>
