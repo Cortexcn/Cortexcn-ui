@@ -2708,6 +2708,36 @@
       ]
     },
     {
+      "name": "feature-studio-grid-01",
+      "type": "registry:block",
+      "title": "Feature Studio Grid",
+      "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-studio-grid-01/components/feature-studio-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-studio-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-studio-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Studio Grid Example",
+      "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-studio-grid-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-studio-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-card-area-01",
       "type": "registry:block",
       "title": "Stat Card Area",

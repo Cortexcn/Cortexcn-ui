@@ -102,6 +102,15 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-image-columns.tsx"],
   },
+  "feature-studio-grid-01": {
+    title: "Feature Studio Grid",
+    description:
+      "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: [],
+    files: ["components/feature-studio-grid.tsx"],
+  },
   "stat-card-area-01": {
     title: "Stat Card Area",
     description:
@@ -184,6 +193,7 @@ const COMPONENT_EXPORTS = {
   "feature-spotlight-grid-01": "FeatureSpotlightGrid",
   "feature-media-cards-01": "FeatureMediaCards",
   "feature-image-columns-01": "FeatureImageColumns",
+  "feature-studio-grid-01": "FeatureStudioGrid",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
