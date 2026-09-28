@@ -25,15 +25,23 @@ export const defaultChartStatFlowFormat: ChartStatFlowFormat = {
   maximumFractionDigits: 0,
 };
 
+/**
+ * The text fallback only shows until NumberFlow takes over after hydration,
+ * so it uses one fixed locale: the server and the first client render must
+ * print the same text for every visitor. NumberFlow then uses theirs.
+ */
+const FALLBACK_LOCALE = "en-US";
+
 function formatStatValue(
   value: number,
   formatOptions: ChartStatFlowFormat,
   prefix?: string,
   suffix?: string,
 ): string {
-  const formatted = new Intl.NumberFormat(undefined, formatOptions).format(
-    value,
-  );
+  const formatted = new Intl.NumberFormat(
+    FALLBACK_LOCALE,
+    formatOptions,
+  ).format(value);
   return `${prefix ?? ""}${formatted}${suffix ?? ""}`;
 }
 
