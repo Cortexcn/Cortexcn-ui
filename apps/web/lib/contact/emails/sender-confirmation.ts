@@ -22,7 +22,7 @@ import {
 const NEXT_STEPS = [
   { label: "Documentation", href: `${DOCS_URL}/docs` },
   { label: "Components", href: `${DOCS_URL}/docs/components` },
-  { label: "Blocks", href: `${SITE_URL}/blocks` },
+  { label: "Blocks", href: `${DOCS_URL}/blocks` },
 ];
 
 function nextStepRows() {

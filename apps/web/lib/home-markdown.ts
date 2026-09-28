@@ -61,7 +61,7 @@ Add components from the Cortexcn registry with one command, or let your AI agent
 
 - [Get started](${DOCS_URL}/docs/installation)
 - [Browse components](${DOCS_URL}/docs/components)
-- [Browse blocks](${SITE_URL}/blocks)
+- [Browse blocks](${DOCS_URL}/blocks)
 
 Built for shadcn/ui and Next.js. Works with Next.js, React, Tailwind CSS, shadcn/ui, Cursor, and Claude.
 
