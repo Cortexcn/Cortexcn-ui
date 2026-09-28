@@ -1,10 +1,9 @@
-import { NumberTicker } from "@bklitui/ui/components/number-ticker";
-
 import { StatCardArea } from "@/blocks/stat-card-area-01/files/components/stat-card-area";
 import { StatCardLine } from "@/blocks/stat-card-line-01/files/components/stat-card-line";
 import { cn } from "@/lib/utils";
 
 import { AppWindow, RegistryTag } from "./app-window";
+import { HeroRevenue } from "./hero-revenue";
 
 const NAV_ITEMS = ["Overview", "Revenue", "Customers", "Reports", "Settings"];
 const RANGES = ["7D", "30D", "90D"];
@@ -48,12 +47,7 @@ export function HeroDashboard({ className }: { className?: string }) {
               <span className="text-muted-foreground text-xs">
                 Revenue this month
               </span>
-              <NumberTicker
-                className="font-semibold text-3xl tracking-tight"
-                locale
-                prefix="$"
-                value={48_210}
-              />
+              <HeroRevenue value={48_210} />
               <RegistryTag
                 className="absolute top-0 left-full ml-3"
                 name="number-ticker"
