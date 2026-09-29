@@ -1,3 +1,4 @@
+import { CHANGELOG, formatChangelogDate } from "@/lib/changelog";
 import {
   ADD_ONS,
   COMPONENT_PLAN_PRICES,
@@ -201,9 +202,14 @@ ${ADD_ONS.map((addOn) => `- **${addOn.name}:** ${addOn.price}${addOn.unit ?? ""}
 
 ## Changelog
 
-- **Sep 26, 2026. Six new UI components.** Marquee, Line Nav, Logos Carousel, Theme Toggle Effect, Work Experience, and Perspective Marquee, each with CLI and manual install steps.
-- **Sep 26, 2026. Blocks, sorted by category.** Feature and stat card blocks now live in categories, each with a live preview you can copy from.
-- **Sep 20, 2026. The @cortexcn registry.** Every chart moved to the @cortexcn namespace. Install any of them from ui.cortexcn.dev with the shadcn CLI.
+${CHANGELOG.slice(0, 3)
+  .map(
+    (release) =>
+      `- **${formatChangelogDate(release.date)}. ${release.title}.** ${release.summary}`,
+  )
+  .join("\n")}
+
+Every release: [${DOCS_URL}/changelog](${DOCS_URL}/changelog).
 
 ## FAQ
 
