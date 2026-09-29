@@ -1,0 +1,73 @@
+---
+title: Tooltip
+description: A popup that shows information about an element on hover or keyboard focus.
+---
+
+import { TooltipBasic, TooltipSides, TooltipWithIcon, TooltipLongContent, TooltipDisabled, TooltipWithKeyboard, TooltipOnLink, TooltipFormatted } from "@bklitui/ui/examples/tooltip";
+import { code } from "@bklitui/ui/examples/tooltip.code";
+
+<ComponentPreview>
+  <TooltipBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="tooltip" />
+
+## Usage
+
+```tsx
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/tooltip";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.TooltipBasic}>
+  <TooltipBasic />
+</ComponentShowcase>
+
+### Sides
+
+<ComponentShowcase code={code.TooltipSides}>
+  <TooltipSides />
+</ComponentShowcase>
+
+### With icon
+
+<ComponentShowcase code={code.TooltipWithIcon}>
+  <TooltipWithIcon />
+</ComponentShowcase>
+
+### Long content
+
+<ComponentShowcase code={code.TooltipLongContent}>
+  <TooltipLongContent />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.TooltipDisabled}>
+  <TooltipDisabled />
+</ComponentShowcase>
+
+### With keyboard shortcut
+
+<ComponentShowcase code={code.TooltipWithKeyboard}>
+  <TooltipWithKeyboard />
+</ComponentShowcase>
+
+### On link
+
+<ComponentShowcase code={code.TooltipOnLink}>
+  <TooltipOnLink />
+</ComponentShowcase>
+
+### Formatted content
+
+<ComponentShowcase code={code.TooltipFormatted}>
+  <TooltipFormatted />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Tooltip](https://ui.shadcn.com/docs/components/radix/tooltip) (MIT).
