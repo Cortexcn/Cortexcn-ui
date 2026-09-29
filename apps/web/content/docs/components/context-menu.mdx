@@ -1,0 +1,91 @@
+---
+title: Context Menu
+description: Displays a menu of actions triggered by a right click.
+---
+
+import { ContextMenuBasic, ContextMenuWithSides, ContextMenuWithIcons, ContextMenuWithShortcuts, ContextMenuWithSubmenu, ContextMenuWithGroups, ContextMenuWithCheckboxes, ContextMenuWithRadio, ContextMenuWithDestructive, ContextMenuInDialog, ContextMenuWithInset } from "@bklitui/ui/examples/context-menu";
+import { code } from "@bklitui/ui/examples/context-menu.code";
+
+<ComponentPreview>
+  <ContextMenuBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="context-menu" />
+
+## Usage
+
+```tsx
+import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem, ContextMenuCheckboxItem, ContextMenuRadioItem, ContextMenuLabel, ContextMenuSeparator, ContextMenuShortcut, ContextMenuGroup, ContextMenuPortal, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuRadioGroup } from "@/components/context-menu";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.ContextMenuBasic}>
+  <ContextMenuBasic />
+</ComponentShowcase>
+
+### With sides
+
+<ComponentShowcase code={code.ContextMenuWithSides}>
+  <ContextMenuWithSides />
+</ComponentShowcase>
+
+### With icons
+
+<ComponentShowcase code={code.ContextMenuWithIcons}>
+  <ContextMenuWithIcons />
+</ComponentShowcase>
+
+### With shortcuts
+
+<ComponentShowcase code={code.ContextMenuWithShortcuts}>
+  <ContextMenuWithShortcuts />
+</ComponentShowcase>
+
+### With submenu
+
+<ComponentShowcase code={code.ContextMenuWithSubmenu}>
+  <ContextMenuWithSubmenu />
+</ComponentShowcase>
+
+### With groups, labels and separators
+
+<ComponentShowcase code={code.ContextMenuWithGroups}>
+  <ContextMenuWithGroups />
+</ComponentShowcase>
+
+### With checkboxes
+
+<ComponentShowcase code={code.ContextMenuWithCheckboxes}>
+  <ContextMenuWithCheckboxes />
+</ComponentShowcase>
+
+### With radio group
+
+<ComponentShowcase code={code.ContextMenuWithRadio}>
+  <ContextMenuWithRadio />
+</ComponentShowcase>
+
+### With destructive items
+
+<ComponentShowcase code={code.ContextMenuWithDestructive}>
+  <ContextMenuWithDestructive />
+</ComponentShowcase>
+
+### In dialog
+
+<ComponentShowcase code={code.ContextMenuInDialog}>
+  <ContextMenuInDialog />
+</ComponentShowcase>
+
+### With inset
+
+<ComponentShowcase code={code.ContextMenuWithInset}>
+  <ContextMenuWithInset />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Context Menu](https://ui.shadcn.com/docs/components/radix/context-menu) (MIT).
