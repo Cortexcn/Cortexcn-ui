@@ -1,0 +1,43 @@
+---
+title: Carousel
+description: A carousel with motion and swipe built using Embla.
+---
+
+import { CarouselBasic, CarouselMultiple, CarouselWithGap } from "@bklitui/ui/examples/carousel";
+import { code } from "@bklitui/ui/examples/carousel.code";
+
+<ComponentPreview>
+  <CarouselBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="carousel" />
+
+## Usage
+
+```tsx
+import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, useCarousel } from "@/components/carousel";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.CarouselBasic}>
+  <CarouselBasic />
+</ComponentShowcase>
+
+### Multiple
+
+<ComponentShowcase code={code.CarouselMultiple}>
+  <CarouselMultiple />
+</ComponentShowcase>
+
+### With gap
+
+<ComponentShowcase code={code.CarouselWithGap}>
+  <CarouselWithGap />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Carousel](https://ui.shadcn.com/docs/components/radix/carousel) (MIT).
