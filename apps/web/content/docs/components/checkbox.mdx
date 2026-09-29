@@ -1,0 +1,67 @@
+---
+title: Checkbox
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+import { CheckboxBasic, CheckboxWithDescription, CheckboxInvalid, CheckboxDisabled, CheckboxWithTitle, CheckboxInTable, CheckboxGroup } from "@bklitui/ui/examples/checkbox";
+import { code } from "@bklitui/ui/examples/checkbox.code";
+
+<ComponentPreview>
+  <CheckboxBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="checkbox" />
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/checkbox";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.CheckboxBasic}>
+  <CheckboxBasic />
+</ComponentShowcase>
+
+### With description
+
+<ComponentShowcase code={code.CheckboxWithDescription}>
+  <CheckboxWithDescription />
+</ComponentShowcase>
+
+### Invalid
+
+<ComponentShowcase code={code.CheckboxInvalid}>
+  <CheckboxInvalid />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.CheckboxDisabled}>
+  <CheckboxDisabled />
+</ComponentShowcase>
+
+### With title
+
+<ComponentShowcase code={code.CheckboxWithTitle}>
+  <CheckboxWithTitle />
+</ComponentShowcase>
+
+### In table
+
+<ComponentShowcase code={code.CheckboxInTable}>
+  <CheckboxInTable />
+</ComponentShowcase>
+
+### Group
+
+<ComponentShowcase code={code.CheckboxGroup}>
+  <CheckboxGroup />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Checkbox](https://ui.shadcn.com/docs/components/radix/checkbox) (MIT).

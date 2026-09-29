@@ -1,0 +1,61 @@
+---
+title: Native Select
+description: A styled native HTML select element.
+---
+
+import { NativeSelectBasic, NativeSelectWithGroups, NativeSelectSizes, NativeSelectWithField, NativeSelectDisabled, NativeSelectInvalid } from "@bklitui/ui/examples/native-select";
+import { code } from "@bklitui/ui/examples/native-select.code";
+
+<ComponentPreview>
+  <NativeSelectBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="native-select" />
+
+## Usage
+
+```tsx
+import { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "@/components/native-select";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.NativeSelectBasic}>
+  <NativeSelectBasic />
+</ComponentShowcase>
+
+### With groups
+
+<ComponentShowcase code={code.NativeSelectWithGroups}>
+  <NativeSelectWithGroups />
+</ComponentShowcase>
+
+### Sizes
+
+<ComponentShowcase code={code.NativeSelectSizes}>
+  <NativeSelectSizes />
+</ComponentShowcase>
+
+### With field
+
+<ComponentShowcase code={code.NativeSelectWithField}>
+  <NativeSelectWithField />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.NativeSelectDisabled}>
+  <NativeSelectDisabled />
+</ComponentShowcase>
+
+### Invalid
+
+<ComponentShowcase code={code.NativeSelectInvalid}>
+  <NativeSelectInvalid />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Native Select](https://ui.shadcn.com/docs/components/radix/native-select) (MIT).

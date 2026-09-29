@@ -110,8 +110,12 @@ font-light`, tracking `-0.05em`, leading 1.05 to 1.25), everything else in
 7. `faq-section.tsx` (`id="faq"`): questions in the registry `Accordion`.
 8. `cta-section.tsx` (`id="get-started"`): the closing call to action.
 9. `library-footer.tsx` (in the layout): brand, link columns, and credit.
-   The template's client results and testimonials sections are left out until
-   there are real customers to quote.
+10. The `/changelog` page (`app/(ui-home)/changelog`) uses `changelog-hero.tsx`
+    (live counts per family) and `changelog-timeline.tsx`. Releases live in
+    `lib/changelog.ts`, newest first, and the services landing shows the
+    latest three, so add a release there and both update.
+    The template's client results and testimonials sections are left out until
+    there are real customers to quote.
 
 ## Per-file rules
 

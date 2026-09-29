@@ -4,4 +4,5 @@ export const libraryNavLinks = [
   { text: "Components", url: "/docs/components" },
   { text: "Blocks", url: "/blocks" },
   { text: "Charts", url: "/charts/area-chart" },
+  { text: "Changelog", url: "/changelog" },
 ] as const;

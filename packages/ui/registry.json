@@ -76,7 +76,7 @@
       "type": "registry:component",
       "title": "Accordion",
       "description": "A vertically stacked set of headings that each reveal a section of content.",
-      "categories": ["neurons"],
+      "categories": ["components"],
       "dependencies": ["radix-ui"],
       "registryDependencies": ["@cortexcn/utils"],
       "files": [
@@ -92,13 +92,863 @@
       "type": "registry:component",
       "title": "Card",
       "description": "Displays a card with a header, content, and footer.",
-      "categories": ["neurons"],
+      "categories": ["components"],
       "registryDependencies": ["@cortexcn/utils"],
       "files": [
         {
           "path": "src/components/card.tsx",
           "type": "registry:component",
           "target": "components/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Use Mobile",
+      "description": "A hook that reports whether the viewport is below the mobile breakpoint.",
+      "files": [
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-mobile.ts"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/alert.tsx",
+          "type": "registry:component",
+          "target": "components/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "A modal dialog that interrupts the user with important content and expects a response.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/alert-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/alert-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Displays content within a desired ratio.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "components/aspect-ratio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "An image element with a fallback for representing the user.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/avatar.tsx",
+          "type": "registry:component",
+          "target": "components/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Displays a badge or a component that looks like a badge.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/badge.tsx",
+          "type": "registry:component",
+          "target": "components/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Displays the path to the current resource using a hierarchy of links.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "components/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/button.tsx",
+          "type": "registry:component",
+          "target": "components/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "A container that groups related buttons together with consistent styling.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/separator"],
+      "files": [
+        {
+          "path": "src/components/button-group.tsx",
+          "type": "registry:component",
+          "target": "components/button-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "A date field component that allows users to enter and edit dates.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "react-day-picker"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/calendar.tsx",
+          "type": "registry:component",
+          "target": "components/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "A carousel with motion and swipe built using Embla.",
+      "categories": ["components"],
+      "dependencies": ["embla-carousel-react", "lucide-react"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/carousel.tsx",
+          "type": "registry:component",
+          "target": "components/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A control that allows the user to toggle between checked and not checked.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/checkbox.tsx",
+          "type": "registry:component",
+          "target": "components/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "An interactive component which expands and collapses a panel.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/collapsible.tsx",
+          "type": "registry:component",
+          "target": "components/collapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "An input with a list of suggestions that filters as you type.",
+      "categories": ["components"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button",
+        "@cortexcn/input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/combobox.tsx",
+          "type": "registry:component",
+          "target": "components/combobox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "A fast, composable command menu for React.",
+      "categories": ["components"],
+      "dependencies": ["cmdk", "lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/dialog",
+        "@cortexcn/input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/command.tsx",
+          "type": "registry:component",
+          "target": "components/command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "Displays a menu of actions triggered by a right click.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/context-menu.tsx",
+          "type": "registry:component",
+          "target": "components/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A window overlaid on the page that renders the content underneath inert.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/dialog.tsx",
+          "type": "registry:component",
+          "target": "components/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "A drawer component for React, built on Vaul.",
+      "categories": ["components"],
+      "dependencies": ["vaul"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/drawer.tsx",
+          "type": "registry:component",
+          "target": "components/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "Displays a menu of actions or functions, triggered by a button.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/dropdown-menu.tsx",
+          "type": "registry:component",
+          "target": "components/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:component",
+      "title": "Empty",
+      "description": "Displays an empty state, with media, a title, a description, and actions.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/empty.tsx",
+          "type": "registry:component",
+          "target": "components/empty.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Combines labels, controls, and help text into accessible form fields.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/label",
+        "@cortexcn/separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/field.tsx",
+          "type": "registry:component",
+          "target": "components/field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "For sighted users to preview content available behind a link.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/hover-card.tsx",
+          "type": "registry:component",
+          "target": "components/hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Displays a form input field or a component that looks like an input field.",
+      "categories": ["components"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/input.tsx",
+          "type": "registry:component",
+          "target": "components/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "Adds addons, buttons, and helper content to inputs.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button",
+        "@cortexcn/input",
+        "@cortexcn/textarea"
+      ],
+      "files": [
+        {
+          "path": "src/components/input-group.tsx",
+          "type": "registry:component",
+          "target": "components/input-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Input OTP",
+      "description": "An accessible one-time password input with copy and paste support.",
+      "categories": ["components"],
+      "dependencies": ["input-otp", "lucide-react"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/input-otp.tsx",
+          "type": "registry:component",
+          "target": "components/input-otp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "A versatile row for displaying media, a title, a description, and actions.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/separator"],
+      "files": [
+        {
+          "path": "src/components/item.tsx",
+          "type": "registry:component",
+          "target": "components/item.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "Displays textual user input from a keyboard, such as a shortcut.",
+      "categories": ["components"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/kbd.tsx",
+          "type": "registry:component",
+          "target": "components/kbd.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "Renders an accessible label associated with controls.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/label.tsx",
+          "type": "registry:component",
+          "target": "components/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "A persistent menu, common in desktop apps, with quick access to a set of commands.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/menubar.tsx",
+          "type": "registry:component",
+          "target": "components/menubar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:component",
+      "title": "Native Select",
+      "description": "A styled native HTML select element.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/native-select.tsx",
+          "type": "registry:component",
+          "target": "components/native-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "A collection of links for navigating websites.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/navigation-menu.tsx",
+          "type": "registry:component",
+          "target": "components/navigation-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Page navigation with next and previous links.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/pagination.tsx",
+          "type": "registry:component",
+          "target": "components/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Displays rich content in a portal, triggered by a button.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/popover.tsx",
+          "type": "registry:component",
+          "target": "components/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "Displays an indicator showing the completion progress of a task.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/progress.tsx",
+          "type": "registry:component",
+          "target": "components/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "A set of checkable buttons where no more than one can be checked at a time.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/radio-group.tsx",
+          "type": "registry:component",
+          "target": "components/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:component",
+      "title": "Resizable",
+      "description": "Accessible resizable panel groups and layouts with keyboard support.",
+      "categories": ["components"],
+      "dependencies": ["react-resizable-panels"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/resizable.tsx",
+          "type": "registry:component",
+          "target": "components/resizable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Augments native scroll functionality for custom, cross-browser styling.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/scroll-area.tsx",
+          "type": "registry:component",
+          "target": "components/scroll-area.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Displays a list of options for the user to pick from, triggered by a button.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/select.tsx",
+          "type": "registry:component",
+          "target": "components/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "Visually or semantically separates content.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/separator.tsx",
+          "type": "registry:component",
+          "target": "components/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "Extends the dialog to show content that complements the main content of the screen.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "files": [
+        {
+          "path": "src/components/sheet.tsx",
+          "type": "registry:component",
+          "target": "components/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A composable, themeable, and customizable sidebar.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button",
+        "@cortexcn/input",
+        "@cortexcn/separator",
+        "@cortexcn/sheet",
+        "@cortexcn/skeleton",
+        "@cortexcn/tooltip",
+        "@cortexcn/use-mobile"
+      ],
+      "files": [
+        {
+          "path": "src/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Shows a placeholder while content is loading.",
+      "categories": ["components"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "An input where the user selects a value from within a given range.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/slider.tsx",
+          "type": "registry:component",
+          "target": "components/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "An opinionated toast component for React.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react", "next-themes", "sonner"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/sonner.tsx",
+          "type": "registry:component",
+          "target": "components/sonner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "An indicator that shows a loading state.",
+      "categories": ["components"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/spinner.tsx",
+          "type": "registry:component",
+          "target": "components/spinner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "A control that allows the user to toggle between on and off.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/switch.tsx",
+          "type": "registry:component",
+          "target": "components/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "A responsive table component.",
+      "categories": ["components"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/table.tsx",
+          "type": "registry:component",
+          "target": "components/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "A set of layered sections of content, shown one at a time.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/tabs.tsx",
+          "type": "registry:component",
+          "target": "components/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Displays a form textarea or a component that looks like a textarea.",
+      "categories": ["components"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/textarea.tsx",
+          "type": "registry:component",
+          "target": "components/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "A two-state button that can be either on or off.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/toggle.tsx",
+          "type": "registry:component",
+          "target": "components/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "A set of two-state buttons that can be toggled on or off.",
+      "categories": ["components"],
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/toggle"],
+      "files": [
+        {
+          "path": "src/components/toggle-group.tsx",
+          "type": "registry:component",
+          "target": "components/toggle-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A popup that shows information about an element on hover or keyboard focus.",
+      "categories": ["components"],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/tooltip.tsx",
+          "type": "registry:component",
+          "target": "components/tooltip.tsx"
         }
       ]
     },

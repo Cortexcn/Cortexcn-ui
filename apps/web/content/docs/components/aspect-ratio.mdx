@@ -1,0 +1,49 @@
+---
+title: Aspect Ratio
+description: Displays content within a desired ratio.
+---
+
+import { AspectRatio16x9, AspectRatio21x9, AspectRatio1x1, AspectRatio9x16 } from "@bklitui/ui/examples/aspect-ratio";
+import { code } from "@bklitui/ui/examples/aspect-ratio.code";
+
+<ComponentPreview>
+  <AspectRatio16x9 />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="aspect-ratio" />
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/aspect-ratio";
+```
+
+## Examples
+
+### 16:9
+
+<ComponentShowcase code={code.AspectRatio16x9}>
+  <AspectRatio16x9 />
+</ComponentShowcase>
+
+### 21:9
+
+<ComponentShowcase code={code.AspectRatio21x9}>
+  <AspectRatio21x9 />
+</ComponentShowcase>
+
+### 1:1
+
+<ComponentShowcase code={code.AspectRatio1x1}>
+  <AspectRatio1x1 />
+</ComponentShowcase>
+
+### 9:16
+
+<ComponentShowcase code={code.AspectRatio9x16}>
+  <AspectRatio9x16 />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Aspect Ratio](https://ui.shadcn.com/docs/components/radix/aspect-ratio) (MIT).

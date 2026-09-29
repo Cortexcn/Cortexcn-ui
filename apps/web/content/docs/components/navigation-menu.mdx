@@ -1,0 +1,37 @@
+---
+title: Navigation Menu
+description: A collection of links for navigating websites.
+---
+
+import { NavigationMenuWithViewport, NavigationMenuWithoutViewport } from "@bklitui/ui/examples/navigation-menu";
+import { code } from "@bklitui/ui/examples/navigation-menu.code";
+
+<ComponentPreview>
+  <NavigationMenuWithViewport />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="navigation-menu" />
+
+## Usage
+
+```tsx
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, NavigationMenuIndicator, NavigationMenuViewport, navigationMenuTriggerStyle } from "@/components/navigation-menu";
+```
+
+## Examples
+
+### With viewport
+
+<ComponentShowcase code={code.NavigationMenuWithViewport}>
+  <NavigationMenuWithViewport />
+</ComponentShowcase>
+
+### Without viewport
+
+<ComponentShowcase code={code.NavigationMenuWithoutViewport}>
+  <NavigationMenuWithoutViewport />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Navigation Menu](https://ui.shadcn.com/docs/components/radix/navigation-menu) (MIT).

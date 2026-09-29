@@ -1,0 +1,61 @@
+---
+title: Radio Group
+description: A set of checkable buttons where no more than one can be checked at a time.
+---
+
+import { RadioGroupBasic, RadioGroupWithDescriptions, RadioGroupWithFieldSet, RadioGroupGrid, RadioGroupDisabled, RadioGroupInvalid } from "@bklitui/ui/examples/radio-group";
+import { code } from "@bklitui/ui/examples/radio-group.code";
+
+<ComponentPreview>
+  <RadioGroupBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="radio-group" />
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/radio-group";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.RadioGroupBasic}>
+  <RadioGroupBasic />
+</ComponentShowcase>
+
+### With descriptions
+
+<ComponentShowcase code={code.RadioGroupWithDescriptions}>
+  <RadioGroupWithDescriptions />
+</ComponentShowcase>
+
+### With FieldSet
+
+<ComponentShowcase code={code.RadioGroupWithFieldSet}>
+  <RadioGroupWithFieldSet />
+</ComponentShowcase>
+
+### Grid layout
+
+<ComponentShowcase code={code.RadioGroupGrid}>
+  <RadioGroupGrid />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.RadioGroupDisabled}>
+  <RadioGroupDisabled />
+</ComponentShowcase>
+
+### Invalid
+
+<ComponentShowcase code={code.RadioGroupInvalid}>
+  <RadioGroupInvalid />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Radio Group](https://ui.shadcn.com/docs/components/radix/radio-group) (MIT).

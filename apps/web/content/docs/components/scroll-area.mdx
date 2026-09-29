@@ -1,0 +1,37 @@
+---
+title: Scroll Area
+description: Augments native scroll functionality for custom, cross-browser styling.
+---
+
+import { ScrollAreaVertical, ScrollAreaHorizontal } from "@bklitui/ui/examples/scroll-area";
+import { code } from "@bklitui/ui/examples/scroll-area.code";
+
+<ComponentPreview>
+  <ScrollAreaVertical />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="scroll-area" />
+
+## Usage
+
+```tsx
+import { ScrollArea, ScrollBar } from "@/components/scroll-area";
+```
+
+## Examples
+
+### Vertical
+
+<ComponentShowcase code={code.ScrollAreaVertical}>
+  <ScrollAreaVertical />
+</ComponentShowcase>
+
+### Horizontal
+
+<ComponentShowcase code={code.ScrollAreaHorizontal}>
+  <ScrollAreaHorizontal />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Scroll Area](https://ui.shadcn.com/docs/components/radix/scroll-area) (MIT).

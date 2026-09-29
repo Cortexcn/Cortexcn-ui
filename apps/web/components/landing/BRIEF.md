@@ -87,7 +87,9 @@ Core promise: your agent builds from real, tested components instead of making u
    plans, project packages, and retainers behind one toggle; `PricingPlans` is
    shared with the /pricing page, which adds the estimator in
    `components/pricing`)
-8. `changelog-section.tsx` -> `ChangelogSection` (N.06)
+8. `changelog-section.tsx` -> `ChangelogSection` (N.06, the latest three
+   releases from `lib/changelog.ts`, which also feeds /changelog on the
+   library site and /index.md)
 9. `faq-section.tsx` -> `FaqSection` (N.07, `id="faq"`)
 10. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card)
 11. `landing-footer.tsx` -> `LandingFooter`

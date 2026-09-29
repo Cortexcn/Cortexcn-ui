@@ -1,0 +1,55 @@
+---
+title: Command
+description: A fast, composable command menu for React.
+---
+
+import { CommandInline, CommandBasic, CommandWithShortcuts, CommandWithGroups, CommandManyItems } from "@bklitui/ui/examples/command";
+import { code } from "@bklitui/ui/examples/command.code";
+
+<ComponentPreview>
+  <CommandInline />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="command" />
+
+## Usage
+
+```tsx
+import { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator } from "@/components/command";
+```
+
+## Examples
+
+### Inline
+
+<ComponentShowcase code={code.CommandInline}>
+  <CommandInline />
+</ComponentShowcase>
+
+### Basic
+
+<ComponentShowcase code={code.CommandBasic}>
+  <CommandBasic />
+</ComponentShowcase>
+
+### With shortcuts
+
+<ComponentShowcase code={code.CommandWithShortcuts}>
+  <CommandWithShortcuts />
+</ComponentShowcase>
+
+### With groups
+
+<ComponentShowcase code={code.CommandWithGroups}>
+  <CommandWithGroups />
+</ComponentShowcase>
+
+### Many groups and items
+
+<ComponentShowcase code={code.CommandManyItems}>
+  <CommandManyItems />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Command](https://ui.shadcn.com/docs/components/radix/command) (MIT).

@@ -1,0 +1,61 @@
+---
+title: Slider
+description: An input where the user selects a value from within a given range.
+---
+
+import { SliderBasic, SliderRange, SliderMultiple, SliderVertical, SliderControlled, SliderDisabled } from "@bklitui/ui/examples/slider";
+import { code } from "@bklitui/ui/examples/slider.code";
+
+<ComponentPreview>
+  <SliderBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="slider" />
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/slider";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.SliderBasic}>
+  <SliderBasic />
+</ComponentShowcase>
+
+### Range
+
+<ComponentShowcase code={code.SliderRange}>
+  <SliderRange />
+</ComponentShowcase>
+
+### Multiple thumbs
+
+<ComponentShowcase code={code.SliderMultiple}>
+  <SliderMultiple />
+</ComponentShowcase>
+
+### Vertical
+
+<ComponentShowcase code={code.SliderVertical}>
+  <SliderVertical />
+</ComponentShowcase>
+
+### Controlled
+
+<ComponentShowcase code={code.SliderControlled}>
+  <SliderControlled />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.SliderDisabled}>
+  <SliderDisabled />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Slider](https://ui.shadcn.com/docs/components/radix/slider) (MIT).

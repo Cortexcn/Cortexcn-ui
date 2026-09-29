@@ -1,0 +1,91 @@
+---
+title: Menubar
+description: A persistent menu, common in desktop apps, with quick access to a set of commands.
+---
+
+import { MenubarBasic, MenubarWithSubmenu, MenubarWithCheckboxes, MenubarWithRadio, MenubarWithIcons, MenubarWithShortcuts, MenubarFormat, MenubarInsert, MenubarDestructive, MenubarInDialog, MenubarWithInset } from "@bklitui/ui/examples/menubar";
+import { code } from "@bklitui/ui/examples/menubar.code";
+
+<ComponentPreview>
+  <MenubarBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="menubar" />
+
+## Usage
+
+```tsx
+import { Menubar, MenubarPortal, MenubarMenu, MenubarTrigger, MenubarContent, MenubarGroup, MenubarSeparator, MenubarLabel, MenubarItem, MenubarShortcut, MenubarCheckboxItem, MenubarRadioGroup, MenubarRadioItem, MenubarSub, MenubarSubTrigger, MenubarSubContent } from "@/components/menubar";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.MenubarBasic}>
+  <MenubarBasic />
+</ComponentShowcase>
+
+### With submenu
+
+<ComponentShowcase code={code.MenubarWithSubmenu}>
+  <MenubarWithSubmenu />
+</ComponentShowcase>
+
+### With checkboxes
+
+<ComponentShowcase code={code.MenubarWithCheckboxes}>
+  <MenubarWithCheckboxes />
+</ComponentShowcase>
+
+### With radio
+
+<ComponentShowcase code={code.MenubarWithRadio}>
+  <MenubarWithRadio />
+</ComponentShowcase>
+
+### With icons
+
+<ComponentShowcase code={code.MenubarWithIcons}>
+  <MenubarWithIcons />
+</ComponentShowcase>
+
+### With shortcuts
+
+<ComponentShowcase code={code.MenubarWithShortcuts}>
+  <MenubarWithShortcuts />
+</ComponentShowcase>
+
+### Format
+
+<ComponentShowcase code={code.MenubarFormat}>
+  <MenubarFormat />
+</ComponentShowcase>
+
+### Insert
+
+<ComponentShowcase code={code.MenubarInsert}>
+  <MenubarInsert />
+</ComponentShowcase>
+
+### Destructive
+
+<ComponentShowcase code={code.MenubarDestructive}>
+  <MenubarDestructive />
+</ComponentShowcase>
+
+### In dialog
+
+<ComponentShowcase code={code.MenubarInDialog}>
+  <MenubarInDialog />
+</ComponentShowcase>
+
+### With inset
+
+<ComponentShowcase code={code.MenubarWithInset}>
+  <MenubarWithInset />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Menubar](https://ui.shadcn.com/docs/components/radix/menubar) (MIT).

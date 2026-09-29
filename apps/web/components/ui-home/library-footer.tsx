@@ -26,6 +26,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     title: "Docs",
     links: [
       { label: "Installation", href: "/docs/installation" },
+      { label: "Changelog", href: "/changelog" },
       { label: "Registry index", href: "/r/registry.json" },
       { label: "llms.txt", href: "/llms.txt" },
     ],
