@@ -1,0 +1,63 @@
+---
+title: Sidebar
+description: A composable, themeable, and customizable sidebar.
+---
+
+import { SidebarFrame, SidebarDefaultExample, SidebarFloatingExample, SidebarIconExample, SidebarInsetExample } from "@bklitui/ui/examples/sidebar";
+import { code } from "@bklitui/ui/examples/sidebar.code";
+
+<ComponentPreview>
+  <SidebarFrame>
+    <SidebarDefaultExample />
+  </SidebarFrame>
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="sidebar" />
+
+The sidebar reads its colors from the `--sidebar` tokens that `shadcn init` adds to your theme.
+
+## Usage
+
+```tsx
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, useSidebar } from "@/components/sidebar";
+```
+
+Wrap your layout in `SidebarProvider`, put a `Sidebar` next to a `SidebarInset`, and add a `SidebarTrigger` to toggle it. Press Ctrl+B (Cmd+B on a Mac) to toggle it from the keyboard.
+
+## Examples
+
+### Default
+
+<ComponentShowcase code={code.SidebarDefaultExample}>
+  <SidebarFrame>
+    <SidebarDefaultExample />
+  </SidebarFrame>
+</ComponentShowcase>
+
+### Floating
+
+<ComponentShowcase code={code.SidebarFloatingExample}>
+  <SidebarFrame>
+    <SidebarFloatingExample />
+  </SidebarFrame>
+</ComponentShowcase>
+
+### Collapsible to icons
+
+<ComponentShowcase code={code.SidebarIconExample}>
+  <SidebarFrame>
+    <SidebarIconExample />
+  </SidebarFrame>
+</ComponentShowcase>
+
+### Inset
+
+<ComponentShowcase code={code.SidebarInsetExample}>
+  <SidebarFrame>
+    <SidebarInsetExample />
+  </SidebarFrame>
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Sidebar](https://ui.shadcn.com/docs/components/radix/sidebar) (MIT).
