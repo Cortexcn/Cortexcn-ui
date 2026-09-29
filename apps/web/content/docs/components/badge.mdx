@@ -1,0 +1,67 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+---
+
+import { BadgeVariants, BadgeWithIconLeft, BadgeWithIconRight, BadgeWithSpinner, BadgeAsLink, BadgeLongText, BadgeCustomColors } from "@bklitui/ui/examples/badge";
+import { code } from "@bklitui/ui/examples/badge.code";
+
+<ComponentPreview>
+  <BadgeVariants />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="badge" />
+
+## Usage
+
+```tsx
+import { Badge, badgeVariants } from "@/components/badge";
+```
+
+## Examples
+
+### Variants
+
+<ComponentShowcase code={code.BadgeVariants}>
+  <BadgeVariants />
+</ComponentShowcase>
+
+### Icon left
+
+<ComponentShowcase code={code.BadgeWithIconLeft}>
+  <BadgeWithIconLeft />
+</ComponentShowcase>
+
+### Icon right
+
+<ComponentShowcase code={code.BadgeWithIconRight}>
+  <BadgeWithIconRight />
+</ComponentShowcase>
+
+### With spinner
+
+<ComponentShowcase code={code.BadgeWithSpinner}>
+  <BadgeWithSpinner />
+</ComponentShowcase>
+
+### asChild
+
+<ComponentShowcase code={code.BadgeAsLink}>
+  <BadgeAsLink />
+</ComponentShowcase>
+
+### Long text
+
+<ComponentShowcase code={code.BadgeLongText}>
+  <BadgeLongText />
+</ComponentShowcase>
+
+### Custom colors
+
+<ComponentShowcase code={code.BadgeCustomColors}>
+  <BadgeCustomColors />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Badge](https://ui.shadcn.com/docs/components/radix/badge) (MIT).
