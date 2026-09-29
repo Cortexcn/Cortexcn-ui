@@ -1,0 +1,49 @@
+---
+title: Label
+description: Renders an accessible label associated with controls.
+---
+
+import { LabelWithCheckbox, LabelWithInput, LabelDisabled, LabelWithTextarea } from "@bklitui/ui/examples/label";
+import { code } from "@bklitui/ui/examples/label.code";
+
+<ComponentPreview>
+  <LabelWithCheckbox />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="label" />
+
+## Usage
+
+```tsx
+import { Label } from "@/components/label";
+```
+
+## Examples
+
+### With checkbox
+
+<ComponentShowcase code={code.LabelWithCheckbox}>
+  <LabelWithCheckbox />
+</ComponentShowcase>
+
+### With input
+
+<ComponentShowcase code={code.LabelWithInput}>
+  <LabelWithInput />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.LabelDisabled}>
+  <LabelDisabled />
+</ComponentShowcase>
+
+### With textarea
+
+<ComponentShowcase code={code.LabelWithTextarea}>
+  <LabelWithTextarea />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Label](https://ui.shadcn.com/docs/components/radix/label) (MIT).
