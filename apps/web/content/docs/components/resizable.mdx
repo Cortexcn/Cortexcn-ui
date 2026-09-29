@@ -1,0 +1,55 @@
+---
+title: Resizable
+description: Accessible resizable panel groups and layouts with keyboard support.
+---
+
+import { ResizableHorizontal, ResizableVertical, ResizableWithHandle, ResizableNested, ResizableControlled } from "@bklitui/ui/examples/resizable";
+import { code } from "@bklitui/ui/examples/resizable.code";
+
+<ComponentPreview>
+  <ResizableHorizontal />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="resizable" />
+
+## Usage
+
+```tsx
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/resizable";
+```
+
+## Examples
+
+### Horizontal
+
+<ComponentShowcase code={code.ResizableHorizontal}>
+  <ResizableHorizontal />
+</ComponentShowcase>
+
+### Vertical
+
+<ComponentShowcase code={code.ResizableVertical}>
+  <ResizableVertical />
+</ComponentShowcase>
+
+### With handle
+
+<ComponentShowcase code={code.ResizableWithHandle}>
+  <ResizableWithHandle />
+</ComponentShowcase>
+
+### Nested
+
+<ComponentShowcase code={code.ResizableNested}>
+  <ResizableNested />
+</ComponentShowcase>
+
+### Controlled
+
+<ComponentShowcase code={code.ResizableControlled}>
+  <ResizableControlled />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Resizable](https://ui.shadcn.com/docs/components/radix/resizable) (MIT).
