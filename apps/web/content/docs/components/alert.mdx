@@ -1,0 +1,55 @@
+---
+title: Alert
+description: Displays a callout for user attention.
+---
+
+import { AlertExample1, AlertExample2, AlertExample3, AlertExample4, AlertExample5 } from "@bklitui/ui/examples/alert";
+import { code } from "@bklitui/ui/examples/alert.code";
+
+<ComponentPreview>
+  <AlertExample1 />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="alert" />
+
+## Usage
+
+```tsx
+import { Alert, AlertTitle, AlertDescription, AlertAction } from "@/components/alert";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.AlertExample1}>
+  <AlertExample1 />
+</ComponentShowcase>
+
+### With icons
+
+<ComponentShowcase code={code.AlertExample2}>
+  <AlertExample2 />
+</ComponentShowcase>
+
+### Destructive
+
+<ComponentShowcase code={code.AlertExample3}>
+  <AlertExample3 />
+</ComponentShowcase>
+
+### With actions
+
+<ComponentShowcase code={code.AlertExample4}>
+  <AlertExample4 />
+</ComponentShowcase>
+
+### Inside card
+
+<ComponentShowcase code={code.AlertExample5}>
+  <AlertExample5 />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Alert](https://ui.shadcn.com/docs/components/radix/alert) (MIT).
