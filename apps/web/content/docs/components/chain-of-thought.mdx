@@ -1,0 +1,92 @@
+---
+title: Chain of Thought
+description: A collapsible view of an AI's reasoning steps, with search results, images, and step status.
+---
+
+import { ChainOfThoughtDemo, ChainOfThoughtLive } from "@bklitui/ui/examples/chain-of-thought";
+import { code } from "@bklitui/ui/examples/chain-of-thought.code";
+
+<ComponentPreview>
+  <ChainOfThoughtDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs
+  name="chain-of-thought"
+  dependencies={["@radix-ui/react-use-controllable-state", "lucide-react"]}
+/>
+
+## Usage
+
+```tsx
+import {
+  ChainOfThought,
+  ChainOfThoughtContent,
+  ChainOfThoughtHeader,
+  ChainOfThoughtSearchResult,
+  ChainOfThoughtSearchResults,
+  ChainOfThoughtStep,
+} from "@/components/chain-of-thought";
+```
+
+```tsx
+<ChainOfThought defaultOpen>
+  <ChainOfThoughtHeader>Looking into it</ChainOfThoughtHeader>
+  <ChainOfThoughtContent>
+    <ChainOfThoughtStep icon={SearchIcon} label="Searching the docs">
+      <ChainOfThoughtSearchResults>
+        <ChainOfThoughtSearchResult>docs/installation</ChainOfThoughtSearchResult>
+      </ChainOfThoughtSearchResults>
+    </ChainOfThoughtStep>
+    <ChainOfThoughtStep label="Writing the answer" status="active" />
+  </ChainOfThoughtContent>
+</ChainOfThought>
+```
+
+Show one step for each thing your agent does, such as a search, a tool call, or a file it reads, and mark the step it is on as `active`.
+
+## Examples
+
+### Live steps
+
+Steps arrive one at a time, the way they do while an agent works. The newest step is `active` and the ones before it are `complete`.
+
+<ComponentShowcase code={code.ChainOfThoughtLive}>
+  <ChainOfThoughtLive />
+</ComponentShowcase>
+
+### Search results and images
+
+<ComponentShowcase code={code.ChainOfThoughtDemo}>
+  <ChainOfThoughtDemo />
+</ComponentShowcase>
+
+## Props
+
+### ChainOfThought
+
+| Prop           | Type                      | Default | Description                          |
+| -------------- | ------------------------- | ------- | ------------------------------------ |
+| `open`         | `boolean`                 | -       | Whether the steps show, when you control it |
+| `defaultOpen`  | `boolean`                 | `false` | Whether the steps show at first      |
+| `onOpenChange` | `(open: boolean) => void` | -       | Called when the header is clicked    |
+
+### ChainOfThoughtStep
+
+| Prop          | Type                                  | Default      | Description                            |
+| ------------- | ------------------------------------- | ------------ | -------------------------------------- |
+| `label`       | `ReactNode`                           | -            | What the step does                     |
+| `description` | `ReactNode`                           | -            | A smaller line under the label         |
+| `icon`        | `LucideIcon`                          | `DotIcon`    | Icon in the step's gutter              |
+| `status`      | `"complete" \| "active" \| "pending"` | `"complete"` | Dims finished and upcoming steps       |
+
+### ChainOfThoughtImage
+
+| Prop      | Type     | Default | Description               |
+| --------- | -------- | ------- | ------------------------- |
+| `caption` | `string` | -       | A line under the picture  |
+
+`ChainOfThoughtHeader` takes its label as children and defaults to "Chain of Thought". `ChainOfThoughtSearchResult` is a secondary [Badge](/docs/components/badge).
+
+Adapted from [AI Elements](https://elements.ai-sdk.dev) by Vercel (Apache 2.0).

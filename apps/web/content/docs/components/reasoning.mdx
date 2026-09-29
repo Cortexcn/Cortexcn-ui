@@ -1,0 +1,134 @@
+---
+title: Reasoning
+description: A collapsible panel for AI reasoning that opens while the model streams and closes when it finishes.
+---
+
+import {
+  ReasoningCustomMessage,
+  ReasoningDemo,
+  ReasoningFinished,
+} from "@bklitui/ui/examples/reasoning";
+import { code } from "@bklitui/ui/examples/reasoning.code";
+
+<ComponentPreview>
+  <ReasoningDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs
+  name="reasoning"
+  dependencies={[
+    "@radix-ui/react-use-controllable-state",
+    "@streamdown/cjk",
+    "@streamdown/code",
+    "@streamdown/math",
+    "@streamdown/mermaid",
+    "lucide-react",
+    "streamdown",
+  ]}
+/>
+
+The reasoning text renders as markdown with [Streamdown](https://streamdown.ai). Add its styles and let Tailwind see its classes in your global CSS. Adjust the paths if your CSS file is not in `app/`, or if your `node_modules` sits higher up in a monorepo.
+
+```css
+@import "streamdown/styles.css";
+
+@source "../node_modules/streamdown/dist/*.js";
+@source "../node_modules/@streamdown/code/dist/*.js";
+@source "../node_modules/@streamdown/mermaid/dist/*.js";
+```
+
+If your model writes math, also import `katex/dist/katex.min.css` once in your app.
+
+## Usage
+
+```tsx
+import {
+  Reasoning,
+  ReasoningContent,
+  ReasoningTrigger,
+} from "@/components/reasoning";
+```
+
+```tsx
+<Reasoning isStreaming={isStreaming}>
+  <ReasoningTrigger />
+  <ReasoningContent>{reasoningText}</ReasoningContent>
+</Reasoning>
+```
+
+With the AI SDK, render one `Reasoning` for each `reasoning` part of a message. Pass `isStreaming` while that part is still arriving.
+
+```tsx
+{message.parts.map((part, index) =>
+  part.type === "reasoning" ? (
+    <Reasoning
+      isStreaming={status === "streaming" && index === message.parts.length - 1}
+      key={index}
+    >
+      <ReasoningTrigger />
+      <ReasoningContent>{part.text}</ReasoningContent>
+    </Reasoning>
+  ) : null,
+)}
+```
+
+## Behavior
+
+- The panel opens when `isStreaming` turns on, and closes itself one second after it turns off. It closes itself only once, so a reader who opens it again keeps it open.
+- It times the stream and shows "Thought for 5 seconds" when it ends. Pass `duration` to show a time you measured yourself.
+- Set `defaultOpen={false}` to keep the panel shut while the model streams.
+
+## Examples
+
+### Finished
+
+A closed panel for a message that has already streamed, with the time it took.
+
+<ComponentShowcase code={code.ReasoningFinished}>
+  <ReasoningFinished />
+</ComponentShowcase>
+
+### Custom message
+
+`getThinkingMessage` replaces the trigger text, both while streaming and after.
+
+<ComponentShowcase code={code.ReasoningCustomMessage}>
+  <ReasoningCustomMessage />
+</ComponentShowcase>
+
+### Streaming
+
+<ComponentShowcase code={code.ReasoningDemo}>
+  <ReasoningDemo />
+</ComponentShowcase>
+
+## Props
+
+### Reasoning
+
+| Prop           | Type                      | Default       | Description                                  |
+| -------------- | ------------------------- | ------------- | -------------------------------------------- |
+| `isStreaming`  | `boolean`                 | `false`       | Whether the model is still sending reasoning |
+| `open`         | `boolean`                 | -             | Whether the panel is open, when you control it |
+| `defaultOpen`  | `boolean`                 | `isStreaming` | Whether the panel starts open                |
+| `onOpenChange` | `(open: boolean) => void` | -             | Called when the panel opens or closes        |
+| `duration`     | `number`                  | -             | Seconds spent thinking, shown in the trigger |
+
+### ReasoningTrigger
+
+| Prop                 | Type                                                  | Default                 | Description                          |
+| -------------------- | ----------------------------------------------------- | ----------------------- | ------------------------------------ |
+| `getThinkingMessage` | `(isStreaming: boolean, duration?: number) => ReactNode` | "Thinking..." or "Thought for N seconds" | The text in the trigger |
+| `children`           | `ReactNode`                                           | -                       | Replaces the whole trigger content   |
+
+### ReasoningContent
+
+| Prop       | Type     | Default | Description                    |
+| ---------- | -------- | ------- | ------------------------------ |
+| `children` | `string` | -       | The reasoning text, as markdown |
+
+The `useReasoning` hook returns `isStreaming`, `isOpen`, `setIsOpen`, and `duration` for custom parts inside `Reasoning`.
+
+Adapted from [AI Elements](https://elements.ai-sdk.dev) by Vercel (Apache 2.0).

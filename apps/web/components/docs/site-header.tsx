@@ -111,6 +111,12 @@ const cortexComponents = [
   { text: "Work Experience", url: "/docs/components/work-experience" },
 ];
 
+const aiAssistantComponents = [
+  { text: "Chain of Thought", url: "/docs/components/chain-of-thought" },
+  { text: "Reasoning", url: "/docs/components/reasoning" },
+  { text: "Shimmer", url: "/docs/components/shimmer" },
+];
+
 const backgroundComponents = [
   { text: "Light Speed", url: "/docs/components/light-speed" },
 ];
@@ -277,12 +283,19 @@ function MobileMenu({
 
   const baseStartIndex = links.length + 1;
   const cortexStartIndex = baseStartIndex + baseComponents.length + 1;
-  const backgroundsStartIndex = cortexStartIndex + cortexComponents.length + 1;
+  const aiAssistantStartIndex = cortexStartIndex + cortexComponents.length + 1;
+  const backgroundsStartIndex =
+    aiAssistantStartIndex + aiAssistantComponents.length + 1;
   const componentsStartIndex =
     backgroundsStartIndex + backgroundComponents.length + 1;
   const componentGroups = [
     { title: "Components", items: baseComponents, start: baseStartIndex },
     { title: "Cortex", items: cortexComponents, start: cortexStartIndex },
+    {
+      title: "AI Assistant",
+      items: aiAssistantComponents,
+      start: aiAssistantStartIndex,
+    },
     {
       title: "Backgrounds",
       items: backgroundComponents,
@@ -343,7 +356,7 @@ function MobileMenu({
             })}
           </div>
 
-          {/* Components, Cortex, and Backgrounds sections */}
+          {/* Components, Cortex, AI Assistant, and Backgrounds sections */}
           {componentGroups.map((group) => (
             <div className="mt-3 border-border border-t pt-3" key={group.title}>
               <span
@@ -625,6 +638,8 @@ export function SiteHeader({
     baseComponents.length +
     1 + // Cortex header
     cortexComponents.length +
+    1 + // AI Assistant header
+    aiAssistantComponents.length +
     1 + // Backgrounds header
     backgroundComponents.length +
     1 + // Charts header

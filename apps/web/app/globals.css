@@ -6,12 +6,18 @@
 @import "../../../packages/studio/src/styles/studio-theme.css";
 @import "../../../packages/studio/src/styles/studio-chrome.css";
 @import "../../../packages/ui/src/styles/theme-toggle-effect.css";
+@import "../../../packages/ui/node_modules/streamdown/styles.css";
 
 /* Note: Run `npx shadcn@latest init` to generate shadcn/tailwind.css if needed */
 
 /* Include UI package in Tailwind's content scanning */
 @source "../../../packages/ui/src/**/*.tsx";
 @source "../../../packages/studio/src/**/*.{ts,tsx}";
+
+/* Streamdown, which the AI Assistant components render markdown with */
+@source "../../../packages/ui/node_modules/streamdown/dist/*.js";
+@source "../../../packages/ui/node_modules/@streamdown/code/dist/*.js";
+@source "../../../packages/ui/node_modules/@streamdown/mermaid/dist/*.js";
 
 /* Studio owns dark mode inside `.studio-shell`; site `html.dark` must not leak in. */
 @custom-variant dark {

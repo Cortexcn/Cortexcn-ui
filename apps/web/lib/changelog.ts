@@ -31,6 +31,21 @@ function componentLinks(names: [string, string][]): ChangelogLink[] {
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-09-30",
+    kind: "components",
+    title: "AI Assistant components",
+    summary:
+      "A new family for chat and agent interfaces. Reasoning streams a model's thinking as markdown and folds away when it finishes, Chain of Thought lays out an agent's steps with sources and status, and Shimmer marks the moments in between.",
+    items: [
+      ...componentLinks([
+        ["Reasoning", "reasoning"],
+        ["Chain of Thought", "chain-of-thought"],
+        ["Shimmer", "shimmer"],
+      ]),
+      { label: "AI Assistant", href: "/docs/components#ai-assistant" },
+    ],
+  },
+  {
     date: "2026-09-29",
     kind: "components",
     title: "Every shadcn/ui component",
