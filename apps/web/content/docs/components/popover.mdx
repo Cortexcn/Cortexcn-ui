@@ -1,0 +1,49 @@
+---
+title: Popover
+description: Displays rich content in a portal, triggered by a button.
+---
+
+import { PopoverBasic, PopoverWithForm, PopoverAlignments, PopoverInDialog } from "@bklitui/ui/examples/popover";
+import { code } from "@bklitui/ui/examples/popover.code";
+
+<ComponentPreview>
+  <PopoverBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="popover" />
+
+## Usage
+
+```tsx
+import { Popover, PopoverAnchor, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from "@/components/popover";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.PopoverBasic}>
+  <PopoverBasic />
+</ComponentShowcase>
+
+### With form
+
+<ComponentShowcase code={code.PopoverWithForm}>
+  <PopoverWithForm />
+</ComponentShowcase>
+
+### Alignments
+
+<ComponentShowcase code={code.PopoverAlignments}>
+  <PopoverAlignments />
+</ComponentShowcase>
+
+### In dialog
+
+<ComponentShowcase code={code.PopoverInDialog}>
+  <PopoverInDialog />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Popover](https://ui.shadcn.com/docs/components/radix/popover) (MIT).
