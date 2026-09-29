@@ -1,0 +1,61 @@
+---
+title: Alert Dialog
+description: A modal dialog that interrupts the user with important content and expects a response.
+---
+
+import { AlertDialogBasic, AlertDialogSmall, AlertDialogWithMedia, AlertDialogSmallWithMedia, AlertDialogDestructive, AlertDialogInDialog } from "@bklitui/ui/examples/alert-dialog";
+import { code } from "@bklitui/ui/examples/alert-dialog.code";
+
+<ComponentPreview>
+  <AlertDialogBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="alert-dialog" />
+
+## Usage
+
+```tsx
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogMedia, AlertDialogOverlay, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger } from "@/components/alert-dialog";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.AlertDialogBasic}>
+  <AlertDialogBasic />
+</ComponentShowcase>
+
+### Small
+
+<ComponentShowcase code={code.AlertDialogSmall}>
+  <AlertDialogSmall />
+</ComponentShowcase>
+
+### With media
+
+<ComponentShowcase code={code.AlertDialogWithMedia}>
+  <AlertDialogWithMedia />
+</ComponentShowcase>
+
+### Small with media
+
+<ComponentShowcase code={code.AlertDialogSmallWithMedia}>
+  <AlertDialogSmallWithMedia />
+</ComponentShowcase>
+
+### Destructive
+
+<ComponentShowcase code={code.AlertDialogDestructive}>
+  <AlertDialogDestructive />
+</ComponentShowcase>
+
+### In dialog
+
+<ComponentShowcase code={code.AlertDialogInDialog}>
+  <AlertDialogInDialog />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Alert Dialog](https://ui.shadcn.com/docs/components/radix/alert-dialog) (MIT).
