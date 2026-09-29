@@ -1,0 +1,43 @@
+---
+title: Sheet
+description: Extends the dialog to show content that complements the main content of the screen.
+---
+
+import { SheetWithForm, SheetNoCloseButton, SheetWithSides } from "@bklitui/ui/examples/sheet";
+import { code } from "@bklitui/ui/examples/sheet.code";
+
+<ComponentPreview>
+  <SheetWithForm />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="sheet" />
+
+## Usage
+
+```tsx
+import { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription } from "@/components/sheet";
+```
+
+## Examples
+
+### With form
+
+<ComponentShowcase code={code.SheetWithForm}>
+  <SheetWithForm />
+</ComponentShowcase>
+
+### No close button
+
+<ComponentShowcase code={code.SheetNoCloseButton}>
+  <SheetNoCloseButton />
+</ComponentShowcase>
+
+### Sides
+
+<ComponentShowcase code={code.SheetWithSides}>
+  <SheetWithSides />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Sheet](https://ui.shadcn.com/docs/components/radix/sheet) (MIT).
