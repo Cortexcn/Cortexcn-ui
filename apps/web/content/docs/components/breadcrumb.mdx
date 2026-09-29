@@ -1,0 +1,43 @@
+---
+title: Breadcrumb
+description: Displays the path to the current resource using a hierarchy of links.
+---
+
+import { BreadcrumbBasic, BreadcrumbWithDropdown, BreadcrumbWithLink } from "@bklitui/ui/examples/breadcrumb";
+import { code } from "@bklitui/ui/examples/breadcrumb.code";
+
+<ComponentPreview>
+  <BreadcrumbBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="breadcrumb" />
+
+## Usage
+
+```tsx
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis } from "@/components/breadcrumb";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.BreadcrumbBasic}>
+  <BreadcrumbBasic />
+</ComponentShowcase>
+
+### With dropdown
+
+<ComponentShowcase code={code.BreadcrumbWithDropdown}>
+  <BreadcrumbWithDropdown />
+</ComponentShowcase>
+
+### With link
+
+<ComponentShowcase code={code.BreadcrumbWithLink}>
+  <BreadcrumbWithLink />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Breadcrumb](https://ui.shadcn.com/docs/components/radix/breadcrumb) (MIT).
