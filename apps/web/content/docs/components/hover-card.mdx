@@ -1,0 +1,37 @@
+---
+title: Hover Card
+description: For sighted users to preview content available behind a link.
+---
+
+import { HoverCardSides, HoverCardInDialog } from "@bklitui/ui/examples/hover-card";
+import { code } from "@bklitui/ui/examples/hover-card.code";
+
+<ComponentPreview>
+  <HoverCardSides />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="hover-card" />
+
+## Usage
+
+```tsx
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/hover-card";
+```
+
+## Examples
+
+### Sides
+
+<ComponentShowcase code={code.HoverCardSides}>
+  <HoverCardSides />
+</ComponentShowcase>
+
+### In dialog
+
+<ComponentShowcase code={code.HoverCardInDialog}>
+  <HoverCardInDialog />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Hover Card](https://ui.shadcn.com/docs/components/radix/hover-card) (MIT).
