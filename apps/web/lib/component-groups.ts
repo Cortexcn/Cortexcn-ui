@@ -9,10 +9,10 @@ import { source } from "@/lib/source";
  */
 export const COMPONENT_GROUPS = [
   {
-    name: "Neurons",
-    category: "neurons",
+    name: "Components",
+    category: "components",
     description:
-      "Everyday building blocks, adapted from shadcn/ui and styled to match.",
+      "Everyday building blocks from shadcn/ui, from buttons and dialogs to menus, forms, and sidebars.",
   },
   {
     name: "Cortex",
