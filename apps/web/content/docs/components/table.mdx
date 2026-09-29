@@ -1,0 +1,67 @@
+---
+title: Table
+description: A responsive table component.
+---
+
+import { TableBasic, TableWithFooter, TableSimple, TableWithBadges, TableWithActions, TableWithSelect, TableWithInput } from "@bklitui/ui/examples/table";
+import { code } from "@bklitui/ui/examples/table.code";
+
+<ComponentPreview>
+  <TableBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="table" />
+
+## Usage
+
+```tsx
+import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from "@/components/table";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.TableBasic}>
+  <TableBasic />
+</ComponentShowcase>
+
+### With footer
+
+<ComponentShowcase code={code.TableWithFooter}>
+  <TableWithFooter />
+</ComponentShowcase>
+
+### Simple
+
+<ComponentShowcase code={code.TableSimple}>
+  <TableSimple />
+</ComponentShowcase>
+
+### With badges
+
+<ComponentShowcase code={code.TableWithBadges}>
+  <TableWithBadges />
+</ComponentShowcase>
+
+### With actions
+
+<ComponentShowcase code={code.TableWithActions}>
+  <TableWithActions />
+</ComponentShowcase>
+
+### With select
+
+<ComponentShowcase code={code.TableWithSelect}>
+  <TableWithSelect />
+</ComponentShowcase>
+
+### With input
+
+<ComponentShowcase code={code.TableWithInput}>
+  <TableWithInput />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Table](https://ui.shadcn.com/docs/components/radix/table) (MIT).
