@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "An indicator that shows a loading state.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["@cortexcn/utils"],
+  "files": [
+    {
+      "path": "src/components/spinner.tsx",
+      "content": "// Adapted from the shadcn/ui Spinner (MIT, https://ui.shadcn.com).\n\nimport { Loader2Icon } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\nfunction Spinner({ className, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <Loader2Icon\n      aria-label=\"Loading\"\n      className={cn(\"size-4 animate-spin\", className)}\n      data-slot=\"spinner\"\n      role=\"status\"\n      {...props}\n    />\n  );\n}\n\nexport { Spinner };\n",
+      "type": "registry:component",
+      "target": "components/spinner.tsx"
+    }
+  ],
+  "categories": ["components"],
+  "type": "registry:component"
+}
