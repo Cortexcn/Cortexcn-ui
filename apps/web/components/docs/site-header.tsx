@@ -39,9 +39,61 @@ interface SiteHeaderProps {
   variant?: "landing" | "plain";
 }
 
-const neuronComponents = [
+/** The shadcn/ui building blocks, in the order of the docs sidebar. */
+const baseComponents = [
   { text: "Accordion", url: "/docs/components/accordion" },
+  { text: "Alert", url: "/docs/components/alert" },
+  { text: "Alert Dialog", url: "/docs/components/alert-dialog" },
+  { text: "Aspect Ratio", url: "/docs/components/aspect-ratio" },
+  { text: "Avatar", url: "/docs/components/avatar" },
+  { text: "Badge", url: "/docs/components/badge" },
+  { text: "Breadcrumb", url: "/docs/components/breadcrumb" },
+  { text: "Button", url: "/docs/components/button" },
+  { text: "Button Group", url: "/docs/components/button-group" },
+  { text: "Calendar", url: "/docs/components/calendar" },
   { text: "Card", url: "/docs/components/card" },
+  { text: "Carousel", url: "/docs/components/carousel" },
+  { text: "Checkbox", url: "/docs/components/checkbox" },
+  { text: "Collapsible", url: "/docs/components/collapsible" },
+  { text: "Combobox", url: "/docs/components/combobox" },
+  { text: "Command", url: "/docs/components/command" },
+  { text: "Context Menu", url: "/docs/components/context-menu" },
+  { text: "Dialog", url: "/docs/components/dialog" },
+  { text: "Drawer", url: "/docs/components/drawer" },
+  { text: "Dropdown Menu", url: "/docs/components/dropdown-menu" },
+  { text: "Empty", url: "/docs/components/empty" },
+  { text: "Field", url: "/docs/components/field" },
+  { text: "Hover Card", url: "/docs/components/hover-card" },
+  { text: "Input", url: "/docs/components/input" },
+  { text: "Input Group", url: "/docs/components/input-group" },
+  { text: "Input OTP", url: "/docs/components/input-otp" },
+  { text: "Item", url: "/docs/components/item" },
+  { text: "Kbd", url: "/docs/components/kbd" },
+  { text: "Label", url: "/docs/components/label" },
+  { text: "Menubar", url: "/docs/components/menubar" },
+  { text: "Native Select", url: "/docs/components/native-select" },
+  { text: "Navigation Menu", url: "/docs/components/navigation-menu" },
+  { text: "Pagination", url: "/docs/components/pagination" },
+  { text: "Popover", url: "/docs/components/popover" },
+  { text: "Progress", url: "/docs/components/progress" },
+  { text: "Radio Group", url: "/docs/components/radio-group" },
+  { text: "Resizable", url: "/docs/components/resizable" },
+  { text: "Scroll Area", url: "/docs/components/scroll-area" },
+  { text: "Select", url: "/docs/components/select" },
+  { text: "Separator", url: "/docs/components/separator" },
+  { text: "Sheet", url: "/docs/components/sheet" },
+  { text: "Sidebar", url: "/docs/components/sidebar" },
+  { text: "Skeleton", url: "/docs/components/skeleton" },
+  { text: "Slider", url: "/docs/components/slider" },
+  { text: "Sonner", url: "/docs/components/sonner" },
+  { text: "Spinner", url: "/docs/components/spinner" },
+  { text: "Switch", url: "/docs/components/switch" },
+  { text: "Table", url: "/docs/components/table" },
+  { text: "Tabs", url: "/docs/components/tabs" },
+  { text: "Textarea", url: "/docs/components/textarea" },
+  { text: "Toggle", url: "/docs/components/toggle" },
+  { text: "Toggle Group", url: "/docs/components/toggle-group" },
+  { text: "Tooltip", url: "/docs/components/tooltip" },
 ];
 
 const cortexComponents = [
@@ -223,13 +275,13 @@ function MobileMenu({
     transitionDelay: isOpen ? `${index * staggerDelay}ms` : "0ms",
   });
 
-  const neuronsStartIndex = links.length + 1;
-  const cortexStartIndex = neuronsStartIndex + neuronComponents.length + 1;
+  const baseStartIndex = links.length + 1;
+  const cortexStartIndex = baseStartIndex + baseComponents.length + 1;
   const backgroundsStartIndex = cortexStartIndex + cortexComponents.length + 1;
   const componentsStartIndex =
     backgroundsStartIndex + backgroundComponents.length + 1;
   const componentGroups = [
-    { title: "Neurons", items: neuronComponents, start: neuronsStartIndex },
+    { title: "Components", items: baseComponents, start: baseStartIndex },
     { title: "Cortex", items: cortexComponents, start: cortexStartIndex },
     {
       title: "Backgrounds",
@@ -291,7 +343,7 @@ function MobileMenu({
             })}
           </div>
 
-          {/* Neurons, Cortex, and Backgrounds sections */}
+          {/* Components, Cortex, and Backgrounds sections */}
           {componentGroups.map((group) => (
             <div className="mt-3 border-border border-t pt-3" key={group.title}>
               <span
@@ -569,8 +621,8 @@ export function SiteHeader({
     ).length;
   const totalItems =
     links.length +
-    1 + // Neurons header
-    neuronComponents.length +
+    1 + // Components header
+    baseComponents.length +
     1 + // Cortex header
     cortexComponents.length +
     1 + // Backgrounds header
