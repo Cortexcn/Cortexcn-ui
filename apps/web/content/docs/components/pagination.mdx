@@ -1,0 +1,43 @@
+---
+title: Pagination
+description: Page navigation with next and previous links.
+---
+
+import { PaginationBasic, PaginationSimple, PaginationIconsOnly } from "@bklitui/ui/examples/pagination";
+import { code } from "@bklitui/ui/examples/pagination.code";
+
+<ComponentPreview>
+  <PaginationBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="pagination" />
+
+## Usage
+
+```tsx
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/pagination";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.PaginationBasic}>
+  <PaginationBasic />
+</ComponentShowcase>
+
+### Simple
+
+<ComponentShowcase code={code.PaginationSimple}>
+  <PaginationSimple />
+</ComponentShowcase>
+
+### With select
+
+<ComponentShowcase code={code.PaginationIconsOnly}>
+  <PaginationIconsOnly />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Pagination](https://ui.shadcn.com/docs/components/radix/pagination) (MIT).
