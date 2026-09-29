@@ -1,0 +1,55 @@
+---
+title: Dialog
+description: A window overlaid on the page that renders the content underneath inert.
+---
+
+import { DialogWithForm, DialogScrollableContent, DialogWithStickyFooter, DialogNoCloseButton, DialogChatSettings } from "@bklitui/ui/examples/dialog";
+import { code } from "@bklitui/ui/examples/dialog.code";
+
+<ComponentPreview>
+  <DialogWithForm />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="dialog" />
+
+## Usage
+
+```tsx
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger } from "@/components/dialog";
+```
+
+## Examples
+
+### With form
+
+<ComponentShowcase code={code.DialogWithForm}>
+  <DialogWithForm />
+</ComponentShowcase>
+
+### Scrollable content
+
+<ComponentShowcase code={code.DialogScrollableContent}>
+  <DialogScrollableContent />
+</ComponentShowcase>
+
+### With sticky footer
+
+<ComponentShowcase code={code.DialogWithStickyFooter}>
+  <DialogWithStickyFooter />
+</ComponentShowcase>
+
+### No close button
+
+<ComponentShowcase code={code.DialogNoCloseButton}>
+  <DialogNoCloseButton />
+</ComponentShowcase>
+
+### Chat settings
+
+<ComponentShowcase code={code.DialogChatSettings}>
+  <DialogChatSettings />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Dialog](https://ui.shadcn.com/docs/components/radix/dialog) (MIT).
