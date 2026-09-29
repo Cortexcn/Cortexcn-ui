@@ -1,0 +1,61 @@
+---
+title: Empty
+description: Displays an empty state, with media, a title, a description, and actions.
+---
+
+import { EmptyBasic, EmptyWithMutedBackground, EmptyWithBorder, EmptyWithIcon, EmptyWithMutedBackgroundAlt, EmptyInCard } from "@bklitui/ui/examples/empty";
+import { code } from "@bklitui/ui/examples/empty.code";
+
+<ComponentPreview>
+  <EmptyBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="empty" />
+
+## Usage
+
+```tsx
+import { Empty, EmptyHeader, EmptyTitle, EmptyDescription, EmptyContent, EmptyMedia } from "@/components/empty";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.EmptyBasic}>
+  <EmptyBasic />
+</ComponentShowcase>
+
+### With muted background
+
+<ComponentShowcase code={code.EmptyWithMutedBackground}>
+  <EmptyWithMutedBackground />
+</ComponentShowcase>
+
+### With border
+
+<ComponentShowcase code={code.EmptyWithBorder}>
+  <EmptyWithBorder />
+</ComponentShowcase>
+
+### With icon
+
+<ComponentShowcase code={code.EmptyWithIcon}>
+  <EmptyWithIcon />
+</ComponentShowcase>
+
+### With muted background alt
+
+<ComponentShowcase code={code.EmptyWithMutedBackgroundAlt}>
+  <EmptyWithMutedBackgroundAlt />
+</ComponentShowcase>
+
+### In card
+
+<ComponentShowcase code={code.EmptyInCard}>
+  <EmptyInCard />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Empty](https://ui.shadcn.com/docs/components/radix/empty) (MIT).
