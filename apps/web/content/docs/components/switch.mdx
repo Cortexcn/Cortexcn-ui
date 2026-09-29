@@ -1,0 +1,55 @@
+---
+title: Switch
+description: A control that allows the user to toggle between on and off.
+---
+
+import { SwitchBasic, SwitchWithDescription, SwitchWithLabel, SwitchDisabled, SwitchSizes } from "@bklitui/ui/examples/switch";
+import { code } from "@bklitui/ui/examples/switch.code";
+
+<ComponentPreview>
+  <SwitchBasic />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="switch" />
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/switch";
+```
+
+## Examples
+
+### Basic
+
+<ComponentShowcase code={code.SwitchBasic}>
+  <SwitchBasic />
+</ComponentShowcase>
+
+### With description
+
+<ComponentShowcase code={code.SwitchWithDescription}>
+  <SwitchWithDescription />
+</ComponentShowcase>
+
+### With label
+
+<ComponentShowcase code={code.SwitchWithLabel}>
+  <SwitchWithLabel />
+</ComponentShowcase>
+
+### Disabled
+
+<ComponentShowcase code={code.SwitchDisabled}>
+  <SwitchDisabled />
+</ComponentShowcase>
+
+### Sizes
+
+<ComponentShowcase code={code.SwitchSizes}>
+  <SwitchSizes />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Switch](https://ui.shadcn.com/docs/components/radix/switch) (MIT).
