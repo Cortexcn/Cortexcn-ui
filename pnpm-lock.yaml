@@ -36,7 +36,7 @@ importers:
     dependencies:
       "@base-ui/react":
         specifier: ^1.8.0
-        version: 1.8.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@bklitui/icons":
         specifier: workspace:*
         version: link:../../packages/icons
@@ -121,7 +121,7 @@ importers:
     dependencies:
       "@base-ui/react":
         specifier: ^1.8.0
-        version: 1.8.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@bklitui/icons":
         specifier: workspace:*
         version: link:../../packages/icons
@@ -348,7 +348,7 @@ importers:
     dependencies:
       "@base-ui/react":
         specifier: ^1.8.0
-        version: 1.8.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@bklitui/icons":
         specifier: workspace:*
         version: link:../icons
@@ -474,7 +474,7 @@ importers:
     dependencies:
       "@base-ui/react":
         specifier: ^1.8.0
-        version: 1.8.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@bklitui/icons":
         specifier: workspace:*
         version: link:../icons
@@ -529,9 +529,15 @@ importers:
       "@visx/zoom":
         specifier: 4.0.1-alpha.0
         version: 4.0.1-alpha.0(react@19.3.0)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      cmdk:
+        specifier: ^1.1.1
+        version: 1.1.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       d3-array:
         specifier: 3.2.4
         version: 3.2.4
@@ -544,12 +550,24 @@ importers:
       d3-shape:
         specifier: ^3.2.0
         version: 3.2.0
+      date-fns:
+        specifier: ^4.4.0
+        version: 4.4.0
+      embla-carousel-react:
+        specifier: ^8.6.0
+        version: 8.6.0(react@19.3.0)
+      input-otp:
+        specifier: ^1.5.0
+        version: 1.5.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       lucide-react:
         specifier: ^1.48.0
         version: 1.48.0(react@19.3.0)
       motion:
         specifier: ^13.4.4
         version: 13.4.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next-themes:
+        specifier: ^0.4.6
+        version: 0.4.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       postprocessing:
         specifier: ^6.39.5
         version: 6.39.5(three@0.186.1)
@@ -559,12 +577,21 @@ importers:
       react:
         specifier: ^19.3.0
         version: 19.3.0
+      react-day-picker:
+        specifier: ^10.0.1
+        version: 10.0.1(@types/react@19.3.0)(react@19.3.0)
       react-dom:
         specifier: ^19.3.0
         version: 19.3.0(react@19.3.0)
+      react-resizable-panels:
+        specifier: ^4.13.3
+        version: 4.13.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-use-measure:
         specifier: ^2.1.7
         version: 2.1.7(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      sonner:
+        specifier: ^2.0.8
+        version: 2.0.8(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       tailwind-merge:
         specifier: ^3.7.0
         version: 3.7.0
@@ -574,6 +601,9 @@ importers:
       topojson-client:
         specifier: 3.1.0
         version: 3.1.0
+      vaul:
+        specifier: ^1.1.2
+        version: 1.1.2(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
     devDependencies:
       "@bklitui/eslint-config":
         specifier: workspace:*
@@ -1281,6 +1311,12 @@ packages:
         integrity: sha512-OoKoR0f76dCY666JlcbhmVTs2drYj1GUXZTYTcbUgJjh9Nv41aFfZ21bPQTERm5+L5cBDo466NltB2lplS5GBw==,
       }
     engines: { node: ">=20.19.0" }
+
+  "@date-fns/tz@1.5.0":
+    resolution:
+      {
+        integrity: sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==,
+      }
 
   "@dimforge/rapier3d-compat@0.12.0":
     resolution:
@@ -5829,6 +5865,15 @@ packages:
       }
     engines: { node: ">=6" }
 
+  cmdk@1.1.1:
+    resolution:
+      {
+        integrity: sha512-Vsv7kFaXm+ptHDMZ7izaRsP70GgrW9NBNGswt9OZaVBLlE0SNpDq8eu/VGXyF9r7M0azK3Wy7OlYXsuyYLFzHg==,
+      }
+    peerDependencies:
+      react: ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^18 || ^19 || ^19.0.0-rc
+
   cn@0.2.6:
     resolution:
       {
@@ -6157,6 +6202,12 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  date-fns@4.4.0:
+    resolution:
+      {
+        integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==,
+      }
+
   debounce-fn@4.0.0:
     resolution:
       {
@@ -6371,6 +6422,28 @@ packages:
     resolution:
       {
         integrity: sha512-qu6QIPXhsb+CRcAiTMNjR4A1y/7tCYKkKjr5CZXRVih6qkDf79peZ2BpEU3qoDBNCRrcy3Mra3X9nG5oruuA7Q==,
+      }
+
+  embla-carousel-react@8.6.0:
+    resolution:
+      {
+        integrity: sha512-0/PjqU7geVmo6F734pmPqpyHqiM99olvyecY7zdweCw+6tKEXnrE90pBiBbMMU8s5tICemzpQ3hi5EpxzGW+JA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+
+  embla-carousel-reactive-utils@8.6.0:
+    resolution:
+      {
+        integrity: sha512-fMVUDUEx0/uIEDM0Mz3dHznDhfX+znCCDCeIophYb1QGVM7YThSWX+wz11zlYwWFOr74b4QLGg0hrGPJeG2s4A==,
+      }
+    peerDependencies:
+      embla-carousel: 8.6.0
+
+  embla-carousel@8.6.0:
+    resolution:
+      {
+        integrity: sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA==,
       }
 
   emoji-regex@10.6.0:
@@ -7442,6 +7515,15 @@ packages:
       {
         integrity: sha512-Nb2ctOyNR8DqQoR0OwRG95uNWIC0C1lCgf5Naz5H6Ji72KZ8OcFZLz2P5sNgwlyoJ8Yif11oMuYs5pBQa86csA==,
       }
+
+  input-otp@1.5.0:
+    resolution:
+      {
+        integrity: sha512-3AcfdW1sNG0FmSA5hHMBXG7jNW5CdcdKs8ln8JOmn6S2SRkoXoJx+2UwC+ZvjflfnOdHJx0SfQ9/YjlxVYLtGQ==,
+      }
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
 
   internal-slot@1.1.0:
     resolution:
@@ -9412,6 +9494,19 @@ packages:
       }
     engines: { node: ">= 0.10" }
 
+  react-day-picker@10.0.1:
+    resolution:
+      {
+        integrity: sha512-eNh6BlwcYInWaJtRv18mXQ06Ys/H6rdTZAnTaSdOYJuTpwP1JMCHNd1FDRadA+gbeinq+psdULN5Xnowy9mV8w==,
+      }
+    engines: { node: ">=18" }
+    peerDependencies:
+      "@types/react": ">=16.8.0"
+      react: ">=16.8.0"
+    peerDependenciesMeta:
+      "@types/react":
+        optional: true
+
   react-dom@19.3.0:
     resolution:
       {
@@ -10680,6 +10775,15 @@ packages:
       }
     engines: { node: ">= 0.8" }
 
+  vaul@1.1.2:
+    resolution:
+      {
+        integrity: sha512-ZFkClGpWyI2WUQjdLJ/BaGuV6AVQiJ3uELGk3OYtP+B6yCO7Cmn9vPFXVJkRaGkOJu3m8bQMgtyzNHixULceQA==,
+      }
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+
   vfile-message@4.0.3:
     resolution:
       {
@@ -11416,7 +11520,7 @@ snapshots:
       "@babel/helper-string-parser": 7.29.7
       "@babel/helper-validator-identifier": 7.29.7
 
-  "@base-ui/react@1.8.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)":
+  "@base-ui/react@1.8.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)":
     dependencies:
       "@babel/runtime": 7.29.7
       "@base-ui/utils": 0.4.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -11426,7 +11530,9 @@ snapshots:
       react-dom: 19.3.0(react@19.3.0)
       use-sync-external-store: 1.7.0(react@19.3.0)
     optionalDependencies:
+      "@date-fns/tz": 1.5.0
       "@types/react": 19.3.0
+      date-fns: 4.4.0
 
   "@base-ui/utils@0.4.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)":
     dependencies:
@@ -11516,6 +11622,8 @@ snapshots:
       css-tree: 3.2.1
 
   "@csstools/css-tokenizer@4.0.2": {}
+
+  "@date-fns/tz@1.5.0": {}
 
   "@dimforge/rapier3d-compat@0.12.0": {}
 
@@ -14438,6 +14546,18 @@ snapshots:
 
   clsx@2.1.1: {}
 
+  cmdk@1.1.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      "@radix-ui/react-compose-refs": 1.1.5(@types/react@19.3.0)(react@19.3.0)
+      "@radix-ui/react-dialog": 1.1.23(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      "@radix-ui/react-id": 1.1.4(@types/react@19.3.0)(react@19.3.0)
+      "@radix-ui/react-primitive": 2.1.10(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
+    transitivePeerDependencies:
+      - "@types/react"
+      - "@types/react-dom"
+
   cn@0.2.6: {}
 
   code-block-writer@13.0.3: {}
@@ -14617,6 +14737,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  date-fns@4.4.0: {}
+
   debounce-fn@4.0.0:
     dependencies:
       mimic-fn: 3.1.0
@@ -14715,6 +14837,18 @@ snapshots:
   electron-to-chromium@1.5.286: {}
 
   electron-to-chromium@1.5.439: {}
+
+  embla-carousel-react@8.6.0(react@19.3.0):
+    dependencies:
+      embla-carousel: 8.6.0
+      embla-carousel-reactive-utils: 8.6.0(embla-carousel@8.6.0)
+      react: 19.3.0
+
+  embla-carousel-reactive-utils@8.6.0(embla-carousel@8.6.0):
+    dependencies:
+      embla-carousel: 8.6.0
+
+  embla-carousel@8.6.0: {}
 
   emoji-regex@10.6.0: {}
 
@@ -15703,6 +15837,11 @@ snapshots:
   inherits@2.0.4: {}
 
   inline-style-parser@0.2.7: {}
+
+  input-otp@1.5.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
 
   internal-slot@1.1.0:
     dependencies:
@@ -17077,6 +17216,14 @@ snapshots:
       iconv-lite: 0.7.3
       unpipe: 1.0.0
 
+  react-day-picker@10.0.1(@types/react@19.3.0)(react@19.3.0):
+    dependencies:
+      "@date-fns/tz": 1.5.0
+      date-fns: 4.4.0
+      react: 19.3.0
+    optionalDependencies:
+      "@types/react": 19.3.0
+
   react-dom@19.3.0(react@19.3.0):
     dependencies:
       react: 19.3.0
@@ -18112,6 +18259,15 @@ snapshots:
   validate-npm-package-name@7.0.2: {}
 
   vary@1.1.2: {}
+
+  vaul@1.1.2(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      "@radix-ui/react-dialog": 1.1.23(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
+    transitivePeerDependencies:
+      - "@types/react"
+      - "@types/react-dom"
 
   vfile-message@4.0.3:
     dependencies:
