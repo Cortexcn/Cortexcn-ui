@@ -1,0 +1,37 @@
+---
+title: Collapsible
+description: An interactive component which expands and collapses a panel.
+---
+
+import { CollapsibleFileTree, CollapsibleSettings } from "@bklitui/ui/examples/collapsible";
+import { code } from "@bklitui/ui/examples/collapsible.code";
+
+<ComponentPreview>
+  <CollapsibleFileTree />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="collapsible" />
+
+## Usage
+
+```tsx
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/collapsible";
+```
+
+## Examples
+
+### File tree
+
+<ComponentShowcase code={code.CollapsibleFileTree}>
+  <CollapsibleFileTree />
+</ComponentShowcase>
+
+### Settings
+
+<ComponentShowcase code={code.CollapsibleSettings}>
+  <CollapsibleSettings />
+</ComponentShowcase>
+
+Adapted from the [shadcn/ui Collapsible](https://ui.shadcn.com/docs/components/radix/collapsible) (MIT).
