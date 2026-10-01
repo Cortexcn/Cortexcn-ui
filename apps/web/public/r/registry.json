@@ -953,6 +953,73 @@
       ]
     },
     {
+      "name": "shimmer",
+      "type": "registry:component",
+      "title": "Shimmer",
+      "description": "Animated shimmering text for loading and thinking states in AI interfaces.",
+      "categories": ["ai-assistant"],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/shimmer.tsx",
+          "type": "registry:component",
+          "target": "components/shimmer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:component",
+      "title": "Chain of Thought",
+      "description": "A collapsible view of an AI's reasoning steps, with search results, images, and step status.",
+      "categories": ["ai-assistant"],
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/badge",
+        "@cortexcn/collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/chain-of-thought.tsx",
+          "type": "registry:component",
+          "target": "components/chain-of-thought.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:component",
+      "title": "Reasoning",
+      "description": "A collapsible panel for AI reasoning that opens while the model streams and closes when it finishes.",
+      "categories": ["ai-assistant"],
+      "dependencies": [
+        "@radix-ui/react-use-controllable-state",
+        "@streamdown/cjk",
+        "@streamdown/code",
+        "@streamdown/math",
+        "@streamdown/mermaid",
+        "lucide-react",
+        "streamdown"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/collapsible",
+        "@cortexcn/shimmer"
+      ],
+      "files": [
+        {
+          "path": "src/components/reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/reasoning.tsx"
+        }
+      ]
+    },
+    {
       "name": "perspective-marquee",
       "type": "registry:component",
       "title": "Perspective Marquee",

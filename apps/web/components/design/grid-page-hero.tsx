@@ -37,15 +37,23 @@ export function GridPageHero({
   title,
   subtitle,
   action,
+  art,
 }: {
   title: string;
   subtitle: string;
   action?: ReactNode;
+  /** A picture for the right side of the band, shown from md up. */
+  art?: ReactNode;
 }) {
   return (
-    <SubPageHeroGrid>
+    <SubPageHeroGrid
+      className={art ? "md:aspect-auto md:h-104 lg:h-112" : undefined}
+    >
       <div
-        className="pointer-events-none absolute inset-0 flex min-h-0 min-w-0 flex-col justify-center px-4 text-left sm:px-8 md:px-12"
+        className={cn(
+          "pointer-events-none absolute inset-0 flex min-h-0 min-w-0 flex-col justify-center px-4 text-left sm:px-8 md:px-12",
+          art && "md:pr-[52%]",
+        )}
         data-grid-fill
       >
         <div className="flex flex-col items-start gap-3 sm:gap-4">
@@ -61,6 +69,11 @@ export function GridPageHero({
           {action ? <div className="pointer-events-auto">{action}</div> : null}
         </div>
       </div>
+      {art ? (
+        <div className="absolute inset-y-6 right-6 hidden w-[46%] max-w-xl md:block lg:inset-y-8 lg:right-8">
+          {art}
+        </div>
+      ) : null}
     </SubPageHeroGrid>
   );
 }
