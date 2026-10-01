@@ -1377,6 +1377,22 @@
       ]
     },
     {
+      "name": "fan-out-diagram",
+      "type": "registry:component",
+      "title": "Fan-Out Diagram",
+      "description": "An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.",
+      "categories": ["cortex"],
+      "dependencies": ["motion"],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/fan-out-diagram.tsx",
+          "type": "registry:component",
+          "target": "components/fan-out-diagram.tsx"
+        }
+      ]
+    },
+    {
       "name": "faq-tabs-card",
       "type": "registry:component",
       "title": "FAQ Tabs Card",

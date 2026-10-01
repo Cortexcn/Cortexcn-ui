@@ -98,6 +98,7 @@ const baseComponents = [
 
 const cortexComponents = [
   { text: "Command Search", url: "/docs/components/command-search" },
+  { text: "Fan-Out Diagram", url: "/docs/components/fan-out-diagram" },
   { text: "FAQ Tabs Card", url: "/docs/components/faq-tabs-card" },
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },

@@ -3,11 +3,6 @@
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { useEffect, useState } from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { TabsContent } from "@/components/ui/tabs";
 import { codeThemes } from "@/lib/code-theme";
 import { cn } from "@/lib/utils";
@@ -80,12 +75,10 @@ export function CodeFileBlock({
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const isCss = file.target.endsWith(".css");
 
+  // A plain toggle rather than a Collapsible: a collapsed panel is hidden
+  // entirely, and this block shows the first lines as a preview instead.
   return (
-    <Collapsible
-      className="group/collapsible relative overflow-hidden rounded-xl border border-border bg-card shadow-sm"
-      onOpenChange={setIsOpen}
-      open={isOpen}
-    >
+    <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-sm">
       {/* Header with filename */}
       <div className="relative z-10 flex items-center justify-between border-border border-b bg-muted/20 px-4 py-2">
         <div className="flex items-center gap-2">
@@ -96,38 +89,41 @@ export function CodeFileBlock({
             {file.target}
           </span>
         </div>
-        <CollapsibleTrigger className="font-medium text-foreground/70 text-xs hover:text-foreground">
+        <button
+          aria-expanded={isOpen}
+          className="font-medium text-foreground/70 text-xs hover:text-foreground"
+          onClick={() => setIsOpen((open) => !open)}
+          type="button"
+        >
           {isOpen ? "Collapse" : "Expand"}
-        </CollapsibleTrigger>
+        </button>
       </div>
 
-      {/* Code content */}
-      <CollapsibleContent
+      {/* Code content: the first lines while collapsed, all of it when expanded */}
+      <div
         className={cn(
-          "relative overflow-hidden transition-all duration-300",
-          "data-[state=closed]:max-h-[180px]",
+          "relative overflow-hidden",
+          !isOpen && "max-h-[180px]",
           "[&_figure]:!my-0 [&_figure]:!rounded-none [&_figure]:!border-0",
           "[&_pre]:!my-0 [&_pre]:!rounded-none [&_pre]:!border-0",
           "[&_[data-rehype-pretty-code-figure]]:!mt-0",
         )}
-        keepMounted
       >
         <DynamicCodeBlock
           code={file.content}
           lang={isCss ? "css" : "tsx"}
           options={{ themes: codeThemes }}
         />
-      </CollapsibleContent>
-
-      {/* Gradient overlay when collapsed */}
-      <div
-        className={cn(
-          "pointer-events-none absolute inset-x-0 bottom-0 h-16",
-          "bg-gradient-to-t from-card via-card/80 to-transparent",
-          "group-data-[state=open]/collapsible:hidden",
+        {isOpen ? null : (
+          <button
+            aria-label={`Expand ${file.target}`}
+            className="absolute inset-x-0 bottom-0 h-16 cursor-pointer bg-gradient-to-t from-card via-card/80 to-transparent"
+            onClick={() => setIsOpen(true)}
+            type="button"
+          />
         )}
-      />
-    </Collapsible>
+      </div>
+    </div>
   );
 }
 

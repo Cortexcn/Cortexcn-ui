@@ -1,0 +1,91 @@
+---
+title: Fan-Out Diagram
+description: An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.
+---
+
+import {
+  FanOutDiagramDemo,
+  FanOutDiagramQueueDemo,
+} from "@/components/docs/fan-out-diagram-demo";
+
+<ComponentPreview>
+  <FanOutDiagramDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="fan-out-diagram" dependencies={["motion"]} />
+
+## Usage
+
+```tsx
+import { FanOutDiagram } from "@/components/fan-out-diagram";
+import { AppWindow, Code, Terminal } from "lucide-react";
+```
+
+```tsx
+<FanOutDiagram
+  title="Agent platform"
+  source={{ label: "Your app", icon: <AppWindow /> }}
+  nodes={[
+    { label: "Sandbox 1", meta: "Claude Code", icon: <Terminal />, status: "running" },
+    { label: "Sandbox 2", meta: "Codex", icon: <Code />, status: "starting" },
+  ]}
+/>
+```
+
+A source card sends work to the hub, and the hub fans out to one row per node. Use it for the architecture section of a landing page, such as one sandbox per customer, one worker per queue, or one agent per task.
+
+## Examples
+
+### Job queue
+
+Three rows are enough for a small system. A row's `statusLabel` replaces the status name, so an `error` row can say "retrying".
+
+<ComponentPreview>
+  <FanOutDiagramQueueDemo />
+</ComponentPreview>
+
+### Static
+
+With `animated={false}`, the diagram draws in its final state, with no reveal and no moving packets.
+
+<ComponentPreview>
+  <FanOutDiagramDemo animated={false} />
+</ComponentPreview>
+
+## Behavior
+
+- The first time the diagram scrolls into view, the panel, source, hub, lines and rows draw in, in that order. Then packets travel from the source to the hub and out along each line.
+- Packets and the pulse on `running` rows only move while the diagram is on screen. With reduced motion enabled, the diagram shows its final state and nothing moves.
+- The layout grows with the rows: one row per node, and the hub stays centred on them.
+- It lays out left to right when its container is at least 36rem (576px) wide, and top to bottom below that: source on top, then the hub, then the rows. It follows its container, not the screen, so it also stacks inside a narrow column on a desktop.
+- Icons are drawn in a 24 by 24 box. Any Lucide icon works, and so does an SVG `<image>` for a logo.
+- Screen readers get one description of the whole diagram, built from the labels. Pass `ariaLabel` to write your own.
+
+## Props
+
+### FanOutDiagram
+
+| Prop        | Type                                  | Default | Description                                         |
+| ----------- | ------------------------------------- | ------- | --------------------------------------------------- |
+| `title`     | `string`                              | -       | Label in the panel's top-left corner                |
+| `titleIcon` | `ReactNode`                           | -       | Icon before the title                               |
+| `source`    | `{ label: string; icon?: ReactNode }` | -       | The card that sends work in                         |
+| `hubIcon`   | `ReactNode`                           | -       | Icon in the hub at the centre                       |
+| `nodes`     | `FanOutNode[]`                        | -       | The rows the hub fans out to, top to bottom         |
+| `animated`  | `boolean`                             | `true`  | Draw in on view and send packets along the lines    |
+| `ariaLabel` | `string`                              | Built   | Description for screen readers                      |
+| `className` | `string`                              | -       | Extra classes for the wrapper                       |
+
+### FanOutNode
+
+| Prop          | Type                                              | Default     | Description                              |
+| ------------- | ------------------------------------------------- | ----------- | ---------------------------------------- |
+| `label`       | `string`                                          | -           | The row's name                           |
+| `meta`        | `string`                                          | -           | Secondary text after the label           |
+| `icon`        | `ReactNode`                                       | -           | Icon in the row's tile                   |
+| `status`      | `"running" \| "starting" \| "stopped" \| "error"` | -           | Colours the status dot                   |
+| `statusLabel` | `string`                                          | The status  | Text next to the dot                     |
+
+Inspired by the architecture diagram on the Agent 37 Cloud site.

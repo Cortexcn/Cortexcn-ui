@@ -31,6 +31,16 @@ function componentLinks(names: [string, string][]): ChangelogLink[] {
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-01",
+    kind: "components",
+    title: "Fan-Out Diagram",
+    summary:
+      "An animated architecture diagram for landing pages: one source feeds a hub that fans out to a row per sandbox, worker, or agent, each with a live status. It draws in on scroll and sends packets along the lines while it is on screen.",
+    items: [
+      { label: "Fan-Out Diagram", href: "/docs/components/fan-out-diagram" },
+    ],
+  },
+  {
     date: "2026-09-29",
     kind: "components",
     title: "Every shadcn/ui component",
