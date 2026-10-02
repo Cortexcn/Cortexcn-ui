@@ -8,7 +8,7 @@ import {
   Line,
   SeriesBar,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { curveCatmullRom } from "@visx/curve";
 import { composedDemoData } from "@/lib/composed-demo-data";
 

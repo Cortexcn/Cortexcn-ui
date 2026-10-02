@@ -1,7 +1,7 @@
 import {
   CommandSearch,
   type CommandSearchGroup,
-} from "@bklitui/ui/components/command-search";
+} from "@cortexcn/ui/components/command-search";
 
 const GROUPS: CommandSearchGroup[] = [
   {
