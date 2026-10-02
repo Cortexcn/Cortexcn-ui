@@ -7,7 +7,7 @@ import {
   LegendMarker,
   LegendProgress,
   LegendValue,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const sampleData = [
   { label: "Organic", value: 4250, maxValue: 5000, color: "#0ea5e9" },

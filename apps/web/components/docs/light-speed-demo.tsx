@@ -1,6 +1,6 @@
 "use client";
 
-import type { LightSpeedProps } from "@bklitui/ui/components/light-speed";
+import type { LightSpeedProps } from "@cortexcn/ui/components/light-speed";
 import dynamic from "next/dynamic";
 
 import { usePauseWhenOffscreen } from "@/lib/use-pause-when-offscreen";
@@ -8,7 +8,7 @@ import { usePauseWhenOffscreen } from "@/lib/use-pause-when-offscreen";
 // three.js is large and needs WebGL, so it loads in the browser after the page.
 const LightSpeed = dynamic(
   () =>
-    import("@bklitui/ui/components/light-speed").then((mod) => mod.LightSpeed),
+    import("@cortexcn/ui/components/light-speed").then((mod) => mod.LightSpeed),
   {
     ssr: false,
     loading: () => <div className="absolute inset-0 bg-[#05070b]" />,
