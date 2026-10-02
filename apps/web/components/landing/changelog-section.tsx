@@ -36,21 +36,32 @@ function EntryIcon({ kind }: { kind: ChangelogRelease["kind"] }) {
   );
 }
 
-function Entry({ entry }: { entry: ChangelogRelease }) {
+function Entry({
+  entry,
+  showDate,
+}: {
+  entry: ChangelogRelease;
+  /** Off for a later release on the same day, so the date shows once. */
+  showDate: boolean;
+}) {
   return (
     <li className="relative flex flex-col lg:pl-41">
-      <span className="mb-3 self-start bg-muted px-0.5 font-medium font-mono text-body text-sm uppercase leading-[1.3] tracking-[-0.04em] lg:hidden">
-        {formatChangelogDate(entry.date)}
-      </span>
+      {showDate ? (
+        <span className="mb-3 self-start bg-muted px-0.5 font-medium font-mono text-body text-sm uppercase leading-[1.3] tracking-[-0.04em] lg:hidden">
+          {formatChangelogDate(entry.date)}
+        </span>
+      ) : null}
       <h3 className="pb-2 text-2xl leading-[1.3] tracking-[-0.05em]">
         {entry.title}
       </h3>
 
       {/* Timeline row: date on the center line, dashes, icon, dashes. */}
       <div aria-hidden="true" className="relative -ml-41 hidden h-px lg:block">
-        <span className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-muted px-0.5 font-medium font-mono text-body text-sm uppercase leading-[1.3] tracking-[-0.04em]">
-          {formatChangelogDate(entry.date)}
-        </span>
+        {showDate ? (
+          <span className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-muted px-0.5 font-medium font-mono text-body text-sm uppercase leading-[1.3] tracking-[-0.04em]">
+            {formatChangelogDate(entry.date)}
+          </span>
+        ) : null}
         <span className="absolute top-0 left-12 w-15.5 border-border border-t border-dashed" />
         <span className="absolute top-1/2 left-27.25 flex size-8 -translate-y-1/2 items-center justify-center border border-border bg-background text-body">
           <EntryIcon kind={entry.kind} />
@@ -96,8 +107,14 @@ export function ChangelogSection() {
             </div>
           </div>
           <ol className="flex flex-col gap-12 lg:pt-4">
-            {ENTRIES.map((entry) => (
-              <Entry entry={entry} key={`${entry.date}-${entry.title}`} />
+            {ENTRIES.map((entry, index) => (
+              <Entry
+                entry={entry}
+                key={`${entry.date}-${entry.title}`}
+                showDate={
+                  index === 0 || ENTRIES[index - 1]?.date !== entry.date
+                }
+              />
             ))}
           </ol>
         </div>
