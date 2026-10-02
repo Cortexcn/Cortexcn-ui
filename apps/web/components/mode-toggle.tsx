@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
