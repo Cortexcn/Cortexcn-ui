@@ -154,7 +154,7 @@ export const lineChartDocsMarkers = [
     icon: "🚀",
     title: "v1.2.0 Released",
     description: "New chart animations",
-    href: "https://github.com/bklit/bklit-ui/releases",
+    href: "https://ui.cortexcn.dev/changelog",
     target: "_blank",
   },
   {
@@ -162,7 +162,7 @@ export const lineChartDocsMarkers = [
     icon: "🐛",
     title: "Bug Fix",
     description: "Fixed tooltip positioning",
-    href: "https://github.com/bklit/bklit-ui/issues",
+    href: "https://ui.cortexcn.dev/changelog",
     target: "_blank",
   },
   {

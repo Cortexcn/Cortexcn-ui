@@ -14,7 +14,6 @@ import { CopyPageButton } from "@/components/docs/copy-page-button";
 import { InstallationTabs } from "@/components/docs/installation-tabs";
 import { PackageManagerTabs } from "@/components/docs/package-manager-tabs";
 import { PageFooter } from "@/components/docs/page-footer";
-import { StudioEmbedPreview } from "@/components/docs/studio-embed-preview";
 import { TableOfContents } from "@/components/docs/toc";
 import { JsonLd } from "@/components/seo/json-ld";
 import { componentGroupOf } from "@/lib/component-groups";
@@ -132,7 +131,6 @@ export default async function Page(props: {
               ComponentsList,
               InstallationTabs,
               PackageManagerTabs,
-              StudioEmbedPreview,
             }}
           />
         </div>
