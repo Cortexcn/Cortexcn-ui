@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Breadcrumb (MIT, https://ui.shadcn.com).
-
 import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
 import { Slot } from "radix-ui";
 import type * as React from "react";
