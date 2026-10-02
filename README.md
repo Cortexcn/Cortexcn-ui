@@ -1,184 +1,119 @@
-![hero](https://github.com/bklit/bklit-ui/blob/main/apps/web/app/opengraph-image.png?raw=true)
+# Cortexcn
 
-<br />
-<p align="center">
-<img alt="vercel-oss 2" src="https://github.com/user-attachments/assets/e6cd5d4c-7707-4271-96cb-10122d193048" />
-</p>
-</br>
-<p align="center">
-    A collection of Open Source charts and utility components that you can customize and extend.
-    <br />
-    <br />
-    <a href="https://github.com/bklit/bklit-ui"><img src="https://www.shieldcn.dev/github/stars/bklit/bklit-ui.svg?variant=secondary&size=xs&theme=zinc" alt="GitHub Stars" /></a>
-    <a href="https://github.com/bklit/bklit-ui/actions"><img src="https://www.shieldcn.dev/github/ci/bklit/bklit-ui.svg?variant=secondary&size=xs&theme=zinc" alt="CI" /></a>
-    <a href="https://discord.gg/75s4frfE8X"><img src="https://www.shieldcn.dev/discord/members/75s4frfE8X.svg?variant=secondary&size=xs&theme=zinc" alt="Discord Members" /></a>
-    <a href="https://x.com/uixmat"><img src="https://www.shieldcn.dev/x/follow/uixmat.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
-  </p>
-</p>
+Cortexcn is a set of React and Tailwind CSS components, page blocks, and charts. You install items with the shadcn CLI, which copies the source into your project. The code is yours to read and change, and there is no runtime package to keep up to date.
 
-## Sponsors
+- Components, docs, and registry: [ui.cortexcn.dev](https://ui.cortexcn.dev)
+- Website: [www.cortexcn.dev](https://www.cortexcn.dev)
 
-Bklit UI is supported by our sponsors. [Become a sponsor](https://github.com/sponsors/uixmat).
+## What is in the registry
 
-**Silver sponsors:** [UI Rules](https://uirules.com), [shadcn studio](https://shadcnstudio.com)
+- **Components**: the shadcn/ui primitives (accordion, dialog, select, tabs, and the rest) plus Cortexcn components such as the marquee, number ticker, line nav, and sphere menu.
+- **Blocks**: page sections grouped by category, such as hero sections, feature grids, AI assistant pieces, loaders, and stat cards. Browse them at [ui.cortexcn.dev/blocks](https://ui.cortexcn.dev/blocks).
+- **Charts**: area, bar, candlestick, choropleth, composed, funnel, gauge, heatmap, line, live line, pie, radar, ring, sankey, scatter, and sunburst charts, built on visx and Motion. Browse them at [ui.cortexcn.dev/charts](https://ui.cortexcn.dev/charts).
 
-## Charts
+## Install an item
 
-<table>
-  <tr>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/area-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/area-chart.svg" alt="Area Chart" width="280" />
-      </a>
-      <br />
-      <strong>Area Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/area-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=area-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/bar-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/bar-chart.svg" alt="Bar Chart" width="280" />
-      </a>
-      <br />
-      <strong>Bar Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/bar-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=bar-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/candlestick-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/candlestick-chart.svg" alt="Candlestick Chart" width="280" />
-      </a>
-      <br />
-      <strong>Candlestick Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/candlestick-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=candlestick-chart">Studio</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/choropleth-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/choropleth-chart.svg" alt="Choropleth Chart" width="280" />
-      </a>
-      <br />
-      <strong>Choropleth Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/choropleth-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=choropleth-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/composed-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/composed-chart.svg" alt="Composed Chart" width="280" />
-      </a>
-      <br />
-      <strong>Composed Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/composed-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=composed-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/funnel-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/funnel-chart.svg" alt="Funnel Chart" width="280" />
-      </a>
-      <br />
-      <strong>Funnel Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/funnel-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=funnel-chart">Studio</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/gauge-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/gauge-chart.svg" alt="Gauge" width="280" />
-      </a>
-      <br />
-      <strong>Gauge</strong><br />
-      <a href="https://cortexcn.dev/docs/components/gauge-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=gauge-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/line-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/line-chart.svg" alt="Line Chart" width="280" />
-      </a>
-      <br />
-      <strong>Line Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/line-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=line-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/live-line-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/live-line-chart.svg" alt="Live Line Chart" width="280" />
-      </a>
-      <br />
-      <strong>Live Line Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/live-line-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=live-line-chart">Studio</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/pie-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/pie-chart.svg" alt="Pie Chart" width="280" />
-      </a>
-      <br />
-      <strong>Pie Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/pie-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=pie-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/radar-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/radar-chart.svg" alt="Radar Chart" width="280" />
-      </a>
-      <br />
-      <strong>Radar Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/radar-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=radar-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/ring-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/ring-chart.svg" alt="Ring Chart" width="280" />
-      </a>
-      <br />
-      <strong>Ring Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/ring-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=ring-chart">Studio</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/scatter-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/scatter-chart.svg" alt="Scatter Chart" width="280" />
-      </a>
-      <br />
-      <strong>Scatter Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/scatter-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=scatter-chart">Studio</a>
-    </td>
-    <td align="center" valign="top" width="33%">
-      <a href="https://cortexcn.dev/docs/components/sankey-chart">
-        <img src="https://github.com/bklit/bklit-ui/raw/main/apps/web/public/svgs/sankey-chart.svg" alt="Sankey Chart" width="280" />
-      </a>
-      <br />
-      <strong>Sankey Chart</strong><br />
-      <a href="https://cortexcn.dev/docs/components/sankey-chart">Docs</a> · <a href="https://cortexcn.dev/studio?chart=sankey-chart">Studio</a>
-    </td>
-    <td></td>
-  </tr>
-</table>
-
-## Studio
-
-Studio is Bklit's interactive chart playground. Pick a chart, tweak styling and animation controls in real time, then copy the generated React code or export a registry JSON for your project.
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=I3PLqHImYbE"><img src="https://img.youtube.com/vi/I3PLqHImYbE/maxresdefault.jpg" alt="Bklit Studio" width="720" /></a>
-</p>
-
-[Open Studio →](https://cortexcn.dev/studio)
-
-## Getting Started
-
-Bklit UI is a shadcn registry. Initialize shadcn in your project, then add a chart:
+Your project needs shadcn/ui set up first:
 
 ```bash
 npx shadcn@latest init
-npx shadcn@latest add @bklit/line-chart
 ```
 
-See [Installation](https://cortexcn.dev/docs/installation) for registry setup and all components.
+Add an item by its registry URL:
 
-## Repo activity
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/line-chart.json
+```
 
-![Alt](https://repobeats.axiom.co/api/embed/c591b93fd9e7bfa8f4dc8bddb716699615ee5fde.svg "Repobeats analytics image")
+Or register the `@cortexcn` namespace once in `components.json`:
+
+```json
+{
+  "registries": {
+    "@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"
+  }
+}
+```
+
+and then add items by name:
+
+```bash
+npx shadcn@latest add @cortexcn/line-chart
+```
+
+The CLI writes the files into your project, installs the npm packages the item needs, and pulls in any other Cortexcn items it depends on. Charts land in your components folder, so you import them from there:
+
+```tsx
+import { LineChart } from "@/components/charts";
+```
+
+Each item's page in the [docs](https://ui.cortexcn.dev/docs) shows its install command, usage, and props.
+
+## AI integration
+
+Cortexcn gives coding agents three ways to work with the registry. The setup guides are at [ui.cortexcn.dev/docs/integration](https://ui.cortexcn.dev/docs/integration).
+
+**MCP server.** A read-only MCP server runs at `https://ui.cortexcn.dev/mcp`. It needs no sign-in and lets an agent search the catalog, read an item's source, and get its install command. To add it to Claude Code:
+
+```bash
+claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
+```
+
+Other MCP clients can use the same URL with the HTTP transport.
+
+**Agent skills.** Skills that teach an agent how to find, install, compose, and theme Cortexcn items, and how to follow the design system:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json
+```
+
+**DESIGN.md.** A `DESIGN.md` file for your project root that describes the Cortexcn design system (colors, corners, type, spacing, and motion), so agents have one place to read it from:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json
+```
+
+## Local development
+
+You need Node.js 18 or later (CI uses Node 20) and pnpm 9.15.9, the version pinned in `package.json`. With Corepack enabled, `pnpm` picks up that version on its own.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+`pnpm dev` starts the site at <http://localhost:3000> and the component library host at <http://ui.localhost:3000>. In production one deployment serves both hosts: the library (its home, docs, blocks, charts, and registry) on `ui.cortexcn.dev`, and everything else on `www.cortexcn.dev`.
+
+Environment variables are listed in `apps/web/.env.example`. Copy it to `apps/web/.env` and fill in the ones you need. They cover the icon license, analytics, search engine verification, and the contact form.
+
+Scripts, all run from this folder:
+
+| Command                | What it does                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| `pnpm dev`             | Runs the dev servers through Turborepo                                                            |
+| `pnpm build`           | Builds every package through Turborepo                                                            |
+| `pnpm lint`            | Checks formatting and lint rules with Ultracite (Biome)                                           |
+| `pnpm lint:fix`        | Applies Ultracite fixes (`pnpm format` does the same)                                             |
+| `pnpm check-types`     | Type checks every package                                                                         |
+| `pnpm test`            | Runs the unit tests (Node's test runner with `tsx`)                                               |
+| `pnpm registry:build`  | Rebuilds the registry into `apps/web/public/r` (runs `pnpm --filter @cortexcn/ui registry:build`) |
+| `pnpm registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync                    |
+
+The pre-commit hook runs `npx ultracite fix`.
+
+## Repository layout
+
+| Path                         | Contents                                                                                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `apps/web`                   | The Next.js site: docs (MDX in `content/docs`), block sources (`blocks`), chart gallery, the MCP route (`app/mcp`), and the built registry JSON (`public/r`) |
+| `packages/ui`                | `@cortexcn/ui`: component and chart source, `registry.json`, and the scripts that build and verify the registry                                              |
+| `packages/icons`             | `@cortexcn/icons`: a wrapper around Central Icons (`@central-icons-react/all`), a licensed icon set                                                          |
+| `packages/eslint-config`     | `@cortexcn/eslint-config`: shared ESLint config                                                                                                              |
+| `packages/typescript-config` | `@cortexcn/typescript-config`: shared TypeScript configs                                                                                                     |
+| `templates/`                 | Standalone Next.js page templates. They are not part of the pnpm workspace; each has its own README and LICENSE                                              |
+
+Contributor and agent notes are in [AGENTS.md](./AGENTS.md).
 
 ## License
 
-**Chart components** (`packages/ui`, shadcn registry) are [MIT licensed](./LICENSE).
-
-**Bklit Studio** (`packages/studio`, hosted at [cortexcn.dev/studio](https://cortexcn.dev/studio))
-is proprietary. See [LICENSE-STUDIO.md](./LICENSE-STUDIO.md). You may not reuse,
-resell, or redistribute Studio without written permission.
+MIT, see [LICENSE](./LICENSE). Templates in `templates/` carry their own license files.
