@@ -1,6 +1,6 @@
 "use client";
 
-import { ChartStatFlow, Line, LineChart } from "@bklitui/ui/charts";
+import { ChartStatFlow, Line, LineChart } from "@cortexcn/ui/charts";
 import { curveBasis } from "@visx/curve";
 import { useState } from "react";
 import {
