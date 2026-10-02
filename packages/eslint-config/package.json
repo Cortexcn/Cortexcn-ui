@@ -1,5 +1,5 @@
 {
-  "name": "@bklitui/eslint-config",
+  "name": "@cortexcn/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,
