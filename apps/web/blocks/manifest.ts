@@ -74,6 +74,8 @@ export const loaderGlitchText01Files = [
   "components/loader-glitch-text.tsx",
 ] as const;
 
+export const aiQueue01Files = ["components/agent-queue.tsx"] as const;
+
 export const blockFileManifests = {
   "feature-spotlight-grid-01": featureSpotlightGrid01Files,
   "feature-media-cards-01": featureMediaCards01Files,
@@ -86,6 +88,7 @@ export const blockFileManifests = {
   "ai-reasoning-01": aiReasoning01Files,
   "ai-chain-of-thought-01": aiChainOfThought01Files,
   "ai-shimmer-01": aiShimmer01Files,
+  "ai-queue-01": aiQueue01Files,
   "hero-dashboard-01": heroDashboard01Files,
   "hero-studio-01": heroStudio01Files,
   "hero-cover-01": heroCover01Files,

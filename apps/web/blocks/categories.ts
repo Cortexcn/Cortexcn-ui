@@ -36,7 +36,12 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
     name: "AI Assistant",
     description:
       "Pieces for chat and agent interfaces: streaming reasoning, step-by-step agent progress, and thinking states.",
-    blocks: ["ai-reasoning-01", "ai-chain-of-thought-01", "ai-shimmer-01"],
+    blocks: [
+      "ai-reasoning-01",
+      "ai-chain-of-thought-01",
+      "ai-shimmer-01",
+      "ai-queue-01",
+    ],
   },
   {
     slug: "loaders",
