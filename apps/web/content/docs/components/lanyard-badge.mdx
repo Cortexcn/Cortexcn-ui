@@ -1,0 +1,69 @@
+---
+title: Lanyard Badge
+description: An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.
+---
+
+import {
+  LanyardBadgeDemo,
+  LanyardBadgeFrontOnlyDemo,
+} from "@/components/docs/lanyard-badge-demo";
+
+<ComponentPreview>
+  <LanyardBadgeDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="lanyard-badge" />
+
+## Usage
+
+```tsx
+import { LanyardBadge } from "@/components/lanyard-badge";
+```
+
+```tsx
+<LanyardBadge
+  front={<div className="p-6">Alex Rivera</div>}
+  back={<div className="p-6">ui.cortexcn.dev</div>}
+  strapText="CORTEXCN"
+/>
+```
+
+The card is plain HTML, so the front and back can hold anything: a photo, a name and role, a QR code, or a link. Use it on an about page, a team page, or a conference landing page.
+
+## Examples
+
+### Front only
+
+Without a `back`, clicking does nothing and the card only swings. A shorter `strapLength` hangs it higher, and `dropIn={false}` starts it hanging still.
+
+<ComponentPreview>
+  <LanyardBadgeFrontOnlyDemo />
+</ComponentPreview>
+
+## Behavior
+
+- The strap is a rope of short segments, simulated in the browser and drawn as an SVG path, with `strapText` repeated along it. The card hangs from the end of the rope on a clip.
+- Drag the card anywhere and it follows the pointer, as far as the strap reaches. Let go and it swings back and settles. A quick flick throws it.
+- The card turns toward you as it swings sideways, and a soft shine moves across it.
+- A click or tap without dragging flips the card when it has a `back`. With the keyboard, focus the card and press Enter or Space.
+- The simulation stops once the badge hangs still, and starts again when you touch it, so an idle badge costs nothing.
+- With reduced motion enabled, the badge hangs still and does not swing or drop in. It still flips.
+- The strap hangs from the middle of the top edge and follows the box when it resizes. Give the box a height with `className`.
+- In a box narrower than the card, the card scales down to fit, to no less than half its size.
+- No 3D or physics library is used, so it adds no dependencies.
+
+## Props
+
+| Prop          | Type        | Default      | Description                                          |
+| ------------- | ----------- | ------------ | ---------------------------------------------------- |
+| `front`       | `ReactNode` | -            | The front of the card                                |
+| `back`        | `ReactNode` | -            | The back of the card. Without it, the card does not flip |
+| `strapText`   | `string`    | `"CORTEXCN"` | Words repeated along the strap                       |
+| `strapLength` | `number`    | `200`        | Strap length from the top edge to the clip, in px    |
+| `cardWidth`   | `number`    | `232`        | Card width in px                                     |
+| `cardHeight`  | `number`    | `320`        | Card height in px                                    |
+| `gravity`     | `number`    | `0.55`       | Downward pull. Higher swings faster                  |
+| `dropIn`      | `boolean`   | `true`       | Swing in from the side on first render               |
+| `className`   | `string`    | -            | Extra classes for the box. It is 560px tall by default |
