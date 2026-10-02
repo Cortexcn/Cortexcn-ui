@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { ComposedChart, SeriesBar, Area, Line, Grid, XAxis, ChartTooltip } from "@bklitui/ui/charts"
+// In your app: import { ComposedChart, SeriesBar, Area, Line, Grid, XAxis, ChartTooltip } from "@/components/charts"
 import {
   ComposedChart,
   SeriesBar,

@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { FunnelChart } from "@bklitui/ui/charts"
+// In your app: import { FunnelChart } from "@/components/charts"
 import { FunnelChart } from "@/components/charts";
 
 const funnelData = [
