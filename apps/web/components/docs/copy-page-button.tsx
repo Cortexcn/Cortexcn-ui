@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import { useState } from "react";
 import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
 import { Button } from "../ui/button";
