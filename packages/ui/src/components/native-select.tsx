@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Native Select (MIT, https://ui.shadcn.com).
-
 import { ChevronDownIcon } from "lucide-react";
 import type * as React from "react";
 import { cn } from "@/lib/utils";
