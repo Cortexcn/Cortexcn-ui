@@ -1,5 +1,5 @@
 {
-  "extends": "@bklitui/typescript-config/react-library.json",
+  "extends": "@cortexcn/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     // The package ships source to bundlers (Next.js, the shadcn CLI), and some
