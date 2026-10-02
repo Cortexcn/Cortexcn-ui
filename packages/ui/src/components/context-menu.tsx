@@ -2,7 +2,6 @@
 
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
 import { ContextMenu as ContextMenuPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Context Menu (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
