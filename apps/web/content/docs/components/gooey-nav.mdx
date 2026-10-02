@@ -1,0 +1,66 @@
+---
+title: Gooey Nav
+description: A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.
+---
+
+import {
+  GooeyNavCompactDemo,
+  GooeyNavDemo,
+} from "@/components/docs/gooey-nav-demo";
+
+<ComponentPreview>
+  <GooeyNavDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="gooey-nav" />
+
+## Usage
+
+```tsx
+import { GooeyNav } from "@/components/gooey-nav";
+```
+
+```tsx
+<GooeyNav
+  items={[
+    { label: "Home", href: "/" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Docs", href: "/docs" },
+  ]}
+/>
+```
+
+## Examples
+
+### Fewer drops
+
+`drops` sets how many drops pull away from the pill, and `duration` how long it takes to arrive. `defaultIndex` picks the item that starts active.
+
+<ComponentPreview>
+  <GooeyNavCompactDemo />
+</ComponentPreview>
+
+## Behavior
+
+- The edge of the pill facing the new item leaves first and the other edge follows a moment later, so the pill stretches across and snaps in behind itself.
+- The pill and its drops sit on one layer with an SVG goo filter: a blur, then a sharp alpha cutoff, so shapes that come close melt into each other. The drops ride the tail a few milliseconds apart, string out behind it, and melt back in as it lands.
+- The tail runs a little past its mark and wobbles back, so the pill feels like it has weight.
+- The labels change color exactly where the pill covers them, even mid-move, because a second copy of the labels in the pill's color is clipped to the pill.
+- Colors come from your theme: the pill is `foreground` and its label is `background`, so it works in light and dark mode.
+- Links are real anchors with `aria-current="page"` on the active one. A link whose `href` is `"#"` does not jump to the top of the page.
+- If the links do not fit, the row scrolls sideways instead of overflowing.
+- With reduced motion enabled, the pill slides without stretching or drops.
+- No animation library is used, so it adds no dependencies.
+
+## Props
+
+| Prop            | Type                              | Default | Description                                   |
+| --------------- | --------------------------------- | ------- | --------------------------------------------- |
+| `items`         | `{ label: string; href: string }[]` | -     | The links, left to right                      |
+| `defaultIndex`  | `number`                          | `0`     | The item that starts active                   |
+| `onIndexChange` | `(index: number) => void`         | -       | Called with the new index when one is chosen  |
+| `drops`         | `number`                          | `6`     | Drops that pull away from the pill as it moves |
+| `duration`      | `number`                          | `520`   | Time for the pill to reach the new item, in ms |
+| `className`     | `string`                          | -       | Extra classes for the wrapper                 |
