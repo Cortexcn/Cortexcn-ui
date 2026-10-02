@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Spinner (MIT, https://ui.shadcn.com).
-
 import { Loader2Icon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
