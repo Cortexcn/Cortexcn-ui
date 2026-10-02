@@ -1460,6 +1460,54 @@
       ]
     },
     {
+      "name": "gooey-nav",
+      "type": "registry:component",
+      "title": "Gooey Nav",
+      "description": "A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.",
+      "categories": ["cortex"],
+      "dependencies": [],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/gooey-nav.tsx",
+          "type": "registry:component",
+          "target": "components/gooey-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lanyard-badge",
+      "type": "registry:component",
+      "title": "Lanyard Badge",
+      "description": "An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.",
+      "categories": ["cortex"],
+      "dependencies": [],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/lanyard-badge.tsx",
+          "type": "registry:component",
+          "target": "components/lanyard-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sphere-menu",
+      "type": "registry:component",
+      "title": "Sphere Menu",
+      "description": "A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.",
+      "categories": ["cortex"],
+      "dependencies": [],
+      "registryDependencies": ["@cortexcn/utils"],
+      "files": [
+        {
+          "path": "src/components/sphere-menu.tsx",
+          "type": "registry:component",
+          "target": "components/sphere-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "faq-tabs-card",
       "type": "registry:component",
       "title": "FAQ Tabs Card",
