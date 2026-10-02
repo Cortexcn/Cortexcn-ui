@@ -13,7 +13,7 @@ import {
   HeatmapXAxis,
   HeatmapYAxis,
   HEATMAP_DEFAULT_LEVEL_STYLES,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { getHeatmapDemoData } from "@/lib/heatmap-demo-data";
 
 export const contributionData = getHeatmapDemoData();
@@ -67,7 +67,7 @@ import {
   HeatmapTooltip,
   HeatmapXAxis,
   HeatmapYAxis,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const data = [
   {
@@ -274,7 +274,7 @@ interface HeatmapColumn {
 }
 ```
 
-Counts map to five visual levels (0 = empty, 1–4 = increasing activity). Use `getHeatmapContributionLevel(count)` from `@bklitui/ui/charts` to derive the level from a raw count.
+Counts map to five visual levels (0 = empty, 1–4 = increasing activity). Use `getHeatmapContributionLevel(count)` from `@cortexcn/ui/charts` to derive the level from a raw count.
 
 ### Row opacity
 
@@ -300,10 +300,10 @@ Pass the **same** value to `HeatmapCells` and `HeatmapYAxis` so faded rows and t
 const rowOpacity = [1, 1, 1, 1, 1, 0.35, 0.35]; // fade Sat + Sun (Mon-first)
 ```
 
-**Helper** — `buildHeatmapRowOpacity` from `@bklitui/ui/charts`:
+**Helper** — `buildHeatmapRowOpacity` from `@cortexcn/ui/charts`:
 
 ```tsx
-import { buildHeatmapRowOpacity } from "@bklitui/ui/charts";
+import { buildHeatmapRowOpacity } from "@/components/charts";
 
 // Fade rows 5 and 6 (Sat + Sun when weekStartDay={1})
 const weekendOpacity = buildHeatmapRowOpacity([5, 6], 0.35);
@@ -330,7 +330,7 @@ buildHeatmapRowOpacity((row) => row < 2, 0.5); // first two rows
 Source data can stay Sunday-first; `weekStartDay` rotates display rows without reshaping your data:
 
 ```tsx
-import { buildHeatmapRowOpacity } from "@bklitui/ui/charts";
+import { buildHeatmapRowOpacity } from "@/components/charts";
 
 const weekendOpacity = buildHeatmapRowOpacity((row) => row >= 5, 0.35);
 
