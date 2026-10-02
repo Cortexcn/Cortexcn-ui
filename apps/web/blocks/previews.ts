@@ -7,6 +7,7 @@ import { FeatureImageColumnsPreview } from "./feature-image-columns-01/preview";
 import { FeatureMediaCardsPreview } from "./feature-media-cards-01/preview";
 import { FeatureSpotlightGridPreview } from "./feature-spotlight-grid-01/preview";
 import { FeatureStudioGridPreview } from "./feature-studio-grid-01/preview";
+import { HeroDashboardPreview } from "./hero-dashboard-01/preview";
 import type { BlockSlug } from "./manifest";
 import { StatCardAreaPreview } from "./stat-card-area-01/preview";
 import { StatCardChoroplethPreview } from "./stat-card-choropleth-01/preview";
@@ -25,4 +26,5 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "ai-reasoning-01": AiReasoningPreview,
   "ai-chain-of-thought-01": AiChainOfThoughtPreview,
   "ai-shimmer-01": AiShimmerPreview,
+  "hero-dashboard-01": HeroDashboardPreview,
 };
