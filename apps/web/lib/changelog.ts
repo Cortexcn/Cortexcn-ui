@@ -29,7 +29,28 @@ function componentLinks(names: [string, string][]): ChangelogLink[] {
   }));
 }
 
+/** The AI Assistant pieces, which now live under Blocks. */
+const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
+  { label: "Reasoning", href: "/blocks/ai-assistant#ai-reasoning-01" },
+  {
+    label: "Chain of Thought",
+    href: "/blocks/ai-assistant#ai-chain-of-thought-01",
+  },
+  { label: "Shimmer", href: "/blocks/ai-assistant#ai-shimmer-01" },
+];
+
 export const CHANGELOG: ChangelogRelease[] = [
+  {
+    date: "2026-10-02",
+    kind: "blocks",
+    title: "AI Assistant moves to Blocks",
+    summary:
+      "Reasoning, Chain of Thought, and Shimmer now live under Blocks in a new AI Assistant category, each with a live preview, its code, and a one-command install. Their old component pages redirect there.",
+    items: [
+      ...AI_ASSISTANT_BLOCK_LINKS,
+      { label: "AI Assistant blocks", href: "/blocks?category=ai-assistant" },
+    ],
+  },
   {
     date: "2026-10-02",
     kind: "blocks",
@@ -49,14 +70,7 @@ export const CHANGELOG: ChangelogRelease[] = [
     title: "AI Assistant components",
     summary:
       "A new family for chat and agent interfaces. Reasoning streams a model's thinking as markdown and folds away when it finishes, Chain of Thought lays out an agent's steps with sources and status, and Shimmer marks the moments in between.",
-    items: [
-      ...componentLinks([
-        ["Reasoning", "reasoning"],
-        ["Chain of Thought", "chain-of-thought"],
-        ["Shimmer", "shimmer"],
-      ]),
-      { label: "AI Assistant", href: "/docs/components#ai-assistant" },
-    ],
+    items: AI_ASSISTANT_BLOCK_LINKS,
   },
   {
     date: "2026-10-01",
