@@ -10,7 +10,7 @@ import {
   SegmentLineTo,
   useChart,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useEffect, useState } from "react";
 
 const chartData = [

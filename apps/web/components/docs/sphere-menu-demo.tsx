@@ -1,6 +1,6 @@
 "use client";
 
-import { SphereMenu } from "@bklitui/ui/components/sphere-menu";
+import { SphereMenu } from "@cortexcn/ui/components/sphere-menu";
 
 /** Sample photos from Unsplash (free to use under the Unsplash License). */
 const photo = (id: string) =>
