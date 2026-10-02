@@ -1,6 +1,6 @@
 "use client";
 
-import type { QueueMessage, QueueTodo } from "@bklitui/ui/components/queue";
+import type { QueueMessage, QueueTodo } from "@cortexcn/ui/components/queue";
 import {
   Queue,
   QueueItem,
@@ -17,7 +17,7 @@ import {
   QueueSectionContent,
   QueueSectionLabel,
   QueueSectionTrigger,
-} from "@bklitui/ui/components/queue";
+} from "@cortexcn/ui/components/queue";
 import { ListTodoIcon, MessageSquareIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
 
