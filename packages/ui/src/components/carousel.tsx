@@ -4,7 +4,6 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-// Adapted from the shadcn/ui Carousel (MIT, https://ui.shadcn.com).
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
