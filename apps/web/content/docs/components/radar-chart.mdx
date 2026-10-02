@@ -9,7 +9,7 @@ import {
   RadarAxis,
   RadarLabels,
   RadarArea,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { RadarChartDemo } from "@/components/docs/radar-chart-demo";
 
 <ComponentPreview registryName="radar-chart">
@@ -34,7 +34,7 @@ import {
   RadarAxis,
   RadarLabels,
   RadarArea,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const metrics = [
   { key: "speed", label: "Speed" },
@@ -157,7 +157,7 @@ Series fill colors default to `--chart-1` through `--chart-5` via `defaultRadarC
 Access the radar context from any child component:
 
 ```tsx
-import { useRadar } from "@bklitui/ui/charts";
+import { useRadar } from "@/components/charts";
 
 function CustomComponent() {
   const {
