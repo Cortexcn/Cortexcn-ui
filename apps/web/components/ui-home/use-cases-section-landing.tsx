@@ -1,4 +1,4 @@
-import { LogosCarousel } from "@bklitui/ui/components/logos-carousel";
+import { LogosCarousel } from "@cortexcn/ui/components/logos-carousel";
 import Image from "next/image";
 
 import { AppWindow, RegistryTag } from "./app-window";

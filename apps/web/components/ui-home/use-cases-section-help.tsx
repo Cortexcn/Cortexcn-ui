@@ -3,8 +3,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@bklitui/ui/components/card";
-import { FAQTabsCard } from "@bklitui/ui/components/faq-tabs-card";
+} from "@cortexcn/ui/components/card";
+import { FAQTabsCard } from "@cortexcn/ui/components/faq-tabs-card";
 
 import { AppWindow, RegistryTag } from "./app-window";
 import { DocumentIcon } from "./use-cases-section-icons";
