@@ -102,11 +102,12 @@ export function BlockViewer({
     <TooltipProvider>
       <div
         className={cn(
-          "overflow-hidden",
+          "scroll-mt-28 overflow-hidden",
           embedded
             ? "bg-transparent"
             : "rounded-xl border border-border bg-card/70",
         )}
+        id={registryName}
       >
         <div className="flex flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:gap-4">
           <div className="flex min-w-0 flex-1 items-center gap-3">
