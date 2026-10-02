@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { readBlockFiles } from "@/lib/blocks/read-block-files";
 import type { BlockCategory } from "./categories";
+import { FeatureBentoGridBlock } from "./feature-bento-grid-01";
 import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
 import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
 import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
@@ -16,6 +17,7 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "feature-media-cards-01": FeatureMediaCardsBlock,
   "feature-image-columns-01": FeatureImageColumnsBlock,
   "feature-studio-grid-01": FeatureStudioGridBlock,
+  "feature-bento-grid-01": FeatureBentoGridBlock,
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
   "stat-card-choropleth-01": StatCardChoroplethBlock,

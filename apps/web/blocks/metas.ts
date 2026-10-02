@@ -1,3 +1,4 @@
+import { featureBentoGrid01Meta } from "./feature-bento-grid-01/meta";
 import { featureImageColumns01Meta } from "./feature-image-columns-01/meta";
 import { featureMediaCards01Meta } from "./feature-media-cards-01/meta";
 import { featureSpotlightGrid01Meta } from "./feature-spotlight-grid-01/meta";
@@ -16,6 +17,7 @@ export const BLOCK_METAS: Record<
   "feature-media-cards-01": featureMediaCards01Meta,
   "feature-image-columns-01": featureImageColumns01Meta,
   "feature-studio-grid-01": featureStudioGrid01Meta,
+  "feature-bento-grid-01": featureBentoGrid01Meta,
   "stat-card-area-01": statCardArea01Meta,
   "stat-card-line-01": statCardLine01Meta,
   "stat-card-choropleth-01": statCardChoropleth01Meta,
