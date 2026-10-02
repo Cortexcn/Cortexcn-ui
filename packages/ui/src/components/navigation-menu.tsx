@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Navigation Menu (MIT, https://ui.shadcn.com).
-
 import { cva } from "class-variance-authority";
 import { ChevronDownIcon } from "lucide-react";
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui";
