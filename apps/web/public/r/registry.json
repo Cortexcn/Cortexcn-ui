@@ -1544,7 +1544,7 @@
       "name": "chart-utils",
       "type": "registry:lib",
       "title": "Chart Utilities",
-      "description": "Shared Intl formatters, time-series decimation, and RAF tooltip scheduling for Bklit charts",
+      "description": "Shared Intl formatters, time-series decimation, and RAF tooltip scheduling for Cortexcn charts",
       "files": [
         {
           "path": "src/charts/chart-formatters.ts",
@@ -1567,7 +1567,7 @@
       "name": "chart-context",
       "type": "registry:component",
       "title": "Chart Context",
-      "description": "Shared context and hooks for Bklit chart components",
+      "description": "Shared context and hooks for Cortexcn chart components",
       "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
       "dependencies": [
         "@visx/event@4.0.1-alpha.0",
@@ -4320,6 +4320,83 @@
           "path": "registry/examples/stat-card-choropleth-01-index.ts",
           "type": "registry:lib",
           "target": "components/charts/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "design-md",
+      "type": "registry:item",
+      "title": "DESIGN.md",
+      "description": "Cortexcn's design system as a DESIGN.md file for coding agents: the colors, type, square corners, spacing, motion, and component rules, generated from the theme tokens.",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ]
+    },
+    {
+      "name": "agent-skills",
+      "type": "registry:item",
+      "title": "Agent skills",
+      "description": "The cortexcn and cortexcn-design agent skills, for Claude Code (.claude/skills) and for Codex, Cursor, and GitHub Copilot (.agents/skills).",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        }
+      ]
+    },
+    {
+      "name": "agent-kit",
+      "type": "registry:item",
+      "title": "Agent kit",
+      "description": "Everything for coding agents in one install: both Cortexcn agent skills and DESIGN.md.",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
         }
       ]
     }
