@@ -1,7 +1,6 @@
 "use client";
 
 import { HoverCard as HoverCardPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Hover Card (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
