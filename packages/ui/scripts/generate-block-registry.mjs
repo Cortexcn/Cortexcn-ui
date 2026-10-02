@@ -140,6 +140,24 @@ const BLOCKS = {
       "components/hero-cta.tsx",
     ],
   },
+  "hero-studio-01": {
+    title: "Hero Studio",
+    description:
+      "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page",
+    previewMaxWidth: "max-w-7xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: ["class-variance-authority", "motion"],
+    files: ["components/hero-studio.tsx", "components/hero-cta.tsx"],
+  },
+  "hero-cover-01": {
+    title: "Hero Cover Photo",
+    description:
+      "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge",
+    previewMaxWidth: "max-w-7xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: ["class-variance-authority", "motion"],
+    files: ["components/hero-cover.tsx", "components/hero-cta.tsx"],
+  },
   "ai-reasoning-01": {
     title: "AI Reasoning Panel",
     description:
@@ -255,6 +273,8 @@ const COMPONENT_EXPORTS = {
   "ai-chain-of-thought-01": "AgentSteps",
   "ai-shimmer-01": "ThinkingMessage",
   "hero-dashboard-01": "HeroDashboard",
+  "hero-studio-01": "HeroStudio",
+  "hero-cover-01": "HeroCover",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
