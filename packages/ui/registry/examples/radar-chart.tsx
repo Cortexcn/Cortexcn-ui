@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { RadarChart, RadarGrid, RadarAxis, RadarLabels, RadarArea } from "@bklitui/ui/charts"
+// In your app: import { RadarChart, RadarGrid, RadarAxis, RadarLabels, RadarArea } from "@/components/charts"
 import {
   RadarChart,
   RadarGrid,

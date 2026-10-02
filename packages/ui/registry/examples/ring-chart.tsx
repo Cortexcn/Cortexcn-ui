@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { RingChart, Ring, RingCenter } from "@bklitui/ui/charts"
+// In your app: import { RingChart, Ring, RingCenter } from "@/components/charts"
 import { RingChart, Ring, RingCenter } from "@/components/charts";
 
 const ringData = [
