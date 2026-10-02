@@ -1,7 +1,13 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
-import { ChartTooltip, Grid, Line, LineChart, XAxis } from "@bklitui/ui/charts";
+import { Icon } from "@cortexcn/icons";
+import {
+  ChartTooltip,
+  Grid,
+  Line,
+  LineChart,
+  XAxis,
+} from "@cortexcn/ui/charts";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
