@@ -42,6 +42,12 @@ export const featureBentoGrid01Files = [
   "components/feature-bento-grid.tsx",
 ] as const;
 
+export const aiReasoning01Files = ["components/reasoning-panel.tsx"] as const;
+
+export const aiChainOfThought01Files = ["components/agent-steps.tsx"] as const;
+
+export const aiShimmer01Files = ["components/thinking-message.tsx"] as const;
+
 export const blockFileManifests = {
   "feature-spotlight-grid-01": featureSpotlightGrid01Files,
   "feature-media-cards-01": featureMediaCards01Files,
@@ -51,6 +57,9 @@ export const blockFileManifests = {
   "stat-card-area-01": statCardArea01Files,
   "stat-card-line-01": statCardLine01Files,
   "stat-card-choropleth-01": statCardChoropleth01Files,
+  "ai-reasoning-01": aiReasoning01Files,
+  "ai-chain-of-thought-01": aiChainOfThought01Files,
+  "ai-shimmer-01": aiShimmer01Files,
 } as const;
 
 export type BlockSlug = keyof typeof blockFileManifests;
