@@ -1,6 +1,5 @@
 "use client";
 
-// Adapted from the shadcn/ui Table (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
