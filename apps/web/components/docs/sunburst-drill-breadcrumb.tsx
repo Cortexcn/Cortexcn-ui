@@ -1,6 +1,6 @@
 "use client";
 
-import { useSunburstBreadcrumbItems } from "@bklitui/ui/charts";
+import { useSunburstBreadcrumbItems } from "@cortexcn/ui/charts";
 import {
   BreadcrumbItem,
   BreadcrumbLink,

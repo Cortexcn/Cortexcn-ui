@@ -1,11 +1,11 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import {
   startThemeTransition,
   THEME_TOGGLE_EFFECTS,
   type ThemeToggleEffect,
-} from "@bklitui/ui/components/theme-toggle-effect";
+} from "@cortexcn/ui/components/theme-toggle-effect";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
