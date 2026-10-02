@@ -1,7 +1,6 @@
 "use client";
 
 import { Tooltip as TooltipPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Tooltip (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
