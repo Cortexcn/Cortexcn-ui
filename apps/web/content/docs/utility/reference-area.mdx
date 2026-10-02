@@ -1,9 +1,8 @@
 ---
 title: Reference Area
-description: Shaded Y band for target ranges and thresholds on cartesian charts — solid or pattern fill, dashed edges, and Y-axis tick coloring
+description: Shaded Y band for target ranges and thresholds on cartesian charts, with a solid or pattern fill, dashed edges, and Y-axis tick coloring
 ---
 
-import { studioLineReferenceProjectionHref } from "@bklitui/studio";
 import {
   LineChart,
   Line,
@@ -11,13 +10,12 @@ import {
   ReferenceArea,
   ChartTooltip,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import {
   ReferenceAreaBandDemo,
   ReferenceAreaMarkersDemo,
   ReferenceAreaPatternDemo,
 } from "@/components/docs/reference-area-demo";
-import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 
 <ComponentPreview registryName="reference-area">
   <ReferenceAreaPatternDemo />
@@ -39,7 +37,7 @@ import {
   ReferenceArea,
   ChartTooltip,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 <LineChart data={data}>
   <Grid horizontal />
@@ -85,22 +83,6 @@ Omit `y1` or `y2` to extend the band to the top or bottom of the plot. Use `axis
 | `ifOverflow`            | `"hidden" \| "visible"` | `"hidden"`                              | Clip band to the plot when bounds exceed the domain            |
 
 Pattern presets match [`Background`](/docs/utility/background) (`diagonal`, `dots`, `cross`, …).
-
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-## Studio
-
-<div className="not-prose mb-3 flex items-center justify-between gap-4">
-  <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
-    Edit in Studio
-  </h3>
-  <OpenInStudioButton
-    href={studioLineReferenceProjectionHref()}
-    slug="line-chart"
-  />
-</div>
-
-Open [Studio with the line chart](/studio?chart=line-chart) and select **Reference Area** in the layers panel to tune bounds, fill, pattern, edges, and markers. The same layer is available on area, bar, candlestick, composed, live line, line, and scatter charts.
-*/}
 
 ## Examples
 
