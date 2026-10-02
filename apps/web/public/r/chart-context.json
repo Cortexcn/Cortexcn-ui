@@ -3,7 +3,7 @@
   "name": "chart-context",
   "type": "registry:component",
   "title": "Chart Context",
-  "description": "Shared context and hooks for Bklit chart components",
+  "description": "Shared context and hooks for Cortexcn chart components",
   "dependencies": [
     "@visx/event@4.0.1-alpha.0",
     "@visx/responsive@4.0.1-alpha.0",
