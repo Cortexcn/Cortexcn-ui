@@ -6,7 +6,7 @@ import {
   SankeyLink,
   SankeyNode,
   SankeyTooltip,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const analyticsData = {
   nodes: [

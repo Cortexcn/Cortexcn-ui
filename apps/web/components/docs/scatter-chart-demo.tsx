@@ -6,7 +6,7 @@ import {
   Scatter,
   ScatterChart,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const chartData = Array.from({ length: 24 }, (_, i) => ({
   date: new Date(2023, i, 1),
