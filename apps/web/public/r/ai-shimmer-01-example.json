@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-shimmer-01-example",
+  "title": "AI Thinking Message Example",
+  "description": "A chat turn where the assistant's reply is a shimmering status line while it works — demo for Open in v0",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/ai-shimmer-01"],
+  "files": [
+    {
+      "path": "registry/examples/ai-shimmer-01.tsx",
+      "content": "\"use client\";\n\nimport { ThinkingMessage } from \"@/components/thinking-message\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <ThinkingMessage />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "type": "registry:example"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-shimmer-01",
+  "title": "AI Thinking Message",
+  "description": "A chat turn where the assistant's reply is a shimmering status line while it works",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/shimmer", "@cortexcn/utils"],
+  "files": [
+    {
+      "path": "registry/blocks/ai-shimmer-01/components/thinking-message.tsx",
+      "content": "\"use client\";\n\nimport { Shimmer } from \"@/components/shimmer\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface ThinkingMessageProps {\n  /** What the user asked. */\n  prompt?: string;\n  /** The assistant's status while it works, shown with a moving shimmer. */\n  status?: string;\n  className?: string;\n}\n\n/** A chat turn where the assistant's reply is a shimmering status line. */\nexport function ThinkingMessage({\n  prompt = \"Can you add a pricing table to the landing page?\",\n  status = \"Reading the landing page...\",\n  className,\n}: ThinkingMessageProps) {\n  return (\n    <div className={cn(\"flex w-full max-w-sm flex-col gap-3\", className)}>\n      <div className=\"self-end rounded-2xl rounded-br-sm bg-primary px-4 py-2 text-primary-foreground text-sm\">\n        {prompt}\n      </div>\n      <div className=\"self-start rounded-2xl rounded-bl-sm bg-muted px-4 py-2 text-sm\">\n        <Shimmer as=\"span\" duration={1.5} spread={3}>\n          {status}\n        </Shimmer>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/thinking-message.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
