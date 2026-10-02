@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-cover-01-example",
+  "title": "Hero Cover Photo Example",
+  "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge — demo for Open in v0",
+  "dependencies": ["class-variance-authority", "motion"],
+  "registryDependencies": ["@cortexcn/hero-cover-01"],
+  "files": [
+    {
+      "path": "registry/examples/hero-cover-01.tsx",
+      "content": "\"use client\";\n\nimport { HeroCover } from \"@/components/hero-cover\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-7xl\">\n        <HeroCover />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "type": "registry:example"
+}
