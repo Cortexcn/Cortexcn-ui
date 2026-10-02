@@ -14,7 +14,7 @@ import {
   RadarGrid,
   RadarLabels,
   type RadarMetric,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useState } from "react";
 
 // Campaign performance metrics

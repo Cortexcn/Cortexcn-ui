@@ -9,7 +9,7 @@ import {
   LineSeriesTerminalMarker,
   ProjectionLine,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { buildLineChartDemoData } from "@/components/docs/line-chart-demo-data";
 
 const chartData = buildLineChartDemoData();
