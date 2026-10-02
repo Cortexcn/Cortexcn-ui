@@ -1,6 +1,6 @@
 "use client";
 
-import { Area, AreaChart, Background, ChartTooltip } from "@bklitui/ui/charts";
+import { Area, AreaChart, Background, ChartTooltip } from "@cortexcn/ui/charts";
 import { curveNatural } from "@visx/curve";
 import {
   homeAreaChartMargin,

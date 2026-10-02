@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
 
