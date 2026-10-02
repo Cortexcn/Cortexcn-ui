@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import { useSearchContext } from "fumadocs-ui/contexts/search";
 import { useEffect, useState } from "react";
 import { markSearchOpenedFromClick } from "@/lib/analytics/search-source";

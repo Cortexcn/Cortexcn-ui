@@ -1,10 +1,10 @@
 "use client";
 
-import { Icon, type IconName } from "@bklitui/icons";
+import { Icon, type IconName } from "@cortexcn/icons";
 import {
   FanOutDiagram,
   type FanOutNode,
-} from "@bklitui/ui/components/fan-out-diagram";
+} from "@cortexcn/ui/components/fan-out-diagram";
 
 /** Central icons drawn in the diagram's 24 by 24 icon box. */
 const icon = (name: IconName) => <Icon name={name} size={24} />;
