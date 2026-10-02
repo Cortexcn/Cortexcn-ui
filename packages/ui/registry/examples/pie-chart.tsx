@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { PieChart, PieSlice, PieCenter } from "@bklitui/ui/charts"
+// In your app: import { PieChart, PieSlice, PieCenter } from "@/components/charts"
 import { PieChart, PieSlice, PieCenter } from "@/components/charts";
 
 const pieData = [

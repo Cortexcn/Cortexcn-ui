@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import from "@bklitui/ui/charts"
+// In your app (monorepo/npm): import from "@cortexcn/ui/charts"
 import {
   ChartTooltip,
   Grid,
