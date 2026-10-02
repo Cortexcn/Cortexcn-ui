@@ -3,12 +3,20 @@
 import { type ReactNode, useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const STORAGE_KEY = "bklit-install-type";
+const STORAGE_KEY = "cortexcn-install-type";
+
+export type InstallTab = "cli" | "manual" | "mcp";
+
+const INSTALL_TABS: InstallTab[] = ["cli", "manual", "mcp"];
+
+function isInstallTab(value: string | null): value is InstallTab {
+  return INSTALL_TABS.includes(value as InstallTab);
+}
 
 interface CodeTabsProps {
   children: ReactNode;
-  defaultValue?: "cli" | "manual";
-  onTabChange?: (tab: "cli" | "manual") => void;
+  defaultValue?: InstallTab;
+  onTabChange?: (tab: InstallTab) => void;
 }
 
 export function CodeTabs({
@@ -20,7 +28,7 @@ export function CodeTabs({
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "cli" || stored === "manual") {
+    if (isInstallTab(stored)) {
       setValue(stored);
       onTabChange?.(stored);
     }
@@ -29,7 +37,7 @@ export function CodeTabs({
   const handleValueChange = (newValue: string) => {
     setValue(newValue);
     localStorage.setItem(STORAGE_KEY, newValue);
-    if (newValue === "cli" || newValue === "manual") {
+    if (isInstallTab(newValue)) {
       onTabChange?.(newValue);
     }
   };
@@ -39,6 +47,7 @@ export function CodeTabs({
       <TabsList variant="line">
         <TabsTrigger value="cli">Command</TabsTrigger>
         <TabsTrigger value="manual">Manual</TabsTrigger>
+        <TabsTrigger value="mcp">MCP</TabsTrigger>
       </TabsList>
       {children}
     </Tabs>
@@ -49,7 +58,7 @@ export function CodeTabsContent({
   value,
   children,
 }: {
-  value: "cli" | "manual";
+  value: InstallTab;
   children: ReactNode;
 }) {
   return <TabsContent value={value}>{children}</TabsContent>;
