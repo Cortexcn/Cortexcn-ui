@@ -1,4 +1,3 @@
-// Adapted from the shadcn/ui Empty (MIT, https://ui.shadcn.com).
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
