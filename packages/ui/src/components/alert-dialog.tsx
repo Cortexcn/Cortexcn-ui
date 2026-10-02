@@ -1,7 +1,6 @@
 "use client";
 
 import { AlertDialog as AlertDialogPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Alert Dialog (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
