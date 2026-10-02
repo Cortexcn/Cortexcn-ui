@@ -14,21 +14,22 @@ const nextConfig = {
   turbopack: {
     root: path.resolve(__dirname, "../.."),
   },
-  transpilePackages: ["@bklitui/ui", "@bklitui/studio", "geist"],
-  serverExternalPackages: ["@sparticuz/chromium-min", "puppeteer-core"],
+  transpilePackages: ["@cortexcn/ui", "geist"],
+  serverExternalPackages: ["puppeteer-core"],
   outputFileTracingIncludes: {
-    "/api/og/studio": ["./lib/og-fonts/**"],
     // The markdown routes read the MDX sources at build time.
     "/llms-full.txt": ["./content/docs/**"],
     "/llms.md/[[...slug]]": ["./content/docs/**"],
+    // The MCP server reads the docs and the published registry files.
+    "/mcp": ["./content/docs/**", "./public/r/**"],
   },
   experimental: {
     // Keeps dev/prod from pulling the entire charts package per MDX page.
-    optimizePackageImports: ["@bklitui/ui", "@bklitui/ui/charts"],
+    optimizePackageImports: ["@cortexcn/ui", "@cortexcn/ui/charts"],
   },
   async redirects() {
     // The AI Assistant components moved from the docs to Blocks.
-    return [
+    const movedToBlocks = [
       ["reasoning", "ai-reasoning-01"],
       ["chain-of-thought", "ai-chain-of-thought-01"],
       ["shimmer", "ai-shimmer-01"],
@@ -37,6 +38,15 @@ const nextConfig = {
       destination: `/blocks/ai-assistant/${block}`,
       permanent: true,
     }));
+    return [
+      ...movedToBlocks,
+      // Skills moved under Integration, next to the MCP server and DESIGN.md.
+      {
+        source: "/docs/skills",
+        destination: "/docs/integration/skills",
+        permanent: true,
+      },
+    ];
   },
   async rewrites() {
     return {
@@ -57,8 +67,8 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Baseline hardening for every page except the embeddable studio views.
-        source: "/:path((?!studio/embed|studio/demo).*)",
+        // Baseline hardening for every page.
+        source: "/:path*",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -79,24 +89,6 @@ const nextConfig = {
         // The previews are sample sites; keep them out of search results.
         source: "/previews/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
-      },
-      {
-        source: "/studio/embed",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: "frame-ancestors *",
-          },
-        ],
-      },
-      {
-        source: "/studio/demo",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: "frame-ancestors *",
-          },
-        ],
       },
     ];
   },
