@@ -8,7 +8,7 @@ description: Access chart state and context for building custom chart components
 The `useChart` hook provides access to the chart's internal state, scales, dimensions, and tooltip data. Use it to build custom components that integrate with the chart system.
 
 ```tsx
-import { useChart } from "@bklitui/ui/charts";
+import { useChart } from "@/components/charts";
 
 function MyCustomComponent() {
   const { tooltipData, hoveredBarIndex, yScale, innerHeight } = useChart();
