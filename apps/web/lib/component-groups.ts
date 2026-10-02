@@ -21,12 +21,6 @@ export const COMPONENT_GROUPS = [
       "Cortexcn originals you won't find in shadcn/ui: motion, navigation, and theming.",
   },
   {
-    name: "AI Assistant",
-    category: "ai-assistant",
-    description:
-      "Chat and agent interfaces for AI products: reasoning, chains of thought, and streaming states.",
-  },
-  {
     name: "Backgrounds",
     category: "backgrounds",
     description:
