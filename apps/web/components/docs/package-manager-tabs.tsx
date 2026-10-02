@@ -1,6 +1,5 @@
 "use client";
 
-import { shadcnAddItem } from "@bklitui/studio";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import { useEffect, useState } from "react";
 import { CopyButton } from "@/components/copy-button";
@@ -11,9 +10,10 @@ import {
 } from "@/components/icons/package-manager-icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { codeThemes } from "@/lib/code-theme";
+import { shadcnAddItem } from "@/lib/registry-links";
 import { cn } from "@/lib/utils";
 
-const STORAGE_KEY = "bklit-package-manager";
+const STORAGE_KEY = "cortexcn-package-manager";
 
 const PM_SHADCN_COMMANDS: Record<PackageManager, string> = {
   pnpm: "pnpm dlx shadcn@latest add",

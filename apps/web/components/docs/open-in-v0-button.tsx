@@ -1,9 +1,9 @@
 "use client";
 
-import { openInV0Href } from "@bklitui/studio";
 import { V0Icon } from "@/components/icons/v0";
 import { Button } from "@/components/ui/button";
 import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
+import { openInV0Href } from "@/lib/registry-links";
 
 /**
  * Opens a public registry item JSON in v0.
@@ -12,14 +12,12 @@ import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
 export function OpenInV0Button({
   registryJsonUrl,
   chart,
-  surface = "docs",
 }: {
   registryJsonUrl: string;
   chart?: string;
-  surface?: "docs" | "studio";
 }) {
   const handleClick = () => {
-    trackEvent(surface === "studio" ? "studio_open_v0" : "docs_open_v0", {
+    trackEvent("docs_open_v0", {
       chart,
       url: getAnalyticsUrl(),
       registry_json_url: registryJsonUrl,
