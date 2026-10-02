@@ -1,6 +1,5 @@
 "use client";
 
-// Adapted from the shadcn/ui Accordion (MIT, https://ui.shadcn.com).
 import { Accordion as AccordionPrimitive } from "radix-ui";
 import type { ComponentProps } from "react";
 
