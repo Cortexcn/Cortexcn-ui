@@ -1,6 +1,6 @@
 "use client";
 
-import { useChoropleth } from "@bklitui/ui/charts";
+import { useChoropleth } from "@cortexcn/ui/charts";
 import { useEffect } from "react";
 import { computeVisitorTrend, getVisitorValue } from "../data/visitors";
 import type { StatCardHoverState } from "./stat-card-chart";
