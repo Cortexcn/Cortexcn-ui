@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@bklitui/ui/components/accordion";
+} from "@cortexcn/ui/components/accordion";
 import Link from "next/link";
 import type { ReactNode } from "react";
 

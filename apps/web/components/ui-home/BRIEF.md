@@ -88,8 +88,8 @@ font-light`, tracking `-0.05em`, leading 1.05 to 1.25), everything else in
   only above the fold.
 - `app-window.tsx`: `AppWindow` (desktop app frame with a title bar) and
   `RegistryTag` (mono `@cortexcn/<name>` label for a piece of live UI).
-- Live UI comes from the real registry: `@bklitui/ui/components/*`,
-  `@bklitui/ui/charts`, the block sources in `blocks/*/files/components`, and
+- Live UI comes from the real registry: `@cortexcn/ui/components/*`,
+  `@cortexcn/ui/charts`, the block sources in `blocks/*/files/components`, and
   the docs demos in `components/docs/*-demo.tsx`.
 
 ## Section map (page order)
