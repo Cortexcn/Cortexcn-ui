@@ -1,7 +1,6 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-// Adapted from the shadcn/ui Input Group (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
