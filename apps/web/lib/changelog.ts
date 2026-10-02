@@ -42,6 +42,18 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
+    kind: "components",
+    title: "Lanyard Badge, Gooey Nav, and Sphere Menu",
+    summary:
+      "Three playful components with no extra dependencies. Lanyard Badge hangs an ID card from a simulated strap that you can drag, throw, and flip. Gooey Nav stretches a liquid pill between links. Sphere Menu spins a ball of image tiles and turns the nearest one to face you with its link.",
+    items: componentLinks([
+      ["Lanyard Badge", "lanyard-badge"],
+      ["Gooey Nav", "gooey-nav"],
+      ["Sphere Menu", "sphere-menu"],
+    ]),
+  },
+  {
+    date: "2026-10-02",
     kind: "blocks",
     title: "Queue joins the AI Assistant blocks",
     summary:
