@@ -1,0 +1,250 @@
+---
+title: MCP Server
+description: Connect your AI assistant to Cortexcn so it can search, read, and install components, blocks, and charts.
+---
+
+The Cortexcn MCP server lets an AI assistant search the registry, read an item's docs and source, and get the exact command to install it into your project.
+
+## Quick Start
+
+1. Connect the server. In Claude Code, run:
+
+   ```bash
+   claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
+   ```
+
+   For other assistants, see [Connect your assistant](#connect-your-assistant).
+
+2. Make sure your project has shadcn set up. If there is no `components.json` in the project root, run:
+
+   ```bash
+   npx shadcn@latest init
+   ```
+
+3. Ask your assistant for what you need, for example: "Add the Lanyard 3D component to the about page."
+
+## About the server
+
+| Setting           | Value                                          |
+| ----------------- | ---------------------------------------------- |
+| URL               | `https://ui.cortexcn.dev/mcp`                  |
+| Server name       | `cortexcn`                                     |
+| Transport         | Streamable HTTP                                |
+| Protocol versions | The 2025 revisions and the 2026-07-28 revision |
+| Sessions          | Stateless                                      |
+| Sign-in           | None                                           |
+| Access            | Read-only                                      |
+
+The server is hosted, so most clients connect to the URL directly and there is nothing to install or run.
+
+## How installs work
+
+The server never runs commands on your machine. When you ask for an item, it returns the install command, and your assistant (Claude Code, Cursor, or another agent with terminal access) runs it in your project root:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/lanyard-3d.json
+```
+
+The command uses the item's URL, so you do not need to add the `@cortexcn` registry to `components.json`. The project still needs shadcn initialized. The CLI installs the item's npm dependencies and any other registry items it needs.
+
+Chat apps such as claude.ai and ChatGPT cannot reach your terminal, so there the assistant gives you the command to run yourself.
+
+## Tools
+
+| Tool                  | Arguments                            | What it returns                                                                                                                            |
+| --------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `search_items`        | `query`, optional `kind` and `limit` | Components, blocks, and charts that match a keyword or a need, ranked by relevance.                                                        |
+| `list_items`          | optional `kind` and `category`       | Every item, filtered by kind or category if you pass them.                                                                                 |
+| `list_categories`     | none                                 | The groups items are organized in, with a count for each.                                                                                  |
+| `get_item`            | `name`, optional `include_docs`      | The install command, the files and dependencies it adds, links to its page and live preview, and its docs with usage, examples, and props. |
+| `get_item_source`     | `name`                               | The source of the item's files.                                                                                                            |
+| `get_install_command` | `names`, optional `package_manager`  | One shadcn CLI command that installs several items at once.                                                                                |
+| `get_setup_guide`     | none                                 | How to prepare a project: `shadcn init` and the `@cortexcn` registry in `components.json`.                                                 |
+| `get_design_guide`    | none                                 | Cortexcn's [DESIGN.md](/docs/integration/design-md).                                                                                       |
+
+Argument values:
+
+- `kind` is one of `component`, `block`, `chart`, `hook`, or `lib`.
+- `limit` defaults to 8 results, up to 25.
+- `include_docs` defaults to `true`.
+- `package_manager` is one of `pnpm`, `npm`, `yarn`, or `bun`, and defaults to `pnpm`.
+
+## Connect your assistant
+
+Each client below uses the same URL. If a config file already lists other servers, add the `cortexcn` entry next to them.
+
+### Claude Code
+
+```bash
+claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
+```
+
+Add `--scope user` to use it in every project:
+
+```bash
+claude mcp add --transport http --scope user cortexcn https://ui.cortexcn.dev/mcp
+```
+
+Or add `--scope project` to write it to `.mcp.json` in the project root, so everyone on your team gets it. You can also write that file by hand:
+
+```json title=".mcp.json"
+{
+  "mcpServers": {
+    "cortexcn": {
+      "type": "http",
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
+```
+
+Run `/mcp` inside Claude Code to check that the server is connected.
+
+### Claude Desktop and claude.ai
+
+1. Open [Customize > Connectors](https://claude.ai/customize/connectors).
+2. Choose **Add custom connector**.
+3. Paste `https://ui.cortexcn.dev/mcp` as the URL and choose **No sign-in**.
+
+In Claude Desktop you can use the config file instead. This runs [mcp-remote](https://www.npmjs.com/package/mcp-remote) through `npx` as a local bridge to the server, so it needs Node.js:
+
+```json title="claude_desktop_config.json"
+{
+  "mcpServers": {
+    "cortexcn": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://ui.cortexcn.dev/mcp"]
+    }
+  }
+}
+```
+
+The file is at:
+
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Restart Claude Desktop after you save it.
+
+### Cursor
+
+[Add to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=cortexcn&config=eyJ1cmwiOiJodHRwczovL3VpLmNvcnRleGNuLmRldi9tY3AifQ==)
+
+Or add it to `.cursor/mcp.json` in your project, or to `~/.cursor/mcp.json` to use it in every project:
+
+```json title=".cursor/mcp.json"
+{
+  "mcpServers": {
+    "cortexcn": {
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
+```
+
+### VS Code
+
+The server works with GitHub Copilot in agent mode. Add it to `.vscode/mcp.json` in your project:
+
+```json title=".vscode/mcp.json"
+{
+  "servers": {
+    "cortexcn": {
+      "type": "http",
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
+```
+
+Or add it from a terminal:
+
+```bash
+code --add-mcp "{\"name\":\"cortexcn\",\"type\":\"http\",\"url\":\"https://ui.cortexcn.dev/mcp\"}"
+```
+
+### Windsurf and Devin Desktop
+
+Add it to `mcp_config.json`:
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "cortexcn": {
+      "serverUrl": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
+```
+
+### OpenAI Codex CLI
+
+```bash
+codex mcp add cortexcn --url https://ui.cortexcn.dev/mcp
+```
+
+Or add it to `~/.codex/config.toml`:
+
+```toml title="~/.codex/config.toml"
+[mcp_servers.cortexcn]
+url = "https://ui.cortexcn.dev/mcp"
+```
+
+### Zed
+
+Add it to your Zed `settings.json`:
+
+```json title="settings.json"
+{
+  "context_servers": {
+    "cortexcn": {
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
+```
+
+### ChatGPT
+
+Custom connectors need developer mode, which is available on the web for Plus, Pro, Business, Enterprise, and Edu plans.
+
+1. Go to **Settings > Security and login** and turn on **Developer mode**.
+2. Add a connector, paste `https://ui.cortexcn.dev/mcp` as the URL, and choose **No authentication**.
+
+## Example prompts
+
+Once the server is connected, ask in plain words:
+
+- "Find a hero block with a product screenshot and add it to the landing page."
+- "Add the Lanyard 3D component and use our team's names."
+- "Build a dashboard page with an area chart and three stat cards from Cortexcn."
+- "What props does the Gooey Nav take?"
+- "Show me the source of the Sphere Menu before we install it."
+- "Which Cortexcn chart fits a sales funnel? Add it to the reports page."
+
+## Install from a component page
+
+Every component page has an install box with an **MCP** tab. It shows the command that connects the server in Claude Code and a prompt to paste into your assistant, such as:
+
+```text
+Add the Cortexcn lanyard-3d item to this project.
+```
+
+## Assistants without MCP
+
+If your assistant cannot use MCP, give it the docs as markdown instead:
+
+- Add `.md` to any docs page URL, for example [https://ui.cortexcn.dev/docs/components/lanyard-3d.md](https://ui.cortexcn.dev/docs/components/lanyard-3d.md).
+- Every docs page in one file: [https://ui.cortexcn.dev/llms-full.txt](https://ui.cortexcn.dev/llms-full.txt).
+
+## Requirements
+
+- An AI assistant that supports MCP.
+- To install items: a React and Tailwind CSS project with shadcn initialized (`npx shadcn@latest init`).
+- Node.js 18 or later for the shadcn CLI.
+
+## Related
+
+- [Skills](/docs/integration/skills): teach your assistant how to work with Cortexcn
+- [DESIGN.md](/docs/integration/design-md): the design system your assistant should follow
+- [Installation](/docs/installation): set up the `@cortexcn` registry by hand
