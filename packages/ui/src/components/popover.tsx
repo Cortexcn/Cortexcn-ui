@@ -1,7 +1,6 @@
 "use client";
 
 import { Popover as PopoverPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Popover (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
