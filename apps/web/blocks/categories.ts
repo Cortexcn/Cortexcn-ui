@@ -16,7 +16,7 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
     name: "Hero",
     description:
       "Opening sections with a headline, a call to action, and a product preview.",
-    blocks: ["hero-dashboard-01"],
+    blocks: ["hero-dashboard-01", "hero-studio-01", "hero-cover-01"],
   },
   {
     slug: "features",

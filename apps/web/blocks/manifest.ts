@@ -54,6 +54,16 @@ export const heroDashboard01Files = [
   "components/hero-cta.tsx",
 ] as const;
 
+export const heroStudio01Files = [
+  "components/hero-studio.tsx",
+  "components/hero-cta.tsx",
+] as const;
+
+export const heroCover01Files = [
+  "components/hero-cover.tsx",
+  "components/hero-cta.tsx",
+] as const;
+
 export const blockFileManifests = {
   "feature-spotlight-grid-01": featureSpotlightGrid01Files,
   "feature-media-cards-01": featureMediaCards01Files,
@@ -67,6 +77,8 @@ export const blockFileManifests = {
   "ai-chain-of-thought-01": aiChainOfThought01Files,
   "ai-shimmer-01": aiShimmer01Files,
   "hero-dashboard-01": heroDashboard01Files,
+  "hero-studio-01": heroStudio01Files,
+  "hero-cover-01": heroCover01Files,
 } as const;
 
 export type BlockSlug = keyof typeof blockFileManifests;
