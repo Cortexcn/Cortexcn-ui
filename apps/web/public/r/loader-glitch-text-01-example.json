@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-glitch-text-01-example",
+  "title": "Loader Glitch Text Example",
+  "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading — demo for Open in v0",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/loader-glitch-text-01"],
+  "files": [
+    {
+      "path": "registry/examples/loader-glitch-text-01.tsx",
+      "content": "\"use client\";\n\nimport { LoaderGlitchTextDemo } from \"@/components/loader-glitch-text-demo\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-3xl\">\n        <LoaderGlitchTextDemo />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "type": "registry:example"
+}
