@@ -111,6 +111,15 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-studio-grid.tsx"],
   },
+  "feature-bento-grid-01": {
+    title: "Feature Bento Grid",
+    description:
+      "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: [],
+    files: ["components/feature-bento-grid.tsx"],
+  },
   "stat-card-area-01": {
     title: "Stat Card Area",
     description:
@@ -194,6 +203,7 @@ const COMPONENT_EXPORTS = {
   "feature-media-cards-01": "FeatureMediaCards",
   "feature-image-columns-01": "FeatureImageColumns",
   "feature-studio-grid-01": "FeatureStudioGrid",
+  "feature-bento-grid-01": "FeatureBentoGrid",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
