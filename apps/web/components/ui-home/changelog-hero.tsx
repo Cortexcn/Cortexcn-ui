@@ -2,20 +2,42 @@ import Link from "next/link";
 
 import { blockSlugs } from "@/blocks/manifest";
 import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
+import { libraryNavLinks } from "@/lib/library-nav-links";
+import { SITE_TEMPLATES } from "@/lib/site-templates";
+import { cn } from "@/lib/utils";
 
 import { Container, SectionBadge } from "./primitives";
 import { HeadingWords } from "./reveal";
 
-/** What the registry holds today, counted from the docs and the block list. */
+const TEMPLATES_URL = "/templates";
+
+/**
+ * What the library holds today, counted from the docs, the block list, and
+ * the templates. Templates count once the library nav links to them, so the
+ * tile never points at a page that is not live yet.
+ */
 function libraryCounts() {
   const families = COMPONENT_GROUPS.map((group) => ({
     label: group.name,
     count: componentGroupPages(group.name).length,
     href: `/docs/components#${group.category}`,
   }));
+  const libraryPaths: readonly string[] = libraryNavLinks.map(
+    (link) => link.url,
+  );
+  const templatesLive = libraryPaths.includes(TEMPLATES_URL);
   return [
     ...families,
     { label: "Blocks", count: blockSlugs.length, href: "/blocks" },
+    ...(templatesLive
+      ? [
+          {
+            label: "Templates",
+            count: SITE_TEMPLATES.length,
+            href: TEMPLATES_URL,
+          },
+        ]
+      : []),
   ];
 }
 
@@ -44,7 +66,12 @@ export function ChangelogHero() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        <ul
+          className={cn(
+            "grid grid-cols-2 gap-2 sm:grid-cols-3",
+            counts.length > 5 ? "lg:grid-cols-6" : "lg:grid-cols-5",
+          )}
+        >
           {counts.map((item) => (
             <li key={item.label}>
               <Link
