@@ -1,4 +1,4 @@
-import { Marquee } from "@bklitui/ui/components/marquee";
+import { Marquee } from "@cortexcn/ui/components/marquee";
 import { BrandLogo, DEMO_BRANDS } from "@/components/docs/brand-logo";
 import { cn } from "@/lib/utils";
 

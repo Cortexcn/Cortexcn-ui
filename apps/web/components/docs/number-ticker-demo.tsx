@@ -3,7 +3,7 @@
 import {
   NumberTicker,
   type NumberTickerProps,
-} from "@bklitui/ui/components/number-ticker";
+} from "@cortexcn/ui/components/number-ticker";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
