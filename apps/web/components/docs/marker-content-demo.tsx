@@ -4,7 +4,7 @@ import {
   type ChartMarker,
   MarkerTooltipContent,
   useActiveMarkers,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 interface MarkerContentDemoProps {
   markers: ChartMarker[];

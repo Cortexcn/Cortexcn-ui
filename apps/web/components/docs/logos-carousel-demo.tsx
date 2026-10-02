@@ -1,4 +1,4 @@
-import { LogosCarousel } from "@bklitui/ui/components/logos-carousel";
+import { LogosCarousel } from "@cortexcn/ui/components/logos-carousel";
 import { BrandLogo, DEMO_BRANDS } from "@/components/docs/brand-logo";
 
 export function LogosCarouselDemo({
