@@ -1,7 +1,6 @@
 "use client";
 
 import * as ResizablePrimitive from "react-resizable-panels";
-// Adapted from the shadcn/ui Resizable (MIT, https://ui.shadcn.com).
 import { cn } from "@/lib/utils";
 
 function ResizablePanelGroup({
