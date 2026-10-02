@@ -1,6 +1,5 @@
 "use client";
 
-// Adapted from the shadcn/ui Aspect Ratio (MIT, https://ui.shadcn.com).
 import { AspectRatio as AspectRatioPrimitive } from "radix-ui";
 
 function AspectRatio({
