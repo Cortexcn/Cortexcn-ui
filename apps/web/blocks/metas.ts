@@ -9,6 +9,8 @@ import { featureStudioGrid01Meta } from "./feature-studio-grid-01/meta";
 import { heroCover01Meta } from "./hero-cover-01/meta";
 import { heroDashboard01Meta } from "./hero-dashboard-01/meta";
 import { heroStudio01Meta } from "./hero-studio-01/meta";
+import { loaderDotMatrix01Meta } from "./loader-dot-matrix-01/meta";
+import { loaderGlitchText01Meta } from "./loader-glitch-text-01/meta";
 import type { BlockSlug } from "./manifest";
 import { statCardArea01Meta } from "./stat-card-area-01/meta";
 import { statCardChoropleth01Meta } from "./stat-card-choropleth-01/meta";
@@ -33,4 +35,6 @@ export const BLOCK_METAS: Record<
   "hero-dashboard-01": heroDashboard01Meta,
   "hero-studio-01": heroStudio01Meta,
   "hero-cover-01": heroCover01Meta,
+  "loader-dot-matrix-01": loaderDotMatrix01Meta,
+  "loader-glitch-text-01": loaderGlitchText01Meta,
 };

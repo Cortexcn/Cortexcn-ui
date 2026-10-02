@@ -10,6 +10,8 @@ import { FeatureStudioGridPreview } from "./feature-studio-grid-01/preview";
 import { HeroCoverPreview } from "./hero-cover-01/preview";
 import { HeroDashboardPreview } from "./hero-dashboard-01/preview";
 import { HeroStudioPreview } from "./hero-studio-01/preview";
+import { LoaderDotMatrixPreview } from "./loader-dot-matrix-01/preview";
+import { LoaderGlitchTextPreview } from "./loader-glitch-text-01/preview";
 import type { BlockSlug } from "./manifest";
 import { StatCardAreaPreview } from "./stat-card-area-01/preview";
 import { StatCardChoroplethPreview } from "./stat-card-choropleth-01/preview";
@@ -31,4 +33,6 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "hero-dashboard-01": HeroDashboardPreview,
   "hero-studio-01": HeroStudioPreview,
   "hero-cover-01": HeroCoverPreview,
+  "loader-dot-matrix-01": LoaderDotMatrixPreview,
+  "loader-glitch-text-01": LoaderGlitchTextPreview,
 };

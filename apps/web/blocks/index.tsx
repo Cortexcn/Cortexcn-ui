@@ -12,6 +12,8 @@ import { FeatureStudioGridBlock } from "./feature-studio-grid-01";
 import { HeroCoverBlock } from "./hero-cover-01";
 import { HeroDashboardBlock } from "./hero-dashboard-01";
 import { HeroStudioBlock } from "./hero-studio-01";
+import { LoaderDotMatrixBlock } from "./loader-dot-matrix-01";
+import { LoaderGlitchTextBlock } from "./loader-glitch-text-01";
 import { type BlockSlug, blockFileManifests } from "./manifest";
 import { StatCardAreaBlock } from "./stat-card-area-01";
 import type { BlockDisplayProps } from "./stat-card-area-01/meta";
@@ -33,6 +35,8 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "hero-dashboard-01": HeroDashboardBlock,
   "hero-studio-01": HeroStudioBlock,
   "hero-cover-01": HeroCoverBlock,
+  "loader-dot-matrix-01": LoaderDotMatrixBlock,
+  "loader-glitch-text-01": LoaderGlitchTextBlock,
 };
 
 /** The viewer (preview, code, install) for one block. */
