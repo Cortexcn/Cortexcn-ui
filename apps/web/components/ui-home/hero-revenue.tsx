@@ -1,6 +1,6 @@
 "use client";
 
-import { NumberTicker } from "@bklitui/ui/components/number-ticker";
+import { NumberTicker } from "@cortexcn/ui/components/number-ticker";
 
 /** One fixed locale, so the server and every visitor's browser print the same digits. */
 const USD = new Intl.NumberFormat("en-US", {

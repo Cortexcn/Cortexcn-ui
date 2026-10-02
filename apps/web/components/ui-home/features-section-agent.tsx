@@ -1,6 +1,6 @@
 "use client";
 
-import { ShimmeringText } from "@bklitui/ui/components/shimmering-text";
+import { ShimmeringText } from "@cortexcn/ui/components/shimmering-text";
 
 import { cn } from "@/lib/utils";
 
