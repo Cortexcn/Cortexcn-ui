@@ -81,7 +81,7 @@ function AnimatedBarLine({
 The `useChart` hook provides all the data needed to position your indicator:
 
 ```tsx
-import { useChart } from "@bklitui/ui/charts";
+import { useChart } from "@/components/charts";
 
 function BarHorizontalLineIndicator({ data, dataKeys }) {
   const {
@@ -175,7 +175,7 @@ function BarHorizontalLineIndicator({ data, dataKeys }) {
 Add the custom indicator as a child of your chart component. You can use gradients and patterns for different series:
 
 ```tsx
-import { PatternLines } from "@bklitui/ui/charts";
+import { PatternLines } from "@/components/charts";
 
 <BarChart data={data} xDataKey="month" barGap={0}>
   <LinearGradient id="gradient" from="var(--chart-3)" to="transparent" />

@@ -3,8 +3,7 @@ title: Grid
 description: A customizable grid component for charts with horizontal and vertical lines, edge fade, edge line hiding, and dashed styling
 ---
 
-import { studioChartHref } from "@bklitui/studio";
-import { LineChart, Line, Grid, ChartTooltip, XAxis } from "@bklitui/ui/charts";
+import { LineChart, Line, Grid, ChartTooltip, XAxis } from "@cortexcn/ui/charts";
 import {
   GridHorizontalDemo,
   GridVerticalDemo,
@@ -14,7 +13,6 @@ import {
   GridDenseDemo,
   GridHideEdgeLinesDemo,
 } from "@/components/docs/grid-demo";
-import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 
 <ComponentPreview registryName="grid">
   <GridBothDemo />
@@ -29,7 +27,7 @@ import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 The Grid component adds visual reference lines to charts. It must be used inside a chart component (`LineChart`, `AreaChart`, `BarChart`, `ScatterChart`, `CandlestickChart`, `LiveLineChart`, and other cartesian charts).
 
 ```tsx
-import { LineChart, Line, Grid, ChartTooltip } from "@bklitui/ui/charts";
+import { LineChart, Line, Grid, ChartTooltip } from "@/components/charts";
 
 <LineChart data={data}>
   <Grid horizontal />
@@ -60,21 +58,6 @@ import { LineChart, Line, Grid, ChartTooltip } from "@bklitui/ui/charts";
 | `fadeVertical`                | `boolean`  | `false`                         | Fade vertical lines at top/bottom edges                                                                                                                  |
 | `hideHorizontalEdgeLines`     | `boolean`  | `false`                         | Omit the first and last horizontal grid lines                                                                                                            |
 | `hideVerticalEdgeLines`       | `boolean`  | `false`                         | Omit the first and last vertical grid lines                                                                                                              |
-
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-## Studio
-
-<div className="not-prose mb-3 flex items-center justify-between gap-4">
-  <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
-    Edit in Studio
-  </h3>
-  <OpenInStudioButton href={studioChartHref("line-chart")} slug="line-chart" />
-</div>
-
-Open [Studio with the line chart](/studio?chart=line-chart), select **Grid** in the components tree, and tune lines, stroke, and edge options in the properties panel. The same controls are available on area, bar, candlestick, live line, line, and scatter charts.
-
-For a pattern fill instead of grid lines, hide **Grid** and use [`Background`](/docs/utility/background) in Studio or in code.
-*/}
 
 For a pattern fill instead of grid lines, use [`Background`](/docs/utility/background) in place of `Grid`.
 
