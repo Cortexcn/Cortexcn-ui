@@ -1,4 +1,3 @@
-// Adapted from the shadcn/ui Card (MIT, https://ui.shadcn.com).
 import type { ComponentProps } from "react";
 
 import { cn } from "@/lib/utils";
