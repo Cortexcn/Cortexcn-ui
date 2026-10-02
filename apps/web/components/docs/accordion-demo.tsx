@@ -5,14 +5,14 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@bklitui/ui/components/accordion";
+} from "@cortexcn/ui/components/accordion";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@bklitui/ui/components/card";
+} from "@cortexcn/ui/components/card";
 
 const BASIC_ITEMS = [
   {

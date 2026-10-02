@@ -8,7 +8,7 @@ import {
   ChartTooltip,
   Grid,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const DATA_KEY = "value";
 
