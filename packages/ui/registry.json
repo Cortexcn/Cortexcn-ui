@@ -3818,6 +3818,76 @@
       ]
     },
     {
+      "name": "loader-dot-matrix-01",
+      "type": "registry:block",
+      "title": "Loader Dot Matrix",
+      "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/loader-dot-matrix-01/components/loader-dot-matrix-demo.tsx",
+          "type": "registry:component",
+          "target": "components/loader-dot-matrix-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/loader-dot-matrix-01/components/loader-dot-matrix.tsx",
+          "type": "registry:component",
+          "target": "components/loader-dot-matrix.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-dot-matrix-01-example",
+      "type": "registry:example",
+      "title": "Loader Dot Matrix Example",
+      "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/loader-dot-matrix-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/loader-dot-matrix-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-glitch-text-01",
+      "type": "registry:block",
+      "title": "Loader Glitch Text",
+      "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading",
+      "registryDependencies": ["@cortexcn/utils"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/loader-glitch-text-01/components/loader-glitch-text-demo.tsx",
+          "type": "registry:component",
+          "target": "components/loader-glitch-text-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/loader-glitch-text-01/components/loader-glitch-text.tsx",
+          "type": "registry:component",
+          "target": "components/loader-glitch-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-glitch-text-01-example",
+      "type": "registry:example",
+      "title": "Loader Glitch Text Example",
+      "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/loader-glitch-text-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/loader-glitch-text-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-reasoning-01",
       "type": "registry:block",
       "title": "AI Reasoning Panel",

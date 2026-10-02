@@ -158,6 +158,30 @@ const BLOCKS = {
     dependencies: ["class-variance-authority", "motion"],
     files: ["components/hero-cover.tsx", "components/hero-cta.tsx"],
   },
+  "loader-dot-matrix-01": {
+    title: "Loader Dot Matrix",
+    description:
+      "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button",
+    previewMaxWidth: "max-w-3xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: [],
+    files: [
+      "components/loader-dot-matrix-demo.tsx",
+      "components/loader-dot-matrix.tsx",
+    ],
+  },
+  "loader-glitch-text-01": {
+    title: "Loader Glitch Text",
+    description:
+      "Loading text that scrambles and splits into color channels, at three intensities and as a heading",
+    previewMaxWidth: "max-w-3xl",
+    registryDependencies: ["@cortexcn/utils"],
+    dependencies: [],
+    files: [
+      "components/loader-glitch-text-demo.tsx",
+      "components/loader-glitch-text.tsx",
+    ],
+  },
   "ai-reasoning-01": {
     title: "AI Reasoning Panel",
     description:
@@ -275,6 +299,8 @@ const COMPONENT_EXPORTS = {
   "hero-dashboard-01": "HeroDashboard",
   "hero-studio-01": "HeroStudio",
   "hero-cover-01": "HeroCover",
+  "loader-dot-matrix-01": "LoaderDotMatrixDemo",
+  "loader-glitch-text-01": "LoaderGlitchTextDemo",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
