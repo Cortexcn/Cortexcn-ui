@@ -35,6 +35,18 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "hero-cover-01": HeroCoverBlock,
 };
 
+/** The viewer (preview, code, install) for one block. */
+export function getBlockElement(slug: BlockSlug) {
+  const Viewer = BLOCK_VIEWERS[slug];
+  return (
+    <Viewer
+      embedded
+      files={readBlockFiles(slug, blockFileManifests[slug])}
+      key={slug}
+    />
+  );
+}
+
 /** Block viewers (preview, code, install) for every block in a category. */
 export function getCategoryBlockElements(category: BlockCategory) {
   return category.blocks.map((slug) => {
