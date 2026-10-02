@@ -13,9 +13,8 @@ const DOCS_HOST = new URL(DOCS_URL).host;
 const APEX_HOST = SITE_HOST.replace(/^www\./, "");
 const IS_DEV = process.env.NODE_ENV === "development";
 
-// Loaded inside iframes and by crawlers, so they answer on whichever host asked.
-const HOST_AGNOSTIC_PATH_RE =
-  /^\/(?:studio\/(?:embed|demo|og-preview)(?:\/|$)|robots\.txt$|sitemap\.xml$)/;
+// Read by crawlers, so they answer on whichever host asked.
+const HOST_AGNOSTIC_PATH_RE = /^\/(?:robots\.txt|sitemap\.xml)$/;
 
 /** Paths that mean the library home, which only ever shows as `/` on its host. */
 const LIBRARY_HOME_ALIASES = new Set([LIBRARY_HOME_ROUTE, "/components"]);
