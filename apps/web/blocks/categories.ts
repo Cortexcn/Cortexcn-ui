@@ -39,6 +39,13 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
     blocks: ["ai-reasoning-01", "ai-chain-of-thought-01", "ai-shimmer-01"],
   },
   {
+    slug: "loaders",
+    name: "Loaders",
+    description:
+      "Loading indicators that show something is happening, from pulsing dot grids to glitching text.",
+    blocks: ["loader-dot-matrix-01", "loader-glitch-text-01"],
+  },
+  {
     slug: "stat-cards",
     name: "Stat Cards",
     description:
