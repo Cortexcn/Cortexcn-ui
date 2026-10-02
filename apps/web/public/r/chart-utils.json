@@ -3,7 +3,7 @@
   "name": "chart-utils",
   "type": "registry:lib",
   "title": "Chart Utilities",
-  "description": "Shared Intl formatters, time-series decimation, and RAF tooltip scheduling for Bklit charts",
+  "description": "Shared Intl formatters, time-series decimation, and RAF tooltip scheduling for Cortexcn charts",
   "files": [
     {
       "path": "src/charts/chart-formatters.ts",
