@@ -14,7 +14,7 @@ import {
   PieSlice,
   type PieSliceHoverEffect,
   RadialGradient,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useState } from "react";
 import {
   Select,

@@ -11,7 +11,7 @@ import {
   profitLossColor,
   resolveProfitLossTooltipLabel,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { curveLinear } from "@visx/curve";
 import { useState } from "react";
 import {
