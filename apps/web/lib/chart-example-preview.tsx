@@ -1,6 +1,6 @@
 "use client";
 
-import type { Margin } from "@bklitui/ui/charts";
+import type { Margin } from "@cortexcn/ui/charts";
 import type { ComponentType } from "react";
 import { useChartExampleMargin } from "@/lib/chart-example-margin";
 

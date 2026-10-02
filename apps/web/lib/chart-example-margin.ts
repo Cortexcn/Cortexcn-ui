@@ -1,6 +1,6 @@
 "use client";
 
-import type { Margin } from "@bklitui/ui/charts";
+import type { Margin } from "@cortexcn/ui/charts";
 
 /** Chart example margins — extra top room for 3D lids, tooltip dots, and markers. */
 export const CHART_EXAMPLE_MARGIN_PX = {
