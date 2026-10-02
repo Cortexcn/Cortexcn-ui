@@ -675,7 +675,11 @@ export function SiteHeader({
     <>
       <header
         className={cn(
-          "fixed top-0 right-0 left-0 z-50 px-2.5",
+          // Stays put on scroll: it only gains a backdrop so the page reads under it.
+          "fixed top-0 right-0 left-0 z-50 border-b px-2.5 transition-[background-color,border-color] duration-200 ease-out motion-reduce:transition-none",
+          isScrolled
+            ? "border-border bg-background/85 backdrop-blur-sm"
+            : "border-transparent",
           isHome && "syntiq",
           mobileMenuOpen && "max-md:bg-background",
         )}
@@ -694,12 +698,8 @@ export function SiteHeader({
         >
           <div
             className={cn(
-              "flex items-center justify-between gap-6 py-4 transition-[transform,margin,border-color,background-color,box-shadow,backdrop-filter] duration-300 ease-out motion-reduce:transition-none",
-              isScrolled
-                ? "translate-y-4 border border-border bg-background/80 px-4 shadow-sm backdrop-blur-sm md:mx-14"
-                : "translate-y-0 border border-transparent bg-transparent",
-              mobileMenuOpen &&
-                "max-md:mx-0 max-md:translate-y-0 max-md:border-transparent max-md:bg-background max-md:shadow-none max-md:backdrop-blur-none",
+              "flex items-center justify-between gap-6 border border-transparent py-4",
+              mobileMenuOpen && "max-md:bg-background",
             )}
             style={{ viewTransitionName: "site-header" }}
           >
