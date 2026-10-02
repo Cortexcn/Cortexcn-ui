@@ -43,6 +43,14 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
     kind: "blocks",
+    title: "Queue joins the AI Assistant blocks",
+    summary:
+      "Queue shows what an agent has lined up: the messages waiting their turn, with their images and files and a way to drop one, above the run's todo list. Each section folds away.",
+    items: [{ label: "Queue", href: "/blocks/ai-assistant/ai-queue-01" }],
+  },
+  {
+    date: "2026-10-02",
+    kind: "blocks",
     title: "Loaders: Dot Matrix and Glitch Text",
     summary:
       "A new Loaders category opens with two loading indicators, each shown four ways. Dot Matrix pulses a grid of dots in a ripple, wave, or rain pattern, and Glitch Text scrambles its letters and splits them into color channels.",
