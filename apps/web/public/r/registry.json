@@ -3671,6 +3671,36 @@
       ]
     },
     {
+      "name": "feature-bento-grid-01",
+      "type": "registry:block",
+      "title": "Feature Bento Grid",
+      "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-bento-grid-01/components/feature-bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-bento-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-bento-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Bento Grid Example",
+      "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-bento-grid-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-bento-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-card-area-01",
       "type": "registry:block",
       "title": "Stat Card Area",

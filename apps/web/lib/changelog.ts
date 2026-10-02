@@ -31,6 +31,19 @@ function componentLinks(names: [string, string][]): ChangelogLink[] {
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-02",
+    kind: "blocks",
+    title: "Feature Bento Grid block",
+    summary:
+      "Photo tiles, logo tiles, and stat cards on a twelve-column bento grid, with one call to action. Every image, figure, and caption is a prop.",
+    items: [
+      {
+        label: "Feature blocks",
+        href: "/blocks/features#feature-bento-grid-01",
+      },
+    ],
+  },
+  {
     date: "2026-10-01",
     kind: "components",
     title: "AI Assistant components",
