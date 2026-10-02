@@ -3,9 +3,7 @@ title: Brush
 description: Time-range brush for zooming area and line charts with a mini-chart strip and draggable selection handles
 ---
 
-import { studioChartHref } from "@bklitui/studio";
 import { AreaChartBrushDemo } from "@/components/docs/area-chart-brush-demo";
-import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 
 <ComponentPreview>
   <AreaChartBrushDemo />
@@ -74,20 +72,6 @@ Wrap the main chart in `ChartBrushLayout`. Render a simplified mini chart in `br
 ```
 
 Works the same with `LineChart` and `Line` in the brush strip and main chart. See [Area Chart](/docs/components/area-chart#brush-zoom) and [Line Chart](/docs/components/line-chart#brush-zoom) for chart-specific notes.
-
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-<div className="not-prose mb-3 flex items-center justify-between gap-4">
-  <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
-    Studio
-  </h3>
-  <OpenInStudioButton
-    href={studioChartHref("area-chart", { showBrush: true })}
-    slug="area-chart"
-  />
-</div>
-
-Open [Studio with brush enabled](/studio?chart=area-chart&showBrush=true) to tune strip height, blur, fade edges, and selection pattern.
-*/}
 
 ## ChartBrushLayout
 
