@@ -1,12 +1,12 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import {
   ChoroplethChart,
   ChoroplethFeatureComponent,
   ChoroplethTooltip,
   useChoroplethZoom,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { Button } from "@/components/ui/button";
 import { useWorldDataStandalone } from "./use-world-data";
 

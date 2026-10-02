@@ -1,12 +1,12 @@
 "use client";
 
-import type { ChoroplethFeature } from "@bklitui/ui/charts";
+import type { ChoroplethFeature } from "@cortexcn/ui/charts";
 import {
   ChoroplethChart,
   ChoroplethFeatureComponent,
   ChoroplethTooltip,
   PatternLines,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useWorldDataStandalone } from "./use-world-data";
 
 // Categories based on first letter of country name (just for demo purposes)
