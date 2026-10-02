@@ -3,7 +3,7 @@ import {
   registryJsonUrlForName,
   registryV0ExampleJsonUrl,
   shadcnAddItem,
-} from "@bklitui/studio";
+} from "@/lib/registry-links";
 
 export function blockRegistryJsonUrl(name: string) {
   return registryJsonUrlForName(name);
