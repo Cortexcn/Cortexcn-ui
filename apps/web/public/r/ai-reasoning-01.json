@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-reasoning-01",
+  "title": "AI Reasoning Panel",
+  "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["@cortexcn/reasoning", "button"],
+  "files": [
+    {
+      "path": "registry/blocks/ai-reasoning-01/components/reasoning-panel.tsx",
+      "content": "\"use client\";\n\n// Reasoning renders markdown with Streamdown. Add its styles and let Tailwind\n// see its classes in your global CSS (adjust the paths to your setup):\n//\n//   @import \"streamdown/styles.css\";\n//   @source \"../node_modules/streamdown/dist/*.js\";\n//   @source \"../node_modules/@streamdown/code/dist/*.js\";\n//   @source \"../node_modules/@streamdown/mermaid/dist/*.js\";\n//\n// If your model writes math, also import \"katex/dist/katex.min.css\" once.\n\nimport {\n  Reasoning,\n  ReasoningContent,\n  ReasoningTrigger,\n} from \"@/components/reasoning\";\nimport { RotateCcwIcon } from \"lucide-react\";\nimport { useEffect, useState } from \"react\";\nimport { Button } from \"@/components/ui/button\";\n\nconst SAMPLE_REASONING = `The user wants a revenue dashboard that loads fast, so I'll build on what the app already has.\n\n**What the page needs**\n\n- A headline number for this month's revenue\n- A trend for the last 12 months\n- A breakdown by plan\n\nThe \\`stat-card-area-01\\` block covers the first two in one card. For the breakdown, a ring chart reads better than a pie at small sizes and keeps the legend next to the values.\n\nI'll install both with one command and wire them to the existing \\`/api/revenue\\` route.`;\n\nconst TOKEN_INTERVAL_MS = 45;\n\nexport interface ReasoningPanelProps {\n  /** Markdown the panel streams in, word by word, as a stand-in for a model. */\n  reasoning?: string;\n  className?: string;\n}\n\n/**\n * A reasoning panel that opens while the text streams, folds away when it\n * finishes, and can replay. Swap the timer for your model's stream.\n */\nexport function ReasoningPanel({\n  reasoning = SAMPLE_REASONING,\n  className,\n}: ReasoningPanelProps) {\n  // Words with their trailing spaces, the way a model streams tokens.\n  const tokens = reasoning.match(/\\S+\\s*/g) ?? [];\n  const [run, setRun] = useState(0);\n  const [shown, setShown] = useState(0);\n  const isStreaming = shown < tokens.length;\n\n  useEffect(() => {\n    if (!isStreaming) {\n      return;\n    }\n    const timer = setInterval(\n      () => setShown((count) => Math.min(count + 1, tokens.length)),\n      TOKEN_INTERVAL_MS,\n    );\n    return () => clearInterval(timer);\n  }, [isStreaming, tokens.length]);\n\n  return (\n    <div className={className}>\n      <div className=\"flex w-full max-w-xl flex-col items-start gap-2\">\n        <Reasoning className=\"w-full\" isStreaming={isStreaming} key={run}>\n          <ReasoningTrigger />\n          <ReasoningContent>{tokens.slice(0, shown).join(\"\")}</ReasoningContent>\n        </Reasoning>\n        <Button\n          disabled={isStreaming}\n          onClick={() => {\n            setShown(0);\n            setRun((value) => value + 1);\n          }}\n          size=\"sm\"\n          variant=\"outline\"\n        >\n          <RotateCcwIcon />\n          Stream again\n        </Button>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/reasoning-panel.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
