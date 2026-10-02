@@ -3,8 +3,7 @@
 @import "fumadocs-ui/css/shadcn.css";
 @import "fumadocs-ui/css/preset.css";
 @import "shadcn/tailwind.css";
-@import "../../../packages/studio/src/styles/studio-theme.css";
-@import "../../../packages/studio/src/styles/studio-chrome.css";
+@import "../../../packages/ui/src/styles/cortexcn-tokens.css";
 @import "../../../packages/ui/src/styles/theme-toggle-effect.css";
 @import "../../../packages/ui/node_modules/streamdown/styles.css";
 
@@ -12,22 +11,13 @@
 
 /* Include UI package in Tailwind's content scanning */
 @source "../../../packages/ui/src/**/*.tsx";
-@source "../../../packages/studio/src/**/*.{ts,tsx}";
 
 /* Streamdown, which the AI Assistant components render markdown with */
 @source "../../../packages/ui/node_modules/streamdown/dist/*.js";
 @source "../../../packages/ui/node_modules/@streamdown/code/dist/*.js";
 @source "../../../packages/ui/node_modules/@streamdown/mermaid/dist/*.js";
 
-/* Studio owns dark mode inside `.studio-shell`; site `html.dark` must not leak in. */
-@custom-variant dark {
-  &:is(.studio-shell.dark, .studio-shell.dark *) {
-    @slot;
-  }
-  &:is(.dark *):not(:is(.studio-shell, .studio-shell *)) {
-    @slot;
-  }
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -105,8 +95,7 @@
   --shadow-2xl: 0 25px 50px -12px var(--shadow);
 
   --animate-caret-blink: caret-blink 1.06s step-end infinite;
-  --animate-studio-pill-border-spin: studio-pill-border-spin 3.75s linear
-    infinite;
+  --animate-pill-border-spin: pill-border-spin 3.75s linear infinite;
   /* Landing diagram: dashed connectors that flow toward their target. */
   --animate-dash-flow: dash-flow 0.6s linear infinite;
 
@@ -173,7 +162,7 @@
     }
   }
 
-  @keyframes studio-pill-border-spin {
+  @keyframes pill-border-spin {
     to {
       transform: rotate(360deg);
     }
@@ -181,7 +170,7 @@
 }
 
 :root {
-  /* Site-only tokens (shared palette is in packages/studio bklit-tokens.css) */
+  /* Site-only tokens (the shared palette is in packages/ui cortexcn-tokens.css) */
   --site-header-height: 3.5rem;
 
   /* Text selection */
@@ -311,7 +300,7 @@ html::-webkit-scrollbar {
 }
 
 @layer components {
-  .studio-pill-border-gradient {
+  .pill-border-gradient {
     background: conic-gradient(
       from 0deg,
       transparent 0deg 228deg,
@@ -349,7 +338,7 @@ html::-webkit-scrollbar {
 /*
  * Landing theme.
  * Scoped to `.syntiq` (the marketing landing page, its header and mobile menu)
- * so docs and studio keep the default theme. Neutral surfaces, square corners,
+ * so the docs keep the default theme. Neutral surfaces, square corners,
  * a violet accent, and Geist / Geist Mono / Geist Pixel type. Follows the site
  * light/dark toggle; the `.dark` rule is more specific than the imported `.dark`
  * tokens, so it wins inside the scope.
@@ -548,7 +537,9 @@ html::-webkit-scrollbar {
     transform 0.7s var(--ui-ease),
     filter 0.7s var(--ui-ease);
   transition-delay: calc(
-    var(--word-index, 0) * 55ms + var(--reveal-delay, 0ms)
+    var(--word-index, 0) *
+    55ms +
+    var(--reveal-delay, 0ms)
   );
 }
 

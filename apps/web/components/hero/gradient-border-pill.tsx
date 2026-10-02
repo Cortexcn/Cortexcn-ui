@@ -22,8 +22,8 @@ export function GradientBorderPill({
       >
         <div
           className={cn(
-            "studio-pill-border-gradient absolute top-1/2 left-1/2 aspect-square w-[max(200%,12rem)] -translate-x-1/2 -translate-y-1/2",
-            !paused && "motion-safe:animate-studio-pill-border-spin",
+            "pill-border-gradient absolute top-1/2 left-1/2 aspect-square w-[max(200%,12rem)] -translate-x-1/2 -translate-y-1/2",
+            !paused && "motion-safe:animate-pill-border-spin",
           )}
         />
       </div>
