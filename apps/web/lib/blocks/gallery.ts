@@ -9,7 +9,7 @@ export interface GalleryBlock {
   description: string;
   categorySlug: string;
   categoryName: string;
-  /** The block's viewer on its category page. */
+  /** The block's own page, with its preview, code, and install command. */
   href: string;
 }
 
@@ -30,6 +30,11 @@ function shortTitle(name: string) {
   return name.split(CATEGORY_PREFIX).at(-1) ?? name;
 }
 
+/** One block's page: its preview, code, and install command. */
+export function blockPagePath(categorySlug: string, slug: string) {
+  return `/blocks/${categorySlug}/${slug}`;
+}
+
 /** Every block, in category order, as a card for the /blocks gallery. */
 export function getGalleryBlocks(): GalleryBlock[] {
   return BLOCK_CATEGORIES.flatMap((category) =>
@@ -39,9 +44,13 @@ export function getGalleryBlocks(): GalleryBlock[] {
       description: BLOCK_METAS[slug].description,
       categorySlug: category.slug,
       categoryName: category.name,
-      href: `/blocks/${category.slug}#${slug}`,
+      href: blockPagePath(category.slug, slug),
     })),
   );
+}
+
+export function getGalleryBlock(slug: string) {
+  return getGalleryBlocks().find((block) => block.slug === slug);
 }
 
 export function getGalleryCategories(): GalleryCategory[] {
