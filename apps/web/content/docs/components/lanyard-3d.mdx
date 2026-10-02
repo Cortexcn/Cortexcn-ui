@@ -1,0 +1,93 @@
+---
+title: Lanyard 3D
+description: A 3D ID badge on a strap. Drag it and it swings and twists on a simulated strap; click it to flip it over.
+---
+
+import {
+  Lanyard3DColorsDemo,
+  Lanyard3DDemo,
+  Lanyard3DDetailsDemo,
+} from "@/components/docs/lanyard-3d-demo";
+
+<ComponentPreview>
+  <Lanyard3DDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="lanyard-3d" />
+
+## Usage
+
+```tsx
+import { Lanyard3D } from "@/components/lanyard-3d";
+```
+
+```tsx
+<Lanyard3D
+  name="Alex Rivera"
+  jobTitle="Design Engineer"
+  badgeId="CX-0042"
+  label="STAFF"
+  strapText="CORTEXCN"
+/>
+```
+
+The badge is drawn for you from these props: your logo and brand name at the top, a photo or initials, the name and job title, a barcode, and the badge code. The back carries the logo, the brand name, and `backText`. To use your own artwork instead, pass `frontImage` and `backImage`.
+
+## Examples
+
+### Your details
+
+Set the name, job title, tag, code, and the text on the strap and the back. `dropIn={false}` starts it hanging still.
+
+<ComponentPreview>
+  <Lanyard3DDetailsDemo />
+</ComponentPreview>
+
+### Colors
+
+`cardColor`, `inkColor`, and `strapColor` restyle the badge. The strap text turns light or dark to stay readable on the strap.
+
+<ComponentPreview>
+  <Lanyard3DColorsDemo />
+</ComponentPreview>
+
+## Behavior
+
+- The scene is drawn with three.js. The physics is written in the component: the strap is a rope of short segments and the card is six points held rigid, so no physics engine is loaded.
+- Drag the card anywhere and it follows the pointer, as far as the strap reaches. Let go and it swings back and settles. A quick flick throws it.
+- The strap twists as the card turns, and the card turns a little as it swings sideways, then turns back to face you.
+- A click or tap without dragging flips the card. With the keyboard, focus the badge and press Enter or Space to flip it, or the arrow keys to swing it.
+- The card faces and the strap are painted on canvases in the page's own fonts. The Cortexcn mark is drawn unless you pass `logo`.
+- On a touch screen, a touch that starts on the card holds the page still while you drag. Elsewhere in the box, the page scrolls as usual.
+- The animation stops once the badge hangs still and pauses while it is off screen, so an idle badge costs nothing.
+- With reduced motion enabled, the badge hangs still and flips at once.
+- In a box narrower than the card, the card scales down to fit, to no less than half its size.
+- Images given as URLs must allow cross-origin use (CORS), since they are drawn on a canvas.
+
+## Props
+
+| Prop          | Type      | Default             | Description                                          |
+| ------------- | --------- | ------------------- | ---------------------------------------------------- |
+| `name`        | `string`  | `"Alex Rivera"`     | Name on the front                                    |
+| `jobTitle`    | `string`  | `"Design Engineer"` | Line under the name                                  |
+| `badgeId`     | `string`  | `"CX-0042"`         | Code beside the barcode                              |
+| `label`       | `string`  | `"STAFF"`           | Tag in the top corner. An empty string hides it      |
+| `initials`    | `string`  | From `name`         | Letters in the photo square                          |
+| `photo`       | `string`  | -                   | Photo for the square instead of initials             |
+| `brand`       | `string`  | `"Cortexcn"`        | Name beside the logo                                 |
+| `logo`        | `string`  | Cortexcn mark       | Logo image URL                                       |
+| `backText`    | `string`  | `"ui.cortexcn.dev"` | Line under the logo on the back                      |
+| `frontImage`  | `string`  | -                   | Your own artwork for the whole front                 |
+| `backImage`   | `string`  | -                   | Your own artwork for the whole back                  |
+| `strapText`   | `string`  | `"CORTEXCN"`        | Text repeated along the strap                        |
+| `strapColor`  | `string`  | `"#0a0a0a"`         | Strap color                                          |
+| `cardColor`   | `string`  | `"#ffffff"`         | Card color                                           |
+| `inkColor`    | `string`  | `"#0a0a0a"`         | Text and marks on the card                           |
+| `strapLength` | `number`  | `200`               | Strap length in px                                   |
+| `cardWidth`   | `number`  | `232`               | Card width in px                                     |
+| `cardHeight`  | `number`  | `320`               | Card height in px                                    |
+| `gravity`     | `number`  | `0.55`              | Pull of gravity on the strap and card                |
+| `dropIn`      | `boolean` | `true`              | Swing in from the side on mount                      |
+| `className`   | `string`  | -                   | Extra classes for the box. It is 560px tall by default |
