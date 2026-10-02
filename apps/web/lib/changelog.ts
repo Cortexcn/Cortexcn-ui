@@ -43,6 +43,14 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
     kind: "components",
+    title: "Lanyard 3D",
+    summary:
+      "A 3D ID badge on a strap, drawn with three.js. Drag it, throw it, and watch the strap twist as the card turns, then click it to flip it over. The badge is drawn from props with your logo, name, and colors, and the physics is written in the component, so the only dependency is three.",
+    items: componentLinks([["Lanyard 3D", "lanyard-3d"]]),
+  },
+  {
+    date: "2026-10-02",
+    kind: "components",
     title: "Lanyard Badge, Gooey Nav, and Sphere Menu",
     summary:
       "Three playful components with no extra dependencies. Lanyard Badge hangs an ID card from a simulated strap that you can drag, throw, and flip. Gooey Nav stretches a liquid pill between links. Sphere Menu spins a ball of image tiles and turns the nearest one to face you with its link.",
