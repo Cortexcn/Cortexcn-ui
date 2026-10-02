@@ -3,17 +3,18 @@
 import {
   THEME_TOGGLE_EFFECTS,
   type ThemeToggleEffect,
-} from "@bklitui/ui/components/theme-toggle-effect";
+} from "@cortexcn/ui/components/theme-toggle-effect";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { useEffect, useState } from "react";
 import { TabsContent } from "@/components/ui/tabs";
-import { CodeTabs } from "./code-tabs";
+import { CodeTabs, type InstallTab } from "./code-tabs";
 import {
   CodeFileBlock,
   type RegistryData,
   type RegistryFile,
   registryGlobalCss,
 } from "./installation-tabs";
+import { McpInstallPanel } from "./mcp-install-panel";
 import { PackageManagerTabs } from "./package-manager-tabs";
 
 const EFFECT_LABELS: Record<ThemeToggleEffect, string> = {
@@ -43,7 +44,7 @@ async function fetchRegistryItem(name: string): Promise<RegistryData | null> {
  * effect's CSS), and a manual path that shows the same files and CSS.
  */
 export function ThemeToggleEffectInstallation() {
-  const [tab, setTab] = useState<"cli" | "manual">("cli");
+  const [tab, setTab] = useState<InstallTab>("cli");
   const [helperFile, setHelperFile] = useState<RegistryFile | null>(null);
   const [effectCss, setEffectCss] = useState<
     Partial<Record<ThemeToggleEffect, string>>
@@ -140,6 +141,9 @@ export function ThemeToggleEffectInstallation() {
             </Step>
           </Steps>
         </div>
+      </TabsContent>
+      <TabsContent value="mcp">
+        <McpInstallPanel name="theme-toggle-effect-circle-blur" />
       </TabsContent>
     </CodeTabs>
   );

@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { TabsContent } from "@/components/ui/tabs";
 import { codeThemes } from "@/lib/code-theme";
 import { cn } from "@/lib/utils";
-import { CodeTabs } from "./code-tabs";
+import { CodeTabs, type InstallTab } from "./code-tabs";
+import { McpInstallPanel } from "./mcp-install-panel";
 import { PackageManagerTabs } from "./package-manager-tabs";
 
 export interface RegistryFile {
@@ -178,7 +179,7 @@ export function InstallationTabs({
 }: InstallationTabsProps) {
   const [registryData, setRegistryData] = useState<RegistryData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [installTab, setInstallTab] = useState<"cli" | "manual">("cli");
+  const [installTab, setInstallTab] = useState<InstallTab>("cli");
 
   useEffect(() => {
     if (installTab !== "manual") {
@@ -226,6 +227,9 @@ export function InstallationTabs({
     <CodeTabs onTabChange={setInstallTab}>
       <TabsContent value="cli">
         <PackageManagerTabs name={name} />
+      </TabsContent>
+      <TabsContent value="mcp">
+        <McpInstallPanel name={name} />
       </TabsContent>
       <TabsContent value="manual">
         <div className="mt-4">
