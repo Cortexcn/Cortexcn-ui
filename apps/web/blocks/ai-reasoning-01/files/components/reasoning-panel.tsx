@@ -14,7 +14,7 @@ import {
   Reasoning,
   ReasoningContent,
   ReasoningTrigger,
-} from "@bklitui/ui/components/reasoning";
+} from "@cortexcn/ui/components/reasoning";
 import { RotateCcwIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
