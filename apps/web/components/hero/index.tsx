@@ -1,7 +1,7 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
-import { ShimmeringText } from "@bklitui/ui/components/shimmering-text";
+import { Icon } from "@cortexcn/icons";
+import { ShimmeringText } from "@cortexcn/ui/components/shimmering-text";
 import type { ComponentProps, ReactNode } from "react";
 import { useHeroMotionPaused } from "@/components/design/home-hero-section";
 import { GradientBorderPill } from "@/components/hero/gradient-border-pill";
