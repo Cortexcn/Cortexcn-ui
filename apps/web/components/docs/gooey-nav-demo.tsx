@@ -1,6 +1,6 @@
 "use client";
 
-import { GooeyNav } from "@bklitui/ui/components/gooey-nav";
+import { GooeyNav } from "@cortexcn/ui/components/gooey-nav";
 
 const ITEMS = [
   { label: "Home", href: "#" },
