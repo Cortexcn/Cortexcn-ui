@@ -1,4 +1,5 @@
 import { aiChainOfThought01Meta } from "./ai-chain-of-thought-01/meta";
+import { aiQueue01Meta } from "./ai-queue-01/meta";
 import { aiReasoning01Meta } from "./ai-reasoning-01/meta";
 import { aiShimmer01Meta } from "./ai-shimmer-01/meta";
 import { featureBentoGrid01Meta } from "./feature-bento-grid-01/meta";
@@ -32,6 +33,7 @@ export const BLOCK_METAS: Record<
   "ai-reasoning-01": aiReasoning01Meta,
   "ai-chain-of-thought-01": aiChainOfThought01Meta,
   "ai-shimmer-01": aiShimmer01Meta,
+  "ai-queue-01": aiQueue01Meta,
   "hero-dashboard-01": heroDashboard01Meta,
   "hero-studio-01": heroStudio01Meta,
   "hero-cover-01": heroCover01Meta,

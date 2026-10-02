@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import { AiChainOfThoughtPreview } from "./ai-chain-of-thought-01/preview";
+import { AiQueuePreview } from "./ai-queue-01/preview";
 import { AiReasoningPreview } from "./ai-reasoning-01/preview";
 import { AiShimmerPreview } from "./ai-shimmer-01/preview";
 import { FeatureBentoGridPreview } from "./feature-bento-grid-01/preview";
@@ -30,6 +31,7 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "ai-reasoning-01": AiReasoningPreview,
   "ai-chain-of-thought-01": AiChainOfThoughtPreview,
   "ai-shimmer-01": AiShimmerPreview,
+  "ai-queue-01": AiQueuePreview,
   "hero-dashboard-01": HeroDashboardPreview,
   "hero-studio-01": HeroStudioPreview,
   "hero-cover-01": HeroCoverPreview,

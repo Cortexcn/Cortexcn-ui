@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { readBlockFiles } from "@/lib/blocks/read-block-files";
 import { AiChainOfThoughtBlock } from "./ai-chain-of-thought-01";
+import { AiQueueBlock } from "./ai-queue-01";
 import { AiReasoningBlock } from "./ai-reasoning-01";
 import { AiShimmerBlock } from "./ai-shimmer-01";
 import type { BlockCategory } from "./categories";
@@ -32,6 +33,7 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "ai-reasoning-01": AiReasoningBlock,
   "ai-chain-of-thought-01": AiChainOfThoughtBlock,
   "ai-shimmer-01": AiShimmerBlock,
+  "ai-queue-01": AiQueueBlock,
   "hero-dashboard-01": HeroDashboardBlock,
   "hero-studio-01": HeroStudioBlock,
   "hero-cover-01": HeroCoverBlock,
