@@ -1,14 +1,98 @@
-# Bklit UI
+# Cortexcn
 
-> Bklit UI is an open-source React chart and data-viz component library (Visx, Motion, Tailwind 4) shipped from `packages/ui`, with a Next.js 15 + Fumadocs docs site at `apps/web`. Components install via the shadcn registry (`cortexcn.dev/r/*.json`). The interactive Studio (`/studio`) tunes chart props and records animations; it targets desktop browsers.
+> Cortexcn is a shadcn registry of React and Tailwind CSS components, page blocks, and charts. Items install with the shadcn CLI (`npx shadcn@latest add @cortexcn/<name>`, or `npx shadcn@latest add https://ui.cortexcn.dev/r/<name>.json`), which copies the source into the user's project, so there is no runtime package to update. The source lives in `packages/ui` (`@cortexcn/ui`), and the docs site and registry host is `apps/web` (Next.js and Fumadocs), served at https://ui.cortexcn.dev.
 
-Documentation source files live under `apps/web/content/docs/` (MDX, Fumadocs). The monorepo uses pnpm and Turborepo. Chart demos are at `/charts/[slug]`; registry JSON is served from `apps/web/public/r/`.
+Documentation source files live under `apps/web/content/docs/` (MDX). The workspace uses pnpm and Turborepo. `pnpm registry:build` writes the registry JSON to `apps/web/public/r/`, which is served at `https://ui.cortexcn.dev/r/{name}.json`, with the full index at `https://ui.cortexcn.dev/r/registry.json`. Chart demos are at `/charts/[slug]` and page blocks at `/blocks`.
+
+To use the `@cortexcn/<name>` form, a project adds `"@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"` under `registries` in `components.json`. In a user's project, installed charts are imported from `@/components/charts`; `@cortexcn/ui` is the workspace package used only inside this repo.
+
+For coding agents there is a read-only MCP server at `https://ui.cortexcn.dev/mcp`, agent skills (`npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json`), and a DESIGN.md for the design system (`npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json`). Setup guides are at https://ui.cortexcn.dev/docs/integration.
 
 ## Getting Started
 
-- [Introduction](../apps/web/content/docs/index.mdx): Beautiful, modern UI components for React applications
+- [Introduction](../apps/web/content/docs/index.mdx): Cortexcn is a set of beautifully designed components and a code distribution platform. Works with your favorite React frameworks and AI models. Open Code.
+- [Installation](../apps/web/content/docs/installation.mdx): How to install and configure Cortexcn in your project.
+- [Theming](../apps/web/content/docs/theming.mdx): Theme your charts using CSS custom properties for consistent, customizable styling.
 
-## Chart Components
+## Components
+
+- [Components](../apps/web/content/docs/components/index.mdx): Every component you can add to your project from the Cortexcn registry.
+- [Accordion](../apps/web/content/docs/components/accordion.mdx): A vertically stacked set of headings that each reveal a section of content.
+- [Alert](../apps/web/content/docs/components/alert.mdx): Displays a callout for user attention.
+- [Alert Dialog](../apps/web/content/docs/components/alert-dialog.mdx): A modal dialog that interrupts the user with important content and expects a response.
+- [Aspect Ratio](../apps/web/content/docs/components/aspect-ratio.mdx): Displays content within a desired ratio.
+- [Avatar](../apps/web/content/docs/components/avatar.mdx): An image element with a fallback for representing the user.
+- [Badge](../apps/web/content/docs/components/badge.mdx): Displays a badge or a component that looks like a badge.
+- [Breadcrumb](../apps/web/content/docs/components/breadcrumb.mdx): Displays the path to the current resource using a hierarchy of links.
+- [Button](../apps/web/content/docs/components/button.mdx): Displays a button or a component that looks like a button.
+- [Button Group](../apps/web/content/docs/components/button-group.mdx): A container that groups related buttons together with consistent styling.
+- [Calendar](../apps/web/content/docs/components/calendar.mdx): A date field component that allows users to enter and edit dates.
+- [Card](../apps/web/content/docs/components/card.mdx): Displays a card with a header, content, and footer.
+- [Carousel](../apps/web/content/docs/components/carousel.mdx): A carousel with motion and swipe built using Embla.
+- [Checkbox](../apps/web/content/docs/components/checkbox.mdx): A control that allows the user to toggle between checked and not checked.
+- [Collapsible](../apps/web/content/docs/components/collapsible.mdx): An interactive component which expands and collapses a panel.
+- [Combobox](../apps/web/content/docs/components/combobox.mdx): An input with a list of suggestions that filters as you type.
+- [Command](../apps/web/content/docs/components/command.mdx): A fast, composable command menu for React.
+- [Context Menu](../apps/web/content/docs/components/context-menu.mdx): Displays a menu of actions triggered by a right click.
+- [Dialog](../apps/web/content/docs/components/dialog.mdx): A window overlaid on the page that renders the content underneath inert.
+- [Drawer](../apps/web/content/docs/components/drawer.mdx): A drawer component for React, built on Vaul.
+- [Dropdown Menu](../apps/web/content/docs/components/dropdown-menu.mdx): Displays a menu of actions or functions, triggered by a button.
+- [Empty](../apps/web/content/docs/components/empty.mdx): Displays an empty state, with media, a title, a description, and actions.
+- [Field](../apps/web/content/docs/components/field.mdx): Combines labels, controls, and help text into accessible form fields.
+- [Hover Card](../apps/web/content/docs/components/hover-card.mdx): For sighted users to preview content available behind a link.
+- [Input](../apps/web/content/docs/components/input.mdx): Displays a form input field or a component that looks like an input field.
+- [Input Group](../apps/web/content/docs/components/input-group.mdx): Adds addons, buttons, and helper content to inputs.
+- [Input OTP](../apps/web/content/docs/components/input-otp.mdx): An accessible one-time password input with copy and paste support.
+- [Item](../apps/web/content/docs/components/item.mdx): A versatile row for displaying media, a title, a description, and actions.
+- [Kbd](../apps/web/content/docs/components/kbd.mdx): Displays textual user input from a keyboard, such as a shortcut.
+- [Label](../apps/web/content/docs/components/label.mdx): Renders an accessible label associated with controls.
+- [Menubar](../apps/web/content/docs/components/menubar.mdx): A persistent menu, common in desktop apps, with quick access to a set of commands.
+- [Native Select](../apps/web/content/docs/components/native-select.mdx): A styled native HTML select element.
+- [Navigation Menu](../apps/web/content/docs/components/navigation-menu.mdx): A collection of links for navigating websites.
+- [Pagination](../apps/web/content/docs/components/pagination.mdx): Page navigation with next and previous links.
+- [Popover](../apps/web/content/docs/components/popover.mdx): Displays rich content in a portal, triggered by a button.
+- [Progress](../apps/web/content/docs/components/progress.mdx): Displays an indicator showing the completion progress of a task.
+- [Radio Group](../apps/web/content/docs/components/radio-group.mdx): A set of checkable buttons where no more than one can be checked at a time.
+- [Resizable](../apps/web/content/docs/components/resizable.mdx): Accessible resizable panel groups and layouts with keyboard support.
+- [Scroll Area](../apps/web/content/docs/components/scroll-area.mdx): Augments native scroll functionality for custom, cross-browser styling.
+- [Select](../apps/web/content/docs/components/select.mdx): Displays a list of options for the user to pick from, triggered by a button.
+- [Separator](../apps/web/content/docs/components/separator.mdx): Visually or semantically separates content.
+- [Sheet](../apps/web/content/docs/components/sheet.mdx): Extends the dialog to show content that complements the main content of the screen.
+- [Sidebar](../apps/web/content/docs/components/sidebar.mdx): A composable, themeable, and customizable sidebar.
+- [Skeleton](../apps/web/content/docs/components/skeleton.mdx): Shows a placeholder while content is loading.
+- [Slider](../apps/web/content/docs/components/slider.mdx): An input where the user selects a value from within a given range.
+- [Sonner](../apps/web/content/docs/components/sonner.mdx): An opinionated toast component for React.
+- [Spinner](../apps/web/content/docs/components/spinner.mdx): An indicator that shows a loading state.
+- [Switch](../apps/web/content/docs/components/switch.mdx): A control that allows the user to toggle between on and off.
+- [Table](../apps/web/content/docs/components/table.mdx): A responsive table component.
+- [Tabs](../apps/web/content/docs/components/tabs.mdx): A set of layered sections of content, shown one at a time.
+- [Textarea](../apps/web/content/docs/components/textarea.mdx): Displays a form textarea or a component that looks like a textarea.
+- [Toggle](../apps/web/content/docs/components/toggle.mdx): A two-state button that can be either on or off.
+- [Toggle Group](../apps/web/content/docs/components/toggle-group.mdx): A set of two-state buttons that can be toggled on or off.
+- [Tooltip](../apps/web/content/docs/components/tooltip.mdx): A popup that shows information about an element on hover or keyboard focus.
+
+## Cortexcn Components
+
+- [Command Search](../apps/web/content/docs/components/command-search.mdx): A command palette that types queries and live-filters grouped results, with keyboard navigation.
+- [Fan-Out Diagram](../apps/web/content/docs/components/fan-out-diagram.mdx): An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.
+- [FAQ Tabs Card](../apps/web/content/docs/components/faq-tabs-card.mdx): A tabbed FAQ card with animated accordion answers and a support footer.
+- [Gooey Nav](../apps/web/content/docs/components/gooey-nav.mdx): A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.
+- [Lanyard 3D](../apps/web/content/docs/components/lanyard-3d.mdx): A 3D ID badge on a strap. Drag it and it swings and twists on a simulated strap; click it to flip it over.
+- [Lanyard Badge](../apps/web/content/docs/components/lanyard-badge.mdx): An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.
+- [Line Nav](../apps/web/content/docs/components/line-nav.mdx): Vertical navigation with a line marker that expands on hover and active state.
+- [Logos Carousel](../apps/web/content/docs/components/logos-carousel.mdx): Cycle through logos column by column in a staggered wave.
+- [Marquee](../apps/web/content/docs/components/marquee.mdx): An infinite scrolling component that can be used to display text, images, or videos.
+- [Number Ticker](../apps/web/content/docs/components/number-ticker.mdx): A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.
+- [Perspective Marquee](../apps/web/content/docs/components/perspective-marquee.mdx): A tilted wall of images that scrolls endlessly in alternating columns.
+- [Sphere Menu](../apps/web/content/docs/components/sphere-menu.mdx): A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.
+- [Theme Toggle Effect](../apps/web/content/docs/components/theme-toggle-effect.mdx): Animated transitions when switching between light and dark themes.
+- [Work Experience](../apps/web/content/docs/components/work-experience.mdx): Display work experiences with role details, company logos, and durations.
+
+## Backgrounds
+
+- [Light Speed](../apps/web/content/docs/components/light-speed.mdx): A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.
+
+## Charts
 
 - [Area Chart](../apps/web/content/docs/components/area-chart.mdx): A composable area chart with gradient fills, tooltips, and hover interactions
 - [Bar Chart](../apps/web/content/docs/components/bar-chart.mdx): A composable bar chart with spring animations, stacked bars, horizontal orientation, and grouped series support
@@ -16,31 +100,41 @@ Documentation source files live under `apps/web/content/docs/` (MDX, Fumadocs). 
 - [Choropleth Chart](../apps/web/content/docs/components/choropleth-chart.mdx): A composable geographic map chart for visualizing data across regions with interactive tooltips, zoom controls, and pattern support
 - [Composed Chart](../apps/web/content/docs/components/composed-chart.mdx): Mix SeriesBar, Line, and Area on one shared time axis (Recharts ComposedChart–style)
 - [Funnel Chart](../apps/web/content/docs/components/funnel-chart.mdx): An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations
-- [Gauge](../apps/web/content/docs/components/gauge-chart.mdx): Notch-based radial gauge with PieCenter-style NumberFlow, theme fills, optional patterns and arc gradients, and responsive sizing
-- [Components](../apps/web/content/docs/components/index.mdx): A collection of chart components for your applications.
+- [Gauge](../apps/web/content/docs/components/gauge-chart.mdx): Notch-based radial or linear gauge with optional center label, theme fills, patterns, arc gradients, and responsive sizing
+- [Heatmap Chart](../apps/web/content/docs/components/heatmap-chart.mdx): A contribution heatmap with animated cells, configurable level colors and patterns, and an interactive legend
 - [Line Chart](../apps/web/content/docs/components/line-chart.mdx): A composable line chart with tooltips, markers, and hover interactions
+- [Profit/Loss Line](../apps/web/content/docs/components/profit-loss-line.mdx): Sign-colored line segments for profit and loss on a shared zero baseline
 - [Live Line Chart](../apps/web/content/docs/components/live-line-chart.mdx): Real-time streaming line chart with smooth scrolling, crosshair, and animated axes
 - [Pie Chart](../apps/web/content/docs/components/pie-chart.mdx): A composable pie and donut chart with animated slices, hover interactions, patterns, gradients, and an interactive legend
 - [Radar Chart](../apps/web/content/docs/components/radar-chart.mdx): A composable multi-series radar chart with animated polygons, hover interactions, and customizable metrics
 - [Ring Chart](../apps/web/content/docs/components/ring-chart.mdx): A composable multi-ring progress chart with animated arcs, hover interactions, and a reusable legend component
+- [Scatter Chart](../apps/web/content/docs/components/scatter-chart.mdx): A composable time-series scatter chart with offset rings, hover dimming, and animated enter
 - [Sankey Chart](../apps/web/content/docs/components/sankey-chart.mdx): A composable sankey diagram for visualizing flow between nodes with animated links and interactive tooltips
+- [Sunburst Chart](../apps/web/content/docs/components/sunburst-chart.mdx): A composable hierarchical sunburst chart with drill-down zoom, animated segments, breadcrumb navigation, and legend sync
 
-## Utilities
+## Chart Utilities
 
+- [Legend](../apps/web/content/docs/utility/legend.mdx): A composable legend component for charts with progress bars, markers, and customizable layouts
+- [Grid](../apps/web/content/docs/utility/grid.mdx): A customizable grid component for charts with horizontal and vertical lines, edge fade, edge line hiding, and dashed styling
+- [Background](../apps/web/content/docs/utility/background.mdx): Pattern fill for the plot area when grid lines are hidden — presets, edge fade, and enter animation
+- [Reference Area](../apps/web/content/docs/utility/reference-area.mdx): Shaded Y band for target ranges and thresholds on cartesian charts — solid or pattern fill, dashed edges, and Y-axis tick coloring
+- [Projection Line](../apps/web/content/docs/utility/projection-line.mdx): Forecast segment extending a line series past the last data point — dashed stroke, gradient, and horizon marker
+- [Tooltip](../apps/web/content/docs/utility/tooltip.mdx): An interactive tooltip component for charts with crosshair, dots, date picker, and customizable content
+- [Brush](../apps/web/content/docs/utility/brush.mdx): Time-range brush for zooming area and line charts with a mini-chart strip and draggable selection handles
 - [Axis](../apps/web/content/docs/utility/axis/index.mdx): X and Y axis components for line and area charts
 - [X Axis](../apps/web/content/docs/utility/axis/x-axis.mdx): Date labels for the horizontal axis in line and area charts
 - [Y Axis](../apps/web/content/docs/utility/axis/y-axis.mdx): Value labels for the vertical axis in line and area charts
-- [Custom Indicator](../apps/web/content/docs/utility/custom-indicator.mdx): Create custom tooltip indicators for charts using the useChart hook
-- [Grid](../apps/web/content/docs/utility/grid.mdx): A customizable grid component for charts with horizontal and vertical lines, fade effects, and dashed styling
-- [Legend](../apps/web/content/docs/utility/legend.mdx): A composable legend component for charts with progress bars, markers, and customizable layouts
-- [Tooltip](../apps/web/content/docs/utility/tooltip.mdx): An interactive tooltip component for charts with crosshair, dots, date picker, and customizable content
 - [useChart Hook](../apps/web/content/docs/utility/use-chart.mdx): Access chart state and context for building custom chart components
+- [Custom Indicator](../apps/web/content/docs/utility/custom-indicator.mdx): Create custom tooltip indicators for charts using the useChart hook
 
-## Documentation
+## AI Integration
 
-- [Installation](../apps/web/content/docs/installation.mdx): How to install and configure Bklit UI in your project
-- [Theming](../apps/web/content/docs/theming.mdx): Theme your charts using CSS custom properties for consistent, customizable styling.
+- [MCP Server](../apps/web/content/docs/integration/mcp.mdx): Connect your AI assistant to Cortexcn so it can search, read, and install components, blocks, and charts.
+- [Skills](../apps/web/content/docs/integration/skills.mdx): Agent skills that teach your AI assistant how to find, install, and style Cortexcn components, blocks, and charts.
+- [DESIGN.md](../apps/web/content/docs/integration/design-md.mdx): Cortexcn's design system as a DESIGN.md file your AI assistant can read and follow.
 
 ## Optional
 
-- [Repository README](../README.md): Monorepo setup, scripts, and license.
+- [Repository README](../README.md): Install commands, AI integration, local development, and repository layout.
+- [Contributor guide](../AGENTS.md): Where code, docs, and registry files live, and how to add a chart or component.
+- [Registry index](https://ui.cortexcn.dev/r/registry.json): Every installable item as shadcn registry JSON.
