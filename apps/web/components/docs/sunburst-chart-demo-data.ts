@@ -1,4 +1,4 @@
-import type { SunburstNode } from "@bklitui/ui/charts";
+import type { SunburstNode } from "@cortexcn/ui/charts";
 
 export const sunburstDemoData: SunburstNode = {
   name: "Revenue",

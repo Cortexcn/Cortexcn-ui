@@ -8,7 +8,7 @@ import {
   SunburstHint,
   SunburstLabels,
   SunburstSegment,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useEffect, useMemo, useState } from "react";
 import { sunburstDemoData } from "@/components/docs/sunburst-chart-demo-data";
 import { SunburstDrillBreadcrumb } from "@/components/docs/sunburst-drill-breadcrumb";
