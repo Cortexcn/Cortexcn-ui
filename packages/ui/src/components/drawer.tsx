@@ -1,6 +1,5 @@
 "use client";
 
-// Adapted from the shadcn/ui Drawer (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 import { cn } from "@/lib/utils";
