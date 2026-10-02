@@ -1,81 +1,23 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { BLOCK_CATEGORIES, getBlockCategory } from "@/blocks/categories";
-import { BlockCategoryList } from "@/components/blocks/block-examples";
-import { BlocksPageHeader } from "@/components/blocks/blocks-page-header";
-import { JsonLd } from "@/components/seo/json-ld";
-import { Button } from "@/components/ui/button";
-import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { redirect } from "next/navigation";
+import { BLOCK_CATEGORIES } from "@/blocks/categories";
 
 interface BlockCategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return BLOCK_CATEGORIES.map((category) => ({ category: category.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: BlockCategoryPageProps): Promise<Metadata> {
-  const category = getBlockCategory((await params).category);
-  if (!category) {
-    notFound();
-  }
-  return pageMetadata({
-    title: `${category.name} blocks`,
-    description: category.description,
-    path: `/blocks/${category.slug}`,
-  });
-}
-
+/**
+ * Each category now lives in the gallery, filtered to it, and every block has
+ * its own page. This keeps older links to a category working.
+ */
 export default async function BlockCategoryPage({
   params,
 }: BlockCategoryPageProps) {
-  const category = getBlockCategory((await params).category);
-  if (!category) {
-    notFound();
-  }
-
-  const count = category.blocks.length;
-
-  return (
-    <main className="flex flex-1 flex-col space-y-16 md:space-y-20">
-      <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "Blocks", path: "/blocks" },
-          { name: category.name, path: `/blocks/${category.slug}` },
-        ])}
-      />
-      <section className="relative w-full">
-        <div className="container mx-auto w-full overflow-visible">
-          <BlocksPageHeader
-            action={
-              <Button
-                nativeButton={false}
-                render={<Link href="/blocks" />}
-                size="lg"
-                variant="outline"
-              >
-                All blocks
-              </Button>
-            }
-            description={`${category.description} ${count} ${count === 1 ? "block" : "blocks"}.`}
-            title={`${category.name} blocks`}
-          />
-        </div>
-      </section>
-
-      <section
-        className="relative w-full pt-8 pb-16 md:pt-12 md:pb-24"
-        id="blocks"
-      >
-        <div className="container mx-auto w-full overflow-visible">
-          <BlockCategoryList category={category} />
-        </div>
-      </section>
-    </main>
-  );
+  const { category } = await params;
+  redirect(`/blocks?category=${category}`);
 }
