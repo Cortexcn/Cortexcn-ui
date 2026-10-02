@@ -209,6 +209,15 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/thinking-message.tsx"],
   },
+  "ai-queue-01": {
+    title: "AI Agent Queue",
+    description:
+      "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
+    previewMaxWidth: "max-w-md",
+    registryDependencies: ["@cortexcn/queue"],
+    dependencies: ["lucide-react"],
+    files: ["components/agent-queue.tsx"],
+  },
   "stat-card-area-01": {
     title: "Stat Card Area",
     description:
@@ -296,6 +305,7 @@ const COMPONENT_EXPORTS = {
   "ai-reasoning-01": "ReasoningPanel",
   "ai-chain-of-thought-01": "AgentSteps",
   "ai-shimmer-01": "ThinkingMessage",
+  "ai-queue-01": "AgentQueue",
   "hero-dashboard-01": "HeroDashboard",
   "hero-studio-01": "HeroStudio",
   "hero-cover-01": "HeroCover",

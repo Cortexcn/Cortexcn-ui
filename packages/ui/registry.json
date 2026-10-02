@@ -3888,6 +3888,57 @@
       ]
     },
     {
+      "name": "queue",
+      "type": "registry:component",
+      "title": "Queue",
+      "description": "A queue for AI apps: queued messages with attachments, todos, and collapsible sections.",
+      "categories": ["ai-assistant"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button",
+        "@cortexcn/collapsible",
+        "@cortexcn/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "src/components/queue.tsx",
+          "type": "registry:component",
+          "target": "components/queue.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-queue-01",
+      "type": "registry:block",
+      "title": "AI Agent Queue",
+      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
+      "registryDependencies": ["@cortexcn/queue"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/blocks/ai-queue-01/components/agent-queue.tsx",
+          "type": "registry:component",
+          "target": "components/agent-queue.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-queue-01-example",
+      "type": "registry:example",
+      "title": "AI Agent Queue Example",
+      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/ai-queue-01"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/examples/ai-queue-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-reasoning-01",
       "type": "registry:block",
       "title": "AI Reasoning Panel",
