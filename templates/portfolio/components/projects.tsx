@@ -2,6 +2,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 
 import { site } from "@/config/site";
+import { publicPath } from "@/lib/utils";
 
 import { ArrowLink } from "./arrow-link";
 import { Reveal } from "./reveal";
@@ -29,7 +30,7 @@ export function Projects() {
                     alt={`${project.title} preview`}
                     className="aspect-[29/20] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     height={800}
-                    src={project.cover}
+                    src={publicPath(project.cover)}
                     width={1160}
                   />
                 </div>

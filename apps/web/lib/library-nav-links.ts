@@ -3,6 +3,7 @@ export const libraryNavLinks = [
   { text: "Docs", url: "/docs/installation" },
   { text: "Components", url: "/docs/components" },
   { text: "Blocks", url: "/blocks" },
+  { text: "Templates", url: "/templates" },
   { text: "Charts", url: "/charts/area-chart" },
   { text: "Changelog", url: "/changelog" },
 ] as const;

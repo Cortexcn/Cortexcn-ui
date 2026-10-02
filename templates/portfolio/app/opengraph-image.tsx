@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 
 import { site } from "@/config/site";
 
+// Generated once at build time, which also lets `NEXT_OUTPUT=export` work.
+export const dynamic = "force-static";
+
 export const alt = `${site.name}, ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

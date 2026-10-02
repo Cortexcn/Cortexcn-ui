@@ -90,14 +90,21 @@ try {
     });
     await desktop.close();
 
-    // 1.5x keeps a full phone page under WebP's 16,383px height limit.
+    // Up to 1.5x, scaled down further when a long page would pass WebP's
+    // 16,383px height limit (an over-long capture comes out as an empty file).
+    const phone = { width: 390, height: 844, isMobile: true, hasTouch: true };
     const mobile = await openPage(browser, theme, {
-      width: 390,
-      height: 844,
+      ...phone,
       deviceScaleFactor: 1.5,
-      isMobile: true,
-      hasTouch: true,
     });
+    const phoneHeight = await mobile.evaluate(
+      () => document.documentElement.scrollHeight,
+    );
+    const scale = Math.min(1.5, Math.floor((16_000 / phoneHeight) * 100) / 100);
+    if (scale < 1.5) {
+      await mobile.setViewport({ ...phone, deviceScaleFactor: scale });
+      await sleep(500);
+    }
     await mobile.screenshot({
       path: join(outDir, `mobile-${theme}.webp`),
       type: "webp",

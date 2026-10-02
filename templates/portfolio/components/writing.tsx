@@ -2,6 +2,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 
 import { site } from "@/config/site";
+import { publicPath } from "@/lib/utils";
 
 import { ArrowLink } from "./arrow-link";
 import { Reveal } from "./reveal";
@@ -35,7 +36,7 @@ export function Writing() {
                     alt=""
                     className="aspect-video w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     height={360}
-                    src={post.cover}
+                    src={publicPath(post.cover)}
                     width={640}
                   />
                 </div>

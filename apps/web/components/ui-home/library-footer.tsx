@@ -19,6 +19,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       { label: "Components", href: "/docs/components" },
       { label: "Charts", href: "/charts/area-chart" },
       { label: "Blocks", href: "/blocks" },
+      { label: "Templates", href: "/templates" },
       { label: "AI Assistant", href: "/blocks?category=ai-assistant" },
       { label: "Backgrounds", href: "/docs/components/light-speed" },
     ],

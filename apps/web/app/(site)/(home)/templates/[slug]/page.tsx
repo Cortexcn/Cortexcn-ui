@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GridPageHero } from "@/components/design/grid-page-hero";
+import { BlocksPageHeader } from "@/components/blocks/blocks-page-header";
 import { DocsCodeBlock } from "@/components/docs/docs-code-block";
 import { JsonLd } from "@/components/seo/json-ld";
 import { BrowserFrame, PhoneFrame } from "@/components/templates/device-frames";
 import { TemplateActions } from "@/components/templates/template-actions";
 import { TemplateScreenshot } from "@/components/templates/template-screenshot";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { COMPONENT_PLAN_PRICES, formatUsd } from "@/lib/service-pricing";
 import {
   getSiteTemplate,
+  isFreeTemplate,
   SITE_TEMPLATES,
   templateArchiveName,
+  templatePriceLabel,
 } from "@/lib/site-templates";
 
 interface TemplatePageProps {
@@ -32,7 +35,11 @@ export async function generateMetadata({
   }
   return pageMetadata({
     title: `${template.name} template`,
-    description: `${template.summary}, built with ${template.stack.slice(0, 3).join(", ")}. ${template.price} to download and use under the MIT license.`,
+    description: `${template.summary}, built with ${template.stack.slice(0, 3).join(", ")}. ${
+      isFreeTemplate(template)
+        ? "Free to download and use under the MIT license."
+        : `${templatePriceLabel(template)} once, for as many sites as you like.`
+    }`,
     path: `/templates/${template.slug}`,
   });
 }
@@ -58,12 +65,18 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
     notFound();
   }
 
+  const free = isFreeTemplate(template);
   const folder = templateArchiveName(template);
   const steps = [
-    {
-      title: "Download and unzip",
-      body: `You get a ${folder} folder with the whole project inside.`,
-    },
+    free
+      ? {
+          title: "Download and unzip",
+          body: `You get a ${folder} folder with the whole project inside.`,
+        }
+      : {
+          title: "Buy and unzip",
+          body: `Pay once and you get a zip with a ${folder} folder and the whole project inside.`,
+        },
     {
       title: "Install and run it",
       body: "Use pnpm, npm, or any package manager you like.",
@@ -80,7 +93,7 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
   ];
 
   return (
-    <main className="flex flex-1 flex-col space-y-16 md:space-y-24">
+    <main className="flex flex-1 flex-col space-y-10 md:space-y-16">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -90,10 +103,18 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
       />
       <section className="relative w-full">
         <div className="container mx-auto w-full overflow-visible">
-          <GridPageHero
-            action={<TemplateActions template={template} />}
-            subtitle={template.summary}
-            title={template.name}
+          <BlocksPageHeader
+            action={
+              <div className="flex flex-col items-start gap-3 pt-2">
+                <span className="rounded-full border border-border px-2.5 py-0.5 font-mono text-xs uppercase">
+                  {templatePriceLabel(template)}
+                  {free ? "" : ", paid once"}
+                </span>
+                <TemplateActions template={template} />
+              </div>
+            }
+            description={`${template.summary}.`}
+            title={`${template.name} template`}
           />
         </div>
       </section>
@@ -173,10 +194,20 @@ export default async function TemplatePage({ params }: TemplatePageProps) {
                 </li>
               ))}
             </ol>
-            <p className="text-muted-foreground text-sm">
-              {template.price} under the MIT license. Use it for yourself or
-              your clients and change anything you like.
-            </p>
+            {free ? (
+              <p className="text-muted-foreground text-sm">
+                Free under the MIT license. Use it for yourself or your clients
+                and change anything you like.
+              </p>
+            ) : (
+              <p className="text-muted-foreground text-sm">
+                {templatePriceLabel(template)} once, with updates. Use it for as
+                many sites as you like, for yourself or your clients, and change
+                anything. Please don't resell or share the template itself.
+                Every template is also included in the Ultra plan (
+                {formatUsd(COMPONENT_PLAN_PRICES.ultra)}).
+              </p>
+            )}
           </div>
         </div>
       </section>

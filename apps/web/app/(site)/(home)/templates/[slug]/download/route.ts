@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { zipSync } from "fflate";
 import {
   getSiteTemplate,
+  isFreeTemplate,
   SITE_TEMPLATES,
   templateArchiveName,
 } from "@/lib/site-templates";
@@ -56,8 +57,9 @@ async function collectFiles(
   return nested.flat();
 }
 
+// Paid templates are never zipped here; buyers get them from the checkout.
 export function generateStaticParams() {
-  return SITE_TEMPLATES.map(({ slug }) => ({ slug }));
+  return SITE_TEMPLATES.filter(isFreeTemplate).map(({ slug }) => ({ slug }));
 }
 
 export async function GET(
@@ -65,7 +67,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const template = getSiteTemplate((await params).slug);
-  if (!template) {
+  if (!(template && isFreeTemplate(template))) {
     return new Response("Not found", { status: 404 });
   }
 

@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
 import { validChartSlugs } from "@/components/charts/chart-slugs";
-// Hidden until Templates comes back; see apps/cortexcn/checklist.md.
-// import { SITE_TEMPLATES } from "@/lib/site-templates";
+import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
@@ -25,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/refunds`, changeFrequency: "yearly", priority: 0.3 },
-    // Hidden until Templates and Studio come back; see apps/cortexcn/checklist.md.
-    // { url: `${SITE_URL}/templates`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${DOCS_URL}/templates`, changeFrequency: "weekly", priority: 0.9 },
+    // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
     // { url: `${SITE_URL}/studio`, changeFrequency: "monthly", priority: 0.7 },
   ];
 
@@ -38,14 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  // Hidden until Templates comes back; see apps/cortexcn/checklist.md.
-  // const templateRoutes: MetadataRoute.Sitemap = SITE_TEMPLATES.map(
-  //   (template) => ({
-  //     url: `${SITE_URL}/templates/${template.slug}`,
-  //     changeFrequency: "monthly" as const,
-  //     priority: 0.8,
-  //   }),
-  // );
+  const templateRoutes: MetadataRoute.Sitemap = SITE_TEMPLATES.map(
+    (template) => ({
+      url: `${DOCS_URL}/templates/${template.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }),
+  );
 
   const chartRoutes: MetadataRoute.Sitemap = validChartSlugs.map((slug) => ({
     url: `${DOCS_URL}/charts/${slug}`,
@@ -65,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages,
     ...blockRoutes,
-    // ...templateRoutes,
+    ...templateRoutes,
     ...chartRoutes,
     ...docRoutes,
   ];

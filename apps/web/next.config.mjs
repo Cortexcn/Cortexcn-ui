@@ -45,6 +45,13 @@ const nextConfig = {
         { source: "/docs.md", destination: "/llms.md" },
         { source: "/docs/:path*.md", destination: "/llms.md/:path*" },
       ],
+      // Template live previews are static exports in public/previews/<slug>.
+      afterFiles: [
+        {
+          source: "/previews/:slug",
+          destination: "/previews/:slug/index.html",
+        },
+      ],
     };
   },
   async headers() {
@@ -67,6 +74,11 @@ const nextConfig = {
           { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
         ],
+      },
+      {
+        // The previews are sample sites; keep them out of search results.
+        source: "/previews/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
       {
         source: "/studio/embed",

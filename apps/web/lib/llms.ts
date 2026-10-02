@@ -4,8 +4,11 @@ import { join } from "node:path";
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
 import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
-// Hidden until Templates comes back; see apps/cortexcn/checklist.md.
-// import { SITE_TEMPLATES } from "@/lib/site-templates";
+import {
+  SITE_TEMPLATES,
+  templateLicenseLabel,
+  templatePriceLabel,
+} from "@/lib/site-templates";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 
@@ -285,14 +288,13 @@ export function llmsTxt() {
           `- [${category.name}](${DOCS_URL}/blocks/${category.slug}): ${category.description}`,
       ),
     ].join("\n"),
-    // Hidden until Templates comes back; see apps/cortexcn/checklist.md.
-    // [
-    //   "## Templates",
-    //   ...SITE_TEMPLATES.map(
-    //     (template) =>
-    //       `- [${template.name}](${SITE_URL}/templates/${template.slug}): ${template.summary}. ${template.price}, MIT licensed.`,
-    //   ),
-    // ].join("\n"),
+    [
+      "## Templates",
+      ...SITE_TEMPLATES.map(
+        (template) =>
+          `- [${template.name}](${DOCS_URL}/templates/${template.slug}): ${template.summary}. ${templatePriceLabel(template)}, ${templateLicenseLabel(template)}.`,
+      ),
+    ].join("\n"),
     [
       "## Optional",
       `- [Full documentation](${SITE_URL}/llms-full.txt): every docs page in one markdown file`,

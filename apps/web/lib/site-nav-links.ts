@@ -8,7 +8,6 @@ export const siteNavLinks = [
   { text: "Pricing", url: "/pricing" },
   { text: "FAQ", url: "/#faq" },
   { text: "Contact", url: "/contact" },
-  // Hidden until Templates and Studio come back; see apps/cortexcn/checklist.md.
-  // { text: "Templates", url: "/templates" },
+  // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
   // { text: "Studio", url: "/studio" },
 ] as const;
