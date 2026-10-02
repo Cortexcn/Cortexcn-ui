@@ -9,7 +9,7 @@ import {
   ChartTooltip,
   LiveXAxis,
   LiveYAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { LiveLineChartDemo } from "@/components/docs/live-line-chart-demo";
 
 <ComponentPreview registryName="live-line-chart">
@@ -46,7 +46,7 @@ import {
   ChartTooltip,
   LiveXAxis,
   LiveYAxis,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const [data, setData] = useState([]);
 const [value, setValue] = useState(100);
@@ -177,7 +177,7 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 `LiveLineChart` has no loading status of its own. A live chart's loading state is just a line, so render a [`LineChartLoading`](/docs/components/line-chart) while the stream connects, then swap in `LiveLineChart` once data starts arriving:
 
 ```tsx
-import { LineChartLoading, LiveLineChart } from "@bklitui/ui/charts";
+import { LineChartLoading, LiveLineChart } from "@/components/charts";
 
 function LiveRevenue({ connected, points }) {
   if (!connected) {
