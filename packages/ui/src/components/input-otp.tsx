@@ -2,7 +2,6 @@
 
 import { OTPInput, OTPInputContext } from "input-otp";
 import { MinusIcon } from "lucide-react";
-// Adapted from the shadcn/ui Input OTP (MIT, https://ui.shadcn.com).
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
