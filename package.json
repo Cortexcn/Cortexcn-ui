@@ -4,14 +4,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:studio-docs": "pnpm --filter studio-docs dev",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
     "format": "ultracite fix",
     "check-types": "turbo run check-types",
     "test": "turbo run test",
     "prepare": "husky",
-    "registry:build": "pnpm --filter @bklitui/ui registry:build",
+    "registry:build": "pnpm --filter @cortexcn/ui registry:build",
     "registry:verify": "node packages/ui/scripts/verify-registry-files.mjs && node packages/ui/scripts/verify-registry-deps.mjs && node packages/ui/scripts/verify-registry-sync.mjs"
   },
   "devDependencies": {
