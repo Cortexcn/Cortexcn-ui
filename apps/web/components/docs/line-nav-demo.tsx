@@ -1,6 +1,6 @@
 "use client";
 
-import { LineNav, type LineNavItem } from "@bklitui/ui/components/line-nav";
+import { LineNav, type LineNavItem } from "@cortexcn/ui/components/line-nav";
 import { useState } from "react";
 
 const ITEMS: LineNavItem[] = [

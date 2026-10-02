@@ -7,7 +7,7 @@ import {
   type LiveLinePoint,
   LiveXAxis,
   LiveYAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function useLiveData(initialPrice: number, intervalMs: number) {
