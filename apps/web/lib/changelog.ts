@@ -41,6 +41,18 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-03",
+    kind: "site",
+    title: "The Cortexcn MCP server, agent skills, and DESIGN.md",
+    summary:
+      "Connect your AI assistant to https://ui.cortexcn.dev/mcp and it can search every component, block, and chart, read the docs and props, and get the install command. Two agent skills and a DESIGN.md generated from the theme tokens install with one command, so new UI follows the Cortexcn look. Every install box now has an MCP tab.",
+    items: [
+      { label: "MCP Server", href: "/docs/integration/mcp" },
+      { label: "Skills", href: "/docs/integration/skills" },
+      { label: "DESIGN.md", href: "/docs/integration/design-md" },
+    ],
+  },
+  {
     date: "2026-10-02",
     kind: "components",
     title: "Lanyard 3D",

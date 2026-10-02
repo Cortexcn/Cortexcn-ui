@@ -99,11 +99,17 @@ npx shadcn@latest add @cortexcn/area-chart @cortexcn/marquee
 
 ### AI agent
 
-Give your agent the shadcn MCP server, then ask for a component by name.
+Connect the Cortexcn MCP server, then ask for what you need. It searches every component, block, and chart, and gives your agent the install command and the docs.
 
 \`\`\`bash
-npx shadcn@latest mcp init --client claude
-# Cursor and VS Code: --client cursor, --client vscode
+claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
+# Cursor, VS Code, Windsurf, Codex, and others: https://ui.cortexcn.dev/docs/integration/mcp
+\`\`\`
+
+Add the agent skills and DESIGN.md so new UI follows the Cortexcn look:
+
+\`\`\`bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/agent-kit.json
 \`\`\`
 
 Then ask, for example: "Build a revenue section for the dashboard: an @cortexcn area chart of monthly revenue and costs, with a marquee of our customers underneath."
@@ -220,7 +226,7 @@ A registry of React components, charts, and blocks built on shadcn/ui. You insta
 Add the @cortexcn registry to your components.json once, then run \`npx shadcn@latest add\` with the component name. The source is copied into your project, so there is no package to keep updated.
 
 **Does it work with my AI agent?**
-Yes. Any agent that can run the shadcn CLI or use the shadcn MCP server can install Cortexcn components. That includes Claude Code, Cursor, and Codex.
+Yes. Connect the Cortexcn MCP server at https://ui.cortexcn.dev/mcp and your agent can search, read, and install every component, block, and chart. It works with Claude Code, Claude, Cursor, VS Code, Windsurf, Codex, and ChatGPT. Any agent that can run the shadcn CLI can also install items by URL.
 
 **Can I change the code?**
 Yes. Components live in your repo as plain React and Tailwind. Edit the markup, props, or styles, and theme everything with your own CSS variables.
