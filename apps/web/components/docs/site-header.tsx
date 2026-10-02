@@ -101,6 +101,7 @@ const cortexComponents = [
   { text: "Fan-Out Diagram", url: "/docs/components/fan-out-diagram" },
   { text: "FAQ Tabs Card", url: "/docs/components/faq-tabs-card" },
   { text: "Gooey Nav", url: "/docs/components/gooey-nav" },
+  { text: "Lanyard 3D", url: "/docs/components/lanyard-3d" },
   { text: "Lanyard Badge", url: "/docs/components/lanyard-badge" },
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
