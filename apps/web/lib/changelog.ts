@@ -43,6 +43,17 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
     kind: "blocks",
+    title: "Hero blocks, starting with Dashboard Preview",
+    summary:
+      "A new Hero category opens with a serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash. It animates in on scroll and stays still for visitors who ask for reduced motion.",
+    items: [
+      { label: "Hero blocks", href: "/blocks/hero" },
+      { label: "Dashboard Preview", href: "/blocks/hero#hero-dashboard-01" },
+    ],
+  },
+  {
+    date: "2026-10-02",
+    kind: "blocks",
     title: "AI Assistant moves to Blocks",
     summary:
       "Reasoning, Chain of Thought, and Shimmer now live under Blocks in a new AI Assistant category, each with a live preview, its code, and a one-command install. Their old component pages redirect there.",

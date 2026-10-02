@@ -3701,6 +3701,53 @@
       ]
     },
     {
+      "name": "hero-dashboard-01",
+      "type": "registry:block",
+      "title": "Hero Dashboard Preview",
+      "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash",
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "separator"
+      ],
+      "dependencies": ["class-variance-authority", "lucide-react", "motion"],
+      "files": [
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hero-dashboard.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/hero-dashboard-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dashboard-01-example",
+      "type": "registry:example",
+      "title": "Hero Dashboard Preview Example",
+      "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/hero-dashboard-01"],
+      "dependencies": ["class-variance-authority", "lucide-react", "motion"],
+      "files": [
+        {
+          "path": "registry/examples/hero-dashboard-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-reasoning-01",
       "type": "registry:block",
       "title": "AI Reasoning Panel",
