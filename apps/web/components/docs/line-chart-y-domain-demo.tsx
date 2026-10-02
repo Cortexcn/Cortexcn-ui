@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid, Line, LineChart } from "@bklitui/ui/charts";
+import { Grid, Line, LineChart } from "@cortexcn/ui/charts";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 

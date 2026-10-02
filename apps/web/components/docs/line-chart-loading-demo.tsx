@@ -1,6 +1,6 @@
 "use client";
 
-import { LineChartLoading } from "@bklitui/ui/charts";
+import { LineChartLoading } from "@cortexcn/ui/charts";
 
 export function LineChartLoadingDemo() {
   return (
