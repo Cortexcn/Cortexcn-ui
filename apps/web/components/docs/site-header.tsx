@@ -100,6 +100,8 @@ const cortexComponents = [
   { text: "Command Search", url: "/docs/components/command-search" },
   { text: "Fan-Out Diagram", url: "/docs/components/fan-out-diagram" },
   { text: "FAQ Tabs Card", url: "/docs/components/faq-tabs-card" },
+  { text: "Gooey Nav", url: "/docs/components/gooey-nav" },
+  { text: "Lanyard Badge", url: "/docs/components/lanyard-badge" },
   { text: "Line Nav", url: "/docs/components/line-nav" },
   { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
   { text: "Marquee", url: "/docs/components/marquee" },
@@ -108,6 +110,7 @@ const cortexComponents = [
     text: "Perspective Marquee",
     url: "/docs/components/perspective-marquee",
   },
+  { text: "Sphere Menu", url: "/docs/components/sphere-menu" },
   { text: "Theme Toggle Effect", url: "/docs/components/theme-toggle-effect" },
   { text: "Work Experience", url: "/docs/components/work-experience" },
 ];
