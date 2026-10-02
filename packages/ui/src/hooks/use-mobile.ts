@@ -1,4 +1,3 @@
-// Adapted from the shadcn/ui useIsMobile hook (MIT, https://ui.shadcn.com).
 import * as React from "react";
 
 const MOBILE_BREAKPOINT = 768;
