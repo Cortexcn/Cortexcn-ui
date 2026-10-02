@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { BlockCategoryGrid } from "@/components/blocks/block-examples";
-import { BlocksHero } from "@/components/blocks/blocks-hero";
+import { Suspense } from "react";
+import {
+  BlockGallery,
+  BlockGalleryView,
+} from "@/components/blocks/block-gallery";
+import { BlocksPageHeader } from "@/components/blocks/blocks-page-header";
 import { JsonLd } from "@/components/seo/json-ld";
+import { getGalleryBlocks, getGalleryCategories } from "@/lib/blocks/gallery";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,8 +17,11 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BlocksPage() {
+  const blocks = getGalleryBlocks();
+  const categories = getGalleryCategories();
+
   return (
-    <main className="flex flex-1 flex-col space-y-24">
+    <main className="flex flex-1 flex-col space-y-10 md:space-y-12">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -22,16 +30,27 @@ export default function BlocksPage() {
       />
       <section className="relative w-full">
         <div className="container mx-auto w-full overflow-visible">
-          <BlocksHero />
+          <BlocksPageHeader
+            description={`${blocks.length} ready-to-go sections and cards for landing pages and dashboards, designed and built by Cortexcn. Preview each one live, then copy the code or add it to your project with one command.`}
+            title="Cortexcn Blocks"
+          />
         </div>
       </section>
 
       <section
-        className="relative w-full pt-8 pb-16 md:pt-12 md:pb-24"
+        className="relative w-full scroll-mt-28 pb-16 md:pb-24"
         id="blocks"
       >
         <div className="container mx-auto w-full overflow-visible">
-          <BlockCategoryGrid />
+          {/* The URL holds the filters, so the static HTML is the unfiltered
+              gallery and the client swaps in the filtered one. */}
+          <Suspense
+            fallback={
+              <BlockGalleryView blocks={blocks} categories={categories} />
+            }
+          >
+            <BlockGallery blocks={blocks} categories={categories} />
+          </Suspense>
         </div>
       </section>
     </main>
