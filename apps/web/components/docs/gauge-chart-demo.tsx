@@ -1,6 +1,6 @@
 "use client";
 
-import { Gauge } from "@bklitui/ui/charts";
+import { Gauge } from "@cortexcn/ui/charts";
 
 export function GaugeChartDemo() {
   return (
