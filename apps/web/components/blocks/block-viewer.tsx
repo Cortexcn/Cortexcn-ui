@@ -2,7 +2,7 @@
 
 import { Icon } from "@bklitui/icons";
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CODE_PANEL_HEADER_CLASS } from "@/components/blocks/block-code-panel-header";
 import { BlockFileTree } from "@/components/blocks/block-file-tree";
 import { CopyButton } from "@/components/copy-button";
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/tooltip";
 import { getAnalyticsUrl, trackEvent } from "@/lib/analytics/track-client";
 import {
+  blockLivePreviewPath,
   blockOpenInV0Href,
   blockShadcnAddCommand,
 } from "@/lib/blocks/block-links";
@@ -98,6 +99,13 @@ export function BlockViewer({
     files.find((file) => file.path === selectedPath) ?? defaultFile ?? files[0];
   const installCommand = blockShadcnAddCommand(registryName);
 
+  // The live preview's Code button links here with #code.
+  useEffect(() => {
+    if (window.location.hash === "#code") {
+      setView("code");
+    }
+  }, []);
+
   return (
     <TooltipProvider>
       <div
@@ -161,6 +169,29 @@ export function BlockViewer({
                 </Button>
               </TooltipTrigger>
               <TooltipContent>Restart animation</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger render={<span className="inline-flex" />}>
+                <Button
+                  className="size-8"
+                  nativeButton={false}
+                  render={
+                    // biome-ignore lint/a11y/useAnchorContent: Base UI merges Button children into this anchor
+                    <a
+                      aria-label="Open the live preview in a new tab"
+                      href={blockLivePreviewPath(registryName)}
+                      rel="noopener"
+                      target="_blank"
+                    />
+                  }
+                  size="icon"
+                  variant="ghost"
+                >
+                  <Icon className="size-4" name="IconEyeOpen" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Live preview</TooltipContent>
             </Tooltip>
 
             <div className="hidden h-9 min-w-0 max-w-[300px] items-center gap-2 rounded-md border border-border/60 bg-muted/20 px-2.5 font-mono text-[11px] text-muted-foreground lg:flex">
