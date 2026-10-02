@@ -1,11 +1,5 @@
 "use client";
 
-/*
- * Adapted from the beUI Number Ticker (https://beui.dev).
- * MIT License, Copyright (c) 2026 Saurabh Chauhan.
- * https://github.com/starc007/ui-components/blob/main/LICENSE
- */
-
 import { animate, motion, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
