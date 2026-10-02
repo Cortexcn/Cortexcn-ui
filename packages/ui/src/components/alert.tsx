@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Alert (MIT, https://ui.shadcn.com).
-
 import { cva, type VariantProps } from "class-variance-authority";
 import type * as React from "react";
 import { cn } from "@/lib/utils";
