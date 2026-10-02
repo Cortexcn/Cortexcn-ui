@@ -1,6 +1,6 @@
 "use client";
 
-import { useChart } from "@bklitui/ui/charts";
+import { useChart } from "@cortexcn/ui/charts";
 import { useEffect } from "react";
 import type { StatCardHoverState } from "./stat-card-chart";
 

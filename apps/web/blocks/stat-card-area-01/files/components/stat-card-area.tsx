@@ -5,7 +5,7 @@ import {
   AreaChart,
   ChartStatFlow,
   LinearGradient,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { curveCardinal } from "@visx/curve";
 import { useState } from "react";
 import {
