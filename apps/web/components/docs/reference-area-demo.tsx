@@ -7,7 +7,7 @@ import {
   LineChart,
   ReferenceArea,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import {
   buildLineChartDemoData,
   REFERENCE_AREA_DEMO,

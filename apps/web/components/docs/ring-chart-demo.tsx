@@ -12,7 +12,7 @@ import {
   RingCenter,
   RingChart,
   type RingData,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useState } from "react";
 
 // Sample session data
