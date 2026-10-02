@@ -3701,6 +3701,96 @@
       ]
     },
     {
+      "name": "ai-reasoning-01",
+      "type": "registry:block",
+      "title": "AI Reasoning Panel",
+      "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay",
+      "registryDependencies": ["@cortexcn/reasoning", "button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/blocks/ai-reasoning-01/components/reasoning-panel.tsx",
+          "type": "registry:component",
+          "target": "components/reasoning-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-reasoning-01-example",
+      "type": "registry:example",
+      "title": "AI Reasoning Panel Example",
+      "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/ai-reasoning-01"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/examples/ai-reasoning-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-chain-of-thought-01",
+      "type": "registry:block",
+      "title": "AI Agent Steps",
+      "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends",
+      "registryDependencies": ["@cortexcn/chain-of-thought", "button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/blocks/ai-chain-of-thought-01/components/agent-steps.tsx",
+          "type": "registry:component",
+          "target": "components/agent-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-chain-of-thought-01-example",
+      "type": "registry:example",
+      "title": "AI Agent Steps Example",
+      "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/ai-chain-of-thought-01"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/examples/ai-chain-of-thought-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-shimmer-01",
+      "type": "registry:block",
+      "title": "AI Thinking Message",
+      "description": "A chat turn where the assistant's reply is a shimmering status line while it works",
+      "registryDependencies": ["@cortexcn/shimmer", "@cortexcn/utils"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/ai-shimmer-01/components/thinking-message.tsx",
+          "type": "registry:component",
+          "target": "components/thinking-message.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-shimmer-01-example",
+      "type": "registry:example",
+      "title": "AI Thinking Message Example",
+      "description": "A chat turn where the assistant's reply is a shimmering status line while it works — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/ai-shimmer-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/ai-shimmer-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-card-area-01",
       "type": "registry:block",
       "title": "Stat Card Area",
