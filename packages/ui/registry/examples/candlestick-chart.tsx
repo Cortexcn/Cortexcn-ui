@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { CandlestickChart, Candlestick, Grid, XAxis, YAxis, ChartTooltip } from "@bklitui/ui/charts"
+// In your app: import { CandlestickChart, Candlestick, Grid, XAxis, YAxis, ChartTooltip } from "@/components/charts"
 import {
   CandlestickChart,
   Candlestick,

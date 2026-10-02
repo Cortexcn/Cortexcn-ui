@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { ChoroplethChart, ChoroplethFeatureComponent, ChoroplethTooltip } from "@bklitui/ui/charts"
+// In your app: import { ChoroplethChart, ChoroplethFeatureComponent, ChoroplethTooltip } from "@/components/charts"
 import {
   ChoroplethChart,
   ChoroplethFeatureComponent,
