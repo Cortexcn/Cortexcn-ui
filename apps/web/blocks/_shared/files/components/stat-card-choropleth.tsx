@@ -1,12 +1,12 @@
 "use client";
 
-import type { ChoroplethFeature } from "@bklitui/ui/charts";
+import type { ChoroplethFeature } from "@cortexcn/ui/charts";
 import {
   ChartStatFlow,
   ChoroplethChart,
   ChoroplethFeatureComponent,
   ChoroplethTooltip,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useState } from "react";
 import { useWorldDataStandalone } from "@/components/docs/use-world-data";
 import {
