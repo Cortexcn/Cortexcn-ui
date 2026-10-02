@@ -1,7 +1,6 @@
 "use client";
 
 import { Slider as SliderPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Slider (MIT, https://ui.shadcn.com).
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
