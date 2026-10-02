@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { buildArcs, SunburstBreadcrumb, SunburstCenter, SunburstChart, SunburstHint, SunburstLabels, SunburstSegment } from "@bklitui/ui/charts"
+// In your app: import { buildArcs, SunburstBreadcrumb, SunburstCenter, SunburstChart, SunburstHint, SunburstLabels, SunburstSegment } from "@/components/charts"
 import {
   buildArcs,
   SunburstBreadcrumb,
