@@ -1,5 +1,5 @@
-import { Toaster } from "@bklitui/ui/components/sonner";
-import { TooltipProvider } from "@bklitui/ui/components/tooltip";
+import { Toaster } from "@cortexcn/ui/components/sonner";
+import { TooltipProvider } from "@cortexcn/ui/components/tooltip";
 import { NextProvider } from "fumadocs-core/framework/next";
 import type { ReactNode } from "react";
 import { DocsLayout } from "@/components/docs/docs-layout";
