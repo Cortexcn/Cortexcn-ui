@@ -1,7 +1,6 @@
 "use client";
 
 import { Label as LabelPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Label (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
