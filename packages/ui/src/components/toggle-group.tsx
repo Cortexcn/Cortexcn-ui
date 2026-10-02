@@ -2,7 +2,6 @@
 
 import type { VariantProps } from "class-variance-authority";
 import { ToggleGroup as ToggleGroupPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Toggle Group (MIT, https://ui.shadcn.com).
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
