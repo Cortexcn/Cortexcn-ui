@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOCK_CATEGORIES, getBlockCategory } from "@/blocks/categories";
 import { BlockCategoryList } from "@/components/blocks/block-examples";
-import { GridPageHero } from "@/components/design/grid-page-hero";
+import { BlocksPageHeader } from "@/components/blocks/blocks-page-header";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -41,7 +41,7 @@ export default async function BlockCategoryPage({
   const count = category.blocks.length;
 
   return (
-    <main className="flex flex-1 flex-col space-y-24">
+    <main className="flex flex-1 flex-col space-y-16 md:space-y-20">
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -51,7 +51,7 @@ export default async function BlockCategoryPage({
       />
       <section className="relative w-full">
         <div className="container mx-auto w-full overflow-visible">
-          <GridPageHero
+          <BlocksPageHeader
             action={
               <Button
                 nativeButton={false}
@@ -62,8 +62,8 @@ export default async function BlockCategoryPage({
                 All blocks
               </Button>
             }
-            subtitle={`${category.description} ${count} ${count === 1 ? "block" : "blocks"}.`}
-            title={category.name}
+            description={`${category.description} ${count} ${count === 1 ? "block" : "blocks"}.`}
+            title={`${category.name} blocks`}
           />
         </div>
       </section>
