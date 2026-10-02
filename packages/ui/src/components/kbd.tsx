@@ -1,4 +1,3 @@
-// Adapted from the shadcn/ui Kbd (MIT, https://ui.shadcn.com).
 import { cn } from "@/lib/utils";
 
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
