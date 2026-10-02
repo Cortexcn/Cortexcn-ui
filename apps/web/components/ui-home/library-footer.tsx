@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import { CortexcnLogo } from "@/components/icons/cortexcn";
+import { ProductCredit } from "@/components/product-credit";
 import { CONTACT_EMAIL } from "@/lib/contact-details";
 import { AUTHOR } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
-
 import { Container } from "./primitives";
 
 interface FooterLink {
@@ -85,6 +85,7 @@ export function LibraryFooter() {
             React components, charts, and blocks for shadcn/ui. Install them
             with the CLI or your AI agent, and own the code.
           </p>
+          <ProductCredit />
           <a
             className="text-foreground text-sm underline-offset-4 hover:underline"
             href={`mailto:${CONTACT_EMAIL}`}

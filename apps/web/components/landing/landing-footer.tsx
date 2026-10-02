@@ -5,6 +5,7 @@ import { type FormEvent, useState } from "react";
 
 import { CortexcnLogo } from "@/components/icons/cortexcn";
 import { SyedMoinMark } from "@/components/icons/syedmoin-mark";
+import { ProductCredit } from "@/components/product-credit";
 import {
   CONTACT_EMAIL,
   CONTACT_LOCATION,
@@ -258,15 +259,18 @@ export function LandingFooter() {
               <Newsletter />
               <InspiredBy />
             </div>
-            <div className="flex items-center gap-4">
-              <CortexcnLogo
-                className="size-16 rounded-[10px] sm:size-22"
-                size={88}
-                theme="auto"
-              />
-              <span className="font-medium text-[3.5rem] leading-none tracking-[-0.06em] sm:text-[5.5rem]">
-                Cortexcn
-              </span>
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-4">
+                <CortexcnLogo
+                  className="size-16 rounded-[10px] sm:size-22"
+                  size={88}
+                  theme="auto"
+                />
+                <span className="font-medium text-[3.5rem] leading-none tracking-[-0.06em] sm:text-[5.5rem]">
+                  Cortexcn
+                </span>
+              </div>
+              <ProductCredit className="text-base leading-[1.3] tracking-[-0.05em]" />
             </div>
           </div>
 
