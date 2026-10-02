@@ -214,3 +214,31 @@ const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
 export function formatChangelogDate(iso: string) {
   return DATE_FORMAT.format(new Date(`${iso}T00:00:00Z`));
 }
+
+export interface ChangelogDay {
+  /** `YYYY-MM-DD`. */
+  date: string;
+  /** That day's releases, in the order they are listed above. */
+  releases: ChangelogRelease[];
+}
+
+/** Releases grouped by the day they shipped, newest day first. */
+export function groupChangelogByDay(
+  releases: ChangelogRelease[] = CHANGELOG,
+): ChangelogDay[] {
+  const days = new Map<string, ChangelogRelease[]>();
+
+  for (const release of releases) {
+    const day = days.get(release.date);
+    if (day) {
+      day.push(release);
+    } else {
+      days.set(release.date, [release]);
+    }
+  }
+
+  return Array.from(days, ([date, dayReleases]) => ({
+    date,
+    releases: dayReleases,
+  })).sort((a, b) => b.date.localeCompare(a.date));
+}

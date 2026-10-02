@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import {
-  CHANGELOG,
   type ChangelogKind,
   type ChangelogRelease,
   formatChangelogDate,
+  groupChangelogByDay,
 } from "@/lib/changelog";
 import { cn } from "@/lib/utils";
 
@@ -39,6 +39,9 @@ function ReleaseCard({
         </div>
       ) : null}
       <div className="flex flex-col gap-4 p-6 md:p-8">
+        <span className="self-start rounded-[4px] bg-muted px-1.5 py-1 font-medium text-muted-foreground text-xs leading-none">
+          {KIND_LABEL[release.kind]}
+        </span>
         <h2 className="text-balance font-light font-sentient text-[28px] leading-[1.15] tracking-[-0.05em] md:text-[32px]">
           {release.title}
         </h2>
@@ -62,8 +65,13 @@ function ReleaseCard({
   );
 }
 
-/** Every release, newest first, on a dated line down the left. */
+/**
+ * Every release, newest first, on a dated line down the left. A day with
+ * several releases gets one date and stacks its releases beside it.
+ */
 export function ChangelogTimeline() {
+  const days = groupChangelogByDay();
+
   return (
     <section className="pb-20 md:pb-28">
       <Container>
@@ -73,32 +81,41 @@ export function ChangelogTimeline() {
             aria-hidden="true"
             className="absolute top-2 bottom-2 left-[5px] hidden w-px bg-border lg:block"
           />
-          {CHANGELOG.map((release, index) => (
+          {days.map((day, dayIndex) => (
             <li
               className="relative grid gap-4 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-10"
-              key={`${release.date}-${release.title}`}
+              key={day.date}
             >
               <div className="flex items-center gap-3 lg:sticky lg:top-[calc(var(--site-header-height)+2rem)] lg:flex-col lg:items-start lg:gap-2 lg:self-start lg:pl-8">
                 <span
                   aria-hidden="true"
                   className={cn(
                     "absolute top-1.5 left-0 hidden size-[11px] rounded-full border-2 border-background lg:block",
-                    index === 0 ? "bg-foreground" : "bg-(--faint)",
+                    dayIndex === 0 ? "bg-foreground" : "bg-(--faint)",
                   )}
                 />
                 <time
                   className="font-medium text-foreground text-sm tabular-nums"
-                  dateTime={release.date}
+                  dateTime={day.date}
                 >
-                  {formatChangelogDate(release.date)}
+                  {formatChangelogDate(day.date)}
                 </time>
-                <span className="rounded-[4px] bg-muted px-1.5 py-1 font-medium text-muted-foreground text-xs leading-none">
-                  {KIND_LABEL[release.kind]}
-                </span>
+                {day.releases.length > 1 ? (
+                  <span className="text-muted-foreground text-xs">
+                    {day.releases.length} releases
+                  </span>
+                ) : null}
               </div>
-              <Reveal>
-                <ReleaseCard latest={index === 0} release={release} />
-              </Reveal>
+              <div className="flex flex-col gap-6">
+                {day.releases.map((release, index) => (
+                  <Reveal key={release.title}>
+                    <ReleaseCard
+                      latest={dayIndex === 0 && index === 0}
+                      release={release}
+                    />
+                  </Reveal>
+                ))}
+              </div>
             </li>
           ))}
         </ol>
