@@ -21,6 +21,7 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "feature-media-cards-01",
       "feature-image-columns-01",
       "feature-studio-grid-01",
+      "feature-bento-grid-01",
     ],
   },
   {
