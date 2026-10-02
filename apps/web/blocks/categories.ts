@@ -7,11 +7,9 @@ export interface BlockCategory {
   description: string;
   /** Blocks in display order. */
   blocks: BlockSlug[];
-  /** Block shown on the category card. Defaults to the first block. */
-  thumbnail?: BlockSlug;
 }
 
-/** Add a category here and it gets a card on /blocks and its own page. */
+/** Add a category here and it joins the /blocks sidebar and gets its own page. */
 export const BLOCK_CATEGORIES: BlockCategory[] = [
   {
     slug: "features",
@@ -24,7 +22,6 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "feature-image-columns-01",
       "feature-studio-grid-01",
     ],
-    thumbnail: "feature-spotlight-grid-01",
   },
   {
     slug: "stat-cards",
@@ -36,7 +33,6 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "stat-card-line-01",
       "stat-card-choropleth-01",
     ],
-    thumbnail: "stat-card-area-01",
   },
 ];
 
