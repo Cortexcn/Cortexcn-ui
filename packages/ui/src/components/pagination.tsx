@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Pagination (MIT, https://ui.shadcn.com).
-
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
