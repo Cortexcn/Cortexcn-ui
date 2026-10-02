@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollArea as ScrollAreaPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Scroll Area (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
