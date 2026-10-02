@@ -2,7 +2,6 @@
 
 import { XIcon } from "lucide-react";
 import { Dialog as DialogPrimitive } from "radix-ui";
-// Adapted from the shadcn/ui Dialog (MIT, https://ui.shadcn.com).
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
