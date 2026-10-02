@@ -14,7 +14,7 @@ import {
   LinearGradient,
   PatternLines,
   useChart,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { motion, useSpring } from "motion/react";
 import React, { useEffect } from "react";
 
