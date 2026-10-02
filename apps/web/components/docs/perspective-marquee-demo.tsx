@@ -1,4 +1,4 @@
-import { PerspectiveMarquee } from "@bklitui/ui/components/perspective-marquee";
+import { PerspectiveMarquee } from "@cortexcn/ui/components/perspective-marquee";
 
 const CHART_PREVIEWS = [
   "area-chart",
