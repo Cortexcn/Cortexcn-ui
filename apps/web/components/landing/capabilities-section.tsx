@@ -1,6 +1,6 @@
 "use client";
 
-import { Marquee } from "@bklitui/ui/components/marquee";
+import { Marquee } from "@cortexcn/ui/components/marquee";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
 import { type ReactNode, useEffect, useRef, useState } from "react";

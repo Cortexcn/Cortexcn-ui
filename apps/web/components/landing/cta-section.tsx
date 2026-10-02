@@ -1,6 +1,6 @@
 "use client";
 
-import { Marquee } from "@bklitui/ui/components/marquee";
+import { Marquee } from "@cortexcn/ui/components/marquee";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
