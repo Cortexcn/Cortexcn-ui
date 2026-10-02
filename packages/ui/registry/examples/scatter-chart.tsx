@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { ScatterChart, Scatter, Grid, XAxis, ChartTooltip } from "@bklitui/ui/charts"
+// In your app: import { ScatterChart, Scatter, Grid, XAxis, ChartTooltip } from "@/components/charts"
 import {
   ScatterChart,
   Scatter,

@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@bklitui/ui/charts"
+// In your app: import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@/components/charts"
 import {
   SankeyChart,
   SankeyLink,
