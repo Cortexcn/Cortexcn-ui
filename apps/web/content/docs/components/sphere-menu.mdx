@@ -1,0 +1,84 @@
+---
+title: Sphere Menu
+description: A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.
+---
+
+import {
+  SphereMenuDemo,
+  SphereMenuDenseDemo,
+} from "@/components/docs/sphere-menu-demo";
+
+<ComponentPreview>
+  <SphereMenuDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="sphere-menu" />
+
+## Usage
+
+```tsx
+import { SphereMenu } from "@/components/sphere-menu";
+```
+
+```tsx
+<SphereMenu
+  items={[
+    {
+      image: "/work/one.jpg",
+      title: "Project one",
+      description: "A short line about it.",
+      href: "/work/one",
+    },
+    {
+      image: "/work/two.jpg",
+      title: "Project two",
+      href: "/work/two",
+    },
+  ]}
+/>
+```
+
+Use it for a portfolio, a gallery, or a playful way into the sections of a site. The items repeat around the sphere, so a few are enough.
+
+## Examples
+
+### More tiles
+
+`tiles` sets how many tiles cover the sphere, and `scale` how large the sphere is in its box.
+
+<ComponentPreview>
+  <SphereMenuDenseDemo />
+</ComponentPreview>
+
+## Behavior
+
+- Tiles are spread evenly over a sphere, and the sphere is drawn with CSS 3D transforms, not WebGL, so there is nothing to load and the tiles are real images.
+- Drag in any direction to turn it. Let go and it keeps spinning, slows down, and turns the nearest tile to face you, standing it upright. The sphere draws back a little while you drag.
+- When it comes to rest, the front tile's title, description, and link fade in. They fade out as soon as it moves again.
+- With the keyboard, focus the sphere and use the arrow keys to turn it to the next tile. Every item is also listed as a plain link for screen readers.
+- Tiles fade out as they turn toward the edge, and the far side is hidden.
+- The animation only runs while the sphere moves. With reduced motion enabled, it stops where you let go and turns to the nearest tile without easing.
+- No 3D or math library is used, so it adds no dependencies.
+
+## Props
+
+### SphereMenu
+
+| Prop          | Type               | Default  | Description                                       |
+| ------------- | ------------------ | -------- | ------------------------------------------------- |
+| `items`       | `SphereMenuItem[]` | -        | The items. They repeat to fill the tiles          |
+| `tiles`       | `number`           | `36`     | Tiles on the sphere                               |
+| `scale`       | `number`           | `1`      | Sphere size, as a share of the box                |
+| `actionLabel` | `string`           | `"Open"` | Text before the title on the link                 |
+| `className`   | `string`           | -        | Extra classes for the box. It is 560px tall by default |
+
+### SphereMenuItem
+
+| Prop          | Type     | Default | Description                    |
+| ------------- | -------- | ------- | ------------------------------ |
+| `image`       | `string` | -       | Image for the tile             |
+| `title`       | `string` | -       | Shown when the tile is in front |
+| `description` | `string` | -       | A line under the title         |
+| `href`        | `string` | -       | Where the link goes            |
