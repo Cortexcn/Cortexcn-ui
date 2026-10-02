@@ -1,5 +1,3 @@
-// Adapted from the shadcn/ui Button (MIT, https://ui.shadcn.com).
-
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "radix-ui";
 import type * as React from "react";
