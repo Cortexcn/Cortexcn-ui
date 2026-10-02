@@ -1,4 +1,4 @@
-import { nextJsConfig } from "@bklitui/eslint-config/next";
+import { nextJsConfig } from "@cortexcn/eslint-config/next";
 
 /** @type {import("eslint").Linter.Config[]} */
 const config = [...nextJsConfig];
