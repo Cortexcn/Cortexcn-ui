@@ -1,4 +1,4 @@
-import type { ChoroplethFeature } from "@bklitui/ui/charts";
+import type { ChoroplethFeature } from "@cortexcn/ui/charts";
 
 export const visitorsByCountry: Record<string, number> = {
   "United States": 18,
