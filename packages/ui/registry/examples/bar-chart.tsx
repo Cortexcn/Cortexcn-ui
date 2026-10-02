@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { BarChart, Bar, BarXAxis, Grid, ChartTooltip } from "@bklitui/ui/charts"
+// In your app: import { BarChart, Bar, BarXAxis, Grid, ChartTooltip } from "@/components/charts"
 import {
   BarChart,
   Bar,
