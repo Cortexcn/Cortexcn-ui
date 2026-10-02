@@ -250,7 +250,8 @@ Cortexcn items are installed with the shadcn CLI. Add the registry to \`componen
 - Registry namespace: \`@cortexcn\`, served from \`${REGISTRY_URL}\`
 - Registry index: ${DOCS_URL}/r/registry.json
 - Install an item: \`npx shadcn@latest add @cortexcn/<name>\`
-- Agents: connect the shadcn MCP server (\`npx shadcn@latest mcp init --client claude\`) and ask for an item by name
+- MCP server for agents: ${DOCS_URL}/mcp (\`claude mcp add --transport http cortexcn ${DOCS_URL}/mcp\`; setup for other clients at ${DOCS_URL}/docs/integration/mcp)
+- Agent skills and DESIGN.md: \`npx shadcn@latest add ${DOCS_URL}/r/agent-kit.json\`
 - Site: ${SITE_URL} · Docs: ${DOCS_URL}/docs`;
 
 function linkLine(page: DocsPage) {
@@ -263,6 +264,7 @@ export function llmsTxt() {
   const pages = docsPages();
   const guides = pages.filter((page) => page.slugs.length <= 1);
   const utilities = pages.filter((page) => page.slugs[0] === "utility");
+  const integration = pages.filter((page) => page.slugs[0] === "integration");
   const groups = COMPONENT_GROUPS.map((group) => {
     const urls = new Set(
       componentGroupPages(group.name).map((page) => page.url),
@@ -279,6 +281,11 @@ export function llmsTxt() {
     `# ${SITE_NAME}`,
     INTRO,
     ["## Docs", ...guides.map(linkLine)].join("\n"),
+    [
+      "## AI integration",
+      `- [MCP server](${DOCS_URL}/mcp): connect an AI assistant to search, read, and install Cortexcn items`,
+      ...integration.map(linkLine),
+    ].join("\n"),
     ...groups,
     ["## Chart utilities", ...utilities.map(linkLine)].join("\n"),
     [
@@ -302,8 +309,6 @@ export function llmsTxt() {
       `- [Chart gallery](${DOCS_URL}/charts/area-chart): live examples of every chart`,
       `- [Pricing](${SITE_URL}/pricing): the one-time component plans, starting prices for every client service and retainer, and a project estimator, in US dollars`,
       `- [Contact](${SITE_URL}/contact): email, phone, and a contact form for questions, support, and custom work`,
-      // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-      // `- [Studio](${SITE_URL}/studio): interactive chart editor with code export`,
     ].join("\n"),
   ];
   return `${sections.join("\n\n")}\n`;

@@ -1,4 +1,10 @@
 {
   "title": "Documentation",
-  "pages": ["...components", "---Chart Utilities---", "...utility"]
+  "pages": [
+    "---Integration---",
+    "...integration",
+    "...components",
+    "---Chart Utilities---",
+    "...utility"
+  ]
 }
