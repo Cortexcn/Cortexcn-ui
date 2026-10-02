@@ -26,6 +26,18 @@ const nextConfig = {
     // Keeps dev/prod from pulling the entire charts package per MDX page.
     optimizePackageImports: ["@bklitui/ui", "@bklitui/ui/charts"],
   },
+  async redirects() {
+    // The AI Assistant components moved from the docs to Blocks.
+    return [
+      ["reasoning", "ai-reasoning-01"],
+      ["chain-of-thought", "ai-chain-of-thought-01"],
+      ["shimmer", "ai-shimmer-01"],
+    ].map(([component, block]) => ({
+      source: `/docs/components/${component}`,
+      destination: `/blocks/ai-assistant#${block}`,
+      permanent: true,
+    }));
+  },
   async rewrites() {
     return {
       // Markdown copies of docs pages for AI agents: append `.md` to any URL.
