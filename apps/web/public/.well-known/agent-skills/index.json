@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "cortexcn",
+      "description": "Build UI with Cortexcn, the React and Tailwind CSS registry at ui.cortexcn.dev. Use when the user mentions Cortexcn or @cortexcn, asks for a component, page block, or chart in a project that uses Cortexcn, or wants to find, install, compose, or theme Cortexcn items.",
+      "files": ["SKILL.md"]
+    },
+    {
+      "name": "cortexcn-design",
+      "description": "Apply the Cortexcn design system. Use before creating, restyling, or reviewing any UI in a project that has a DESIGN.md or uses Cortexcn, so colors, corners, type, spacing, and motion follow the system; and when theme tokens change, to update DESIGN.md.",
+      "files": ["SKILL.md"]
+    }
+  ]
+}
