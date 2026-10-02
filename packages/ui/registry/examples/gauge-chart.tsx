@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { Gauge } from "@bklitui/ui/charts"
+// In your app: import { Gauge } from "@/components/charts"
 import { Gauge } from "@/components/charts";
 
 export default function Component() {

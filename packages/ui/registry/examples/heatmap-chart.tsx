@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { HeatmapCells, HeatmapChart, HeatmapInteractionBoundary, HeatmapInteractionProvider, HeatmapLegend, HeatmapTooltip, HeatmapXAxis, HeatmapYAxis } from "@bklitui/ui/charts"
+// In your app: import { HeatmapCells, HeatmapChart, HeatmapInteractionBoundary, HeatmapInteractionProvider, HeatmapLegend, HeatmapTooltip, HeatmapXAxis, HeatmapYAxis } from "@/components/charts"
 import {
   HeatmapCells,
   HeatmapChart,
