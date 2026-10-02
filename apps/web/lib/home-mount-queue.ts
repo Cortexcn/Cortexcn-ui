@@ -1,4 +1,4 @@
-/** Gap between consecutive homepage heavy mounts (charts, studio). */
+/** Gap between consecutive homepage heavy mounts (charts). */
 const MOUNT_STAGGER_MS = 150;
 const IDLE_TIMEOUT_MS = 1500;
 
@@ -12,7 +12,6 @@ export const HOME_MOUNT_PRIORITIES = {
   "showcase-radar": 5,
   "showcase-gauge": 6,
   "showcase-heatmap": 7,
-  studio: 8,
 } as const;
 
 export type HomeMountKey = keyof typeof HOME_MOUNT_PRIORITIES;
