@@ -1,5 +1,5 @@
 {
-  "extends": "@bklitui/typescript-config/react-library.json",
+  "extends": "@cortexcn/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "resolveJsonModule": true
