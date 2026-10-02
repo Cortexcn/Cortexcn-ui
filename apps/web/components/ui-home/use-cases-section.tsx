@@ -148,7 +148,7 @@ const USE_CASES: UseCase[] = [
       {
         title: "Accordion and card",
         description:
-          "Adapted from shadcn/ui: a Radix accordion, and a card with header, content, and footer.",
+          "A Radix accordion, and a card with header, content, and footer.",
         icon: <StackedCardsIcon />,
       },
     ],
