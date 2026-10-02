@@ -7,7 +7,7 @@ import {
   ChainOfThoughtSearchResult,
   ChainOfThoughtSearchResults,
   ChainOfThoughtStep,
-} from "@bklitui/ui/components/chain-of-thought";
+} from "@cortexcn/ui/components/chain-of-thought";
 import type { LucideIcon } from "lucide-react";
 import {
   BookOpenIcon,
