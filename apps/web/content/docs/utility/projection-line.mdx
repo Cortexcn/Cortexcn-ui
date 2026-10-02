@@ -1,9 +1,8 @@
 ---
 title: Projection Line
-description: Forecast segment extending a line series past the last data point — dashed stroke, gradient, and horizon marker
+description: Forecast segment extending a line series past the last data point, with a dashed stroke, a gradient, and a horizon marker
 ---
 
-import { studioLineReferenceProjectionHref } from "@bklitui/studio";
 import {
   buildProjectionPath,
   ChartTooltip,
@@ -13,12 +12,11 @@ import {
   LineSeriesTerminalMarker,
   ProjectionLine,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import {
   ProjectionLineDemo,
   ProjectionLineGradientDemo,
 } from "@/components/docs/projection-line-demo";
-import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 
 <ComponentPreview registryName="projection-line">
   <ProjectionLineDemo />
@@ -47,7 +45,7 @@ import {
   LineSeriesTerminalMarker,
   ProjectionLine,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const projectionPath = buildProjectionPath({
   sourceData: chartData,
@@ -123,22 +121,6 @@ The chart extends its x-domain to fit the projection horizon. Projections are in
 | `radius`      | `number`           | `5`              | Dot radius               |
 | `ringGap`     | `number`           | `0`              | Gap between dot and ring |
 | `strokeWidth` | `number`           | `1.5`            | Ring stroke width        |
-
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-## Studio
-
-<div className="not-prose mb-3 flex items-center justify-between gap-4">
-  <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
-    Edit in Studio
-  </h3>
-  <OpenInStudioButton
-    href={studioLineReferenceProjectionHref()}
-    slug="line-chart"
-  />
-</div>
-
-Open [Studio with a projection](/studio?chart=line-chart) and use **Settings → Projections** or the series context menu to add a projection line. Tune stroke, dash, curve, and terminal marker in the layers panel.
-*/}
 
 ## Examples
 
