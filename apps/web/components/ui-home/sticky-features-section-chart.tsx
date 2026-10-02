@@ -15,7 +15,7 @@ import {
   RadarGrid,
   RadarLabels,
   type RadarMetric,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { useInView, useReducedMotion } from "motion/react";
 import { type CSSProperties, useRef, useState } from "react";
 

@@ -1,4 +1,4 @@
-import { Marquee } from "@bklitui/ui/components/marquee";
+import { Marquee } from "@cortexcn/ui/components/marquee";
 import Image from "next/image";
 
 import { Container } from "./primitives";
