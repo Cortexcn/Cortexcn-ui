@@ -120,6 +120,26 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-bento-grid.tsx"],
   },
+  "hero-dashboard-01": {
+    title: "Hero Dashboard Preview",
+    description:
+      "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: [
+      "@cortexcn/utils",
+      "avatar",
+      "badge",
+      "button",
+      "card",
+      "separator",
+    ],
+    dependencies: ["class-variance-authority", "lucide-react", "motion"],
+    files: [
+      "components/hero-dashboard.tsx",
+      "components/hero-dashboard-demo.tsx",
+      "components/hero-cta.tsx",
+    ],
+  },
   "ai-reasoning-01": {
     title: "AI Reasoning Panel",
     description:
@@ -234,6 +254,7 @@ const COMPONENT_EXPORTS = {
   "ai-reasoning-01": "ReasoningPanel",
   "ai-chain-of-thought-01": "AgentSteps",
   "ai-shimmer-01": "ThinkingMessage",
+  "hero-dashboard-01": "HeroDashboard",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
