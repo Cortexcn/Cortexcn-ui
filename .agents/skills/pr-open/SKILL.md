@@ -1,7 +1,7 @@
 ---
 name: pr-open
 description: |
-  Open a pull request the bklit-ui way: stage and commit with pre-commit hooks,
+  Open a pull request for Cortexcn: stage and commit with pre-commit hooks,
   run ultracite from the repo root, rebuild the shadcn registry, run a production test
   build, fix failures, push, and create a PR with a structured summary. Use when the
   user asks to commit, push,
@@ -10,7 +10,7 @@ description: |
 
 # PR Open Skill
 
-End-to-end workflow for committing work and opening a merge-ready PR in **bklit-ui**.
+End-to-end workflow for committing work and opening a merge-ready PR in **Cortexcn**.
 
 Read this skill when the user wants to add, commit, validate, push, and open a PR — or references `@pr-open`.
 
@@ -226,7 +226,7 @@ Return the PR URL to the user.
 
 ### PR title guidelines
 
-- Short, imperative, scoped (e.g. `Add @bklit/chart-animation registry item`)
+- Short, imperative, scoped (e.g. `Add @cortexcn/chart-animation registry item`)
 - Match the primary commit subject when possible
 
 ### PR body template (copy structure every time)
@@ -248,13 +248,13 @@ Return the PR URL to the user.
 Add extra sections only when useful:
 
 - **Context** — link to a merged PR or issue (e.g. "Follow-up to #70")
-- **Deploy notes** — e.g. registry JSON must be live on `cortexcn.dev` for Open in v0
+- **Deploy notes** — e.g. registry JSON must be live on `ui.cortexcn.dev` for Open in v0
 
 ### Repo-specific PR notes
 
 - **Registry**: Step 4 always runs `pnpm registry:build`; commit `apps/web/public/r/` when the build updates it.
 - **Do not** commit incidental reformats from `registry:build` on `packages/ui/registry/examples/*` unless intentional.
-- Chart/docs work: mention manual checks for docs pages, Studio, or Open in v0 when relevant.
+- Chart/docs work: mention manual checks for docs pages, the chart gallery, or Open in v0 when relevant.
 
 ---
 
@@ -274,14 +274,14 @@ Add extra sections only when useful:
 
 ## Common failures
 
-| Failure                                             | Fix                                                             |
-| --------------------------------------------------- | --------------------------------------------------------------- |
-| Pre-commit biome errors                             | Fix code; add `biome-ignore` only with a one-line justification |
-| Hook fixed files but commit already succeeded       | `git add` + new commit (or amend if allowed)                    |
-| `pnpm lint` fails after commit                      | `pnpm lint:fix`, review diff, commit, re-run `pnpm lint`        |
-| `Can't resolve './animation'` in registry consumers | Add missing `@bklit/*` registry deps; run `pnpm registry:build` |
-| Web build OOM                                       | `NODE_OPTIONS='--max-old-space-size=8192'` for `apps/web` build |
-| PR branch already merged                            | New branch from `origin/main`, re-apply only new changes        |
+| Failure                                             | Fix                                                                |
+| --------------------------------------------------- | ------------------------------------------------------------------ |
+| Pre-commit biome errors                             | Fix code; add `biome-ignore` only with a one-line justification    |
+| Hook fixed files but commit already succeeded       | `git add` + new commit (or amend if allowed)                       |
+| `pnpm lint` fails after commit                      | `pnpm lint:fix`, review diff, commit, re-run `pnpm lint`           |
+| `Can't resolve './animation'` in registry consumers | Add missing `@cortexcn/*` registry deps; run `pnpm registry:build` |
+| Web build OOM                                       | `NODE_OPTIONS='--max-old-space-size=8192'` for `apps/web` build    |
+| PR branch already merged                            | New branch from `origin/main`, re-apply only new changes           |
 
 ---
 

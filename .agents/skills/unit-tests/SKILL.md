@@ -1,12 +1,12 @@
 ---
 name: unit-tests
 description: |
-  Guardrails for adding unit tests in bklit-ui without over-testing. Use when the
+  Guardrails for adding unit tests in Cortexcn without over-testing. Use when the
   user mentions unit test, unit tests, tests, test coverage, add tests, write tests,
   vitest, jest, or asks whether something should be tested.
 ---
 
-# Unit Tests (bklit-ui)
+# Unit Tests (Cortexcn)
 
 Read this skill before proposing or writing tests. **Default stance: fewer, higher-signal tests.**
 
@@ -23,7 +23,7 @@ Add tests when they **lock in behavior that is easy to break silently**:
 | Codegen / export / registry helpers     | Output shape is the contract                       |
 | Non-obvious edge cases                  | Empty data, reversed ranges, clamping              |
 
-**Examples in this repo:** `chart-formatters.test.ts`, `highlight-segment-bounds.test.ts`, `animation.test.ts`, `apps/web/lib/studio/__tests__/*`.
+**Examples in this repo:** `chart-formatters.test.ts`, `highlight-segment-bounds.test.ts`, `animation.test.ts`, `packages/ui/src/charts/heatmap/__tests__/*`.
 
 ---
 
@@ -31,14 +31,14 @@ Add tests when they **lock in behavior that is easy to break silently**:
 
 Do **not** add tests just to increase coverage or “be thorough”:
 
-| Skip                                     | Why                                                                         |
-| ---------------------------------------- | --------------------------------------------------------------------------- |
-| React component render smoke tests       | visx, motion, portals → brittle; manual/docs check is cheaper               |
-| `memo()` / guard extractions (#65-style) | Structural perf refactors; output unchanged; RTL mount assertions are heavy |
-| Default prop passthrough                 | `formatValue = intFmt` — types + formatter tests cover it                   |
-| Third-party library behavior             | Don’t re-test d3, visx, or React                                            |
-| Trivial getters / one-line wrappers      | No regression signal                                                        |
-| Snapshot entire chart SVG/JSX            | High churn, low signal                                                      |
+| Skip                                | Why                                                                         |
+| ----------------------------------- | --------------------------------------------------------------------------- |
+| React component render smoke tests  | visx, motion, portals → brittle; manual/docs check is cheaper               |
+| `memo()` / guard extractions        | Structural perf refactors; output unchanged; RTL mount assertions are heavy |
+| Default prop passthrough            | `formatValue = intFmt` — types + formatter tests cover it                   |
+| Third-party library behavior        | Don’t re-test d3, visx, or React                                            |
+| Trivial getters / one-line wrappers | No regression signal                                                        |
+| Snapshot entire chart SVG/JSX       | High churn, low signal                                                      |
 
 If the user asks “should we test X?” — **say no** when X falls in this table, and suggest a lighter alternative (pure helper test, manual check, CI build).
 
@@ -50,7 +50,7 @@ If the user asks “should we test X?” — **say no** when X falls in this tab
 
 ```bash
 pnpm test              # root — turbo runs packages with a test script
-pnpm --filter @bklitui/ui test
+pnpm --filter @cortexcn/ui test
 cd apps/web && pnpm test
 ```
 
