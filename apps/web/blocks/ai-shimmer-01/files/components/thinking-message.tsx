@@ -1,6 +1,6 @@
 "use client";
 
-import { Shimmer } from "@bklitui/ui/components/shimmer";
+import { Shimmer } from "@cortexcn/ui/components/shimmer";
 import { cn } from "@/lib/utils";
 
 export interface ThinkingMessageProps {
