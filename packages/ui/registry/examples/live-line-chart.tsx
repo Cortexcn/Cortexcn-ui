@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import { LiveLineChart, LiveLine, LiveXAxis, LiveYAxis, ChartTooltip } from "@bklitui/ui/charts"
+// In your app: import { LiveLineChart, LiveLine, LiveXAxis, LiveYAxis, ChartTooltip } from "@/components/charts"
 import {
   LiveLineChart,
   LiveLine,
