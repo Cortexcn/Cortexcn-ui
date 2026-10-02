@@ -10,7 +10,7 @@ Charts use CSS custom properties (variables) for theming, allowing you to custom
 The `chartCssVars` object provides type-safe access to chart CSS variables:
 
 ```tsx
-import { chartCssVars } from "@bklitui/ui/charts";
+import { chartCssVars } from "@/components/charts";
 
 // In your component
 <rect fill={chartCssVars.indicatorColor} />
@@ -81,10 +81,10 @@ For heatmaps, choropleths, and other binned or intensity-based charts, use the s
 | `--chart-scale-05`            | Highest intensity                     |
 | `--chart-scale-pattern-color` | Pattern stroke for zero / empty cells |
 
-Import typed references from `@bklitui/ui/charts`:
+Import typed references from `@cortexcn/ui/charts`:
 
 ```tsx
-import { chartScaleCssVars, CHART_SCALE_VARS } from "@bklitui/ui/charts";
+import { chartScaleCssVars, CHART_SCALE_VARS } from "@/components/charts";
 
 <ChoroplethFeatureComponent fill={chartScaleCssVars.scale03} />;
 ```
@@ -98,7 +98,7 @@ Ring tracks, gauge inactive notches, and radar grid lines share the shadcn **`--
 | `--border`   | Ring track background, gauge track notches, `RadarGrid` / `RadarAxis` strokes |
 
 ```tsx
-import { ringCssVars, radarCssVars } from "@bklitui/ui/charts";
+import { ringCssVars, radarCssVars } from "@/components/charts";
 
 // ringCssVars.ringBackground → var(--border)
 // radarCssVars.border → var(--border)
@@ -159,7 +159,7 @@ The [Custom Indicator](/docs/utility/custom-indicator) pattern uses `--chart-ind
 Or using the typed object:
 
 ```tsx
-import { chartCssVars } from "@bklitui/ui/charts";
+import { chartCssVars } from "@/components/charts";
 
 <motion.rect
   fill={chartCssVars.indicatorColor}
