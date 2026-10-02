@@ -6,7 +6,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@bklitui/ui/components/card";
+} from "@cortexcn/ui/components/card";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
