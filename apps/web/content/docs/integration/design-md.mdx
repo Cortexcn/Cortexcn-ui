@@ -1,0 +1,78 @@
+---
+title: DESIGN.md
+description: Cortexcn's design system as a DESIGN.md file your AI assistant can read and follow.
+---
+
+Cortexcn publishes its design system as a `DESIGN.md` file, so an AI assistant building UI in your project uses the same colors, corners, type, and motion as the components.
+
+## The format
+
+DESIGN.md is an open format from Google Labs ([google-labs-code/design.md](https://github.com/google-labs-code/design.md), spec version alpha). A file has two parts:
+
+- YAML front matter with the design tokens: `colors`, `typography`, `rounded`, `spacing`, and `components`.
+- Markdown sections that explain how to use them: Overview, Colors, Typography, Layout, Elevation & Depth, Shapes, Components, and Do's and Don'ts.
+
+Cortexcn's file is generated from its real theme tokens, so it matches the components you install.
+
+## Install
+
+Add it to your project root:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json
+```
+
+This writes `DESIGN.md`. To install it together with the [skills](/docs/integration/skills), use `https://ui.cortexcn.dev/r/agent-kit.json` instead.
+
+Agents connected to the [MCP server](/docs/integration/mcp) can also read it with the `get_design_guide` tool, without installing anything.
+
+The file is generated, so it is not reproduced on this page. To read the raw version, open [design-md.json](https://ui.cortexcn.dev/r/design-md.json).
+
+## What it specifies
+
+| Area           | Rule                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Corners        | Square. `--radius` is `0`, and every `rounded-*` class resolves from it.                                                 |
+| Color          | Theme tokens only: `background`, `foreground`, `card`, `muted`, `primary`, `border`, `ring`, and `chart-1` to `chart-5`. |
+| Light and dark | Both modes come from the same tokens. Dark mode is the `.dark` class.                                                    |
+| Focus          | Every interactive element shows `focus-visible:ring-3 focus-visible:ring-ring/50`.                                       |
+| Control sizes  | `h-9` by default, `h-8` small, `h-10` large.                                                                             |
+| Motion         | 100 to 300 ms, easing out. Reduced motion is respected.                                                                  |
+
+## Make your assistant use it
+
+No assistant is documented to load `DESIGN.md` on its own, so reference it from a file your assistant does read.
+
+For Claude Code, add this line to `CLAUDE.md`:
+
+```md title="CLAUDE.md"
+@DESIGN.md
+```
+
+For Codex, Cursor, and GitHub Copilot, add a line like this to `AGENTS.md`:
+
+```md title="AGENTS.md"
+Follow DESIGN.md for all UI work.
+```
+
+Or install the `cortexcn-design` [skill](/docs/integration/skills), which reads `DESIGN.md` before any UI work.
+
+## Lint or export it
+
+This step is optional. Google's DESIGN.md CLI can check the file against the spec:
+
+```bash
+npx @google/design.md lint DESIGN.md
+```
+
+It can also export the tokens to another format, such as `css-tailwind`:
+
+```bash
+npx @google/design.md export --format css-tailwind DESIGN.md
+```
+
+## Related
+
+- [Skills](/docs/integration/skills): the `cortexcn-design` skill applies this file
+- [MCP Server](/docs/integration/mcp): read the file with `get_design_guide`
+- [Components](/docs/components): the components the file describes

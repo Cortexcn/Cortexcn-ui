@@ -1,0 +1,82 @@
+---
+title: Skills
+description: Agent skills that teach your AI assistant how to find, install, and style Cortexcn components, blocks, and charts.
+---
+
+Cortexcn publishes two agent skills that tell your AI assistant how to work with Cortexcn: one for finding and installing items, and one for following the Cortexcn design system.
+
+## The skills
+
+| Skill             | What it covers                                                                                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cortexcn`        | How to find, install, compose, and theme Cortexcn items. It uses the [MCP server](/docs/integration/mcp) when it is connected, and otherwise the registry and the markdown docs. |
+| `cortexcn-design` | How to apply the Cortexcn design system from [DESIGN.md](/docs/integration/design-md) before building or restyling UI, with a checklist to run before finishing.                 |
+
+Both use the open Agent Skills format: each skill is a folder with a `SKILL.md` file of instructions in markdown. Your assistant reads the short description of every installed skill and loads the full file when a task matches, so you do not have to name the skill in your request.
+
+Skills are plain markdown. Your team can read them, edit them to fit the project, and commit them like any other file.
+
+## Install
+
+### With the shadcn CLI
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json
+```
+
+You do not need a `components.json` for these files. The command writes both skills twice, once for Claude Code and once for Codex, Cursor, and GitHub Copilot:
+
+```text
+.claude/skills/cortexcn/SKILL.md
+.claude/skills/cortexcn-design/SKILL.md
+.agents/skills/cortexcn/SKILL.md
+.agents/skills/cortexcn-design/SKILL.md
+```
+
+### With the skills CLI
+
+```bash
+npx skills add https://ui.cortexcn.dev
+```
+
+The skills CLI reads the skill index that Cortexcn publishes at [https://ui.cortexcn.dev/.well-known/agent-skills/index.json](https://ui.cortexcn.dev/.well-known/agent-skills/index.json).
+
+### Everything at once
+
+To install both skills and the `DESIGN.md` file in one step:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/agent-kit.json
+```
+
+## Where each assistant reads skills
+
+| Assistant                 | Folder                                                     |
+| ------------------------- | ---------------------------------------------------------- |
+| Claude Code               | `.claude/skills/`                                          |
+| OpenAI Codex              | `.agents/skills/`                                          |
+| Cursor                    | `.agents/skills/` (it also reads `.claude/skills/`)        |
+| GitHub Copilot in VS Code | `.github/skills/`, `.claude/skills/`, or `.agents/skills/` |
+
+The shadcn CLI install covers all four, because it writes to both `.claude/skills/` and `.agents/skills/`.
+
+## Example requests
+
+With the skills installed, ask as you normally would:
+
+- "Add a feature grid from Cortexcn below the hero."
+- "Install the area chart and plot weekly signups with a tooltip."
+- "Build a stats page with bar and line charts from the @cortexcn registry."
+- "Add a stat card with a line chart to the dashboard."
+- "Restyle this settings form to follow DESIGN.md."
+- "Check this page against the Cortexcn design checklist."
+
+## Use with the MCP server
+
+The skills work on their own, using the registry and the markdown docs. Pair them with the [MCP server](/docs/integration/mcp) for the best results: the `cortexcn` skill tells the assistant to search with `search_items` and read `get_item` before it installs anything, so it works from the current catalog and the real props.
+
+## Related
+
+- [MCP Server](/docs/integration/mcp): connect your assistant to the Cortexcn registry
+- [DESIGN.md](/docs/integration/design-md): the design system the `cortexcn-design` skill follows
+- [Installation](/docs/installation): set up the `@cortexcn` registry by hand
