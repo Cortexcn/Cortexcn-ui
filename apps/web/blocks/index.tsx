@@ -9,6 +9,7 @@ import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
 import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
 import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
 import { FeatureStudioGridBlock } from "./feature-studio-grid-01";
+import { HeroDashboardBlock } from "./hero-dashboard-01";
 import { type BlockSlug, blockFileManifests } from "./manifest";
 import { StatCardAreaBlock } from "./stat-card-area-01";
 import type { BlockDisplayProps } from "./stat-card-area-01/meta";
@@ -27,6 +28,7 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "ai-reasoning-01": AiReasoningBlock,
   "ai-chain-of-thought-01": AiChainOfThoughtBlock,
   "ai-shimmer-01": AiShimmerBlock,
+  "hero-dashboard-01": HeroDashboardBlock,
 };
 
 /** Block viewers (preview, code, install) for every block in a category. */

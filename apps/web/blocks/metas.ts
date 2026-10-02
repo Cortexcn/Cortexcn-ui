@@ -6,6 +6,7 @@ import { featureImageColumns01Meta } from "./feature-image-columns-01/meta";
 import { featureMediaCards01Meta } from "./feature-media-cards-01/meta";
 import { featureSpotlightGrid01Meta } from "./feature-spotlight-grid-01/meta";
 import { featureStudioGrid01Meta } from "./feature-studio-grid-01/meta";
+import { heroDashboard01Meta } from "./hero-dashboard-01/meta";
 import type { BlockSlug } from "./manifest";
 import { statCardArea01Meta } from "./stat-card-area-01/meta";
 import { statCardChoropleth01Meta } from "./stat-card-choropleth-01/meta";
@@ -27,4 +28,5 @@ export const BLOCK_METAS: Record<
   "ai-reasoning-01": aiReasoning01Meta,
   "ai-chain-of-thought-01": aiChainOfThought01Meta,
   "ai-shimmer-01": aiShimmer01Meta,
+  "hero-dashboard-01": heroDashboard01Meta,
 };
