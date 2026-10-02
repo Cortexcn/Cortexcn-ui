@@ -12,6 +12,13 @@ export interface BlockCategory {
 /** Add a category here and it joins the /blocks sidebar and gets its own page. */
 export const BLOCK_CATEGORIES: BlockCategory[] = [
   {
+    slug: "hero",
+    name: "Hero",
+    description:
+      "Opening sections with a headline, a call to action, and a product preview.",
+    blocks: ["hero-dashboard-01"],
+  },
+  {
     slug: "features",
     name: "Features",
     description:
