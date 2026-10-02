@@ -1,6 +1,6 @@
 "use client";
 
-import { PatternLines } from "@bklitui/ui/charts";
+import { PatternLines } from "@cortexcn/ui/charts";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { usePauseWhenOffscreen } from "@/lib/use-pause-when-offscreen";
