@@ -510,7 +510,7 @@ for (const [slug, spec] of Object.entries(EXAMPLES)) {
   const extra = spec.extraImports ? `${spec.extraImports}\n\n` : "";
   const content = `"use client"
 
-// In your app (monorepo/npm): import { ${spec.importFrom} } from "@bklitui/ui/charts"
+// In your app (monorepo/npm): import { ${spec.importFrom} } from "@cortexcn/ui/charts"
 import { ${spec.importFrom} } from "@/components/charts"
 
 ${extra}${spec.data}

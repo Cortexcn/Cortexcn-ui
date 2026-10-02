@@ -322,9 +322,9 @@ function transformForRegistry(content, filePath) {
   }
 
   return content
-    .replaceAll("@bklitui/ui/charts", "@/components/charts")
+    .replaceAll("@cortexcn/ui/charts", "@/components/charts")
     .replaceAll("@/components/docs/use-world-data", "@/lib/use-world-data")
-    .replaceAll("@bklitui/ui/components/", "@/components/");
+    .replaceAll("@cortexcn/ui/components/", "@/components/");
 }
 
 function copyBlockFile(blockId, relativePath) {
