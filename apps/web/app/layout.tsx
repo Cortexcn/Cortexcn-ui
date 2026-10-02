@@ -1,4 +1,3 @@
-import { GithubStatsProvider } from "@/components/providers/github-stats-provider";
 import "./globals.css";
 import { OpenPanelComponent } from "@openpanel/nextjs";
 import { RootProvider } from "fumadocs-ui/provider";
@@ -147,24 +146,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             trackScreenViews
           />
         ) : null}
-        <GithubStatsProvider>
-          <RootProvider
-            search={{
-              SearchDialog: DocsSearchDialog,
-              options: {
-                api: "/api/search",
-              },
-            }}
-            theme={{
-              attribute: "class",
-              defaultTheme: "system",
-              disableTransitionOnChange: true,
-              enableSystem: true,
-            }}
-          >
-            {children}
-          </RootProvider>
-        </GithubStatsProvider>
+        <RootProvider
+          search={{
+            SearchDialog: DocsSearchDialog,
+            options: {
+              api: "/api/search",
+            },
+          }}
+          theme={{
+            attribute: "class",
+            defaultTheme: "system",
+            disableTransitionOnChange: true,
+            enableSystem: true,
+          }}
+        >
+          {children}
+        </RootProvider>
         <PageScrollbar />
       </body>
     </html>
