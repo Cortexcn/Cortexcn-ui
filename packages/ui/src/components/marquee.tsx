@@ -1,4 +1,3 @@
-// Adapted from the Magic UI Marquee (MIT, https://magicui.design).
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
