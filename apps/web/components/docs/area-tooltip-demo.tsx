@@ -1,6 +1,6 @@
 "use client";
 
-import { ChartTooltip } from "@bklitui/ui/charts";
+import { ChartTooltip } from "@cortexcn/ui/charts";
 
 export function AreaTooltipDemo() {
   return (

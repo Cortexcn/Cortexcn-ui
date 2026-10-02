@@ -7,7 +7,7 @@ import {
   LineChart,
   XAxis,
   YAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const chartData = [
   { date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000), value: 1200 },
