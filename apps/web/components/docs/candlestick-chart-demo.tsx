@@ -6,7 +6,7 @@ import {
   ChartTooltip,
   type OHLCDataPoint,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { CandlestickTooltipDemo } from "./candlestick-tooltip-demo";
 
 const chartData: OHLCDataPoint[] = [

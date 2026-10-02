@@ -1,6 +1,6 @@
 "use client";
 
-import { Bar, BarChart, BarXAxis, Grid } from "@bklitui/ui/charts";
+import { Bar, BarChart, BarXAxis, Grid } from "@cortexcn/ui/charts";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
