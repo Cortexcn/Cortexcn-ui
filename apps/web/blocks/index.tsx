@@ -1,5 +1,8 @@
 import type { ComponentType } from "react";
 import { readBlockFiles } from "@/lib/blocks/read-block-files";
+import { AiChainOfThoughtBlock } from "./ai-chain-of-thought-01";
+import { AiReasoningBlock } from "./ai-reasoning-01";
+import { AiShimmerBlock } from "./ai-shimmer-01";
 import type { BlockCategory } from "./categories";
 import { FeatureBentoGridBlock } from "./feature-bento-grid-01";
 import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
@@ -21,6 +24,9 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
   "stat-card-choropleth-01": StatCardChoroplethBlock,
+  "ai-reasoning-01": AiReasoningBlock,
+  "ai-chain-of-thought-01": AiChainOfThoughtBlock,
+  "ai-shimmer-01": AiShimmerBlock,
 };
 
 /** Block viewers (preview, code, install) for every block in a category. */

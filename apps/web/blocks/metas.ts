@@ -1,3 +1,6 @@
+import { aiChainOfThought01Meta } from "./ai-chain-of-thought-01/meta";
+import { aiReasoning01Meta } from "./ai-reasoning-01/meta";
+import { aiShimmer01Meta } from "./ai-shimmer-01/meta";
 import { featureBentoGrid01Meta } from "./feature-bento-grid-01/meta";
 import { featureImageColumns01Meta } from "./feature-image-columns-01/meta";
 import { featureMediaCards01Meta } from "./feature-media-cards-01/meta";
@@ -21,4 +24,7 @@ export const BLOCK_METAS: Record<
   "stat-card-area-01": statCardArea01Meta,
   "stat-card-line-01": statCardLine01Meta,
   "stat-card-choropleth-01": statCardChoropleth01Meta,
+  "ai-reasoning-01": aiReasoning01Meta,
+  "ai-chain-of-thought-01": aiChainOfThought01Meta,
+  "ai-shimmer-01": aiShimmer01Meta,
 };

@@ -1,4 +1,7 @@
 import type { ComponentType } from "react";
+import { AiChainOfThoughtPreview } from "./ai-chain-of-thought-01/preview";
+import { AiReasoningPreview } from "./ai-reasoning-01/preview";
+import { AiShimmerPreview } from "./ai-shimmer-01/preview";
 import { FeatureBentoGridPreview } from "./feature-bento-grid-01/preview";
 import { FeatureImageColumnsPreview } from "./feature-image-columns-01/preview";
 import { FeatureMediaCardsPreview } from "./feature-media-cards-01/preview";
@@ -19,4 +22,7 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "stat-card-area-01": StatCardAreaPreview,
   "stat-card-line-01": StatCardLinePreview,
   "stat-card-choropleth-01": StatCardChoroplethPreview,
+  "ai-reasoning-01": AiReasoningPreview,
+  "ai-chain-of-thought-01": AiChainOfThoughtPreview,
+  "ai-shimmer-01": AiShimmerPreview,
 };
