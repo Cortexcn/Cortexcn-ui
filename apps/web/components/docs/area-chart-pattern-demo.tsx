@@ -8,7 +8,7 @@ import {
   PatternArea,
   PatternLines,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const chartData = [
   { date: new Date(2024, 0, 1), desktop: 186 },

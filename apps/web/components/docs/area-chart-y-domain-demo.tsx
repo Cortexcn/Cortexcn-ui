@@ -1,6 +1,6 @@
 "use client";
 
-import { Area, AreaChart, Grid } from "@bklitui/ui/charts";
+import { Area, AreaChart, Grid } from "@cortexcn/ui/charts";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
