@@ -203,6 +203,13 @@ const LANDING_PATHS = new Set([
  * lit on every page inside it: Docs covers /docs, except the component pages,
  * which belong to Components, and Charts covers the whole /charts gallery.
  */
+/** Search covers the docs, so it only shows in the header on the docs and chart pages. */
+function hasDocsSearch(pathname: string) {
+  return ["/docs", "/charts"].some(
+    (section) => pathname === section || pathname.startsWith(`${section}/`),
+  );
+}
+
 function isNavLinkActive(url: string, pathname: string) {
   const inDocs = pathname === "/docs" || pathname.startsWith("/docs/");
   const inComponents = pathname.startsWith("/docs/components");
@@ -567,7 +574,7 @@ function LandingHeaderItems({
                 href={link.url}
                 key={link.url}
               >
-                {link.text}
+                <NavLinkLabel text={link.text} url={link.url} />
               </Link>
             );
           })}
@@ -577,10 +584,12 @@ function LandingHeaderItems({
       <div className="flex items-center gap-2">
         <div className="flex h-9 items-center gap-0.5 border border-border bg-background px-0.5">
           {/* From lg up: at tablet widths the nav tabs need the room. */}
-          <DocsSearchTrigger
-            className="hidden w-30 justify-between lg:inline-flex"
-            hideIfDisabled
-          />
+          {hasDocsSearch(pathname) && (
+            <DocsSearchTrigger
+              className="hidden w-30 justify-between lg:inline-flex"
+              hideIfDisabled
+            />
+          )}
           <ModeToggle />
           {menuButton}
         </div>
@@ -740,10 +749,12 @@ export function SiteHeader({
 
                 <div className="flex items-center gap-1">
                   {/* From lg up: at tablet widths the nav links need the room. */}
-                  <DocsSearchTrigger
-                    className="hidden w-30 justify-between lg:inline-flex"
-                    hideIfDisabled
-                  />
+                  {hasDocsSearch(pathname) && (
+                    <DocsSearchTrigger
+                      className="hidden w-30 justify-between lg:inline-flex"
+                      hideIfDisabled
+                    />
+                  )}
                   <ModeToggle />
                   <MobileMenuButton
                     onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
