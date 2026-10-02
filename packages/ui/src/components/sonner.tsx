@@ -7,7 +7,6 @@ import {
   OctagonXIcon,
   TriangleAlertIcon,
 } from "lucide-react";
-// Adapted from the shadcn/ui Sonner (MIT, https://ui.shadcn.com).
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 
