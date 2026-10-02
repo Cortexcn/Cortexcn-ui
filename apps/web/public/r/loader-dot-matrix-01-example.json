@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-dot-matrix-01-example",
+  "title": "Loader Dot Matrix Example",
+  "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button — demo for Open in v0",
+  "dependencies": [],
+  "registryDependencies": ["@cortexcn/loader-dot-matrix-01"],
+  "files": [
+    {
+      "path": "registry/examples/loader-dot-matrix-01.tsx",
+      "content": "\"use client\";\n\nimport { LoaderDotMatrixDemo } from \"@/components/loader-dot-matrix-demo\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-3xl\">\n        <LoaderDotMatrixDemo />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "type": "registry:example"
+}
