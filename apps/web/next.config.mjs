@@ -34,7 +34,7 @@ const nextConfig = {
       ["shimmer", "ai-shimmer-01"],
     ].map(([component, block]) => ({
       source: `/docs/components/${component}`,
-      destination: `/blocks/ai-assistant#${block}`,
+      destination: `/blocks/ai-assistant/${block}`,
       permanent: true,
     }));
   },

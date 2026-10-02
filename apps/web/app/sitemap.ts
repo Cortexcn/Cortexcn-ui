@@ -29,12 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // { url: `${SITE_URL}/studio`, changeFrequency: "monthly", priority: 0.7 },
   ];
 
-  const blockRoutes: MetadataRoute.Sitemap = BLOCK_CATEGORIES.map(
-    (category) => ({
-      url: `${DOCS_URL}/blocks/${category.slug}`,
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    }),
+  // One page per block; the category pages redirect to the filtered gallery.
+  const blockRoutes: MetadataRoute.Sitemap = BLOCK_CATEGORIES.flatMap(
+    (category) =>
+      category.blocks.map((block) => ({
+        url: `${DOCS_URL}/blocks/${category.slug}/${block}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
   );
 
   const templateRoutes: MetadataRoute.Sitemap = SITE_TEMPLATES.map(
