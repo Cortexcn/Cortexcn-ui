@@ -1,4 +1,4 @@
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
