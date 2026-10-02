@@ -1,6 +1,6 @@
 "use client";
 
-import { Lanyard3D } from "@bklitui/ui/components/lanyard-3d";
+import { Lanyard3D } from "@cortexcn/ui/components/lanyard-3d";
 
 export function Lanyard3DDemo() {
   return <Lanyard3D />;

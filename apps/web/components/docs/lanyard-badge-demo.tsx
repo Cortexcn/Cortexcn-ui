@@ -1,6 +1,6 @@
 "use client";
 
-import { LanyardBadge } from "@bklitui/ui/components/lanyard-badge";
+import { LanyardBadge } from "@cortexcn/ui/components/lanyard-badge";
 import { CortexcnMark } from "@/components/icons/cortexcn-mark";
 
 /** Barcode bars, as widths in a 1 to 3 pattern, for the badge's footer. */
