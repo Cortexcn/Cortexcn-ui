@@ -1,11 +1,11 @@
 "use client";
 
-import { LineNav, type LineNavItem } from "@bklitui/ui/components/line-nav";
-import { startThemeTransition } from "@bklitui/ui/components/theme-toggle-effect";
+import { LineNav, type LineNavItem } from "@cortexcn/ui/components/line-nav";
+import { startThemeTransition } from "@cortexcn/ui/components/theme-toggle-effect";
 import {
   type ExperienceItemType,
   WorkExperience,
-} from "@bklitui/ui/components/work-experience";
+} from "@cortexcn/ui/components/work-experience";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
