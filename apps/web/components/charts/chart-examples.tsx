@@ -112,7 +112,7 @@ import {
   useChart,
   XAxis,
   YAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import {
   curveBasis,
   curveCatmullRom,
@@ -1711,7 +1711,7 @@ function makeAreaExamples(): ChartExample[] {
       title: "Area Chart - Loading",
       description:
         "Shimmering grid, pulsing foreground segment, and shimmer label while data loads",
-      code: `import { AreaChartLoading } from "@bklitui/ui/charts";
+      code: `import { AreaChartLoading } from "@/components/charts";
 
 <AreaChartLoading
   gridShimmerSync
@@ -2790,7 +2790,7 @@ function makeComposedExamples(): ChartExample[] {
       title: "Composed Chart — Pattern fills",
       description:
         "One SeriesBar with a fuchsia-400 diagonal pattern, one solid bar on theme colors; revenue line unchanged",
-      code: `import { PatternLines } from "@bklitui/ui/charts";
+      code: `import { PatternLines } from "@/components/charts";
 
 <ComposedChart margin={{ top: 8, right: 8, bottom: 40, left: 8 }} data={data} aspectRatio="3 / 2" barGap={0} maxBarSize={22}>
   <PatternLines id="composed-pat-fuchsia" height={6} width={6} orientation={["diagonal"]} stroke="#e879f9" strokeWidth={1} />
@@ -3050,7 +3050,7 @@ function makeLineExamples(): ChartExample[] {
   buildProjectionPath,
   LineSeriesTerminalMarker,
   ProjectionLine,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const targetProjectionPath = buildProjectionPath({
   sourceData: chartData,
@@ -3249,7 +3249,7 @@ const autoProjectionPath = buildProjectionPath({
       title: "Line Chart - Loading",
       description:
         "Shimmering grid, pulsing foreground segment, and shimmer label while data loads",
-      code: `import { LineChartLoading } from "@bklitui/ui/charts";
+      code: `import { LineChartLoading } from "@/components/charts";
 
 <LineChartLoading
   gridShimmerSync
@@ -3361,7 +3361,7 @@ const autoProjectionPath = buildProjectionPath({
   ProfitLossLegendHoverProvider,
   profitLossColor,
   resolveProfitLossTooltipLabel,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 <LineChart data={data}>
   <Grid highlightRowValues={[0]} horizontal />
@@ -5409,7 +5409,7 @@ const levelStyles = [
       title: "Heatmap Chart - Loading",
       description:
         "Skeleton grid with cell shimmer while data loads (six months)",
-      code: `import { HeatmapChartLoading } from "@bklitui/ui/charts";
+      code: `import { HeatmapChartLoading } from "@/components/charts";
 
 <HeatmapChartLoading
   data={data}
@@ -5474,7 +5474,7 @@ const levelStyles = [
       title: "Heatmap Chart - Monday Start",
       description:
         "Week starts on Monday with M–S labels and faded weekend rows (six months)",
-      code: `import { buildHeatmapRowOpacity } from "@bklitui/ui/charts";
+      code: `import { buildHeatmapRowOpacity } from "@/components/charts";
 
 const weekendOpacity = buildHeatmapRowOpacity((row) => row >= 5, 0.35);
 
@@ -6037,7 +6037,7 @@ function makeProfitLossLineExamples(): ChartExample[] {
   ProfitLossLegendHoverProvider,
   profitLossColor,
   resolveProfitLossTooltipLabel,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 <LineChart data={data}>
   <Grid highlightRowValues={[0]} horizontal />
@@ -6192,7 +6192,7 @@ import {
   Line,
   LineChart,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 <ChartBrushLayout data={chartData} enabled height={72} brushStrip={...}>
   {(brushLayout) => (

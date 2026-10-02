@@ -10,7 +10,7 @@ import {
   Line,
   LineChart,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { curveCatmullRom } from "@visx/curve";
 import { useMemo, useState } from "react";
 
