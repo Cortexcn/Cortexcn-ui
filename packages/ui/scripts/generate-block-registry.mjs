@@ -120,6 +120,33 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-bento-grid.tsx"],
   },
+  "ai-reasoning-01": {
+    title: "AI Reasoning Panel",
+    description:
+      "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay",
+    previewMaxWidth: "max-w-xl",
+    registryDependencies: ["@cortexcn/reasoning", "button"],
+    dependencies: ["lucide-react"],
+    files: ["components/reasoning-panel.tsx"],
+  },
+  "ai-chain-of-thought-01": {
+    title: "AI Agent Steps",
+    description:
+      "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends",
+    previewMaxWidth: "max-w-md",
+    registryDependencies: ["@cortexcn/chain-of-thought", "button"],
+    dependencies: ["lucide-react"],
+    files: ["components/agent-steps.tsx"],
+  },
+  "ai-shimmer-01": {
+    title: "AI Thinking Message",
+    description:
+      "A chat turn where the assistant's reply is a shimmering status line while it works",
+    previewMaxWidth: "max-w-sm",
+    registryDependencies: ["@cortexcn/shimmer", "@cortexcn/utils"],
+    dependencies: [],
+    files: ["components/thinking-message.tsx"],
+  },
   "stat-card-area-01": {
     title: "Stat Card Area",
     description:
@@ -204,6 +231,9 @@ const COMPONENT_EXPORTS = {
   "feature-image-columns-01": "FeatureImageColumns",
   "feature-studio-grid-01": "FeatureStudioGrid",
   "feature-bento-grid-01": "FeatureBentoGrid",
+  "ai-reasoning-01": "ReasoningPanel",
+  "ai-chain-of-thought-01": "AgentSteps",
+  "ai-shimmer-01": "ThinkingMessage",
   "stat-card-area-01": "StatCardArea",
   "stat-card-line-01": "StatCardLine",
   "stat-card-choropleth-01": "StatCardChoropleth",
@@ -216,7 +246,8 @@ function transformForRegistry(content, filePath) {
 
   return content
     .replaceAll("@bklitui/ui/charts", "@/components/charts")
-    .replaceAll("@/components/docs/use-world-data", "@/lib/use-world-data");
+    .replaceAll("@/components/docs/use-world-data", "@/lib/use-world-data")
+    .replaceAll("@bklitui/ui/components/", "@/components/");
 }
 
 function copyBlockFile(blockId, relativePath) {
