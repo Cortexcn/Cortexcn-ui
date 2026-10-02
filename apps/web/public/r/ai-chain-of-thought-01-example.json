@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-chain-of-thought-01-example",
+  "title": "AI Agent Steps Example",
+  "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends — demo for Open in v0",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["@cortexcn/ai-chain-of-thought-01"],
+  "files": [
+    {
+      "path": "registry/examples/ai-chain-of-thought-01.tsx",
+      "content": "\"use client\";\n\nimport { AgentSteps } from \"@/components/agent-steps\";\n\nexport default function Component() {\n  return (\n    <main className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-md\">\n        <AgentSteps />\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "type": "registry:example"
+}
