@@ -129,6 +129,18 @@
     }
   }
 
+  /* Header nav: the light that sweeps across a "New" label. */
+  --animate-new-sheen: new-sheen 3s linear infinite;
+
+  @keyframes new-sheen {
+    from {
+      background-position: 200% 50%;
+    }
+    to {
+      background-position: -200% 50%;
+    }
+  }
+
   /* Marquee: mirrors the cssVars/css shipped with the `marquee` registry item. */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
