@@ -136,7 +136,7 @@ importers:
         version: 0.6.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@openpanel/nextjs":
         specifier: ^1.5.1
-        version: 1.5.1(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.5.1(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@remotion/web-renderer":
         specifier: 4.0.529
         version: 4.0.529(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -181,19 +181,22 @@ importers:
         version: 0.8.3
       fumadocs-core:
         specifier: ^15.2.9
-        version: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       fumadocs-mdx:
         specifier: ^11.6.5
-        version: 11.10.1(fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(vite@6.4.2(@types/node@22.20.4)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.23.15)(yaml@2.9.1))
+        version: 11.10.1(fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(vite@6.4.2(@types/node@22.20.4)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.23.15)(yaml@2.9.1))
       fumadocs-ui:
         specifier: ^15.2.9
-        version: 15.8.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(tailwindcss@4.3.3)
+        version: 15.8.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(tailwindcss@4.3.3)
       geist:
         specifier: ^1.7.2
-        version: 1.7.2(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: 1.7.2(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       lenis:
         specifier: ^1.3.26
         version: 1.3.26(react@19.3.0)
+      lucide-react:
+        specifier: ^1.48.0
+        version: 1.48.0(react@19.3.0)
       mediabunny:
         specifier: 1.60.0
         version: 1.60.0
@@ -205,13 +208,13 @@ importers:
         version: 13.4.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next:
         specifier: ^16.3.6
-        version: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       nuqs:
         specifier: ^2.10.1
-        version: 2.10.1(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 2.10.1(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       puppeteer-core:
         specifier: ^25.1.0
         version: 25.1.0
@@ -390,7 +393,7 @@ importers:
         version: 0.4.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       nuqs:
         specifier: ^2.10.1
-        version: 2.10.1(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 2.10.1(next@16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       react:
         specifier: ^19.3.0
         version: 19.3.0
@@ -13214,10 +13217,10 @@ snapshots:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
 
-  "@openpanel/nextjs@1.5.1(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)":
+  "@openpanel/nextjs@1.5.1(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)":
     dependencies:
       "@openpanel/web": 1.4.1
-      next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
 
@@ -16594,7 +16597,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       "@formatjs/intl-localematcher": 0.6.2
       "@orama/orama": 3.1.18
@@ -16617,7 +16620,7 @@ snapshots:
     optionalDependencies:
       "@types/react": 19.3.0
       lucide-react: 1.48.0(react@19.3.0)
-      next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
     transitivePeerDependencies:
@@ -16648,14 +16651,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fumadocs-mdx@11.10.1(fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(vite@6.4.2(@types/node@22.20.4)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.23.15)(yaml@2.9.1)):
+  fumadocs-mdx@11.10.1(fumadocs-core@15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(vite@6.4.2(@types/node@22.20.4)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.23.15)(yaml@2.9.1)):
     dependencies:
       "@mdx-js/mdx": 3.1.1
       "@standard-schema/spec": 1.1.0
       chokidar: 4.0.3
       esbuild: 0.25.12
       estree-util-value-to-estree: 3.5.0
-      fumadocs-core: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      fumadocs-core: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       js-yaml: 4.1.0
       lru-cache: 11.2.4
       picocolors: 1.1.1
@@ -16667,7 +16670,7 @@ snapshots:
       unist-util-visit: 5.0.0
       zod: 4.3.5
     optionalDependencies:
-      next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
       vite: 6.4.2(@types/node@22.20.4)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.23.15)(yaml@2.9.1)
     transitivePeerDependencies:
@@ -16710,7 +16713,7 @@ snapshots:
       - supports-color
       - waku
 
-  fumadocs-ui@15.8.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(tailwindcss@4.3.3):
+  fumadocs-ui@15.8.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(tailwindcss@4.3.3):
     dependencies:
       "@radix-ui/react-accordion": 1.2.12(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       "@radix-ui/react-collapsible": 1.1.12(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -16723,7 +16726,7 @@ snapshots:
       "@radix-ui/react-slot": 1.2.4(@types/react@19.3.0)(react@19.3.0)
       "@radix-ui/react-tabs": 1.1.13(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       class-variance-authority: 0.7.1
-      fumadocs-core: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      fumadocs-core: 15.8.5(@types/react@19.3.0)(lucide-react@1.48.0(react@19.3.0))(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       lodash.merge: 4.6.2
       next-themes: 0.4.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       postcss-selector-parser: 7.1.1
@@ -16734,7 +16737,7 @@ snapshots:
       tailwind-merge: 3.7.0
     optionalDependencies:
       "@types/react": 19.3.0
-      next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       tailwindcss: 4.3.3
     transitivePeerDependencies:
       - "@mixedbread/sdk"
@@ -16766,9 +16769,9 @@ snapshots:
     dependencies:
       next: 15.5.26(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
-  geist@1.7.2(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  geist@1.7.2(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
     dependencies:
-      next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   gensync@1.0.0-beta.2: {}
 
@@ -18173,6 +18176,31 @@ snapshots:
       - "@types/node"
       - babel-plugin-macros
 
+  next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      "@next/env": 16.3.6
+      "@swc/helpers": 0.5.23
+      baseline-browser-mapping: 2.11.26
+      caniuse-lite: 1.0.30001812
+      postcss: 8.5.23
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
+      styled-jsx: 5.1.6(@babel/core@7.29.7)(react@19.3.0)
+    optionalDependencies:
+      "@next/swc-darwin-arm64": 16.3.6
+      "@next/swc-darwin-x64": 16.3.6
+      "@next/swc-linux-arm64-gnu": 16.3.6
+      "@next/swc-linux-arm64-musl": 16.3.6
+      "@next/swc-linux-x64-gnu": 16.3.6
+      "@next/swc-linux-x64-musl": 16.3.6
+      "@next/swc-win32-arm64-msvc": 16.3.6
+      "@next/swc-win32-x64-msvc": 16.3.6
+      sharp: 0.35.4(@types/node@22.20.4)
+    transitivePeerDependencies:
+      - "@babel/core"
+      - "@types/node"
+      - babel-plugin-macros
+
   node-releases@2.0.27: {}
 
   node-releases@2.0.57: {}
@@ -18192,12 +18220,19 @@ snapshots:
     dependencies:
       esm-env: esm-env-runtime@0.1.1
 
-  nuqs@2.10.1(next@16.3.6(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
+  nuqs@2.10.1(next@16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
     dependencies:
       "@standard-schema/spec": 1.1.0
       react: 19.3.0
     optionalDependencies:
       next: 16.3.6(@babel/core@7.29.0)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+
+  nuqs@2.10.1(next@16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
+    dependencies:
+      "@standard-schema/spec": 1.1.0
+      react: 19.3.0
+    optionalDependencies:
+      next: 16.3.6(@babel/core@7.29.7)(@types/node@22.20.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   nypm@0.6.10:
     dependencies:
@@ -19406,6 +19441,13 @@ snapshots:
       react: 19.3.0
     optionalDependencies:
       "@babel/core": 7.29.0
+
+  styled-jsx@5.1.6(@babel/core@7.29.7)(react@19.3.0):
+    dependencies:
+      client-only: 0.0.1
+      react: 19.3.0
+    optionalDependencies:
+      "@babel/core": 7.29.7
 
   stylis@4.4.0: {}
 
