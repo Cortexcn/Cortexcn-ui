@@ -1,7 +1,6 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-// Adapted from the shadcn/ui Field (MIT, https://ui.shadcn.com).
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 
