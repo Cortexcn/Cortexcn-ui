@@ -1,6 +1,6 @@
 "use client";
 
-import type { Margin } from "@bklitui/ui/charts";
+import type { Margin } from "@cortexcn/ui/charts";
 import { useEffect, useState } from "react";
 
 export function useHomeChartCompact() {

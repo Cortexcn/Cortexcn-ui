@@ -4,7 +4,7 @@ import {
   getHeatmapWeekStartAlignedToRange,
   HEATMAP_MONTHS_ONE_YEAR,
   type HeatmapColumn,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const HEATMAP_DAYS = 7;
 
