@@ -3748,6 +3748,76 @@
       ]
     },
     {
+      "name": "hero-studio-01",
+      "type": "registry:block",
+      "title": "Hero Studio",
+      "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": ["class-variance-authority", "motion"],
+      "files": [
+        {
+          "path": "registry/blocks/hero-studio-01/components/hero-studio.tsx",
+          "type": "registry:component",
+          "target": "components/hero-studio.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-studio-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-studio-01-example",
+      "type": "registry:example",
+      "title": "Hero Studio Example",
+      "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/hero-studio-01"],
+      "dependencies": ["class-variance-authority", "motion"],
+      "files": [
+        {
+          "path": "registry/examples/hero-studio-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-cover-01",
+      "type": "registry:block",
+      "title": "Hero Cover Photo",
+      "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": ["class-variance-authority", "motion"],
+      "files": [
+        {
+          "path": "registry/blocks/hero-cover-01/components/hero-cover.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cover.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-cover-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-cover-01-example",
+      "type": "registry:example",
+      "title": "Hero Cover Photo Example",
+      "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/hero-cover-01"],
+      "dependencies": ["class-variance-authority", "motion"],
+      "files": [
+        {
+          "path": "registry/examples/hero-cover-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-reasoning-01",
       "type": "registry:block",
       "title": "AI Reasoning Panel",

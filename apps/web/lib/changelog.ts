@@ -43,6 +43,17 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
     kind: "blocks",
+    title: "Two more Hero blocks: Studio and Cover Photo",
+    summary:
+      "Studio sets a short tagline beside a serif headline over a wide landscape that fades into the page. Cover Photo lays the title, a small label, and one light call to action along the bottom of a full-bleed photo.",
+    items: [
+      { label: "Studio", href: "/blocks/hero#hero-studio-01" },
+      { label: "Cover Photo", href: "/blocks/hero#hero-cover-01" },
+    ],
+  },
+  {
+    date: "2026-10-02",
+    kind: "blocks",
     title: "Hero blocks, starting with Dashboard Preview",
     summary:
       "A new Hero category opens with a serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash. It animates in on scroll and stays still for visitors who ask for reduced motion.",
