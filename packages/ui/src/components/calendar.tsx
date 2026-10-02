@@ -5,7 +5,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react";
-// Adapted from the shadcn/ui Calendar (MIT, https://ui.shadcn.com).
 import * as React from "react";
 import {
   type DayButton,
