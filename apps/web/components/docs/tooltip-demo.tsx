@@ -9,7 +9,7 @@ import {
   Line,
   LineChart,
   XAxis,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 
 const chartData = [
   {

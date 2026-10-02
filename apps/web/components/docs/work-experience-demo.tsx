@@ -1,8 +1,8 @@
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import {
   type ExperienceItemType,
   WorkExperience,
-} from "@bklitui/ui/components/work-experience";
+} from "@cortexcn/ui/components/work-experience";
 
 /** Trimmed from the experience section of syedmoinuddin.com. */
 const WORK_EXPERIENCE: ExperienceItemType[] = [
