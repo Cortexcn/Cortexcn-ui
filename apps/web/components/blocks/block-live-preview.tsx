@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import Link from "next/link";
 import type { BlockSlug } from "@/blocks/manifest";
 import { BLOCK_PREVIEWS } from "@/blocks/previews";

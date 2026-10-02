@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@bklitui/icons";
+import { Icon } from "@cortexcn/icons";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { CODE_PANEL_HEADER_CLASS } from "@/components/blocks/block-code-panel-header";
