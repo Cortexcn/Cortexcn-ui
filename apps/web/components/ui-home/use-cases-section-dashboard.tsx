@@ -18,14 +18,14 @@ import {
   RingChart,
   type RingData,
   useChart,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import {
   Card,
   CardAction,
   CardContent,
   CardHeader,
   CardTitle,
-} from "@bklitui/ui/components/card";
+} from "@cortexcn/ui/components/card";
 import { useInView } from "motion/react";
 import {
   type CSSProperties,

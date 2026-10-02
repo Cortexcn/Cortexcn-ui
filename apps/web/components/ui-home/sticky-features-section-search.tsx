@@ -4,7 +4,7 @@ import {
   CommandSearch,
   type CommandSearchGroup,
   type CommandSearchItem,
-} from "@bklitui/ui/components/command-search";
+} from "@cortexcn/ui/components/command-search";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 
