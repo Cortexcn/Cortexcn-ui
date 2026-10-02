@@ -10,6 +10,8 @@
  *
  * Run it after changing the tokens or a skill: `pnpm --filter @cortexcn/ui agents:build`.
  */
+
+import { spawnSync } from "node:child_process";
 import {
   copyFile,
   mkdir,
@@ -386,6 +388,21 @@ Don't:
 `;
 }
 
+/**
+ * The pre-commit hook runs Prettier on markdown and JSON, so format the output
+ * the same way here; otherwise the registry JSON built from it goes stale on
+ * commit.
+ */
+function formatWithPrettier(file) {
+  const prettier = join(uiRoot, "../../node_modules/prettier/bin/prettier.cjs");
+  const result = spawnSync(process.execPath, [prettier, "--write", file], {
+    stdio: "ignore",
+  });
+  if (result.status !== 0) {
+    throw new Error(`Prettier could not format ${file}.`);
+  }
+}
+
 async function buildDesignMd() {
   const css = await readFile(tokensPath, "utf8");
   const tailwind = await readFile(tailwindThemePath, "utf8");
@@ -411,7 +428,9 @@ async function buildDesignMd() {
     throw new Error(`Tokens missing from ${tokensPath}: ${missing.join(", ")}`);
   }
   const output = `${frontMatter(light, dark)}\n${body(light, dark)}`;
-  await writeFile(join(agentsDir, "DESIGN.md"), output);
+  const designPath = join(agentsDir, "DESIGN.md");
+  await writeFile(designPath, output);
+  formatWithPrettier(designPath);
   return output.length;
 }
 
@@ -432,10 +451,9 @@ async function publishSkills() {
     skills.push({ name: entry.name, description, files: ["SKILL.md"] });
   }
   skills.sort((a, b) => a.name.localeCompare(b.name));
-  await writeFile(
-    join(wellKnownDir, "index.json"),
-    `${JSON.stringify({ skills }, null, 2)}\n`,
-  );
+  const indexPath = join(wellKnownDir, "index.json");
+  await writeFile(indexPath, `${JSON.stringify({ skills }, null, 2)}\n`);
+  formatWithPrettier(indexPath);
   return skills.map((skill) => skill.name);
 }
 
