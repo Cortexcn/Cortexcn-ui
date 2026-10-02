@@ -42,6 +42,18 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
+    kind: "blocks",
+    title: "Loaders: Dot Matrix and Glitch Text",
+    summary:
+      "A new Loaders category opens with two loading indicators, each shown four ways. Dot Matrix pulses a grid of dots in a ripple, wave, or rain pattern, and Glitch Text scrambles its letters and splits them into color channels.",
+    items: [
+      { label: "Dot Matrix", href: "/blocks/loaders/loader-dot-matrix-01" },
+      { label: "Glitch Text", href: "/blocks/loaders/loader-glitch-text-01" },
+      { label: "Loader blocks", href: "/blocks?category=loaders" },
+    ],
+  },
+  {
+    date: "2026-10-02",
     kind: "site",
     title: "A page for every block, and a live preview",
     summary:
