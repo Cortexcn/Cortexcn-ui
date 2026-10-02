@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "src/components/skeleton.tsx",
-      "content": "// Adapted from the shadcn/ui Skeleton (MIT, https://ui.shadcn.com).\nimport { cn } from \"@/lib/utils\";\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\"animate-pulse rounded-md bg-muted\", className)}\n      data-slot=\"skeleton\"\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton };\n",
+      "content": "import { cn } from \"@/lib/utils\";\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\"animate-pulse rounded-md bg-muted\", className)}\n      data-slot=\"skeleton\"\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton };\n",
       "type": "registry:component",
       "target": "components/skeleton.tsx"
     }
