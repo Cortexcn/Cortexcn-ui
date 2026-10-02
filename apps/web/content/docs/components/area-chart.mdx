@@ -3,7 +3,6 @@ title: Area Chart
 description: A composable area chart with gradient fills, tooltips, and hover interactions
 ---
 
-import { studioChartHref } from "@bklitui/studio";
 import {
   AreaChart,
   Area,
@@ -14,11 +13,10 @@ import {
   ChartBrushLayout,
   PatternLines,
   PatternArea,
-} from "@bklitui/ui/charts";
+} from "@cortexcn/ui/charts";
 import { AreaChartBrushDemo } from "@/components/docs/area-chart-brush-demo";
 import { AreaChartYDomainDemo } from "@/components/docs/area-chart-y-domain-demo";
 import { AreaTooltipDemo } from "@/components/docs/area-tooltip-demo";
-import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 
 export const chartData = [
   {
@@ -209,7 +207,7 @@ export const chartData = [
 The Area Chart uses the same composable API as the Line Chart. See the [charts gallery](/charts/area-chart) for interactive examples.
 
 ```tsx
-import { AreaChart, Area, Grid, XAxis, ChartTooltip } from "@bklitui/ui/charts";
+import { AreaChart, Area, Grid, XAxis, ChartTooltip } from "@/components/charts";
 
 const data = [
   { date: new Date("2025-01-01"), revenue: 12000, costs: 8500 },
@@ -351,12 +349,6 @@ Wrap the main chart in `ChartBrushLayout`, render a simplified mini chart in `br
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
-  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-  <OpenInStudioButton
-    href={studioChartHref("area-chart", { showBrush: true })}
-    slug="area-chart"
-  />
-  */}
 </div>
 
 <ComponentShowcase
@@ -395,10 +387,6 @@ Wrap the main chart in `ChartBrushLayout`, render a simplified mini chart in `br
   <AreaChartBrushDemo />
 </ComponentShowcase>
 
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-Open [Studio with brush enabled](/studio?chart=area-chart&showBrush=true) to tune strip height, blur, and selection pattern.
-*/}
-
 ## Loading state
 
 Drive loading and ready from your data layer with a single `AreaChart` — one `Grid`, one `Area`, no component swap. Set `status="loading"` while fetching; switch to `"ready"` when data resolves.
@@ -413,12 +401,6 @@ Pair `Grid` `stroke` / `loadingStroke` with shimmer props. Pair `Area` `loadingS
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
     Preview
   </h3>
-  {/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-  <OpenInStudioButton
-    href={studioChartHref("area-chart", { areaChartState: "loading" })}
-    slug="area-chart"
-  />
-  */}
 </div>
 
 <ComponentShowcase
@@ -456,21 +438,6 @@ const [loadingStyle, setLoadingStyle] = useState<"pulse" | "sweep">("pulse");
 </ComponentShowcase>
 
 Toggle **Loading** / **Ready** in the preview to replay the transition, and **Pulse** / **Sweep** to switch the loading animation style. When target data spans a different y-range than the skeleton, `yDomainTween` morphs the scale before the area reveals.
-
-{/* Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-### Studio
-
-Open [Studio in loading mode](/studio?chart=area-chart&areaChartState=loading) and set **State** to **Loading**. In **Settings**, choose **Loading style** — **Pulse** (traveling segment) or **Sweep** (diagonal shimmer). The components tree exposes **Grid**, **Label**, and **Area**:
-
-| Layer        | Controls                                                                                                          |
-| ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| **Settings** | **Loading style** — Pulse or Sweep (Sweep turns off grid shimmer)                                                 |
-| **Grid**     | Grid and shimmer color pickers, shimmer toggle, band length, **Animation** (sync with pulse, speed when unsynced) |
-| **Label**    | Shimmer label text                                                                                                |
-| **Area**     | Pulse stroke color and opacity                                                                                    |
-
-Data and animation panels stay collapsed in loading mode; scramble data is disabled. See the [area chart gallery](/charts/area-chart) (**Loading** example).
-*/}
 
 Installing `@cortexcn/area-chart` pulls in `@cortexcn/shimmering-text` automatically.
 
@@ -524,7 +491,7 @@ import {
   MarkerTooltipContent,
   useActiveMarkers,
   type ChartMarker,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 const markers: ChartMarker[] = [
   {
@@ -595,7 +562,7 @@ import {
   SegmentBackground,
   SegmentLineFrom,
   SegmentLineTo,
-} from "@bklitui/ui/charts";
+} from "@/components/charts";
 
 <AreaChart data={data}>
   <Grid horizontal />
@@ -615,7 +582,7 @@ Use `SegmentBackground`, `SegmentLineFrom`, and `SegmentLineTo` independently �
 Use the `useChart` hook inside a child component to read the active selection:
 
 ```tsx
-import { useChart } from "@bklitui/ui/charts";
+import { useChart } from "@/components/charts";
 
 function SelectionStats({ onSelectionChange }) {
   const { selection, data, xAccessor } = useChart();
