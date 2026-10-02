@@ -67,7 +67,7 @@ export const SITE_TEMPLATES: SiteTemplate[] = [
     name: "Simplistic SaaS",
     summary:
       "A SaaS landing page for AI and agentic startups, with bento grids, isometric illustrations, and microinteractions",
-    price: 49,
+    price: 130,
     stack: ["Next.js 16", "React 19", "Tailwind CSS 4", "Motion", "TypeScript"],
     sections: [
       "Announcement bar",
@@ -141,7 +141,7 @@ export function isFreeTemplate(template: SiteTemplate) {
   return template.price === 0;
 }
 
-/** "Free" or "$49". */
+/** "Free" or "$130". */
 export function templatePriceLabel(template: SiteTemplate) {
   return isFreeTemplate(template) ? "Free" : formatUsd(template.price);
 }
