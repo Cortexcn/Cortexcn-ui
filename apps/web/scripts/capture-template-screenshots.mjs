@@ -5,7 +5,7 @@
  *
  * Prerequisites:
  *   - The template's production build running, for example:
- *       cd apps/cortexcn/templates/portfolio
+ *       cd templates/portfolio
  *       pnpm install --ignore-workspace && pnpm build && pnpm start -p 3007
  *   - Google Chrome installed, or CHROME_PATH pointing at a Chrome binary
  *

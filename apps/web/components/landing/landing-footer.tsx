@@ -27,8 +27,6 @@ const PAGE_LINKS = [
   { label: "Theming", href: "/docs/theming" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
-  // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-  // { label: "Studio", href: "/studio" },
 ];
 
 type ResourceIcon = "docs" | "registry" | "agents" | "portfolio";
