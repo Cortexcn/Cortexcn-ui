@@ -21,7 +21,8 @@ export interface ThemedImage {
 
 /**
  * Full-website templates listed on /templates. Each one is a standalone
- * Next.js project in apps/cortexcn/templates/<slug>. Free templates are
+ * Next.js project: free ones in templates/<slug> in this repo, paid ones in
+ * the private cortexcn-templates repo next to it. Free templates are
  * zipped at build time by the download route next to their page; paid ones
  * are sold through `checkoutUrl` and never served from this site.
  */

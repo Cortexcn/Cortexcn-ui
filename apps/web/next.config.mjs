@@ -9,8 +9,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // This workspace is nested inside the syedmoinuddin monorepo, so root
-  // inference picks the outer lockfile and watches the whole parent repo.
+  // The workspace root holds the lockfile and the shared packages, so
+  // Turbopack resolves and watches from there rather than from apps/web.
   turbopack: {
     root: path.resolve(__dirname, "../.."),
   },
