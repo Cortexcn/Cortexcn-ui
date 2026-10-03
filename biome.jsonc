@@ -4,8 +4,8 @@
   "files": {
     "includes": ["!!**/.agents"]
   },
-  // The parent repo's pre-commit hook runs Prettier on these files, and
-  // Prettier adds trailing commas everywhere. Matching it keeps the two
+  // Prettier also formats some of these files (the DESIGN.md generator runs
+  // it), and it adds trailing commas everywhere. Matching it keeps the two
   // formatters from undoing each other.
   "javascript": {
     "formatter": { "trailingCommas": "all" }

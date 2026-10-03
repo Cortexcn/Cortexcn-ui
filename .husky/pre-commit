@@ -1,2 +1,2 @@
 #!/bin/sh
-npx ultracite fix
+npx biome check --staged --no-errors-on-unmatched --files-ignore-unknown=true
