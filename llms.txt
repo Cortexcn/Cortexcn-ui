@@ -2,7 +2,7 @@
 
 > Cortexcn is a shadcn registry of React and Tailwind CSS components, page blocks, and charts. Items install with the shadcn CLI (`npx shadcn@latest add @cortexcn/<name>`, or `npx shadcn@latest add https://ui.cortexcn.dev/r/<name>.json`), which copies the source into the user's project, so there is no runtime package to update. The source lives in `packages/ui` (`@cortexcn/ui`), and the docs site and registry host is `apps/web` (Next.js and Fumadocs), served at https://ui.cortexcn.dev.
 
-Documentation source files live under `apps/web/content/docs/` (MDX). The workspace uses pnpm and Turborepo. `pnpm registry:build` writes the registry JSON to `apps/web/public/r/`, which is served at `https://ui.cortexcn.dev/r/{name}.json`, with the full index at `https://ui.cortexcn.dev/r/registry.json`. Chart demos are at `/charts/[slug]` and page blocks at `/blocks`.
+Documentation source files live under `apps/web/content/docs/` (MDX). The workspace uses Bun and Turborepo. `bun run registry:build` writes the registry JSON to `apps/web/public/r/`, which is served at `https://ui.cortexcn.dev/r/{name}.json`, with the full index at `https://ui.cortexcn.dev/r/registry.json`. Chart demos are at `/charts/[slug]` and page blocks at `/blocks`.
 
 To use the `@cortexcn/<name>` form, a project adds `"@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"` under `registries` in `components.json`. In a user's project, installed charts are imported from `@/components/charts`; `@cortexcn/ui` is the workspace package used only inside this repo.
 
@@ -116,9 +116,9 @@ For coding agents there is a read-only MCP server at `https://ui.cortexcn.dev/mc
 
 - [Legend](./apps/web/content/docs/utility/legend.mdx): A composable legend component for charts with progress bars, markers, and customizable layouts
 - [Grid](./apps/web/content/docs/utility/grid.mdx): A customizable grid component for charts with horizontal and vertical lines, edge fade, edge line hiding, and dashed styling
-- [Background](./apps/web/content/docs/utility/background.mdx): Pattern fill for the plot area when grid lines are hidden — presets, edge fade, and enter animation
-- [Reference Area](./apps/web/content/docs/utility/reference-area.mdx): Shaded Y band for target ranges and thresholds on cartesian charts — solid or pattern fill, dashed edges, and Y-axis tick coloring
-- [Projection Line](./apps/web/content/docs/utility/projection-line.mdx): Forecast segment extending a line series past the last data point — dashed stroke, gradient, and horizon marker
+- [Background](./apps/web/content/docs/utility/background.mdx): Pattern fill for the plot area when grid lines are hidden, with presets, an edge fade, and an enter animation
+- [Reference Area](./apps/web/content/docs/utility/reference-area.mdx): Shaded Y band for target ranges and thresholds on cartesian charts, with a solid or pattern fill, dashed edges, and Y-axis tick coloring
+- [Projection Line](./apps/web/content/docs/utility/projection-line.mdx): Forecast segment extending a line series past the last data point, with a dashed stroke, a gradient, and a horizon marker
 - [Tooltip](./apps/web/content/docs/utility/tooltip.mdx): An interactive tooltip component for charts with crosshair, dots, date picker, and customizable content
 - [Brush](./apps/web/content/docs/utility/brush.mdx): Time-range brush for zooming area and line charts with a mini-chart strip and draggable selection handles
 - [Axis](./apps/web/content/docs/utility/axis/index.mdx): X and Y axis components for line and area charts

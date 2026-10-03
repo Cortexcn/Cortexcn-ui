@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--max-old-space-size=16384' next dev --turbopack",
     "dev:webpack": "NODE_OPTIONS='--max-old-space-size=16384' next dev",
-    "dev:docs": "pnpm build && pnpm start",
+    "dev:docs": "bun run build && bun run start",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

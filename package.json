@@ -10,7 +10,7 @@
     "check-types": "turbo run check-types",
     "test": "turbo run test",
     "prepare": "husky",
-    "registry:build": "pnpm --filter @cortexcn/ui registry:build",
+    "registry:build": "bun run --filter @cortexcn/ui registry:build",
     "registry:verify": "node packages/ui/scripts/verify-registry-files.mjs && node packages/ui/scripts/verify-registry-deps.mjs && node packages/ui/scripts/verify-registry-sync.mjs"
   },
   "devDependencies": {
@@ -22,16 +22,15 @@
     "typescript": "6.0.3",
     "ultracite": "7.0.12"
   },
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "bun@1.4.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "engines": {
     "node": ">=18"
   },
-  "pnpm": {
-    "neverBuiltDependencies": [
-      "@central-icons-react/all"
-    ],
-    "overrides": {
-      "esm-env": "npm:esm-env-runtime@^0.1.1"
-    }
+  "overrides": {
+    "esm-env": "npm:esm-env-runtime@^0.1.1"
   }
 }

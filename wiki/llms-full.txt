@@ -2,7 +2,7 @@
 
 > Cortexcn is a shadcn registry of React and Tailwind CSS components, page blocks, and charts. Items install with the shadcn CLI (`npx shadcn@latest add @cortexcn/<name>`, or `npx shadcn@latest add https://ui.cortexcn.dev/r/<name>.json`), which copies the source into the user's project, so there is no runtime package to update. The source lives in `packages/ui` (`@cortexcn/ui`), and the docs site and registry host is `apps/web` (Next.js and Fumadocs), served at https://ui.cortexcn.dev.
 
-Documentation source files live under `apps/web/content/docs/` (MDX). The workspace uses pnpm and Turborepo. `pnpm registry:build` writes the registry JSON to `apps/web/public/r/`, which is served at `https://ui.cortexcn.dev/r/{name}.json`, with the full index at `https://ui.cortexcn.dev/r/registry.json`. Chart demos are at `/charts/[slug]` and page blocks at `/blocks`.
+Documentation source files live under `apps/web/content/docs/` (MDX). The workspace uses Bun and Turborepo. `bun run registry:build` writes the registry JSON to `apps/web/public/r/`, which is served at `https://ui.cortexcn.dev/r/{name}.json`, with the full index at `https://ui.cortexcn.dev/r/registry.json`. Chart demos are at `/charts/[slug]` and page blocks at `/blocks`.
 
 To use the `@cortexcn/<name>` form, a project adds `"@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"` under `registries` in `components.json`. In a user's project, installed charts are imported from `@/components/charts`; `@cortexcn/ui` is the workspace package used only inside this repo.
 
@@ -5979,8 +5979,8 @@ Negative values are supported (bars grow downward from the baseline) as long as 
   <Icon className="size-4" name="IconCircleInfo" />
   <AlertTitle>Loading state is experimental</AlertTitle>
   <AlertDescription>
-    Bar chart loading is still in development. APIs, Studio controls, and docs
-    may change before release — use with caution in production.
+    Bar chart loading is still in development. APIs and docs
+    may change before release, so use it with care in production.
   </AlertDescription>
 </Alert>
 

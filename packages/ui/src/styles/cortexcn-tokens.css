@@ -1,7 +1,7 @@
 /*
  * Cortexcn theme tokens: the shadcn palette, the chart colors, and the radius.
  * The site imports this file, and the DESIGN.md generator reads it, so edit
- * the palette here and run `pnpm --filter @cortexcn/ui agents:build`.
+ * the palette here and run `bun run --filter @cortexcn/ui agents:build`.
  */
 :root {
   /* Paper-white page, white surfaces, near-black ink. */

@@ -1,6 +1,6 @@
 # Agent guide (Cortexcn contributors)
 
-Cortexcn is a pnpm and Turborepo workspace for a shadcn registry of React components, page blocks, and charts. `apps/web` is the docs site and registry host (`ui.cortexcn.dev`, and `www.cortexcn.dev` from the same deployment); `packages/ui` (`@cortexcn/ui`) holds the source that the registry ships. Setup and scripts are in [README.md](./README.md).
+Cortexcn is a Bun and Turborepo workspace for a shadcn registry of React components, page blocks, and charts. `apps/web` is the docs site and registry host (`ui.cortexcn.dev`, and `www.cortexcn.dev` from the same deployment); `packages/ui` (`@cortexcn/ui`) holds the source that the registry ships. Setup and scripts are in [README.md](./README.md).
 
 Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skill before acting, and do not guess at file layout. `apps/web/AGENTS.md` has notes on the Next.js version this site uses.
 
@@ -11,7 +11,7 @@ Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skil
 | Chart primitives and exports  | `packages/ui/src/charts/` (public exports in `index.ts`)                             |
 | Components                    | `packages/ui/src/components/`                                                        |
 | Registry source               | `packages/ui/registry.json`                                                          |
-| Registry build output         | `apps/web/public/r/` (written by `pnpm registry:build`, do not edit by hand)         |
+| Registry build output         | `apps/web/public/r/` (written by `bun run registry:build`, do not edit by hand)      |
 | Block sources                 | `apps/web/blocks/` (copied into `packages/ui/registry/blocks` by the registry build) |
 | Docs pages                    | `apps/web/content/docs/` (MDX, Fumadocs)                                             |
 | Docs sidebar                  | `apps/web/content/docs/components/meta.json`                                         |
@@ -30,8 +30,8 @@ Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skil
    - When you extend an existing chart, add the new props to the parent page's tables and to the related utility pages (`content/docs/utility/*.mdx`). Keep the main preview on an existing page as it is.
    - MDX files import live previews from the workspace package (`@cortexcn/ui/...`). Code samples shown to readers import from where the registry installs the files, for example `from "@/components/charts"`.
 4. Gallery: for a new chart kind, add its slug to `chart-slugs.ts` and its examples to `chart-examples.tsx`.
-5. From this folder, run `pnpm registry:build` and commit the changes it makes under `apps/web/public/r/`.
-6. Run `pnpm lint`, `pnpm --filter @cortexcn/ui test` when package logic changed, and `pnpm build` until they pass.
+5. From this folder, run `bun run registry:build` and commit the changes it makes under `apps/web/public/r/`.
+6. Run `bun run lint`, `bun run --filter @cortexcn/ui test` when package logic changed, and `bun run build` until they pass. Keep the `run`: `bun build` and `bun test` are Bun's own bundler and test runner, not these scripts.
 
 ## Contributor skills
 

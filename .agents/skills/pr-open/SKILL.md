@@ -95,16 +95,16 @@ Repeat until `git commit` succeeds **and** `git status` is clean (no leftover ho
 
 ## Step 3 — Ultracite from repo root
 
-After commits are clean, run the root pnpm scripts (not `npx ultracite` directly unless fixing a one-off):
+After commits are clean, run the root scripts with Bun (not `npx ultracite` directly unless fixing a one-off):
 
 ```bash
-pnpm lint          # ultracite check
+bun run lint      # ultracite check
 ```
 
 If check fails:
 
 ```bash
-pnpm lint:fix      # ultracite fix (same as pnpm format)
+bun run lint:fix  # ultracite fix (same as bun run format)
 ```
 
 Then:
@@ -114,9 +114,9 @@ Then:
 Fix lint issues from ultracite
 EOF
 )"`
-3. Re-run `pnpm lint` until it passes with no fixes pending.
+3. Re-run `bun run lint` until it passes with no fixes pending.
 
-Do not open a PR while `pnpm lint` fails or while lint fixes are unstaged.
+Do not open a PR while `bun run lint` fails or while lint fixes are unstaged.
 
 ---
 
@@ -127,7 +127,7 @@ Do not open a PR while `pnpm lint` fails or while lint fixes are unstaged.
 From the repo root:
 
 ```bash
-pnpm registry:build
+bun run registry:build
 ```
 
 This updates `apps/web/public/r/` from `packages/ui` (see `packages/ui/package.json` → `registry:build`).
@@ -144,7 +144,7 @@ EOF
 )"
 ```
 
-4. Re-run **Step 3** (`pnpm lint`) if any source files changed outside `public/r/`.
+4. Re-run **Step 3** (`bun run lint`) if any source files changed outside `public/r/`.
 
 Do not open a PR while registry outputs are stale (uncommitted `apps/web/public/r/` diffs after `registry:build`).
 
@@ -157,32 +157,32 @@ Run a production build to catch type and compile errors before the PR.
 **Default (whole monorepo):**
 
 ```bash
-pnpm build
+bun run build
 ```
 
 **Web app only** (faster when changes are confined to `apps/web`):
 
 ```bash
-cd apps/web && pnpm build
+cd apps/web && bun run build
 ```
 
 If the web build OOMs in dev/CI-like environments, retry with more heap:
 
 ```bash
-cd apps/web && NODE_OPTIONS='--max-old-space-size=8192' pnpm build
+cd apps/web && NODE_OPTIONS='--max-old-space-size=8192' bun run build
 ```
 
 **Optional but recommended** when touching TypeScript:
 
 ```bash
-pnpm check-types
+bun run check-types
 ```
 
 ### If build fails
 
 1. Fix the root cause (types, imports, missing registry files, etc.).
 2. Re-run the failing command until it passes.
-3. Commit fixes with a clear message, then re-run **Step 3** (`pnpm lint`) and **Step 4** (`pnpm registry:build`) if source files under `packages/ui` changed.
+3. Commit fixes with a clear message, then re-run **Step 3** (`bun run lint`) and **Step 4** (`bun run registry:build`) if source files under `packages/ui` changed.
 
 ---
 
@@ -212,9 +212,9 @@ gh pr create --title "<PR title>" --body "$(cat <<'EOF'
 
 ## Test plan
 
-- [ ] `pnpm lint` passes at repo root
-- [ ] `pnpm registry:build` run; `apps/web/public/r/` committed if updated
-- [ ] `pnpm build` (or `apps/web` build for web-only changes)
+- [ ] `bun run lint` passes at repo root
+- [ ] `bun run registry:build` run; `apps/web/public/r/` committed if updated
+- [ ] `bun run build` (or `apps/web` build for web-only changes)
 - [ ] <manual verification step 1>
 - [ ] <manual verification step 2>
 
@@ -238,9 +238,9 @@ Return the PR URL to the user.
 
 ## Test plan
 
-- [ ] `pnpm lint` passes at repo root
-- [ ] `pnpm registry:build` run; registry outputs committed if changed
-- [ ] Production build succeeds (`pnpm build` or scoped web build)
+- [ ] `bun run lint` passes at repo root
+- [ ] `bun run registry:build` run; registry outputs committed if changed
+- [ ] Production build succeeds (`bun run build` or scoped web build)
 - [ ] <feature-specific check>
 - [ ] <regression check if applicable>
 ```
@@ -252,7 +252,7 @@ Add extra sections only when useful:
 
 ### Repo-specific PR notes
 
-- **Registry**: Step 4 always runs `pnpm registry:build`; commit `apps/web/public/r/` when the build updates it.
+- **Registry**: Step 4 always runs `bun run registry:build`; commit `apps/web/public/r/` when the build updates it.
 - **Do not** commit incidental reformats from `registry:build` on `packages/ui/registry/examples/*` unless intentional.
 - Chart/docs work: mention manual checks for docs pages, the chart gallery, or Open in v0 when relevant.
 
@@ -260,28 +260,28 @@ Add extra sections only when useful:
 
 ## Full checklist (quick reference)
 
-| Step | Command / action                                               | Must pass before next step                |
-| ---- | -------------------------------------------------------------- | ----------------------------------------- |
-| 1    | `git status` / `git diff` / `git log`                          | Understand scope                          |
-| 2    | `git add` → `git commit`                                       | Pre-commit hook clean; working tree clean |
-| 3    | `pnpm lint` → `pnpm lint:fix` if needed → re-commit            | `pnpm lint` exits 0                       |
-| 4    | `pnpm registry:build` → commit `apps/web/public/r/` if changed | No stale registry diff                    |
-| 5    | `pnpm build` (and `pnpm check-types` if TS changed)            | Build exits 0                             |
-| 6    | `git push -u origin HEAD`                                      | Only if user requested push/PR            |
-| 7    | `gh pr create` with Summary + Test plan                        | PR URL returned                           |
+| Step | Command / action                                                  | Must pass before next step                |
+| ---- | ----------------------------------------------------------------- | ----------------------------------------- |
+| 1    | `git status` / `git diff` / `git log`                             | Understand scope                          |
+| 2    | `git add` → `git commit`                                          | Pre-commit hook clean; working tree clean |
+| 3    | `bun run lint` → `bun run lint:fix` if needed → re-commit         | `bun run lint` exits 0                    |
+| 4    | `bun run registry:build` → commit `apps/web/public/r/` if changed | No stale registry diff                    |
+| 5    | `bun run build` (and `bun run check-types` if TS changed)         | Build exits 0                             |
+| 6    | `git push -u origin HEAD`                                         | Only if user requested push/PR            |
+| 7    | `gh pr create` with Summary + Test plan                           | PR URL returned                           |
 
 ---
 
 ## Common failures
 
-| Failure                                             | Fix                                                                |
-| --------------------------------------------------- | ------------------------------------------------------------------ |
-| Pre-commit biome errors                             | Fix code; add `biome-ignore` only with a one-line justification    |
-| Hook fixed files but commit already succeeded       | `git add` + new commit (or amend if allowed)                       |
-| `pnpm lint` fails after commit                      | `pnpm lint:fix`, review diff, commit, re-run `pnpm lint`           |
-| `Can't resolve './animation'` in registry consumers | Add missing `@cortexcn/*` registry deps; run `pnpm registry:build` |
-| Web build OOM                                       | `NODE_OPTIONS='--max-old-space-size=8192'` for `apps/web` build    |
-| PR branch already merged                            | New branch from `origin/main`, re-apply only new changes           |
+| Failure                                             | Fix                                                                   |
+| --------------------------------------------------- | --------------------------------------------------------------------- |
+| Pre-commit biome errors                             | Fix code; add `biome-ignore` only with a one-line justification       |
+| Hook fixed files but commit already succeeded       | `git add` + new commit (or amend if allowed)                          |
+| `bun run lint` fails after commit                   | `bun run lint:fix`, review diff, commit, re-run `bun run lint`        |
+| `Can't resolve './animation'` in registry consumers | Add missing `@cortexcn/*` registry deps; run `bun run registry:build` |
+| Web build OOM                                       | `NODE_OPTIONS='--max-old-space-size=8192'` for `apps/web` build       |
+| PR branch already merged                            | New branch from `origin/main`, re-apply only new changes              |
 
 ---
 
@@ -291,9 +291,9 @@ User: "commit this and open a PR"
 
 1. `git status` + `git diff` + `git log -3`
 2. `git add apps/web packages/ui` → `git commit` (fix pre-commit until clean)
-3. `pnpm lint` → `pnpm lint:fix` if needed → commit → `pnpm lint`
-4. `pnpm registry:build` → commit `apps/web/public/r/` if changed
-5. `pnpm build` (fix until green) → commit if needed
+3. `bun run lint` → `bun run lint:fix` if needed → commit → `bun run lint`
+4. `bun run registry:build` → commit `apps/web/public/r/` if changed
+5. `bun run build` (fix until green) → commit if needed
 6. `git push -u origin HEAD`
 7. `gh pr create` with Summary + Test plan template
 8. Reply with PR link and one-line summary of what was validated

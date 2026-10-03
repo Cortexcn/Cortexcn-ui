@@ -6,7 +6,7 @@
  * Prerequisites:
  *   - The template's production build running, for example:
  *       cd templates/portfolio
- *       pnpm install --ignore-workspace && pnpm build && pnpm start -p 3007
+ *       bun install && bun run build && bun run start -p 3007
  *   - Google Chrome installed, or CHROME_PATH pointing at a Chrome binary
  *
  * Usage:

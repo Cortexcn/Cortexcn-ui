@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Ensures shadcn registry output matches chart source when packages/ui/src/charts changes.
- * Run via `pnpm registry:verify` (locally or in CI).
+ * Run via `bun run registry:verify` (locally or in CI).
  */
 import { execSync } from "node:child_process";
 import fs from "node:fs";
@@ -113,7 +113,7 @@ function main() {
     ]),
   );
 
-  run("pnpm registry:build", { inherit: true });
+  run("bun run registry:build", { inherit: true });
 
   const semanticDrift = listSemanticRegistryDrift(registryBefore);
   const dirty = listDirtyRegistryFiles();
@@ -125,7 +125,7 @@ function main() {
   if (failures.length > 0) {
     console.error("\nRegistry is out of sync with chart source changes.\n");
     console.error(
-      "Run `pnpm registry:build` from the repo root and commit the updated registry files:\n",
+      "Run `bun run registry:build` from the repo root and commit the updated registry files:\n",
     );
     for (const line of failures) {
       console.error(`  ${line}`);

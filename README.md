@@ -87,14 +87,14 @@ npx skills add https://ui.cortexcn.dev
 
 ## Local development
 
-You need Node.js 18 or later (CI uses Node 20) and pnpm 9.15.9, the version pinned in `package.json`. With Corepack enabled, `pnpm` picks up that version on its own.
+You need Node.js 18 or later (CI uses Node 20) and [Bun](https://bun.sh) 1.4.0, the version pinned in `package.json`.
 
 ```bash
-pnpm install
-pnpm dev
+bun install
+bun run dev
 ```
 
-`pnpm dev` starts the site at <http://localhost:3000> and the component library host at <http://ui.localhost:3000>. In production one deployment serves both hosts: the library (its home, docs, blocks, charts, and registry) on `ui.cortexcn.dev`, and everything else on `www.cortexcn.dev`.
+`bun run dev` starts the site at <http://localhost:3000> and the component library host at <http://ui.localhost:3000>. In production one deployment serves both hosts: the library (its home, docs, blocks, charts, and registry) on `ui.cortexcn.dev`, and everything else on `www.cortexcn.dev`.
 
 Environment variables go in `apps/web/.env`. Set the ones for the features you need:
 
@@ -108,16 +108,18 @@ Environment variables go in `apps/web/.env`. Set the ones for the features you n
 
 Scripts, all run from this folder:
 
-| Command                | What it does                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------- |
-| `pnpm dev`             | Runs the dev servers through Turborepo                                                            |
-| `pnpm build`           | Builds every package through Turborepo                                                            |
-| `pnpm lint`            | Checks formatting and lint rules with Ultracite (Biome)                                           |
-| `pnpm lint:fix`        | Applies Ultracite fixes (`pnpm format` does the same)                                             |
-| `pnpm check-types`     | Type checks every package                                                                         |
-| `pnpm test`            | Runs the unit tests (Node's test runner with `tsx`)                                               |
-| `pnpm registry:build`  | Rebuilds the registry into `apps/web/public/r` (runs `pnpm --filter @cortexcn/ui registry:build`) |
-| `pnpm registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync                    |
+| Command                   | What it does                                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `bun run dev`             | Runs the dev servers through Turborepo                                                               |
+| `bun run build`           | Builds every package through Turborepo                                                               |
+| `bun run lint`            | Checks formatting and lint rules with Ultracite (Biome)                                              |
+| `bun run lint:fix`        | Applies Ultracite fixes (`bun run format` does the same)                                             |
+| `bun run check-types`     | Type checks every package                                                                            |
+| `bun run test`            | Runs the unit tests (Node's test runner with `tsx`)                                                  |
+| `bun run registry:build`  | Rebuilds the registry into `apps/web/public/r` (runs `bun run --filter @cortexcn/ui registry:build`) |
+| `bun run registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync                       |
+
+Keep the `run`: `bun build` and `bun test` start Bun's own bundler and test runner instead of these scripts.
 
 The pre-commit hook runs Biome on the staged files (`biome check --staged`).
 
@@ -130,7 +132,7 @@ The pre-commit hook runs Biome on the staged files (`biome check --staged`).
 | `packages/icons`             | `@cortexcn/icons`: a wrapper around Central Icons (`@central-icons-react/all`), a licensed icon set                                                          |
 | `packages/eslint-config`     | `@cortexcn/eslint-config`: shared ESLint config                                                                                                              |
 | `packages/typescript-config` | `@cortexcn/typescript-config`: shared TypeScript configs                                                                                                     |
-| `templates/`                 | Standalone Next.js page templates. They are not part of the pnpm workspace; each has its own README and LICENSE                                              |
+| `templates/`                 | Standalone Next.js page templates. They are not part of the Bun workspace; each has its own README and LICENSE                                               |
 
 The paid templates sold at [ui.cortexcn.dev/templates](https://ui.cortexcn.dev/templates) are not in this repository.
 

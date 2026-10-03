@@ -8,7 +8,7 @@
  *   `/.well-known/agent-skills/`, where `npx skills add https://ui.cortexcn.dev`
  *   finds them.
  *
- * Run it after changing the tokens or a skill: `pnpm --filter @cortexcn/ui agents:build`.
+ * Run it after changing the tokens or a skill: `bun run --filter @cortexcn/ui agents:build`.
  */
 
 import { spawnSync } from "node:child_process";

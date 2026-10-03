@@ -17,17 +17,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Verify registry file closure and npm dependencies
         run: |
@@ -40,7 +41,7 @@ jobs:
           GITHUB_BASE_REF: ${{ github.base_ref }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
           GITHUB_SHA: ${{ github.sha }}
-        run: pnpm registry:verify
+        run: bun run registry:verify
 
       - name: Job summary
         if: always()
@@ -51,5 +52,5 @@ jobs:
             echo "![shadcn](https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/.github/icons/shadcn-favicon.png)"
             echo ""
             echo "Ensures registry items ship every local \`./\` import, npm deps are declared, and \`apps/web/public/r\` is rebuilt when \`packages/ui/src/charts\` changes."
-            echo "Run \`pnpm registry:build\` locally if the sync check fails."
+            echo "Run \`bun run registry:build\` locally if the sync check fails."
           } >> "$GITHUB_STEP_SUMMARY"

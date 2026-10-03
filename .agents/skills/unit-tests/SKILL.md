@@ -49,9 +49,9 @@ If the user asks “should we test X?” — **say no** when X falls in this tab
 **Runner:** Node built-in test runner + `tsx` (not Jest/Vitest unless the repo adopts them later).
 
 ```bash
-pnpm test              # root — turbo runs packages with a test script
-pnpm --filter @cortexcn/ui test
-cd apps/web && pnpm test
+bun run test           # root — turbo runs packages with a test script
+bun run --filter @cortexcn/ui test
+cd apps/web && bun run test
 ```
 
 **Place tests:** `**/__tests__/**/*.test.ts` next to the code under test.
@@ -78,7 +78,7 @@ describe("myFn", () => {
 "test": "node scripts/run-tests.mjs"
 ```
 
-Use a small `scripts/run-tests.mjs` that collects `*.test.ts` from `__tests__` and invokes `node --import tsx --test` — shell globs break on Linux CI. Add `tsx` as a devDependency if missing. Wire into root `turbo.json` `test` task; CI runs `pnpm test`.
+Use a small `scripts/run-tests.mjs` that collects `*.test.ts` from `__tests__` and invokes `node --import tsx --test` — shell globs break on Linux CI. Add `tsx` as a devDependency if missing. Wire into root `turbo.json` `test` task; CI runs `bun run test`.
 
 ---
 
@@ -98,7 +98,7 @@ When recommending tests, be explicit:
 
 - **Add:** “Test `chart-formatters.ts` — pure, high regression value.”
 - **Skip:** “Skip component tests for the memo split — no output change; build + manual chart docs are enough.”
-- **CI:** Mention `pnpm test` in PR test plan when adding or changing tests.
+- **CI:** Mention `bun run test` in PR test plan when adding or changing tests.
 
 ---
 
