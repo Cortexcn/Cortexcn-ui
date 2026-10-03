@@ -73,6 +73,18 @@ npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json
 npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json
 ```
 
+**Everything at once.** The agent kit installs both skills and `DESIGN.md` in one command:
+
+```bash
+npx shadcn@latest add https://ui.cortexcn.dev/r/agent-kit.json
+```
+
+The skills are also published at `/.well-known/agent-skills`, so the skills CLI can install them too:
+
+```bash
+npx skills add https://ui.cortexcn.dev
+```
+
 ## Local development
 
 You need Node.js 18 or later (CI uses Node 20) and pnpm 9.15.9, the version pinned in `package.json`. With Corepack enabled, `pnpm` picks up that version on its own.
@@ -84,7 +96,15 @@ pnpm dev
 
 `pnpm dev` starts the site at <http://localhost:3000> and the component library host at <http://ui.localhost:3000>. In production one deployment serves both hosts: the library (its home, docs, blocks, charts, and registry) on `ui.cortexcn.dev`, and everything else on `www.cortexcn.dev`.
 
-Environment variables are listed in `apps/web/.env.example`. Copy it to `apps/web/.env` and fill in the ones you need. They cover the icon license, analytics, search engine verification, and the contact form.
+Environment variables go in `apps/web/.env`. Set the ones for the features you need:
+
+| Feature                    | Variables                                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Central Icons license      | `CENTRAL_LICENSE_KEY`                                                                                                |
+| OpenPanel analytics        | `OPENPANEL_CLIENT_ID`, `OPENPANEL_CLIENT_SECRET`                                                                     |
+| Cloudflare Web Analytics   | `NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`                                                                         |
+| Search engine verification | `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`                                                                 |
+| Contact form               | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` |
 
 Scripts, all run from this folder:
 
@@ -99,7 +119,7 @@ Scripts, all run from this folder:
 | `pnpm registry:build`  | Rebuilds the registry into `apps/web/public/r` (runs `pnpm --filter @cortexcn/ui registry:build`) |
 | `pnpm registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync                    |
 
-The pre-commit hook runs `npx ultracite fix`.
+The pre-commit hook runs Biome on the staged files (`biome check --staged`).
 
 ## Repository layout
 
@@ -112,7 +132,14 @@ The pre-commit hook runs `npx ultracite fix`.
 | `packages/typescript-config` | `@cortexcn/typescript-config`: shared TypeScript configs                                                                                                     |
 | `templates/`                 | Standalone Next.js page templates. They are not part of the pnpm workspace; each has its own README and LICENSE                                              |
 
-Contributor and agent notes are in [AGENTS.md](./AGENTS.md).
+The paid templates sold at [ui.cortexcn.dev/templates](https://ui.cortexcn.dev/templates) are not in this repository.
+
+## Contributing
+
+Bug reports, fixes, and new items are welcome. Start with [CONTRIBUTING.md](./CONTRIBUTING.md), which covers setup, where things live, and what a good pull request looks like. Step-by-step recipes for adding a component, block, or chart are in [AGENTS.md](./AGENTS.md).
+
+- Code of conduct: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+- Security issues: please report them privately, as described in [SECURITY.md](./SECURITY.md)
 
 ## License
 
