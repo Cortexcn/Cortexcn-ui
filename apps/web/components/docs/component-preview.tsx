@@ -1,8 +1,6 @@
 import type { ReactNode } from "react";
 import { isChartSlug } from "@/components/charts/chart-slugs";
 import { DocsChartPreviewShell } from "@/components/docs/docs-chart-preview-shell";
-// Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-// import { OpenInStudioButton } from "@/components/docs/open-in-studio-button";
 import { OpenInV0Button } from "@/components/docs/open-in-v0-button";
 import { PreviewCodeTabs } from "@/components/docs/preview-code-tabs";
 import {
@@ -40,9 +38,6 @@ export function ComponentPreview({
       ? registryV0ExampleJsonUrl(registryName)
       : registryJsonUrlForName(registryName);
   }
-  // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-  // const studioSlug =
-  //   registryName && isChartSlug(registryName) ? registryName : undefined;
 
   const previewCard = (
     <Card className={cn("flex flex-col", previewCardClassName)}>
@@ -66,7 +61,6 @@ export function ComponentPreview({
             Preview
           </h2>
           <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
-            {/* {studioSlug ? <OpenInStudioButton slug={studioSlug} /> : null} */}
             <OpenInV0Button
               chart={registryName}
               registryJsonUrl={registryJsonUrl}

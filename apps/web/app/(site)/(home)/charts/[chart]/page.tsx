@@ -37,10 +37,6 @@ export async function generateMetadata({
   const { name, description } = chartInfo(chart);
   return pageMetadata({
     title: `${name} examples`,
-    // Studio wording hidden until Studio comes back; see apps/cortexcn/checklist.md.
-    // description:
-    //   description ??
-    //   `Live ${name} examples for React and shadcn/ui. Open any example in Studio or copy the code.`,
     description:
       description ??
       `Live ${name} examples for React and shadcn/ui. Copy the code for any example.`,
