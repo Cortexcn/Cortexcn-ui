@@ -41,7 +41,7 @@ const trioData = Array.from({ length: 30 }, (_, index) => {
 const brushStripMargin = { top: 4, right: 8, bottom: 4, left: 8 };
 const chartMargin = { top: 8, right: 8, bottom: 40, left: 8 };
 
-export function LineChartStudioTrioDemo({ height = 360 }: { height?: number }) {
+export function LineChartTrioDemo({ height = 360 }: { height?: number }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const legendItems = useMemo(() => {

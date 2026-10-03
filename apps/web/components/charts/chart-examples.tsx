@@ -143,7 +143,7 @@ import {
   getChartExampleContentPaddingClassName,
 } from "@/components/charts/chart-example-preview";
 import { FeaturedChartHero } from "@/components/charts/featured-chart-hero";
-import { LineChartStudioTrioDemo } from "@/components/charts/line-chart-studio-trio-demo";
+import { LineChartTrioDemo } from "@/components/charts/line-chart-trio-demo";
 import { CopyButton } from "@/components/copy-button";
 import {
   buildLineChartDemoData,
@@ -938,9 +938,6 @@ function makeCartesianReferenceAreaExamples(options: {
   <ReferenceArea y1={${y1}} y2={${y2}} strokeStyle="dashed" showMarkers />
   ${seriesSnippet}
 ${chartClose}`,
-      // Studio wording hidden until Studio comes back; see apps/cortexcn/checklist.md.
-      // footer:
-      //   "See /docs/utility/reference-area — tune bounds, fill, and markers in Studio",
       footer: "See /docs/utility/reference-area for bounds, fill, and markers",
       render: () =>
         render(
@@ -6177,9 +6174,6 @@ function makeProfitLossLineExamples(): ChartExample[] {
 function makeLineHero(): ChartExample {
   return {
     title: "Line Chart - Trio with Brush",
-    // Studio wording hidden until Studio comes back; see apps/cortexcn/checklist.md.
-    // description:
-    //   "Three Catmull–Rom series on a dot background with a top legend and brush zoom — matches the Studio trio preset.",
     description:
       "Three Catmull–Rom series on a dot background with a top legend and brush zoom.",
     code: `import { curveCatmullRom } from "@visx/curve";
@@ -6212,10 +6206,7 @@ import {
   mobile: Math.round(120 + Math.cos(i / 3.8) * 55 + ((i * 5) % 23)),
   tablet: Math.round(150 + Math.sin(i / 5.1 + 1) * 48 + ((i * 7) % 19)),
 }));`,
-    // Hidden until Studio comes back; see apps/cortexcn/checklist.md.
-    // footer:
-    //   "Open the same preset in Studio from the Background docs or paste the share URL from /charts/line-chart.",
-    render: () => <LineChartStudioTrioDemo height={540} />,
+    render: () => <LineChartTrioDemo height={540} />,
   };
 }
 
