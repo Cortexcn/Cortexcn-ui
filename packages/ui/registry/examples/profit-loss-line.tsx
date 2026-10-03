@@ -1,6 +1,6 @@
 "use client";
 
-// In your app (monorepo/npm): import from "@cortexcn/ui/charts"
+// In your app: import from "@/components/charts"
 import {
   ChartTooltip,
   Grid,
