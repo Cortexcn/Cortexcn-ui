@@ -8,7 +8,13 @@
  * Writes apps/web/dist/templates/cortexcn-<slug>.zip (gitignored).
  */
 
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { zipSync } from "fflate";
@@ -20,7 +26,18 @@ if (!slug) {
 }
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
-const templateDir = join(packageRoot, "../../templates", slug);
+// Free templates live in this repo; paid ones in the private
+// cortexcn-templates repo, checked out next to this one.
+const templateDir = [
+  join(packageRoot, "../../templates", slug),
+  join(packageRoot, "../../../cortexcn-templates", slug),
+].find((dir) => existsSync(dir));
+if (!templateDir) {
+  console.error(
+    `No template called ${slug} in templates/ or in ../cortexcn-templates/.`,
+  );
+  process.exit(1);
+}
 const outDir = join(packageRoot, "dist/templates");
 const name = `cortexcn-${slug}`;
 

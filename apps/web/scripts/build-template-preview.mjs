@@ -19,14 +19,20 @@ if (!slug) {
 }
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
-const templateDir = join(packageRoot, "../../templates", slug);
-const exportDir = join(templateDir, "out");
-const previewDir = join(packageRoot, "public/previews", slug);
-
-if (!existsSync(templateDir)) {
-  console.error(`No template folder at ${templateDir}`);
+// Free templates live in this repo; paid ones in the private
+// cortexcn-templates repo, checked out next to this one.
+const templateDir = [
+  join(packageRoot, "../../templates", slug),
+  join(packageRoot, "../../../cortexcn-templates", slug),
+].find((dir) => existsSync(dir));
+if (!templateDir) {
+  console.error(
+    `No template called ${slug} in templates/ or in ../cortexcn-templates/.`,
+  );
   process.exit(1);
 }
+const exportDir = join(templateDir, "out");
+const previewDir = join(packageRoot, "public/previews", slug);
 
 // The template is its own project, not a workspace member.
 if (!existsSync(join(templateDir, "node_modules"))) {
