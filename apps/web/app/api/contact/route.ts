@@ -9,21 +9,13 @@ import {
 import { verifyTurnstile } from "@/lib/contact/turnstile";
 import { validateContact } from "@/lib/contact/validation";
 import { CONTACT_EMAIL } from "@/lib/contact-details";
+import { clientIp } from "@/lib/rate-limit";
 
 const MAX_BODY_LENGTH = 16 * 1024;
 const NOT_SET_UP = `The contact form is not set up yet. Write to ${CONTACT_EMAIL} instead.`;
 
 function reply(body: object, status: number, headers?: HeadersInit) {
   return NextResponse.json(body, { status, headers });
-}
-
-/** Vercel sets these from the connecting address, so they are safe to key on. */
-function clientIp(request: Request) {
-  return (
-    request.headers.get("x-real-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    null
-  );
 }
 
 /** Browsers always send Origin on a POST, so a missing or foreign one is not our form. */
@@ -49,7 +41,7 @@ export async function POST(request: Request) {
   }
 
   const ip = clientIp(request);
-  const limit = takeRateLimit(ip ?? "unknown");
+  const limit = await takeRateLimit(ip ?? "unknown");
   if (limit.limited) {
     return reply(
       {

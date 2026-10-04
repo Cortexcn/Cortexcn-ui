@@ -41,6 +41,14 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-05",
+    kind: "site",
+    title: "Rate limits on the MCP server",
+    summary:
+      "The MCP server now takes up to 120 requests a minute and 3,000 a day from each IP address. Over a limit, your assistant gets a 429 with a Retry-After header and a message that says how long to wait.",
+    items: [{ label: "MCP Server", href: "/docs/integration/mcp" }],
+  },
+  {
     date: "2026-10-03",
     kind: "site",
     title: "The Cortexcn MCP server, agent skills, and DESIGN.md",
