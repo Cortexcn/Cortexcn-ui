@@ -9,6 +9,8 @@ export interface GalleryBlock {
   description: string;
   categorySlug: string;
   categoryName: string;
+  /** Its place in its category, two digits: "01", "02", and so on. */
+  number: string;
   /** The block's own page, with its preview, code, and install command. */
   href: string;
 }
@@ -38,12 +40,13 @@ export function blockPagePath(categorySlug: string, slug: string) {
 /** Every block, in category order, as a card for the /blocks gallery. */
 export function getGalleryBlocks(): GalleryBlock[] {
   return BLOCK_CATEGORIES.flatMap((category) =>
-    category.blocks.map((slug) => ({
+    category.blocks.map((slug, index) => ({
       slug,
       title: shortTitle(BLOCK_METAS[slug].name),
       description: BLOCK_METAS[slug].description,
       categorySlug: category.slug,
       categoryName: category.name,
+      number: String(index + 1).padStart(2, "0"),
       href: blockPagePath(category.slug, slug),
     })),
   );

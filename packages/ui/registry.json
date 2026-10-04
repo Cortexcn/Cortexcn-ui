@@ -3219,6 +3219,104 @@
       ]
     },
     {
+      "name": "queue",
+      "type": "registry:component",
+      "title": "Queue",
+      "description": "A queue for AI apps: queued messages with attachments, todos, and collapsible sections.",
+      "categories": ["ai-assistant"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button",
+        "@cortexcn/collapsible",
+        "@cortexcn/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "src/components/queue.tsx",
+          "type": "registry:component",
+          "target": "components/queue.tsx"
+        }
+      ]
+    },
+    {
+      "name": "design-md",
+      "type": "registry:item",
+      "title": "DESIGN.md",
+      "description": "Cortexcn's design system as a DESIGN.md file for coding agents: the colors, type, square corners, spacing, motion, and component rules, generated from the theme tokens.",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ]
+    },
+    {
+      "name": "agent-skills",
+      "type": "registry:item",
+      "title": "Agent skills",
+      "description": "The cortexcn and cortexcn-design agent skills, for Claude Code (.claude/skills) and for Codex, Cursor, and GitHub Copilot (.agents/skills).",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        }
+      ]
+    },
+    {
+      "name": "agent-kit",
+      "type": "registry:item",
+      "title": "Agent kit",
+      "description": "Everything for coding agents in one install: both Cortexcn agent skills and DESIGN.md.",
+      "categories": ["agents"],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ]
+    },
+    {
       "name": "area-chart-example",
       "type": "registry:example",
       "title": "Area Chart Example",
@@ -3766,6 +3864,126 @@
       ]
     },
     {
+      "name": "feature-mixed-bento-01",
+      "type": "registry:block",
+      "title": "Feature Mixed Bento",
+      "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern",
+      "registryDependencies": ["@cortexcn/utils", "card"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-mixed-bento-01/components/feature-mixed-bento.tsx",
+          "type": "registry:component",
+          "target": "components/feature-mixed-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-mixed-bento-01-example",
+      "type": "registry:example",
+      "title": "Feature Mixed Bento Example",
+      "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-mixed-bento-01"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-mixed-bento-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-walkthrough-01",
+      "type": "registry:block",
+      "title": "Feature Walkthrough",
+      "description": "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves",
+      "registryDependencies": ["@cortexcn/utils", "@cortexcn/marquee"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/blocks/feature-walkthrough-01/components/feature-walkthrough.tsx",
+          "type": "registry:component",
+          "target": "components/feature-walkthrough.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-walkthrough-01-example",
+      "type": "registry:example",
+      "title": "Feature Walkthrough Example",
+      "description": "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/feature-walkthrough-01"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/examples/feature-walkthrough-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "services-image-grid-01",
+      "type": "registry:block",
+      "title": "Services Image Grid",
+      "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them",
+      "registryDependencies": ["@cortexcn/utils", "button", "card"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/blocks/services-image-grid-01/components/services-image-grid.tsx",
+          "type": "registry:component",
+          "target": "components/services-image-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "services-image-grid-01-example",
+      "type": "registry:example",
+      "title": "Services Image Grid Example",
+      "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/services-image-grid-01"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/examples/services-image-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "services-preview-list-01",
+      "type": "registry:block",
+      "title": "Services Preview List",
+      "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at",
+      "registryDependencies": ["@cortexcn/utils", "button"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/blocks/services-preview-list-01/components/services-preview-list.tsx",
+          "type": "registry:component",
+          "target": "components/services-preview-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "services-preview-list-01-example",
+      "type": "registry:example",
+      "title": "Services Preview List Example",
+      "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/services-preview-list-01"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/examples/services-preview-list-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "hero-dashboard-01",
       "type": "registry:block",
       "title": "Hero Dashboard Preview",
@@ -3953,57 +4171,6 @@
       ]
     },
     {
-      "name": "queue",
-      "type": "registry:component",
-      "title": "Queue",
-      "description": "A queue for AI apps: queued messages with attachments, todos, and collapsible sections.",
-      "categories": ["ai-assistant"],
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "@cortexcn/utils",
-        "@cortexcn/button",
-        "@cortexcn/collapsible",
-        "@cortexcn/scroll-area"
-      ],
-      "files": [
-        {
-          "path": "src/components/queue.tsx",
-          "type": "registry:component",
-          "target": "components/queue.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ai-queue-01",
-      "type": "registry:block",
-      "title": "AI Agent Queue",
-      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
-      "registryDependencies": ["@cortexcn/queue"],
-      "dependencies": ["lucide-react"],
-      "files": [
-        {
-          "path": "registry/blocks/ai-queue-01/components/agent-queue.tsx",
-          "type": "registry:component",
-          "target": "components/agent-queue.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ai-queue-01-example",
-      "type": "registry:example",
-      "title": "AI Agent Queue Example",
-      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ai-queue-01"],
-      "dependencies": ["lucide-react"],
-      "files": [
-        {
-          "path": "registry/examples/ai-queue-01.tsx",
-          "type": "registry:page",
-          "target": "app/page.tsx"
-        }
-      ]
-    },
-    {
       "name": "ai-reasoning-01",
       "type": "registry:block",
       "title": "AI Reasoning Panel",
@@ -4088,6 +4255,36 @@
       "files": [
         {
           "path": "registry/examples/ai-shimmer-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-queue-01",
+      "type": "registry:block",
+      "title": "AI Agent Queue",
+      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
+      "registryDependencies": ["@cortexcn/queue"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/blocks/ai-queue-01/components/agent-queue.tsx",
+          "type": "registry:component",
+          "target": "components/agent-queue.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-queue-01-example",
+      "type": "registry:example",
+      "title": "AI Agent Queue Example",
+      "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list — demo for Open in v0",
+      "registryDependencies": ["@cortexcn/ai-queue-01"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/examples/ai-queue-01.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
         }
@@ -4320,83 +4517,6 @@
           "path": "registry/examples/stat-card-choropleth-01-index.ts",
           "type": "registry:lib",
           "target": "components/charts/index.ts"
-        }
-      ]
-    },
-    {
-      "name": "design-md",
-      "type": "registry:item",
-      "title": "DESIGN.md",
-      "description": "Cortexcn's design system as a DESIGN.md file for coding agents: the colors, type, square corners, spacing, motion, and component rules, generated from the theme tokens.",
-      "categories": ["agents"],
-      "files": [
-        {
-          "path": "src/agents/DESIGN.md",
-          "type": "registry:file",
-          "target": "~/DESIGN.md"
-        }
-      ]
-    },
-    {
-      "name": "agent-skills",
-      "type": "registry:item",
-      "title": "Agent skills",
-      "description": "The cortexcn and cortexcn-design agent skills, for Claude Code (.claude/skills) and for Codex, Cursor, and GitHub Copilot (.agents/skills).",
-      "categories": ["agents"],
-      "files": [
-        {
-          "path": "src/agents/skills/cortexcn/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.claude/skills/cortexcn/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.agents/skills/cortexcn/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn-design/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn-design/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
-        }
-      ]
-    },
-    {
-      "name": "agent-kit",
-      "type": "registry:item",
-      "title": "Agent kit",
-      "description": "Everything for coding agents in one install: both Cortexcn agent skills and DESIGN.md.",
-      "categories": ["agents"],
-      "files": [
-        {
-          "path": "src/agents/skills/cortexcn/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.claude/skills/cortexcn/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.agents/skills/cortexcn/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn-design/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
-        },
-        {
-          "path": "src/agents/skills/cortexcn-design/SKILL.md",
-          "type": "registry:file",
-          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
-        },
-        {
-          "path": "src/agents/DESIGN.md",
-          "type": "registry:file",
-          "target": "~/DESIGN.md"
         }
       ]
     }

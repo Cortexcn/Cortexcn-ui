@@ -41,6 +41,63 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-05",
+    kind: "site",
+    title: "Rate limits on the MCP server",
+    summary:
+      "The MCP server now takes up to 120 requests a minute and 3,000 a day from each IP address. Over a limit, your assistant gets a 429 with a Retry-After header and a message that says how long to wait.",
+    items: [{ label: "MCP Server", href: "/docs/integration/mcp" }],
+  },
+  {
+    date: "2026-10-03",
+    kind: "blocks",
+    title: "Feature Walkthrough block",
+    summary:
+      "Three numbered steps sit beside a painted stage in a ruled frame. Each painting wipes in over the last, and a window springs up to play its step: the install command typing out in a terminal, a one-line edit to the Marquee source, then the Marquee running until a pointer rests on it. The window tilts toward your mouse, the steps move on by themselves and hold while you point at or focus them, and the arrow keys move between them.",
+    items: [
+      {
+        label: "Walkthrough",
+        href: "/blocks/features/feature-walkthrough-01",
+      },
+    ],
+  },
+  {
+    date: "2026-10-03",
+    kind: "site",
+    title: "Numbered cards in the Blocks gallery",
+    summary:
+      "Each card in the Cortexcn Blocks gallery now shows its place in its category beside the category name, such as 01 · Hero and 02 · Hero, so a block is easy to point to.",
+    items: [{ label: "Blocks", href: "/blocks" }],
+  },
+  {
+    date: "2026-10-03",
+    kind: "blocks",
+    title: "Feature Mixed Bento block",
+    summary:
+      "Four cards on a five-column grid under a small mono label, each setting its title, copy, and painting a different way: beside, below, above, and rising from the bottom edge. Soft blurred glows and a faint plus pattern sit behind them.",
+    items: [
+      {
+        label: "Mixed Bento",
+        href: "/blocks/features/feature-mixed-bento-01",
+      },
+    ],
+  },
+  {
+    date: "2026-10-03",
+    kind: "blocks",
+    title: "Services blocks: Image Grid and Preview List",
+    summary:
+      "A new Services category opens with two sections painted with the flowers from this site. Image Grid sets a heading, a short pitch, and one action beside five cards that fade when you point at them. Preview List sets the services large in a numbered list, and the one you point at wipes its image and description into a panel that stays in view.",
+    items: [
+      { label: "Services blocks", href: "/blocks?category=services" },
+      { label: "Image Grid", href: "/blocks/services/services-image-grid-01" },
+      {
+        label: "Preview List",
+        href: "/blocks/services/services-preview-list-01",
+      },
+    ],
+  },
+  {
     date: "2026-10-03",
     kind: "site",
     title: "The Cortexcn MCP server, agent skills, and DESIGN.md",

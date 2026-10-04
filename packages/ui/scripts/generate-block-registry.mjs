@@ -120,6 +120,42 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-bento-grid.tsx"],
   },
+  "feature-mixed-bento-01": {
+    title: "Feature Mixed Bento",
+    description:
+      "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "card"],
+    dependencies: [],
+    files: ["components/feature-mixed-bento.tsx"],
+  },
+  "feature-walkthrough-01": {
+    title: "Feature Walkthrough",
+    description:
+      "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "@cortexcn/marquee"],
+    dependencies: ["motion"],
+    files: ["components/feature-walkthrough.tsx"],
+  },
+  "services-image-grid-01": {
+    title: "Services Image Grid",
+    description:
+      "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button", "card"],
+    dependencies: ["motion"],
+    files: ["components/services-image-grid.tsx"],
+  },
+  "services-preview-list-01": {
+    title: "Services Preview List",
+    description:
+      "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils", "button"],
+    dependencies: ["motion"],
+    files: ["components/services-preview-list.tsx"],
+  },
   "hero-dashboard-01": {
     title: "Hero Dashboard Preview",
     description:
@@ -302,6 +338,10 @@ const COMPONENT_EXPORTS = {
   "feature-image-columns-01": "FeatureImageColumns",
   "feature-studio-grid-01": "FeatureStudioGrid",
   "feature-bento-grid-01": "FeatureBentoGrid",
+  "feature-mixed-bento-01": "FeatureMixedBento",
+  "feature-walkthrough-01": "FeatureWalkthrough",
+  "services-image-grid-01": "ServicesImageGrid",
+  "services-preview-list-01": "ServicesPreviewList",
   "ai-reasoning-01": "ReasoningPanel",
   "ai-chain-of-thought-01": "AgentSteps",
   "ai-shimmer-01": "ThinkingMessage",

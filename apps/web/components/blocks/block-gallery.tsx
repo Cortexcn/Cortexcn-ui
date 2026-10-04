@@ -202,6 +202,8 @@ function GalleryCard({ block }: { block: GalleryBlock }) {
 
       <div className="flex flex-1 flex-col gap-1 px-1 pb-1 sm:px-2">
         <p className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">
+          <span className="text-foreground tabular-nums">{block.number}</span>
+          {" · "}
           {block.categoryName}
         </p>
         <h3 className="font-semibold text-xl tracking-tight">{block.title}</h3>

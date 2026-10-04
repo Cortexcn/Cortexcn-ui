@@ -8,14 +8,18 @@ import type { BlockCategory } from "./categories";
 import { FeatureBentoGridBlock } from "./feature-bento-grid-01";
 import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
 import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
+import { FeatureMixedBentoBlock } from "./feature-mixed-bento-01";
 import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
 import { FeatureStudioGridBlock } from "./feature-studio-grid-01";
+import { FeatureWalkthroughBlock } from "./feature-walkthrough-01";
 import { HeroCoverBlock } from "./hero-cover-01";
 import { HeroDashboardBlock } from "./hero-dashboard-01";
 import { HeroStudioBlock } from "./hero-studio-01";
 import { LoaderDotMatrixBlock } from "./loader-dot-matrix-01";
 import { LoaderGlitchTextBlock } from "./loader-glitch-text-01";
 import { type BlockSlug, blockFileManifests } from "./manifest";
+import { ServicesImageGridBlock } from "./services-image-grid-01";
+import { ServicesPreviewListBlock } from "./services-preview-list-01";
 import { StatCardAreaBlock } from "./stat-card-area-01";
 import type { BlockDisplayProps } from "./stat-card-area-01/meta";
 import { StatCardChoroplethBlock } from "./stat-card-choropleth-01";
@@ -27,6 +31,8 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "feature-image-columns-01": FeatureImageColumnsBlock,
   "feature-studio-grid-01": FeatureStudioGridBlock,
   "feature-bento-grid-01": FeatureBentoGridBlock,
+  "feature-mixed-bento-01": FeatureMixedBentoBlock,
+  "feature-walkthrough-01": FeatureWalkthroughBlock,
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
   "stat-card-choropleth-01": StatCardChoroplethBlock,
@@ -39,6 +45,8 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "hero-cover-01": HeroCoverBlock,
   "loader-dot-matrix-01": LoaderDotMatrixBlock,
   "loader-glitch-text-01": LoaderGlitchTextBlock,
+  "services-image-grid-01": ServicesImageGridBlock,
+  "services-preview-list-01": ServicesPreviewListBlock,
 };
 
 /** The viewer (preview, code, install) for one block. */

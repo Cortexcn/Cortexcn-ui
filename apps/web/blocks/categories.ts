@@ -29,7 +29,16 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "feature-image-columns-01",
       "feature-studio-grid-01",
       "feature-bento-grid-01",
+      "feature-mixed-bento-01",
+      "feature-walkthrough-01",
     ],
+  },
+  {
+    slug: "services",
+    name: "Services",
+    description:
+      "Sections that show what you offer, with image cards, a short pitch, and one call to action.",
+    blocks: ["services-image-grid-01", "services-preview-list-01"],
   },
   {
     slug: "ai-assistant",

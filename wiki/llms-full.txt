@@ -11044,8 +11044,13 @@ The Cortexcn MCP server lets an AI assistant search the registry, read an item's
 | Sessions          | Stateless                                      |
 | Sign-in           | None                                           |
 | Access            | Read-only                                      |
+| Rate limit        | 120 requests a minute and 3,000 a day per IP   |
 
 The server is hosted, so most clients connect to the URL directly and there is nothing to install or run.
+
+### Rate limits
+
+Each IP address can make 120 requests a minute and 3,000 a day. A normal session with an assistant stays well under both. Over a limit, the server answers `429 Too Many Requests` with a `Retry-After` header and an error that says how long to wait, and requests work again after that.
 
 ## How installs work
 
