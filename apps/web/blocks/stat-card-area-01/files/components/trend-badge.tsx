@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@cortexcn/icons";
+import { ArrowDownIcon, ArrowUpIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -22,11 +22,11 @@ export function TrendBadge({
       )}
       variant={positive ? "outline" : "destructive"}
     >
-      <Icon
-        className="size-3"
-        data-icon="inline-start"
-        name={positive ? "IconArrowUp" : "IconArrowDown"}
-      />
+      {positive ? (
+        <ArrowUpIcon className="size-3" data-icon="inline-start" />
+      ) : (
+        <ArrowDownIcon className="size-3" data-icon="inline-start" />
+      )}
       {positive ? "+" : ""}
       {value.toFixed(1)}%
     </Badge>

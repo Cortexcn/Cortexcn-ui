@@ -6,7 +6,7 @@
   "dependencies": [
     "@visx/curve@4.0.1-alpha.0",
     "@number-flow/react",
-    "@central-icons-react/all"
+    "lucide-react"
   ],
   "registryDependencies": [
     "@cortexcn/stat-card-line-01"
