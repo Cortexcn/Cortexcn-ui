@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stat-card-area-01-example",
-  "type": "registry:example",
   "title": "Stat Card Area Example",
   "description": "Revenue stat card with gradient area sparkline, NumberFlow, and trend badge — demo for Open in v0",
   "dependencies": [
@@ -10,7 +9,9 @@
     "@number-flow/react",
     "@central-icons-react/all"
   ],
-  "registryDependencies": ["@cortexcn/stat-card-area-01"],
+  "registryDependencies": [
+    "@cortexcn/stat-card-area-01"
+  ],
   "files": [
     {
       "path": "registry/examples/stat-card-area-01.tsx",
@@ -24,5 +25,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-utils",
-  "type": "registry:lib",
   "title": "Chart Utilities",
   "description": "Shared Intl formatters, time-series decimation, and RAF tooltip scheduling for Cortexcn charts",
   "files": [
@@ -23,5 +22,6 @@
       "type": "registry:lib",
       "target": "components/charts/use-scheduled-tooltip.ts"
     }
-  ]
+  ],
+  "type": "registry:lib"
 }

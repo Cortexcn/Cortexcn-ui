@@ -1,10 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "x-axis",
-  "type": "registry:component",
   "title": "X Axis",
   "description": "X-axis component for time-series charts",
-  "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/chart-context",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/x-axis.tsx",
@@ -12,5 +14,6 @@
       "type": "registry:component",
       "target": "components/charts/x-axis.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

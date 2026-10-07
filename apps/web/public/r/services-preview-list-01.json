@@ -3,8 +3,13 @@
   "name": "services-preview-list-01",
   "title": "Services Preview List",
   "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils", "button"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/services-preview-list-01/components/services-preview-list.tsx",

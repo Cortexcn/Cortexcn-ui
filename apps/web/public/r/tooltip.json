@@ -3,8 +3,12 @@
   "name": "tooltip",
   "title": "Tooltip",
   "description": "A popup that shows information about an element on hover or keyboard focus.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/tooltip.tsx",
@@ -13,6 +17,8 @@
       "target": "components/tooltip.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

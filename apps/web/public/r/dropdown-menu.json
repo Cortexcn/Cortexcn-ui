@@ -3,8 +3,13 @@
   "name": "dropdown-menu",
   "title": "Dropdown Menu",
   "description": "Displays a menu of actions or functions, triggered by a button.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/dropdown-menu.tsx",
@@ -13,6 +18,8 @@
       "target": "components/dropdown-menu.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

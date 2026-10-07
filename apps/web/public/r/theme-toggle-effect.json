@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-toggle-effect",
-  "type": "registry:component",
   "title": "Theme Toggle Effect",
   "description": "Animated transitions when switching between light and dark themes.",
-  "categories": ["cortex"],
   "files": [
     {
       "path": "src/components/theme-toggle-effect.tsx",
@@ -12,5 +10,9 @@
       "type": "registry:component",
       "target": "components/theme-toggle-effect.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
 }

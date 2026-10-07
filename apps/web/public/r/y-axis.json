@@ -1,10 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "y-axis",
-  "type": "registry:component",
   "title": "Y Axis",
   "description": "Y-axis component for value labels in line and area charts",
-  "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/chart-context",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/y-axis.tsx",
@@ -18,5 +20,6 @@
       "type": "registry:lib",
       "target": "components/charts/reference-area-geometry.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

@@ -8,7 +8,10 @@
       "type": "registry:lib",
       "title": "Utilities",
       "description": "Utility functions for className merging with clsx and tailwind-merge",
-      "dependencies": ["clsx", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "files": [
         {
           "path": "src/lib/utils.ts",
@@ -22,8 +25,12 @@
       "type": "registry:component",
       "title": "Shimmering Text",
       "description": "Per-character shimmer animation for loading labels and badges",
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/components/shimmering-text.tsx",
@@ -37,8 +44,12 @@
       "type": "registry:component",
       "title": "Marquee",
       "description": "An infinite scrolling component that can be used to display text, images, or videos.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/marquee.tsx",
@@ -76,9 +87,15 @@
       "type": "registry:component",
       "title": "Accordion",
       "description": "A vertically stacked set of headings that each reveal a section of content.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/accordion.tsx",
@@ -92,8 +109,12 @@
       "type": "registry:component",
       "title": "Card",
       "description": "Displays a card with a header, content, and footer.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/card.tsx",
@@ -120,9 +141,15 @@
       "type": "registry:component",
       "title": "Alert",
       "description": "Displays a callout for user attention.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/alert.tsx",
@@ -136,9 +163,16 @@
       "type": "registry:component",
       "title": "Alert Dialog",
       "description": "A modal dialog that interrupts the user with important content and expects a response.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/alert-dialog.tsx",
@@ -152,9 +186,15 @@
       "type": "registry:component",
       "title": "Aspect Ratio",
       "description": "Displays content within a desired ratio.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/aspect-ratio.tsx",
@@ -168,9 +208,15 @@
       "type": "registry:component",
       "title": "Avatar",
       "description": "An image element with a fallback for representing the user.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/avatar.tsx",
@@ -184,9 +230,16 @@
       "type": "registry:component",
       "title": "Badge",
       "description": "Displays a badge or a component that looks like a badge.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/badge.tsx",
@@ -200,9 +253,16 @@
       "type": "registry:component",
       "title": "Breadcrumb",
       "description": "Displays the path to the current resource using a hierarchy of links.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/breadcrumb.tsx",
@@ -216,9 +276,16 @@
       "type": "registry:component",
       "title": "Button",
       "description": "Displays a button or a component that looks like a button.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/button.tsx",
@@ -232,9 +299,17 @@
       "type": "registry:component",
       "title": "Button Group",
       "description": "A container that groups related buttons together with consistent styling.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/separator"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/separator"
+      ],
       "files": [
         {
           "path": "src/components/button-group.tsx",
@@ -248,9 +323,17 @@
       "type": "registry:component",
       "title": "Calendar",
       "description": "A date field component that allows users to enter and edit dates.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "react-day-picker"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/calendar.tsx",
@@ -264,9 +347,17 @@
       "type": "registry:component",
       "title": "Carousel",
       "description": "A carousel with motion and swipe built using Embla.",
-      "categories": ["components"],
-      "dependencies": ["embla-carousel-react", "lucide-react"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/carousel.tsx",
@@ -280,9 +371,16 @@
       "type": "registry:component",
       "title": "Checkbox",
       "description": "A control that allows the user to toggle between checked and not checked.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/checkbox.tsx",
@@ -296,9 +394,15 @@
       "type": "registry:component",
       "title": "Collapsible",
       "description": "An interactive component which expands and collapses a panel.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/collapsible.tsx",
@@ -312,8 +416,13 @@
       "type": "registry:component",
       "title": "Combobox",
       "description": "An input with a list of suggestions that filters as you type.",
-      "categories": ["components"],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/button",
@@ -332,8 +441,13 @@
       "type": "registry:component",
       "title": "Command",
       "description": "A fast, composable command menu for React.",
-      "categories": ["components"],
-      "dependencies": ["cmdk", "lucide-react"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/dialog",
@@ -352,9 +466,16 @@
       "type": "registry:component",
       "title": "Context Menu",
       "description": "Displays a menu of actions triggered by a right click.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/context-menu.tsx",
@@ -368,9 +489,17 @@
       "type": "registry:component",
       "title": "Dialog",
       "description": "A window overlaid on the page that renders the content underneath inert.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/dialog.tsx",
@@ -384,9 +513,15 @@
       "type": "registry:component",
       "title": "Drawer",
       "description": "A drawer component for React, built on Vaul.",
-      "categories": ["components"],
-      "dependencies": ["vaul"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/drawer.tsx",
@@ -400,9 +535,16 @@
       "type": "registry:component",
       "title": "Dropdown Menu",
       "description": "Displays a menu of actions or functions, triggered by a button.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/dropdown-menu.tsx",
@@ -416,9 +558,15 @@
       "type": "registry:component",
       "title": "Empty",
       "description": "Displays an empty state, with media, a title, a description, and actions.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/empty.tsx",
@@ -432,8 +580,12 @@
       "type": "registry:component",
       "title": "Field",
       "description": "Combines labels, controls, and help text into accessible form fields.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/label",
@@ -452,9 +604,15 @@
       "type": "registry:component",
       "title": "Hover Card",
       "description": "For sighted users to preview content available behind a link.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/hover-card.tsx",
@@ -468,8 +626,12 @@
       "type": "registry:component",
       "title": "Input",
       "description": "Displays a form input field or a component that looks like an input field.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/input.tsx",
@@ -483,8 +645,12 @@
       "type": "registry:component",
       "title": "Input Group",
       "description": "Adds addons, buttons, and helper content to inputs.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/button",
@@ -504,9 +670,16 @@
       "type": "registry:component",
       "title": "Input OTP",
       "description": "An accessible one-time password input with copy and paste support.",
-      "categories": ["components"],
-      "dependencies": ["input-otp", "lucide-react"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/input-otp.tsx",
@@ -520,9 +693,17 @@
       "type": "registry:component",
       "title": "Item",
       "description": "A versatile row for displaying media, a title, a description, and actions.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/separator"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/separator"
+      ],
       "files": [
         {
           "path": "src/components/item.tsx",
@@ -536,8 +717,12 @@
       "type": "registry:component",
       "title": "Kbd",
       "description": "Displays textual user input from a keyboard, such as a shortcut.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/kbd.tsx",
@@ -551,9 +736,15 @@
       "type": "registry:component",
       "title": "Label",
       "description": "Renders an accessible label associated with controls.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/label.tsx",
@@ -567,9 +758,16 @@
       "type": "registry:component",
       "title": "Menubar",
       "description": "A persistent menu, common in desktop apps, with quick access to a set of commands.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/menubar.tsx",
@@ -583,9 +781,15 @@
       "type": "registry:component",
       "title": "Native Select",
       "description": "A styled native HTML select element.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/native-select.tsx",
@@ -599,9 +803,17 @@
       "type": "registry:component",
       "title": "Navigation Menu",
       "description": "A collection of links for navigating websites.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/navigation-menu.tsx",
@@ -615,9 +827,16 @@
       "type": "registry:component",
       "title": "Pagination",
       "description": "Page navigation with next and previous links.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/pagination.tsx",
@@ -631,9 +850,15 @@
       "type": "registry:component",
       "title": "Popover",
       "description": "Displays rich content in a portal, triggered by a button.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/popover.tsx",
@@ -647,9 +872,15 @@
       "type": "registry:component",
       "title": "Progress",
       "description": "Displays an indicator showing the completion progress of a task.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/progress.tsx",
@@ -663,9 +894,15 @@
       "type": "registry:component",
       "title": "Radio Group",
       "description": "A set of checkable buttons where no more than one can be checked at a time.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/radio-group.tsx",
@@ -679,9 +916,15 @@
       "type": "registry:component",
       "title": "Resizable",
       "description": "Accessible resizable panel groups and layouts with keyboard support.",
-      "categories": ["components"],
-      "dependencies": ["react-resizable-panels"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/resizable.tsx",
@@ -695,9 +938,15 @@
       "type": "registry:component",
       "title": "Scroll Area",
       "description": "Augments native scroll functionality for custom, cross-browser styling.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/scroll-area.tsx",
@@ -711,9 +960,16 @@
       "type": "registry:component",
       "title": "Select",
       "description": "Displays a list of options for the user to pick from, triggered by a button.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/select.tsx",
@@ -727,9 +983,15 @@
       "type": "registry:component",
       "title": "Separator",
       "description": "Visually or semantically separates content.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/separator.tsx",
@@ -743,9 +1005,17 @@
       "type": "registry:component",
       "title": "Sheet",
       "description": "Extends the dialog to show content that complements the main content of the screen.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/button"
+      ],
       "files": [
         {
           "path": "src/components/sheet.tsx",
@@ -759,8 +1029,14 @@
       "type": "registry:component",
       "title": "Sidebar",
       "description": "A composable, themeable, and customizable sidebar.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/button",
@@ -784,8 +1060,12 @@
       "type": "registry:component",
       "title": "Skeleton",
       "description": "Shows a placeholder while content is loading.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/skeleton.tsx",
@@ -799,9 +1079,15 @@
       "type": "registry:component",
       "title": "Slider",
       "description": "An input where the user selects a value from within a given range.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/slider.tsx",
@@ -815,9 +1101,17 @@
       "type": "registry:component",
       "title": "Sonner",
       "description": "An opinionated toast component for React.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react", "next-themes", "sonner"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "next-themes",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/sonner.tsx",
@@ -831,9 +1125,15 @@
       "type": "registry:component",
       "title": "Spinner",
       "description": "An indicator that shows a loading state.",
-      "categories": ["components"],
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/spinner.tsx",
@@ -847,9 +1147,15 @@
       "type": "registry:component",
       "title": "Switch",
       "description": "A control that allows the user to toggle between on and off.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/switch.tsx",
@@ -863,8 +1169,12 @@
       "type": "registry:component",
       "title": "Table",
       "description": "A responsive table component.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/table.tsx",
@@ -878,9 +1188,16 @@
       "type": "registry:component",
       "title": "Tabs",
       "description": "A set of layered sections of content, shown one at a time.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/tabs.tsx",
@@ -894,8 +1211,12 @@
       "type": "registry:component",
       "title": "Textarea",
       "description": "Displays a form textarea or a component that looks like a textarea.",
-      "categories": ["components"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/textarea.tsx",
@@ -909,9 +1230,16 @@
       "type": "registry:component",
       "title": "Toggle",
       "description": "A two-state button that can be either on or off.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/toggle.tsx",
@@ -925,9 +1253,17 @@
       "type": "registry:component",
       "title": "Toggle Group",
       "description": "A set of two-state buttons that can be toggled on or off.",
-      "categories": ["components"],
-      "dependencies": ["class-variance-authority", "radix-ui"],
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/toggle"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/toggle"
+      ],
       "files": [
         {
           "path": "src/components/toggle-group.tsx",
@@ -941,9 +1277,15 @@
       "type": "registry:component",
       "title": "Tooltip",
       "description": "A popup that shows information about an element on hover or keyboard focus.",
-      "categories": ["components"],
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/tooltip.tsx",
@@ -957,9 +1299,15 @@
       "type": "registry:component",
       "title": "Shimmer",
       "description": "Animated shimmering text for loading and thinking states in AI interfaces.",
-      "categories": ["ai-assistant"],
-      "dependencies": ["motion"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "ai-assistant"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/shimmer.tsx",
@@ -973,7 +1321,9 @@
       "type": "registry:component",
       "title": "Chain of Thought",
       "description": "A collapsible view of an AI's reasoning steps, with search results, images, and step status.",
-      "categories": ["ai-assistant"],
+      "categories": [
+        "ai-assistant"
+      ],
       "dependencies": [
         "@radix-ui/react-use-controllable-state",
         "lucide-react"
@@ -996,7 +1346,9 @@
       "type": "registry:component",
       "title": "Reasoning",
       "description": "A collapsible panel for AI reasoning that opens while the model streams and closes when it finishes.",
-      "categories": ["ai-assistant"],
+      "categories": [
+        "ai-assistant"
+      ],
       "dependencies": [
         "@radix-ui/react-use-controllable-state",
         "@streamdown/cjk",
@@ -1024,8 +1376,13 @@
       "type": "registry:component",
       "title": "Perspective Marquee",
       "description": "A tilted wall of images that scrolls endlessly in alternating columns.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/marquee", "@cortexcn/utils"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/marquee",
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/perspective-marquee.tsx",
@@ -1039,9 +1396,15 @@
       "type": "registry:component",
       "title": "Line Nav",
       "description": "Vertical navigation with a line marker that expands on hover and active state.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/components/line-nav.tsx",
@@ -1055,9 +1418,15 @@
       "type": "registry:component",
       "title": "Logos Carousel",
       "description": "Cycle through logos column by column in a staggered wave.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/components/logos-carousel.tsx",
@@ -1071,7 +1440,9 @@
       "type": "registry:component",
       "title": "Theme Toggle Effect",
       "description": "Animated transitions when switching between light and dark themes.",
-      "categories": ["cortex"],
+      "categories": [
+        "cortex"
+      ],
       "files": [
         {
           "path": "src/components/theme-toggle-effect.tsx",
@@ -1371,9 +1742,17 @@
       "type": "registry:component",
       "title": "Work Experience",
       "description": "Display work experiences with role details, company logos, and durations.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils", "collapsible", "separator"],
-      "dependencies": ["motion"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "collapsible",
+        "separator"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/components/work-experience.tsx",
@@ -1392,8 +1771,12 @@
       "type": "registry:component",
       "title": "Light Speed",
       "description": "A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.",
-      "categories": ["backgrounds"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "backgrounds"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "dependencies": [
         "three",
         "@react-three/fiber",
@@ -1402,7 +1785,9 @@
         "clsx",
         "tailwind-merge"
       ],
-      "devDependencies": ["@types/three"],
+      "devDependencies": [
+        "@types/three"
+      ],
       "files": [
         {
           "path": "src/components/light-speed.tsx",
@@ -1416,9 +1801,15 @@
       "type": "registry:component",
       "title": "Number Ticker",
       "description": "A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/components/number-ticker.tsx",
@@ -1432,9 +1823,16 @@
       "type": "registry:component",
       "title": "Command Search",
       "description": "A command palette that types queries and live-filters grouped results, with keyboard navigation.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion", "lucide-react"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "src/components/command-search.tsx",
@@ -1448,9 +1846,15 @@
       "type": "registry:component",
       "title": "Fan-Out Diagram",
       "description": "An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.",
-      "categories": ["cortex"],
-      "dependencies": ["motion"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "cortex"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/fan-out-diagram.tsx",
@@ -1464,9 +1868,13 @@
       "type": "registry:component",
       "title": "Gooey Nav",
       "description": "A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.",
-      "categories": ["cortex"],
+      "categories": [
+        "cortex"
+      ],
       "dependencies": [],
-      "registryDependencies": ["@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/gooey-nav.tsx",
@@ -1480,10 +1888,18 @@
       "type": "registry:component",
       "title": "Lanyard 3D",
       "description": "A 3D ID badge on a strap, drawn with three.js. Drag it and it swings and twists on a simulated strap; click it to flip it over.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["three"],
-      "devDependencies": ["@types/three"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
       "files": [
         {
           "path": "src/components/lanyard-3d.tsx",
@@ -1497,9 +1913,13 @@
       "type": "registry:component",
       "title": "Lanyard Badge",
       "description": "An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.",
-      "categories": ["cortex"],
+      "categories": [
+        "cortex"
+      ],
       "dependencies": [],
-      "registryDependencies": ["@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/lanyard-badge.tsx",
@@ -1513,9 +1933,13 @@
       "type": "registry:component",
       "title": "Sphere Menu",
       "description": "A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.",
-      "categories": ["cortex"],
+      "categories": [
+        "cortex"
+      ],
       "dependencies": [],
-      "registryDependencies": ["@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/components/sphere-menu.tsx",
@@ -1529,9 +1953,16 @@
       "type": "registry:component",
       "title": "FAQ Tabs Card",
       "description": "A tabbed FAQ card with animated accordion answers and a support footer.",
-      "categories": ["cortex"],
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion", "lucide-react"],
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "src/components/faq-tabs-card.tsx",
@@ -1568,7 +1999,10 @@
       "type": "registry:component",
       "title": "Chart Context",
       "description": "Shared context and hooks for Cortexcn chart components",
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils"
+      ],
       "dependencies": [
         "@visx/event@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -1697,7 +2131,9 @@
       "type": "registry:component",
       "title": "Chart Animation",
       "description": "Shared motion helpers for chart enter transitions, clip reveals, and staggered animations",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/animation.ts",
@@ -1746,7 +2182,11 @@
         "@cortexcn/chart-animation",
         "@cortexcn/chart-tooltip"
       ],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "d3-shape", "motion"],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "d3-shape",
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/path-stroke-utils.ts",
@@ -1830,8 +2270,12 @@
       "type": "registry:component",
       "title": "Chart Grid",
       "description": "Grid lines for charts",
-      "registryDependencies": ["@cortexcn/chart-context"],
-      "dependencies": ["@visx/grid@4.0.1-alpha.0"],
+      "registryDependencies": [
+        "@cortexcn/chart-context"
+      ],
+      "dependencies": [
+        "@visx/grid@4.0.1-alpha.0"
+      ],
       "files": [
         {
           "path": "src/charts/grid.tsx",
@@ -1854,7 +2298,9 @@
         "@cortexcn/chart-context",
         "@cortexcn/background"
       ],
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/reference-area.tsx",
@@ -1882,7 +2328,10 @@
         "@cortexcn/chart-context",
         "@cortexcn/line-chart"
       ],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/projection-line.tsx",
@@ -1911,8 +2360,13 @@
       "type": "registry:component",
       "title": "Chart Background",
       "description": "Pattern fill for the plot area when grid lines are hidden",
-      "registryDependencies": ["@cortexcn/chart-context"],
-      "dependencies": ["@visx/pattern@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/chart-context"
+      ],
+      "dependencies": [
+        "@visx/pattern@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/background.tsx",
@@ -1936,7 +2390,10 @@
       "type": "registry:component",
       "title": "X Axis",
       "description": "X-axis component for time-series charts",
-      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/chart-context",
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/charts/x-axis.tsx",
@@ -1950,7 +2407,10 @@
       "type": "registry:component",
       "title": "Y Axis",
       "description": "Y-axis component for value labels in line and area charts",
-      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/chart-context",
+        "@cortexcn/utils"
+      ],
       "files": [
         {
           "path": "src/charts/y-axis.tsx",
@@ -1969,8 +2429,14 @@
       "type": "registry:component",
       "title": "Chart Tooltip",
       "description": "Composable tooltip components for charts",
-      "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/utils"],
-      "dependencies": ["@number-flow/react", "motion"],
+      "registryDependencies": [
+        "@cortexcn/chart-context",
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "@number-flow/react",
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/chart-config-context.tsx",
@@ -2024,8 +2490,14 @@
       "type": "registry:component",
       "title": "Chart Legend",
       "description": "Composable legend components for charts",
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
-      "dependencies": ["@base-ui/react", "@number-flow/react"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/chart-utils"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "@number-flow/react"
+      ],
       "cssVars": {
         "light": {
           "--legend": "oklch(1 0 0)",
@@ -2118,7 +2590,9 @@
       "type": "registry:component",
       "title": "Area Chart",
       "description": "A composable area chart with gradient fills and animations",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -2213,7 +2687,9 @@
       "type": "registry:component",
       "title": "Composed Chart",
       "description": "Time-series chart composing Line, Area, and SeriesBar on one shared scale (Recharts ComposedChart-style)",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/grid",
@@ -2280,7 +2756,9 @@
       "type": "registry:component",
       "title": "Bar Chart",
       "description": "A composable bar chart with horizontal/vertical orientations and animations",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -2367,7 +2845,9 @@
       "type": "registry:component",
       "title": "Line Chart",
       "description": "A composable line chart with multiple series support",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -2471,7 +2951,9 @@
       "type": "registry:component",
       "title": "Profit/Loss Line",
       "description": "Sign-colored line segments for profit and loss on LineChart",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/line-chart",
         "@cortexcn/grid",
@@ -2512,8 +2994,12 @@
       "type": "registry:component",
       "title": "Bar Depth",
       "description": "3D depth and glossy glass surfaces for BarChart bars",
-      "registryDependencies": ["@cortexcn/bar-chart"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/bar-chart"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/bar-depth.tsx",
@@ -2527,7 +3013,9 @@
       "type": "registry:component",
       "title": "Scatter Chart",
       "description": "A composable time-series scatter chart with offset rings, hover dimming, and animated enter",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -2537,7 +3025,12 @@
         "@cortexcn/chart-tooltip",
         "@cortexcn/utils"
       ],
-      "dependencies": ["d3-array", "d3-scale", "motion", "react-use-measure"],
+      "dependencies": [
+        "d3-array",
+        "d3-scale",
+        "motion",
+        "react-use-measure"
+      ],
       "files": [
         {
           "path": "src/charts/scatter-chart.tsx",
@@ -2601,7 +3094,9 @@
       "type": "registry:component",
       "title": "Live Line Chart",
       "description": "Real-time streaming line chart with smooth scrolling, crosshair, and animated axes",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-tooltip",
@@ -2649,7 +3144,9 @@
       "type": "registry:component",
       "title": "Candlestick Chart",
       "description": "A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -2693,8 +3190,13 @@
       "type": "registry:component",
       "title": "Pie Chart",
       "description": "A composable pie chart with animations and customizable slices",
-      "categories": ["charts"],
-      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils"
+      ],
       "dependencies": [
         "@number-flow/react",
         "@visx/group@4.0.1-alpha.0",
@@ -2746,8 +3248,13 @@
       "type": "registry:component",
       "title": "Radar Chart",
       "description": "A composable radar/spider chart with multiple data series",
-      "categories": ["charts"],
-      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils"
+      ],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -2794,8 +3301,13 @@
       "type": "registry:component",
       "title": "Ring Chart",
       "description": "A composable donut/ring chart with progress indicators",
-      "categories": ["charts"],
-      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils"
+      ],
       "dependencies": [
         "@visx/group@4.0.1-alpha.0",
         "@visx/responsive@4.0.1-alpha.0",
@@ -2841,8 +3353,12 @@
       "type": "registry:component",
       "title": "Gauge",
       "description": "Notch-based radial or linear gauge with optional center label, patterns, and optional gradients",
-      "categories": ["charts"],
-      "registryDependencies": ["@cortexcn/utils"],
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "dependencies": [
         "@visx/responsive@4.0.1-alpha.0",
         "@visx/pattern@4.0.1-alpha.0",
@@ -2898,7 +3414,9 @@
       "type": "registry:component",
       "title": "Heatmap Chart",
       "description": "A contribution heatmap with animated cells and configurable level colors",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-context",
         "@cortexcn/chart-animation",
@@ -3034,7 +3552,9 @@
       "type": "registry:component",
       "title": "Choropleth Map",
       "description": "A geographic map chart with zoom, pan, and data visualization",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
@@ -3093,13 +3613,17 @@
       "type": "registry:component",
       "title": "Funnel Chart",
       "description": "An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
         "@cortexcn/chart-utils"
       ],
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/funnel-chart.tsx",
@@ -3113,7 +3637,9 @@
       "type": "registry:component",
       "title": "Sankey Diagram",
       "description": "A flow diagram for visualizing data transfers between nodes",
-      "categories": ["charts"],
+      "categories": [
+        "charts"
+      ],
       "registryDependencies": [
         "@cortexcn/chart-animation",
         "@cortexcn/utils",
@@ -3167,9 +3693,16 @@
       "type": "registry:component",
       "title": "Sunburst Chart",
       "description": "A composable hierarchical sunburst chart with drill-down zoom and animated segments",
-      "categories": ["charts"],
-      "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "@cortexcn/chart-animation",
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/sunburst-chart.tsx",
@@ -3223,8 +3756,12 @@
       "type": "registry:component",
       "title": "Queue",
       "description": "A queue for AI apps: queued messages with attachments, todos, and collapsible sections.",
-      "categories": ["ai-assistant"],
-      "dependencies": ["lucide-react"],
+      "categories": [
+        "ai-assistant"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/button",
@@ -3244,7 +3781,9 @@
       "type": "registry:item",
       "title": "DESIGN.md",
       "description": "Cortexcn's design system as a DESIGN.md file for coding agents: the colors, type, square corners, spacing, motion, and component rules, generated from the theme tokens.",
-      "categories": ["agents"],
+      "categories": [
+        "agents"
+      ],
       "files": [
         {
           "path": "src/agents/DESIGN.md",
@@ -3258,7 +3797,9 @@
       "type": "registry:item",
       "title": "Agent skills",
       "description": "The cortexcn and cortexcn-design agent skills, for Claude Code (.claude/skills) and for Codex, Cursor, and GitHub Copilot (.agents/skills).",
-      "categories": ["agents"],
+      "categories": [
+        "agents"
+      ],
       "files": [
         {
           "path": "src/agents/skills/cortexcn/SKILL.md",
@@ -3287,7 +3828,9 @@
       "type": "registry:item",
       "title": "Agent kit",
       "description": "Everything for coding agents in one install: both Cortexcn agent skills and DESIGN.md.",
-      "categories": ["agents"],
+      "categories": [
+        "agents"
+      ],
       "files": [
         {
           "path": "src/agents/skills/cortexcn/SKILL.md",
@@ -3414,7 +3957,12 @@
         "@cortexcn/x-axis",
         "@cortexcn/chart-tooltip"
       ],
-      "dependencies": ["d3-scale", "d3-array", "motion", "react-use-measure"],
+      "dependencies": [
+        "d3-scale",
+        "d3-array",
+        "motion",
+        "react-use-measure"
+      ],
       "files": [
         {
           "path": "registry/examples/scatter-chart.tsx",
@@ -3433,8 +3981,13 @@
       "type": "registry:example",
       "title": "Pie Chart Example",
       "description": "Composable pie-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/pie-chart"],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/pie-chart"
+      ],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/pie-chart.tsx",
@@ -3453,8 +4006,13 @@
       "type": "registry:example",
       "title": "Gauge Chart Example",
       "description": "Composable gauge-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/gauge-chart"],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/gauge-chart"
+      ],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/gauge-chart.tsx",
@@ -3473,7 +4031,9 @@
       "type": "registry:example",
       "title": "Heatmap Chart Example",
       "description": "Composable heatmap-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/heatmap-chart"],
+      "registryDependencies": [
+        "@cortexcn/heatmap-chart"
+      ],
       "dependencies": [
         "@visx/heatmap@4.0.1-alpha.0",
         "@visx/shape@4.0.1-alpha.0",
@@ -3497,8 +4057,13 @@
       "type": "registry:example",
       "title": "Ring Chart Example",
       "description": "Composable ring-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ring-chart"],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/ring-chart"
+      ],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/ring-chart.tsx",
@@ -3517,8 +4082,13 @@
       "type": "registry:example",
       "title": "Radar Chart Example",
       "description": "Composable radar-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/radar-chart"],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/radar-chart"
+      ],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/radar-chart.tsx",
@@ -3566,8 +4136,13 @@
       "type": "registry:example",
       "title": "Funnel Chart Example",
       "description": "Composable funnel-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/funnel-chart"],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "registryDependencies": [
+        "@cortexcn/funnel-chart"
+      ],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/funnel-chart.tsx",
@@ -3586,7 +4161,9 @@
       "type": "registry:example",
       "title": "Sankey Chart Example",
       "description": "Composable sankey-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/sankey-chart"],
+      "registryDependencies": [
+        "@cortexcn/sankey-chart"
+      ],
       "dependencies": [
         "@visx/sankey@4.0.1-alpha.0",
         "@visx/shape@4.0.1-alpha.0",
@@ -3610,8 +4187,12 @@
       "type": "registry:example",
       "title": "Sunburst Chart Example",
       "description": "Composable sunburst-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/sunburst-chart"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/sunburst-chart"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/sunburst-chart.tsx",
@@ -3637,7 +4218,10 @@
         "@cortexcn/y-axis",
         "@cortexcn/chart-tooltip"
       ],
-      "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
+      "dependencies": [
+        "@visx/shape@4.0.1-alpha.0",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/candlestick-chart.tsx",
@@ -3656,8 +4240,14 @@
       "type": "registry:example",
       "title": "Choropleth Chart Example",
       "description": "Composable choropleth-chart demo for Open in v0",
-      "registryDependencies": ["@cortexcn/choropleth-chart"],
-      "dependencies": ["@visx/geo@4.0.1-alpha.0", "d3-geo", "topojson-client"],
+      "registryDependencies": [
+        "@cortexcn/choropleth-chart"
+      ],
+      "dependencies": [
+        "@visx/geo@4.0.1-alpha.0",
+        "d3-geo",
+        "topojson-client"
+      ],
       "files": [
         {
           "path": "registry/examples/choropleth-chart.tsx",
@@ -3703,8 +4293,13 @@
       "type": "registry:component",
       "title": "Chart Stat Flow",
       "description": "Animated stat value and label for chart overlays",
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["@number-flow/react", "motion"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "@number-flow/react",
+        "motion"
+      ],
       "files": [
         {
           "path": "src/charts/chart-stat-flow.tsx",
@@ -3718,8 +4313,12 @@
       "type": "registry:block",
       "title": "Feature Spotlight Grid",
       "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at",
-      "registryDependencies": ["@cortexcn/utils"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/feature-spotlight-grid-01/components/feature-spotlight-grid.tsx",
@@ -3733,8 +4332,12 @@
       "type": "registry:example",
       "title": "Feature Spotlight Grid Example",
       "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-spotlight-grid-01"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/feature-spotlight-grid-01"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/feature-spotlight-grid-01.tsx",
@@ -3748,7 +4351,10 @@
       "type": "registry:block",
       "title": "Feature Media Cards",
       "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile",
-      "registryDependencies": ["@cortexcn/utils", "button"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3763,7 +4369,9 @@
       "type": "registry:example",
       "title": "Feature Media Cards Example",
       "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-media-cards-01"],
+      "registryDependencies": [
+        "@cortexcn/feature-media-cards-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3778,7 +4386,10 @@
       "type": "registry:block",
       "title": "Feature Image Columns",
       "description": "Label, headline, and intro over three image columns, closed by one shared call to action",
-      "registryDependencies": ["@cortexcn/utils", "button"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3793,7 +4404,9 @@
       "type": "registry:example",
       "title": "Feature Image Columns Example",
       "description": "Label, headline, and intro over three image columns, closed by one shared call to action — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-image-columns-01"],
+      "registryDependencies": [
+        "@cortexcn/feature-image-columns-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3808,7 +4421,10 @@
       "type": "registry:block",
       "title": "Feature Studio Grid",
       "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches",
-      "registryDependencies": ["@cortexcn/utils", "button"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3823,7 +4439,9 @@
       "type": "registry:example",
       "title": "Feature Studio Grid Example",
       "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-studio-grid-01"],
+      "registryDependencies": [
+        "@cortexcn/feature-studio-grid-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3838,7 +4456,10 @@
       "type": "registry:block",
       "title": "Feature Bento Grid",
       "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action",
-      "registryDependencies": ["@cortexcn/utils", "button"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3853,7 +4474,9 @@
       "type": "registry:example",
       "title": "Feature Bento Grid Example",
       "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-bento-grid-01"],
+      "registryDependencies": [
+        "@cortexcn/feature-bento-grid-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3868,7 +4491,10 @@
       "type": "registry:block",
       "title": "Feature Mixed Bento",
       "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern",
-      "registryDependencies": ["@cortexcn/utils", "card"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "card"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3883,7 +4509,9 @@
       "type": "registry:example",
       "title": "Feature Mixed Bento Example",
       "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-mixed-bento-01"],
+      "registryDependencies": [
+        "@cortexcn/feature-mixed-bento-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -3898,8 +4526,13 @@
       "type": "registry:block",
       "title": "Feature Walkthrough",
       "description": "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves",
-      "registryDependencies": ["@cortexcn/utils", "@cortexcn/marquee"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "@cortexcn/marquee"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/feature-walkthrough-01/components/feature-walkthrough.tsx",
@@ -3913,8 +4546,12 @@
       "type": "registry:example",
       "title": "Feature Walkthrough Example",
       "description": "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/feature-walkthrough-01"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/feature-walkthrough-01"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/feature-walkthrough-01.tsx",
@@ -3928,8 +4565,14 @@
       "type": "registry:block",
       "title": "Services Image Grid",
       "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them",
-      "registryDependencies": ["@cortexcn/utils", "button", "card"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/services-image-grid-01/components/services-image-grid.tsx",
@@ -3943,8 +4586,12 @@
       "type": "registry:example",
       "title": "Services Image Grid Example",
       "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/services-image-grid-01"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/services-image-grid-01"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/services-image-grid-01.tsx",
@@ -3958,8 +4605,13 @@
       "type": "registry:block",
       "title": "Services Preview List",
       "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at",
-      "registryDependencies": ["@cortexcn/utils", "button"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/services-preview-list-01/components/services-preview-list.tsx",
@@ -3973,8 +4625,12 @@
       "type": "registry:example",
       "title": "Services Preview List Example",
       "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/services-preview-list-01"],
-      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@cortexcn/services-preview-list-01"
+      ],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/services-preview-list-01.tsx",
@@ -3996,7 +4652,11 @@
         "card",
         "separator"
       ],
-      "dependencies": ["class-variance-authority", "lucide-react", "motion"],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero-dashboard-01/components/hero-dashboard.tsx",
@@ -4020,8 +4680,14 @@
       "type": "registry:example",
       "title": "Hero Dashboard Preview Example",
       "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/hero-dashboard-01"],
-      "dependencies": ["class-variance-authority", "lucide-react", "motion"],
+      "registryDependencies": [
+        "@cortexcn/hero-dashboard-01"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/hero-dashboard-01.tsx",
@@ -4035,8 +4701,14 @@
       "type": "registry:block",
       "title": "Hero Studio",
       "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page",
-      "registryDependencies": ["@cortexcn/utils", "button"],
-      "dependencies": ["class-variance-authority", "motion"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero-studio-01/components/hero-studio.tsx",
@@ -4055,8 +4727,13 @@
       "type": "registry:example",
       "title": "Hero Studio Example",
       "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/hero-studio-01"],
-      "dependencies": ["class-variance-authority", "motion"],
+      "registryDependencies": [
+        "@cortexcn/hero-studio-01"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/hero-studio-01.tsx",
@@ -4070,8 +4747,14 @@
       "type": "registry:block",
       "title": "Hero Cover Photo",
       "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge",
-      "registryDependencies": ["@cortexcn/utils", "button"],
-      "dependencies": ["class-variance-authority", "motion"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/blocks/hero-cover-01/components/hero-cover.tsx",
@@ -4090,8 +4773,13 @@
       "type": "registry:example",
       "title": "Hero Cover Photo Example",
       "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/hero-cover-01"],
-      "dependencies": ["class-variance-authority", "motion"],
+      "registryDependencies": [
+        "@cortexcn/hero-cover-01"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ],
       "files": [
         {
           "path": "registry/examples/hero-cover-01.tsx",
@@ -4105,7 +4793,10 @@
       "type": "registry:block",
       "title": "Loader Dot Matrix",
       "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button",
-      "registryDependencies": ["@cortexcn/utils", "button"],
+      "registryDependencies": [
+        "@cortexcn/utils",
+        "button"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4125,7 +4816,9 @@
       "type": "registry:example",
       "title": "Loader Dot Matrix Example",
       "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/loader-dot-matrix-01"],
+      "registryDependencies": [
+        "@cortexcn/loader-dot-matrix-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4140,7 +4833,9 @@
       "type": "registry:block",
       "title": "Loader Glitch Text",
       "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading",
-      "registryDependencies": ["@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4160,7 +4855,9 @@
       "type": "registry:example",
       "title": "Loader Glitch Text Example",
       "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/loader-glitch-text-01"],
+      "registryDependencies": [
+        "@cortexcn/loader-glitch-text-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4175,8 +4872,13 @@
       "type": "registry:block",
       "title": "AI Reasoning Panel",
       "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay",
-      "registryDependencies": ["@cortexcn/reasoning", "button"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/reasoning",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/blocks/ai-reasoning-01/components/reasoning-panel.tsx",
@@ -4190,8 +4892,12 @@
       "type": "registry:example",
       "title": "AI Reasoning Panel Example",
       "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ai-reasoning-01"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/ai-reasoning-01"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/examples/ai-reasoning-01.tsx",
@@ -4205,8 +4911,13 @@
       "type": "registry:block",
       "title": "AI Agent Steps",
       "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends",
-      "registryDependencies": ["@cortexcn/chain-of-thought", "button"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/chain-of-thought",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/blocks/ai-chain-of-thought-01/components/agent-steps.tsx",
@@ -4220,8 +4931,12 @@
       "type": "registry:example",
       "title": "AI Agent Steps Example",
       "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ai-chain-of-thought-01"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/ai-chain-of-thought-01"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/examples/ai-chain-of-thought-01.tsx",
@@ -4235,7 +4950,10 @@
       "type": "registry:block",
       "title": "AI Thinking Message",
       "description": "A chat turn where the assistant's reply is a shimmering status line while it works",
-      "registryDependencies": ["@cortexcn/shimmer", "@cortexcn/utils"],
+      "registryDependencies": [
+        "@cortexcn/shimmer",
+        "@cortexcn/utils"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4250,7 +4968,9 @@
       "type": "registry:example",
       "title": "AI Thinking Message Example",
       "description": "A chat turn where the assistant's reply is a shimmering status line while it works — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ai-shimmer-01"],
+      "registryDependencies": [
+        "@cortexcn/ai-shimmer-01"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -4265,8 +4985,12 @@
       "type": "registry:block",
       "title": "AI Agent Queue",
       "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
-      "registryDependencies": ["@cortexcn/queue"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/queue"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/blocks/ai-queue-01/components/agent-queue.tsx",
@@ -4280,8 +5004,12 @@
       "type": "registry:example",
       "title": "AI Agent Queue Example",
       "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/ai-queue-01"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@cortexcn/ai-queue-01"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/examples/ai-queue-01.tsx",
@@ -4345,7 +5073,9 @@
       "type": "registry:example",
       "title": "Stat Card Area Example",
       "description": "Revenue stat card with gradient area sparkline, NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/stat-card-area-01"],
+      "registryDependencies": [
+        "@cortexcn/stat-card-area-01"
+      ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
         "@visx/gradient@4.0.1-alpha.0",
@@ -4419,7 +5149,9 @@
       "type": "registry:example",
       "title": "Stat Card Line Example",
       "description": "Sessions stat card with line sparkline, overlaid NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/stat-card-line-01"],
+      "registryDependencies": [
+        "@cortexcn/stat-card-line-01"
+      ],
       "dependencies": [
         "@visx/curve@4.0.1-alpha.0",
         "@number-flow/react",
@@ -4499,7 +5231,9 @@
       "type": "registry:example",
       "title": "Stat Card Choropleth Example",
       "description": "Visitor map stat card with choropleth sparkline, NumberFlow, and trend badge — demo for Open in v0",
-      "registryDependencies": ["@cortexcn/stat-card-choropleth-01"],
+      "registryDependencies": [
+        "@cortexcn/stat-card-choropleth-01"
+      ],
       "dependencies": [
         "@number-flow/react",
         "@types/geojson",

@@ -1,12 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "line-nav",
-  "type": "registry:component",
   "title": "Line Nav",
   "description": "Vertical navigation with a line marker that expands on hover and active state.",
-  "categories": ["cortex"],
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/line-nav.tsx",
@@ -14,5 +16,9 @@
       "type": "registry:component",
       "target": "components/line-nav.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
 }

@@ -29,6 +29,8 @@
       "target": "~/.agents/skills/cortexcn-design/SKILL.md"
     }
   ],
-  "categories": ["agents"],
+  "categories": [
+    "agents"
+  ],
   "type": "registry:item"
 }

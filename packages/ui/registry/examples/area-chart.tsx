@@ -1,13 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { AreaChart, Area, Grid, XAxis, ChartTooltip } from "@/components/charts"
-import {
-  AreaChart,
-  Area,
-  Grid,
-  XAxis,
-  ChartTooltip,
-} from "@/components/charts";
+import { AreaChart, Area, Grid, XAxis, ChartTooltip } from "@/components/charts"
 
 import { curveNatural } from "@visx/curve";
 
@@ -25,17 +19,12 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <AreaChart data={chartData} animationDuration={1100}>
-          <Grid horizontal />
-          <Area
-            dataKey="desktop"
-            curve={curveNatural}
-            strokeWidth={2.5}
-            fillOpacity={0.4}
-          />
-          <XAxis />
-          <ChartTooltip />
-        </AreaChart>
+  <Grid horizontal />
+  <Area dataKey="desktop" curve={curveNatural} strokeWidth={2.5} fillOpacity={0.4} />
+  <XAxis />
+  <ChartTooltip />
+</AreaChart>
       </div>
     </main>
-  );
+  )
 }

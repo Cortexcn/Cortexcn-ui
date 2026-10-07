@@ -1,11 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "gauge-chart-example",
-  "type": "registry:example",
   "title": "Gauge Chart Example",
   "description": "Composable gauge-chart demo for Open in v0",
-  "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
-  "registryDependencies": ["@cortexcn/gauge-chart"],
+  "dependencies": [
+    "@visx/shape@4.0.1-alpha.0",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/gauge-chart"
+  ],
   "files": [
     {
       "path": "registry/examples/gauge-chart.tsx",
@@ -19,5 +23,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

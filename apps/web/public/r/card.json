@@ -3,8 +3,9 @@
   "name": "card",
   "title": "Card",
   "description": "Displays a card with a header, content, and footer.",
-  "categories": ["components"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/card.tsx",
@@ -12,6 +13,9 @@
       "type": "registry:component",
       "target": "components/card.tsx"
     }
+  ],
+  "categories": [
+    "components"
   ],
   "type": "registry:component"
 }

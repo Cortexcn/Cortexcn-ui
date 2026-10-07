@@ -1,11 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "choropleth-chart-example",
-  "type": "registry:example",
   "title": "Choropleth Chart Example",
   "description": "Composable choropleth-chart demo for Open in v0",
-  "dependencies": ["@visx/geo@4.0.1-alpha.0", "d3-geo", "topojson-client"],
-  "registryDependencies": ["@cortexcn/choropleth-chart"],
+  "dependencies": [
+    "@visx/geo@4.0.1-alpha.0",
+    "d3-geo",
+    "topojson-client"
+  ],
+  "registryDependencies": [
+    "@cortexcn/choropleth-chart"
+  ],
   "files": [
     {
       "path": "registry/examples/choropleth-chart.tsx",
@@ -19,5 +24,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

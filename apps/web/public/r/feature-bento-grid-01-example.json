@@ -4,7 +4,9 @@
   "title": "Feature Bento Grid Example",
   "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/feature-bento-grid-01"],
+  "registryDependencies": [
+    "@cortexcn/feature-bento-grid-01"
+  ],
   "files": [
     {
       "path": "registry/examples/feature-bento-grid-01.tsx",

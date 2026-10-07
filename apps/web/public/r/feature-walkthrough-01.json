@@ -3,8 +3,13 @@
   "name": "feature-walkthrough-01",
   "title": "Feature Walkthrough",
   "description": "Three numbered steps beside a painted stage in a ruled frame. Each step plays out in its own window, and the steps move on by themselves",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/marquee"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/marquee"
+  ],
   "files": [
     {
       "path": "registry/blocks/feature-walkthrough-01/components/feature-walkthrough.tsx",

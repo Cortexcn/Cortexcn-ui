@@ -3,7 +3,11 @@
   "name": "hero-dashboard-01",
   "title": "Hero Dashboard Preview",
   "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash",
-  "dependencies": ["class-variance-authority", "lucide-react", "motion"],
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react",
+    "motion"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "avatar",

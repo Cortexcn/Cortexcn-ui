@@ -3,7 +3,10 @@
   "name": "chain-of-thought",
   "title": "Chain of Thought",
   "description": "A collapsible view of an AI's reasoning steps, with search results, images, and step status.",
-  "dependencies": ["@radix-ui/react-use-controllable-state", "lucide-react"],
+  "dependencies": [
+    "@radix-ui/react-use-controllable-state",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/badge",
@@ -17,6 +20,8 @@
       "target": "components/chain-of-thought.tsx"
     }
   ],
-  "categories": ["ai-assistant"],
+  "categories": [
+    "ai-assistant"
+  ],
   "type": "registry:component"
 }

@@ -1,11 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "reference-area",
-  "type": "registry:component",
   "title": "Reference Area",
   "description": "Shaded data-coordinate band for target ranges and thresholds on time-series charts",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/background"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/chart-context",
+    "@cortexcn/background"
+  ],
   "files": [
     {
       "path": "src/charts/reference-area.tsx",
@@ -25,5 +29,6 @@
       "type": "registry:component",
       "target": "components/charts/reference-area-registration-context.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

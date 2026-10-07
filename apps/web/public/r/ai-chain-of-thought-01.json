@@ -3,8 +3,13 @@
   "name": "ai-chain-of-thought-01",
   "title": "AI Agent Steps",
   "description": "An agent's progress one step at a time, with sources, a live current step, and a summary when the run ends",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/chain-of-thought", "button"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/chain-of-thought",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/ai-chain-of-thought-01/components/agent-steps.tsx",

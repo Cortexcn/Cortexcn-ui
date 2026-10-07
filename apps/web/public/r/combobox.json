@@ -3,7 +3,10 @@
   "name": "combobox",
   "title": "Combobox",
   "description": "An input with a list of suggestions that filters as you type.",
-  "dependencies": ["@base-ui/react", "lucide-react"],
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/button",
@@ -17,6 +20,8 @@
       "target": "components/combobox.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

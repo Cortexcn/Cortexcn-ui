@@ -1,12 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@/components/charts"
-import {
-  SankeyChart,
-  SankeyLink,
-  SankeyNode,
-  SankeyTooltip,
-} from "@/components/charts";
+import { SankeyChart, SankeyLink, SankeyNode, SankeyTooltip } from "@/components/charts"
 
 const data = {
   nodes: [
@@ -29,11 +24,11 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <SankeyChart data={data} aspectRatio="16 / 9">
-          <SankeyLink />
-          <SankeyNode />
-          <SankeyTooltip />
-        </SankeyChart>
+  <SankeyLink />
+  <SankeyNode />
+  <SankeyTooltip />
+</SankeyChart>
       </div>
     </main>
-  );
+  )
 }

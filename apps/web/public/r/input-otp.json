@@ -3,8 +3,13 @@
   "name": "input-otp",
   "title": "Input OTP",
   "description": "An accessible one-time password input with copy and paste support.",
-  "dependencies": ["input-otp", "lucide-react"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "input-otp",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/input-otp.tsx",
@@ -13,6 +18,8 @@
       "target": "components/input-otp.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

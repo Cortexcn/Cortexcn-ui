@@ -3,9 +3,15 @@
   "name": "lanyard-3d",
   "title": "Lanyard 3D",
   "description": "A 3D ID badge on a strap, drawn with three.js. Drag it and it swings and twists on a simulated strap; click it to flip it over.",
-  "dependencies": ["three"],
-  "devDependencies": ["@types/three"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "three"
+  ],
+  "devDependencies": [
+    "@types/three"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/lanyard-3d.tsx",
@@ -14,6 +20,8 @@
       "target": "components/lanyard-3d.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

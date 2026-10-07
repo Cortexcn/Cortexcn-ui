@@ -4,7 +4,9 @@
   "title": "Sphere Menu",
   "description": "A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/sphere-menu.tsx",
@@ -13,6 +15,8 @@
       "target": "components/sphere-menu.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

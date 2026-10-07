@@ -3,8 +3,12 @@
   "name": "empty",
   "title": "Empty",
   "description": "Displays an empty state, with media, a title, a description, and actions.",
-  "dependencies": ["class-variance-authority"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/empty.tsx",
@@ -13,6 +17,8 @@
       "target": "components/empty.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

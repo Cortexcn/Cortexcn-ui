@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "candlestick-chart",
-  "type": "registry:component",
   "title": "Candlestick Chart",
   "description": "A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions",
-  "categories": ["charts"],
   "dependencies": [
     "@visx/scale@4.0.1-alpha.0",
     "@visx/responsive@4.0.1-alpha.0",
@@ -45,5 +43,9 @@
       "type": "registry:component",
       "target": "components/charts/candlestick.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

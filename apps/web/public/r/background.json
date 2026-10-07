@@ -1,11 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "background",
-  "type": "registry:component",
   "title": "Chart Background",
   "description": "Pattern fill for the plot area when grid lines are hidden",
-  "dependencies": ["@visx/pattern@4.0.1-alpha.0", "motion"],
-  "registryDependencies": ["@cortexcn/chart-context"],
+  "dependencies": [
+    "@visx/pattern@4.0.1-alpha.0",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/chart-context"
+  ],
   "files": [
     {
       "path": "src/charts/background.tsx",
@@ -25,5 +29,6 @@
       "type": "registry:component",
       "target": "components/charts/visx-pattern.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

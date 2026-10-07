@@ -1,11 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "perspective-marquee",
-  "type": "registry:component",
   "title": "Perspective Marquee",
   "description": "A tilted wall of images that scrolls endlessly in alternating columns.",
-  "categories": ["cortex"],
-  "registryDependencies": ["@cortexcn/marquee", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/marquee",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/perspective-marquee.tsx",
@@ -13,5 +14,9 @@
       "type": "registry:component",
       "target": "components/perspective-marquee.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
 }

@@ -1,11 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-media-cards-01-example",
-  "type": "registry:example",
   "title": "Feature Media Cards Example",
   "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/feature-media-cards-01"],
+  "registryDependencies": [
+    "@cortexcn/feature-media-cards-01"
+  ],
   "files": [
     {
       "path": "registry/examples/feature-media-cards-01.tsx",
@@ -13,5 +14,6 @@
       "type": "registry:page",
       "target": "app/page.tsx"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

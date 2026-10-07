@@ -3,8 +3,12 @@
   "name": "scroll-area",
   "title": "Scroll Area",
   "description": "Augments native scroll functionality for custom, cross-browser styling.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/scroll-area.tsx",
@@ -13,6 +17,8 @@
       "target": "components/scroll-area.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

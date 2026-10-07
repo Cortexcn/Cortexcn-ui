@@ -1,11 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-image-columns-01",
-  "type": "registry:block",
   "title": "Feature Image Columns",
   "description": "Label, headline, and intro over three image columns, closed by one shared call to action",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils", "button"],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/feature-image-columns-01/components/feature-image-columns.tsx",
@@ -13,5 +15,6 @@
       "type": "registry:component",
       "target": "components/feature-image-columns.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

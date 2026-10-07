@@ -3,7 +3,10 @@
   "name": "command",
   "title": "Command",
   "description": "A fast, composable command menu for React.",
-  "dependencies": ["cmdk", "lucide-react"],
+  "dependencies": [
+    "cmdk",
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/dialog",
@@ -17,6 +20,8 @@
       "target": "components/command.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

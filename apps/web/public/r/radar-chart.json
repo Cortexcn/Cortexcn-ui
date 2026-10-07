@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "radar-chart",
-  "type": "registry:component",
   "title": "Radar Chart",
   "description": "A composable radar/spider chart with multiple data series",
-  "categories": ["charts"],
   "dependencies": [
     "@visx/group@4.0.1-alpha.0",
     "@visx/responsive@4.0.1-alpha.0",
@@ -13,7 +11,10 @@
     "d3-shape",
     "motion"
   ],
-  "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/chart-animation",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/radar-chart.tsx",
@@ -51,5 +52,9 @@
       "type": "registry:component",
       "target": "components/charts/radar-labels.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

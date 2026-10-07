@@ -3,8 +3,12 @@
   "name": "radio-group",
   "title": "Radio Group",
   "description": "A set of checkable buttons where no more than one can be checked at a time.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/radio-group.tsx",
@@ -13,6 +17,8 @@
       "target": "components/radio-group.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

@@ -1,13 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { LiveLineChart, LiveLine, LiveXAxis, LiveYAxis, ChartTooltip } from "@/components/charts"
-import {
-  LiveLineChart,
-  LiveLine,
-  LiveXAxis,
-  LiveYAxis,
-  ChartTooltip,
-} from "@/components/charts";
+import { LiveLineChart, LiveLine, LiveXAxis, LiveYAxis, ChartTooltip } from "@/components/charts"
 
 import { curveNatural } from "@visx/curve";
 
@@ -21,18 +15,18 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <LiveLineChart
-          data={initialData}
-          interval={1000}
-          maxPoints={24}
-          xDataKey="time"
-          yDataKey="value"
-        >
-          <LiveLine curve={curveNatural} stroke="var(--chart-line-primary)" />
-          <LiveXAxis />
-          <LiveYAxis />
-          <ChartTooltip />
-        </LiveLineChart>
+  data={initialData}
+  interval={1000}
+  maxPoints={24}
+  xDataKey="time"
+  yDataKey="value"
+>
+  <LiveLine curve={curveNatural} stroke="var(--chart-line-primary)" />
+  <LiveXAxis />
+  <LiveYAxis />
+  <ChartTooltip />
+</LiveLineChart>
       </div>
     </main>
-  );
+  )
 }

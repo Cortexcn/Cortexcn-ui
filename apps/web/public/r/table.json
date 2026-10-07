@@ -3,7 +3,9 @@
   "name": "table",
   "title": "Table",
   "description": "A responsive table component.",
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/table.tsx",
@@ -12,6 +14,8 @@
       "target": "components/table.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

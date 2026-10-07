@@ -1,15 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { ComposedChart, SeriesBar, Area, Line, Grid, XAxis, ChartTooltip } from "@/components/charts"
-import {
-  ComposedChart,
-  SeriesBar,
-  Area,
-  Line,
-  Grid,
-  XAxis,
-  ChartTooltip,
-} from "@/components/charts";
+import { ComposedChart, SeriesBar, Area, Line, Grid, XAxis, ChartTooltip } from "@/components/charts"
 
 import { curveNatural } from "@visx/curve";
 
@@ -25,23 +17,14 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <ComposedChart data={chartData}>
-          <Grid horizontal />
-          <SeriesBar dataKey="revenue" fill="var(--chart-1)" />
-          <Area
-            dataKey="runRate"
-            curve={curveNatural}
-            fill="var(--chart-4)"
-            fillOpacity={0.35}
-          />
-          <Line
-            dataKey="runRate"
-            curve={curveNatural}
-            stroke="var(--chart-2)"
-          />
-          <XAxis />
-          <ChartTooltip />
-        </ComposedChart>
+  <Grid horizontal />
+  <SeriesBar dataKey="revenue" fill="var(--chart-1)" />
+  <Area dataKey="runRate" curve={curveNatural} fill="var(--chart-4)" fillOpacity={0.35} />
+  <Line dataKey="runRate" curve={curveNatural} stroke="var(--chart-2)" />
+  <XAxis />
+  <ChartTooltip />
+</ComposedChart>
       </div>
     </main>
-  );
+  )
 }

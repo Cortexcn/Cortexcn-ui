@@ -3,8 +3,12 @@
   "name": "progress",
   "title": "Progress",
   "description": "Displays an indicator showing the completion progress of a task.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/progress.tsx",
@@ -13,6 +17,8 @@
       "target": "components/progress.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

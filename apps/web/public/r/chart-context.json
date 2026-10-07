@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-context",
-  "type": "registry:component",
   "title": "Chart Context",
   "description": "Shared context and hooks for Cortexcn chart components",
   "dependencies": [
@@ -11,7 +10,10 @@
     "d3-array",
     "motion"
   ],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/chart-utils"
+  ],
   "files": [
     {
       "path": "src/charts/chart-context.tsx",
@@ -138,5 +140,6 @@
       "--chart-scale-05": "oklch(0.68 0.07 270)",
       "--chart-scale-pattern-color": "oklch(0.145 0 0)"
     }
-  }
+  },
+  "type": "registry:component"
 }

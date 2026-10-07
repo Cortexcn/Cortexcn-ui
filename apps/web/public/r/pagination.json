@@ -3,8 +3,13 @@
   "name": "pagination",
   "title": "Pagination",
   "description": "Page navigation with next and previous links.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/pagination.tsx",
@@ -13,6 +18,8 @@
       "target": "components/pagination.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

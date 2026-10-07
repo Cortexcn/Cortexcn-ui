@@ -1,11 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-stat-flow",
-  "type": "registry:component",
   "title": "Chart Stat Flow",
   "description": "Animated stat value and label for chart overlays",
-  "dependencies": ["@number-flow/react", "motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "@number-flow/react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/chart-stat-flow.tsx",
@@ -13,5 +17,6 @@
       "type": "registry:component",
       "target": "components/charts/chart-stat-flow.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

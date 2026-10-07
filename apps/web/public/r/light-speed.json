@@ -11,8 +11,12 @@
     "clsx",
     "tailwind-merge"
   ],
-  "devDependencies": ["@types/three"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "devDependencies": [
+    "@types/three"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/light-speed.tsx",
@@ -21,6 +25,8 @@
       "target": "components/light-speed.tsx"
     }
   ],
-  "categories": ["backgrounds"],
+  "categories": [
+    "backgrounds"
+  ],
   "type": "registry:component"
 }

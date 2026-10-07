@@ -3,8 +3,14 @@
   "name": "carousel",
   "title": "Carousel",
   "description": "A carousel with motion and swipe built using Embla.",
-  "dependencies": ["embla-carousel-react", "lucide-react"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "embla-carousel-react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/carousel.tsx",
@@ -13,6 +19,8 @@
       "target": "components/carousel.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

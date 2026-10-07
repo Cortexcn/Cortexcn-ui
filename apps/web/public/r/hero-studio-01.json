@@ -3,8 +3,14 @@
   "name": "hero-studio-01",
   "title": "Hero Studio",
   "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page",
-  "dependencies": ["class-variance-authority", "motion"],
-  "registryDependencies": ["@cortexcn/utils", "button"],
+  "dependencies": [
+    "class-variance-authority",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/hero-studio-01/components/hero-studio.tsx",

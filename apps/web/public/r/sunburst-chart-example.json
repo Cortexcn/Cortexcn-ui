@@ -1,11 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sunburst-chart-example",
-  "type": "registry:example",
   "title": "Sunburst Chart Example",
   "description": "Composable sunburst-chart demo for Open in v0",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/sunburst-chart"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/sunburst-chart"
+  ],
   "files": [
     {
       "path": "registry/examples/sunburst-chart.tsx",
@@ -19,5 +22,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

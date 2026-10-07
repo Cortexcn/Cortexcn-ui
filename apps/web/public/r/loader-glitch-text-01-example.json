@@ -4,7 +4,9 @@
   "title": "Loader Glitch Text Example",
   "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/loader-glitch-text-01"],
+  "registryDependencies": [
+    "@cortexcn/loader-glitch-text-01"
+  ],
   "files": [
     {
       "path": "registry/examples/loader-glitch-text-01.tsx",

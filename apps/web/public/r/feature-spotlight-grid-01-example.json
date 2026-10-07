@@ -1,11 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-spotlight-grid-01-example",
-  "type": "registry:example",
   "title": "Feature Spotlight Grid Example",
   "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at — demo for Open in v0",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/feature-spotlight-grid-01"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/feature-spotlight-grid-01"
+  ],
   "files": [
     {
       "path": "registry/examples/feature-spotlight-grid-01.tsx",
@@ -13,5 +16,6 @@
       "type": "registry:page",
       "target": "app/page.tsx"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

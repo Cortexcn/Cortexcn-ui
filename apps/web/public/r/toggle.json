@@ -3,8 +3,13 @@
   "name": "toggle",
   "title": "Toggle",
   "description": "A two-state button that can be either on or off.",
-  "dependencies": ["class-variance-authority", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "class-variance-authority",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/toggle.tsx",
@@ -13,6 +18,8 @@
       "target": "components/toggle.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

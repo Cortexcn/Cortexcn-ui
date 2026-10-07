@@ -1,12 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "logos-carousel",
-  "type": "registry:component",
   "title": "Logos Carousel",
   "description": "Cycle through logos column by column in a staggered wave.",
-  "categories": ["cortex"],
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/logos-carousel.tsx",
@@ -14,5 +16,9 @@
       "type": "registry:component",
       "target": "components/logos-carousel.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
 }

@@ -3,8 +3,12 @@
   "name": "popover",
   "title": "Popover",
   "description": "Displays rich content in a portal, triggered by a button.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/popover.tsx",
@@ -13,6 +17,8 @@
       "target": "components/popover.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

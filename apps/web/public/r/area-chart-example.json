@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "area-chart-example",
-  "type": "registry:example",
   "title": "Area Chart Example",
   "description": "Composable area-chart demo for Open in v0",
   "dependencies": [
@@ -28,5 +27,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

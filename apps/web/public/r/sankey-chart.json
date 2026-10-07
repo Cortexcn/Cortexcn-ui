@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sankey-chart",
-  "type": "registry:component",
   "title": "Sankey Diagram",
   "description": "A flow diagram for visualizing data transfers between nodes",
-  "categories": ["charts"],
   "dependencies": [
     "@visx/event@4.0.1-alpha.0",
     "@visx/gradient@4.0.1-alpha.0",
@@ -57,5 +55,9 @@
       "type": "registry:component",
       "target": "components/charts/sankey/index.ts"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

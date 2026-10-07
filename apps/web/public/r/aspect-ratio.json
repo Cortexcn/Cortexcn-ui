@@ -3,8 +3,12 @@
   "name": "aspect-ratio",
   "title": "Aspect Ratio",
   "description": "Displays content within a desired ratio.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/aspect-ratio.tsx",
@@ -13,6 +17,8 @@
       "target": "components/aspect-ratio.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

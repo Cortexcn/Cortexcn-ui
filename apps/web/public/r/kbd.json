@@ -3,7 +3,9 @@
   "name": "kbd",
   "title": "Kbd",
   "description": "Displays textual user input from a keyboard, such as a shortcut.",
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/kbd.tsx",
@@ -12,6 +14,8 @@
       "target": "components/kbd.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

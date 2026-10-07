@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "markers",
-  "type": "registry:component",
   "title": "Chart Markers",
   "description": "Marker components for highlighting data points on charts",
   "registryDependencies": [
@@ -28,5 +27,6 @@
       "type": "registry:component",
       "target": "components/charts/markers/index.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

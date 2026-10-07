@@ -4,7 +4,9 @@
   "title": "Gooey Nav",
   "description": "A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/gooey-nav.tsx",
@@ -13,6 +15,8 @@
       "target": "components/gooey-nav.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

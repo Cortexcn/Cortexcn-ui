@@ -3,7 +3,9 @@
   "name": "field",
   "title": "Field",
   "description": "Combines labels, controls, and help text into accessible form fields.",
-  "dependencies": ["class-variance-authority"],
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/label",
@@ -17,6 +19,8 @@
       "target": "components/field.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

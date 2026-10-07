@@ -4,7 +4,9 @@
   "title": "AI Thinking Message Example",
   "description": "A chat turn where the assistant's reply is a shimmering status line while it works — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/ai-shimmer-01"],
+  "registryDependencies": [
+    "@cortexcn/ai-shimmer-01"
+  ],
   "files": [
     {
       "path": "registry/examples/ai-shimmer-01.tsx",

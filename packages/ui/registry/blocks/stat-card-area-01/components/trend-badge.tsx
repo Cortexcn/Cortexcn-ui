@@ -18,7 +18,7 @@ export function TrendBadge({
       className={cn(
         positive &&
           "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-        className,
+        className
       )}
       variant={positive ? "outline" : "destructive"}
     >

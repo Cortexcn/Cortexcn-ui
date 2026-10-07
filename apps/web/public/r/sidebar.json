@@ -3,7 +3,11 @@
   "name": "sidebar",
   "title": "Sidebar",
   "description": "A composable, themeable, and customizable sidebar.",
-  "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react",
+    "radix-ui"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/button",
@@ -22,6 +26,8 @@
       "target": "components/sidebar.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

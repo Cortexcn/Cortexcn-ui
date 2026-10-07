@@ -3,8 +3,12 @@
   "name": "spinner",
   "title": "Spinner",
   "description": "An indicator that shows a loading state.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/spinner.tsx",
@@ -13,6 +17,8 @@
       "target": "components/spinner.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

@@ -3,8 +3,13 @@
   "name": "tabs",
   "title": "Tabs",
   "description": "A set of layered sections of content, shown one at a time.",
-  "dependencies": ["class-variance-authority", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "class-variance-authority",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/tabs.tsx",
@@ -13,6 +18,8 @@
       "target": "components/tabs.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

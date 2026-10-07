@@ -3,8 +3,14 @@
   "name": "sheet",
   "title": "Sheet",
   "description": "Extends the dialog to show content that complements the main content of the screen.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/sheet.tsx",
@@ -13,6 +19,8 @@
       "target": "components/sheet.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

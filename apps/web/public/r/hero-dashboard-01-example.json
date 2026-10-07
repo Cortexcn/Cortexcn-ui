@@ -3,8 +3,14 @@
   "name": "hero-dashboard-01-example",
   "title": "Hero Dashboard Preview Example",
   "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash — demo for Open in v0",
-  "dependencies": ["class-variance-authority", "lucide-react", "motion"],
-  "registryDependencies": ["@cortexcn/hero-dashboard-01"],
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/hero-dashboard-01"
+  ],
   "files": [
     {
       "path": "registry/examples/hero-dashboard-01.tsx",

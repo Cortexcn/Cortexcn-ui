@@ -3,8 +3,13 @@
   "name": "context-menu",
   "title": "Context Menu",
   "description": "Displays a menu of actions triggered by a right click.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/context-menu.tsx",
@@ -13,6 +18,8 @@
       "target": "components/context-menu.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

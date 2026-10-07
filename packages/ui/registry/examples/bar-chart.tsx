@@ -1,13 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { BarChart, Bar, BarXAxis, Grid, ChartTooltip } from "@/components/charts"
-import {
-  BarChart,
-  Bar,
-  BarXAxis,
-  Grid,
-  ChartTooltip,
-} from "@/components/charts";
+import { BarChart, Bar, BarXAxis, Grid, ChartTooltip } from "@/components/charts"
 
 const data = [
   { month: "Jan", revenue: 12000, profit: 4500 },
@@ -23,21 +17,13 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <BarChart data={data} xDataKey="month">
-          <Grid horizontal />
-          <Bar
-            dataKey="revenue"
-            fill="var(--chart-line-primary)"
-            lineCap="round"
-          />
-          <Bar
-            dataKey="profit"
-            fill="var(--chart-line-secondary)"
-            lineCap="round"
-          />
-          <BarXAxis />
-          <ChartTooltip />
-        </BarChart>
+  <Grid horizontal />
+  <Bar dataKey="revenue" fill="var(--chart-line-primary)" lineCap="round" />
+  <Bar dataKey="profit" fill="var(--chart-line-secondary)" lineCap="round" />
+  <BarXAxis />
+  <ChartTooltip />
+</BarChart>
       </div>
     </main>
-  );
+  )
 }

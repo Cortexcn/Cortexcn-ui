@@ -3,8 +3,12 @@
   "name": "drawer",
   "title": "Drawer",
   "description": "A drawer component for React, built on Vaul.",
-  "dependencies": ["vaul"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "vaul"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/drawer.tsx",
@@ -13,6 +17,8 @@
       "target": "components/drawer.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ring-chart",
-  "type": "registry:component",
   "title": "Ring Chart",
   "description": "A composable donut/ring chart with progress indicators",
-  "categories": ["charts"],
   "dependencies": [
     "@visx/group@4.0.1-alpha.0",
     "@visx/responsive@4.0.1-alpha.0",
@@ -12,7 +10,10 @@
     "@number-flow/react",
     "motion"
   ],
-  "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/chart-animation",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/ring-chart.tsx",
@@ -50,5 +51,9 @@
       "type": "registry:component",
       "target": "components/charts/chart-center-typography.ts"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

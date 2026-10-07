@@ -1,16 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { HeatmapCells, HeatmapChart, HeatmapInteractionBoundary, HeatmapInteractionProvider, HeatmapLegend, HeatmapTooltip, HeatmapXAxis, HeatmapYAxis } from "@/components/charts"
-import {
-  HeatmapCells,
-  HeatmapChart,
-  HeatmapInteractionBoundary,
-  HeatmapInteractionProvider,
-  HeatmapLegend,
-  HeatmapTooltip,
-  HeatmapXAxis,
-  HeatmapYAxis,
-} from "@/components/charts";
+import { HeatmapCells, HeatmapChart, HeatmapInteractionBoundary, HeatmapInteractionProvider, HeatmapLegend, HeatmapTooltip, HeatmapXAxis, HeatmapYAxis } from "@/components/charts"
 
 const data = [
   {
@@ -44,19 +35,19 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <HeatmapInteractionProvider>
-          <HeatmapInteractionBoundary>
-            <div className="flex w-full flex-col items-stretch gap-3">
-              <HeatmapChart className="w-full" data={data} layout="fluid">
-                <HeatmapCells />
-                <HeatmapXAxis />
-                <HeatmapYAxis />
-                <HeatmapTooltip />
-              </HeatmapChart>
-              <HeatmapLegend />
-            </div>
-          </HeatmapInteractionBoundary>
-        </HeatmapInteractionProvider>
+  <HeatmapInteractionBoundary>
+    <div className="flex w-full flex-col items-stretch gap-3">
+      <HeatmapChart className="w-full" data={data} layout="fluid">
+        <HeatmapCells />
+        <HeatmapXAxis />
+        <HeatmapYAxis />
+        <HeatmapTooltip />
+      </HeatmapChart>
+      <HeatmapLegend />
+    </div>
+  </HeatmapInteractionBoundary>
+</HeatmapInteractionProvider>
       </div>
     </main>
-  );
+  )
 }

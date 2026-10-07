@@ -4,7 +4,10 @@
   "title": "Feature Mixed Bento",
   "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils", "card"],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "card"
+  ],
   "files": [
     {
       "path": "registry/blocks/feature-mixed-bento-01/components/feature-mixed-bento.tsx",

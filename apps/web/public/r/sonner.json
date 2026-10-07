@@ -3,8 +3,14 @@
   "name": "sonner",
   "title": "Sonner",
   "description": "An opinionated toast component for React.",
-  "dependencies": ["lucide-react", "next-themes", "sonner"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react",
+    "next-themes",
+    "sonner"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/sonner.tsx",
@@ -13,6 +19,8 @@
       "target": "components/sonner.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

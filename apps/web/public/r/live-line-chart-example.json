@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "live-line-chart-example",
-  "type": "registry:example",
   "title": "Live Line Chart Example",
   "description": "Composable live-line-chart demo for Open in v0",
   "dependencies": [
@@ -26,5 +25,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

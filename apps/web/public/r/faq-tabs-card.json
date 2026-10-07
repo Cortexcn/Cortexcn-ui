@@ -3,8 +3,13 @@
   "name": "faq-tabs-card",
   "title": "FAQ Tabs Card",
   "description": "A tabbed FAQ card with animated accordion answers and a support footer.",
-  "dependencies": ["motion", "lucide-react"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/faq-tabs-card.tsx",
@@ -13,6 +18,8 @@
       "target": "components/faq-tabs-card.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

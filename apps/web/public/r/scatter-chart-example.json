@@ -1,10 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scatter-chart-example",
-  "type": "registry:example",
   "title": "Scatter Chart Example",
   "description": "Composable scatter-chart demo for Open in v0",
-  "dependencies": ["d3-scale", "d3-array", "motion", "react-use-measure"],
+  "dependencies": [
+    "d3-scale",
+    "d3-array",
+    "motion",
+    "react-use-measure"
+  ],
   "registryDependencies": [
     "@cortexcn/scatter-chart",
     "@cortexcn/grid",
@@ -24,5 +28,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

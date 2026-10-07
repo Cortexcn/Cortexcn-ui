@@ -1,11 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-media-cards-01",
-  "type": "registry:block",
   "title": "Feature Media Cards",
   "description": "Heading and two actions above three cards that pair an image, a short explainer, and an icon tile",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils", "button"],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/feature-media-cards-01/components/feature-media-cards.tsx",
@@ -13,5 +15,6 @@
       "type": "registry:component",
       "target": "components/feature-media-cards.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

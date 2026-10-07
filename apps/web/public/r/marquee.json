@@ -1,11 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "marquee",
-  "type": "registry:component",
   "title": "Marquee",
   "description": "An infinite scrolling component that can be used to display text, images, or videos.",
-  "categories": ["cortex"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/marquee.tsx",
@@ -37,5 +37,9 @@
         "transform": "translateY(calc(-100% - var(--gap)))"
       }
     }
-  }
+  },
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
 }

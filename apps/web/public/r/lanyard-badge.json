@@ -4,7 +4,9 @@
   "title": "Lanyard Badge",
   "description": "An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/lanyard-badge.tsx",
@@ -13,6 +15,8 @@
       "target": "components/lanyard-badge.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

@@ -3,8 +3,13 @@
   "name": "button",
   "title": "Button",
   "description": "Displays a button or a component that looks like a button.",
-  "dependencies": ["class-variance-authority", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "class-variance-authority",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/button.tsx",
@@ -13,6 +18,8 @@
       "target": "components/button.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

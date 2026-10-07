@@ -1,10 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-animation",
-  "type": "registry:component",
   "title": "Chart Animation",
   "description": "Shared motion helpers for chart enter transitions, clip reveals, and staggered animations",
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "src/charts/animation.ts",
@@ -48,5 +49,6 @@
       "type": "registry:component",
       "target": "components/charts/chart-defs.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

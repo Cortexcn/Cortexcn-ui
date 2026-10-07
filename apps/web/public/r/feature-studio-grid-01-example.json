@@ -4,7 +4,9 @@
   "title": "Feature Studio Grid Example",
   "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/feature-studio-grid-01"],
+  "registryDependencies": [
+    "@cortexcn/feature-studio-grid-01"
+  ],
   "files": [
     {
       "path": "registry/examples/feature-studio-grid-01.tsx",

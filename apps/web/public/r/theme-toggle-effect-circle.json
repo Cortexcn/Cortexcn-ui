@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-toggle-effect-circle",
-  "type": "registry:component",
   "title": "Theme Toggle Effect: Circle",
   "description": "The circle reveal for startThemeTransition, plus the helper itself.",
   "files": [
@@ -36,5 +35,6 @@
         "mask-size": "200vmax"
       }
     }
-  }
+  },
+  "type": "registry:component"
 }

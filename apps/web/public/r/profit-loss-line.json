@@ -1,11 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "profit-loss-line",
-  "type": "registry:component",
   "title": "Profit/Loss Line",
   "description": "Sign-colored line segments for profit and loss on LineChart",
-  "categories": ["charts"],
-  "dependencies": ["@visx/curve@4.0.1-alpha.0", "@visx/shape@4.0.1-alpha.0"],
+  "dependencies": [
+    "@visx/curve@4.0.1-alpha.0",
+    "@visx/shape@4.0.1-alpha.0"
+  ],
   "registryDependencies": [
     "@cortexcn/line-chart",
     "@cortexcn/grid",
@@ -39,5 +40,9 @@
       "type": "registry:component",
       "target": "components/charts/profit-loss-legend.tsx"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

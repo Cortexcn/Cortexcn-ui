@@ -3,8 +3,12 @@
   "name": "services-image-grid-01-example",
   "title": "Services Image Grid Example",
   "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them — demo for Open in v0",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/services-image-grid-01"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/services-image-grid-01"
+  ],
   "files": [
     {
       "path": "registry/examples/services-image-grid-01.tsx",

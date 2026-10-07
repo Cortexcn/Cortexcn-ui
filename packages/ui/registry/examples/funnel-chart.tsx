@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { FunnelChart } from "@/components/charts"
-import { FunnelChart } from "@/components/charts";
+import { FunnelChart } from "@/components/charts"
 
 const funnelData = [
   { label: "Visitors", value: 12000 },
@@ -17,5 +17,5 @@ export default function Component() {
         <FunnelChart data={funnelData} aspectRatio="2 / 1" />
       </div>
     </main>
-  );
+  )
 }

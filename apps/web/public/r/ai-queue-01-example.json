@@ -3,8 +3,12 @@
   "name": "ai-queue-01-example",
   "title": "AI Agent Queue Example",
   "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list — demo for Open in v0",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/ai-queue-01"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/ai-queue-01"
+  ],
   "files": [
     {
       "path": "registry/examples/ai-queue-01.tsx",

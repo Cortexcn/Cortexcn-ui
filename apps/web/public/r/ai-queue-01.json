@@ -3,8 +3,12 @@
   "name": "ai-queue-01",
   "title": "AI Agent Queue",
   "description": "What an agent has lined up: queued messages with attachments and a remove action, above the run's todo list",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/queue"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/queue"
+  ],
   "files": [
     {
       "path": "registry/blocks/ai-queue-01/components/agent-queue.tsx",

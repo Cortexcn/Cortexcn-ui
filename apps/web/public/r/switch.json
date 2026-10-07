@@ -3,8 +3,12 @@
   "name": "switch",
   "title": "Switch",
   "description": "A control that allows the user to toggle between on and off.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/switch.tsx",
@@ -13,6 +17,8 @@
       "target": "components/switch.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

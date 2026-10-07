@@ -3,8 +3,14 @@
   "name": "calendar",
   "title": "Calendar",
   "description": "A date field component that allows users to enter and edit dates.",
-  "dependencies": ["lucide-react", "react-day-picker"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "lucide-react",
+    "react-day-picker"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/calendar.tsx",
@@ -13,6 +19,8 @@
       "target": "components/calendar.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

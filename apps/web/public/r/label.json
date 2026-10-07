@@ -3,8 +3,12 @@
   "name": "label",
   "title": "Label",
   "description": "Renders an accessible label associated with controls.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/label.tsx",
@@ -13,6 +17,8 @@
       "target": "components/label.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

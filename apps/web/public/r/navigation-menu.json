@@ -3,8 +3,14 @@
   "name": "navigation-menu",
   "title": "Navigation Menu",
   "description": "A collection of links for navigating websites.",
-  "dependencies": ["class-variance-authority", "lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "class-variance-authority",
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/navigation-menu.tsx",
@@ -13,6 +19,8 @@
       "target": "components/navigation-menu.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

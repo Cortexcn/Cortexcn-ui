@@ -3,8 +3,12 @@
   "name": "resizable",
   "title": "Resizable",
   "description": "Accessible resizable panel groups and layouts with keyboard support.",
-  "dependencies": ["react-resizable-panels"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "react-resizable-panels"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/resizable.tsx",
@@ -13,6 +17,8 @@
       "target": "components/resizable.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

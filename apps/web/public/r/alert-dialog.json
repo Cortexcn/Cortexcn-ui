@@ -3,8 +3,13 @@
   "name": "alert-dialog",
   "title": "Alert Dialog",
   "description": "A modal dialog that interrupts the user with important content and expects a response.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/alert-dialog.tsx",
@@ -13,6 +18,8 @@
       "target": "components/alert-dialog.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

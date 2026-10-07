@@ -4,7 +4,10 @@
   "title": "Feature Bento Grid",
   "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils", "button"],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/feature-bento-grid-01/components/feature-bento-grid.tsx",

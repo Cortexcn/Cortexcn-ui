@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "gauge-chart",
-  "type": "registry:component",
   "title": "Gauge",
   "description": "Notch-based radial or linear gauge with optional center label, patterns, and optional gradients",
-  "categories": ["charts"],
   "dependencies": [
     "@visx/responsive@4.0.1-alpha.0",
     "@visx/pattern@4.0.1-alpha.0",
@@ -12,7 +10,9 @@
     "motion",
     "d3-shape"
   ],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/chart-stat-flow.tsx",
@@ -62,5 +62,9 @@
       "type": "registry:component",
       "target": "components/charts/chart-center-typography.ts"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

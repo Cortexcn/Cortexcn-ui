@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-toggle-effect-polygon",
-  "type": "registry:component",
   "title": "Theme Toggle Effect: Polygon",
   "description": "The polygon reveal for startThemeTransition, plus the helper itself.",
   "files": [
@@ -52,5 +51,6 @@
         "clip-path": "polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%)"
       }
     }
-  }
+  },
+  "type": "registry:component"
 }

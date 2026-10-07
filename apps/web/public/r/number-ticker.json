@@ -3,8 +3,12 @@
   "name": "number-ticker",
   "title": "Number Ticker",
   "description": "A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/number-ticker.tsx",
@@ -13,6 +17,8 @@
       "target": "components/number-ticker.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

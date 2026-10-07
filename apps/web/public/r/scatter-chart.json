@@ -1,11 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scatter-chart",
-  "type": "registry:component",
   "title": "Scatter Chart",
   "description": "A composable time-series scatter chart with offset rings, hover dimming, and animated enter",
-  "categories": ["charts"],
-  "dependencies": ["d3-array", "d3-scale", "motion", "react-use-measure"],
+  "dependencies": [
+    "d3-array",
+    "d3-scale",
+    "motion",
+    "react-use-measure"
+  ],
   "registryDependencies": [
     "@cortexcn/chart-context",
     "@cortexcn/chart-animation",
@@ -82,5 +85,9 @@
       "type": "registry:component",
       "target": "components/charts/scatter-svg.ts"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

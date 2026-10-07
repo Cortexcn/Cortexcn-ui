@@ -3,8 +3,14 @@
   "name": "dialog",
   "title": "Dialog",
   "description": "A window overlaid on the page that renders the content underneath inert.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/button"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/button"
+  ],
   "files": [
     {
       "path": "src/components/dialog.tsx",
@@ -13,6 +19,8 @@
       "target": "components/dialog.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

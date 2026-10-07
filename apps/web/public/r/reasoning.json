@@ -25,6 +25,8 @@
       "target": "components/reasoning.tsx"
     }
   ],
-  "categories": ["ai-assistant"],
+  "categories": [
+    "ai-assistant"
+  ],
   "type": "registry:component"
 }

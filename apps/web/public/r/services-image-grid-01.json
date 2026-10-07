@@ -3,8 +3,14 @@
   "name": "services-image-grid-01",
   "title": "Services Image Grid",
   "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils", "button", "card"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "button",
+    "card"
+  ],
   "files": [
     {
       "path": "registry/blocks/services-image-grid-01/components/services-image-grid.tsx",

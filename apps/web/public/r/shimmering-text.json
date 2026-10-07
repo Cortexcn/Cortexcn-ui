@@ -1,11 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shimmering-text",
-  "type": "registry:component",
   "title": "Shimmering Text",
   "description": "Per-character shimmer animation for loading labels and badges",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/shimmering-text.tsx",
@@ -13,5 +16,6 @@
       "type": "registry:component",
       "target": "components/shimmering-text.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

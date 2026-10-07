@@ -4,7 +4,9 @@
   "title": "Loader Dot Matrix Example",
   "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button — demo for Open in v0",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/loader-dot-matrix-01"],
+  "registryDependencies": [
+    "@cortexcn/loader-dot-matrix-01"
+  ],
   "files": [
     {
       "path": "registry/examples/loader-dot-matrix-01.tsx",

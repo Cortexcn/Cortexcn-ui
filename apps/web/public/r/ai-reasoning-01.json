@@ -3,8 +3,13 @@
   "name": "ai-reasoning-01",
   "title": "AI Reasoning Panel",
   "description": "A reasoning panel that streams a model's thinking as markdown, folds away when it finishes, and can replay",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/reasoning", "button"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/reasoning",
+    "button"
+  ],
   "files": [
     {
       "path": "registry/blocks/ai-reasoning-01/components/reasoning-panel.tsx",

@@ -3,8 +3,12 @@
   "name": "native-select",
   "title": "Native Select",
   "description": "A styled native HTML select element.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/native-select.tsx",
@@ -13,6 +17,8 @@
       "target": "components/native-select.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

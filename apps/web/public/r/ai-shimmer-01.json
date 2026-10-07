@@ -4,7 +4,10 @@
   "title": "AI Thinking Message",
   "description": "A chat turn where the assistant's reply is a shimmering status line while it works",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/shimmer", "@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/shimmer",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "registry/blocks/ai-shimmer-01/components/thinking-message.tsx",

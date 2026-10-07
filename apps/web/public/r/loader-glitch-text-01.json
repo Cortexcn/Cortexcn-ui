@@ -4,7 +4,9 @@
   "title": "Loader Glitch Text",
   "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading",
   "dependencies": [],
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "registry/blocks/loader-glitch-text-01/components/loader-glitch-text-demo.tsx",

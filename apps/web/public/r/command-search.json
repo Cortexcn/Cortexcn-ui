@@ -3,8 +3,13 @@
   "name": "command-search",
   "title": "Command Search",
   "description": "A command palette that types queries and live-filters grouped results, with keyboard navigation.",
-  "dependencies": ["motion", "lucide-react"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/command-search.tsx",
@@ -13,6 +18,8 @@
       "target": "components/command-search.tsx"
     }
   ],
-  "categories": ["cortex"],
+  "categories": [
+    "cortex"
+  ],
   "type": "registry:component"
 }

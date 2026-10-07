@@ -3,8 +3,12 @@
   "name": "slider",
   "title": "Slider",
   "description": "An input where the user selects a value from within a given range.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/slider.tsx",
@@ -13,6 +17,8 @@
       "target": "components/slider.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

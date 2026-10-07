@@ -3,8 +3,13 @@
   "name": "select",
   "title": "Select",
   "description": "Displays a list of options for the user to pick from, triggered by a button.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/select.tsx",
@@ -13,6 +18,8 @@
       "target": "components/select.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

@@ -3,8 +3,13 @@
   "name": "checkbox",
   "title": "Checkbox",
   "description": "A control that allows the user to toggle between checked and not checked.",
-  "dependencies": ["lucide-react", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "lucide-react",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/checkbox.tsx",
@@ -13,6 +18,8 @@
       "target": "components/checkbox.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

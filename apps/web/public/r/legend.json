@@ -1,11 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "legend",
-  "type": "registry:component",
   "title": "Chart Legend",
   "description": "Composable legend components for charts",
-  "dependencies": ["@base-ui/react", "@number-flow/react"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/chart-utils"],
+  "dependencies": [
+    "@base-ui/react",
+    "@number-flow/react"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/chart-utils"
+  ],
   "files": [
     {
       "path": "src/charts/legend/legend.tsx",
@@ -71,5 +76,6 @@
       "--legend-muted-foreground": "oklch(0.705 0.015 286.067)",
       "--legend-track": "oklch(0.274 0.006 286.033)"
     }
-  }
+  },
+  "type": "registry:component"
 }

@@ -1,11 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "radar-chart-example",
-  "type": "registry:example",
   "title": "Radar Chart Example",
   "description": "Composable radar-chart demo for Open in v0",
-  "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
-  "registryDependencies": ["@cortexcn/radar-chart"],
+  "dependencies": [
+    "@visx/shape@4.0.1-alpha.0",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/radar-chart"
+  ],
   "files": [
     {
       "path": "registry/examples/radar-chart.tsx",
@@ -19,5 +23,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

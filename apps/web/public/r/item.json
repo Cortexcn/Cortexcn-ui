@@ -3,8 +3,14 @@
   "name": "item",
   "title": "Item",
   "description": "A versatile row for displaying media, a title, a description, and actions.",
-  "dependencies": ["class-variance-authority", "radix-ui"],
-  "registryDependencies": ["@cortexcn/utils", "@cortexcn/separator"],
+  "dependencies": [
+    "class-variance-authority",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils",
+    "@cortexcn/separator"
+  ],
   "files": [
     {
       "path": "src/components/item.tsx",
@@ -13,6 +19,8 @@
       "target": "components/item.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

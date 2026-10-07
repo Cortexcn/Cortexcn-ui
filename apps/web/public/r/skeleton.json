@@ -3,7 +3,9 @@
   "name": "skeleton",
   "title": "Skeleton",
   "description": "Shows a placeholder while content is loading.",
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/skeleton.tsx",
@@ -12,6 +14,8 @@
       "target": "components/skeleton.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

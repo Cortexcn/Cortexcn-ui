@@ -3,8 +3,12 @@
   "name": "separator",
   "title": "Separator",
   "description": "Visually or semantically separates content.",
-  "dependencies": ["radix-ui"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/separator.tsx",
@@ -13,6 +17,8 @@
       "target": "components/separator.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

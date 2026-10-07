@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stat-card-choropleth-01-example",
-  "type": "registry:example",
   "title": "Stat Card Choropleth Example",
   "description": "Visitor map stat card with choropleth sparkline, NumberFlow, and trend badge — demo for Open in v0",
   "dependencies": [
@@ -11,7 +10,9 @@
     "@central-icons-react/all",
     "topojson-client"
   ],
-  "registryDependencies": ["@cortexcn/stat-card-choropleth-01"],
+  "registryDependencies": [
+    "@cortexcn/stat-card-choropleth-01"
+  ],
   "files": [
     {
       "path": "registry/examples/stat-card-choropleth-01.tsx",
@@ -25,5 +26,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

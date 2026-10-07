@@ -3,7 +3,9 @@
   "name": "queue",
   "title": "Queue",
   "description": "A queue for AI apps: queued messages with attachments, todos, and collapsible sections.",
-  "dependencies": ["lucide-react"],
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@cortexcn/utils",
     "@cortexcn/button",
@@ -18,6 +20,8 @@
       "target": "components/queue.tsx"
     }
   ],
-  "categories": ["ai-assistant"],
+  "categories": [
+    "ai-assistant"
+  ],
   "type": "registry:component"
 }

@@ -1,11 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "projection-line",
-  "type": "registry:component",
   "title": "Projection Line",
   "description": "Forecast segment extending a line series past the last data point",
-  "dependencies": ["@visx/shape@4.0.1-alpha.0", "motion"],
-  "registryDependencies": ["@cortexcn/chart-context", "@cortexcn/line-chart"],
+  "dependencies": [
+    "@visx/shape@4.0.1-alpha.0",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/chart-context",
+    "@cortexcn/line-chart"
+  ],
   "files": [
     {
       "path": "src/charts/projection-line.tsx",
@@ -31,5 +36,6 @@
       "type": "registry:component",
       "target": "components/charts/line-series-terminal-marker.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

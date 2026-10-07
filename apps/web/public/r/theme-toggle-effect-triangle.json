@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-toggle-effect-triangle",
-  "type": "registry:component",
   "title": "Theme Toggle Effect: Triangle",
   "description": "The triangle reveal for startThemeTransition, plus the helper itself.",
   "files": [
@@ -36,5 +35,6 @@
         "mask-size": "300vmax"
       }
     }
-  }
+  },
+  "type": "registry:component"
 }

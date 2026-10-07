@@ -3,8 +3,12 @@
   "name": "shimmer",
   "title": "Shimmer",
   "description": "Animated shimmering text for loading and thinking states in AI interfaces.",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/shimmer.tsx",
@@ -13,6 +17,8 @@
       "target": "components/shimmer.tsx"
     }
   ],
-  "categories": ["ai-assistant"],
+  "categories": [
+    "ai-assistant"
+  ],
   "type": "registry:component"
 }

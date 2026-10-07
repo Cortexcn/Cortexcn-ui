@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sankey-chart-example",
-  "type": "registry:example",
   "title": "Sankey Chart Example",
   "description": "Composable sankey-chart demo for Open in v0",
   "dependencies": [
@@ -9,7 +8,9 @@
     "@visx/shape@4.0.1-alpha.0",
     "motion"
   ],
-  "registryDependencies": ["@cortexcn/sankey-chart"],
+  "registryDependencies": [
+    "@cortexcn/sankey-chart"
+  ],
   "files": [
     {
       "path": "registry/examples/sankey-chart.tsx",
@@ -23,5 +24,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -3,7 +3,9 @@
   "name": "textarea",
   "title": "Textarea",
   "description": "Displays a form textarea or a component that looks like a textarea.",
-  "registryDependencies": ["@cortexcn/utils"],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/components/textarea.tsx",
@@ -12,6 +14,8 @@
       "target": "components/textarea.tsx"
     }
   ],
-  "categories": ["components"],
+  "categories": [
+    "components"
+  ],
   "type": "registry:component"
 }

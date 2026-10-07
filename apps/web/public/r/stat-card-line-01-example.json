@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stat-card-line-01-example",
-  "type": "registry:example",
   "title": "Stat Card Line Example",
   "description": "Sessions stat card with line sparkline, overlaid NumberFlow, and trend badge — demo for Open in v0",
   "dependencies": [
@@ -9,7 +8,9 @@
     "@number-flow/react",
     "@central-icons-react/all"
   ],
-  "registryDependencies": ["@cortexcn/stat-card-line-01"],
+  "registryDependencies": [
+    "@cortexcn/stat-card-line-01"
+  ],
   "files": [
     {
       "path": "registry/examples/stat-card-line-01.tsx",
@@ -23,5 +24,6 @@
       "type": "registry:lib",
       "target": "components/charts/index.ts"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

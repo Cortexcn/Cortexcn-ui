@@ -1,12 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sunburst-chart",
-  "type": "registry:component",
   "title": "Sunburst Chart",
   "description": "A composable hierarchical sunburst chart with drill-down zoom and animated segments",
-  "categories": ["charts"],
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/chart-animation", "@cortexcn/utils"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/chart-animation",
+    "@cortexcn/utils"
+  ],
   "files": [
     {
       "path": "src/charts/sunburst-chart.tsx",
@@ -62,5 +65,9 @@
       "type": "registry:component",
       "target": "components/charts/sunburst-data.ts"
     }
-  ]
+  ],
+  "categories": [
+    "charts"
+  ],
+  "type": "registry:component"
 }

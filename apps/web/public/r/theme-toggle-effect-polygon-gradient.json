@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-toggle-effect-polygon-gradient",
-  "type": "registry:component",
   "title": "Theme Toggle Effect: Polygon gradient",
   "description": "The polygon gradient reveal for startThemeTransition, plus the helper itself.",
   "files": [
@@ -37,5 +36,6 @@
         "mask-size": "200vmax"
       }
     }
-  }
+  },
+  "type": "registry:component"
 }

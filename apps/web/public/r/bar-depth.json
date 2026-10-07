@@ -1,11 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "bar-depth",
-  "type": "registry:component",
   "title": "Bar Depth",
   "description": "3D depth and glossy glass surfaces for BarChart bars",
-  "dependencies": ["motion"],
-  "registryDependencies": ["@cortexcn/bar-chart"],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/bar-chart"
+  ],
   "files": [
     {
       "path": "src/charts/bar-depth.tsx",
@@ -13,5 +16,6 @@
       "type": "registry:component",
       "target": "components/charts/bar-depth.tsx"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

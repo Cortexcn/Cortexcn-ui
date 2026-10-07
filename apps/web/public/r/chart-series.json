@@ -1,10 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-series",
-  "type": "registry:component",
   "title": "Chart Series Layer",
   "description": "Shared line and area series rendering helpers (paths, markers, highlights, dash tails)",
-  "dependencies": ["@visx/shape@4.0.1-alpha.0", "d3-shape", "motion"],
+  "dependencies": [
+    "@visx/shape@4.0.1-alpha.0",
+    "d3-shape",
+    "motion"
+  ],
   "registryDependencies": [
     "@cortexcn/chart-context",
     "@cortexcn/chart-animation",
@@ -101,5 +104,6 @@
       "type": "registry:component",
       "target": "components/charts/fade-edges.ts"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

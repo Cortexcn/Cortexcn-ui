@@ -3,8 +3,13 @@
   "name": "hero-studio-01-example",
   "title": "Hero Studio Example",
   "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page — demo for Open in v0",
-  "dependencies": ["class-variance-authority", "motion"],
-  "registryDependencies": ["@cortexcn/hero-studio-01"],
+  "dependencies": [
+    "class-variance-authority",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@cortexcn/hero-studio-01"
+  ],
   "files": [
     {
       "path": "registry/examples/hero-studio-01.tsx",

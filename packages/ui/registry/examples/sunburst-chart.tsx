@@ -1,15 +1,7 @@
-"use client";
+"use client"
 
 // In your app: import { buildArcs, SunburstBreadcrumb, SunburstCenter, SunburstChart, SunburstHint, SunburstLabels, SunburstSegment } from "@/components/charts"
-import {
-  buildArcs,
-  SunburstBreadcrumb,
-  SunburstCenter,
-  SunburstChart,
-  SunburstHint,
-  SunburstLabels,
-  SunburstSegment,
-} from "@/components/charts";
+import { buildArcs, SunburstBreadcrumb, SunburstCenter, SunburstChart, SunburstHint, SunburstLabels, SunburstSegment } from "@/components/charts"
 
 const data = {
   name: "Revenue",
@@ -47,14 +39,14 @@ export default function Component() {
     <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-3xl">
         <SunburstChart data={data} size={360}>
-          {arcs.map((arc) => (
-            <SunburstSegment index={arc.arcIndex} key={arc.id} />
-          ))}
-          <SunburstCenter />
-          <SunburstLabels />
-          <SunburstHint />
-        </SunburstChart>
+  {arcs.map((arc) => (
+    <SunburstSegment index={arc.arcIndex} key={arc.id} />
+  ))}
+  <SunburstCenter />
+  <SunburstLabels />
+  <SunburstHint />
+</SunburstChart>
       </div>
     </main>
-  );
+  )
 }

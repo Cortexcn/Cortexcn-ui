@@ -35,6 +35,8 @@
       "target": "~/DESIGN.md"
     }
   ],
-  "categories": ["agents"],
+  "categories": [
+    "agents"
+  ],
   "type": "registry:item"
 }
