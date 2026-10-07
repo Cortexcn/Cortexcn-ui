@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { CortexcnLogo } from "@/components/icons/cortexcn";
+import { COMPONENT_COUNT_LABEL } from "@/lib/component-count";
 import { cn } from "@/lib/utils";
 
 import { InteractiveGrid } from "./interactive-grid";
@@ -205,7 +206,7 @@ function ProofRow() {
       <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
       <span className="flex items-center gap-1.5">
         <span aria-hidden="true" className="size-2 bg-primary" />
-        20+ components
+        {COMPONENT_COUNT_LABEL} components
       </span>
     </div>
   );
