@@ -19,46 +19,6 @@ const registryBlocksRoot = join(uiRoot, "registry/blocks");
 const examplesDir = join(uiRoot, "registry/examples");
 const registryPath = join(uiRoot, "registry.json");
 
-const TREND_BADGE_REGISTRY = `"use client";
-
-import { CentralIcon } from "@central-icons-react/all";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-
-export function TrendBadge({
-  value,
-  className,
-}: {
-  value: number;
-  className?: string;
-}) {
-  const positive = value >= 0;
-
-  return (
-    <Badge
-      className={cn(
-        positive &&
-          "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-        className
-      )}
-      variant={positive ? "outline" : "destructive"}
-    >
-      <CentralIcon
-        className="size-3"
-        data-icon="inline-start"
-        fill="outlined"
-        join="round"
-        name={positive ? "IconArrowUp" : "IconArrowDown"}
-        radius="0"
-        stroke="1.5"
-      />
-      {positive ? "+" : ""}
-      {value.toFixed(1)}%
-    </Badge>
-  );
-}
-`;
-
 const BLOCK_CHART_INDEX = {
   "stat-card-area-01": `export { AreaChart } from "./area-chart";
 export { Area } from "./area";
@@ -269,7 +229,7 @@ const BLOCKS = {
       "@visx/curve@4.0.1-alpha.0",
       "@visx/gradient@4.0.1-alpha.0",
       "@number-flow/react",
-      "@central-icons-react/all",
+      "lucide-react",
     ],
     files: [
       "components/stat-card-area.tsx",
@@ -293,7 +253,7 @@ const BLOCKS = {
     dependencies: [
       "@visx/curve@4.0.1-alpha.0",
       "@number-flow/react",
-      "@central-icons-react/all",
+      "lucide-react",
     ],
     files: [
       "components/stat-card-line.tsx",
@@ -318,7 +278,7 @@ const BLOCKS = {
       "@number-flow/react",
       "@types/geojson",
       "@types/topojson-specification",
-      "@central-icons-react/all",
+      "lucide-react",
       "topojson-client",
     ],
     files: [
@@ -356,11 +316,7 @@ const COMPONENT_EXPORTS = {
   "stat-card-choropleth-01": "StatCardChoropleth",
 };
 
-function transformForRegistry(content, filePath) {
-  if (filePath.endsWith("trend-badge.tsx")) {
-    return TREND_BADGE_REGISTRY;
-  }
-
+function transformForRegistry(content) {
   return content
     .replaceAll("@cortexcn/ui/charts", "@/components/charts")
     .replaceAll("@/components/docs/use-world-data", "@/lib/use-world-data")
@@ -386,10 +342,7 @@ function copyBlockFile(blockId, relativePath) {
   }
 
   mkdirSync(dirname(targetPath), { recursive: true });
-  const content = transformForRegistry(
-    readFileSync(sourcePath, "utf8"),
-    relativePath,
-  );
+  const content = transformForRegistry(readFileSync(sourcePath, "utf8"));
   writeFileSync(targetPath, content);
 }
 
