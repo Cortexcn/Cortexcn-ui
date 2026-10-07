@@ -7,7 +7,7 @@
     "@number-flow/react",
     "@types/geojson",
     "@types/topojson-specification",
-    "@central-icons-react/all",
+    "lucide-react",
     "topojson-client"
   ],
   "registryDependencies": [
@@ -37,7 +37,7 @@
     },
     {
       "path": "registry/blocks/stat-card-choropleth-01/components/trend-badge.tsx",
-      "content": "\"use client\";\n\nimport { CentralIcon } from \"@central-icons-react/all\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { cn } from \"@/lib/utils\";\n\nexport function TrendBadge({\n  value,\n  className,\n}: {\n  value: number;\n  className?: string;\n}) {\n  const positive = value >= 0;\n\n  return (\n    <Badge\n      className={cn(\n        positive &&\n          \"border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\",\n        className\n      )}\n      variant={positive ? \"outline\" : \"destructive\"}\n    >\n      <CentralIcon\n        className=\"size-3\"\n        data-icon=\"inline-start\"\n        fill=\"outlined\"\n        join=\"round\"\n        name={positive ? \"IconArrowUp\" : \"IconArrowDown\"}\n        radius=\"0\"\n        stroke=\"1.5\"\n      />\n      {positive ? \"+\" : \"\"}\n      {value.toFixed(1)}%\n    </Badge>\n  );\n}\n",
+      "content": "\"use client\";\n\nimport { ArrowDownIcon, ArrowUpIcon } from \"lucide-react\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { cn } from \"@/lib/utils\";\n\nexport function TrendBadge({\n  value,\n  className,\n}: {\n  value: number;\n  className?: string;\n}) {\n  const positive = value >= 0;\n\n  return (\n    <Badge\n      className={cn(\n        positive &&\n          \"border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400\",\n        className,\n      )}\n      variant={positive ? \"outline\" : \"destructive\"}\n    >\n      {positive ? (\n        <ArrowUpIcon className=\"size-3\" data-icon=\"inline-start\" />\n      ) : (\n        <ArrowDownIcon className=\"size-3\" data-icon=\"inline-start\" />\n      )}\n      {positive ? \"+\" : \"\"}\n      {value.toFixed(1)}%\n    </Badge>\n  );\n}\n",
       "type": "registry:component",
       "target": "components/trend-badge.tsx"
     },
