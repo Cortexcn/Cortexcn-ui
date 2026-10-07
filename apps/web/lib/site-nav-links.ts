@@ -4,7 +4,6 @@
  * nav in `lib/library-nav-links.ts`.
  */
 export const siteNavLinks = [
-  { text: "Services", url: "/#services" },
   { text: "Pricing", url: "/pricing" },
   { text: "FAQ", url: "/#faq" },
   { text: "Contact", url: "/contact" },

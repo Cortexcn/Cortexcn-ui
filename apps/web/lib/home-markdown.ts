@@ -163,7 +163,7 @@ export function RevenueSection() {
 
 ## Services
 
-Need more than components? Hire the team behind them. We build for clients too, from a single landing page to a full product, an AI pipeline, or a research paper. Every build ships with its code in your repo. Work per project or on retainer, and [start a project](${SITE_URL}/contact) through the contact form.
+Need more than components? Hire the team behind them. We build for clients too, from a single landing page to a full product, an AI pipeline, or a research paper. Every build ships with its code in your repo. Work per project or on retainer. Every service, its starting price, and how a project runs: [${SITE_URL}/services](${SITE_URL}/services). To start a project, use the [contact form](${SITE_URL}/contact).
 
 1. **Websites.** Company sites and portfolios on Next.js, fast to load and easy to update.
 2. **Landing pages.** Launch and campaign pages, from the first sketch to the live URL.

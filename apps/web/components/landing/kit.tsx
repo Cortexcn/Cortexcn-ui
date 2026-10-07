@@ -23,7 +23,6 @@ export const NUMBERED_SECTIONS = [
   "benefits",
   "capabilities",
   "installation",
-  "services",
   "pricing",
   "changelog",
   "faq",

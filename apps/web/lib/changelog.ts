@@ -42,6 +42,14 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-08",
+    kind: "site",
+    title: "Services get their own page",
+    summary:
+      "Client work moved from a section of the home page to its own Services page. It lists every service with its starting price and timeline, shows how a project runs from the first email to launch, and compares working per project with a retainer. The link now sits in the footer.",
+    items: [{ label: "Services", href: "/services" }],
+  },
+  {
+    date: "2026-10-08",
     kind: "blocks",
     title: "Stat card blocks install with any package manager",
     summary:

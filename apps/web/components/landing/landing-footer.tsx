@@ -25,6 +25,7 @@ const PAGE_LINKS = [
   { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
+  { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
