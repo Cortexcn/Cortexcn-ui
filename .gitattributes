@@ -1,0 +1,3 @@
+# Check out text files with LF on every OS. Biome expects LF, and the
+# pre-commit hook checks files as they are on disk.
+* text=auto eol=lf
