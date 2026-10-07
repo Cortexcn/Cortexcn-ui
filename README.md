@@ -87,18 +87,7 @@ bun run dev
 
 `bun run dev` starts the services site at <http://localhost:3000> and the component library at <http://ui.localhost:3000>. In production one deployment serves both: the library (its home, docs, blocks, charts, templates, registry, and MCP server) on `ui.cortexcn.dev`, and the services site on `www.cortexcn.dev`.
 
-Environment variables go in `apps/web/.env`, and `apps/web/.env.example` lists them all. Set only the ones for the features you work on:
-
-| Feature                       | Variables                                                                                                            |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Central Icons license         | `CENTRAL_LICENSE_KEY`                                                                                                |
-| OpenPanel analytics           | `OPENPANEL_CLIENT_ID`, `OPENPANEL_CLIENT_SECRET`                                                                     |
-| Cloudflare Web Analytics      | `NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`                                                                         |
-| Search engine verification    | `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`                                                                 |
-| Contact form                  | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` |
-| Shared rate limits (optional) | `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`                                                                 |
-
-Without Upstash Redis, each server instance counts rate limits on its own. The Vercel Marketplace integration sets `KV_REST_API_URL` and `KV_REST_API_TOKEN` instead, and those work too.
+The site runs without any environment variables. Features that need a key, such as the contact form and analytics, stay off locally.
 
 Scripts, all run from the repository root:
 
