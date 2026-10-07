@@ -167,9 +167,18 @@ function GridBand() {
 
 /** Tools the registry is built for; shown as small tiles in the proof row. */
 const PROOF_LOGOS = [
-  { name: "shadcn/ui", slug: "shadcn" },
-  { name: "Next.js", slug: "nextjs" },
-  { name: "Cursor", slug: "cursor" },
+  {
+    name: "shadcn/ui",
+    light: "/logos/stack/shadcn-light.svg",
+    dark: "/logos/stack/shadcn-dark.svg",
+  },
+  {
+    name: "Next.js",
+    light: "/logos/stack/nextjs-light.svg",
+    dark: "/logos/stack/nextjs-dark.svg",
+  },
+  // Claude's orange mark reads on both themes.
+  { name: "Claude", light: "/logos/claude.svg", dark: "/logos/claude.svg" },
 ];
 
 function ProofRow() {
@@ -179,14 +188,14 @@ function ProofRow() {
         {PROOF_LOGOS.map((logo) => (
           <span
             className="-ml-px flex size-8 items-center justify-center border border-border bg-background first:ml-0"
-            key={logo.slug}
+            key={logo.name}
             title={logo.name}
           >
             <Image
               alt={logo.name}
               className="size-4 dark:hidden"
               height={16}
-              src={`/logos/stack/${logo.slug}-light.svg`}
+              src={logo.light}
               unoptimized
               width={16}
             />
@@ -194,7 +203,7 @@ function ProofRow() {
               alt=""
               className="hidden size-4 dark:block"
               height={16}
-              src={`/logos/stack/${logo.slug}-dark.svg`}
+              src={logo.dark}
               unoptimized
               width={16}
             />
