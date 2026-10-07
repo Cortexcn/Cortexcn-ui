@@ -23,6 +23,8 @@ interface StackLogo {
   ratio: number;
   /** Rendered height in px, tuned per logo so they read at a similar size. */
   height: number;
+  /** For a logo kept outside this folder; otherwise `<slug>-<variant>.svg` here. */
+  src?: { light: string; dark: string };
 }
 
 /**
@@ -50,11 +52,12 @@ const LOGOS: StackLogo[] = [
   },
   { name: "shadcn/ui", slug: "shadcn", kind: "icon", ratio: 1, height: 22 },
   {
-    name: "Cursor",
-    slug: "cursor",
+    name: "ChatGPT",
+    slug: "chatgpt",
     kind: "icon",
-    ratio: 466.73 / 532.09,
+    ratio: 1,
     height: 24,
+    src: { light: "/logos/openai-light.svg", dark: "/logos/openai-dark.svg" },
   },
   {
     name: "Claude",
@@ -79,7 +82,7 @@ function LogoImage({
       alt={logo.kind === "wordmark" && variant === "light" ? logo.name : ""}
       className={className}
       height={logo.height}
-      src={`${LOGO_DIR}/${logo.slug}-${variant}.svg`}
+      src={logo.src?.[variant] ?? `${LOGO_DIR}/${logo.slug}-${variant}.svg`}
       style={{ height: logo.height, width: "auto" }}
       unoptimized
       width={Math.round(logo.height * logo.ratio)}
@@ -89,9 +92,9 @@ function LogoImage({
 
 function LogoCell({ logo }: { logo: StackLogo }) {
   return (
-    <div className="group flex h-28 items-center justify-center bg-background px-4 md:h-32">
-      {/* Gray at rest like the rest of the page; brand color on hover. */}
-      <span className="flex items-center gap-2 opacity-60 grayscale transition-[opacity,filter] duration-300 group-hover:opacity-100 group-hover:grayscale-0">
+    <div className="flex h-28 items-center justify-center bg-background px-4 md:h-32">
+      {/* Each logo in its own brand colors. */}
+      <span className="flex items-center gap-2">
         <LogoImage className="dark:hidden" logo={logo} variant="light" />
         <LogoImage className="hidden dark:block" logo={logo} variant="dark" />
         {logo.kind === "icon" ? (
