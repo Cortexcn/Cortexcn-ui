@@ -1,2 +1,4 @@
 #!/bin/sh
-npx biome check --staged --no-errors-on-unmatched --files-ignore-unknown=true
+# Husky puts node_modules/.bin on PATH. `npx biome` would miss Bun's shims
+# there and fetch the unrelated `biome` package from npm instead.
+biome check --staged --no-errors-on-unmatched --files-ignore-unknown=true
