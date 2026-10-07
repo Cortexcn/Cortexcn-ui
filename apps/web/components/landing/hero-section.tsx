@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { CortexcnLogo } from "@/components/icons/cortexcn";
 import { cn } from "@/lib/utils";
 
 import { InteractiveGrid } from "./interactive-grid";
+import { ActionLink } from "./kit";
 import { Container } from "./primitives";
 
 /** What the agent builds; typed into the bracket in the headline, one by one. */
@@ -73,27 +73,6 @@ function useTypewriter(phrases: string[]) {
   return text;
 }
 
-/** Letters roll up on hover, revealing a copy drawn with text-shadow below. */
-function RollingText({ text }: { text: string }) {
-  return (
-    <>
-      <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className="flex overflow-hidden leading-none">
-        {Array.from(text).map((char, index) => (
-          <span
-            className="block whitespace-pre transition-transform duration-300 ease-out [text-shadow:0_1em_0_currentColor] group-hover:-translate-y-full motion-reduce:transition-none"
-            // biome-ignore lint/suspicious/noArrayIndexKey: letters are positional and never reorder
-            key={index}
-            style={{ transitionDelay: `${index * 15}ms` }}
-          >
-            {char}
-          </span>
-        ))}
-      </span>
-    </>
-  );
-}
-
 function ArrowDownIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -107,23 +86,6 @@ function ArrowDownIcon({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M6 1.5v8.5M2.75 6.75 6 10l3.25-3.25" />
-    </svg>
-  );
-}
-
-function ArrowRightIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="square"
-      strokeWidth="1.5"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M2.5 8h10.5M9 4l4 4-4 4" />
     </svg>
   );
 }
@@ -272,20 +234,13 @@ export function HeroSection() {
               enterClassName,
             )}
           >
-            <Link
-              className="group inline-flex h-12 items-center justify-between gap-10 bg-foreground px-5 font-medium font-mono text-background text-sm uppercase transition-colors hover:bg-primary hover:text-primary-foreground"
-              href="/docs/installation"
-            >
-              <span aria-hidden="true" className="size-2 bg-current" />
-              <RollingText text="Get started" />
-            </Link>
-            <Link
-              className="group inline-flex h-12 flex-1 items-center justify-between gap-10 border-foreground border-b font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:text-primary"
+            <ActionLink href="/docs/installation" label="Get started" />
+            <ActionLink
+              className="flex-1"
               href="/docs/components"
-            >
-              <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              <RollingText text="Browse components" />
-            </Link>
+              label="Browse components"
+              variant="outline"
+            />
           </div>
         </div>
       </Container>
