@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["ultracite/biome/core", "ultracite/biome/next"],
   "files": {
-    "includes": ["!!**/.agents"]
+    // Template previews are committed static builds, not source.
+    "includes": ["!!**/.agents", "!!apps/web/public/previews"]
   },
   // Prettier also formats some of these files (the DESIGN.md generator runs
   // it), and it adds trailing commas everywhere. Matching it keeps the two
