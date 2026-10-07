@@ -41,6 +41,21 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-08",
+    kind: "blocks",
+    title: "Stat card blocks install with any package manager",
+    summary:
+      "The trend badge in the Area, Line, and Choropleth stat cards now draws its arrows with lucide-react instead of Central Icons. The blocks no longer need a Central Icons license key, so they install with npm and pnpm as well as Bun.",
+    items: [
+      { label: "Stat Card Area", href: "/blocks/stat-cards/stat-card-area-01" },
+      { label: "Stat Card Line", href: "/blocks/stat-cards/stat-card-line-01" },
+      {
+        label: "Stat Card Choropleth",
+        href: "/blocks/stat-cards/stat-card-choropleth-01",
+      },
+    ],
+  },
+  {
     date: "2026-10-05",
     kind: "site",
     title: "Rate limits on the MCP server",
