@@ -70,7 +70,8 @@ function chartsChanged(diffRange) {
 }
 
 function listDirtyRegistryFiles() {
-  const excludeArgs = SEMANTIC_JSON_PATHS.map((p) => `':!${p}'`).join(" ");
+  // Double quotes, which both sh and the Windows shell accept.
+  const excludeArgs = SEMANTIC_JSON_PATHS.map((p) => `":!${p}"`).join(" ");
   const paths = REGISTRY_PATHS.join(" ");
   const status = run(
     `git status --porcelain -- ${paths} ${excludeArgs}`,
