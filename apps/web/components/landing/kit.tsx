@@ -300,32 +300,70 @@ export function ArrowUpRightIcon({ className }: { className?: string }) {
   );
 }
 
-function actionClassName(block: boolean, className?: string) {
+/** Solid for the main action, outline for a second action or a small header button. */
+type ActionVariant = "solid" | "outline";
+type ActionSize = "md" | "sm";
+
+interface ActionStyle {
+  block?: boolean;
+  variant?: ActionVariant;
+  size?: ActionSize;
+}
+
+function actionClassName(
+  { block = false, variant = "solid", size = "md" }: ActionStyle,
+  className?: string,
+) {
   return cn(
-    "group relative isolate inline-flex h-12 shrink-0 items-center justify-between gap-8 overflow-hidden bg-foreground px-4 text-background outline-none transition-colors duration-300 hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
-    block ? "w-full" : "min-w-45",
+    "group relative isolate inline-flex shrink-0 items-center justify-between overflow-hidden outline-none transition-colors duration-300 hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
+    variant === "solid"
+      ? "bg-foreground text-background"
+      : "border border-border bg-background text-foreground hover:border-primary",
+    size === "md" ? "h-12 gap-8 px-4" : "h-9 gap-4 px-3",
+    block && "w-full",
+    !block && size === "md" && "min-w-45",
     className,
   );
 }
 
-function ActionContent({ label, display }: { label: string; display: string }) {
+function ActionContent({
+  label,
+  display,
+  size = "md",
+}: {
+  label: string;
+  display: string;
+  size?: ActionSize;
+}) {
   return (
     <>
       <span
         aria-hidden="true"
-        className="absolute inset-0 -z-1 -translate-x-full bg-primary transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0 group-focus-visible:translate-x-0 group-disabled:translate-x-0"
+        className="absolute inset-0 -z-1 -translate-x-full bg-primary transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0 group-focus-visible:translate-x-0 group-disabled:translate-x-0 motion-reduce:transition-none"
       />
       <span aria-hidden="true" className="size-2 shrink-0 bg-current" />
-      <span className="flex items-center font-mono font-semibold text-base uppercase leading-[1.3] tracking-[-0.05em]">
+      <span
+        className={cn(
+          "flex items-center font-mono font-semibold uppercase leading-[1.3] tracking-[-0.05em]",
+          size === "md" ? "text-base" : "text-sm",
+        )}
+      >
         <span className="sr-only">{label}</span>
         <span aria-hidden="true" className="whitespace-pre">
           {display}
         </span>
         <span
           aria-hidden="true"
-          className="flex w-0 justify-end overflow-hidden transition-[width] duration-300 ease-out group-hover:w-6 group-focus-visible:w-6"
+          className={cn(
+            "flex w-0 justify-end overflow-hidden transition-[width] duration-300 ease-out motion-reduce:transition-none",
+            size === "md"
+              ? "group-hover:w-6 group-focus-visible:w-6"
+              : "group-hover:w-5 group-focus-visible:w-5",
+          )}
         >
-          <ArrowRightIcon className="size-4 shrink-0" />
+          <ArrowRightIcon
+            className={cn("shrink-0", size === "md" ? "size-4" : "size-3.5")}
+          />
         </span>
       </span>
     </>
@@ -340,22 +378,24 @@ export function ActionLink({
   href,
   label,
   className,
-  block = false,
+  block,
+  variant,
+  size,
   ...props
-}: Omit<ComponentProps<typeof Link>, "children"> & {
-  label: string;
-  block?: boolean;
-}) {
+}: Omit<ComponentProps<typeof Link>, "children"> &
+  ActionStyle & {
+    label: string;
+  }) {
   const [display, play] = useScrambleText(label);
   return (
     <Link
-      className={actionClassName(block, className)}
+      className={actionClassName({ block, variant, size }, className)}
       href={href}
       onFocus={play}
       onPointerEnter={play}
       {...props}
     >
-      <ActionContent display={display} label={label} />
+      <ActionContent display={display} label={label} size={size} />
     </Link>
   );
 }
@@ -364,18 +404,20 @@ export function ActionLink({
 export function ActionButton({
   label,
   className,
-  block = false,
+  block,
+  variant,
+  size,
   type = "button",
   ...props
-}: Omit<ComponentProps<"button">, "children"> & {
-  label: string;
-  block?: boolean;
-}) {
+}: Omit<ComponentProps<"button">, "children"> &
+  ActionStyle & {
+    label: string;
+  }) {
   const [display, play] = useScrambleText(label);
   return (
     <button
       className={actionClassName(
-        block,
+        { block, variant, size },
         cn("disabled:cursor-wait disabled:text-primary-foreground", className),
       )}
       onFocus={play}
@@ -383,7 +425,7 @@ export function ActionButton({
       type={type}
       {...props}
     >
-      <ActionContent display={display} label={label} />
+      <ActionContent display={display} label={label} size={size} />
     </button>
   );
 }

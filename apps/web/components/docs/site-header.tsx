@@ -10,6 +10,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { ActionLink } from "@/components/landing/kit";
 import { ModeToggle } from "@/components/mode-toggle";
 import { isLibraryPath } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
@@ -524,23 +525,6 @@ function MobileMenuButton({
   );
 }
 
-function ArrowUpRightIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      className="size-3.5"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="square"
-      strokeWidth="1.5"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M4.5 11.5l7-7M5.5 4.5h6v6" />
-    </svg>
-  );
-}
-
 /** Landing header: a brand tab, joined nav tabs, and boxed utilities. */
 function LandingHeaderItems({
   links,
@@ -598,13 +582,13 @@ function LandingHeaderItems({
           {menuButton}
         </div>
         {/* Same page as the Docs tab, so it only joins once everything fits. */}
-        <Link
-          className="hidden h-9 items-center gap-2.5 border border-border bg-background px-4 font-medium font-mono text-foreground text-sm uppercase transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground xl:inline-flex"
+        <ActionLink
+          className="hidden xl:inline-flex"
           href="/docs/installation"
-        >
-          <ArrowUpRightIcon />
-          Get started
-        </Link>
+          label="Get started"
+          size="sm"
+          variant="outline"
+        />
       </div>
     </>
   );
