@@ -12,7 +12,7 @@ export interface AccordionItemData {
 function ChevronDownIcon({ className }: { className?: string }) {
   return (
     <svg
-      aria-hidden
+      aria-hidden="true"
       className={className}
       fill="none"
       stroke="currentColor"
