@@ -332,10 +332,8 @@ function Packet({
   );
 }
 
-interface DiagramProps extends Omit<
-  FanOutDiagramProps,
-  "className" | "ariaLabel"
-> {
+interface DiagramProps
+  extends Omit<FanOutDiagramProps, "className" | "ariaLabel"> {
   layout: Layout;
   label: string;
   className: string;

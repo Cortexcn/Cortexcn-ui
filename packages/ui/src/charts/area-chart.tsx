@@ -219,10 +219,10 @@ export function AreaChart({
 
   const showLoadingLabel = Boolean(
     loadingLabel?.trim() &&
-    (chartPhase === "loading" ||
-      chartPhase === "exiting" ||
-      chartPhase === "gridTweenReady" ||
-      chartPhase === "revealingLoading"),
+      (chartPhase === "loading" ||
+        chartPhase === "exiting" ||
+        chartPhase === "gridTweenReady" ||
+        chartPhase === "revealingLoading"),
   );
 
   return (

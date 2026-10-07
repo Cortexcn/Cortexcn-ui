@@ -669,8 +669,8 @@ export function HeatmapChart({
 
   const showLoadingLabel = Boolean(
     loadingLabel?.trim() &&
-    status === "loading" &&
-    (chartPhase === "loading" || chartPhase === "exitingReady"),
+      status === "loading" &&
+      (chartPhase === "loading" || chartPhase === "exitingReady"),
   );
 
   return (

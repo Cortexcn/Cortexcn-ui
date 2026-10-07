@@ -12,7 +12,8 @@ export interface ChevronsUpDownIconHandle {
   stopAnimation: () => void;
 }
 
-export interface ChevronsUpDownIconProps extends ComponentPropsWithoutRef<"svg"> {
+export interface ChevronsUpDownIconProps
+  extends ComponentPropsWithoutRef<"svg"> {
   ref?: Ref<ChevronsUpDownIconHandle>;
   duration?: number;
 }

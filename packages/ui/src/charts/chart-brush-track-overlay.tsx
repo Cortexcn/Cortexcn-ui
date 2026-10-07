@@ -39,7 +39,8 @@ function outsidePaneStyle(
   };
 }
 
-export interface ChartBrushTrackOverlayProps extends ChartBrushTrackOverlayStyle {
+export interface ChartBrushTrackOverlayProps
+  extends ChartBrushTrackOverlayStyle {
   innerWidth: number;
   innerHeight: number;
   /** Pixel x of the selection start within the plot area. */
