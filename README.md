@@ -1,25 +1,30 @@
 # Cortexcn
 
-Cortexcn is a set of React and Tailwind CSS components, page blocks, and charts. You install items with the shadcn CLI, which copies the source into your project. The code is yours to read and change, and there is no runtime package to keep up to date.
+React and Tailwind CSS components, page blocks, and charts that you install with the shadcn CLI. The source is copied into your project, so you can read it, change it, and make it your own. Open source, and set up for your AI agent as well as for you.
 
-- Components, docs, and registry: [ui.cortexcn.dev](https://ui.cortexcn.dev)
-- Website: [www.cortexcn.dev](https://www.cortexcn.dev)
+![Cortexcn: your AI agent ships landing pages from real shadcn/ui components.](./apps/web/app/opengraph-image.png)
 
-## What is in the registry
+## Documentation
 
-- **Components**: the shadcn/ui primitives (accordion, dialog, select, tabs, and the rest) plus Cortexcn components such as the marquee, number ticker, line nav, and sphere menu.
-- **Blocks**: page sections grouped by category, such as hero sections, feature grids, AI assistant pieces, loaders, and stat cards. Browse them at [ui.cortexcn.dev/blocks](https://ui.cortexcn.dev/blocks).
-- **Charts**: area, bar, candlestick, choropleth, composed, funnel, gauge, heatmap, line, live line, pie, radar, ring, sankey, scatter, and sunburst charts, built on visx and Motion. Browse them at [ui.cortexcn.dev/charts](https://ui.cortexcn.dev/charts).
+Visit [ui.cortexcn.dev/docs](https://ui.cortexcn.dev/docs) to view the documentation.
 
-## Install an item
+## What's inside
 
-Your project needs shadcn/ui set up first:
+- **Components.** The shadcn/ui primitives (accordion, dialog, select, tabs, and the rest) plus Cortexcn components such as Marquee, Number Ticker, Line Nav, Sphere Menu, Gooey Nav, and Lanyard 3D.
+- **Cortexcn Blocks.** Page sections in six categories: hero, features, services, AI assistant, loaders, and stat cards. [Browse the blocks](https://ui.cortexcn.dev/blocks).
+- **Charts.** Area, bar, candlestick, choropleth, composed, funnel, gauge, heatmap, line, live line, profit and loss line, pie, radar, ring, sankey, scatter, and sunburst charts, built on visx and Motion. [Browse the charts](https://ui.cortexcn.dev/charts).
+- **Templates.** Complete Next.js sites to download and make your own: Portfolio (free, MIT) and Simplistic SaaS (paid). [Browse the templates](https://ui.cortexcn.dev/templates).
+- **AI tools.** An MCP server, agent skills, and a `DESIGN.md` file, so coding agents can find the right item, install it, and match the design system.
+
+## Quick start
+
+Set up shadcn/ui in your project:
 
 ```bash
 npx shadcn@latest init
 ```
 
-Add an item by its registry URL:
+Add any item by its registry URL:
 
 ```bash
 npx shadcn@latest add https://ui.cortexcn.dev/r/line-chart.json
@@ -49,43 +54,29 @@ import { LineChart } from "@/components/charts";
 
 Each item's page in the [docs](https://ui.cortexcn.dev/docs) shows its install command, usage, and props.
 
-## AI integration
+## Use it with your AI agent
 
-Cortexcn gives coding agents three ways to work with the registry. The setup guides are at [ui.cortexcn.dev/docs/integration](https://ui.cortexcn.dev/docs/integration).
-
-**MCP server.** A read-only MCP server runs at `https://ui.cortexcn.dev/mcp`. It needs no sign-in and lets an agent search the catalog, read an item's source, and get its install command. To add it to Claude Code:
+**MCP server.** Connect your assistant to `https://ui.cortexcn.dev/mcp` and it can search the catalog, read an item's docs and source, and get the exact install command. The server is read-only and needs no sign-in. In Claude Code:
 
 ```bash
 claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
 ```
 
-Other MCP clients can use the same URL with the HTTP transport.
+Setup for Cursor, VS Code, Codex, Windsurf, Zed, and the chat apps is in the [MCP docs](https://ui.cortexcn.dev/docs/integration/mcp). Each IP address can make 120 requests a minute and 3,000 a day.
 
-**Agent skills.** Skills that teach an agent how to find, install, compose, and theme Cortexcn items, and how to follow the design system:
-
-```bash
-npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json
-```
-
-**DESIGN.md.** A `DESIGN.md` file for your project root that describes the Cortexcn design system (colors, corners, type, spacing, and motion), so agents have one place to read it from:
-
-```bash
-npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json
-```
-
-**Everything at once.** The agent kit installs both skills and `DESIGN.md` in one command:
+**Agent kit.** Skills that teach your agent to find, install, compose, and theme Cortexcn items, plus a `DESIGN.md` for your project root that describes the design system (colors, corners, type, spacing, and motion):
 
 ```bash
 npx shadcn@latest add https://ui.cortexcn.dev/r/agent-kit.json
 ```
 
-The skills are also published at `/.well-known/agent-skills`, so the skills CLI can install them too:
+To install only one part, use `agent-skills.json` or `design-md.json` in place of `agent-kit.json`. The skills CLI works too:
 
 ```bash
 npx skills add https://ui.cortexcn.dev
 ```
 
-## Local development
+## Development
 
 You need Node.js 18 or later (CI uses Node 20) and [Bun](https://bun.sh) 1.4.0, the version pinned in `package.json`.
 
@@ -94,34 +85,37 @@ bun install
 bun run dev
 ```
 
-`bun run dev` starts the site at <http://localhost:3000> and the component library host at <http://ui.localhost:3000>. In production one deployment serves both hosts: the library (its home, docs, blocks, charts, and registry) on `ui.cortexcn.dev`, and everything else on `www.cortexcn.dev`.
+`bun run dev` starts the services site at <http://localhost:3000> and the component library at <http://ui.localhost:3000>. In production one deployment serves both: the library (its home, docs, blocks, charts, templates, registry, and MCP server) on `ui.cortexcn.dev`, and the services site on `www.cortexcn.dev`.
 
-Environment variables go in `apps/web/.env`. Set the ones for the features you need:
+Environment variables go in `apps/web/.env`, and `apps/web/.env.example` lists them all. Set only the ones for the features you work on:
 
-| Feature                    | Variables                                                                                                            |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Central Icons license      | `CENTRAL_LICENSE_KEY`                                                                                                |
-| OpenPanel analytics        | `OPENPANEL_CLIENT_ID`, `OPENPANEL_CLIENT_SECRET`                                                                     |
-| Cloudflare Web Analytics   | `NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`                                                                         |
-| Search engine verification | `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`                                                                 |
-| Contact form               | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` |
+| Feature                       | Variables                                                                                                            |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Central Icons license         | `CENTRAL_LICENSE_KEY`                                                                                                |
+| OpenPanel analytics           | `OPENPANEL_CLIENT_ID`, `OPENPANEL_CLIENT_SECRET`                                                                     |
+| Cloudflare Web Analytics      | `NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`                                                                         |
+| Search engine verification    | `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`                                                                 |
+| Contact form                  | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL` |
+| Shared rate limits (optional) | `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`                                                                 |
 
-Scripts, all run from this folder:
+Without Upstash Redis, each server instance counts rate limits on its own. The Vercel Marketplace integration sets `KV_REST_API_URL` and `KV_REST_API_TOKEN` instead, and those work too.
 
-| Command                   | What it does                                                                                         |
-| ------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `bun run dev`             | Runs the dev servers through Turborepo                                                               |
-| `bun run build`           | Builds every package through Turborepo                                                               |
-| `bun run lint`            | Checks formatting and lint rules with Ultracite (Biome)                                              |
-| `bun run lint:fix`        | Applies Ultracite fixes (`bun run format` does the same)                                             |
-| `bun run check-types`     | Type checks every package                                                                            |
-| `bun run test`            | Runs the unit tests (Node's test runner with `tsx`)                                                  |
-| `bun run registry:build`  | Rebuilds the registry into `apps/web/public/r` (runs `bun run --filter @cortexcn/ui registry:build`) |
-| `bun run registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync                       |
+Scripts, all run from the repository root:
+
+| Command                   | What it does                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------ |
+| `bun run dev`             | Runs the dev servers through Turborepo                                         |
+| `bun run build`           | Builds every package through Turborepo                                         |
+| `bun run lint`            | Checks formatting and lint rules with Ultracite (Biome)                        |
+| `bun run lint:fix`        | Applies Ultracite fixes (`bun run format` does the same)                       |
+| `bun run check-types`     | Type checks every package                                                      |
+| `bun run test`            | Runs the unit tests (Node's test runner with `tsx`)                            |
+| `bun run registry:build`  | Rebuilds the registry into `apps/web/public/r`                                 |
+| `bun run registry:verify` | Checks that registry files, npm dependencies, and the built output are in sync |
 
 Keep the `run`: `bun build` and `bun test` start Bun's own bundler and test runner instead of these scripts.
 
-The pre-commit hook runs Biome on the staged files (`biome check --staged`).
+A pre-commit hook runs Biome on your staged files. Text files check out with LF line endings on every OS, which is what Biome expects.
 
 ## Repository layout
 
@@ -132,17 +126,15 @@ The pre-commit hook runs Biome on the staged files (`biome check --staged`).
 | `packages/icons`             | `@cortexcn/icons`: a wrapper around Central Icons (`@central-icons-react/all`), a licensed icon set                                                          |
 | `packages/eslint-config`     | `@cortexcn/eslint-config`: shared ESLint config                                                                                                              |
 | `packages/typescript-config` | `@cortexcn/typescript-config`: shared TypeScript configs                                                                                                     |
-| `templates/`                 | Standalone Next.js page templates. They are not part of the Bun workspace; each has its own README and LICENSE                                               |
-
-The paid templates sold at [ui.cortexcn.dev/templates](https://ui.cortexcn.dev/templates) are not in this repository.
+| `templates/`                 | Standalone Next.js site templates. They are not part of the Bun workspace, and each has its own README and LICENSE                                           |
 
 ## Contributing
 
-Bug reports, fixes, and new items are welcome. Start with [CONTRIBUTING.md](./CONTRIBUTING.md), which covers setup, where things live, and what a good pull request looks like. Step-by-step recipes for adding a component, block, or chart are in [AGENTS.md](./AGENTS.md).
+Please read the [contributing guide](./CONTRIBUTING.md). It covers setup, where things live, and what a good pull request looks like. Step-by-step recipes for adding a component, block, or chart are in [AGENTS.md](./AGENTS.md).
 
 - Code of conduct: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - Security issues: please report them privately, as described in [SECURITY.md](./SECURITY.md)
 
 ## License
 
-MIT, see [LICENSE](./LICENSE). Templates in `templates/` carry their own license files.
+Licensed under the [MIT license](./LICENSE). Templates in `templates/` carry their own license files, and the paid templates are not in this repository.
