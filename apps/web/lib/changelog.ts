@@ -43,6 +43,14 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-10",
+    kind: "site",
+    title: "Legal AI template",
+    summary:
+      "A new paid template for an AI platform for law firms, with a live preview. In its research card, each numbered citation in an answer brings its highlighted passage forward in the source document. It has watercolor panels painted in code, tabs for law firms, in-house teams, and small practices, customer stories that stack as you scroll, and light and dark mode.",
+    items: [{ label: "Legal AI", href: "/templates/legal-ai" }],
+  },
+  {
+    date: "2026-10-10",
     kind: "components",
     title: "Design systems for every component",
     summary:
