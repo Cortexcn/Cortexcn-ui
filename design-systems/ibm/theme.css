@@ -1,0 +1,161 @@
+/*
+ * IBM (design-systems/ibm). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by IBM's public website; not affiliated with or endorsed by IBM.
+ */
+
+[data-theme="ibm"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #161616;
+  --card: #f4f4f4;
+  --card-foreground: #161616;
+  --popover: #e0e0e0;
+  --popover-foreground: #161616;
+  --primary: #0f62fe;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #161616;
+  --muted: #f4f4f4;
+  --muted-foreground: #525252;
+  --accent: #e0e0e0;
+  --accent-foreground: #161616;
+  --destructive: #da1e28;
+  --border: #e0e0e0;
+  --input: #161616;
+  --ring: #0f62fe;
+  --chart-1: #0f62fe;
+  --chart-2: #24a148;
+  --chart-3: #f1c21b;
+  --chart-4: #da1e28;
+  --chart-5: #00246f;
+  --ds-primary-hover: #0050e6;
+  --ds-success: #24a148;
+  --ds-warning: #f1c21b;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 400;
+  --ds-weight-bold: 300;
+  --ds-tracking-display: -0.007em;
+  --ds-tracking-body: 0.01em;
+  --ds-leading-display: 1.17;
+  --ds-leading-body: 1.5;
+  --radius: 8px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 2px;
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 6px;
+  --ds-radius-lg: 8px;
+  --ds-radius-xl: 11px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 4px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-none);
+  --ds-button-h-xs: 30px;
+  --ds-button-h-sm: 38px;
+  --ds-button-h-md: 42px;
+  --ds-button-h-lg: 46px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-regular);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0.011em;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-none);
+  --ds-input-h: 46px;
+  --ds-input-px: 16px;
+  --ds-input-bg: var(--card);
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-none);
+  --ds-card-padding: 24px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--background);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-none);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-none);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-none);
+  --ds-menu-item-radius: var(--ds-radius-none);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-none);
+}
+
+[data-theme="ibm"].dark,
+.dark [data-theme="ibm"] {
+  color-scheme: dark;
+  --background: #161616;
+  --foreground: #ffffff;
+  --card: #262626;
+  --card-foreground: #ffffff;
+  --popover: #242424;
+  --popover-foreground: #ffffff;
+  --primary: #0f62fe;
+  --primary-foreground: #ffffff;
+  --secondary: #2b2b2b;
+  --secondary-foreground: #ffffff;
+  --muted: #2b2b2b;
+  --muted-foreground: #c6c6c6;
+  --accent: #2b2b2b;
+  --accent-foreground: #ffffff;
+  --destructive: #ff544f;
+  --border: #353535;
+  --input: #404040;
+  --ring: #0f62fe;
+  --chart-1: #0f62fe;
+  --chart-2: #26a249;
+  --chart-3: #8b6e00;
+  --chart-4: #ff5450;
+  --chart-5: #b3cfff;
+  --ds-primary-hover: #004edb;
+  --ds-success: #3cb359;
+  --ds-warning: #f1c21b;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="ibm"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

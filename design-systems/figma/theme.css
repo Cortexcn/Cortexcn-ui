@@ -1,0 +1,161 @@
+/*
+ * Figma (design-systems/figma). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Figma's public website; not affiliated with or endorsed by Figma.
+ */
+
+[data-theme="figma"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f7f7f5;
+  --secondary-foreground: #000000;
+  --muted: #f7f7f5;
+  --muted-foreground: #2e2e2e;
+  --accent: #f7f7f5;
+  --accent-foreground: #000000;
+  --destructive: #d92d20;
+  --border: #e6e6e6;
+  --input: #e6e6e6;
+  --ring: #000000;
+  --chart-1: #000000;
+  --chart-2: #dceeb1;
+  --chart-3: #c5b0f4;
+  --chart-4: #1ea64a;
+  --chart-5: #68595d;
+  --ds-primary-hover: #020202;
+  --ds-success: #1ea64a;
+  --ds-warning: #b45309;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 320;
+  --ds-weight-medium: 480;
+  --ds-weight-bold: 340;
+  --ds-tracking-display: -0.02em;
+  --ds-tracking-body: -0.014em;
+  --ds-leading-display: 1;
+  --ds-leading-body: 1.45;
+  --radius: 24px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 2px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 24px;
+  --ds-radius-xl: 32px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 4px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-full);
+  --ds-button-h-xs: 36px;
+  --ds-button-h-sm: 44px;
+  --ds-button-h-md: 48px;
+  --ds-button-h-lg: 52px;
+  --ds-button-px: 20px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: -0.005em;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 50px;
+  --ds-input-px: 14px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-md);
+  --ds-card-padding: 16px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--muted);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-full);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-md);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-sm);
+  --ds-menu-item-radius: var(--ds-radius-xs);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-md);
+}
+
+[data-theme="figma"].dark,
+.dark [data-theme="figma"] {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0e0e0e;
+  --card-foreground: #ffffff;
+  --popover: #141414;
+  --popover-foreground: #ffffff;
+  --primary: #ebebeb;
+  --primary-foreground: #000000;
+  --secondary: #1b1b1b;
+  --secondary-foreground: #ffffff;
+  --muted: #1b1b1b;
+  --muted-foreground: #ffffff;
+  --accent: #1b1b1b;
+  --accent-foreground: #ffffff;
+  --destructive: #ff5543;
+  --border: #242424;
+  --input: #2e2e2e;
+  --ring: #ebebeb;
+  --chart-1: #ebebeb;
+  --chart-2: #6a7941;
+  --chart-3: #7964a3;
+  --chart-4: #0d9f43;
+  --chart-5: #c0afb4;
+  --ds-primary-hover: #d4d4d4;
+  --ds-success: #34b457;
+  --ds-warning: #de793d;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="figma"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

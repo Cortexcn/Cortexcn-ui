@@ -1,0 +1,161 @@
+/*
+ * Wise (design-systems/wise). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Wise's public website; not affiliated with or endorsed by Wise.
+ */
+
+[data-theme="wise"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #0e0f0c;
+  --card: #ffffff;
+  --card-foreground: #0e0f0c;
+  --popover: #ffffff;
+  --popover-foreground: #0e0f0c;
+  --primary: #9fe870;
+  --primary-foreground: #0e0f0c;
+  --secondary: #e8ebe6;
+  --secondary-foreground: #0e0f0c;
+  --muted: #e8ebe6;
+  --muted-foreground: #454745;
+  --accent: #e8ebe6;
+  --accent-foreground: #0e0f0c;
+  --destructive: #d03238;
+  --border: #dedede;
+  --input: #dedede;
+  --ring: #5ea426;
+  --chart-1: #9fe870;
+  --chart-2: #ffd11a;
+  --chart-3: #d03238;
+  --chart-4: #ffc091;
+  --chart-5: #38c8ff;
+  --ds-primary-hover: #cdffad;
+  --ds-success: #2ead4b;
+  --ds-warning: #ffd11a;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 600;
+  --ds-weight-bold: 900;
+  --ds-tracking-display: 0;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 0.85;
+  --ds-leading-body: 1.5;
+  --radius: 16px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 8px;
+  --ds-radius-md: 12px;
+  --ds-radius-lg: 16px;
+  --ds-radius-xl: 24px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 2px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-xl);
+  --ds-button-h-xs: 28px;
+  --ds-button-h-sm: 36px;
+  --ds-button-h-md: 40px;
+  --ds-button-h-lg: 44px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 40px;
+  --ds-input-px: 12px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-xl);
+  --ds-card-padding: 24px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--card);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-md);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-xl);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-lg);
+  --ds-menu-item-radius: var(--ds-radius-md);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-xl);
+}
+
+[data-theme="wise"].dark,
+.dark [data-theme="wise"] {
+  color-scheme: dark;
+  --background: #0f0f0f;
+  --foreground: #f1f2ee;
+  --card: #171717;
+  --card-foreground: #f1f2ee;
+  --popover: #1c1c1c;
+  --popover-foreground: #f1f2ee;
+  --primary: #9fe870;
+  --primary-foreground: #0e0f0c;
+  --secondary: #242424;
+  --secondary-foreground: #f1f2ee;
+  --muted: #242424;
+  --muted-foreground: #a3a5a3;
+  --accent: #242424;
+  --accent-foreground: #f1f2ee;
+  --destructive: #f95b5a;
+  --border: #2d2d2d;
+  --input: #373737;
+  --ring: #9fe870;
+  --chart-1: #9fe870;
+  --chart-2: #896f00;
+  --chart-3: #fa5c5b;
+  --chart-4: #9b6235;
+  --chart-5: #007da4;
+  --ds-primary-hover: #89d159;
+  --ds-success: #37b452;
+  --ds-warning: #ffd11a;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="wise"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}
