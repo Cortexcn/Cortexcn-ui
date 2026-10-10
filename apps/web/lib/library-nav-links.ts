@@ -5,5 +5,6 @@ export const libraryNavLinks = [
   { text: "Blocks", url: "/blocks" },
   { text: "Templates", url: "/templates" },
   { text: "Charts", url: "/charts/area-chart" },
+  { text: "Design Systems", url: "/design-systems" },
   { text: "Changelog", url: "/changelog" },
 ] as const;
