@@ -21,6 +21,130 @@
       ]
     },
     {
+      "name": "design-system-recipes",
+      "type": "registry:item",
+      "title": "Design system recipes",
+      "description": "Theme utilities (rounded-button, h-input, shadow-menu, and more) that let a DESIGN.md design system restyle Cortexcn components. Each one falls back to the component's own default.",
+      "cssVars": {
+        "theme": {
+          "color-primary-hover": "var(--ds-primary-hover, color-mix(in oklab, var(--primary) 80%, transparent))",
+          "color-secondary-hover": "color-mix(in oklch, var(--secondary), var(--foreground) 5%)",
+          "color-success": "var(--ds-success, oklch(0.696 0.17 162.48))",
+          "color-warning": "var(--ds-warning, oklch(0.769 0.188 70.08))",
+          "color-overlay": "var(--ds-overlay, oklch(0 0 0 / 0.1))",
+          "color-control-thumb": "var(--ds-control-thumb, oklch(1 0 0))",
+          "color-system-canvas": "Canvas",
+          "color-system-canvas-text": "CanvasText",
+          "radius-button": "var(--ds-button-radius, calc(var(--radius) - 2px))",
+          "radius-button-sm": "var(--ds-button-radius, min(calc(var(--radius) - 2px), 10px))",
+          "radius-button-xs": "var(--ds-button-radius, min(calc(var(--radius) - 2px), 8px))",
+          "spacing-button-xs": "var(--ds-button-h-xs, 1.5rem)",
+          "spacing-button-sm": "var(--ds-button-h-sm, 2rem)",
+          "spacing-button": "var(--ds-button-h-md, 2.25rem)",
+          "spacing-button-lg": "var(--ds-button-h-lg, 2.5rem)",
+          "spacing-button-x": "var(--ds-button-px, 0.625rem)",
+          "spacing-button-x-xs": "calc(var(--ds-button-px, 0.625rem) * 0.8)",
+          "font-weight-button": "var(--ds-button-weight, 500)",
+          "shadow-button": "var(--ds-button-shadow, 0 0 #0000)",
+          "radius-input": "var(--ds-input-radius, calc(var(--radius) - 2px))",
+          "spacing-input": "var(--ds-input-h, 2.25rem)",
+          "spacing-input-x": "var(--ds-input-px, 0.625rem)",
+          "radius-input-inner": "calc(var(--ds-input-radius, calc(var(--radius) - 2px)) - 3px)",
+          "color-input-fill": "var(--ds-input-bg, transparent)",
+          "color-input-fill-dark": "var(--ds-input-bg, color-mix(in oklab, var(--input) 30%, transparent))",
+          "radius-card": "var(--ds-card-radius, calc(var(--radius) + 4px))",
+          "color-card-fill": "var(--ds-card-bg, var(--card))",
+          "shadow-card": "var(--ds-card-shadow, 0 0 #0000)",
+          "radius-badge": "var(--ds-badge-radius, calc(var(--radius) + 16px))",
+          "spacing-badge-x": "var(--ds-badge-px, 0.5rem)",
+          "font-weight-badge": "var(--ds-badge-weight, 500)",
+          "radius-tabs": "var(--ds-tabs-radius, var(--radius))",
+          "radius-tabs-trigger": "var(--ds-tabs-radius, calc(var(--radius) - 2px))",
+          "color-tabs-list": "var(--ds-tabs-list-bg, var(--muted))",
+          "color-tabs-active": "var(--ds-tabs-active-bg, var(--background))",
+          "color-tabs-active-dark": "var(--ds-tabs-active-bg, color-mix(in oklab, var(--input) 30%, transparent))",
+          "color-tabs-active-border": "var(--ds-tabs-active-border, var(--input))",
+          "spacing-accordion": "var(--ds-accordion-py, 0.625rem)",
+          "font-weight-accordion": "var(--ds-accordion-weight, 500)",
+          "radius-dialog": "var(--ds-dialog-radius, calc(var(--radius) + 4px))",
+          "spacing-dialog": "var(--ds-dialog-padding, 1.5rem)",
+          "shadow-dialog": "var(--ds-dialog-shadow, 0 0 #0000)",
+          "radius-menu": "var(--ds-menu-radius, calc(var(--radius) - 2px))",
+          "radius-menu-lg": "var(--ds-menu-radius, var(--radius))",
+          "radius-menu-xl": "var(--ds-menu-radius, calc(var(--radius) + 4px))",
+          "radius-menu-item": "var(--ds-menu-item-radius, calc(var(--radius) - 4px))",
+          "radius-menu-item-md": "var(--ds-menu-item-radius, calc(var(--radius) - 2px))",
+          "radius-menu-item-lg": "var(--ds-menu-item-radius, var(--radius))",
+          "shadow-input": "var(--ds-input-shadow, 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05)))",
+          "shadow-tabs": "var(--ds-tabs-active-shadow, 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "shadow-menu": "var(--ds-menu-shadow, 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "shadow-menu-lg": "var(--ds-menu-shadow, 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "radius-inherit": "inherit",
+          "radius-app-icon": "22%",
+          "shadow-sidebar-border": "0 0 0 1px var(--sidebar-border)",
+          "shadow-sidebar-accent": "0 0 0 1px var(--sidebar-accent)",
+          "radius-command": "var(--ds-menu-radius, 14px)",
+          "shadow-command": "var(--ds-menu-shadow, 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 0 0 1px rgb(10 10 10 / 0.05))",
+          "shadow-command-dark": "var(--ds-menu-shadow, 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.12))",
+          "drop-shadow-command": "0 4px 14.2px rgb(108 108 108 / 0.25)",
+          "radius-faq": "var(--ds-card-radius, 26px)",
+          "radius-faq-inner": "var(--ds-radius-lg, 18px)",
+          "shadow-faq": "var(--ds-shadow-2, 0 0 0 1px rgb(10 10 10 / 0.05), 0 2px 4px 0 rgb(0 0 0 / 0.1))",
+          "shadow-faq-dark": "var(--ds-shadow-2, 0 0 0 1px rgb(255 255 255 / 0.12), 0 2px 4px 0 rgb(0 0 0 / 0.5))",
+          "radius-lanyard": "var(--ds-radius-xl, 20px)",
+          "shadow-lanyard": "var(--ds-shadow-3, 0 24px 50px -20px rgb(0 0 0 / 0.45))",
+          "shadow-lanyard-slot": "inset 0 1px 2px rgb(0 0 0 / 0.25)",
+          "color-sheen": "oklch(1 0 0 / 0.28)",
+          "color-live": "oklch(0.685 0.169 237.323)",
+          "color-shadow-ink": "oklch(0.145 0 0)",
+          "color-light-speed": "oklch(0.128 0.011 259.6)",
+          "radius-control": "var(--ds-control-radius, 4px)",
+          "radius-tooltip": "var(--ds-tooltip-radius, calc(var(--radius) - 2px))",
+          "radius-tooltip-arrow": "min(var(--ds-tooltip-radius, 2px), 2px)",
+          "radius-alert": "var(--ds-alert-radius, var(--radius))"
+        }
+      },
+      "css": {
+        "@utility button-case": {
+          "text-transform": "var(--ds-button-transform)",
+          "letter-spacing": "var(--ds-button-tracking)"
+        },
+        "@utility badge-case": {
+          "text-transform": "var(--ds-badge-transform)"
+        },
+        "@utility accordion-divider": {
+          "border-bottom-width": "var(--ds-accordion-divider-width, 1px)"
+        },
+        "@utility card-ring": {
+          "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--ds-card-border-width, 1px) + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor)",
+          "box-shadow": "var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)"
+        },
+        "@utility duration-fast": {
+          "--tw-duration": "var(--ds-duration-fast, 100ms)",
+          "transition-duration": "var(--ds-duration-fast, 100ms)"
+        },
+        "@utility duration-base": {
+          "--tw-duration": "var(--ds-duration-base, 200ms)",
+          "transition-duration": "var(--ds-duration-base, 200ms)"
+        },
+        "@utility duration-slow": {
+          "--tw-duration": "var(--ds-duration-slow, 300ms)",
+          "transition-duration": "var(--ds-duration-slow, 300ms)"
+        },
+        "@utility duration-accordion": {
+          "--tw-duration": "var(--ds-accordion-duration, 200ms)",
+          "transition-duration": "var(--ds-accordion-duration, 200ms)"
+        },
+        "@utility ease-ds": {
+          "--tw-ease": "var(--ds-ease, cubic-bezier(0.4, 0, 0.2, 1))",
+          "transition-timing-function": "var(--ds-ease, cubic-bezier(0.4, 0, 0.2, 1))"
+        },
+        "@utility accordion-chevron-turn": {
+          "rotate": "var(--ds-accordion-chevron-rotate, 180deg)"
+        }
+      }
+    },
+    {
       "name": "shimmering-text",
       "type": "registry:component",
       "title": "Shimmering Text",
@@ -94,7 +218,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -113,7 +238,8 @@
         "components"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -148,7 +274,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -171,7 +298,8 @@
       ],
       "registryDependencies": [
         "@cortexcn/utils",
-        "@cortexcn/button"
+        "@cortexcn/button",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -238,7 +366,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -284,7 +413,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -379,7 +509,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -426,7 +557,8 @@
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/button",
-        "@cortexcn/input-group"
+        "@cortexcn/input-group",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -451,7 +583,8 @@
       "registryDependencies": [
         "@cortexcn/utils",
         "@cortexcn/dialog",
-        "@cortexcn/input-group"
+        "@cortexcn/input-group",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -474,7 +607,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -498,7 +632,8 @@
       ],
       "registryDependencies": [
         "@cortexcn/utils",
-        "@cortexcn/button"
+        "@cortexcn/button",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -520,7 +655,8 @@
         "vaul"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -543,7 +679,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -611,7 +748,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -630,7 +768,8 @@
         "components"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -655,7 +794,8 @@
         "@cortexcn/utils",
         "@cortexcn/button",
         "@cortexcn/input",
-        "@cortexcn/textarea"
+        "@cortexcn/textarea",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -678,7 +818,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -702,7 +843,8 @@
       ],
       "registryDependencies": [
         "@cortexcn/utils",
-        "@cortexcn/separator"
+        "@cortexcn/separator",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -766,7 +908,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -788,7 +931,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -812,7 +956,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -857,7 +1002,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -945,7 +1091,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -968,7 +1115,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1014,7 +1162,8 @@
       ],
       "registryDependencies": [
         "@cortexcn/utils",
-        "@cortexcn/button"
+        "@cortexcn/button",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1045,7 +1194,8 @@
         "@cortexcn/sheet",
         "@cortexcn/skeleton",
         "@cortexcn/tooltip",
-        "@cortexcn/use-mobile"
+        "@cortexcn/use-mobile",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1086,7 +1236,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1196,7 +1347,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1215,7 +1367,8 @@
         "components"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1238,7 +1391,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1284,7 +1438,8 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1381,7 +1536,8 @@
       ],
       "registryDependencies": [
         "@cortexcn/marquee",
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1748,7 +1904,8 @@
       "registryDependencies": [
         "@cortexcn/utils",
         "collapsible",
-        "separator"
+        "separator",
+        "@cortexcn/design-system-recipes"
       ],
       "dependencies": [
         "motion"
@@ -1775,7 +1932,8 @@
         "backgrounds"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "dependencies": [
         "three",
@@ -1827,7 +1985,8 @@
         "cortex"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "dependencies": [
         "motion",
@@ -1853,7 +2012,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1873,7 +2033,8 @@
       ],
       "dependencies": [],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1918,7 +2079,8 @@
       ],
       "dependencies": [],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1938,7 +2100,8 @@
       ],
       "dependencies": [],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "files": [
         {
@@ -1957,7 +2120,8 @@
         "cortex"
       ],
       "registryDependencies": [
-        "@cortexcn/utils"
+        "@cortexcn/utils",
+        "@cortexcn/design-system-recipes"
       ],
       "dependencies": [
         "motion",
