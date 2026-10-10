@@ -13,7 +13,7 @@ Visit [ui.cortexcn.dev/docs](https://ui.cortexcn.dev/docs) to view the documenta
 - **Components.** The shadcn/ui primitives (accordion, dialog, select, tabs, and the rest) plus Cortexcn components such as Marquee, Number Ticker, Line Nav, Sphere Menu, Gooey Nav, and Lanyard 3D.
 - **Cortexcn Blocks.** Page sections in six categories: hero, features, services, AI assistant, loaders, and stat cards. [Browse the blocks](https://ui.cortexcn.dev/blocks).
 - **Charts.** Area, bar, candlestick, choropleth, composed, funnel, gauge, heatmap, line, live line, profit and loss line, pie, radar, ring, sankey, scatter, and sunburst charts, built on visx and Motion. [Browse the charts](https://ui.cortexcn.dev/charts).
-- **Templates.** Complete Next.js sites to download and make your own: Portfolio (free, MIT), plus the paid Simplistic SaaS, AI Travel App, Growth Agency, Trek Agency, and Legal AI. [Browse the templates](https://ui.cortexcn.dev/templates).
+- **Templates.** Complete Next.js sites to download and make your own: Portfolio (free, MIT), plus the paid Simplistic SaaS, AI Travel App, Growth Agency, Trek Agency, Legal AI, and Marketing Ops. [Browse the templates](https://ui.cortexcn.dev/templates).
 - **AI tools.** An MCP server, agent skills, and a `DESIGN.md` file, so coding agents can find the right item, install it, and match the design system.
 
 ## Quick start
