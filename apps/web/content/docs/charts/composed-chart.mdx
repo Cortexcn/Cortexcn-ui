@@ -28,7 +28,7 @@ import { ComposedChartDocsPreview } from "@/components/docs/composed-chart-docs-
 `ComposedChart` is the time-series shell for **mixing marks** on one `data` array and one pair of scales. Use **`SeriesBar`** for vertical columns aligned to dates (not the categorical `<Bar />` from `BarChart`, which uses a band scale).
 
 - **`aspectRatio`** — wide charts (e.g. `4 / 1`) work for full-width heroes; in **narrow cards** use **`3 / 2`** or **`2 / 1`** so the plot stays tall enough to read.
-- **`barSize`**, **`maxBarSize`**, **`barGap`** — parent-level layout for `SeriesBar` groups (similar to Recharts `ComposedChart` props). Use **`barGap={0}`** and a higher **`maxBarSize`** for dense daily data so columns read like the [90 days of data](/docs/components/bar-chart#90-days-of-data) bar example.
+- **`barSize`**, **`maxBarSize`**, **`barGap`** — parent-level layout for `SeriesBar` groups (similar to Recharts `ComposedChart` props). Use **`barGap={0}`** and a higher **`maxBarSize`** for dense daily data so columns read like the [90 days of data](/docs/charts/bar-chart#90-days-of-data) bar example.
 - **`stacked`** / **`stackGap`** — stack `SeriesBar` segments in child order at each x (lines and areas are not stacked).
 - **`SeriesBar`** — default **`radius` is 0** (square tops). Pass **`radius={4}`** (or similar) for rounded corners.
 - **`Line`** / **`Area`** — pass a **`curve`** from `@visx/curve` (e.g. **`curveCatmullRom.alpha(0.42)`**) to soften paths when you have many daily points (preview + hero use the same curve for `revenue` and `runRate`).
@@ -91,6 +91,6 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 
 ## See also
 
-- [Line Chart](/docs/components/line-chart) — lines only
-- [Area Chart](/docs/components/area-chart) — areas only
-- [Bar Chart](/docs/components/bar-chart) — categorical bars with `<Bar />`
+- [Line Chart](/docs/charts/line-chart) — lines only
+- [Area Chart](/docs/charts/area-chart) — areas only
+- [Bar Chart](/docs/charts/bar-chart) — categorical bars with `<Bar />`
