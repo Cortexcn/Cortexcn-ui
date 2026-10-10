@@ -7,6 +7,7 @@ import {
 } from "@cortexcn/ui/components/command-search";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import { componentDocsUrl } from "@/lib/component-families";
 
 interface PaletteLink {
   label: string;
@@ -20,7 +21,7 @@ interface PaletteSection {
 
 const docsLink = (label: string, slug: string): PaletteLink => ({
   label,
-  href: `/docs/components/${slug}`,
+  href: componentDocsUrl(slug),
 });
 
 /** Real pages and registry items, so choosing a row opens its docs. */
