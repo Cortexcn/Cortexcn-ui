@@ -1,5 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "turbo run build --filter=web",
+  "buildCommand": "node apps/web/scripts/vercel-build.mjs",
   "outputDirectory": "apps/web/.next"
 }
