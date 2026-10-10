@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BlocksPageHeader } from "@/components/blocks/blocks-page-header";
 import { FONT_VARIABLES } from "@/components/systems/fonts";
 import { SystemsShowcase } from "@/components/systems/systems-showcase";
 import {
@@ -59,12 +60,24 @@ export default function SystemsPage() {
   const systems = getShowcaseSystems();
   const css = `${getThemesCss()}\n${fontCss(systems)}\n${SHOWCASE_CSS}`;
   return (
-    <main className="container mx-auto flex w-full flex-col px-4 py-10 md:py-14">
+    <main className="flex flex-1 flex-col space-y-10 md:space-y-12">
       <style
         // biome-ignore lint/security/noDangerouslySetInnerHtml: our own theme.css files from design-systems/, read at build time
         dangerouslySetInnerHTML={{ __html: css.replace(CLOSING_TAG, "<\\/") }}
       />
-      <SystemsShowcase systems={systems} />
+      <section className="relative w-full">
+        <div className="container mx-auto w-full">
+          <BlocksPageHeader
+            description={`Pick one of ${systems.length} DESIGN.md design systems to restyle every component on this page, in light and dark mode. The components stay the same; only the tokens behind them change.`}
+            title="Design systems"
+          />
+        </div>
+      </section>
+      <section className="relative w-full pb-16 md:pb-24">
+        <div className="container mx-auto w-full">
+          <SystemsShowcase systems={systems} />
+        </div>
+      </section>
     </main>
   );
 }
