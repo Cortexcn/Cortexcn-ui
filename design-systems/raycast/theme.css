@@ -1,0 +1,161 @@
+/*
+ * Raycast (design-systems/raycast). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Raycast's public website; not affiliated with or endorsed by Raycast.
+ */
+
+[data-theme="raycast"] {
+  color-scheme: light;
+  --background: #f8fafe;
+  --foreground: #111113;
+  --card: #ffffff;
+  --card-foreground: #111113;
+  --popover: #ffffff;
+  --popover-foreground: #111113;
+  --primary: #161616;
+  --primary-foreground: #f8fafe;
+  --secondary: #eef0f4;
+  --secondary-foreground: #111113;
+  --muted: #eef0f4;
+  --muted-foreground: #5b5b5b;
+  --accent: #eef0f4;
+  --accent-foreground: #111113;
+  --destructive: #ca2c36;
+  --border: #dedfe3;
+  --input: #d0d2d6;
+  --ring: #161616;
+  --chart-1: #161616;
+  --chart-2: #004768;
+  --chart-3: #004b2e;
+  --chart-4: #4c3700;
+  --chart-5: #958589;
+  --ds-primary-hover: #292929;
+  --ds-success: #008757;
+  --ds-warning: #906b00;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-bold: 600;
+  --ds-tracking-display: 0;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 1.1;
+  --ds-leading-body: 1.6;
+  --radius: 10px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 10px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 2px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-h-xs: 24px;
+  --ds-button-h-sm: 32px;
+  --ds-button-h-md: 36px;
+  --ds-button-h-lg: 40px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0.014em;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 36px;
+  --ds-input-px: 12px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 24px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 0px;
+  --ds-card-bg: var(--muted);
+  --ds-badge-radius: var(--ds-radius-xs);
+  --ds-badge-px: 6px;
+  --ds-badge-weight: var(--ds-weight-regular);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-full);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="raycast"].dark,
+.dark [data-theme="raycast"] {
+  color-scheme: dark;
+  --background: #07080a;
+  --foreground: #f4f4f6;
+  --card: #121212;
+  --card-foreground: #f4f4f6;
+  --popover: #101111;
+  --popover-foreground: #f4f4f6;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #0d0d0d;
+  --secondary-foreground: #f4f4f6;
+  --muted: #0d0d0d;
+  --muted-foreground: #cdcdcd;
+  --accent: #101111;
+  --accent-foreground: #f4f4f6;
+  --destructive: #ff6161;
+  --border: #242728;
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: #ffffff;
+  --chart-1: #ffffff;
+  --chart-2: #57c1ff;
+  --chart-3: #59d499;
+  --chart-4: #ffc533;
+  --chart-5: #736468;
+  --ds-primary-hover: #e8e8e8;
+  --ds-success: #59d499;
+  --ds-warning: #ffc533;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="raycast"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

@@ -1,0 +1,161 @@
+/*
+ * ClickHouse (design-systems/clickhouse). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by ClickHouse's public website; not affiliated with or endorsed by ClickHouse.
+ */
+
+[data-theme="clickhouse"] {
+  color-scheme: light;
+  --background: #fafafa;
+  --foreground: #121212;
+  --card: #ffffff;
+  --card-foreground: #121212;
+  --popover: #ffffff;
+  --popover-foreground: #121212;
+  --primary: #faff69;
+  --primary-foreground: #0a0a0a;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #121212;
+  --muted: #f0f0f0;
+  --muted-foreground: #5b5b5b;
+  --accent: #f0f0f0;
+  --accent-foreground: #121212;
+  --destructive: #cf1e29;
+  --border: #dfdfdf;
+  --input: #d2d2d2;
+  --ring: #939600;
+  --chart-1: #faff69;
+  --chart-2: #006028;
+  --chart-3: #c2011d;
+  --chart-4: #1b63d5;
+  --chart-5: #5e3900;
+  --ds-primary-hover: #e3e74e;
+  --ds-success: #00893c;
+  --ds-warning: #9d6300;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 600;
+  --ds-weight-bold: 700;
+  --ds-tracking-display: -0.035em;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 1.05;
+  --ds-leading-body: 1.55;
+  --radius: 12px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 4px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-h-xs: 28px;
+  --ds-button-h-sm: 36px;
+  --ds-button-h-md: 40px;
+  --ds-button-h-lg: 44px;
+  --ds-button-px: 20px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 40px;
+  --ds-input-px: 14px;
+  --ds-input-bg: var(--card);
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 32px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 0px;
+  --ds-card-bg: var(--card);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 12px;
+  --ds-badge-weight: var(--ds-weight-regular);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-md);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="clickhouse"].dark,
+.dark [data-theme="clickhouse"] {
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #242424;
+  --popover-foreground: #ffffff;
+  --primary: #faff69;
+  --primary-foreground: #0a0a0a;
+  --secondary: #121212;
+  --secondary-foreground: #ffffff;
+  --muted: #121212;
+  --muted-foreground: #cccccc;
+  --accent: #121212;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #2a2a2a;
+  --input: #3a3a3a;
+  --ring: #faff69;
+  --chart-1: #faff69;
+  --chart-2: #22c55e;
+  --chart-3: #ef4444;
+  --chart-4: #3b82f6;
+  --chart-5: #f59e0b;
+  --ds-primary-hover: #e6eb52;
+  --ds-success: #22c55e;
+  --ds-warning: #f59e0b;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="clickhouse"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

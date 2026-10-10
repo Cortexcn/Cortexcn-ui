@@ -1,0 +1,160 @@
+/*
+ * Resend (design-systems/resend). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Resend's public website; not affiliated with or endorsed by Resend.
+ */
+
+[data-theme="resend"] {
+  color-scheme: light;
+  --background: #f1f7fe;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #151617;
+  --primary-foreground: #f1f7fe;
+  --secondary: #e7edf4;
+  --secondary-foreground: #000000;
+  --muted: #e7edf4;
+  --muted-foreground: rgba(0, 0, 51, 0.7);
+  --accent: #e7edf4;
+  --accent-foreground: #000000;
+  --destructive: #d40035;
+  --border: #d7dde3;
+  --input: #cad0d6;
+  --ring: #151617;
+  --chart-1: #151617;
+  --chart-2: #793700;
+  --chart-3: #4c3700;
+  --chart-4: #004727;
+  --chart-5: #bf002e;
+  --ds-primary-hover: #28292a;
+  --ds-success: #00884e;
+  --ds-warning: #906b00;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-bold: 400;
+  --ds-tracking-display: -0.01em;
+  --ds-tracking-body: -0.05em;
+  --ds-leading-display: 1;
+  --ds-leading-body: 1.5;
+  --radius: 12px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 2px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-h-xs: 24px;
+  --ds-button-h-sm: 32px;
+  --ds-button-h-md: 36px;
+  --ds-button-h-lg: 40px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 40px;
+  --ds-input-px: 14px;
+  --ds-input-bg: var(--card);
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 32px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 0px;
+  --ds-card-bg: var(--card);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 10px;
+  --ds-badge-weight: var(--ds-weight-regular);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-sm);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="resend"].dark,
+.dark [data-theme="resend"] {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #fcfdff;
+  --card: #0a0a0c;
+  --card-foreground: #fcfdff;
+  --popover: #101012;
+  --popover-foreground: #fcfdff;
+  --primary: #fcfdff;
+  --primary-foreground: #000000;
+  --secondary: #101012;
+  --secondary-foreground: #fcfdff;
+  --muted: #101012;
+  --muted-foreground: rgba(252, 253, 255, 0.86);
+  --accent: #101012;
+  --accent-foreground: #fcfdff;
+  --destructive: #ff2047;
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #fcfdff;
+  --chart-1: #fcfdff;
+  --chart-2: #ff801f;
+  --chart-3: #ffc53d;
+  --chart-4: #11ff99;
+  --chart-5: #ff2047;
+  --ds-primary-hover: #e5e6e8;
+  --ds-success: #11ff99;
+  --ds-warning: #ffc53d;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="resend"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}
