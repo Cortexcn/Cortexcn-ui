@@ -1,8 +1,6 @@
 "use client";
 
-import { Marquee } from "@cortexcn/ui/components/marquee";
 import { useMotionValueEvent, useScroll } from "motion/react";
-import Image from "next/image";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import { useSmoothScrollTo } from "@/components/smooth-scroll/use-smooth-scroll-to";
@@ -23,7 +21,7 @@ const CAPABILITIES: Capability[] = [
     title: "Component registry",
     tags: ["Registry", "shadcn"],
     description:
-      "Charts, blocks, and UI components in one registry, each with docs, live examples, and an install command.",
+      "Charts, blocks, and UI components in one registry, each with docs, live examples, and an install command. Every client project I build starts from it.",
   },
   {
     title: "Agent ready",
@@ -443,37 +441,20 @@ function CapabilityTab({
 /* Bottom cards                                                              */
 /* ------------------------------------------------------------------------ */
 
-const TICKER_LOGOS = [
-  { name: "Next.js", slug: "nextjs", ratio: 1, label: true },
-  { name: "React", slug: "react", ratio: 600 / 180.32, label: false },
-  { name: "Tailwind CSS", slug: "tailwindcss", ratio: 262 / 33, label: false },
-  { name: "shadcn/ui", slug: "shadcn", ratio: 1, label: true },
-  { name: "Vercel", slug: "vercel", ratio: 262 / 52, label: false },
-  { name: "Cursor", slug: "cursor", ratio: 466.73 / 532.09, label: true },
-  { name: "Claude", slug: "claude", ratio: 512 / 110, label: false },
-  { name: "OpenAI", slug: "openai", ratio: 956.9 / 260.8, label: false },
+/**
+ * What the library works with, as text. The home page shows the stack as
+ * logos once, in the strip under the hero.
+ */
+const STACK_NAMES = [
+  "Next.js",
+  "React",
+  "Tailwind CSS",
+  "shadcn/ui",
+  "Claude Code",
+  "Cursor",
+  "Codex",
+  "VS Code",
 ];
-
-function TickerLogo({ logo }: { logo: (typeof TICKER_LOGOS)[number] }) {
-  const height = logo.label ? 18 : 16;
-  return (
-    <div className="flex h-12 w-37.5 shrink-0 items-center justify-center gap-2 border border-border opacity-70 grayscale">
-      <Image
-        alt={logo.label ? "" : logo.name}
-        height={height}
-        src={`/logos/stack/${logo.slug}-dark.svg`}
-        style={{ height, width: "auto", maxWidth: 110 }}
-        unoptimized
-        width={Math.round(height * logo.ratio)}
-      />
-      {logo.label ? (
-        <span className="whitespace-nowrap font-semibold text-foreground text-sm tracking-tight">
-          {logo.name}
-        </span>
-      ) : null}
-    </div>
-  );
-}
 
 /** Square frames drawn back to front; each one hides what is behind it. */
 function frameRows(
@@ -600,8 +581,9 @@ export function CapabilitiesSection() {
 
   return (
     <section
-      aria-label="Core capabilities"
-      className="band-dark dark w-full bg-background pb-20 text-foreground"
+      aria-label="Our component library"
+      className="band-dark dark w-full scroll-mt-(--site-header-height) bg-background pb-20 text-foreground"
+      id="components"
       ref={ref}
     >
       {/* Pinned at its own height, roughly centered under the header (the
@@ -612,10 +594,7 @@ export function CapabilitiesSection() {
           <Container>
             <div className="grid border-border border-b lg:grid-cols-2">
               <div className="flex flex-col gap-12 pb-12">
-                <SectionLabel
-                  label="Core capabilities"
-                  section="capabilities"
-                />
+                <SectionLabel label="Our component library" section="library" />
                 <div className="flex flex-col gap-6 lg:pr-12" role="tablist">
                   {CAPABILITIES.map((capability, index) => (
                     <CapabilityTab
@@ -660,27 +639,16 @@ export function CapabilitiesSection() {
             description="Next.js, React, Tailwind, and the AI tools you already use."
             title="Works with your stack"
           >
-            <div className="-mx-6 mt-auto flex flex-col gap-2">
-              <Marquee
-                className="p-0 [--duration:40s] [--gap:0.5rem]"
-                pauseOnHover
-                repeat={3}
-              >
-                {TICKER_LOGOS.map((logo) => (
-                  <TickerLogo key={logo.slug} logo={logo} />
-                ))}
-              </Marquee>
-              <Marquee
-                className="p-0 [--duration:46s] [--gap:0.5rem]"
-                pauseOnHover
-                repeat={3}
-                reverse
-              >
-                {[...TICKER_LOGOS].reverse().map((logo) => (
-                  <TickerLogo key={logo.slug} logo={logo} />
-                ))}
-              </Marquee>
-            </div>
+            <ul className="mt-auto flex flex-wrap gap-1.5">
+              {STACK_NAMES.map((name) => (
+                <li
+                  className="border border-border px-2 py-1 font-medium font-mono text-body text-xs uppercase leading-[1.3] tracking-[-0.04em]"
+                  key={name}
+                >
+                  {name}
+                </li>
+              ))}
+            </ul>
           </InfoCard>
           <InfoCard
             description="Install only the parts you use. Nothing ships that you did not add."
