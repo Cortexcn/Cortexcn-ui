@@ -15,7 +15,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".source/**/*.ts",
-    "content/docs/components/line-chart.mdx"
+    "content/docs/charts/line-chart.mdx"
   ],
   "exclude": ["node_modules"]
 }
