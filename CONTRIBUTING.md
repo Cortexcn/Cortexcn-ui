@@ -19,7 +19,7 @@ bun run dev
 
 Run scripts with `bun run <script>`. `bun build` and `bun test` start Bun's own bundler and test runner instead of the repo scripts.
 
-The docs site runs at http://ui.localhost:3000 and the marketing site at http://localhost:3000.
+The services site runs at http://localhost:4410, the component library home at http://localhost:4420, and the components docs at http://localhost:4430. The ports are set in `apps/web/dev-ports.json`.
 
 ## Where things live
 
