@@ -33,8 +33,14 @@ const SIDEBAR_ALIASES: Declarations = [
 ];
 
 const pxValue = (value: number) => `${value}px`;
+/**
+ * "No shadow" is written as a transparent zero shadow, not `none`: Tailwind
+ * composes box-shadow from a comma list (ring, shadow, ...), and `none` inside
+ * a list makes the whole declaration invalid, which would drop rings too.
+ */
+const NO_SHADOW = "0 0 #0000";
 const shadowRef = (key: string) =>
-  key === "0" ? "none" : `var(--ds-shadow-${key})`;
+  key === "0" ? NO_SHADOW : `var(--ds-shadow-${key})`;
 
 const INPUT_BACKGROUND: Record<
   DesignTokens["components"]["input"]["background"],
@@ -136,7 +142,7 @@ export function sharedDeclarations(tokens: DesignTokens): Declarations {
     ],
     [
       "--ds-tabs-active-shadow",
-      c.tabs.style === "underline" ? "none" : "var(--ds-shadow-1)",
+      c.tabs.style === "underline" ? NO_SHADOW : "var(--ds-shadow-1)",
     ],
 
     ["--ds-accordion-divider-width", c.accordion.dividers ? "1px" : "0px"],
