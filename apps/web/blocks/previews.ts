@@ -7,6 +7,7 @@ import { FeatureBentoGridPreview } from "./feature-bento-grid-01/preview";
 import { FeatureImageColumnsPreview } from "./feature-image-columns-01/preview";
 import { FeatureMediaCardsPreview } from "./feature-media-cards-01/preview";
 import { FeatureMixedBentoPreview } from "./feature-mixed-bento-01/preview";
+import { FeatureMockupGridPreview } from "./feature-mockup-grid-01/preview";
 import { FeatureSpotlightGridPreview } from "./feature-spotlight-grid-01/preview";
 import { FeatureStudioGridPreview } from "./feature-studio-grid-01/preview";
 import { FeatureWalkthroughPreview } from "./feature-walkthrough-01/preview";
@@ -30,6 +31,7 @@ export const BLOCK_PREVIEWS: Record<BlockSlug, ComponentType> = {
   "feature-studio-grid-01": FeatureStudioGridPreview,
   "feature-bento-grid-01": FeatureBentoGridPreview,
   "feature-mixed-bento-01": FeatureMixedBentoPreview,
+  "feature-mockup-grid-01": FeatureMockupGridPreview,
   "feature-walkthrough-01": FeatureWalkthroughPreview,
   "stat-card-area-01": StatCardAreaPreview,
   "stat-card-line-01": StatCardLinePreview,
