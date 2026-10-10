@@ -14,7 +14,7 @@ Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skil
 | Registry build output         | `apps/web/public/r/` (written by `bun run registry:build`, do not edit by hand)      |
 | Block sources                 | `apps/web/blocks/` (copied into `packages/ui/registry/blocks` by the registry build) |
 | Docs pages                    | `apps/web/content/docs/` (MDX, Fumadocs)                                             |
-| Docs sidebar                  | `apps/web/content/docs/components/meta.json`                                         |
+| Docs sidebar                  | `apps/web/content/docs/<family>/meta.json`                                           |
 | Mobile docs nav               | `apps/web/components/docs/site-header.tsx`                                           |
 | Chart gallery (`/charts/...`) | `apps/web/components/charts/chart-slugs.ts` and `chart-examples.tsx`                 |
 | MCP server                    | `apps/web/app/mcp/route.ts` and `apps/web/lib/mcp/`                                  |
@@ -26,7 +26,7 @@ Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skil
 1. Put the source in `packages/ui`. Export charts from `packages/ui/src/charts/index.ts`, and add an `exports` entry in `packages/ui/package.json` if the site imports it from a new path.
 2. Add or update the item in `packages/ui/registry.json` when it should install with the shadcn CLI. Registry dependencies use the `@cortexcn/<item>` namespace.
 3. Docs:
-   - A new component or chart kind gets `apps/web/content/docs/components/<name>.mdx` (frontmatter, `<ComponentPreview>`, installation, usage, props), an entry in `meta.json`, and an entry in `site-header.tsx`.
+   - A new component or chart kind gets `apps/web/content/docs/<family>/<name>.mdx` (frontmatter, `<ComponentPreview>`, installation, usage, props), an entry in that folder's `meta.json`, and an entry in `site-header.tsx`. The family folders are `components` (shadcn/ui), `cortex`, `backgrounds`, and `charts`; each has its own URL, such as `/docs/charts/<name>`, and an `index.mdx` overview. A new family also needs an entry in `apps/web/lib/component-families.ts` and in the root `meta.json`.
    - When you extend an existing chart, add the new props to the parent page's tables and to the related utility pages (`content/docs/utility/*.mdx`). Keep the main preview on an existing page as it is.
    - MDX files import live previews from the workspace package (`@cortexcn/ui/...`). Code samples shown to readers import from where the registry installs the files, for example `from "@/components/charts"`.
 4. Gallery: for a new chart kind, add its slug to `chart-slugs.ts` and its examples to `chart-examples.tsx`.
