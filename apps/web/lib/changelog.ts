@@ -43,6 +43,19 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-10",
+    kind: "blocks",
+    title: "Feature Mockup Grid block",
+    summary:
+      "Five feature cards under a centered label and heading, two on top and three below. Each card draws a small product mockup in your theme colors: a prompt with three section drafts, a stack of templates, a page views chart, apps around a lock, and one page on a laptop and a phone. It needs no dependencies beyond the utils file.",
+    items: [
+      {
+        label: "Mockup Grid",
+        href: "/blocks/features/feature-mockup-grid-01",
+      },
+    ],
+  },
+  {
+    date: "2026-10-10",
     kind: "site",
     title: "Marketing Ops template",
     summary:
