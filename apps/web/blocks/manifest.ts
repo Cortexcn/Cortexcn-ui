@@ -46,6 +46,10 @@ export const featureMixedBento01Files = [
   "components/feature-mixed-bento.tsx",
 ] as const;
 
+export const featureMockupGrid01Files = [
+  "components/feature-mockup-grid.tsx",
+] as const;
+
 export const featureWalkthrough01Files = [
   "components/feature-walkthrough.tsx",
 ] as const;
@@ -99,6 +103,7 @@ export const blockFileManifests = {
   "feature-studio-grid-01": featureStudioGrid01Files,
   "feature-bento-grid-01": featureBentoGrid01Files,
   "feature-mixed-bento-01": featureMixedBento01Files,
+  "feature-mockup-grid-01": featureMockupGrid01Files,
   "feature-walkthrough-01": featureWalkthrough01Files,
   "stat-card-area-01": statCardArea01Files,
   "stat-card-line-01": statCardLine01Files,
