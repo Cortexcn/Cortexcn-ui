@@ -6,6 +6,7 @@ import { featureBentoGrid01Meta } from "./feature-bento-grid-01/meta";
 import { featureImageColumns01Meta } from "./feature-image-columns-01/meta";
 import { featureMediaCards01Meta } from "./feature-media-cards-01/meta";
 import { featureMixedBento01Meta } from "./feature-mixed-bento-01/meta";
+import { featureMockupGrid01Meta } from "./feature-mockup-grid-01/meta";
 import { featureSpotlightGrid01Meta } from "./feature-spotlight-grid-01/meta";
 import { featureStudioGrid01Meta } from "./feature-studio-grid-01/meta";
 import { featureWalkthrough01Meta } from "./feature-walkthrough-01/meta";
@@ -32,6 +33,7 @@ export const BLOCK_METAS: Record<
   "feature-studio-grid-01": featureStudioGrid01Meta,
   "feature-bento-grid-01": featureBentoGrid01Meta,
   "feature-mixed-bento-01": featureMixedBento01Meta,
+  "feature-mockup-grid-01": featureMockupGrid01Meta,
   "feature-walkthrough-01": featureWalkthrough01Meta,
   "stat-card-area-01": statCardArea01Meta,
   "stat-card-line-01": statCardLine01Meta,
