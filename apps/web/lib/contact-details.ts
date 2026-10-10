@@ -6,4 +6,4 @@ export const CONTACT_PHONE = {
   e164: "+919108041057",
 } as const;
 
-export const CONTACT_LOCATION = "Bangalore, India and the US";
+export const CONTACT_LOCATION = "Bangalore, India";
