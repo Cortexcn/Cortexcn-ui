@@ -11,6 +11,12 @@ import growthDesktopDark from "@/assets/templates/growth-agency/desktop-dark.web
 import growthDesktopLight from "@/assets/templates/growth-agency/desktop-light.webp";
 import growthMobileDark from "@/assets/templates/growth-agency/mobile-dark.webp";
 import growthMobileLight from "@/assets/templates/growth-agency/mobile-light.webp";
+import legalCardDark from "@/assets/templates/legal-ai/card-dark.webp";
+import legalCardLight from "@/assets/templates/legal-ai/card-light.webp";
+import legalDesktopDark from "@/assets/templates/legal-ai/desktop-dark.webp";
+import legalDesktopLight from "@/assets/templates/legal-ai/desktop-light.webp";
+import legalMobileDark from "@/assets/templates/legal-ai/mobile-dark.webp";
+import legalMobileLight from "@/assets/templates/legal-ai/mobile-light.webp";
 import portfolioCardDark from "@/assets/templates/portfolio/card-dark.webp";
 import portfolioCardLight from "@/assets/templates/portfolio/card-light.webp";
 import portfolioDesktopDark from "@/assets/templates/portfolio/desktop-dark.webp";
@@ -81,6 +87,46 @@ export interface SiteTemplate {
 }
 
 export const SITE_TEMPLATES: SiteTemplate[] = [
+  {
+    slug: "legal-ai",
+    name: "Legal AI",
+    summary:
+      "A launch site for an AI platform for law firms, with cited research mockups, watercolor panels painted in code, and a calm off-white and charcoal palette",
+    price: 99,
+    stack: ["Next.js 16", "React 19", "Tailwind CSS 4", "Motion", "TypeScript"],
+    sections: [
+      "Hero",
+      "Logo strip",
+      "Stats",
+      "Platform",
+      "How it works",
+      "Integrations",
+      "Who it's for",
+      "Testimonials",
+      "Customer stories",
+      "Pricing",
+      "Security",
+      "FAQ",
+      "Call to action",
+      "Footer",
+    ],
+    features: [
+      "Every word, link, plan, and quote comes from one file, config/site.ts.",
+      "A research card where each numbered citation brings its highlighted passage forward in the source document, above a hero dashboard mockup.",
+      "Watercolor landscapes painted in SVG from seeded scenes, and product mockups built in HTML and CSS: a review table, a redline, and a precedent search.",
+      "A floating pill header, a sticky how-it-works list, tabs for law firms, in-house teams, and small practices, customer stories that stack as you scroll, and pricing with a monthly and annual toggle.",
+      "Light and dark mode, a mobile menu, corners set by one radius token, and reduced motion respected everywhere.",
+      "Builds as a Next.js app or a static site for any host, with a share image, sitemap, and robots file.",
+    ],
+    customize:
+      "Put your product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors and radius in app/globals.css.",
+    screenshots: {
+      card: { light: legalCardLight, dark: legalCardDark },
+      desktop: { light: legalDesktopLight, dark: legalDesktopDark },
+      mobile: { light: legalMobileLight, dark: legalMobileDark },
+    },
+    previewUrl: "/previews/legal-ai",
+  },
   {
     slug: "simplistic-saas",
     name: "Simplistic SaaS",
