@@ -17,6 +17,12 @@ import legalDesktopDark from "@/assets/templates/legal-ai/desktop-dark.webp";
 import legalDesktopLight from "@/assets/templates/legal-ai/desktop-light.webp";
 import legalMobileDark from "@/assets/templates/legal-ai/mobile-dark.webp";
 import legalMobileLight from "@/assets/templates/legal-ai/mobile-light.webp";
+import marketingCardDark from "@/assets/templates/marketing-ops/card-dark.webp";
+import marketingCardLight from "@/assets/templates/marketing-ops/card-light.webp";
+import marketingDesktopDark from "@/assets/templates/marketing-ops/desktop-dark.webp";
+import marketingDesktopLight from "@/assets/templates/marketing-ops/desktop-light.webp";
+import marketingMobileDark from "@/assets/templates/marketing-ops/mobile-dark.webp";
+import marketingMobileLight from "@/assets/templates/marketing-ops/mobile-light.webp";
 import portfolioCardDark from "@/assets/templates/portfolio/card-dark.webp";
 import portfolioCardLight from "@/assets/templates/portfolio/card-light.webp";
 import portfolioDesktopDark from "@/assets/templates/portfolio/desktop-dark.webp";
@@ -87,6 +93,45 @@ export interface SiteTemplate {
 }
 
 export const SITE_TEMPLATES: SiteTemplate[] = [
+  {
+    slug: "marketing-ops",
+    name: "Marketing Ops",
+    summary:
+      "A launch site for a marketing platform, with dark campaign dashboards on halftone art, a ruled grid frame, and square mono buttons",
+    price: 180,
+    stack: ["Next.js 16", "React 19", "Tailwind CSS 4", "Motion", "TypeScript"],
+    sections: [
+      "Hero",
+      "Logo grid",
+      "Feature cards",
+      "Features",
+      "Benefits",
+      "Comparison",
+      "How it works",
+      "Customer impact",
+      "Testimonials",
+      "Pricing",
+      "FAQ",
+      "Call to action",
+      "Footer",
+    ],
+    features: [
+      "Every word, link, plan, and quote comes from one file, config/site.ts.",
+      "Dark product dashboards set on halftone landscapes drawn in SVG, so there are no images to license.",
+      "Feature cards that stack as you scroll, and feature tabs that advance on their own and pause on hover or focus.",
+      "A comparison table, twelve testimonials in staggered columns, and pricing with a monthly and yearly toggle.",
+      "Light and dark mode, a mobile menu, a layout tuned for phones and tablets, and reduced motion respected everywhere.",
+      "Builds as a Next.js app or a static site for any host, with a share image, sitemap, and robots file.",
+    ],
+    customize:
+      "Put your product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors in app/globals.css.",
+    screenshots: {
+      card: { light: marketingCardLight, dark: marketingCardDark },
+      desktop: { light: marketingDesktopLight, dark: marketingDesktopDark },
+      mobile: { light: marketingMobileLight, dark: marketingMobileDark },
+    },
+    previewUrl: "/previews/marketing-ops",
+  },
   {
     slug: "legal-ai",
     name: "Legal AI",
