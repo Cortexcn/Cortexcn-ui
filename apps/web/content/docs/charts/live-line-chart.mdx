@@ -174,7 +174,7 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 
 ## Loading state
 
-`LiveLineChart` has no loading status of its own. A live chart's loading state is just a line, so render a [`LineChartLoading`](/docs/components/line-chart) while the stream connects, then swap in `LiveLineChart` once data starts arriving:
+`LiveLineChart` has no loading status of its own. A live chart's loading state is just a line, so render a [`LineChartLoading`](/docs/charts/line-chart) while the stream connects, then swap in `LiveLineChart` once data starts arriving:
 
 ```tsx
 import { LineChartLoading, LiveLineChart } from "@/components/charts";
@@ -187,7 +187,7 @@ function LiveRevenue({ connected, points }) {
 }
 ```
 
-`loadingStyle="sweep"` gives the diagonal shimmer; omit it for the default traveling pulse. See the [Line Chart loading docs](/docs/components/line-chart#loading-state) for the full set of loading props.
+`loadingStyle="sweep"` gives the diagonal shimmer; omit it for the default traveling pulse. See the [Line Chart loading docs](/docs/charts/line-chart#loading-state) for the full set of loading props.
 
 ## Theming
 
