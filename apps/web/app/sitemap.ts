@@ -4,6 +4,7 @@ import { validChartSlugs } from "@/components/charts/chart-slugs";
 import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
+import { WORK } from "@/lib/work";
 
 /*
  * Every indexable page, at its canonical URL: marketing pages on
@@ -21,11 +22,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${DOCS_URL}/changelog`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${SITE_URL}/services`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/pricing`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/work`, changeFrequency: "monthly", priority: 0.7 },
+    ...WORK.map((study) => ({
+      url: `${SITE_URL}/work/${study.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    { url: `${SITE_URL}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/refunds`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${DOCS_URL}/templates`, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${DOCS_URL}/design-systems`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 
   // One page per block; the category pages redirect to the filtered gallery.

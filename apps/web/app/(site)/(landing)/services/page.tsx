@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Hire the team behind Cortexcn for websites, landing pages, stores, web apps, backends, AI pipelines, SEO, and more. Starting prices, how a project runs, and per project or retainer work.",
+    "Hire the engineer behind Cortexcn for landing pages, websites, e-commerce, web apps and APIs, AI features, and retainers. Starting prices, how a project runs, and per project or retainer work.",
   path: "/services",
 });
 

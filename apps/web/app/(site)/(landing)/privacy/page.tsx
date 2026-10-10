@@ -17,11 +17,11 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Privacy policy",
   description:
-    "What Cortexcn collects when you use the site, the docs, and the contact form, why, and how to have it deleted.",
+    "What Cortexcn collects when you use the site, the docs, the registry, the MCP server, sign-in, and the contact form, why, and how to have it deleted.",
   path: "/privacy",
 });
 
-const UPDATED = "September 28, 2026";
+const UPDATED = "October 10, 2026";
 
 const SUMMARY =
   "We collect as little as we can: what you send through the contact form, usage numbers, and the preferences your browser keeps. We never sell any of it.";
@@ -53,8 +53,20 @@ const SECTIONS: LegalSection[] = [
           <LegalItem>
             Usage data: the pages you view, links you follow to other sites, and
             searches in the docs, along with your browser, device type, country,
-            and the site that sent you. OpenPanel and Cloudflare Web Analytics
-            collect this for us, and neither sets cookies.
+            and the site that sent you. Plausible, OpenPanel, and Cloudflare Web
+            Analytics collect this for us, and none of them sets cookies.
+          </LegalItem>
+          <LegalItem>
+            Registry and MCP use: when you or your AI agent fetch a file from
+            ui.cortexcn.dev/r or call the MCP server, we log the time, the
+            component or tool, and a one-way hash of your IP address. We never
+            store the IP address itself. The hash lets us count unique
+            installers each week.
+          </LegalItem>
+          <LegalItem>
+            Account data, if you sign in with Google: your name, email address,
+            and profile image, stored in Convex, plus session records and a
+            cookie that keep you signed in.
           </LegalItem>
           <LegalItem>
             Security data: your IP address and browser signals, which Cloudflare
@@ -90,9 +102,10 @@ const SECTIONS: LegalSection[] = [
             To read and answer your message, and to follow up on it.
           </LegalItem>
           <LegalItem>
-            To see which pages and components people use, so we know what to
-            improve.
+            To see which pages and components people use, and how often
+            components are installed, so we know what to improve.
           </LegalItem>
+          <LegalItem>To sign you in and keep you signed in.</LegalItem>
           <LegalItem>
             To keep the site and the contact form secure, and to stop spam and
             abuse.
@@ -132,8 +145,21 @@ const SECTIONS: LegalSection[] = [
             email back to you.
           </LegalItem>
           <LegalItem>
-            <LegalLink href="https://openpanel.dev">OpenPanel</LegalLink>{" "}
-            measures how the site is used.
+            <LegalLink href="https://openpanel.dev">OpenPanel</LegalLink> and{" "}
+            <LegalLink href="https://plausible.io/privacy">Plausible</LegalLink>{" "}
+            measure how the site is used.
+          </LegalItem>
+          <LegalItem>
+            <LegalLink href="https://www.convex.dev/legal/privacy">
+              Convex
+            </LegalLink>{" "}
+            stores account data for sign-in and the registry and MCP usage log.
+          </LegalItem>
+          <LegalItem>
+            <LegalLink href="https://policies.google.com/privacy">
+              Google
+            </LegalLink>{" "}
+            handles sign-in when you choose to sign in with Google.
           </LegalItem>
           <LegalItem>
             The email service behind {CONTACT_EMAIL} stores the messages we
@@ -157,8 +183,16 @@ const SECTIONS: LegalSection[] = [
           Ask, and we will delete them.
         </LegalItem>
         <LegalItem>
-          Usage data follows the retention settings of OpenPanel and Cloudflare,
-          and we only look at it in totals.
+          Usage data follows the retention settings of Plausible, OpenPanel, and
+          Cloudflare, and we only look at it in totals.
+        </LegalItem>
+        <LegalItem>
+          Registry and MCP log entries are deleted after 30 days. Daily totals
+          per component are kept for 90 days, and the weekly hashes used to
+          count unique installers for 2 weeks.
+        </LegalItem>
+        <LegalItem>
+          Account data stays until you ask us to delete your account.
         </LegalItem>
         <LegalItem>
           The counters that limit form sends live in server memory and clear
