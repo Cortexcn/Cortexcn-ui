@@ -138,7 +138,7 @@ Renders a line on the chart.
 | `showMarkers`          | `boolean`                | `false`                     | Render scatter-style ring markers at each point                              |
 | `loadingStroke`        | `string`                 | `var(--foreground)`         | Pulse stroke color while chart is loading                                    |
 | `loadingStrokeOpacity` | `number`                 | `0.5`                       | Pulse stroke opacity while chart is loading                                  |
-| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/components/scatter-chart)) |
+| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/charts/scatter-chart)) |
 
 ### Grid
 
@@ -202,7 +202,7 @@ Pair `yAxisId` on each `Line` with matching `YAxis` components. Increase `margin
 
 ## Profit/Loss line
 
-For a single series that crosses zero, use [`ProfitLossLine`](/docs/components/profit-loss-line) inside `LineChart`. Pair it with a hidden `Line` (same `dataKey`) so the chart registers the series for the y-domain and tooltip. When any value is negative, the y-axis automatically includes the full data extent instead of anchoring at zero.
+For a single series that crosses zero, use [`ProfitLossLine`](/docs/charts/profit-loss-line) inside `LineChart`. Pair it with a hidden `Line` (same `dataKey`) so the chart registers the series for the y-domain and tooltip. When any value is negative, the y-axis automatically includes the full data extent instead of anchoring at zero.
 
 Highlight the break-even baseline with `Grid highlightRowValues={[0]}`:
 
@@ -215,7 +215,7 @@ Highlight the break-even baseline with `Grid highlightRowValues={[0]}`:
 />
 ```
 
-See the [Profit/Loss Line](/docs/components/profit-loss-line) docs and the [line chart gallery](/charts/line-chart) (**Profit/Loss** example).
+See the [Profit/Loss Line](/docs/charts/profit-loss-line) docs and the [line chart gallery](/charts/line-chart) (**Profit/Loss** example).
 
 ## Projection
 
@@ -266,7 +266,7 @@ See the [Projection Line utility](/docs/utility/projection-line) for props and `
 
 ## Brush zoom
 
-Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/components/area-chart#brush-zoom). See the [Brush](/docs/utility/brush) utility docs for full API reference. The brush strip typically shows simplified `Line` series; the main chart receives `xDomain`, `xDomainSlotCount`, and `tweenYDomainOnXDomainChange` for live zoom and y-domain tweening.
+Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/charts/area-chart#brush-zoom). See the [Brush](/docs/utility/brush) utility docs for full API reference. The brush strip typically shows simplified `Line` series; the main chart receives `xDomain`, `xDomainSlotCount`, and `tweenYDomainOnXDomainChange` for live zoom and y-domain tweening.
 
 <div className="not-prose mb-3 flex items-center justify-between gap-4">
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
