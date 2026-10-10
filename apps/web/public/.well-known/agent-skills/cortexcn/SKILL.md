@@ -10,7 +10,7 @@ Cortexcn is a registry of React components, page blocks, and charts built with T
 - Site and docs: https://ui.cortexcn.dev
 - Registry index: https://ui.cortexcn.dev/r/registry.json
 - One item: `https://ui.cortexcn.dev/r/<name>.json`
-- Any docs page as markdown: add `.md` to its URL, for example https://ui.cortexcn.dev/docs/components/lanyard-3d.md
+- Any docs page as markdown: add `.md` to its URL, for example https://ui.cortexcn.dev/docs/cortex/lanyard-3d.md
 - Every docs page in one file: https://ui.cortexcn.dev/llms-full.txt
 
 ## Find the right item
