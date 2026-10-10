@@ -89,6 +89,15 @@ const BLOCKS = {
     dependencies: [],
     files: ["components/feature-mixed-bento.tsx"],
   },
+  "feature-mockup-grid-01": {
+    title: "Feature Mockup Grid",
+    description:
+      "A centered label and heading over five cards, two on top and three below, each with a small product mockup drawn in theme colors",
+    previewMaxWidth: "max-w-6xl",
+    registryDependencies: ["@cortexcn/utils"],
+    dependencies: [],
+    files: ["components/feature-mockup-grid.tsx"],
+  },
   "feature-walkthrough-01": {
     title: "Feature Walkthrough",
     description:
@@ -299,6 +308,7 @@ const COMPONENT_EXPORTS = {
   "feature-studio-grid-01": "FeatureStudioGrid",
   "feature-bento-grid-01": "FeatureBentoGrid",
   "feature-mixed-bento-01": "FeatureMixedBento",
+  "feature-mockup-grid-01": "FeatureMockupGrid",
   "feature-walkthrough-01": "FeatureWalkthrough",
   "services-image-grid-01": "ServicesImageGrid",
   "services-preview-list-01": "ServicesPreviewList",
