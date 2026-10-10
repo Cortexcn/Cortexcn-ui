@@ -1,0 +1,161 @@
+/*
+ * MongoDB (design-systems/mongodb). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by MongoDB's public website; not affiliated with or endorsed by MongoDB.
+ */
+
+[data-theme="mongodb"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #001e2b;
+  --card: #f9fbfa;
+  --card-foreground: #001e2b;
+  --popover: #f9fbfa;
+  --popover-foreground: #001e2b;
+  --primary: #00ed64;
+  --primary-foreground: #001e2b;
+  --secondary: #f4f7f6;
+  --secondary-foreground: #001e2b;
+  --muted: #f4f7f6;
+  --muted-foreground: #5c6c7a;
+  --accent: #f4f7f6;
+  --accent-foreground: #001e2b;
+  --destructive: #d92d20;
+  --border: #e1e5e8;
+  --input: #c1ccd6;
+  --ring: #00ab46;
+  --chart-1: #00ed64;
+  --chart-2: #003d4f;
+  --chart-3: #7b3ff2;
+  --chart-4: #fa6e39;
+  --chart-5: #f06bb8;
+  --ds-primary-hover: #008c34;
+  --ds-success: #15803d;
+  --ds-warning: #b45309;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 600;
+  --ds-weight-bold: 500;
+  --ds-tracking-display: -0.018em;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 1.15;
+  --ds-leading-body: 1.55;
+  --radius: 12px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 4px;
+  --ds-shadow-1: rgba(0, 30, 43, 0.08) 0px 4px 12px 0px;
+  --ds-shadow-2: rgba(0, 30, 43, 0.12) 0px 12px 24px -4px;
+  --ds-shadow-3: rgba(0, 30, 43, 0.16) 0px 16px 48px -8px;
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-full);
+  --ds-button-h-xs: 26px;
+  --ds-button-h-sm: 34px;
+  --ds-button-h-md: 38px;
+  --ds-button-h-lg: 42px;
+  --ds-button-px: 22px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-h: 44px;
+  --ds-input-px: 12px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 24px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--background);
+  --ds-badge-radius: var(--ds-radius-sm);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-md);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="mongodb"].dark,
+.dark [data-theme="mongodb"] {
+  color-scheme: dark;
+  --background: #001e2b;
+  --foreground: #ffffff;
+  --card: #072734;
+  --card-foreground: #ffffff;
+  --popover: #0e2d3a;
+  --popover-foreground: #ffffff;
+  --primary: #00ed64;
+  --primary-foreground: #001e2b;
+  --secondary: #163442;
+  --secondary-foreground: #ffffff;
+  --muted: #163442;
+  --muted-foreground: #a8b3bc;
+  --accent: #163442;
+  --accent-foreground: #ffffff;
+  --destructive: #ff5543;
+  --border: #1c2d38;
+  --input: #2b4a58;
+  --ring: #00ed64;
+  --chart-1: #00ed64;
+  --chart-2: #a1d7ed;
+  --chart-3: #a187ff;
+  --chart-4: #c04100;
+  --chart-5: #b83686;
+  --ds-primary-hover: #00d358;
+  --ds-success: #50af69;
+  --ds-warning: #de793d;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="mongodb"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

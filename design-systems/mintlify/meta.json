@@ -1,0 +1,383 @@
+{
+  "id": "mintlify",
+  "name": "Mintlify",
+  "description": "Reading-first docs: white canvas, a green brand accent, and calm gray text.",
+  "tags": ["light-first", "developer", "airy"],
+  "sourceMode": "both",
+  "source": {
+    "slug": "mintlify",
+    "url": "https://getdesign.md/mintlify/design-md",
+    "fetchedWith": "npx getdesign@0.6.25 add mintlify",
+    "fetchedAt": "2026-10-10",
+    "license": "MIT (github.com/VoltAgent/awesome-design-md)",
+    "disclaimer": "Unofficial and inspired by Mintlify's public website; not affiliated with or endorsed by Mintlify."
+  },
+  "fonts": [
+    {
+      "role": "display",
+      "referenced": "Inter",
+      "fallback": "Inter",
+      "license": "OFL-1.1",
+      "provider": "google-fonts"
+    },
+    {
+      "role": "body",
+      "referenced": "Inter",
+      "fallback": "Inter",
+      "license": "OFL-1.1",
+      "provider": "google-fonts"
+    },
+    {
+      "role": "mono",
+      "referenced": "Geist Mono",
+      "fallback": "Geist Mono",
+      "license": "OFL-1.1",
+      "provider": "next-font-geist"
+    }
+  ],
+  "mapping": {
+    "modes.light.background": "{colors.canvas}",
+    "modes.light.foreground": "{colors.ink}",
+    "modes.light.primary": "{colors.primary}",
+    "modes.light.card": "{colors.surface}",
+    "modes.light.popover": "{colors.surface}",
+    "modes.light.secondary": "{colors.surface-soft}",
+    "modes.light.muted": "{colors.surface-soft}",
+    "modes.light.accent": "{colors.surface-soft}",
+    "modes.light.muted-foreground": "{colors.steel}",
+    "modes.light.card-foreground": "{colors.ink}",
+    "modes.light.popover-foreground": "{colors.ink}",
+    "modes.light.secondary-foreground": "{colors.ink}",
+    "modes.light.accent-foreground": "{colors.ink}",
+    "modes.light.primary-foreground": "{colors.on-primary}",
+    "modes.light.border": "{colors.hairline}",
+    "modes.light.input": "{colors.hairline}",
+    "modes.light.destructive": "{colors.brand-error}",
+    "modes.light.warning": "{colors.brand-warn}",
+    "modes.light.chart-1": "{colors.primary}",
+    "modes.light.chart-2": "{colors.brand-green}",
+    "modes.light.chart-3": "{colors.brand-tag}",
+    "modes.light.chart-4": "{colors.brand-warn}",
+    "modes.dark.background": "{colors.canvas-dark}",
+    "modes.dark.foreground": "{colors.on-dark}",
+    "modes.dark.muted-foreground": "{colors.on-dark-muted}",
+    "modes.dark.border": "{colors.hairline-dark}",
+    "radius.full": "{rounded.full}",
+    "radius.xs": "{rounded.xs}",
+    "radius.sm": "{rounded.sm}",
+    "radius.md": "{rounded.md}",
+    "radius.lg": "{rounded.lg}",
+    "radius.xl": "{rounded.xl}",
+    "typography.scale": "{typography.*.fontSize}",
+    "typography.display.family": "{typography.display-lg.fontFamily}",
+    "typography.display.fallback": "{typography.display-lg.fontFamily}",
+    "typography.display.stack": "{typography.display-lg.fontFamily}",
+    "typography.body.family": "{typography.body-md.fontFamily}",
+    "typography.body.fallback": "{typography.body-md.fontFamily}",
+    "typography.body.stack": "{typography.body-md.fontFamily}",
+    "typography.mono.family": "{typography.code-md.fontFamily}",
+    "typography.mono.fallback": "{typography.code-md.fontFamily}",
+    "typography.mono.stack": "{typography.code-md.fontFamily}",
+    "typography.weights.regular": "{typography.body-md.fontWeight}",
+    "typography.weights.medium": "{typography.button-md.fontWeight}",
+    "typography.weights.bold": "{typography.display-lg.fontWeight}",
+    "typography.tracking.display": "{typography.display-lg.letterSpacing}",
+    "typography.lineHeight.display": "{typography.display-lg.lineHeight}",
+    "typography.lineHeight.body": "{typography.body-md.lineHeight}",
+    "components.button.paddingX": "{components.button-primary.padding}",
+    "components.button.weight": "{typography.button-md}.fontWeight",
+    "components.button.textTransform": "{typography.button-md}.textTransform (absent means none)",
+    "components.button.tracking": "{typography.button-md}.letterSpacing (absent means 0)",
+    "components.button.shadow": "{components.button-primary.*} (no shadow listed)",
+    "components.input.background": "{components.text-input.backgroundColor}",
+    "components.input.shadow": "{components.text-input.*} (no shadow listed)",
+    "components.card.background": "{components.card-base.backgroundColor}",
+    "components.card.border": "{components.card-base.border}",
+    "components.card.shadow": "{components.card-base.*} (no shadow listed)",
+    "components.badge.paddingX": "{components.badge-discount.padding}",
+    "components.badge.weight": "{components.badge-discount.typography}",
+    "components.badge.textTransform": "{components.badge-discount.typography} (absent means none)",
+    "components.accordion.dividers": "{components.faq-accordion-item.border}",
+    "components.accordion.triggerWeight": "{components.faq-accordion-item.typography}",
+    "components.card.radius": "{components.card-base.rounded}",
+    "components.button.radius": "{components.button-primary.rounded}",
+    "components.input.radius": "{components.text-input.rounded}",
+    "components.input.height": "{components.text-input.height}",
+    "components.badge.radius": "{components.badge-discount.rounded}",
+    "elevation.1": "(quoted in the Elevation section)",
+    "elevation.2": "(quoted in the Elevation section)",
+    "elevation.3": "(quoted in the Elevation section)"
+  },
+  "gaps": [
+    {
+      "path": "modes.light.primary-hover",
+      "kind": "derived",
+      "note": "No hover token; the primary moved 0.07 to 0.08 OKLCH lightness toward the middle."
+    },
+    {
+      "path": "modes.light.ring",
+      "kind": "derived",
+      "note": "No focus token; the primary, darkened or lightened until it reaches 3:1 on the canvas."
+    },
+    {
+      "path": "modes.light.success",
+      "kind": "missing",
+      "note": "No success token in the DESIGN.md; used the neutral default #15803d."
+    },
+    {
+      "path": "modes.light.overlay",
+      "kind": "missing",
+      "note": "No overlay token in the DESIGN.md; used the neutral default rgba(0, 0, 0, 0.4)."
+    },
+    {
+      "path": "modes.light.chart-5",
+      "kind": "derived",
+      "note": "Not enough distinct accent colors; the primary at +0.48 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.card",
+      "kind": "derived",
+      "note": "Derived: the canvas raised 0.035 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.popover",
+      "kind": "derived",
+      "note": "Derived: the canvas raised 0.06 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.muted",
+      "kind": "derived",
+      "note": "Derived: the canvas shifted 0.09 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.secondary",
+      "kind": "derived",
+      "note": "Derived: same as the muted surface."
+    },
+    {
+      "path": "modes.dark.accent",
+      "kind": "derived",
+      "note": "Derived: same as the muted surface."
+    },
+    {
+      "path": "modes.dark.card-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.popover-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.secondary-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.accent-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.input",
+      "kind": "derived",
+      "note": "Derived: the canvas shifted 0.17 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.primary",
+      "kind": "derived",
+      "note": "The neutral light-mode primary would vanish here, so it is inverted to OKLCH lightness 0.94."
+    },
+    {
+      "path": "modes.dark.primary-foreground",
+      "kind": "derived",
+      "note": "The foreground or canvas color, whichever contrasts more with the primary."
+    },
+    {
+      "path": "modes.dark.primary-hover",
+      "kind": "derived",
+      "note": "Derived: the primary moved 0.07 to 0.08 OKLCH lightness toward the middle."
+    },
+    {
+      "path": "modes.dark.ring",
+      "kind": "derived",
+      "note": "Derived: the primary, darkened or lightened until it reaches 3:1 on the canvas."
+    },
+    {
+      "path": "modes.dark.destructive",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.success",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.warning",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.overlay",
+      "kind": "missing",
+      "note": "No dark-mode scrim; used rgba(0, 0, 0, 0.6)."
+    },
+    {
+      "path": "modes.dark.chart-1",
+      "kind": "derived",
+      "note": "Derived: same as this mode's primary."
+    },
+    {
+      "path": "modes.dark.chart-2",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-3",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-4",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-5",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "radius.none",
+      "kind": "derived",
+      "note": "Zero by definition."
+    },
+    {
+      "path": "typography.tracking.body",
+      "kind": "missing",
+      "note": "No letter spacing stated; used 0."
+    },
+    {
+      "path": "components.button.height.md",
+      "kind": "derived",
+      "note": "No height stated; 14px type at 1.3 line height plus 10px padding top and bottom, kept between 28 and 56px."
+    },
+    {
+      "path": "components.button.height.xs",
+      "kind": "derived",
+      "note": "md minus 12px, the same steps as the base theme."
+    },
+    {
+      "path": "components.button.height.sm",
+      "kind": "derived",
+      "note": "md minus 4px."
+    },
+    {
+      "path": "components.button.height.lg",
+      "kind": "derived",
+      "note": "md plus 4px."
+    },
+    {
+      "path": "components.input.paddingX",
+      "kind": "missing",
+      "note": "No padding stated; 12px."
+    },
+    {
+      "path": "components.card.padding",
+      "kind": "missing",
+      "note": "No padding stated; 24px."
+    },
+    {
+      "path": "components.tabs.style",
+      "kind": "derived",
+      "note": "The tab spec has no underline indicator, so tabs are segmented."
+    },
+    {
+      "path": "components.accordion.chevron",
+      "kind": "missing",
+      "note": "Not stated; the chevron turns 180 degrees."
+    },
+    {
+      "path": "components.accordion.duration",
+      "kind": "missing",
+      "note": "Not stated; uses the base motion duration."
+    },
+    {
+      "path": "components.accordion.paddingY",
+      "kind": "missing",
+      "note": "Not stated; 16px."
+    },
+    {
+      "path": "components.dialog.padding",
+      "kind": "missing",
+      "note": "Not stated; 24px."
+    },
+    {
+      "path": "components.dialog.shadow",
+      "kind": "missing",
+      "note": "Not stated; the largest elevation step."
+    },
+    {
+      "path": "components.menu.radius",
+      "kind": "derived",
+      "note": "No menu spec; one step smaller than the card corners."
+    },
+    {
+      "path": "components.menu.itemRadius",
+      "kind": "derived",
+      "note": "One step smaller than the menu corners."
+    },
+    {
+      "path": "components.menu.shadow",
+      "kind": "missing",
+      "note": "Not stated; elevation 2."
+    },
+    {
+      "path": "components.control.radius",
+      "kind": "derived",
+      "note": "No checkbox spec; the xs corner (none when the system is square)."
+    },
+    {
+      "path": "components.tooltip.radius",
+      "kind": "derived",
+      "note": "No tooltip spec; the sm corner."
+    },
+    {
+      "path": "components.alert.radius",
+      "kind": "derived",
+      "note": "No alert spec; the same corners as cards."
+    },
+    {
+      "path": "components.tabs.radius",
+      "kind": "missing",
+      "note": "No tab spec; md corners."
+    },
+    {
+      "path": "components.dialog.radius",
+      "kind": "missing",
+      "note": "No dialog spec; the card corners."
+    },
+    {
+      "path": "motion.*",
+      "kind": "missing",
+      "note": "The DESIGN.md has no motion tokens; used 120ms / 200ms / 320ms with cubic-bezier(0.2, 0, 0, 1). Reduced-motion users get 0ms."
+    },
+    {
+      "path": "spacing.unit",
+      "kind": "derived",
+      "note": "The greatest common step of the spacing scale (4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 96, 120px)."
+    },
+    {
+      "path": "spacing.density",
+      "kind": "derived",
+      "note": "From the 38px button height: 32 or under is compact, 44 or over is comfortable."
+    },
+    {
+      "path": "elevation.0",
+      "kind": "derived",
+      "note": "No shadow by definition."
+    }
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "id": "posthog",
+  "name": "PostHog",
+  "description": "Sage paper canvas, dense Plex type, and a bright orange-yellow primary.",
+  "tags": ["light-first", "playful", "dense", "warm"],
+  "sourceMode": "both",
+  "source": {
+    "slug": "posthog",
+    "url": "https://getdesign.md/posthog/design-md",
+    "fetchedWith": "npx getdesign@0.6.25 add posthog",
+    "fetchedAt": "2026-10-10",
+    "license": "MIT (github.com/VoltAgent/awesome-design-md)",
+    "disclaimer": "Unofficial and inspired by PostHog's public website; not affiliated with or endorsed by PostHog."
+  },
+  "fonts": [
+    {
+      "role": "display",
+      "referenced": "IBM Plex Sans Variable",
+      "fallback": "IBM Plex Sans",
+      "license": "OFL-1.1",
+      "provider": "google-fonts"
+    },
+    {
+      "role": "body",
+      "referenced": "IBM Plex Sans Variable",
+      "fallback": "IBM Plex Sans",
+      "license": "OFL-1.1",
+      "provider": "google-fonts"
+    },
+    {
+      "role": "mono",
+      "referenced": "Source Code Pro",
+      "fallback": "Source Code Pro",
+      "license": "OFL-1.1",
+      "provider": "google-fonts"
+    }
+  ],
+  "mapping": {
+    "modes.light.background": "{colors.canvas}",
+    "modes.light.foreground": "{colors.ink}",
+    "modes.light.primary": "{colors.primary}",
+    "modes.light.card": "{colors.surface-card}",
+    "modes.light.popover": "{colors.surface-card}",
+    "modes.light.secondary": "{colors.surface-soft}",
+    "modes.light.muted": "{colors.surface-soft}",
+    "modes.light.accent": "{colors.surface-soft}",
+    "modes.light.muted-foreground": "{colors.body}",
+    "modes.light.card-foreground": "{colors.ink}",
+    "modes.light.popover-foreground": "{colors.ink}",
+    "modes.light.secondary-foreground": "{colors.ink}",
+    "modes.light.accent-foreground": "{colors.ink}",
+    "modes.light.primary-foreground": "{colors.on-primary}",
+    "modes.light.primary-hover": "{colors.primary-active}",
+    "modes.light.border": "{colors.hairline}",
+    "modes.light.input": "{colors.hairline}",
+    "modes.light.ring": "{colors.focus-ring}",
+    "modes.light.destructive": "{colors.accent-red}",
+    "modes.light.success": "{colors.accent-green}",
+    "modes.light.chart-1": "{colors.primary}",
+    "modes.light.chart-2": "{colors.link-blue}",
+    "modes.light.chart-3": "{colors.link-teal}",
+    "modes.light.chart-4": "{colors.accent-red}",
+    "modes.light.chart-5": "{colors.accent-green}",
+    "modes.dark.background": "{colors.surface-dark}",
+    "modes.dark.foreground": "{colors.on-dark}",
+    "radius.none": "{rounded.none}",
+    "radius.full": "{rounded.full}",
+    "radius.xs": "{rounded.xs}",
+    "radius.sm": "{rounded.sm}",
+    "radius.md": "{rounded.md}",
+    "radius.lg": "{rounded.lg}",
+    "typography.scale": "{typography.*.fontSize}",
+    "typography.display.family": "{typography.display-xl.fontFamily}",
+    "typography.body.family": "{typography.body-md.fontFamily}",
+    "typography.mono.family": "{typography.code-xs.fontFamily}",
+    "typography.mono.fallback": "{typography.code-xs.fontFamily}",
+    "typography.mono.stack": "{typography.code-xs.fontFamily}",
+    "typography.weights.regular": "{typography.body-md.fontWeight}",
+    "typography.weights.medium": "{typography.button-md.fontWeight}",
+    "typography.weights.bold": "{typography.display-xl.fontWeight}",
+    "typography.tracking.display": "{typography.display-xl.letterSpacing}",
+    "typography.tracking.body": "{typography.body-md.letterSpacing}",
+    "typography.lineHeight.display": "{typography.display-xl.lineHeight}",
+    "typography.lineHeight.body": "{typography.body-md.lineHeight}",
+    "components.button.height.md": "{components.button-primary.height}",
+    "components.button.paddingX": "{components.button-primary.padding}",
+    "components.button.weight": "{typography.button-md}.fontWeight",
+    "components.button.textTransform": "{typography.button-md}.textTransform (absent means none)",
+    "components.button.tracking": "{typography.button-md}.letterSpacing (absent means 0)",
+    "components.button.shadow": "{components.button-primary.*} (no shadow listed)",
+    "components.input.background": "{components.text-input.backgroundColor}",
+    "components.input.paddingX": "{components.text-input.padding}",
+    "components.input.shadow": "{components.text-input.*} (no shadow listed)",
+    "components.card.padding": "{components.product-card.padding}",
+    "components.card.background": "{components.product-card.backgroundColor}",
+    "components.card.shadow": "{components.product-card.*} (no shadow listed)",
+    "components.badge.weight": "{components.badge-uppercase.typography}",
+    "components.badge.textTransform": "{components.badge-uppercase.typography} (absent means none)",
+    "components.card.radius": "{components.product-card.rounded}",
+    "components.button.radius": "{components.button-primary.rounded}",
+    "components.input.radius": "{components.text-input.rounded}",
+    "components.input.height": "{components.text-input.height}",
+    "components.badge.radius": "{components.badge-uppercase.rounded}",
+    "components.tabs.radius": "{components.product-tab.rounded}"
+  },
+  "gaps": [
+    {
+      "path": "modes.light.warning",
+      "kind": "missing",
+      "note": "No warning token in the DESIGN.md; used the neutral default #b45309."
+    },
+    {
+      "path": "modes.light.overlay",
+      "kind": "missing",
+      "note": "No overlay token in the DESIGN.md; used the neutral default rgba(0, 0, 0, 0.4)."
+    },
+    {
+      "path": "modes.dark.card",
+      "kind": "derived",
+      "note": "Derived: the canvas raised 0.035 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.popover",
+      "kind": "derived",
+      "note": "Derived: the canvas raised 0.06 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.muted",
+      "kind": "derived",
+      "note": "Derived: the canvas shifted 0.09 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.secondary",
+      "kind": "derived",
+      "note": "Derived: same as the muted surface."
+    },
+    {
+      "path": "modes.dark.accent",
+      "kind": "derived",
+      "note": "Derived: same as the muted surface."
+    },
+    {
+      "path": "modes.dark.muted-foreground",
+      "kind": "derived",
+      "note": "Derived: the secondary text at OKLCH lightness 0.72."
+    },
+    {
+      "path": "modes.dark.card-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.popover-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.secondary-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.accent-foreground",
+      "kind": "derived",
+      "note": "Derived: same as the foreground."
+    },
+    {
+      "path": "modes.dark.border",
+      "kind": "derived",
+      "note": "Derived: the canvas shifted 0.13 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.input",
+      "kind": "derived",
+      "note": "Derived: the canvas shifted 0.17 OKLCH lightness."
+    },
+    {
+      "path": "modes.dark.primary",
+      "kind": "derived",
+      "note": "Kept the light-mode primary; it reads on this canvas."
+    },
+    {
+      "path": "modes.dark.primary-foreground",
+      "kind": "derived",
+      "note": "Kept the light-mode on-primary color."
+    },
+    {
+      "path": "modes.dark.primary-hover",
+      "kind": "derived",
+      "note": "Derived: the primary moved 0.07 to 0.08 OKLCH lightness toward the middle."
+    },
+    {
+      "path": "modes.dark.ring",
+      "kind": "derived",
+      "note": "Derived: the primary, darkened or lightened until it reaches 3:1 on the canvas."
+    },
+    {
+      "path": "modes.dark.destructive",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.success",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.warning",
+      "kind": "derived",
+      "note": "Derived: the light-mode color with OKLCH lightness at least 0.68."
+    },
+    {
+      "path": "modes.dark.overlay",
+      "kind": "missing",
+      "note": "No dark-mode scrim; used rgba(0, 0, 0, 0.6)."
+    },
+    {
+      "path": "modes.dark.chart-1",
+      "kind": "derived",
+      "note": "Derived: same as this mode's primary."
+    },
+    {
+      "path": "modes.dark.chart-2",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-3",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-4",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "modes.dark.chart-5",
+      "kind": "derived",
+      "note": "Derived: the light-mode chart color with its OKLCH lightness mirrored and clamped for this canvas."
+    },
+    {
+      "path": "radius.xl",
+      "kind": "derived",
+      "note": "No xl step; the xxl step, or 1.33 times lg."
+    },
+    {
+      "path": "typography.display.fallback",
+      "kind": "font",
+      "note": "IBM Plex Sans Variable is not open-licensed or not freely loadable; IBM Plex Sans (OFL-1.1) stands in, following the DESIGN.md's substitute notes where it gives them."
+    },
+    {
+      "path": "typography.display.stack",
+      "kind": "font",
+      "note": "IBM Plex Sans Variable is not open-licensed or not freely loadable; IBM Plex Sans (OFL-1.1) stands in, following the DESIGN.md's substitute notes where it gives them."
+    },
+    {
+      "path": "typography.body.fallback",
+      "kind": "font",
+      "note": "IBM Plex Sans Variable is not open-licensed or not freely loadable; IBM Plex Sans (OFL-1.1) stands in, following the DESIGN.md's substitute notes where it gives them."
+    },
+    {
+      "path": "typography.body.stack",
+      "kind": "font",
+      "note": "IBM Plex Sans Variable is not open-licensed or not freely loadable; IBM Plex Sans (OFL-1.1) stands in, following the DESIGN.md's substitute notes where it gives them."
+    },
+    {
+      "path": "components.button.height.xs",
+      "kind": "derived",
+      "note": "md minus 12px, the same steps as the base theme."
+    },
+    {
+      "path": "components.button.height.sm",
+      "kind": "derived",
+      "note": "md minus 4px."
+    },
+    {
+      "path": "components.button.height.lg",
+      "kind": "derived",
+      "note": "md plus 4px."
+    },
+    {
+      "path": "components.card.border",
+      "kind": "derived",
+      "note": "No border stated; the card stands apart by its fill."
+    },
+    {
+      "path": "components.badge.paddingX",
+      "kind": "missing",
+      "note": "No badge padding; 8px."
+    },
+    {
+      "path": "components.tabs.style",
+      "kind": "derived",
+      "note": "The tab spec has no underline indicator, so tabs are segmented."
+    },
+    {
+      "path": "components.accordion.dividers",
+      "kind": "derived",
+      "note": "No row rule stated; hairlines divide the rows, as in the base theme."
+    },
+    {
+      "path": "components.accordion.triggerWeight",
+      "kind": "missing",
+      "note": "No accordion spec; medium trigger text."
+    },
+    {
+      "path": "components.accordion.chevron",
+      "kind": "missing",
+      "note": "Not stated; the chevron turns 180 degrees."
+    },
+    {
+      "path": "components.accordion.duration",
+      "kind": "missing",
+      "note": "Not stated; uses the base motion duration."
+    },
+    {
+      "path": "components.accordion.paddingY",
+      "kind": "missing",
+      "note": "Not stated; 16px."
+    },
+    {
+      "path": "components.dialog.padding",
+      "kind": "missing",
+      "note": "Not stated; 24px."
+    },
+    {
+      "path": "components.dialog.shadow",
+      "kind": "missing",
+      "note": "Not stated; the largest elevation step."
+    },
+    {
+      "path": "components.menu.radius",
+      "kind": "derived",
+      "note": "No menu spec; one step smaller than the card corners."
+    },
+    {
+      "path": "components.menu.itemRadius",
+      "kind": "derived",
+      "note": "One step smaller than the menu corners."
+    },
+    {
+      "path": "components.menu.shadow",
+      "kind": "missing",
+      "note": "Not stated; elevation 2."
+    },
+    {
+      "path": "components.control.radius",
+      "kind": "derived",
+      "note": "No checkbox spec; the xs corner (none when the system is square)."
+    },
+    {
+      "path": "components.tooltip.radius",
+      "kind": "derived",
+      "note": "No tooltip spec; the sm corner."
+    },
+    {
+      "path": "components.alert.radius",
+      "kind": "derived",
+      "note": "No alert spec; the same corners as cards."
+    },
+    {
+      "path": "components.dialog.radius",
+      "kind": "missing",
+      "note": "No dialog spec; the card corners."
+    },
+    {
+      "path": "motion.*",
+      "kind": "missing",
+      "note": "The DESIGN.md has no motion tokens; used 120ms / 200ms / 320ms with cubic-bezier(0.2, 0, 0, 1). Reduced-motion users get 0ms."
+    },
+    {
+      "path": "spacing.unit",
+      "kind": "derived",
+      "note": "The greatest common step of the spacing scale (2, 4, 8, 12, 16, 24, 32, 80px)."
+    },
+    {
+      "path": "spacing.density",
+      "kind": "derived",
+      "note": "From the 40px button height: 32 or under is compact, 44 or over is comfortable."
+    },
+    {
+      "path": "elevation.0",
+      "kind": "derived",
+      "note": "No shadow by definition."
+    },
+    {
+      "path": "elevation.1",
+      "kind": "missing",
+      "note": "The DESIGN.md quotes no shadow for this step; used the neutral default 0 1px 2px 0 rgba(0, 0, 0, 0.06)."
+    },
+    {
+      "path": "elevation.2",
+      "kind": "missing",
+      "note": "The DESIGN.md quotes no shadow for this step; used the neutral default 0 4px 12px -2px rgba(0, 0, 0, 0.12)."
+    },
+    {
+      "path": "elevation.3",
+      "kind": "missing",
+      "note": "The DESIGN.md quotes no shadow for this step; used the neutral default 0 16px 32px -8px rgba(0, 0, 0, 0.24)."
+    }
+  ]
+}
