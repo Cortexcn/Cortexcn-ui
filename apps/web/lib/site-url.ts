@@ -12,8 +12,9 @@ export const DOCS_URL = "https://ui.cortexcn.dev";
 
 /**
  * Local stand-in for the library host. Browsers resolve every `*.localhost`
- * name to this machine, so `http://ui.localhost:3000` works like
- * ui.cortexcn.dev in dev.
+ * name to this machine, so `http://ui.localhost:4410` works like
+ * ui.cortexcn.dev in dev. `bun run dev` also gives the library its own ports
+ * (see dev-ports.json and proxy.ts).
  */
 export const DEV_DOCS_HOSTNAME = "ui.localhost";
 
@@ -25,11 +26,12 @@ export const DEV_DOCS_HOSTNAME = "ui.localhost";
 export const LIBRARY_HOME_ROUTE = "/ui-home";
 
 const LIBRARY_PATH_RE =
-  /^\/(?:docs|blocks|charts|changelog|templates|previews|mcp)(?:\/|$)/;
+  /^\/(?:docs|blocks|charts|changelog|templates|previews|mcp|sign-in|admin|design-systems)(?:\/|$)/;
 
 /**
  * Pages of the component library site: the docs, the two galleries, the
- * changelog, the templates with their live previews, and the MCP server.
+ * changelog, the templates with their live previews, the MCP server,
+ * sign-in, the admin dashboard, and the design systems showcase.
  */
 export function isLibraryPath(pathname: string) {
   return LIBRARY_PATH_RE.test(pathname);
