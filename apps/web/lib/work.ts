@@ -32,6 +32,18 @@ export interface CaseStudy {
 
 const templateScreenshot = getSiteTemplate("growth-agency")?.screenshots.card;
 
+/** A template from site-templates.ts. A wrong slug fails the build. */
+function siteTemplate(slug: string) {
+  const template = getSiteTemplate(slug);
+  if (!template) {
+    throw new Error(`No template with the slug "${slug}"`);
+  }
+  return template;
+}
+
+const legalAi = siteTemplate("legal-ai");
+const marketingOps = siteTemplate("marketing-ops");
+
 const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "startup-site",
@@ -93,6 +105,50 @@ const CASE_STUDIES: CaseStudy[] = [
     result: { value: "4", label: "complete sites, each with a live preview" },
     screenshot: templateScreenshot,
     liveUrl: "/templates",
+  },
+  {
+    slug: legalAi.slug,
+    title: legalAi.name,
+    summary:
+      "A launch site for an AI research platform for law firms, sold as a template with a live preview.",
+    clientType: "My own product",
+    problem:
+      "Law firms check the source before they trust an answer, so a legal AI site has to show where each answer comes from. I wanted a template built around that, in a calm palette that suits the field.",
+    built: [
+      "A research card where each numbered citation brings its highlighted passage forward in the source document.",
+      "Watercolor landscapes painted in SVG from seeded scenes, and product mockups in HTML and CSS: a review table, a redline, and a precedent search.",
+      "Tabs for law firms, in-house teams, and small practices, customer stories that stack as you scroll, and pricing with a monthly and annual toggle.",
+      "Every word, link, plan, and quote in one config file, with light and dark mode and reduced motion respected.",
+    ],
+    stack: legalAi.stack,
+    result: {
+      value: String(legalAi.sections.length),
+      label: "sections, from the hero to the footer",
+    },
+    screenshot: legalAi.screenshots.card,
+    liveUrl: legalAi.previewUrl,
+  },
+  {
+    slug: marketingOps.slug,
+    title: marketingOps.name,
+    summary:
+      "A launch site for a marketing platform, with dark campaign dashboards, sold as a template with a live preview.",
+    clientType: "My own product",
+    problem:
+      "A marketing platform sells on its dashboards, so its site has to show the product at work. I wanted a template that does that without a single stock screenshot.",
+    built: [
+      "Dark campaign dashboards set on halftone landscapes drawn in SVG, so there are no images to license.",
+      "Feature cards that stack as you scroll, and feature tabs that advance on their own and pause on hover or focus.",
+      "A comparison table, testimonials in staggered columns, and pricing with a monthly and yearly toggle.",
+      "Every word, link, plan, and quote in one config file, with light and dark mode and reduced motion respected.",
+    ],
+    stack: marketingOps.stack,
+    result: {
+      value: String(marketingOps.sections.length),
+      label: "sections, from the hero to the footer",
+    },
+    screenshot: marketingOps.screenshots.card,
+    liveUrl: marketingOps.previewUrl,
   },
 ];
 
