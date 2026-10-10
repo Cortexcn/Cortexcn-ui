@@ -30,6 +30,7 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
       "feature-studio-grid-01",
       "feature-bento-grid-01",
       "feature-mixed-bento-01",
+      "feature-mockup-grid-01",
       "feature-walkthrough-01",
     ],
   },
