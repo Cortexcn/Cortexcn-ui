@@ -31,16 +31,16 @@ export function ServicesIntro() {
             <TypeHeading
               lines={[
                 "Need more than components?",
-                "Hire the team behind them.",
+                "Hire the engineer who builds them.",
               ]}
               size="display"
             />
           </div>
           <div className="flex flex-col items-start gap-6">
             <p className="text-body text-lg leading-[1.4] tracking-[-0.04em]">
-              We build for clients too, from a single landing page to a full
-              product, an AI pipeline, or a research paper. Every build ships
-              with its code in your repo, per project or on retainer.
+              I build for clients too, from a single landing page to a full
+              product or an AI feature. Every build ships with its code in your
+              repo, per project or on retainer.
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
               <ActionLink href="/contact" label="Start a project" />

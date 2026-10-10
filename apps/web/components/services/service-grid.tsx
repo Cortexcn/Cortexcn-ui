@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-import { ActionLink, ArrowUpRightIcon } from "@/components/landing/kit";
+import {
+  ActionLink,
+  ArrowUpRightIcon,
+  type NumberedSection,
+  SectionLabel,
+} from "@/components/landing/kit";
 import { Container } from "@/components/landing/primitives";
 import { cadenceLabel, formatUsd, quoteHref } from "@/lib/service-pricing";
 import { SERVICES, type Service, servicePrice } from "@/lib/services";
@@ -90,15 +95,23 @@ function ServiceTile({ service, index }: { service: Service; index: number }) {
   );
 }
 
-/** Every service as a tile, on the dark band, with a tile for anything else. */
-export function ServiceGrid() {
+/**
+ * Every service as a tile, on the dark band, with a tile for anything else.
+ * On the home page it takes a numbered label and the `#services` anchor.
+ */
+export function ServiceGrid({ section }: { section?: NumberedSection }) {
   return (
     <section
       aria-labelledby="what-we-build"
-      className="band-dark dark w-full bg-background py-20 text-foreground md:py-24"
+      className="band-dark dark w-full scroll-mt-(--site-header-height) bg-background py-20 text-foreground md:py-24"
+      id={section ? "services" : undefined}
     >
       <Container className="flex flex-col gap-12">
-        <ServicesLabel label="What we build" />
+        {section ? (
+          <SectionLabel label="What I build" section={section} />
+        ) : (
+          <ServicesLabel label="What I build" />
+        )}
 
         <div className="flex flex-wrap items-end justify-between gap-4">
           <h2
@@ -122,7 +135,7 @@ export function ServiceGrid() {
                 Something else in mind?
               </p>
               <p className="max-w-md text-base text-body leading-[1.3] tracking-[-0.05em]">
-                Tell us what you are building and where you are stuck. We will
+                Tell me what you are building and where you are stuck. I will
                 reply by email.
               </p>
             </div>
