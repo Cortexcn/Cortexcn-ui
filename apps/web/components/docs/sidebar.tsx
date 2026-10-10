@@ -3,9 +3,11 @@
 import Link from "fumadocs-core/link";
 import type * as PageTree from "fumadocs-core/page-tree";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { DocsScrollArea } from "@/components/docs/docs-scroll-area";
 import { NavLinkLabel } from "@/components/docs/nav-link-label";
+import { COMPONENT_GROUPS } from "@/lib/component-families";
+import { sidebarTreeFor } from "@/lib/docs-sidebar";
 import { cn } from "@/lib/utils";
 
 const linkStyles = {
@@ -29,6 +31,11 @@ interface SidebarProps {
 
 export function Sidebar({ tree, links = [] }: SidebarProps) {
   const pathname = usePathname();
+  // A family's pages list only that family, not every component.
+  const pageTree = useMemo(
+    () => sidebarTreeFor(tree, pathname),
+    [tree, pathname],
+  );
 
   return (
     <aside className="fixed top-(--site-header-height) left-0 hidden h-[calc(100vh-var(--site-header-height))] w-80 overflow-hidden bg-background lg:block">
@@ -57,7 +64,7 @@ export function Sidebar({ tree, links = [] }: SidebarProps) {
               })}
             </ul>
           )}
-          <SidebarNodes nodes={tree.children} />
+          <SidebarNodes nodes={pageTree.children} />
         </nav>
       </DocsScrollArea>
     </aside>
@@ -78,10 +85,24 @@ function SidebarNode({ node }: { node: PageTree.Node }) {
   const pathname = usePathname();
 
   if (node.type === "separator") {
+    // A component family's heading links to that family's overview page.
+    const family = COMPONENT_GROUPS.find((group) => group.name === node.name);
     return (
       <li className={cn(linkStyles.heading, "mt-4 pt-3 first:mt-0 first:pt-0")}>
         {node.icon}
-        <span>{node.name}</span>
+        {family ? (
+          <Link
+            className={cn(
+              "no-underline transition-colors hover:text-foreground",
+              pathname === family.href && "text-foreground",
+            )}
+            href={family.href}
+          >
+            {node.name}
+          </Link>
+        ) : (
+          <span>{node.name}</span>
+        )}
       </li>
     );
   }

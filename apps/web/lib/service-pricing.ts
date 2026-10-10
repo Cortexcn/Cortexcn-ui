@@ -1,4 +1,5 @@
 import { contactHref } from "@/lib/contact/prefill";
+import { CHECKOUT_URLS } from "@/lib/site-config";
 
 /**
  * Prices in US dollars for the component plans and for client work. The
@@ -69,13 +70,20 @@ export const COMPONENT_PLAN_PRICES = { pro: 149, ultra: 449 } as const;
 /** Days after purchase that a component plan can be refunded in full. */
 export const PLAN_REFUND_DAYS = 14;
 
-function earlyAccessAction(plan: string): PlanAction {
+/**
+ * "Buy Pro: $149". Goes to the plan's checkout link in `lib/site-config.ts`,
+ * or, until that is set, to the contact form with the order written out.
+ */
+function buyAction(plan: "Pro" | "Ultra", price: number): PlanAction {
+  const checkout = plan === "Pro" ? CHECKOUT_URLS.pro : CHECKOUT_URLS.ultra;
   return {
-    label: "Get early access",
-    href: contactHref(
-      "question",
-      `Hi, I would like early access to the Cortexcn ${plan} plan. Please email me when it opens.`,
-    ),
+    label: `Buy ${plan}: ${formatUsd(price)}`,
+    href:
+      checkout ||
+      contactHref(
+        "question",
+        `Hi, I would like to buy the Cortexcn ${plan} plan (${formatUsd(price)}). Please send me a payment link.`,
+      ),
   };
 }
 
@@ -107,7 +115,7 @@ export const COMPONENT_PLANS: PricedPackage[] = [
       "Unlimited projects",
       "Email support",
     ],
-    action: earlyAccessAction("Pro"),
+    action: buyAction("Pro", COMPONENT_PLAN_PRICES.pro),
     badge: "Recommended",
   },
   {
@@ -122,7 +130,7 @@ export const COMPONENT_PLANS: PricedPackage[] = [
       "Every new component, for life",
       "Priority email support",
     ],
-    action: earlyAccessAction("Ultra"),
+    action: buyAction("Ultra", COMPONENT_PLAN_PRICES.ultra),
   },
 ];
 
@@ -144,6 +152,8 @@ const SITE_PAGE_PRICE = 350;
 const APP_SCREEN_PRICE = 600;
 const COPY_PAGE_PRICE = 150;
 export const CARE_PLAN_MONTHLY_PRICE = 250;
+/** Technical SEO, sold as an add-on to any project. */
+const SEO_PRICE = 900;
 const RUSH_SHARE = 0.4;
 
 export const PROJECT_PACKAGES: PricedPackage[] = [
@@ -269,56 +279,32 @@ export const SERVICE_PRICES: ServicePrice[] = [
     includes: ["5 pages", "CMS", "SEO basics"],
   },
   {
-    title: "E-commerce stores",
+    title: "E-commerce",
     price: PROJECT_STARTING_PRICES.store,
     cadence: "project",
     timeline: "5 to 7 weeks",
     includes: ["Catalog and cart", "Checkout and payments", "Orders admin"],
   },
   {
-    title: "Web applications",
+    title: "Web apps + APIs",
     price: PROJECT_STARTING_PRICES.app,
     cadence: "project",
     timeline: "8 to 12 weeks",
-    includes: ["Auth and roles", "Dashboard and API", "Tests and deploys"],
+    includes: [
+      "Auth, roles, and dashboards",
+      "APIs and databases",
+      "Services and deploys",
+    ],
   },
   {
-    title: "Backend and APIs",
-    price: 5000,
-    cadence: "project",
-    timeline: "4 to 6 weeks",
-    includes: ["API design and docs", "Database and auth", "Background jobs"],
-  },
-  {
-    title: "Microservices",
-    price: 9000,
-    cadence: "project",
-    timeline: "6 to 10 weeks",
-    includes: ["Service design", "Queues and events", "Containers and CI"],
-  },
-  {
-    title: "AI pipelines",
+    title: "AI features",
     price: 6000,
     cadence: "project",
     timeline: "4 to 8 weeks",
     includes: ["Retrieval over your data", "Agents and tools", "Evals"],
   },
   {
-    title: "SEO",
-    price: 900,
-    cadence: "project",
-    timeline: "1 to 2 weeks",
-    includes: ["Technical audit", "Structured data", "Page speed fixes"],
-  },
-  {
-    title: "Research papers",
-    price: 1500,
-    cadence: "project",
-    timeline: "2 to 4 weeks",
-    includes: ["Code and experiments", "Figures and tables", "Editing"],
-  },
-  {
-    title: "Freelance work",
+    title: "Retainer",
     price: 3600,
     cadence: "month",
     timeline: "40+ hours a month",
@@ -361,6 +347,11 @@ export const ADD_ONS: AddOn[] = [
     name: "Domain and hosting",
     price: "$200",
     detail: "Domain, DNS, hosting, and email set up for you.",
+  },
+  {
+    name: "SEO",
+    price: formatUsd(SEO_PRICE),
+    detail: "Technical audit, structured data, and page speed fixes.",
   },
 ];
 

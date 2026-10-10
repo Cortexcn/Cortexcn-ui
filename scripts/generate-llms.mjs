@@ -26,7 +26,13 @@ const CONTEXT = [
   "For coding agents there is a read-only MCP server at `https://ui.cortexcn.dev/mcp`, agent skills (`npx shadcn@latest add https://ui.cortexcn.dev/r/agent-skills.json`), and a DESIGN.md for the design system (`npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json`). Setup guides are at https://ui.cortexcn.dev/docs/integration.",
 ].join("\n\n");
 
-/** Sidebar labels in `components/meta.json` that read better spelled out. */
+/**
+ * The component family folders, in sidebar order. Each folder's `meta.json`
+ * opens with the `---Name---` separator that names its sidebar group.
+ */
+const COMPONENT_FOLDERS = ["components", "cortex", "backgrounds", "charts"];
+
+/** Sidebar group names that read better spelled out. */
 const COMPONENT_LABELS = {
   Cortex: "Cortexcn Components",
 };
@@ -92,32 +98,28 @@ function metaPages(dirRel) {
   return Array.isArray(meta.pages) ? meta.pages : [];
 }
 
-/** Maps each component slug to the sidebar group it sits under. */
-function componentSectionsBySlug() {
+/** Maps each component family folder to the sidebar group it stands for. */
+function componentSectionsByFolder() {
   const sections = new Map();
-  let current = DEFAULT_COMPONENT_SECTION;
-  for (const entry of metaPages("components")) {
-    const separator = entry.match(SEPARATOR_RE);
-    if (separator) {
-      const label = separator[1].trim();
-      current = COMPONENT_LABELS[label] ?? label;
-      continue;
-    }
-    sections.set(entry, current);
+  for (const folder of COMPONENT_FOLDERS) {
+    const separator = metaPages(folder)
+      .map((entry) => entry.match(SEPARATOR_RE))
+      .find(Boolean);
+    const label = separator ? separator[1].trim() : DEFAULT_COMPONENT_SECTION;
+    sections.set(folder, COMPONENT_LABELS[label] ?? label);
   }
   return sections;
 }
 
-const componentSections = componentSectionsBySlug();
+const componentSections = componentSectionsByFolder();
 
 function sectionFor(relPath) {
   const segments = relPath.split("/");
   if (segments.length === 1) {
     return GETTING_STARTED;
   }
-  if (segments[0] === "components") {
-    const slug = segments[1].replace(MDX_EXTENSION_RE, "");
-    return componentSections.get(slug) ?? DEFAULT_COMPONENT_SECTION;
+  if (componentSections.has(segments[0])) {
+    return componentSections.get(segments[0]);
   }
   if (segments[0] === "utility") {
     return CHART_UTILITIES;

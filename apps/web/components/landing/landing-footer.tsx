@@ -25,8 +25,10 @@ const PAGE_LINKS = [
   { label: "Templates", href: "/templates" },
   { label: "Charts", href: "/charts/area-chart" },
   { label: "Theming", href: "/docs/theming" },
+  { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -93,7 +95,7 @@ function FooterHeading({ children }: { children: string }) {
 const productRowClassName =
   "flex items-center gap-3 text-base text-body leading-[1.3] tracking-[-0.05em]";
 
-/** What Cortexcn makes. Pro has no page yet, so it only says it is coming. */
+/** What Cortexcn makes. */
 function Products() {
   return (
     <div className="flex flex-col gap-4 border-border border-t p-6 sm:p-10">
@@ -119,17 +121,6 @@ function Products() {
             </span>
             <ArrowUpRightIcon className="size-3.5 shrink-0 text-faint transition-colors group-hover:text-primary" />
           </a>
-        </li>
-        <li className={productRowClassName}>
-          <CortexcnLogo size={20} theme="auto" />
-          <span className="font-medium text-foreground">Cortexcn Pro</span>
-          <span
-            aria-hidden="true"
-            className="h-px min-w-6 flex-1 border-border border-t border-dashed"
-          />
-          <span className="shrink-0 bg-primary/10 px-1.5 py-1 font-medium font-mono text-primary text-xs uppercase leading-none tracking-normal">
-            Coming soon
-          </span>
         </li>
       </ul>
     </div>

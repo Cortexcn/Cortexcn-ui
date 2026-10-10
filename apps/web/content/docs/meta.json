@@ -4,6 +4,9 @@
     "---Integration---",
     "...integration",
     "...components",
+    "...cortex",
+    "...backgrounds",
+    "...charts",
     "---Chart Utilities---",
     "...utility"
   ]

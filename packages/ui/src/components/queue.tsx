@@ -128,7 +128,7 @@ export const QueueItemAction = ({
 }: QueueItemActionProps) => (
   <Button
     className={cn(
-      "size-auto rounded p-1 text-muted-foreground opacity-0 transition-opacity hover:bg-muted-foreground/10 hover:text-foreground group-hover:opacity-100",
+      "size-auto rounded-sm p-1 text-muted-foreground opacity-0 transition-opacity hover:bg-muted-foreground/10 hover:text-foreground group-hover:opacity-100",
       className,
     )}
     size="icon"
@@ -156,7 +156,7 @@ export const QueueItemImage = ({
   // biome-ignore lint/performance/noImgElement: framework-agnostic registry component
   <img
     alt=""
-    className={cn("h-8 w-8 rounded border object-cover", className)}
+    className={cn("h-8 w-8 rounded-sm border object-cover", className)}
     height={32}
     width={32}
     {...props}
@@ -172,7 +172,7 @@ export const QueueItemFile = ({
 }: QueueItemFileProps) => (
   <span
     className={cn(
-      "flex items-center gap-1 rounded border bg-muted px-2 py-1 text-xs",
+      "flex items-center gap-1 rounded-sm border bg-muted px-2 py-1 text-xs",
       className,
     )}
     {...props}

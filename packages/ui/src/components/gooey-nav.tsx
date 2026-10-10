@@ -269,7 +269,7 @@ export function GooeyNav({
                 <a
                   aria-current={index === active ? "page" : undefined}
                   className={cn(
-                    "inline-flex h-10 items-center whitespace-nowrap rounded-full px-5 font-medium text-muted-foreground text-sm outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/50",
+                    "inline-flex h-10 items-center whitespace-nowrap rounded-full px-5 font-medium text-muted-foreground text-sm outline-none transition-colors duration-base focus-visible:ring-2 focus-visible:ring-ring/50",
                     ready && "hover:text-foreground",
                     // Before the pill is measured, the active link fills itself.
                     !ready &&

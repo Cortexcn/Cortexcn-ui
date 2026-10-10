@@ -1,8 +1,8 @@
+import { componentDocsUrl } from "@/lib/component-families";
+
 /**
  * Every Cortexcn release, newest first. The /changelog page on the component
- * library site lists them all, and the services landing shows the latest
- * three, so add a release here and both update. Dates come from the
- * repository history.
+ * library site lists them all. Dates come from the repository history.
  */
 
 export interface ChangelogLink {
@@ -22,10 +22,11 @@ export interface ChangelogRelease {
   items: ChangelogLink[];
 }
 
+/** Links each slug to its docs page, in whichever family it belongs to. */
 function componentLinks(names: [string, string][]): ChangelogLink[] {
   return names.map(([label, slug]) => ({
     label,
-    href: `/docs/components/${slug}`,
+    href: componentDocsUrl(slug),
   }));
 }
 
@@ -41,35 +42,24 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
-    date: "2026-10-08",
-    kind: "site",
-    title: "Services get their own page",
+    date: "2026-10-10",
+    kind: "components",
+    title: "Design systems for every component",
     summary:
-      "Client work moved from a section of the home page to its own Services page. It lists every service with its starting price and timeline, shows how a project runs from the first email to launch, and compares working per project with a retainer. The link now sits in the footer.",
-    items: [{ label: "Services", href: "/services" }],
+      "The new Design Systems page restyles every component on it in one of 25 design systems, in light and dark mode: each sets its own colors, fonts, corners, sizes, shadows, and motion, and the component code stays the same. The systems come from community DESIGN.md files, unofficial descriptions inspired by public websites such as Linear, Stripe, and Airbnb, with open-licensed fonts standing in for proprietary ones. Installed components accept the same themes through the new design-system-recipes registry item.",
+    items: [{ label: "Design systems", href: "/design-systems" }],
   },
   {
-    date: "2026-10-08",
-    kind: "blocks",
-    title: "Stat card blocks install with any package manager",
+    date: "2026-10-10",
+    kind: "site",
+    title: "AI Travel App, Growth Agency, and Trek Agency templates",
     summary:
-      "The trend badge in the Area, Line, and Choropleth stat cards now draws its arrows with lucide-react instead of Central Icons. The blocks no longer need a Central Icons license key, so they install with npm and pnpm as well as Bun.",
+      "Three new paid templates, each a complete Next.js site with a live preview. AI Travel App is a launch site for a trip planner, with a prompt bar that types out trips. Growth Agency is a studio site with giant condensed type and case studies that stack as you scroll. Trek Agency is a guided hiking site with terrain buttons that change the hero landscape. Every picture is drawn in SVG or CSS, and every word lives in one config file.",
     items: [
-      { label: "Stat Card Area", href: "/blocks/stat-cards/stat-card-area-01" },
-      { label: "Stat Card Line", href: "/blocks/stat-cards/stat-card-line-01" },
-      {
-        label: "Stat Card Choropleth",
-        href: "/blocks/stat-cards/stat-card-choropleth-01",
-      },
+      { label: "AI Travel App", href: "/templates/ai-travel-app" },
+      { label: "Growth Agency", href: "/templates/growth-agency" },
+      { label: "Trek Agency", href: "/templates/trek-agency" },
     ],
-  },
-  {
-    date: "2026-10-05",
-    kind: "site",
-    title: "Rate limits on the MCP server",
-    summary:
-      "The MCP server now takes up to 120 requests a minute and 3,000 a day from each IP address. Over a limit, your assistant gets a 429 with a Retry-After header and a message that says how long to wait.",
-    items: [{ label: "MCP Server", href: "/docs/integration/mcp" }],
   },
   {
     date: "2026-10-03",
@@ -83,14 +73,6 @@ export const CHANGELOG: ChangelogRelease[] = [
         href: "/blocks/features/feature-walkthrough-01",
       },
     ],
-  },
-  {
-    date: "2026-10-03",
-    kind: "site",
-    title: "Numbered cards in the Blocks gallery",
-    summary:
-      "Each card in the Cortexcn Blocks gallery now shows its place in its category beside the category name, such as 01 · Hero and 02 · Hero, so a block is easy to point to.",
-    items: [{ label: "Blocks", href: "/blocks" }],
   },
   {
     date: "2026-10-03",
@@ -205,17 +187,6 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-02",
     kind: "blocks",
-    title: "AI Assistant moves to Blocks",
-    summary:
-      "Reasoning, Chain of Thought, and Shimmer now live under Blocks in a new AI Assistant category, each with a live preview, its code, and a one-command install. Their old component pages redirect there.",
-    items: [
-      ...AI_ASSISTANT_BLOCK_LINKS,
-      { label: "AI Assistant blocks", href: "/blocks?category=ai-assistant" },
-    ],
-  },
-  {
-    date: "2026-10-02",
-    kind: "blocks",
     title: "Feature Bento Grid block",
     summary:
       "Photo tiles, logo tiles, and stat cards on a twelve-column bento grid, with one call to action. Every image, figure, and caption is a prop.",
@@ -240,9 +211,7 @@ export const CHANGELOG: ChangelogRelease[] = [
     title: "Fan-Out Diagram",
     summary:
       "An animated architecture diagram for landing pages: one source feeds a hub that fans out to a row per sandbox, worker, or agent, each with a live status. It draws in on scroll and sends packets along the lines while it is on screen.",
-    items: [
-      { label: "Fan-Out Diagram", href: "/docs/components/fan-out-diagram" },
-    ],
+    items: [{ label: "Fan-Out Diagram", href: "/docs/cortex/fan-out-diagram" }],
   },
   {
     date: "2026-09-29",
@@ -271,18 +240,6 @@ export const CHANGELOG: ChangelogRelease[] = [
     summary:
       "Two compact cards and a large photo tile for posts, case studies, or launches. Every image, title, and link is a prop.",
     items: [{ label: "Feature blocks", href: "/blocks?category=features" }],
-  },
-  {
-    date: "2026-09-29",
-    kind: "site",
-    title: "A home for the component library",
-    summary:
-      "ui.cortexcn.dev now opens on its own home page, and the docs, blocks, and charts all live on the component library site with their own navigation.",
-    items: [
-      { label: "Library home", href: "/" },
-      { label: "Blocks", href: "/blocks" },
-      { label: "Charts", href: "/charts/area-chart" },
-    ],
   },
   {
     date: "2026-09-28",
@@ -318,17 +275,6 @@ export const CHANGELOG: ChangelogRelease[] = [
       ["Work Experience", "work-experience"],
       ["Perspective Marquee", "perspective-marquee"],
     ]),
-  },
-  {
-    date: "2026-09-26",
-    kind: "blocks",
-    title: "Blocks, sorted by category",
-    summary:
-      "Feature and stat card blocks now live in categories, each with a live preview you can copy from.",
-    items: [
-      { label: "Feature blocks", href: "/blocks?category=features" },
-      { label: "Stat card blocks", href: "/blocks?category=stat-cards" },
-    ],
   },
   {
     date: "2026-09-20",

@@ -1,41 +1,16 @@
 import type * as PageTree from "fumadocs-core/page-tree";
 
+import {
+  COMPONENT_GROUPS,
+  type ComponentGroup,
+} from "@/lib/component-families";
 import { source } from "@/lib/source";
 
 /**
- * The component families. Each `name` must match a `---Name---` separator in
- * content/docs/components/meta.json, and `category` is the value used in the
- * registry's `categories` field.
+ * Pages listed under a sidebar separator, up to the next separator. Each
+ * family's folder is extracted into the root sidebar, so its `---Name---`
+ * separator sits at the top level of the page tree.
  */
-export const COMPONENT_GROUPS = [
-  {
-    name: "Components",
-    category: "components",
-    description:
-      "Everyday building blocks from shadcn/ui, from buttons and dialogs to menus, forms, and sidebars.",
-  },
-  {
-    name: "Cortex",
-    category: "cortex",
-    description:
-      "Cortexcn originals you won't find in shadcn/ui: motion, navigation, and theming.",
-  },
-  {
-    name: "Backgrounds",
-    category: "backgrounds",
-    description:
-      "Animated full-bleed backgrounds for heroes and sections, drawn with WebGL.",
-  },
-  {
-    name: "Charts",
-    category: "charts",
-    description: "Composable charts with animation, tooltips, and themes.",
-  },
-] as const;
-
-export type ComponentGroup = (typeof COMPONENT_GROUPS)[number];
-
-/** Pages listed under a sidebar separator, up to the next separator. */
 export function componentGroupPages(name: string): PageTree.Item[] {
   const nodes = source.pageTree.children;
   const start = nodes.findIndex(

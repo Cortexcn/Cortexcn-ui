@@ -16,6 +16,12 @@ export const SITE_TITLE = "Cortexcn - shadcn/ui components, charts, and blocks";
 export const SITE_DESCRIPTION =
   "Cortexcn is a shadcn/ui registry of React components, charts, and blocks. Install them with one command, or let your AI agent build with them. Built for freelancers, developers, and startups who ship fast.";
 
+/** The www home page, which sells client work first. */
+export const HOME_TITLE = "Cortexcn - Websites and web apps by Syed Moinuddin";
+
+export const HOME_DESCRIPTION =
+  "I design and build landing pages, websites, online stores, web apps, and AI features on Next.js. You get a written quote before work starts, a preview link every week, and code that lives in your repo.";
+
 export const SITE_KEYWORDS = [
   "Cortexcn",
   "shadcn/ui",

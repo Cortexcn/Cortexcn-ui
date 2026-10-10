@@ -80,10 +80,10 @@ const ROW_H = 46;
 const MIN_HUB_GAP = 110;
 
 const STATUS_DOT: Record<FanOutStatus, string> = {
-  running: "fill-emerald-500",
-  starting: "fill-amber-500",
+  running: "fill-success",
+  starting: "fill-warning",
   stopped: "fill-muted-foreground",
-  error: "fill-red-500",
+  error: "fill-destructive",
 };
 
 /** Drops repeated and collinear points, so every remaining corner is a real turn. */
@@ -400,29 +400,50 @@ function Diagram({
     >
       <title>{label}</title>
       <defs>
-        <filter height="220%" id={`${id}-card`} width="140%" x="-20%" y="-40%">
+        <filter
+          className="text-shadow-ink"
+          height="220%"
+          id={`${id}-card`}
+          width="140%"
+          x="-20%"
+          y="-40%"
+        >
           <feDropShadow
             dx="0"
             dy="6"
-            floodColor="#0a0a0a"
+            floodColor="currentColor"
             floodOpacity="0.07"
             stdDeviation="8"
           />
         </filter>
-        <filter height="128%" id={`${id}-panel`} width="120%" x="-10%" y="-12%">
+        <filter
+          className="text-shadow-ink"
+          height="128%"
+          id={`${id}-panel`}
+          width="120%"
+          x="-10%"
+          y="-12%"
+        >
           <feDropShadow
             dx="0"
             dy="10"
-            floodColor="#0a0a0a"
+            floodColor="currentColor"
             floodOpacity="0.05"
             stdDeviation="16"
           />
         </filter>
-        <filter height="220%" id={`${id}-hub`} width="220%" x="-60%" y="-60%">
+        <filter
+          className="text-shadow-ink"
+          height="220%"
+          id={`${id}-hub`}
+          width="220%"
+          x="-60%"
+          y="-60%"
+        >
           <feDropShadow
             dx="0"
             dy="10"
-            floodColor="#0a0a0a"
+            floodColor="currentColor"
             floodOpacity="0.12"
             stdDeviation="12"
           />

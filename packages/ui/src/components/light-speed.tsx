@@ -214,7 +214,7 @@ export function LightSpeed({
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full overflow-hidden bg-[#05070b]",
+        "pointer-events-none absolute inset-0 h-full w-full overflow-hidden bg-light-speed",
         className,
       )}
     >

@@ -155,7 +155,7 @@ const CARDS: StackCard[] = [
       "A command palette that types its own queries and a ticker that rolls to each new value. Both hold still when reduced motion is on.",
     cta: {
       label: "See Command Search",
-      href: "/docs/components/command-search",
+      href: "/docs/cortex/command-search",
     },
     art: "pastel-daisies",
     tile: (

@@ -122,7 +122,7 @@ const USE_CASES: UseCase[] = [
     ],
     cta: {
       label: "Browse components",
-      href: "/docs/components/work-experience",
+      href: "/docs/cortex/work-experience",
     },
     art: <Painting art="white-blooms" sizes={ART_SIZES} />,
     window: <UseCasesPortfolioWindow />,

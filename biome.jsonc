@@ -3,7 +3,12 @@
   "extends": ["ultracite/biome/core", "ultracite/biome/next"],
   "files": {
     // Template previews are committed static builds, not source.
-    "includes": ["!!**/.agents", "!!apps/web/public/previews"]
+    "includes": [
+      "!!**/.agents",
+      "!!apps/web/public/previews",
+      // Written by the Convex CLI.
+      "!!apps/web/convex/_generated"
+    ]
   },
   // Prettier also formats some of these files (the DESIGN.md generator runs
   // it), and it adds trailing commas everywhere. Matching it keeps the two

@@ -10,6 +10,7 @@
     "./components/shimmering-text": "./src/components/shimmering-text.tsx",
     "./components/accordion": "./src/components/accordion.tsx",
     "./components/card": "./src/components/card.tsx",
+    "./components/table": "./src/components/table.tsx",
     "./components/marquee": "./src/components/marquee.tsx",
     "./components/perspective-marquee": "./src/components/perspective-marquee.tsx",
     "./components/line-nav": "./src/components/line-nav.tsx",

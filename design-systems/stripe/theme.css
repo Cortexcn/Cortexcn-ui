@@ -1,0 +1,163 @@
+/*
+ * Stripe (design-systems/stripe). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Stripe's public website; not affiliated with or endorsed by Stripe.
+ */
+
+[data-theme="stripe"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #0d253d;
+  --card: #ffffff;
+  --card-foreground: #0d253d;
+  --popover: #ffffff;
+  --popover-foreground: #0d253d;
+  --primary: #533afd;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f9fc;
+  --secondary-foreground: #0d253d;
+  --muted: #f6f9fc;
+  --muted-foreground: #273951;
+  --accent: #f6f9fc;
+  --accent-foreground: #0d253d;
+  --destructive: #ea2261;
+  --border: #e3e8ee;
+  --input: #a8c3de;
+  --ring: #533afd;
+  --chart-1: #533afd;
+  --chart-2: #7a82ff;
+  --chart-3: #3418b0;
+  --chart-4: #a6b1ff;
+  --chart-5: #1c006f;
+  --ds-primary-hover: #2e2b8c;
+  --ds-success: #15803d;
+  --ds-warning: #9b6829;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 300;
+  --ds-weight-medium: 400;
+  --ds-weight-bold: 300;
+  --ds-tracking-display: -0.025em;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 1.03;
+  --ds-leading-body: 1.4;
+  --radius: 12px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 2px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-full);
+  --ds-button-h-xs: 20px;
+  --ds-button-h-sm: 28px;
+  --ds-button-h-md: 32px;
+  --ds-button-h-lg: 36px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: 0 0 #0000;
+  --ds-input-radius: var(--ds-radius-sm);
+  --ds-input-h: 37px;
+  --ds-input-px: 12px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: 0 0 #0000;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 32px;
+  --ds-card-shadow: 0 0 #0000;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--card);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-md);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-underline: 0;
+  --ds-tabs-active-border: var(--input);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="stripe"].dark,
+.dark [data-theme="stripe"] {
+  color-scheme: dark;
+  --background: #0f0f0f;
+  --foreground: #e8f3ff;
+  --card: #171717;
+  --card-foreground: #e8f3ff;
+  --popover: #1c1c1c;
+  --popover-foreground: #e8f3ff;
+  --primary: #533afd;
+  --primary-foreground: #ffffff;
+  --secondary: #242424;
+  --secondary-foreground: #e8f3ff;
+  --muted: #242424;
+  --muted-foreground: #99a6b8;
+  --accent: #242424;
+  --accent-foreground: #e8f3ff;
+  --destructive: #ff4c78;
+  --border: #2d2d2d;
+  --input: #373737;
+  --ring: #533afd;
+  --chart-1: #533afd;
+  --chart-2: #666be6;
+  --chart-3: #c1caff;
+  --chart-4: #626ab2;
+  --chart-5: #c1caff;
+  --ds-primary-hover: #4513e4;
+  --ds-success: #50af69;
+  --ds-warning: #c18c4f;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="stripe"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}

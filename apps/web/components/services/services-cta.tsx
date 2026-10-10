@@ -18,7 +18,7 @@ export function ServicesCta() {
             Have a project in mind?
           </h2>
           <p className="text-body text-lg leading-[1.4] tracking-[-0.04em]">
-            Tell us what you are building and where you are stuck. We reply by
+            Tell me what you are building and where you are stuck. I reply by
             email with next steps.
           </p>
         </div>

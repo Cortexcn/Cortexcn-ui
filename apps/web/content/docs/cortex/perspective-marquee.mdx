@@ -1,0 +1,64 @@
+---
+title: Perspective Marquee
+description: A tilted wall of images that scrolls endlessly in alternating columns.
+---
+
+import { perspectiveMarqueeDemoCode } from "@/components/docs/ui-demo-code";
+import { PerspectiveMarqueeDemo } from "@/components/docs/perspective-marquee-demo";
+
+<ComponentPreview code={perspectiveMarqueeDemoCode}>
+  <PerspectiveMarqueeDemo />
+</ComponentPreview>
+
+## Features
+
+- Columns scroll in opposite directions, forever, with no gaps or jumps.
+- Hovering a column pauses it, and hovering an image lifts it.
+- The wall scales down on small screens and fades out at the edges.
+- Built on [Marquee](/docs/cortex/marquee), so it needs no animation library.
+- Respects reduced motion by pausing the columns.
+
+## Installation
+
+<InstallationTabs name="perspective-marquee" />
+
+The CLI also installs [Marquee](/docs/cortex/marquee) and adds its animations to your `globals.css`.
+
+## Usage
+
+```tsx
+import { PerspectiveMarquee } from "@/components/perspective-marquee";
+```
+
+```tsx
+<PerspectiveMarquee
+  images={[
+    { src: "/screens/dashboard.png", alt: "Dashboard" },
+    { src: "/screens/pricing.png", alt: "Pricing page" },
+  ]}
+/>
+```
+
+Images are spread across the columns in order, so the first image goes to the first column, the second to the second, and so on. Around 12 to 20 images fill the wall well. Images use a 4:3 frame and `object-cover`.
+
+## Examples
+
+### Three columns
+
+<ComponentShowcase code={`<PerspectiveMarquee columns={3} images={images} />`}>
+  <PerspectiveMarqueeDemo columns={3} />
+</ComponentShowcase>
+
+### As a hero background
+
+Place it behind your content with `absolute inset-0` and lower its opacity so text stays readable.
+
+## Props
+
+| Prop           | Type                        | Default  | Description                                          |
+| -------------- | --------------------------- | -------- | ---------------------------------------------------- |
+| `images`       | `PerspectiveMarqueeImage[]` | required | Images for the wall, each with `src` and `alt`       |
+| `columns`      | `number`                    | `4`      | Number of scrolling columns                          |
+| `duration`     | `number`                    | `40`     | Seconds for one loop. Every other column runs slower |
+| `pauseOnHover` | `boolean`                   | `true`   | Pause a column while the pointer is over it          |
+| `className`    | `string`                    | -        | Extra classes for the container, such as a height    |

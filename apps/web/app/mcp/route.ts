@@ -1,7 +1,9 @@
 import { createMcpHandler } from "@modelcontextprotocol/server";
+import { after } from "next/server";
 import { createServer } from "@/lib/mcp/server";
 import { clientIp, createRateLimiter } from "@/lib/rate-limit";
 import { DOCS_URL } from "@/lib/site-url";
+import { logUsage, mcpEntries, requestIp } from "@/lib/usage-log";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -83,6 +85,19 @@ async function serve(request: Request) {
   const limit = await takeRateLimit(clientIp(request) ?? "unknown");
   if (limit.limited) {
     return tooManyRequests(limit.retryAfterSeconds);
+  }
+
+  // Log each call for /admin/stats once the response is sent. Only requests
+  // that pass the rate limit are logged.
+  if (request.method === "POST") {
+    const copy = request.clone();
+    after(async () => {
+      try {
+        await logUsage(mcpEntries(await copy.json()), requestIp(request));
+      } catch {
+        // A body that is not JSON is the handler's problem, not the log's.
+      }
+    });
   }
 
   return withCors(await handler.fetch(request));

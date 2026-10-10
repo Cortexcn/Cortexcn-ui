@@ -1,0 +1,19 @@
+{
+  "extends": "@cortexcn/typescript-config/base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    // Bun bundles the server together with the shared schema in
+    // ../../design-systems/_schema, so resolve like a bundler.
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": [
+    "src",
+    "../../design-systems/_schema",
+    "../../scripts/validate-design-systems.ts",
+    "../../scripts/design-systems"
+  ]
+}

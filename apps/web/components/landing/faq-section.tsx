@@ -3,40 +3,60 @@
 import { useId, useState } from "react";
 
 import {
+  CARE_PLAN_MONTHLY_PRICE,
   COMPONENT_PLAN_PRICES,
   FREE_PLAN_LIMITS,
   formatUsd,
   PROJECT_STARTING_PRICES,
+  SERVICE_PRICES,
 } from "@/lib/service-pricing";
 import { cn } from "@/lib/utils";
 
 import { DotTexture, IndexMark, SectionLabel, TypeHeading } from "./kit";
 import { Container } from "./primitives";
 
+/** The usual timeline for a service, as /pricing lists it. */
+function timeline(title: string) {
+  return SERVICE_PRICES.find((price) => price.title === title)?.timeline ?? "";
+}
+
+/** What people ask before they hire me. Facts match /pricing and the terms. */
 const FAQS = [
   {
-    question: "What is Cortexcn?",
-    answer:
-      "A registry of React components, charts, and blocks built on shadcn/ui. You install them with the shadcn CLI, or your AI agent installs them for you.",
+    question: "What does a project cost?",
+    answer: `Landing pages start at ${formatUsd(PROJECT_STARTING_PRICES.landing)}, websites at ${formatUsd(PROJECT_STARTING_PRICES.website)}, online stores at ${formatUsd(PROJECT_STARTING_PRICES.store)}, and web apps at ${formatUsd(PROJECT_STARTING_PRICES.app)}. After a short call or a few emails, you get a written quote with scope, price, and timeline, and that quote is what you pay.`,
   },
   {
-    question: "How do I install a component?",
-    answer:
-      "Add the @cortexcn registry to your components.json once, then run npx shadcn@latest add with the component name. The source is copied into your project, so there is no package to keep updated.",
+    question: "How long does it take?",
+    answer: `A landing page usually takes ${timeline("Landing pages")}, a website ${timeline("Websites")}, an online store ${timeline("E-commerce")}, and a web app ${timeline("Web apps + APIs")}. Your quote sets the exact dates before work starts.`,
   },
   {
-    question: "Does it work with my AI agent?",
+    question: "How do payments work?",
     answer:
-      "Yes. Any agent that can run the shadcn CLI or use the shadcn MCP server can install Cortexcn components. That includes Claude Code, Cursor, and Codex.",
+      "Projects are paid in two parts: 50% to start and 50% before launch. Retainers are billed monthly in advance. Every price is in US dollars, and project deposits are refunded in full until work starts.",
   },
   {
-    question: "Can I change the code?",
+    question: "Will I see the work before launch?",
     answer:
-      "Yes. Components live in your repo as plain React and Tailwind. Edit the markup, props, or styles, and theme everything with your own CSS variables.",
+      "Yes. Every week you get an update and a preview link to click through, in a shared Slack channel or the tool your team already uses.",
   },
   {
-    question: "What does it cost?",
-    answer: `${FREE_PLAN_LIMITS.components} components and ${FREE_PLAN_LIMITS.templates} templates are free. Pro, with every component, is ${formatUsd(COMPONENT_PLAN_PRICES.pro)}, and Ultra, with every template and every future release, is ${formatUsd(COMPONENT_PLAN_PRICES.ultra)}. Both are paid once. Client work starts at ${formatUsd(PROJECT_STARTING_PRICES.landing)} for a landing page, and the pricing page has an estimator for bigger projects.`,
+    question: "Who owns the code?",
+    answer:
+      "You do. The code lives in your repo, so you can host it anywhere and hand it to any developer later.",
+  },
+  {
+    question: "What happens after launch?",
+    answer: `Every project includes 30 days of fixes after launch. After that, the care plan covers updates and small fixes for ${formatUsd(CARE_PLAN_MONTHLY_PRICE)} a month, or I quote bigger changes as a new project.`,
+  },
+  {
+    question: "Can you work on a site I already have?",
+    answer:
+      "Yes. I take on work in codebases that already exist, most often Next.js, React, and TypeScript. If yours runs on something else, tell me, and I will say honestly whether I am the right fit.",
+  },
+  {
+    question: "What is the component library?",
+    answer: `Cortexcn is also a library of React components, charts, and blocks that I build every project on. ${FREE_PLAN_LIMITS.components} components are free, and Pro (${formatUsd(COMPONENT_PLAN_PRICES.pro)}) and Ultra (${formatUsd(COMPONENT_PLAN_PRICES.ultra)}) are paid once, if you want to use them yourself.`,
   },
 ];
 
@@ -137,7 +157,7 @@ export function FaqSection() {
       <Container className="flex flex-col gap-6">
         <SectionLabel label="FAQs" section="faq" />
         <div className="flex flex-col gap-16">
-          <TypeHeading lines={["Good questions.", "Straight answers."]} />
+          <TypeHeading lines={["Before you hire me.", "Straight answers."]} />
           <div className="border-border border-t">
             {FAQS.map((faq, index) => (
               <FaqItem

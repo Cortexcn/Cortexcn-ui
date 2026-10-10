@@ -17,6 +17,7 @@ import { PageFooter } from "@/components/docs/page-footer";
 import { TableOfContents } from "@/components/docs/toc";
 import { JsonLd } from "@/components/seo/json-ld";
 import { componentGroupOf } from "@/lib/component-groups";
+import { sidebarTreeFor } from "@/lib/docs-sidebar";
 import { stripMdxComments } from "@/lib/llms";
 import {
   breadcrumbJsonLd,
@@ -63,7 +64,11 @@ export default async function Page(props: {
 
   const data = page.data as PageData;
   const MDX = data.body;
-  const neighbours = findNeighbour(source.pageTree, page.url);
+  // Previous and next stay inside the section the sidebar shows.
+  const neighbours = findNeighbour(
+    sidebarTreeFor(source.pageTree, page.url),
+    page.url,
+  );
   const group = componentGroupOf(page.url);
 
   // Read raw MDX content for copy functionality
@@ -98,7 +103,7 @@ export default async function Page(props: {
               {group ? (
                 <Link
                   className="mb-3 inline-flex rounded-md border border-border px-2 py-0.5 font-medium font-mono text-muted-foreground text-xs uppercase tracking-wide transition-colors hover:text-foreground"
-                  href={`/docs/components#${group.category}`}
+                  href={group.href}
                   title={group.description}
                 >
                   {group.name}

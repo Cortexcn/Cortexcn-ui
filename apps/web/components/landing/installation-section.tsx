@@ -15,108 +15,64 @@ interface InstallStep {
   code: string;
 }
 
+/** Connecting an AI agent to the hosted Cortexcn MCP server, in three steps. */
 const STEPS: InstallStep[] = [
   {
-    title: "CLI",
+    title: "Claude Code",
     description:
-      "Add the registry once, then install any component with the shadcn CLI.",
-    code: `# 1. Set up shadcn/ui (skip if you have it)
-npx shadcn@latest init
+      "Connect the hosted Cortexcn MCP server with one command. There is nothing to install and no sign-in.",
+    code: `# Connect the Cortexcn MCP server
+claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp
 
-# 2. Add the registry to components.json
+# Or connect it once for every project
+claude mcp add --transport http --scope user cortexcn https://ui.cortexcn.dev/mcp
+
+# The project needs shadcn set up (skip if it has components.json)
+npx shadcn@latest init`,
+  },
+  {
+    title: "Cursor, VS Code, and Codex",
+    description:
+      "Every client uses the same URL. Add it to your editor's MCP config, or run one command in Codex.",
+    code: `# Cursor: .cursor/mcp.json
 {
-  "registries": {
-    "@cortexcn": "https://ui.cortexcn.dev/r/{name}.json"
+  "mcpServers": {
+    "cortexcn": {
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
   }
 }
 
-# 3. Install a chart and a marquee in one command
-npx shadcn@latest add @cortexcn/area-chart @cortexcn/marquee
+# VS Code with Copilot: .vscode/mcp.json
+{
+  "servers": {
+    "cortexcn": {
+      "type": "http",
+      "url": "https://ui.cortexcn.dev/mcp"
+    }
+  }
+}
 
-✔ Checking registry.
-✔ Installing dependencies.
-✔ Created files:
-  - components/charts/area-chart.tsx
-  - components/charts/area.tsx
-  - components/charts/grid.tsx
-  - components/charts/x-axis.tsx
-  - components/charts/tooltip/chart-tooltip.tsx
-  - components/marquee.tsx
-  # ...and the chart helpers they share`,
+# Codex
+codex mcp add cortexcn --url https://ui.cortexcn.dev/mcp`,
   },
   {
-    title: "AI agent",
+    title: "Ask for it",
     description:
-      "Give your agent the shadcn MCP server, then ask for a component by name.",
-    code: `# Add the shadcn MCP server to Claude Code
-npx shadcn@latest mcp init --client claude
-# Cursor and VS Code: --client cursor, --client vscode
+      "Ask in plain words. Your agent searches the registry, reads the docs, and runs the install command in your project.",
+    code: `# Ask your agent in plain words
+> Add the Lanyard 3D component to the about page.
 
-# Then ask your agent in plain words
-> Build a revenue section for the dashboard: an
-> @cortexcn area chart of monthly revenue and costs,
-> with a marquee of our customers underneath.
+● cortexcn  search_items         "lanyard"
+● cortexcn  get_item             lanyard-3d
+● cortexcn  get_install_command  lanyard-3d
+● Bash      npx shadcn@latest add https://ui.cortexcn.dev/r/lanyard-3d.json
+● Edit      app/about/page.tsx
 
-● shadcn  search_items_in_registries  "area chart"
-● shadcn  view_items_in_registries    @cortexcn/area-chart
-● shadcn  get_add_command_for_items   @cortexcn/area-chart
-● Bash    npx shadcn@latest add @cortexcn/area-chart
-● Bash    npx shadcn@latest add @cortexcn/marquee
-● Write   components/revenue-section.tsx
+✔ Added the Lanyard 3D component to the about page.
 
-✔ Added RevenueSection with an area chart for revenue
-  and costs, and a marquee of customers below it.`,
-  },
-  {
-    title: "React",
-    description:
-      "Import it like any other component in your app and pass your own data.",
-    code: `import { Area } from "@/components/charts/area";
-import { AreaChart } from "@/components/charts/area-chart";
-import { Grid } from "@/components/charts/grid";
-import { ChartTooltip } from "@/components/charts/tooltip";
-import { XAxis } from "@/components/charts/x-axis";
-import { Marquee } from "@/components/marquee";
-
-// Monthly totals in thousands of dollars.
-const revenue = [
-  { date: new Date("2026-06"), revenue: 48.2, costs: 31.4 },
-  { date: new Date("2026-07"), revenue: 53.9, costs: 33.8 },
-  { date: new Date("2026-08"), revenue: 61.8, costs: 35.1 },
-  { date: new Date("2026-09"), revenue: 70.4, costs: 36.9 },
-];
-
-const customers = ["Acme", "Globex", "Initech"];
-
-export function RevenueSection() {
-  return (
-    <section className="grid gap-6 border p-6">
-      <h2 className="font-medium text-lg">Revenue</h2>
-
-      <AreaChart data={revenue}>
-        <Grid horizontal />
-        <Area
-          dataKey="revenue"
-          fill="var(--chart-line-primary)"
-        />
-        <Area
-          dataKey="costs"
-          fill="var(--chart-line-secondary)"
-        />
-        <XAxis />
-        <ChartTooltip />
-      </AreaChart>
-
-      <Marquee pauseOnHover className="[--duration:30s]">
-        {customers.map((name) => (
-          <span className="px-6" key={name}>
-            {name}
-          </span>
-        ))}
-      </Marquee>
-    </section>
-  );
-}`,
+# Other tools: list_items, list_categories,
+# get_item_source, get_setup_guide, get_design_guide`,
   },
 ];
 
@@ -129,7 +85,7 @@ export function RevenueSection() {
  * with two groups: the bracket stays plain and the name is colored.
  */
 const TOKEN_PATTERN =
-  /(#.*$|\/\/.*$)|("[^"]*"|'[^']*')|\b(import|from|export|function|return|const|new)\b|(--[a-z][\w-]*)|(@cortexcn[\w./-]*)|(<\/?)([A-Za-z]+)|\b([a-zA-Z]+)(?==)|(^>)|(^✔)|(^●)|(?<=:\s)(\d+(?:\.\d+)?)\b/g;
+  /((?<=^|\s)(?:#|\/\/).*$)|("[^"]*"|'[^']*')|\b(import|from|export|function|return|const|new)\b|(--[a-z][\w-]*)|(@cortexcn[\w./-]*)|(<\/?)([A-Za-z]+)|\b([a-zA-Z]+)(?==)|(^>)|(^✔)|(^●)|(?<=:\s)(\d+(?:\.\d+)?)\b/g;
 
 /** Class per capture group, by group number (group 6 is the JSX bracket). */
 const GROUP_CLASS: Record<number, string> = {
@@ -291,13 +247,13 @@ export function InstallationSection() {
 
   return (
     <section
-      aria-label="Installation"
+      aria-label="Use Cortexcn with your AI agent"
       className="relative w-full lg:h-[300vh]"
       ref={sectionRef}
     >
       <div className="py-20 lg:sticky lg:top-0 lg:flex lg:h-svh lg:items-center lg:py-0 lg:pt-(--site-header-height)">
         <Container className="flex flex-col gap-6">
-          <SectionLabel label="Installation" section="installation" />
+          <SectionLabel label="For developers" section="mcp" />
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-0">
             <div className="relative order-2 flex min-w-0 items-center justify-center bg-muted px-4 py-10 sm:px-10 lg:order-1 lg:h-[min(45rem,calc(100svh-12rem))]">
               <DotTexture />
@@ -310,9 +266,9 @@ export function InstallationSection() {
             <div className="order-1 flex min-w-0 flex-col gap-12 lg:order-2 lg:pl-12">
               <div className="flex flex-col items-start gap-11">
                 <TypeHeading
-                  lines={["Install in one line.", "Ship the same day."]}
+                  lines={["Connect your agent.", "Ask for any component."]}
                 />
-                <ActionLink href="/docs/installation" label="Get started" />
+                <ActionLink href="/docs/integration/mcp" label="Set up MCP" />
               </div>
 
               <div className="relative mt-auto flex flex-col gap-4 pl-8">

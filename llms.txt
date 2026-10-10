@@ -73,44 +73,47 @@ For coding agents there is a read-only MCP server at `https://ui.cortexcn.dev/mc
 
 ## Cortexcn Components
 
-- [Command Search](./apps/web/content/docs/components/command-search.mdx): A command palette that types queries and live-filters grouped results, with keyboard navigation.
-- [Fan-Out Diagram](./apps/web/content/docs/components/fan-out-diagram.mdx): An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.
-- [FAQ Tabs Card](./apps/web/content/docs/components/faq-tabs-card.mdx): A tabbed FAQ card with animated accordion answers and a support footer.
-- [Gooey Nav](./apps/web/content/docs/components/gooey-nav.mdx): A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.
-- [Lanyard 3D](./apps/web/content/docs/components/lanyard-3d.mdx): A 3D ID badge on a strap. Drag it and it swings and twists on a simulated strap; click it to flip it over.
-- [Lanyard Badge](./apps/web/content/docs/components/lanyard-badge.mdx): An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.
-- [Line Nav](./apps/web/content/docs/components/line-nav.mdx): Vertical navigation with a line marker that expands on hover and active state.
-- [Logos Carousel](./apps/web/content/docs/components/logos-carousel.mdx): Cycle through logos column by column in a staggered wave.
-- [Marquee](./apps/web/content/docs/components/marquee.mdx): An infinite scrolling component that can be used to display text, images, or videos.
-- [Number Ticker](./apps/web/content/docs/components/number-ticker.mdx): A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.
-- [Perspective Marquee](./apps/web/content/docs/components/perspective-marquee.mdx): A tilted wall of images that scrolls endlessly in alternating columns.
-- [Sphere Menu](./apps/web/content/docs/components/sphere-menu.mdx): A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.
-- [Theme Toggle Effect](./apps/web/content/docs/components/theme-toggle-effect.mdx): Animated transitions when switching between light and dark themes.
-- [Work Experience](./apps/web/content/docs/components/work-experience.mdx): Display work experiences with role details, company logos, and durations.
+- [Cortex](./apps/web/content/docs/cortex/index.mdx): Cortexcn originals you won't find in shadcn/ui, for motion, navigation, and theming.
+- [Command Search](./apps/web/content/docs/cortex/command-search.mdx): A command palette that types queries and live-filters grouped results, with keyboard navigation.
+- [Fan-Out Diagram](./apps/web/content/docs/cortex/fan-out-diagram.mdx): An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.
+- [FAQ Tabs Card](./apps/web/content/docs/cortex/faq-tabs-card.mdx): A tabbed FAQ card with animated accordion answers and a support footer.
+- [Gooey Nav](./apps/web/content/docs/cortex/gooey-nav.mdx): A row of links with a filled pill under the active one. Choosing another link sends the pill there like a drop of liquid.
+- [Lanyard 3D](./apps/web/content/docs/cortex/lanyard-3d.mdx): A 3D ID badge on a strap. Drag it and it swings and twists on a simulated strap; click it to flip it over.
+- [Lanyard Badge](./apps/web/content/docs/cortex/lanyard-badge.mdx): An ID badge hanging from a strap. Drag it and it swings back on a simulated rope; click it to flip it over.
+- [Line Nav](./apps/web/content/docs/cortex/line-nav.mdx): Vertical navigation with a line marker that expands on hover and active state.
+- [Logos Carousel](./apps/web/content/docs/cortex/logos-carousel.mdx): Cycle through logos column by column in a staggered wave.
+- [Marquee](./apps/web/content/docs/cortex/marquee.mdx): An infinite scrolling component that can be used to display text, images, or videos.
+- [Number Ticker](./apps/web/content/docs/cortex/number-ticker.mdx): A rolling digit ticker that counts to a value with per-digit stagger, padding, and blur.
+- [Perspective Marquee](./apps/web/content/docs/cortex/perspective-marquee.mdx): A tilted wall of images that scrolls endlessly in alternating columns.
+- [Sphere Menu](./apps/web/content/docs/cortex/sphere-menu.mdx): A sphere of image tiles you can spin in any direction. When it slows down, the nearest tile turns to face you and its link appears.
+- [Theme Toggle Effect](./apps/web/content/docs/cortex/theme-toggle-effect.mdx): Animated transitions when switching between light and dark themes.
+- [Work Experience](./apps/web/content/docs/cortex/work-experience.mdx): Display work experiences with role details, company logos, and durations.
 
 ## Backgrounds
 
-- [Light Speed](./apps/web/content/docs/components/light-speed.mdx): A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.
+- [Backgrounds](./apps/web/content/docs/backgrounds/index.mdx): Animated full-bleed backgrounds for heroes and sections, drawn with WebGL.
+- [Light Speed](./apps/web/content/docs/backgrounds/light-speed.mdx): A warp-speed tunnel of glowing light streaks, drawn with three.js and bloom.
 
 ## Charts
 
-- [Area Chart](./apps/web/content/docs/components/area-chart.mdx): A composable area chart with gradient fills, tooltips, and hover interactions
-- [Bar Chart](./apps/web/content/docs/components/bar-chart.mdx): A composable bar chart with spring animations, stacked bars, horizontal orientation, and grouped series support
-- [Candlestick Chart](./apps/web/content/docs/components/candlestick-chart.mdx): A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions
-- [Choropleth Chart](./apps/web/content/docs/components/choropleth-chart.mdx): A composable geographic map chart for visualizing data across regions with interactive tooltips, zoom controls, and pattern support
-- [Composed Chart](./apps/web/content/docs/components/composed-chart.mdx): Mix SeriesBar, Line, and Area on one shared time axis (Recharts ComposedChart–style)
-- [Funnel Chart](./apps/web/content/docs/components/funnel-chart.mdx): An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations
-- [Gauge](./apps/web/content/docs/components/gauge-chart.mdx): Notch-based radial or linear gauge with optional center label, theme fills, patterns, arc gradients, and responsive sizing
-- [Heatmap Chart](./apps/web/content/docs/components/heatmap-chart.mdx): A contribution heatmap with animated cells, configurable level colors and patterns, and an interactive legend
-- [Line Chart](./apps/web/content/docs/components/line-chart.mdx): A composable line chart with tooltips, markers, and hover interactions
-- [Profit/Loss Line](./apps/web/content/docs/components/profit-loss-line.mdx): Sign-colored line segments for profit and loss on a shared zero baseline
-- [Live Line Chart](./apps/web/content/docs/components/live-line-chart.mdx): Real-time streaming line chart with smooth scrolling, crosshair, and animated axes
-- [Pie Chart](./apps/web/content/docs/components/pie-chart.mdx): A composable pie and donut chart with animated slices, hover interactions, patterns, gradients, and an interactive legend
-- [Radar Chart](./apps/web/content/docs/components/radar-chart.mdx): A composable multi-series radar chart with animated polygons, hover interactions, and customizable metrics
-- [Ring Chart](./apps/web/content/docs/components/ring-chart.mdx): A composable multi-ring progress chart with animated arcs, hover interactions, and a reusable legend component
-- [Scatter Chart](./apps/web/content/docs/components/scatter-chart.mdx): A composable time-series scatter chart with offset rings, hover dimming, and animated enter
-- [Sankey Chart](./apps/web/content/docs/components/sankey-chart.mdx): A composable sankey diagram for visualizing flow between nodes with animated links and interactive tooltips
-- [Sunburst Chart](./apps/web/content/docs/components/sunburst-chart.mdx): A composable hierarchical sunburst chart with drill-down zoom, animated segments, breadcrumb navigation, and legend sync
+- [Charts](./apps/web/content/docs/charts/index.mdx): Composable charts with animation, tooltips, and themes.
+- [Area Chart](./apps/web/content/docs/charts/area-chart.mdx): A composable area chart with gradient fills, tooltips, and hover interactions
+- [Bar Chart](./apps/web/content/docs/charts/bar-chart.mdx): A composable bar chart with spring animations, stacked bars, horizontal orientation, and grouped series support
+- [Candlestick Chart](./apps/web/content/docs/charts/candlestick-chart.mdx): A composable OHLC candlestick chart with gradients, patterns, tooltips, and hover interactions
+- [Choropleth Chart](./apps/web/content/docs/charts/choropleth-chart.mdx): A composable geographic map chart for visualizing data across regions with interactive tooltips, zoom controls, and pattern support
+- [Composed Chart](./apps/web/content/docs/charts/composed-chart.mdx): Mix SeriesBar, Line, and Area on one shared time axis (Recharts ComposedChart–style)
+- [Funnel Chart](./apps/web/content/docs/charts/funnel-chart.mdx): An animated funnel chart with multi-layer halo rings, hover interactions, and staggered entrance animations
+- [Gauge](./apps/web/content/docs/charts/gauge-chart.mdx): Notch-based radial or linear gauge with optional center label, theme fills, patterns, arc gradients, and responsive sizing
+- [Heatmap Chart](./apps/web/content/docs/charts/heatmap-chart.mdx): A contribution heatmap with animated cells, configurable level colors and patterns, and an interactive legend
+- [Line Chart](./apps/web/content/docs/charts/line-chart.mdx): A composable line chart with tooltips, markers, and hover interactions
+- [Profit/Loss Line](./apps/web/content/docs/charts/profit-loss-line.mdx): Sign-colored line segments for profit and loss on a shared zero baseline
+- [Live Line Chart](./apps/web/content/docs/charts/live-line-chart.mdx): Real-time streaming line chart with smooth scrolling, crosshair, and animated axes
+- [Pie Chart](./apps/web/content/docs/charts/pie-chart.mdx): A composable pie and donut chart with animated slices, hover interactions, patterns, gradients, and an interactive legend
+- [Radar Chart](./apps/web/content/docs/charts/radar-chart.mdx): A composable multi-series radar chart with animated polygons, hover interactions, and customizable metrics
+- [Ring Chart](./apps/web/content/docs/charts/ring-chart.mdx): A composable multi-ring progress chart with animated arcs, hover interactions, and a reusable legend component
+- [Scatter Chart](./apps/web/content/docs/charts/scatter-chart.mdx): A composable time-series scatter chart with offset rings, hover dimming, and animated enter
+- [Sankey Chart](./apps/web/content/docs/charts/sankey-chart.mdx): A composable sankey diagram for visualizing flow between nodes with animated links and interactive tooltips
+- [Sunburst Chart](./apps/web/content/docs/charts/sunburst-chart.mdx): A composable hierarchical sunburst chart with drill-down zoom, animated segments, breadcrumb navigation, and legend sync
 
 ## Chart Utilities
 

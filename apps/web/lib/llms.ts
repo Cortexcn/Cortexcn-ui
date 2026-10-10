@@ -2,7 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { BLOCK_CATEGORIES } from "@/blocks/categories";
-import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
+import { COMPONENT_GROUPS } from "@/lib/component-families";
+import { componentGroupPages } from "@/lib/component-groups";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import {
   SITE_TEMPLATES,

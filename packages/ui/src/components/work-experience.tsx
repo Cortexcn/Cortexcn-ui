@@ -103,7 +103,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
               width={24}
             />
           ) : (
-            <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+            <span className="flex size-2 rounded-full bg-muted-foreground/40" />
           )}
         </div>
 
@@ -128,8 +128,8 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
             className="relative flex items-center justify-center"
             role="img"
           >
-            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-sky-500 opacity-50" />
-            <span className="relative inline-flex size-2 rounded-full bg-sky-500" />
+            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-live opacity-50" />
+            <span className="relative inline-flex size-2 rounded-full bg-live" />
           </span>
         )}
       </div>

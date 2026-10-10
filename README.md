@@ -13,7 +13,7 @@ Visit [ui.cortexcn.dev/docs](https://ui.cortexcn.dev/docs) to view the documenta
 - **Components.** The shadcn/ui primitives (accordion, dialog, select, tabs, and the rest) plus Cortexcn components such as Marquee, Number Ticker, Line Nav, Sphere Menu, Gooey Nav, and Lanyard 3D.
 - **Cortexcn Blocks.** Page sections in six categories: hero, features, services, AI assistant, loaders, and stat cards. [Browse the blocks](https://ui.cortexcn.dev/blocks).
 - **Charts.** Area, bar, candlestick, choropleth, composed, funnel, gauge, heatmap, line, live line, profit and loss line, pie, radar, ring, sankey, scatter, and sunburst charts, built on visx and Motion. [Browse the charts](https://ui.cortexcn.dev/charts).
-- **Templates.** Complete Next.js sites to download and make your own: Portfolio (free, MIT) and Simplistic SaaS (paid). [Browse the templates](https://ui.cortexcn.dev/templates).
+- **Templates.** Complete Next.js sites to download and make your own: Portfolio (free, MIT), plus the paid Simplistic SaaS, AI Travel App, Growth Agency, and Trek Agency. [Browse the templates](https://ui.cortexcn.dev/templates).
 - **AI tools.** An MCP server, agent skills, and a `DESIGN.md` file, so coding agents can find the right item, install it, and match the design system.
 
 ## Quick start
@@ -85,7 +85,7 @@ bun install
 bun run dev
 ```
 
-`bun run dev` starts the services site at <http://localhost:3000> and the component library at <http://ui.localhost:3000>. In production one deployment serves both: the library (its home, docs, blocks, charts, templates, registry, and MCP server) on `ui.cortexcn.dev`, and the services site on `www.cortexcn.dev`.
+`bun run dev` starts one dev server on three ports, so each site can stay open in its own tab: the services site at <http://localhost:4410>, the component library home at <http://localhost:4420>, and the components docs at <http://localhost:4430>. Change the numbers in `apps/web/dev-ports.json`. In production one deployment serves both: the library (its home, docs, blocks, charts, templates, registry, and MCP server) on `ui.cortexcn.dev`, and the services site on `www.cortexcn.dev`.
 
 The site runs without any environment variables. Features that need a key, such as the contact form and analytics, stay off locally.
 

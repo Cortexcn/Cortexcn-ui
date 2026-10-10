@@ -6,13 +6,18 @@ buttons) filled with Cortexcn's own copy and art.
 
 ## The product (what the page sells)
 
-Cortexcn is a shadcn/ui registry of React components, charts, and blocks. People
-install items with the shadcn CLI (`npx shadcn@latest add @cortexcn/<name>`), or
-let an AI agent (Claude Code, Cursor, Codex) pull them in through the shadcn MCP
-server. The code is copied into their repo, so they own it.
+The www home page sells client work first. Cortexcn designs and builds landing
+pages, websites, online stores, web apps, backends, and AI features on Next.js.
+Every project gets a written quote before work starts, a preview link every
+week, code that lives in the client's repo, and 30 days of fixes after launch.
 
-Audience: freelancers, developers, and startups who ship fast.
-Core promise: your agent builds from real, tested components instead of making up UI.
+Audience: founders, small businesses, and teams who need a site or product
+built. Core promise: clear prices, visible progress, and code you own.
+
+The component library (a shadcn/ui registry of React components, charts, and
+blocks) gets exactly two sections on this page: "Our component library" and
+"For developers". Everything else talks about client work. The library has its
+own home on ui.cortexcn.dev.
 
 ## Voice and copy rules (strict)
 
@@ -24,7 +29,10 @@ Core promise: your agent builds from real, tested components instead of making u
   fast-paced", "whether you are", "it's not just X, it's Y".
 - No emojis. No exclamation marks. Sentence case for headings.
 - Only honest claims. No fake metrics, testimonials, customer logos, emails, or
-  addresses. Every price lives in `lib/service-pricing.ts` (the landing section,
+  addresses. Client quotes live in `lib/testimonials.ts`, and only real ones
+  with the client's permission go there; the section stays hidden while the
+  list is empty. The Recent work section shows our live demo sites and says
+  their brands are made up. Every price lives in `lib/service-pricing.ts` (the landing section,
   /pricing and its estimator, the FAQ, and /index.md all read it there), in US
   dollars. Component plans (Free, Pro, Ultra) are one-time payments; the paid
   ones link to an early access request until checkout exists. Client work shows
@@ -66,8 +74,6 @@ Core promise: your agent builds from real, tested components instead of making u
   `TypedText`, `scrambleChar`, `useScrambleText`, `ActionLink` (the square CTA),
   `IndexMark` ("//001"), `MonoTag`, `DotTexture`, `PixelArt`, `ArrowRightIcon`,
   `ArrowUpRightIcon`.
-- `extruded-icon.tsx`: line-art 3D icons that turn into pixel art on hover
-  (`COMPONENT_SHAPE`, `TERMINAL_SHAPE`, `CURSOR_SHAPE`).
 - `interactive-grid.tsx`: the hover grid used in the hero band and the CTA.
 - Logos live in `/public/logos` (themed `-light` / `-dark` pairs where needed).
   Draw small glyphs as inline SVG with `currentColor`. No icon libraries and no
@@ -75,31 +81,54 @@ Core promise: your agent builds from real, tested components instead of making u
 
 ## Section map (page order, see `app/(site)/(landing)/page.tsx`)
 
-1. `hero-section.tsx` -> `HeroSection` (grid band, typed headline, CTAs)
-2. `stack-section.tsx` -> `StackSection` (logo cells and the typed tagline panel)
-3. `benefits-section.tsx` -> `BenefitsSection` (N.01, "Why Cortexcn")
-4. `capabilities-section.tsx` -> `CapabilitiesSection` (N.02, dark band with the
-   registry diagram, sticky scroll steps like the installation section)
-5. `installation-section.tsx` -> `InstallationSection` (N.03, sticky scroll steps)
-6. `services-section.tsx` -> `ServicesSection` (N.04, `id="services"`, dark band
-   of client services that link to /contact)
-7. `pricing-section.tsx` -> `PricingSection` (N.05, `id="pricing"`, component
-   plans, project packages, and retainers behind one toggle; `PricingPlans` is
-   shared with the /pricing page, which adds the estimator in
-   `components/pricing`)
-8. `changelog-section.tsx` -> `ChangelogSection` (N.06, the latest three
-   releases from `lib/changelog.ts`, which also feeds /changelog on the
-   library site and /index.md)
-9. `faq-section.tsx` -> `FaqSection` (N.07, `id="faq"`)
-10. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card)
-11. `landing-footer.tsx` -> `LandingFooter`
+1. `hero-section.tsx` -> `HeroSection` (grid band, typed headline of what I
+   build, three promises read from the pricing data, "Start a project")
+2. `proof-section.tsx` -> `ProofSection` (the proof line, one row of stack
+   logos, and the "Trusted by" row; numbers and logos from `lib/site-config.ts`)
+3. `components/services/service-grid.tsx` -> `ServiceGrid section="services"`
+   (`id="services"`, dark band of every service with its starting price; also
+   on /services without a number)
+4. `components/services/services-process.tsx` -> `ServicesProcess
+   section="process"` (`id="process"`, the four steps, the stack, and per
+   project or retainer; also on /services)
+5. `work-section.tsx` -> `WorkSection` ("Built with Cortexcn", `id="work"`,
+   case studies from `lib/work.ts`, each linking to /work/[slug])
+6. `testimonials-section.tsx` -> `TestimonialsSection` ("What clients say",
+   `id="testimonials"`, quotes from `lib/testimonials.ts`)
+7. `capabilities-section.tsx` -> `CapabilitiesSection` ("Our component
+   library", `id="components"`, dark band with the registry diagram)
+8. `installation-section.tsx` -> `InstallationSection` ("For developers",
+   sticky scroll steps that connect Claude Code, Cursor, VS Code, or Codex to
+   the Cortexcn MCP server; keep them in step with
+   `content/docs/integration/mcp.mdx`)
+9. `pricing-section.tsx` -> `PricingSection` (`id="pricing"`, projects,
+   retainers, and component plans behind one toggle, projects first; the Pro
+   and Ultra buttons read their checkout links from `lib/site-config.ts`;
+   `PricingPlans` is shared with the /pricing page)
+10. `faq-section.tsx` -> `FaqSection` (`id="faq"`, questions people ask before
+    hiring me)
+11. `cta-section.tsx` -> `CtaSection` (tickers and the grid band card, "Start a
+    project")
+12. `landing-footer.tsx` -> `LandingFooter`
+
+## Owner-edited content and placeholders
+
+- `lib/site-config.ts` holds the proof numbers, the Pro and Ultra checkout
+  links, the "Trusted by" logos, and the /about photo. A stat set to null is
+  left out.
+- Placeholder content (empty logo slots, sample quotes, draft case studies)
+  shows only under `bun run dev` (`SHOW_PLACEHOLDERS`), never in a production
+  build. Never ship a made-up quote, logo, or result.
+- The copy speaks as "I": Syed Moinuddin builds the client work. The /about
+  and /work pages live next to this page in `app/(site)/(landing)`.
 
 ## Keep in sync
 
 - `lib/home-markdown.ts` mirrors the landing copy for `/index.md` (read by AI
   agents). Update it whenever the section copy changes.
-- Adding or removing a numbered section means updating `NUMBERED_SECTIONS` in
-  `kit.tsx`, which renumbers every label.
+- Adding or removing a numbered section means updating `ALL_NUMBERED_SECTIONS`
+  in `kit.tsx`, which renumbers every label.
+- The header links live in `lib/site-nav-links.ts`.
 
 ## Per-file rules
 

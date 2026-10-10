@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-import { DotTexture } from "@/components/landing/kit";
+import {
+  DotTexture,
+  type NumberedSection,
+  SectionLabel,
+} from "@/components/landing/kit";
 import { Container } from "@/components/landing/primitives";
 import {
   cadenceLabel,
@@ -14,8 +18,8 @@ import { ServicesLabel } from "./services-label";
 /** How a project runs, in the same terms as the pricing FAQ. */
 const STEPS = [
   {
-    title: "Tell us what you need",
-    body: "Write in through the contact form or by email: what you are building, and where you are stuck. We reply by email.",
+    title: "Tell me what you need",
+    body: "Write in through the contact form or by email: what you are building, and where you are stuck. I reply by email.",
   },
   {
     title: "Get a written quote",
@@ -50,18 +54,30 @@ const WAYS_TO_WORK = [
   },
   {
     title: "On retainer",
-    body: "An engineer on your team every month, from part time to full time. Pause or cancel with 2 weeks notice.",
+    body: "I work on your team every month, from part time to full time. Pause or cancel with 2 weeks notice.",
     from: formatUsd(Math.min(...RETAINERS.map((plan) => plan.price))),
     unit: cadenceLabel("month"),
     link: "See the retainers",
   },
 ];
 
-export function ServicesProcess() {
+/**
+ * How a project runs, what we build with, and the two ways to hire us. On the
+ * home page it takes a numbered label and the `#process` anchor.
+ */
+export function ServicesProcess({ section }: { section?: NumberedSection }) {
   return (
-    <section aria-labelledby="how-we-work" className="w-full py-20 md:py-24">
+    <section
+      aria-labelledby="how-we-work"
+      className="w-full scroll-mt-(--site-header-height) py-20 md:py-24"
+      id={section ? "process" : undefined}
+    >
       <Container className="flex flex-col gap-12">
-        <ServicesLabel label="How we work" />
+        {section ? (
+          <SectionLabel label="How I work" section={section} />
+        ) : (
+          <ServicesLabel label="How I work" />
+        )}
 
         <h2
           className="max-w-3xl font-normal text-[2.5rem] leading-[1.1] tracking-[-0.06em] sm:text-5xl lg:text-[3.5rem]"

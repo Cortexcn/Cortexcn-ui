@@ -25,7 +25,7 @@ Releases live in `apps/web/lib/changelog.ts`. The `/changelog` page and the late
 - `title`: what shipped, in sentence case. Follow the existing patterns: "Lanyard Badge, Gooey Nav, and Sphere Menu", "Queue joins the AI Assistant blocks", "Services blocks, starting with Image Grid".
 - `summary`: one to three plain sentences about what a visitor sees and can do. Name real behavior, props, and dependencies, with no superlatives.
 - `items`: link everything that shipped to its page.
-  - For components, use `componentLinks([["Label", "slug"]])`, which links to `/docs/components/<slug>`.
+  - For components, use `componentLinks([["Label", "slug"]])`, which links to the slug's page in whichever family holds it, such as `/docs/cortex/<slug>` or `/docs/charts/<slug>`.
   - For blocks, link `/blocks/<category>/<slug>`. A new category also links `/blocks?category=<category>`.
 
 Write the entry in the same change as the work, not later.
@@ -39,8 +39,8 @@ It touches six places:
 1. `packages/ui/src/components/<name>.tsx`, importing `@/lib/utils`.
 2. An item in `packages/ui/registry.json` with `categories: ["cortex"]` and `registryDependencies: ["@cortexcn/utils"]`.
 3. A demo in `apps/web/components/docs/<name>-demo.tsx`, importing from `@cortexcn/ui/components/<name>`.
-4. `apps/web/content/docs/components/<name>.mdx`, with `<ComponentPreview>` and `<InstallationTabs name="<name>" />`.
-5. The sidebar, `apps/web/content/docs/components/meta.json`, under `---Cortex---`.
+4. `apps/web/content/docs/cortex/<name>.mdx`, with `<ComponentPreview>` and `<InstallationTabs name="<name>" />`.
+5. The sidebar, `apps/web/content/docs/cortex/meta.json`, after its `---Cortex---` separator.
 6. The `cortexComponents` list in `apps/web/components/docs/site-header.tsx`.
 
 Then add a changelog entry with kind `"components"` and rebuild the registry (see below).
@@ -153,10 +153,12 @@ These apply to the site, docs, changelog, READMEs, and commit messages:
 
 **Hosts.** One Vercel deployment serves two hosts. The routing lives in `apps/web/lib/site-url.ts` and `apps/web/proxy.ts`.
 
-| Host               | Dev                        | What it serves                                                                           |
-| ------------------ | -------------------------- | ---------------------------------------------------------------------------------------- |
-| `www.cortexcn.dev` | <http://localhost:3000>    | The services landing: Services, Pricing, FAQ, Contact                                    |
-| `ui.cortexcn.dev`  | <http://ui.localhost:3000> | The library: its home, docs, blocks, charts, templates, the registry at `/r`, and `/mcp` |
+| Host               | Dev                                                                       | What it serves                                                                           |
+| ------------------ | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `www.cortexcn.dev` | <http://localhost:4410>                                                   | The services landing: Pricing, FAQ, Contact, and the Services page                       |
+| `ui.cortexcn.dev`  | <http://localhost:4420> (home), <http://localhost:4430> (components docs) | The library: its home, docs, blocks, charts, templates, the registry at `/r`, and `/mcp` |
+
+`bun run dev` runs one Next.js server on the site port and forwards the other two ports to it (`apps/web/scripts/dev.mjs`). The ports live in `apps/web/dev-ports.json`, and `http://ui.localhost:4410` still works as the library host.
 
 New library pages go in `apps/web/lib/library-nav-links.ts`, not in the www nav.
 
@@ -169,7 +171,7 @@ New library pages go in `apps/web/lib/library-nav-links.ts`, not in the www nav.
 
 **Vercel:**
 
-- `vercel.json` runs `turbo run build --filter=web` and serves `apps/web/.next`.
+- `vercel.json` runs `node apps/web/scripts/vercel-build.mjs` and serves `apps/web/.next`. With `CONVEX_DEPLOY_KEY` set, the script deploys the Convex functions and then runs `turbo run build --filter=web`; without it, it runs only the turbo build.
 - The root `package.json` pins `next` exactly, because Vercel needs it to detect Next.js. Bump it together with `apps/web`'s `next`.
 
 ## Dependency ceilings

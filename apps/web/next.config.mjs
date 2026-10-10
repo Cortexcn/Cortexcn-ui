@@ -38,8 +38,60 @@ const nextConfig = {
       destination: `/blocks/ai-assistant/${block}`,
       permanent: true,
     }));
+    // Cortex, Backgrounds, and Charts moved out of /docs/components into
+    // sections of their own. Pages added since then never had the old URL.
+    const movedSections = {
+      cortex: [
+        "command-search",
+        "fan-out-diagram",
+        "faq-tabs-card",
+        "gooey-nav",
+        "lanyard-3d",
+        "lanyard-badge",
+        "line-nav",
+        "logos-carousel",
+        "marquee",
+        "number-ticker",
+        "perspective-marquee",
+        "sphere-menu",
+        "theme-toggle-effect",
+        "work-experience",
+      ],
+      backgrounds: ["light-speed"],
+      charts: [
+        "area-chart",
+        "bar-chart",
+        "candlestick-chart",
+        "choropleth-chart",
+        "composed-chart",
+        "funnel-chart",
+        "gauge-chart",
+        "heatmap-chart",
+        "line-chart",
+        "profit-loss-line",
+        "live-line-chart",
+        "pie-chart",
+        "radar-chart",
+        "ring-chart",
+        "scatter-chart",
+        "sankey-chart",
+        "sunburst-chart",
+      ],
+    };
+    const movedToSections = Object.entries(movedSections).flatMap(
+      ([section, slugs]) =>
+        slugs.flatMap((slug) =>
+          // The page, and its markdown copy for AI agents.
+          ["", ".md"].map((suffix) => ({
+            source: `/docs/components/${slug}${suffix}`,
+            destination: `/docs/${section}/${slug}${suffix}`,
+            permanent: true,
+          })),
+        ),
+    );
     return [
       ...movedToBlocks,
+      ...movedToSections,
       // Skills moved under Integration, next to the MCP server and DESIGN.md.
       {
         source: "/docs/skills",

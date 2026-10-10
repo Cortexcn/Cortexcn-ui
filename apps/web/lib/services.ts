@@ -1,7 +1,7 @@
 import { SERVICE_PRICES, type ServicePrice } from "@/lib/service-pricing";
 
 /**
- * What we build for clients, shown on /services. Prices and timelines come
+ * What I build for clients, shown on /services. Prices and timelines come
  * from `SERVICE_PRICES`, matched by title, so they change in one place.
  */
 export interface Service {
@@ -12,64 +12,40 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    title: "Websites",
-    description:
-      "Company sites and portfolios on Next.js, fast to load and easy to update.",
-    tags: ["Next.js", "CMS"],
-  },
-  {
     title: "Landing pages",
     description:
       "Launch and campaign pages, from the first sketch to the live URL.",
     tags: ["Design", "Launch"],
   },
   {
-    title: "E-commerce stores",
+    title: "Websites",
+    description:
+      "Company sites and portfolios on Next.js, fast to load and easy to update.",
+    tags: ["Next.js", "CMS"],
+  },
+  {
+    title: "E-commerce",
     description:
       "Product pages, cart, checkout, and payments, ready for real orders.",
     tags: ["Checkout", "Payments"],
   },
   {
-    title: "Web applications",
+    title: "Web apps + APIs",
     description:
-      "Dashboards, portals, and SaaS products with sign-in, roles, and data.",
-    tags: ["Auth", "Dashboards"],
+      "Dashboards, portals, and SaaS products, with the APIs, databases, and services behind them.",
+    tags: ["Auth", "APIs"],
   },
   {
-    title: "Backend and APIs",
+    title: "AI features",
     description:
-      "APIs, databases, auth, and background jobs that hold up in production.",
-    tags: ["APIs", "Databases"],
-  },
-  {
-    title: "Microservices",
-    description:
-      "Split a monolith or design new services, with queues and clean deploys.",
-    tags: ["Queues", "Deploys"],
-  },
-  {
-    title: "AI pipelines",
-    description:
-      "AI features built into your product: retrieval, agents, and tool calls.",
+      "AI built into your product: retrieval over your data, agents, and tool calls.",
     tags: ["RAG", "Agents"],
   },
   {
-    title: "SEO",
+    title: "Retainer",
     description:
-      "Technical SEO: metadata, structured data, sitemaps, and page speed.",
-    tags: ["Schema", "Speed"],
-  },
-  {
-    title: "Research papers",
-    description:
-      "Support for research papers: code, experiments, figures, and editing.",
-    tags: ["Experiments", "Editing"],
-  },
-  {
-    title: "Freelance work",
-    description:
-      "An extra engineer on your team, for a sprint or on a monthly retainer.",
-    tags: ["Sprints", "Retainer"],
+      "I join your team for 40 or more hours a month, for a sprint or for as long as you need.",
+    tags: ["Monthly", "Any service"],
   },
 ];
 

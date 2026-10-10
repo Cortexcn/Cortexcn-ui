@@ -122,19 +122,19 @@ export function FAQTabsCard({
   return (
     <div
       className={cn(
-        "flex w-full flex-col rounded-[26px] bg-white p-6",
-        "shadow-[0_0_0_1px_rgba(10,10,10,0.05),0_2px_4px_0_rgba(0,0,0,0.1)]",
-        "dark:bg-neutral-950 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_2px_4px_0_rgba(0,0,0,0.5)]",
+        "flex w-full flex-col rounded-faq bg-card p-6 text-card-foreground",
+        "shadow-faq",
+        "dark:shadow-faq-dark",
         className,
       )}
     >
-      <div className="flex h-9 items-center rounded-full bg-neutral-100 p-1 dark:bg-neutral-900">
+      <div className="flex h-9 items-center rounded-full bg-muted p-1">
         {tabs.map((tab, index) => {
           const active = index === safeActiveTab;
           return (
             <button
               aria-pressed={active}
-              className="relative h-[27px] flex-1 rounded-full outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400/50"
+              className="relative h-[27px] flex-1 rounded-full outline-hidden focus-visible:ring-2 focus-visible:ring-ring/50"
               key={tab.label}
               onClick={() => {
                 setActiveTab(index);
@@ -144,14 +144,14 @@ export function FAQTabsCard({
             >
               {active ? (
                 <motion.span
-                  className="absolute inset-0 rounded-full bg-white dark:bg-neutral-950"
+                  className="absolute inset-0 rounded-full bg-card"
                   layoutId={`faq-tab-pill-${pillId}`}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                 />
               ) : null}
               <span
                 className={cn(
-                  "relative z-10 font-medium text-sm leading-5 transition-colors duration-200",
+                  "relative z-10 font-medium text-sm leading-5 transition-colors duration-base",
                   active
                     ? "text-foreground"
                     : "text-foreground/60 hover:text-foreground/80",
@@ -167,7 +167,7 @@ export function FAQTabsCard({
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="mt-2 flex-1 overflow-hidden rounded-[18px] border border-border"
+          className="mt-2 flex-1 overflow-hidden rounded-faq-inner border border-border"
           exit={{ opacity: 0, y: -6 }}
           initial={{ opacity: 0, y: 6 }}
           key={safeActiveTab}
@@ -178,9 +178,9 @@ export function FAQTabsCard({
             return (
               <div
                 className={cn(
-                  "transition-colors duration-300",
+                  "transition-colors duration-slow",
                   index > 0 && "border-border border-t",
-                  open && "bg-neutral-100/50 dark:bg-neutral-900/50",
+                  open && "bg-muted/50",
                 )}
                 key={faq.question}
               >
@@ -224,7 +224,7 @@ export function FAQTabsCard({
       </AnimatePresence>
 
       <motion.button
-        className="mt-[25px] flex h-[34px] w-full shrink-0 items-center justify-center rounded-[26px] border border-border bg-white font-medium text-foreground text-sm leading-5 transition-colors hover:bg-neutral-50 dark:bg-neutral-950 dark:hover:bg-neutral-900"
+        className="mt-[25px] flex h-[34px] w-full shrink-0 items-center justify-center rounded-faq border border-border bg-card font-medium text-foreground text-sm leading-5 transition-colors hover:bg-muted"
         onClick={onFooterClick}
         transition={{ type: "spring", bounce: 0.4, duration: 0.35 }}
         type="button"

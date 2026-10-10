@@ -95,6 +95,27 @@ export function SecondaryLink({
   );
 }
 
+/** `SecondaryLink` as a real button, for actions such as signing out. */
+export function SecondaryButton({
+  children,
+  className,
+  ...props
+}: Omit<React.ComponentProps<"button">, "children"> & { children: string }) {
+  return (
+    <button
+      className={cn(
+        buttonBaseClassName,
+        "border border-border bg-background text-foreground hover:bg-muted disabled:cursor-wait disabled:opacity-60",
+        className,
+      )}
+      type="button"
+      {...props}
+    >
+      <RollingLabel>{children}</RollingLabel>
+    </button>
+  );
+}
+
 export function ChevronRightIcon({ className }: { className?: string }) {
   return (
     <svg

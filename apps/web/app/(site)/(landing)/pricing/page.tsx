@@ -11,7 +11,7 @@ import { COMPONENT_PLAN_PRICES, formatUsd } from "@/lib/service-pricing";
 
 export const metadata = pageMetadata({
   title: "Pricing",
-  description: `Cortexcn components are free to start, with Pro at ${formatUsd(COMPONENT_PLAN_PRICES.pro)} and Ultra at ${formatUsd(COMPONENT_PLAN_PRICES.ultra)}, paid once. Plus prices and an estimator for landing pages, websites, stores, web apps, AI pipelines, and more.`,
+  description: `Cortexcn components are free to start, with Pro at ${formatUsd(COMPONENT_PLAN_PRICES.pro)} and Ultra at ${formatUsd(COMPONENT_PLAN_PRICES.ultra)}, paid once. Plus prices and an estimator for landing pages, websites, e-commerce, web apps and APIs, and AI features.`,
   path: "/pricing",
 });
 

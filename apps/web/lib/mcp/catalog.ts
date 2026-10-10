@@ -1,5 +1,6 @@
 import { blockLivePreviewPath } from "@/lib/blocks/block-links";
 import { getGalleryBlocks } from "@/lib/blocks/gallery";
+import { COMPONENT_GROUPS } from "@/lib/component-families";
 import { canonicalUrlFor, DOCS_URL } from "@/lib/site-url";
 import { source } from "@/lib/source";
 import registry from "@/public/r/registry.json";
@@ -98,14 +99,20 @@ const INTEGRATION_PAGES: Record<string, string> = {
   "agent-kit": "skills",
 };
 
+/** Docs folders that hold one page per registry item: the component families, then the chart parts. */
+const DOCS_FOLDERS = [
+  ...COMPONENT_GROUPS.map((group) => group.category),
+  "utility",
+];
+
 /** The docs page for an item, if it has one: a component, a chart part, or an agent file. */
 function docsPageFor(name: string) {
   const integration = INTEGRATION_PAGES[name];
   if (integration) {
     return source.getPage(["integration", integration]);
   }
-  return (
-    source.getPage(["components", name]) ?? source.getPage(["utility", name])
+  return DOCS_FOLDERS.map((folder) => source.getPage([folder, name])).find(
+    (page) => page !== undefined,
   );
 }
 
