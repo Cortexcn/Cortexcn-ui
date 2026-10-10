@@ -10,13 +10,20 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { UserMenu } from "@/components/auth/user-menu";
 import { ActionLink } from "@/components/landing/kit";
 import { ModeToggle } from "@/components/mode-toggle";
+import {
+  COMPONENT_GROUPS,
+  type ComponentGroup,
+} from "@/lib/component-families";
+import { familyForPath } from "@/lib/docs-sidebar";
 import { isLibraryPath } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 import { CortexcnLogo } from "../icons/cortexcn";
 import { Button } from "../ui/button";
 import { DocsSearchTrigger } from "./docs-search-trigger";
+import { HeaderNav } from "./header-nav";
 import { NavLinkLabel } from "./nav-link-label";
 
 interface NavLink {
@@ -98,50 +105,51 @@ const baseComponents = [
 ];
 
 const cortexComponents = [
-  { text: "Command Search", url: "/docs/components/command-search" },
-  { text: "Fan-Out Diagram", url: "/docs/components/fan-out-diagram" },
-  { text: "FAQ Tabs Card", url: "/docs/components/faq-tabs-card" },
-  { text: "Gooey Nav", url: "/docs/components/gooey-nav" },
-  { text: "Lanyard 3D", url: "/docs/components/lanyard-3d" },
-  { text: "Lanyard Badge", url: "/docs/components/lanyard-badge" },
-  { text: "Line Nav", url: "/docs/components/line-nav" },
-  { text: "Logos Carousel", url: "/docs/components/logos-carousel" },
-  { text: "Marquee", url: "/docs/components/marquee" },
-  { text: "Number Ticker", url: "/docs/components/number-ticker" },
+  { text: "Command Search", url: "/docs/cortex/command-search" },
+  { text: "Fan-Out Diagram", url: "/docs/cortex/fan-out-diagram" },
+  { text: "FAQ Tabs Card", url: "/docs/cortex/faq-tabs-card" },
+  { text: "Gooey Nav", url: "/docs/cortex/gooey-nav" },
+  { text: "Lanyard 3D", url: "/docs/cortex/lanyard-3d" },
+  { text: "Lanyard Badge", url: "/docs/cortex/lanyard-badge" },
+  { text: "Line Nav", url: "/docs/cortex/line-nav" },
+  { text: "Logos Carousel", url: "/docs/cortex/logos-carousel" },
+  { text: "Marquee", url: "/docs/cortex/marquee" },
+  { text: "Number Ticker", url: "/docs/cortex/number-ticker" },
   {
     text: "Perspective Marquee",
-    url: "/docs/components/perspective-marquee",
+    url: "/docs/cortex/perspective-marquee",
   },
-  { text: "Sphere Menu", url: "/docs/components/sphere-menu" },
-  { text: "Theme Toggle Effect", url: "/docs/components/theme-toggle-effect" },
-  { text: "Work Experience", url: "/docs/components/work-experience" },
+  { text: "Sphere Menu", url: "/docs/cortex/sphere-menu" },
+  { text: "Theme Toggle Effect", url: "/docs/cortex/theme-toggle-effect" },
+  { text: "Work Experience", url: "/docs/cortex/work-experience" },
 ];
 
 const backgroundComponents = [
-  { text: "Light Speed", url: "/docs/components/light-speed" },
+  { text: "Light Speed", url: "/docs/backgrounds/light-speed" },
 ];
 
-const components = [
-  { text: "Area Chart", url: "/docs/components/area-chart" },
-  { text: "Bar Chart", url: "/docs/components/bar-chart" },
-  { text: "Candlestick Chart", url: "/docs/components/candlestick-chart" },
-  { text: "Choropleth Chart", url: "/docs/components/choropleth-chart" },
-  { text: "Composed Chart", url: "/docs/components/composed-chart" },
-  { text: "Funnel Chart", url: "/docs/components/funnel-chart" },
-  { text: "Gauge", url: "/docs/components/gauge-chart" },
-  { text: "Heatmap Chart", url: "/docs/components/heatmap-chart" },
-  { text: "Line Chart", url: "/docs/components/line-chart" },
-  { text: "Profit/Loss Line", url: "/docs/components/profit-loss-line" },
-  { text: "Live Line Chart", url: "/docs/components/live-line-chart" },
-  { text: "Pie Chart", url: "/docs/components/pie-chart" },
-  { text: "Radar Chart", url: "/docs/components/radar-chart" },
-  { text: "Ring Chart", url: "/docs/components/ring-chart" },
-  { text: "Scatter Chart", url: "/docs/components/scatter-chart" },
-  { text: "Sankey Chart", url: "/docs/components/sankey-chart" },
-  { text: "Sunburst Chart", url: "/docs/components/sunburst-chart" },
+const chartComponents = [
+  { text: "Area Chart", url: "/docs/charts/area-chart" },
+  { text: "Bar Chart", url: "/docs/charts/bar-chart" },
+  { text: "Candlestick Chart", url: "/docs/charts/candlestick-chart" },
+  { text: "Choropleth Chart", url: "/docs/charts/choropleth-chart" },
+  { text: "Composed Chart", url: "/docs/charts/composed-chart" },
+  { text: "Funnel Chart", url: "/docs/charts/funnel-chart" },
+  { text: "Gauge", url: "/docs/charts/gauge-chart" },
+  { text: "Heatmap Chart", url: "/docs/charts/heatmap-chart" },
+  { text: "Line Chart", url: "/docs/charts/line-chart" },
+  { text: "Profit/Loss Line", url: "/docs/charts/profit-loss-line" },
+  { text: "Live Line Chart", url: "/docs/charts/live-line-chart" },
+  { text: "Pie Chart", url: "/docs/charts/pie-chart" },
+  { text: "Radar Chart", url: "/docs/charts/radar-chart" },
+  { text: "Ring Chart", url: "/docs/charts/ring-chart" },
+  { text: "Scatter Chart", url: "/docs/charts/scatter-chart" },
+  { text: "Sankey Chart", url: "/docs/charts/sankey-chart" },
+  { text: "Sunburst Chart", url: "/docs/charts/sunburst-chart" },
 ];
 
-const utilities = [
+/** The chart utilities, with the two axis pages listed inline. */
+const chartUtilities = [
   { text: "Legend", url: "/docs/utility/legend" },
   { text: "Grid", url: "/docs/utility/grid" },
   { text: "Background", url: "/docs/utility/background" },
@@ -149,16 +157,54 @@ const utilities = [
   { text: "Projection Line", url: "/docs/utility/projection-line" },
   { text: "Tooltip", url: "/docs/utility/tooltip" },
   { text: "Brush", url: "/docs/utility/brush" },
-  {
-    text: "Axis",
-    children: [
-      { text: "X Axis", url: "/docs/utility/axis/x-axis" },
-      { text: "Y Axis", url: "/docs/utility/axis/y-axis" },
-    ],
-  },
+  { text: "X Axis", url: "/docs/utility/axis/x-axis" },
+  { text: "Y Axis", url: "/docs/utility/axis/y-axis" },
   { text: "Custom Indicator", url: "/docs/utility/custom-indicator" },
   { text: "useChart", url: "/docs/utility/use-chart" },
 ];
+
+/** A mobile menu section: a heading, linking to its overview when it has one, then its pages. */
+interface MobileMenuSection {
+  title: string;
+  href?: string;
+  items: { text: string; url: string }[];
+}
+
+/** What the mobile menu lists inside each family: that family only, like the docs sidebar. */
+const FAMILY_SECTIONS: Record<ComponentGroup["category"], MobileMenuSection[]> =
+  {
+    components: [
+      { title: "Components", href: "/docs/components", items: baseComponents },
+    ],
+    cortex: [
+      { title: "Cortex", href: "/docs/cortex", items: cortexComponents },
+    ],
+    backgrounds: [
+      {
+        title: "Backgrounds",
+        href: "/docs/backgrounds",
+        items: backgroundComponents,
+      },
+    ],
+    charts: [
+      { title: "Charts", href: "/docs/charts", items: chartComponents },
+      { title: "Chart Utilities", items: chartUtilities },
+    ],
+  };
+
+/** Outside the families, one link per family instead of every component. */
+const FAMILY_LINKS: MobileMenuSection = {
+  title: "Component families",
+  items: COMPONENT_GROUPS.map((group) => ({
+    text: group.name,
+    url: group.href,
+  })),
+};
+
+function mobileMenuSections(pathname: string) {
+  const family = familyForPath(pathname);
+  return family ? FAMILY_SECTIONS[family.category] : [FAMILY_LINKS];
+}
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -196,18 +242,20 @@ const HEADER_SCROLL_THRESHOLD = 8;
 /** Pages built from the landing kit, which get the boxed landing header. */
 const LANDING_PATHS = new Set([
   "/",
+  "/about",
   "/contact",
   "/pricing",
   "/privacy",
   "/refunds",
+  "/services",
   "/terms",
+  "/work",
 ]);
 
-/**
- * Whether a nav link stands for the section the page is in, so its tab stays
- * lit on every page inside it: Docs covers /docs, except the component pages,
- * which belong to Components, and Charts covers the whole /charts gallery.
- */
+function isLandingPath(pathname: string) {
+  return LANDING_PATHS.has(pathname) || pathname.startsWith("/work/");
+}
+
 /** Search covers the docs, so it only shows in the header on the docs and chart pages. */
 function hasDocsSearch(pathname: string) {
   return ["/docs", "/charts"].some(
@@ -215,9 +263,16 @@ function hasDocsSearch(pathname: string) {
   );
 }
 
+/**
+ * Whether a nav link stands for the section the page is in, so its tab stays
+ * lit on every page inside it: Docs covers /docs, except the component family
+ * sections (Components, Cortex, Backgrounds, and Charts, with the chart
+ * utilities), which belong to Components, and Charts covers the whole /charts
+ * gallery.
+ */
 function isNavLinkActive(url: string, pathname: string) {
   const inDocs = pathname === "/docs" || pathname.startsWith("/docs/");
-  const inComponents = pathname.startsWith("/docs/components");
+  const inComponents = familyForPath(pathname) !== undefined;
   if (url.startsWith("/docs/components")) {
     return inComponents;
   }
@@ -229,6 +284,33 @@ function isNavLinkActive(url: string, pathname: string) {
 }
 
 const activeMenuItemClassName = "bg-muted text-foreground";
+
+/**
+ * Classes that depend on where the header swaps its nav for the menu button.
+ * The library nav keeps the menu button until lg, where the docs sidebar
+ * also appears. The landing nav has seven tabs plus the account menu, so it
+ * keeps the menu button until xl.
+ */
+const MENU_BREAKPOINT = {
+  xl: {
+    hideMenu: "xl:hidden",
+    menuOpenBackground: "max-xl:bg-background",
+    menuOpenFullWidth: "max-xl:max-w-none",
+  },
+  lg: {
+    hideMenu: "lg:hidden",
+    menuOpenBackground: "max-lg:bg-background",
+    menuOpenFullWidth: "max-lg:max-w-none",
+  },
+} as const;
+
+function menuBreakpoint(landing?: boolean) {
+  return MENU_BREAKPOINT[landing ? "xl" : "lg"];
+}
+
+/** A mobile menu section heading, which links to that section's overview. */
+const sectionHeadingClassName =
+  "mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider outline-none transition-[opacity,transform,color] duration-300 ease-out hover:text-foreground focus-visible:text-foreground focus-visible:underline aria-[current=page]:text-foreground";
 
 function getScrollTop() {
   return (
@@ -256,18 +338,11 @@ interface MobileMenuProps {
   links: NavLink[];
   isOpen: boolean;
   onClose: () => void;
-  staggerDelay: number;
   /** Adopt the landing page theme (fonts and palette). */
   landing?: boolean;
 }
 
-function MobileMenu({
-  links,
-  isOpen,
-  onClose,
-  staggerDelay,
-  landing,
-}: MobileMenuProps) {
+function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
   const pathname = usePathname();
   useEffect(() => {
     if (!isOpen) {
@@ -282,45 +357,43 @@ function MobileMenu({
     };
   }, [isOpen]);
 
+  const breakpoint = menuBreakpoint(landing);
+  const sections = mobileMenuSections(pathname);
+  // Stagger order: the main links, then each section's heading and pages.
+  const sectionStarts: number[] = [];
+  let totalItems = links.length;
+  for (const section of sections) {
+    sectionStarts.push(totalItems + 1);
+    totalItems += 1 + section.items.length;
+  }
+  const staggerDelay = totalItems > 1 ? STAGGER_DURATION / (totalItems - 1) : 0;
+
   const getStaggerStyle = (index: number) => ({
     opacity: isOpen ? 1 : 0,
     transform: isOpen ? "translateY(0)" : "translateY(4px)",
     transitionDelay: isOpen ? `${index * staggerDelay}ms` : "0ms",
   });
 
-  const baseStartIndex = links.length + 1;
-  const cortexStartIndex = baseStartIndex + baseComponents.length + 1;
-  const backgroundsStartIndex = cortexStartIndex + cortexComponents.length + 1;
-  const componentsStartIndex =
-    backgroundsStartIndex + backgroundComponents.length + 1;
-  const componentGroups = [
-    { title: "Components", items: baseComponents, start: baseStartIndex },
-    { title: "Cortex", items: cortexComponents, start: cortexStartIndex },
-    {
-      title: "Backgrounds",
-      items: backgroundComponents,
-      start: backgroundsStartIndex,
-    },
-  ];
-  const utilitiesStartIndex = componentsStartIndex + components.length + 1;
-
   return (
     <>
       {/* Backdrop */}
       <div
         aria-hidden="true"
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={cn(
+          "fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300",
+          breakpoint.hideMenu,
           isOpen
             ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
+            : "pointer-events-none opacity-0",
+        )}
         onClick={onClose}
       />
 
       {/* Sheet */}
       <div
         className={cn(
-          "fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out md:hidden",
+          "fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out",
+          breakpoint.hideMenu,
           landing && "syntiq",
           isOpen
             ? "translate-y-0 opacity-100"
@@ -356,146 +429,60 @@ function MobileMenu({
             })}
           </div>
 
-          {/* Components, Cortex, and Backgrounds sections */}
-          {componentGroups.map((group) => (
-            <div className="mt-3 border-border border-t pt-3" key={group.title}>
-              <span
-                className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
-                style={getStaggerStyle(group.start - 1)}
+          {/* The family the page is in, or one link per family */}
+          {sections.map((section, sectionIndex) => {
+            const start = sectionStarts[sectionIndex] ?? 0;
+            return (
+              <div
+                className="mt-3 border-border border-t pt-3"
+                key={section.title}
               >
-                {group.title}
-              </span>
-              <div className="flex flex-col gap-0.5">
-                {group.items.map((component, index) => (
+                {section.href ? (
                   <Link
                     aria-current={
-                      pathname === component.url ? "page" : undefined
+                      pathname === section.href ? "page" : undefined
                     }
-                    className="transition-[opacity,transform] duration-300 ease-out"
-                    href={component.url}
-                    key={component.url}
+                    className={sectionHeadingClassName}
+                    href={section.href}
                     onClick={onClose}
-                    style={getStaggerStyle(group.start + index)}
+                    style={getStaggerStyle(start - 1)}
                   >
-                    <Button
-                      className={cn(
-                        "h-10 w-full justify-start px-3",
-                        pathname === component.url && activeMenuItemClassName,
-                      )}
-                      size="default"
-                      variant="ghost"
-                    >
-                      {component.text}
-                    </Button>
+                    {section.title}
                   </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          {/* Charts section */}
-          <div className="mt-3 border-border border-t pt-3">
-            <span
-              className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
-              style={getStaggerStyle(componentsStartIndex - 1)}
-            >
-              Charts
-            </span>
-            <div className="flex flex-col gap-0.5">
-              {components.map((component, index) => (
-                <Link
-                  className="transition-[opacity,transform] duration-300 ease-out"
-                  href={component.url}
-                  key={component.url}
-                  onClick={onClose}
-                  style={getStaggerStyle(componentsStartIndex + index)}
-                >
-                  <Button
-                    className="h-10 w-full justify-start px-3"
-                    size="default"
-                    variant="ghost"
+                ) : (
+                  <span
+                    className={sectionHeadingClassName}
+                    style={getStaggerStyle(start - 1)}
                   >
-                    {component.text}
-                  </Button>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Chart utilities section */}
-          <div className="mt-3 border-border border-t pt-3">
-            <span
-              className="mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider transition-[opacity,transform] duration-300 ease-out"
-              style={getStaggerStyle(utilitiesStartIndex - 1)}
-            >
-              Chart Utilities
-            </span>
-            <div className="flex flex-col gap-0.5">
-              {utilities.flatMap((utility, i) => {
-                if ("children" in utility && utility.children) {
-                  return [
-                    <span
-                      className="mt-2 mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider first:mt-0"
-                      key={`axis-${utility.text}`}
-                      style={getStaggerStyle(utilitiesStartIndex + 1 + i)}
+                    {section.title}
+                  </span>
+                )}
+                <div className="flex flex-col gap-0.5">
+                  {section.items.map((item, index) => (
+                    <Link
+                      aria-current={pathname === item.url ? "page" : undefined}
+                      className="transition-[opacity,transform] duration-300 ease-out"
+                      href={item.url}
+                      key={item.url}
+                      onClick={onClose}
+                      style={getStaggerStyle(start + index)}
                     >
-                      {utility.text}
-                    </span>,
-                    ...utility.children.map((child, j) => (
-                      <Link
-                        className="pl-4 transition-[opacity,transform] duration-300 ease-out"
-                        href={child.url}
-                        key={child.url}
-                        onClick={onClose}
-                        style={getStaggerStyle(
-                          utilitiesStartIndex +
-                            2 +
-                            utilities
-                              .slice(0, i)
-                              .flatMap((u) =>
-                                "children" in u && u.children
-                                  ? u.children
-                                  : [u],
-                              ).length +
-                            j,
+                      <Button
+                        className={cn(
+                          "h-10 w-full justify-start px-3",
+                          pathname === item.url && activeMenuItemClassName,
                         )}
+                        size="default"
+                        variant="ghost"
                       >
-                        <Button
-                          className="h-10 w-full justify-start px-3"
-                          size="default"
-                          variant="ghost"
-                        >
-                          {child.text}
-                        </Button>
-                      </Link>
-                    )),
-                  ];
-                }
-                const flatIndex = utilities
-                  .slice(0, i)
-                  .flatMap((u) =>
-                    "children" in u && u.children ? [1, ...u.children] : [1],
-                  ).length;
-                return (
-                  <Link
-                    className="transition-[opacity,transform] duration-300 ease-out"
-                    href={utility.url}
-                    key={utility.url}
-                    onClick={onClose}
-                    style={getStaggerStyle(utilitiesStartIndex + 1 + flatIndex)}
-                  >
-                    <Button
-                      className="h-10 w-full justify-start px-3"
-                      size="default"
-                      variant="ghost"
-                    >
-                      {utility.text}
-                    </Button>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+                        {item.text}
+                      </Button>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </nav>
       </div>
     </>
@@ -506,16 +493,19 @@ function MobileMenuButton({
   open,
   onToggle,
   className,
+  landing,
 }: {
   open: boolean;
   onToggle: () => void;
   className?: string;
+  /** On the landing header, which collapses at xl rather than lg. */
+  landing?: boolean;
 }) {
   return (
     <Button
       aria-expanded={open}
       aria-label={open ? "Close menu" : "Open menu"}
-      className={cn("md:hidden", className)}
+      className={cn(menuBreakpoint(landing).hideMenu, className)}
       onClick={onToggle}
       size="default"
       variant="ghost"
@@ -547,7 +537,7 @@ function LandingHeaderItems({
           <CortexcnLogo size={18} theme="dark" />
           Cortexcn
         </Link>
-        <nav className="hidden items-center md:flex">
+        <nav className="hidden items-center xl:flex">
           {links.map((link) => {
             const active = isNavLinkActive(link.url, pathname);
             return (
@@ -583,12 +573,13 @@ function LandingHeaderItems({
         </div>
         {/* Same page as the Docs tab, so it only joins once everything fits. */}
         <ActionLink
-          className="hidden xl:inline-flex"
+          className="hidden 2xl:inline-flex"
           href="/docs/installation"
           label="Get started"
           size="sm"
           variant="outline"
         />
+        <UserMenu />
       </div>
     </>
   );
@@ -607,29 +598,10 @@ export function SiteHeader({
   const pathname = usePathname();
   // The landing-styled pages open on a grid band, so their header draws every
   // item as a solid box that stays readable on the band in either theme.
-  const isHome = variant ? variant === "landing" : LANDING_PATHS.has(pathname);
+  const isHome = variant ? variant === "landing" : isLandingPath(pathname);
+  const breakpoint = menuBreakpoint(isHome);
   const links =
     libraryLinks && isLibraryPath(pathname) ? libraryLinks : siteLinks;
-
-  // Calculate stagger delay based on total items to complete in STAGGER_DURATION
-  const utilitiesCount =
-    1 +
-    utilities.flatMap((u) =>
-      "children" in u && u.children ? [1, ...u.children] : [1],
-    ).length;
-  const totalItems =
-    links.length +
-    1 + // Components header
-    baseComponents.length +
-    1 + // Cortex header
-    cortexComponents.length +
-    1 + // Backgrounds header
-    backgroundComponents.length +
-    1 + // Charts header
-    components.length +
-    1 + // Utilities header
-    utilitiesCount;
-  const staggerDelay = totalItems > 1 ? STAGGER_DURATION / (totalItems - 1) : 0;
 
   // Wait for mount to avoid hydration mismatch with theme
   useEffect(() => {
@@ -669,7 +641,7 @@ export function SiteHeader({
             ? "border-border bg-background/85 backdrop-blur-sm"
             : "border-transparent",
           isHome && "syntiq",
-          mobileMenuOpen && "max-md:bg-background",
+          mobileMenuOpen && breakpoint.menuOpenBackground,
         )}
         data-scrolled={isScrolled ? "" : undefined}
         ref={headerRef}
@@ -681,13 +653,13 @@ export function SiteHeader({
             isHome
               ? "mx-auto w-full max-w-[1244px] px-1.5 sm:px-3.5 lg:px-5.5"
               : "container mx-auto",
-            mobileMenuOpen && "max-md:max-w-none",
+            mobileMenuOpen && breakpoint.menuOpenFullWidth,
           )}
         >
           <div
             className={cn(
               "flex items-center justify-between gap-6 border border-transparent py-4",
-              mobileMenuOpen && "max-md:bg-background",
+              mobileMenuOpen && breakpoint.menuOpenBackground,
             )}
             style={{ viewTransitionName: "site-header" }}
           >
@@ -697,6 +669,7 @@ export function SiteHeader({
                 menuButton={
                   <MobileMenuButton
                     className="size-8"
+                    landing
                     onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
                     open={mobileMenuOpen}
                   />
@@ -713,37 +686,24 @@ export function SiteHeader({
                     <span>Cortexcn</span>
                   </Link>
 
-                  {/* Desktop nav */}
-                  <nav className="hidden items-center gap-1 md:flex">
-                    {links.map((link) => {
-                      const active = isNavLinkActive(link.url, pathname);
-                      return (
-                        <Link
-                          aria-current={active ? "page" : undefined}
-                          href={link.url}
-                          key={link.url}
-                        >
-                          <Button
-                            className={cn(active && activeMenuItemClassName)}
-                            variant="ghost"
-                          >
-                            <NavLinkLabel text={link.text} url={link.url} />
-                          </Button>
-                        </Link>
-                      );
-                    })}
-                  </nav>
+                  {/* Desktop nav, with the Components menu */}
+                  <HeaderNav
+                    activeClassName={activeMenuItemClassName}
+                    isActive={(url) => isNavLinkActive(url, pathname)}
+                    links={links}
+                  />
                 </div>
 
                 <div className="flex items-center gap-1">
-                  {/* From lg up: at tablet widths the nav links need the room. */}
+                  {/* From lg up, as an icon until xl, where the full nav leaves room for the shortcut too. */}
                   {hasDocsSearch(pathname) && (
                     <DocsSearchTrigger
-                      className="hidden w-30 justify-between lg:inline-flex"
+                      className="hidden lg:inline-flex xl:w-30 xl:justify-between [&_kbd]:hidden xl:[&_kbd]:inline-flex"
                       hideIfDisabled
                     />
                   )}
                   <ModeToggle />
+                  <UserMenu />
                   <MobileMenuButton
                     onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
                     open={mobileMenuOpen}
@@ -760,7 +720,6 @@ export function SiteHeader({
         landing={isHome}
         links={links}
         onClose={() => setMobileMenuOpen(false)}
-        staggerDelay={staggerDelay}
       />
     </>
   );
