@@ -21,7 +21,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       { label: "Blocks", href: "/blocks" },
       { label: "Templates", href: "/templates" },
       { label: "AI Assistant", href: "/blocks?category=ai-assistant" },
-      { label: "Backgrounds", href: "/docs/components/light-speed" },
+      { label: "Backgrounds", href: "/docs/backgrounds" },
     ],
   },
   {

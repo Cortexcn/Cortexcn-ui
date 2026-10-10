@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import { blockSlugs } from "@/blocks/manifest";
-import { COMPONENT_GROUPS, componentGroupPages } from "@/lib/component-groups";
+import { COMPONENT_GROUPS } from "@/lib/component-families";
+import { componentGroupPages } from "@/lib/component-groups";
 import { libraryNavLinks } from "@/lib/library-nav-links";
 import { SITE_TEMPLATES } from "@/lib/site-templates";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ function libraryCounts() {
   const families = COMPONENT_GROUPS.map((group) => ({
     label: group.name,
     count: componentGroupPages(group.name).length,
-    href: `/docs/components#${group.category}`,
+    href: group.href,
   }));
   const libraryPaths: readonly string[] = libraryNavLinks.map(
     (link) => link.url,

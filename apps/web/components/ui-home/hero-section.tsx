@@ -16,7 +16,7 @@ import { StackTicker } from "./stack-ticker";
 const ANNOUNCEMENT = {
   tag: "New",
   text: "Command Search and Number Ticker are live",
-  href: "/docs/components/command-search",
+  href: "/docs/cortex/command-search",
 };
 
 const HEADLINE = [
