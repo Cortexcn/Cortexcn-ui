@@ -295,7 +295,7 @@ import { chartCssVars } from "@/components/charts";
 ## Components
 
 <doc title="Components" path="../apps/web/content/docs/components/index.mdx">
-Cortexcn components come in four families. Every one installs the same way: `npx shadcn@latest add @cortexcn/<name>`.
+Cortexcn components come in four families, and each family has its own section in the docs. Every one installs the same way: `npx shadcn@latest add @cortexcn/<name>`.
 
 ## Components
 
@@ -305,19 +305,19 @@ Everyday building blocks from shadcn/ui, from buttons and dialogs to menus, form
 
 ## Cortex
 
-Cortexcn originals you won't find in shadcn/ui: motion, navigation, and theming.
+Cortexcn originals you won't find in shadcn/ui: motion, navigation, and theming. They have their own section, [Cortex](/docs/cortex).
 
 <ComponentsList category="Cortex" />
 
 ## Backgrounds
 
-Animated full-bleed backgrounds for heroes and sections, drawn with WebGL.
+Animated full-bleed backgrounds for heroes and sections, drawn with WebGL. They have their own section, [Backgrounds](/docs/backgrounds).
 
 <ComponentsList category="Backgrounds" />
 
 ## Charts
 
-Composable charts with animation, tooltips, and themes. Mix lines, areas, and time-aligned columns on one chart with the [**Composed Chart**](/docs/components/composed-chart) (`SeriesBar` + `Line` / `Area`).
+Composable charts with animation, tooltips, and themes. Mix lines, areas, and time-aligned columns on one chart with the [**Composed Chart**](/docs/charts/composed-chart) (`SeriesBar` + `Line` / `Area`). They have their own section, [Charts](/docs/charts).
 
 <ComponentsList category="Charts" />
 </doc>
@@ -3868,7 +3868,13 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 ## Cortexcn Components
 
-<doc title="Command Search" path="../apps/web/content/docs/components/command-search.mdx">
+<doc title="Cortex" path="../apps/web/content/docs/cortex/index.mdx">
+These components are built for Cortexcn and are not part of shadcn/ui. Each one installs with `npx shadcn@latest add @cortexcn/<name>` and copies its source into your project.
+
+<ComponentsList category="Cortex" />
+</doc>
+
+<doc title="Command Search" path="../apps/web/content/docs/cortex/command-search.mdx">
 import { CommandSearchDemo } from "@/components/docs/command-search-demo";
 
 <ComponentPreview>
@@ -3925,7 +3931,7 @@ While it is on screen, the palette types each query in, filters the groups to ma
 Adapted from the [Spectrum UI Command Search](https://ui.spectrumhq.in/docs/command-search) (Apache 2.0).
 </doc>
 
-<doc title="Fan-Out Diagram" path="../apps/web/content/docs/components/fan-out-diagram.mdx">
+<doc title="Fan-Out Diagram" path="../apps/web/content/docs/cortex/fan-out-diagram.mdx">
 import {
   FanOutDiagramDemo,
   FanOutDiagramQueueDemo,
@@ -4014,7 +4020,7 @@ With `animated={false}`, the diagram draws in its final state, with no reveal an
 Inspired by the architecture diagram on the Agent 37 Cloud site.
 </doc>
 
-<doc title="FAQ Tabs Card" path="../apps/web/content/docs/components/faq-tabs-card.mdx">
+<doc title="FAQ Tabs Card" path="../apps/web/content/docs/cortex/faq-tabs-card.mdx">
 import { FaqTabsCardDemo } from "@/components/docs/faq-tabs-card-demo";
 
 <ComponentPreview>
@@ -4074,7 +4080,7 @@ The card ships with sample questions so it looks complete out of the box. Pass y
 Adapted from the [Spectrum UI FAQ Tabs Card](https://ui.spectrumhq.in) (Apache 2.0).
 </doc>
 
-<doc title="Gooey Nav" path="../apps/web/content/docs/components/gooey-nav.mdx">
+<doc title="Gooey Nav" path="../apps/web/content/docs/cortex/gooey-nav.mdx">
 import {
   GooeyNavCompactDemo,
   GooeyNavDemo,
@@ -4138,7 +4144,7 @@ import { GooeyNav } from "@/components/gooey-nav";
 | `className`     | `string`                          | -       | Extra classes for the wrapper                 |
 </doc>
 
-<doc title="Lanyard 3D" path="../apps/web/content/docs/components/lanyard-3d.mdx">
+<doc title="Lanyard 3D" path="../apps/web/content/docs/cortex/lanyard-3d.mdx">
 import {
   Lanyard3DColorsDemo,
   Lanyard3DDemo,
@@ -4229,7 +4235,7 @@ Set the name, job title, tag, code, and the text on the strap and the back. `dro
 | `className`   | `string`  | -                   | Extra classes for the box. It is 560px tall by default |
 </doc>
 
-<doc title="Lanyard Badge" path="../apps/web/content/docs/components/lanyard-badge.mdx">
+<doc title="Lanyard Badge" path="../apps/web/content/docs/cortex/lanyard-badge.mdx">
 import {
   LanyardBadgeDemo,
   LanyardBadgeFrontOnlyDemo,
@@ -4296,7 +4302,7 @@ Without a `back`, clicking does nothing and the card only swings. A shorter `str
 | `className`   | `string`    | -            | Extra classes for the box. It is 560px tall by default |
 </doc>
 
-<doc title="Line Nav" path="../apps/web/content/docs/components/line-nav.mdx">
+<doc title="Line Nav" path="../apps/web/content/docs/cortex/line-nav.mdx">
 import { lineNavControlledCode } from "@/components/docs/ui-demo-code";
 import { LineNavDemo } from "@/components/docs/line-nav-demo";
 
@@ -4366,7 +4372,7 @@ const MotionLink = motion.create(Link);
 | `href`   | `string` | Link target, also used as the key |
 </doc>
 
-<doc title="Logos Carousel" path="../apps/web/content/docs/components/logos-carousel.mdx">
+<doc title="Logos Carousel" path="../apps/web/content/docs/cortex/logos-carousel.mdx">
 import {
   logosCarouselRtlCode,
   logosCarouselColumnsCode,
@@ -4433,7 +4439,7 @@ Set `direction="rtl"` to start the wave from the last column.
 | `className`   | `string`         | -        | Extra classes for the grid container          |
 </doc>
 
-<doc title="Marquee" path="../apps/web/content/docs/components/marquee.mdx">
+<doc title="Marquee" path="../apps/web/content/docs/cortex/marquee.mdx">
 import {
   marqueeRowsCode,
   marqueeVerticalCode,
@@ -4512,7 +4518,7 @@ The marquee reads two CSS variables. Override them with a class:
 All other `div` props are passed to the root element.
 </doc>
 
-<doc title="Number Ticker" path="../apps/web/content/docs/components/number-ticker.mdx">
+<doc title="Number Ticker" path="../apps/web/content/docs/cortex/number-ticker.mdx">
 import { NumberTickerDemo } from "@/components/docs/number-ticker-demo";
 
 <ComponentPreview>
@@ -4569,7 +4575,7 @@ Each digit is a column of 0 to 9 that rolls to its place. The first time the tic
 | `digitClassName` | `string`                    | -       | Extra classes for each digit column              |
 </doc>
 
-<doc title="Perspective Marquee" path="../apps/web/content/docs/components/perspective-marquee.mdx">
+<doc title="Perspective Marquee" path="../apps/web/content/docs/cortex/perspective-marquee.mdx">
 import { perspectiveMarqueeDemoCode } from "@/components/docs/ui-demo-code";
 import { PerspectiveMarqueeDemo } from "@/components/docs/perspective-marquee-demo";
 
@@ -4582,14 +4588,14 @@ import { PerspectiveMarqueeDemo } from "@/components/docs/perspective-marquee-de
 - Columns scroll in opposite directions, forever, with no gaps or jumps.
 - Hovering a column pauses it, and hovering an image lifts it.
 - The wall scales down on small screens and fades out at the edges.
-- Built on [Marquee](/docs/components/marquee), so it needs no animation library.
+- Built on [Marquee](/docs/cortex/marquee), so it needs no animation library.
 - Respects reduced motion by pausing the columns.
 
 ## Installation
 
 <InstallationTabs name="perspective-marquee" />
 
-The CLI also installs [Marquee](/docs/components/marquee) and adds its animations to your `globals.css`.
+The CLI also installs [Marquee](/docs/cortex/marquee) and adds its animations to your `globals.css`.
 
 ## Usage
 
@@ -4631,7 +4637,7 @@ Place it behind your content with `absolute inset-0` and lower its opacity so te
 | `className`    | `string`                    | -        | Extra classes for the container, such as a height    |
 </doc>
 
-<doc title="Sphere Menu" path="../apps/web/content/docs/components/sphere-menu.mdx">
+<doc title="Sphere Menu" path="../apps/web/content/docs/cortex/sphere-menu.mdx">
 import {
   SphereMenuDemo,
   SphereMenuDenseDemo,
@@ -4713,7 +4719,7 @@ Use it for a portfolio, a gallery, or a playful way into the sections of a site.
 | `href`        | `string` | -       | Where the link goes            |
 </doc>
 
-<doc title="Theme Toggle Effect" path="../apps/web/content/docs/components/theme-toggle-effect.mdx">
+<doc title="Theme Toggle Effect" path="../apps/web/content/docs/cortex/theme-toggle-effect.mdx">
 import { themeToggleEffectDemoCode } from "@/components/docs/ui-demo-code";
 import { ThemeToggleEffectDemo } from "@/components/docs/theme-toggle-effect-demo";
 import { ThemeToggleEffectInstallation } from "@/components/docs/theme-toggle-effect-installation";
@@ -4786,7 +4792,7 @@ function startThemeTransition(
 - [Document: startViewTransition()](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition)
 </doc>
 
-<doc title="Work Experience" path="../apps/web/content/docs/components/work-experience.mdx">
+<doc title="Work Experience" path="../apps/web/content/docs/cortex/work-experience.mdx">
 import { workExperienceDemoCode } from "@/components/docs/ui-demo-code";
 import { WorkExperienceDemo } from "@/components/docs/work-experience-demo";
 
@@ -4877,7 +4883,13 @@ Dates use `MM.YYYY` or `YYYY`. Leave `end` out for a current role; the period th
 
 ## Backgrounds
 
-<doc title="Light Speed" path="../apps/web/content/docs/components/light-speed.mdx">
+<doc title="Backgrounds" path="../apps/web/content/docs/backgrounds/index.mdx">
+Place a background behind a hero or a section, then put your content on top of it. Each one installs with `npx shadcn@latest add @cortexcn/<name>`.
+
+<ComponentsList category="Backgrounds" />
+</doc>
+
+<doc title="Light Speed" path="../apps/web/content/docs/backgrounds/light-speed.mdx">
 import { lightSpeedColorCode } from "@/components/docs/ui-demo-code";
 import { LightSpeedDemo } from "@/components/docs/light-speed-demo";
 
@@ -4952,7 +4964,15 @@ A cooler color with fewer, slower streaks.
 
 ## Charts
 
-<doc title="Area Chart" path="../apps/web/content/docs/components/area-chart.mdx">
+<doc title="Charts" path="../apps/web/content/docs/charts/index.mdx">
+Each chart installs with `npx shadcn@latest add @cortexcn/<name>`, for example `@cortexcn/area-chart`. Mix lines, areas, and time-aligned columns on one chart with the [**Composed Chart**](/docs/charts/composed-chart) (`SeriesBar` + `Line` / `Area`).
+
+The parts every chart shares, such as the legend, grid, tooltip, brush, and axes, are documented under [Chart Utilities](/docs/utility/legend). To see every chart with live examples, open the [chart gallery](/charts/area-chart).
+
+<ComponentsList category="Charts" />
+</doc>
+
+<doc title="Area Chart" path="../apps/web/content/docs/charts/area-chart.mdx">
 import {
   AreaChart,
   Area,
@@ -5222,7 +5242,7 @@ Renders a filled area on the chart with a gradient fill.
 | `showMarkers`          | `boolean`                | `false`                     | Render scatter-style ring markers at each point                              |
 | `loadingStroke`        | `string`                 | `var(--foreground)`         | Pulse stroke color while chart is loading                                    |
 | `loadingStrokeOpacity` | `number`                 | `0.5`                       | Pulse stroke opacity while chart is loading                                  |
-| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/components/scatter-chart)) |
+| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/charts/scatter-chart)) |
 
 ### PatternArea
 
@@ -5614,7 +5634,7 @@ pnpm add @visx/shape @visx/curve @visx/scale @visx/gradient @visx/responsive @vi
 ```
 </doc>
 
-<doc title="Bar Chart" path="../apps/web/content/docs/components/bar-chart.mdx">
+<doc title="Bar Chart" path="../apps/web/content/docs/charts/bar-chart.mdx">
 import {
   BarChart,
   Bar,
@@ -6120,7 +6140,7 @@ pnpm add @visx/shape @visx/scale @visx/responsive @visx/event @visx/grid d3-arra
 ```
 </doc>
 
-<doc title="Candlestick Chart" path="../apps/web/content/docs/components/candlestick-chart.mdx">
+<doc title="Candlestick Chart" path="../apps/web/content/docs/charts/candlestick-chart.mdx">
 import { CandlestickChartDemo } from "@/components/docs/candlestick-chart-demo";
 
 <ComponentPreview registryName="candlestick-chart">
@@ -6204,7 +6224,7 @@ Pass a custom `content` renderer to `ChartTooltip` that receives `{ point, index
 Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fill behind candles. See **Pattern Background** examples on the [candlestick chart gallery](/charts/candlestick-chart).
 </doc>
 
-<doc title="Choropleth Chart" path="../apps/web/content/docs/components/choropleth-chart.mdx">
+<doc title="Choropleth Chart" path="../apps/web/content/docs/charts/choropleth-chart.mdx">
 import {
   ChoroplethChart,
   ChoroplethFeatureComponent,
@@ -6362,7 +6382,7 @@ pnpm add @visx/geo @visx/responsive @visx/pattern @visx/zoom topojson-client mot
 ```
 </doc>
 
-<doc title="Composed Chart" path="../apps/web/content/docs/components/composed-chart.mdx">
+<doc title="Composed Chart" path="../apps/web/content/docs/charts/composed-chart.mdx">
 import { ComposedChartDocsPreview } from "@/components/docs/composed-chart-docs-preview";
 
 <ComponentPreview registryName="composed-chart">
@@ -6388,7 +6408,7 @@ import { ComposedChartDocsPreview } from "@/components/docs/composed-chart-docs-
 `ComposedChart` is the time-series shell for **mixing marks** on one `data` array and one pair of scales. Use **`SeriesBar`** for vertical columns aligned to dates (not the categorical `<Bar />` from `BarChart`, which uses a band scale).
 
 - **`aspectRatio`** — wide charts (e.g. `4 / 1`) work for full-width heroes; in **narrow cards** use **`3 / 2`** or **`2 / 1`** so the plot stays tall enough to read.
-- **`barSize`**, **`maxBarSize`**, **`barGap`** — parent-level layout for `SeriesBar` groups (similar to Recharts `ComposedChart` props). Use **`barGap={0}`** and a higher **`maxBarSize`** for dense daily data so columns read like the [90 days of data](/docs/components/bar-chart#90-days-of-data) bar example.
+- **`barSize`**, **`maxBarSize`**, **`barGap`** — parent-level layout for `SeriesBar` groups (similar to Recharts `ComposedChart` props). Use **`barGap={0}`** and a higher **`maxBarSize`** for dense daily data so columns read like the [90 days of data](/docs/charts/bar-chart#90-days-of-data) bar example.
 - **`stacked`** / **`stackGap`** — stack `SeriesBar` segments in child order at each x (lines and areas are not stacked).
 - **`SeriesBar`** — default **`radius` is 0** (square tops). Pass **`radius={4}`** (or similar) for rounded corners.
 - **`Line`** / **`Area`** — pass a **`curve`** from `@visx/curve` (e.g. **`curveCatmullRom.alpha(0.42)`**) to soften paths when you have many daily points (preview + hero use the same curve for `revenue` and `runRate`).
@@ -6451,12 +6471,12 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 
 ## See also
 
-- [Line Chart](/docs/components/line-chart) — lines only
-- [Area Chart](/docs/components/area-chart) — areas only
-- [Bar Chart](/docs/components/bar-chart) — categorical bars with `<Bar />`
+- [Line Chart](/docs/charts/line-chart) — lines only
+- [Area Chart](/docs/charts/area-chart) — areas only
+- [Bar Chart](/docs/charts/bar-chart) — categorical bars with `<Bar />`
 </doc>
 
-<doc title="Funnel Chart" path="../apps/web/content/docs/components/funnel-chart.mdx">
+<doc title="Funnel Chart" path="../apps/web/content/docs/charts/funnel-chart.mdx">
 import { FunnelChart } from "@cortexcn/ui/charts";
 
 export const funnelData = [
@@ -6549,7 +6569,7 @@ When passing an object to `grid`, the following options are available:
 See the [charts gallery](/charts/funnel-chart) for vertical layouts, per-segment colors, patterns, and legend sync.
 </doc>
 
-<doc title="Gauge" path="../apps/web/content/docs/components/gauge-chart.mdx">
+<doc title="Gauge" path="../apps/web/content/docs/charts/gauge-chart.mdx">
 import { GaugeChartDemo } from "@/components/docs/gauge-chart-demo";
 
 <ComponentPreview registryName="gauge-chart">
@@ -6679,7 +6699,7 @@ Inactive (track) notches default to **`var(--border)`** — shared with ring tra
 See the [Gauge gallery](/charts/gauge-chart) for arc and linear variants.
 </doc>
 
-<doc title="Heatmap Chart" path="../apps/web/content/docs/components/heatmap-chart.mdx">
+<doc title="Heatmap Chart" path="../apps/web/content/docs/charts/heatmap-chart.mdx">
 import {
   HeatmapCells,
   HeatmapChart,
@@ -7028,7 +7048,7 @@ Default level colors use **`--chart-scale-01`** … **`--chart-scale-05`**. See 
 See the [charts gallery](/charts/heatmap-chart) for pattern fills and layout variants.
 </doc>
 
-<doc title="Line Chart" path="../apps/web/content/docs/components/line-chart.mdx">
+<doc title="Line Chart" path="../apps/web/content/docs/charts/line-chart.mdx">
 import {
   LineChart,
   Line,
@@ -7164,7 +7184,7 @@ Renders a line on the chart.
 | `showMarkers`          | `boolean`                | `false`                     | Render scatter-style ring markers at each point                              |
 | `loadingStroke`        | `string`                 | `var(--foreground)`         | Pulse stroke color while chart is loading                                    |
 | `loadingStrokeOpacity` | `number`                 | `0.5`                       | Pulse stroke opacity while chart is loading                                  |
-| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/components/scatter-chart)) |
+| `markers`              | `SeriesPointMarkerStyle` | —                           | Marker styling (same options as [`Scatter`](/docs/charts/scatter-chart)) |
 
 ### Grid
 
@@ -7228,7 +7248,7 @@ Pair `yAxisId` on each `Line` with matching `YAxis` components. Increase `margin
 
 ## Profit/Loss line
 
-For a single series that crosses zero, use [`ProfitLossLine`](/docs/components/profit-loss-line) inside `LineChart`. Pair it with a hidden `Line` (same `dataKey`) so the chart registers the series for the y-domain and tooltip. When any value is negative, the y-axis automatically includes the full data extent instead of anchoring at zero.
+For a single series that crosses zero, use [`ProfitLossLine`](/docs/charts/profit-loss-line) inside `LineChart`. Pair it with a hidden `Line` (same `dataKey`) so the chart registers the series for the y-domain and tooltip. When any value is negative, the y-axis automatically includes the full data extent instead of anchoring at zero.
 
 Highlight the break-even baseline with `Grid highlightRowValues={[0]}`:
 
@@ -7241,7 +7261,7 @@ Highlight the break-even baseline with `Grid highlightRowValues={[0]}`:
 />
 ```
 
-See the [Profit/Loss Line](/docs/components/profit-loss-line) docs and the [line chart gallery](/charts/line-chart) (**Profit/Loss** example).
+See the [Profit/Loss Line](/docs/charts/profit-loss-line) docs and the [line chart gallery](/charts/line-chart) (**Profit/Loss** example).
 
 ## Projection
 
@@ -7292,7 +7312,7 @@ See the [Projection Line utility](/docs/utility/projection-line) for props and `
 
 ## Brush zoom
 
-Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/components/area-chart#brush-zoom). See the [Brush](/docs/utility/brush) utility docs for full API reference. The brush strip typically shows simplified `Line` series; the main chart receives `xDomain`, `xDomainSlotCount`, and `tweenYDomainOnXDomainChange` for live zoom and y-domain tweening.
+Use `ChartBrushLayout` and `ChartBrush` the same way as on [`AreaChart`](/docs/charts/area-chart#brush-zoom). See the [Brush](/docs/utility/brush) utility docs for full API reference. The brush strip typically shows simplified `Line` series; the main chart receives `xDomain`, `xDomainSlotCount`, and `tweenYDomainOnXDomainChange` for live zoom and y-domain tweening.
 
 <div className="not-prose mb-3 flex items-center justify-between gap-4">
   <h3 className="m-0 font-semibold text-foreground text-base tracking-tight">
@@ -7620,7 +7640,7 @@ pnpm add @visx/shape @visx/curve @visx/scale @visx/gradient @visx/responsive @vi
 ```
 </doc>
 
-<doc title="Profit/Loss Line" path="../apps/web/content/docs/components/profit-loss-line.mdx">
+<doc title="Profit/Loss Line" path="../apps/web/content/docs/charts/profit-loss-line.mdx">
 import { ProfitLossLineDemo } from "@/components/docs/profit-loss-line-demo";
 
 <ComponentPreview registryName="profit-loss-line">
@@ -7729,7 +7749,7 @@ Use `highlightRowValues={[0]}` on `Grid` to emphasize the break-even baseline:
 />
 ```
 
-See the [Line Chart](/docs/components/line-chart) docs for full `Grid` props.
+See the [Line Chart](/docs/charts/line-chart) docs for full `Grid` props.
 
 ### Background
 
@@ -7740,7 +7760,7 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 Interactive examples live on the [line chart gallery](/charts/line-chart) under **Profit/Loss**.
 </doc>
 
-<doc title="Live Line Chart" path="../apps/web/content/docs/components/live-line-chart.mdx">
+<doc title="Live Line Chart" path="../apps/web/content/docs/charts/live-line-chart.mdx">
 import {
   LiveLineChart,
   LiveLine,
@@ -7912,7 +7932,7 @@ Use [`Background`](/docs/utility/background) instead of `Grid` for a pattern fil
 
 ## Loading state
 
-`LiveLineChart` has no loading status of its own. A live chart's loading state is just a line, so render a [`LineChartLoading`](/docs/components/line-chart) while the stream connects, then swap in `LiveLineChart` once data starts arriving:
+`LiveLineChart` has no loading status of its own. A live chart's loading state is just a line, so render a [`LineChartLoading`](/docs/charts/line-chart) while the stream connects, then swap in `LiveLineChart` once data starts arriving:
 
 ```tsx
 import { LineChartLoading, LiveLineChart } from "@/components/charts";
@@ -7925,7 +7945,7 @@ function LiveRevenue({ connected, points }) {
 }
 ```
 
-`loadingStyle="sweep"` gives the diagonal shimmer; omit it for the default traveling pulse. See the [Line Chart loading docs](/docs/components/line-chart#loading-state) for the full set of loading props.
+`loadingStyle="sweep"` gives the diagonal shimmer; omit it for the default traveling pulse. See the [Line Chart loading docs](/docs/charts/line-chart#loading-state) for the full set of loading props.
 
 ## Theming
 
@@ -7938,7 +7958,7 @@ pnpm add @visx/shape @visx/curve @visx/scale @visx/responsive @visx/event d3-arr
 ```
 </doc>
 
-<doc title="Pie Chart" path="../apps/web/content/docs/components/pie-chart.mdx">
+<doc title="Pie Chart" path="../apps/web/content/docs/charts/pie-chart.mdx">
 import { PieChart, PieSlice, PieCenter } from "@cortexcn/ui/charts";
 import { PieChartDemo } from "@/components/docs/pie-chart-demo";
 
@@ -8025,7 +8045,7 @@ Displays content in the center of a donut chart. Only renders when `innerRadius 
 
 ### Legend
 
-A composable legend component for pie charts and other visualizations. See the full [Legend documentation](/docs/components/legend) for all components and options.
+A composable legend component for pie charts and other visualizations. See the full [Legend documentation](/docs/utility/legend) for all components and options.
 
 ## Data Shape
 
@@ -8086,7 +8106,7 @@ pnpm add @visx/shape @visx/group @visx/responsive @visx/pattern @visx/gradient d
 ```
 </doc>
 
-<doc title="Radar Chart" path="../apps/web/content/docs/components/radar-chart.mdx">
+<doc title="Radar Chart" path="../apps/web/content/docs/charts/radar-chart.mdx">
 import {
   RadarChart,
   RadarGrid,
@@ -8274,7 +8294,7 @@ pnpm add @visx/group @visx/responsive @visx/scale @visx/shape motion
 ```
 </doc>
 
-<doc title="Ring Chart" path="../apps/web/content/docs/components/ring-chart.mdx">
+<doc title="Ring Chart" path="../apps/web/content/docs/charts/ring-chart.mdx">
 import { RingChart, Ring, RingCenter } from "@cortexcn/ui/charts";
 import { RingChartDemo } from "@/components/docs/ring-chart-demo";
 
@@ -8356,7 +8376,7 @@ Displays the total or hovered value in the center of the chart.
 
 ### Legend
 
-A composable legend component for ring charts, pie charts, and other visualizations. See the full [Legend documentation](/docs/components/legend) for all components and options.
+A composable legend component for ring charts, pie charts, and other visualizations. See the full [Legend documentation](/docs/utility/legend) for all components and options.
 
 ## Data Shape
 
@@ -8420,7 +8440,7 @@ pnpm add @visx/shape @visx/group @visx/responsive motion
 ```
 </doc>
 
-<doc title="Scatter Chart" path="../apps/web/content/docs/components/scatter-chart.mdx">
+<doc title="Scatter Chart" path="../apps/web/content/docs/charts/scatter-chart.mdx">
 import { ScatterChartDemo } from "@/components/docs/scatter-chart-demo";
 
 <ComponentPreview registryName="scatter-chart">
@@ -8559,7 +8579,7 @@ Use the same cartesian building blocks as `LineChart`:
 - `ChartTooltip` — crosshair, date pill, and series rows
 </doc>
 
-<doc title="Sankey Chart" path="../apps/web/content/docs/components/sankey-chart.mdx">
+<doc title="Sankey Chart" path="../apps/web/content/docs/charts/sankey-chart.mdx">
 import {
   SankeyChart,
   SankeyNode,
@@ -8805,7 +8825,7 @@ pnpm add @visx/sankey @visx/responsive @visx/pattern motion react-use-measure
 ```
 </doc>
 
-<doc title="Sunburst Chart" path="../apps/web/content/docs/components/sunburst-chart.mdx">
+<doc title="Sunburst Chart" path="../apps/web/content/docs/charts/sunburst-chart.mdx">
 import {
   SunburstChart,
   SunburstSegment,
@@ -10380,7 +10400,7 @@ import { AreaChartBrushDemo } from "@/components/docs/area-chart-brush-demo";
 
 ## Installation
 
-`ChartBrush` and `ChartBrushLayout` ship with time-series charts. Install the [area chart](/docs/components/area-chart) (or [line chart](/docs/components/line-chart)) registry item, then import from your charts package:
+`ChartBrush` and `ChartBrushLayout` ship with time-series charts. Install the [area chart](/docs/charts/area-chart) (or [line chart](/docs/charts/line-chart)) registry item, then import from your charts package:
 
 ```tsx
 import {
@@ -10440,7 +10460,7 @@ Wrap the main chart in `ChartBrushLayout`. Render a simplified mini chart in `br
 </ChartBrushLayout>
 ```
 
-Works the same with `LineChart` and `Line` in the brush strip and main chart. See [Area Chart](/docs/components/area-chart#brush-zoom) and [Line Chart](/docs/components/line-chart#brush-zoom) for chart-specific notes.
+Works the same with `LineChart` and `Line` in the brush strip and main chart. See [Area Chart](/docs/charts/area-chart#brush-zoom) and [Line Chart](/docs/charts/line-chart#brush-zoom) for chart-specific notes.
 
 ## ChartBrushLayout
 
@@ -11249,7 +11269,7 @@ Add the Cortexcn lanyard-3d item to this project.
 
 If your assistant cannot use MCP, give it the docs as markdown instead:
 
-- Add `.md` to any docs page URL, for example [https://ui.cortexcn.dev/docs/components/lanyard-3d.md](https://ui.cortexcn.dev/docs/components/lanyard-3d.md).
+- Add `.md` to any docs page URL, for example [https://ui.cortexcn.dev/docs/cortex/lanyard-3d.md](https://ui.cortexcn.dev/docs/cortex/lanyard-3d.md).
 - Every docs page in one file: [https://ui.cortexcn.dev/llms-full.txt](https://ui.cortexcn.dev/llms-full.txt).
 
 ## Requirements
