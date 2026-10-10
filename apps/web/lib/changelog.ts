@@ -44,6 +44,14 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-10",
     kind: "site",
+    title: "Marketing Ops template",
+    summary:
+      "A new paid template for a marketing platform, with a live preview. Dark campaign dashboards sit on halftone landscapes drawn in SVG, the feature tabs advance on their own and pause on hover or focus, and pricing has a monthly and yearly toggle. It has a comparison table, twelve testimonials, and light and dark mode.",
+    items: [{ label: "Marketing Ops", href: "/templates/marketing-ops" }],
+  },
+  {
+    date: "2026-10-10",
+    kind: "site",
     title: "Legal AI template",
     summary:
       "A new paid template for an AI platform for law firms, with a live preview. In its research card, each numbered citation in an answer brings its highlighted passage forward in the source document. It has watercolor panels painted in code, tabs for law firms, in-house teams, and small practices, customer stories that stack as you scroll, and light and dark mode.",
