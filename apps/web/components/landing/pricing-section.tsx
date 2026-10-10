@@ -56,13 +56,6 @@ const RETAINERS_ICON = [
 
 const KINDS = [
   {
-    value: "components",
-    label: "Components",
-    icon: COMPONENTS_ICON,
-    plans: COMPONENT_PLANS,
-    note: "One-time payments in US dollars. No subscriptions and no renewals.",
-  },
-  {
     value: "projects",
     label: "Projects",
     icon: PROJECTS_ICON,
@@ -75,6 +68,13 @@ const KINDS = [
     icon: RETAINERS_ICON,
     plans: RETAINERS,
     note: "Billed monthly in US dollars. Pause or cancel with 2 weeks notice.",
+  },
+  {
+    value: "components",
+    label: "Components",
+    icon: COMPONENTS_ICON,
+    plans: COMPONENT_PLANS,
+    note: "One-time payments in US dollars. No subscriptions and no renewals.",
   },
 ] as const;
 
@@ -285,11 +285,11 @@ function KindToggle({
 }
 
 /**
- * The plan cards with the components, projects, and retainers toggle. Used by
- * the landing pricing section and the /pricing page.
+ * The plan cards with the projects, retainers, and components toggle. Used by
+ * the landing pricing section and the /pricing page. Client work comes first.
  */
 export function PricingPlans({ heading }: { heading?: string[] }) {
-  const [kind, setKind] = useState<Kind>("components");
+  const [kind, setKind] = useState<Kind>("projects");
   const active = KINDS.find((option) => option.value === kind) ?? KINDS[0];
 
   return (
@@ -335,7 +335,7 @@ export function PricingSection() {
     <section aria-label="Pricing" className="w-full py-20" id="pricing">
       <Container className="flex flex-col gap-6">
         <SectionLabel label="Pricing" section="pricing" />
-        <PricingPlans heading={["Clear prices.", "Pay once, or hire us."]} />
+        <PricingPlans heading={["Clear prices.", "Hire me by the project."]} />
         <div className="flex flex-wrap gap-x-8 gap-y-3">
           <PricingLink href="/pricing#estimate">
             Estimate your project
