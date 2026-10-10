@@ -88,7 +88,7 @@ export function PerspectiveMarquee({
               // biome-ignore lint/performance/noImgElement: framework-agnostic registry component
               <img
                 alt={image.alt}
-                className="aspect-4/3 w-full rounded-xl bg-muted object-cover shadow-sm ring-1 ring-foreground/10 transition-[translate,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="aspect-4/3 w-full rounded-xl bg-muted object-cover shadow-sm ring-1 ring-foreground/10 transition-[translate,box-shadow] duration-slow hover:-translate-y-2 hover:shadow-2xl"
                 decoding="async"
                 height={300}
                 key={image.src}

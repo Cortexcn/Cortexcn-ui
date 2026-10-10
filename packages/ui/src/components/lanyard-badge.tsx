@@ -533,7 +533,7 @@ export function LanyardBadge({
             : "Badge. Press the arrow keys to swing it."
         }
         aria-pressed={back ? flipped : undefined}
-        className="absolute top-0 left-0 origin-top cursor-grab rounded-[20px] outline-none [transform-style:preserve-3d] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-4 active:cursor-grabbing"
+        className="absolute top-0 left-0 origin-top cursor-grab rounded-lanyard outline-none [transform-style:preserve-3d] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-4 active:cursor-grabbing"
         onKeyDown={onKeyDown}
         onPointerCancel={onPointerUp}
         onPointerDown={onPointerDown}
@@ -544,18 +544,18 @@ export function LanyardBadge({
         style={{ width: cardWidth, height: cardHeight }}
         tabIndex={0}
       >
-        <div className="relative size-full rounded-[20px] [transform-style:preserve-3d]">
-          <div className="absolute inset-0 overflow-hidden rounded-[20px] border bg-card text-card-foreground shadow-[0_24px_50px_-20px_rgb(0_0_0/0.45)] [backface-visibility:hidden]">
+        <div className="relative size-full rounded-lanyard [transform-style:preserve-3d]">
+          <div className="absolute inset-0 overflow-hidden rounded-lanyard border bg-card text-card-foreground shadow-lanyard [backface-visibility:hidden]">
             {front}
             <CardSlot />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[length:250%_100%] bg-[linear-gradient(105deg,transparent_35%,rgb(255_255_255/0.28)_50%,transparent_65%)] mix-blend-soft-light"
+              className="pointer-events-none absolute inset-0 bg-[length:250%_100%] bg-linear-105 from-35% from-transparent via-50% via-sheen to-65% to-transparent mix-blend-soft-light"
               ref={shineRef}
             />
           </div>
           {back ? (
-            <div className="absolute inset-0 overflow-hidden rounded-[20px] border bg-card text-card-foreground shadow-[0_24px_50px_-20px_rgb(0_0_0/0.45)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            <div className="absolute inset-0 overflow-hidden rounded-lanyard border bg-card text-card-foreground shadow-lanyard [backface-visibility:hidden] [transform:rotateY(180deg)]">
               {back}
               <CardSlot />
             </div>
@@ -571,7 +571,7 @@ function CardSlot() {
   return (
     <span
       aria-hidden="true"
-      className="absolute top-3 left-1/2 h-2 w-12 -translate-x-1/2 rounded-full bg-muted shadow-[inset_0_1px_2px_rgb(0_0_0/0.25)]"
+      className="absolute top-3 left-1/2 h-2 w-12 -translate-x-1/2 rounded-full bg-muted shadow-lanyard-slot"
     />
   );
 }

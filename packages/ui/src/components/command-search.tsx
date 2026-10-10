@@ -263,7 +263,7 @@ function Highlighted({ label, needle }: { label: string; needle: string }) {
   return (
     <>
       {label.slice(0, start)}
-      <span className="rounded-[3px] bg-amber-200/40 dark:bg-amber-400/15">
+      <span className="rounded-xs bg-warning/30 dark:bg-warning/15">
         {label.slice(start, end)}
       </span>
       {label.slice(end)}
@@ -391,10 +391,10 @@ export function CommandSearch({
       aria-activedescendant={activeLabel ? optionId(activeLabel) : undefined}
       aria-label="Command search"
       className={cn(
-        "relative flex w-full flex-col overflow-hidden rounded-[14px] bg-white p-2 pb-11 outline-hidden",
-        "shadow-[0_1px_3px_0_rgba(0,0,0,0.1),0_0_0_1px_rgba(10,10,10,0.05)] drop-shadow-[0_4px_14.2px_rgba(108,108,108,0.25)]",
-        "focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:focus-visible:ring-neutral-500/40",
-        "dark:bg-neutral-950 dark:shadow-[0_1px_3px_0_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.12)]",
+        "relative flex w-full flex-col overflow-hidden rounded-command bg-popover p-2 pb-11 text-popover-foreground outline-hidden",
+        "shadow-command drop-shadow-command",
+        "focus-visible:ring-2 focus-visible:ring-ring/50",
+        "dark:shadow-command-dark",
         className,
       )}
       onKeyDown={handleKeyDown}
@@ -404,9 +404,9 @@ export function CommandSearch({
       style={{ height }}
       tabIndex={0}
     >
-      <div className="flex h-9 shrink-0 items-center gap-3 rounded-lg border border-border bg-neutral-200/50 px-3 dark:bg-neutral-800/50">
+      <div className="flex h-9 shrink-0 items-center gap-3 rounded-lg border border-border bg-muted px-3 dark:bg-muted/50">
         <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
-        <div className="flex min-w-0 flex-1 items-center text-[#020202] text-base dark:text-neutral-50">
+        <div className="flex min-w-0 flex-1 items-center text-base text-foreground">
           <span className="whitespace-pre">{displayQuery}</span>
           <Caret />
           {displayQuery ? null : (
@@ -423,7 +423,7 @@ export function CommandSearch({
         <motion.span
           animate={{ y: pillY ?? 0, opacity: pillY === null ? 0 : 1 }}
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-9 rounded-lg bg-neutral-200/50 dark:bg-neutral-800/60"
+          className="pointer-events-none absolute inset-x-0 top-0 h-9 rounded-lg bg-muted dark:bg-muted/60"
           initial={false}
           transition={{ type: "spring", stiffness: 420, damping: 36 }}
         />
@@ -466,10 +466,8 @@ export function CommandSearch({
                     </motion.span>
                     <span
                       className={cn(
-                        "truncate font-medium text-sm leading-5 transition-colors duration-150",
-                        active
-                          ? "text-neutral-900 dark:text-neutral-100"
-                          : "text-neutral-900/80 dark:text-neutral-100/80",
+                        "truncate font-medium text-sm leading-5 transition-colors duration-fast",
+                        active ? "text-foreground" : "text-foreground/80",
                       )}
                     >
                       <Highlighted label={item.label} needle={needle} />
@@ -502,20 +500,20 @@ export function CommandSearch({
         </AnimatePresence>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 flex h-11 items-center gap-2 rounded-b-[14px] border-border border-t bg-neutral-50 px-4 dark:bg-neutral-900/60">
-        <kbd className="flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-white dark:bg-neutral-900">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex h-11 items-center gap-2 rounded-b-command border-border border-t bg-muted/50 px-4 dark:bg-muted/60">
+        <kbd className="flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-card">
           <ArrowUp className="h-3 w-3 text-muted-foreground" />
         </kbd>
-        <kbd className="flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-white dark:bg-neutral-900">
+        <kbd className="flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-card">
           <ArrowDown className="h-3 w-3 text-muted-foreground" />
         </kbd>
-        <span className="font-medium text-[#71717a] text-xs dark:text-neutral-400">
+        <span className="font-medium text-muted-foreground text-xs">
           Navigate
         </span>
-        <kbd className="ml-2 flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-white dark:bg-neutral-900">
+        <kbd className="ml-2 flex h-[22px] w-[22px] items-center justify-center rounded-md border border-border bg-card">
           <CornerDownLeft className="h-3 w-3 text-muted-foreground" />
         </kbd>
-        <span className="font-medium text-[#71717a] text-xs dark:text-neutral-400">
+        <span className="font-medium text-muted-foreground text-xs">
           Select
         </span>
       </div>

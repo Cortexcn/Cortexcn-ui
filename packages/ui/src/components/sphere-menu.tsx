@@ -447,7 +447,7 @@ export function SphereMenu({
             const { yaw, pitch } = tileAngles(direction);
             return (
               <div
-                className="absolute overflow-hidden rounded-[22%] bg-muted shadow-sm [backface-visibility:hidden]"
+                className="absolute overflow-hidden rounded-app-icon bg-muted shadow-sm [backface-visibility:hidden]"
                 // biome-ignore lint/suspicious/noArrayIndexKey: tiles are fixed positions on the sphere
                 key={i}
                 ref={(element) => {
@@ -483,7 +483,7 @@ export function SphereMenu({
         <div
           aria-live="polite"
           className={cn(
-            "pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-3 px-6 text-center transition-[opacity,translate] duration-300",
+            "pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-3 px-6 text-center transition-[opacity,translate] duration-slow",
             settled ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
           )}
         >
