@@ -9,6 +9,7 @@ import { FeatureBentoGridBlock } from "./feature-bento-grid-01";
 import { FeatureImageColumnsBlock } from "./feature-image-columns-01";
 import { FeatureMediaCardsBlock } from "./feature-media-cards-01";
 import { FeatureMixedBentoBlock } from "./feature-mixed-bento-01";
+import { FeatureMockupGridBlock } from "./feature-mockup-grid-01";
 import { FeatureSpotlightGridBlock } from "./feature-spotlight-grid-01";
 import { FeatureStudioGridBlock } from "./feature-studio-grid-01";
 import { FeatureWalkthroughBlock } from "./feature-walkthrough-01";
@@ -32,6 +33,7 @@ const BLOCK_VIEWERS: Record<BlockSlug, ComponentType<BlockDisplayProps>> = {
   "feature-studio-grid-01": FeatureStudioGridBlock,
   "feature-bento-grid-01": FeatureBentoGridBlock,
   "feature-mixed-bento-01": FeatureMixedBentoBlock,
+  "feature-mockup-grid-01": FeatureMockupGridBlock,
   "feature-walkthrough-01": FeatureWalkthroughBlock,
   "stat-card-area-01": StatCardAreaBlock,
   "stat-card-line-01": StatCardLineBlock,
