@@ -1,0 +1,161 @@
+/*
+ * Notion (design-systems/notion). Generated from tokens.json
+ * by `bun run ds:build`; edit tokens.json, not this file.
+ * Unofficial and inspired by Notion's public website; not affiliated with or endorsed by Notion.
+ */
+
+[data-theme="notion"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #0075de;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f5f4;
+  --secondary-foreground: #000000;
+  --muted: #f6f5f4;
+  --muted-foreground: #615d59;
+  --accent: #f6f5f4;
+  --accent-foreground: #000000;
+  --destructive: #d92d20;
+  --border: #e6e6e6;
+  --input: #e6e6e6;
+  --ring: #0075de;
+  --chart-1: #0075de;
+  --chart-2: #d6b6f6;
+  --chart-3: #ff64c8;
+  --chart-4: #dd5b00;
+  --chart-5: #2a9d99;
+  --ds-primary-hover: #005bab;
+  --ds-success: #1aae39;
+  --ds-warning: #b45309;
+  --ds-overlay: rgba(0, 0, 0, 0.4);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --ds-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ds-font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-bold: 700;
+  --ds-tracking-display: -0.033em;
+  --ds-tracking-body: 0;
+  --ds-leading-display: 1;
+  --ds-leading-body: 1.5;
+  --radius: 12px;
+  --ds-radius-none: 0px;
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 5px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-full: 9999px;
+  --ds-spacing-unit: 4px;
+  --ds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ds-shadow-2: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+  --ds-shadow-3: 0 16px 32px -8px rgba(0, 0, 0, 0.24);
+  --ds-duration-fast: 120ms;
+  --ds-duration-base: 200ms;
+  --ds-duration-slow: 320ms;
+  --ds-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ds-button-radius: var(--ds-radius-full);
+  --ds-button-h-xs: 28px;
+  --ds-button-h-sm: 36px;
+  --ds-button-h-md: 40px;
+  --ds-button-h-lg: 44px;
+  --ds-button-px: 16px;
+  --ds-button-weight: var(--ds-weight-medium);
+  --ds-button-transform: none;
+  --ds-button-tracking: 0;
+  --ds-button-shadow: none;
+  --ds-input-radius: var(--ds-radius-xs);
+  --ds-input-h: 32px;
+  --ds-input-px: 6px;
+  --ds-input-bg: transparent;
+  --ds-input-shadow: none;
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: 24px;
+  --ds-card-shadow: none;
+  --ds-card-border-width: 1px;
+  --ds-card-bg: var(--card);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-px: 8px;
+  --ds-badge-weight: var(--ds-weight-medium);
+  --ds-badge-transform: none;
+  --ds-tabs-radius: var(--ds-radius-md);
+  --ds-tabs-list-bg: var(--muted);
+  --ds-tabs-active-bg: var(--background);
+  --ds-tabs-active-shadow: var(--ds-shadow-1);
+  --ds-accordion-divider-width: 1px;
+  --ds-accordion-weight: var(--ds-weight-medium);
+  --ds-accordion-chevron-rotate: 180deg;
+  --ds-accordion-duration: var(--ds-duration-base);
+  --ds-accordion-py: 16px;
+  --ds-dialog-radius: var(--ds-radius-xl);
+  --ds-dialog-shadow: var(--ds-shadow-3);
+  --ds-dialog-padding: 24px;
+  --ds-menu-radius: var(--ds-radius-md);
+  --ds-menu-item-radius: var(--ds-radius-sm);
+  --ds-menu-shadow: var(--ds-shadow-2);
+  --ds-control-radius: var(--ds-radius-xs);
+  --ds-tooltip-radius: var(--ds-radius-sm);
+  --ds-alert-radius: var(--ds-radius-lg);
+}
+
+[data-theme="notion"].dark,
+.dark [data-theme="notion"] {
+  color-scheme: dark;
+  --background: #0f0f0f;
+  --foreground: #f2f2f2;
+  --card: #171717;
+  --card-foreground: #f2f2f2;
+  --popover: #1c1c1c;
+  --popover-foreground: #f2f2f2;
+  --primary: #0075de;
+  --primary-foreground: #ffffff;
+  --secondary: #242424;
+  --secondary-foreground: #f2f2f2;
+  --muted: #242424;
+  --muted-foreground: #a8a49f;
+  --accent: #242424;
+  --accent-foreground: #f2f2f2;
+  --destructive: #ff5543;
+  --border: #2d2d2d;
+  --input: #373737;
+  --ring: #0075de;
+  --chart-1: #0075de;
+  --chart-2: #80629c;
+  --chart-3: #bf218f;
+  --chart-4: #d95900;
+  --chart-5: #219894;
+  --ds-primary-hover: #0061ba;
+  --ds-success: #29b641;
+  --ds-warning: #de793d;
+  --ds-overlay: rgba(0, 0, 0, 0.6);
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--card-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="notion"] {
+    --ds-duration-fast: 0ms;
+    --ds-duration-base: 0ms;
+    --ds-duration-slow: 0ms;
+  }
+}
