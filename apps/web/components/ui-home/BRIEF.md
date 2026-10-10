@@ -9,8 +9,8 @@ plans, read from `lib/service-pricing.ts`.
 ## Where it lives
 
 - It is the root of its own host: https://ui.cortexcn.dev/ in production and
-  http://ui.localhost:3000/ in dev (browsers resolve `*.localhost` to this
-  machine). http://localhost:3000/ stays the services landing.
+  http://localhost:4420/ in dev (ports in `apps/web/dev-ports.json`).
+  http://localhost:4410/ stays the services landing.
 - Route: `app/(ui-home)/ui-home/page.tsx`, with its own layout
   (`app/(ui-home)/layout.tsx`) that sets the theme scope and fonts, the header
   (plain variant, library nav from `lib/library-nav-links.ts`), and
@@ -41,7 +41,7 @@ copied into their repo, so they own it and can change it.
   Cortexcn. Sample numbers inside a UI mock (a dashboard's revenue) are fine.
   Do not call the library "free" or "open source" (paid plans exist).
 - Only name components that exist in the registry (see the docs sidebar,
-  `content/docs/components/meta.json`, and `blocks/manifest.ts`).
+  the family folders' `meta.json` under `content/docs/`, and `blocks/manifest.ts`).
 
 ## Design system
 
