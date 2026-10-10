@@ -15,7 +15,7 @@ import {
 } from "./kit";
 import { Container } from "./primitives";
 
-const WORDS = ["tested", "typed", "themed", "ready"];
+const WORDS = ["website", "store", "web app", "launch"];
 
 const TYPE_DELAY = 80;
 const DELETE_DELAY = 45;
@@ -66,8 +66,10 @@ function useCyclingWord(words: string[]) {
   return text;
 }
 
-const FIRST_LINE = "Real components,";
-const LAST_LINE = "Start building today.";
+const FIRST_LINE = "Your next";
+const LAST_LINE = "starts with one email.";
+const SPOKEN_HEADING =
+  "Your next website, store, or web app starts with one email.";
 const CHAR_MS = 35;
 const LAST_LINE_START = 500;
 
@@ -83,9 +85,7 @@ function CtaHeading() {
       className="flex flex-col items-center text-center font-normal text-[2.75rem] leading-[1.1] tracking-[-0.06em] sm:text-6xl lg:text-[4rem]"
       ref={ref}
     >
-      <span className="sr-only">
-        {FIRST_LINE} {WORDS.join(", ")}. {LAST_LINE}
-      </span>
+      <span className="sr-only">{SPOKEN_HEADING}</span>
       <span aria-hidden="true">
         <TypedText
           scramble={scrambleChar(elapsed, 1)}
@@ -128,13 +128,13 @@ function Ticker({ reverse = false }: { reverse?: boolean }) {
         reverse={reverse}
       >
         <span className="flex shrink-0 items-center gap-4 pl-10 font-medium font-mono text-primary text-sm uppercase leading-[1.3] tracking-[-0.04em]">
-          <span>[#Components]</span>
+          <span>[#Websites]</span>
           <span>&amp;</span>
-          <span>[#Agents]</span>
+          <span>[#Stores]</span>
           <span className="pl-16">{"//"}</span>
-          <span className="pl-6">[#Blocks]</span>
+          <span className="pl-6">[#Web apps]</span>
           <span>&amp;</span>
-          <span>[#Charts]</span>
+          <span>[#AI features]</span>
           <span className="pr-6 pl-16">{"//"}</span>
         </span>
       </Marquee>
@@ -153,7 +153,7 @@ function CornerSquare({ className }: { className: string }) {
 
 export function CtaSection() {
   return (
-    <section aria-label="Get started" className="w-full">
+    <section aria-label="Start a project" className="w-full">
       <Ticker />
       <div className="relative">
         <InteractiveGrid className="absolute inset-0" />
@@ -165,13 +165,13 @@ export function CtaSection() {
             <CornerSquare className="right-2 bottom-2" />
 
             <span className="bg-muted px-1 py-0.5 font-medium font-mono text-body text-xs uppercase leading-[1.3] tracking-[-0.04em]">
-              Get started in minutes
+              Tell me what you are building
             </span>
             <CtaHeading />
             <ActionLink
               className="mt-8"
-              href="/docs/installation"
-              label="Get started"
+              href="/contact"
+              label="Start a project"
             />
           </div>
         </Container>

@@ -1,23 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { CortexcnLogo } from "@/components/icons/cortexcn";
-import { COMPONENT_COUNT_LABEL } from "@/lib/component-count";
+import { formatUsd, PROJECT_STARTING_PRICES } from "@/lib/service-pricing";
 import { cn } from "@/lib/utils";
 
 import { InteractiveGrid } from "./interactive-grid";
 import { ActionLink } from "./kit";
 import { Container } from "./primitives";
 
-/** What the agent builds; typed into the bracket in the headline, one by one. */
+/** What I build for clients; typed into the bracket in the headline, one by one. */
 const BUILD_TARGETS = [
   "Landing Pages",
-  "Dashboards",
-  "Portfolios",
-  "Storefronts",
-  "Pricing Pages",
+  "Websites",
+  "Online Stores",
+  "Web Apps",
+  "AI Features",
 ];
 
 const TYPE_DELAY = 75;
@@ -109,7 +108,7 @@ function GridBand() {
             Cortexcn
           </span>
           <span className="mt-1 self-center bg-(--band-line) px-1.5 py-0.5 font-mono text-(--band-foreground) text-xs uppercase">
-            shadcn registry
+            Freelance design and build
           </span>
         </div>
 
@@ -128,58 +127,27 @@ function GridBand() {
   );
 }
 
-/** Tools the registry is built for; shown as small tiles in the proof row. */
-const PROOF_LOGOS = [
-  {
-    name: "shadcn/ui",
-    light: "/logos/stack/shadcn-light.svg",
-    dark: "/logos/stack/shadcn-dark.svg",
-  },
-  {
-    name: "Next.js",
-    light: "/logos/stack/nextjs-light.svg",
-    dark: "/logos/stack/nextjs-dark.svg",
-  },
-  // Claude's orange mark reads on both themes.
-  { name: "Claude", light: "/logos/claude.svg", dark: "/logos/claude.svg" },
+const projectsFrom = formatUsd(
+  Math.min(...Object.values(PROJECT_STARTING_PRICES)),
+);
+
+/** What every client gets, from the pricing data and the way we work. */
+const PROMISES = [
+  `Projects from ${projectsFrom}`,
+  "A preview link every week",
+  "30 days of fixes after launch",
 ];
 
 function ProofRow() {
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground text-sm">
-      <div className="flex">
-        {PROOF_LOGOS.map((logo) => (
-          <span
-            className="-ml-px flex size-8 items-center justify-center border border-border bg-background first:ml-0"
-            key={logo.name}
-            title={logo.name}
-          >
-            <Image
-              alt={logo.name}
-              className="size-4 dark:hidden"
-              height={16}
-              src={logo.light}
-              unoptimized
-              width={16}
-            />
-            <Image
-              alt=""
-              className="hidden size-4 dark:block"
-              height={16}
-              src={logo.dark}
-              unoptimized
-              width={16}
-            />
-          </span>
-        ))}
-      </div>
-      <span>Built for shadcn/ui and Next.js</span>
-      <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
-      <span className="flex items-center gap-1.5">
-        <span aria-hidden="true" className="size-2 bg-primary" />
-        {COMPONENT_COUNT_LABEL} components
-      </span>
-    </div>
+    <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-muted-foreground text-sm">
+      {PROMISES.map((promise) => (
+        <li className="flex items-center gap-1.5" key={promise}>
+          <span aria-hidden="true" className="size-2 bg-primary" />
+          {promise}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -188,9 +156,9 @@ function Headline() {
 
   return (
     <h1 className="font-medium text-[clamp(2.25rem,10.5vw,2.75rem)] leading-[1.08] tracking-[-0.045em] sm:text-6xl lg:text-[4.5rem]">
-      <span className={cn("block", enterClassName)}>Your AI agent ships</span>
+      <span className={cn("block", enterClassName)}>I design and build</span>
       <span className="sr-only">
-        landing pages, dashboards, portfolios, and storefronts
+        landing pages, websites, online stores, web apps, and AI features
       </span>
       <span
         aria-hidden="true"
@@ -204,7 +172,7 @@ function Headline() {
         <span className="ml-1 inline-block h-[0.9em] w-[0.55em] animate-caret-blink bg-primary/25 motion-reduce:animate-none" />
       </span>
       <span className={cn("block delay-200", enterClassName)}>
-        from real components.
+        for your business.
       </span>
     </h1>
   );
@@ -233,9 +201,9 @@ export function HeroSection() {
               enterClassName,
             )}
           >
-            Add components from the Cortexcn registry with one command, or let
-            your AI agent pull them in. Real React code that you own and can
-            change.
+            Tell me what you need. You get a written quote before any work
+            starts, a preview link to click through every week, and a fast
+            Next.js site whose code lives in your repo.
           </p>
 
           <div
@@ -244,11 +212,11 @@ export function HeroSection() {
               enterClassName,
             )}
           >
-            <ActionLink href="/docs/installation" label="Get started" />
+            <ActionLink href="/contact" label="Start a project" />
             <ActionLink
               className="flex-1"
-              href="/docs/components"
-              label="Browse components"
+              href="#work"
+              label="See the work"
               variant="outline"
             />
           </div>

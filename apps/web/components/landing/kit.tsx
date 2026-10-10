@@ -10,6 +10,7 @@ import {
   useState,
 } from "react";
 
+import { CLIENT_TESTIMONIALS } from "@/lib/testimonials";
 import { cn } from "@/lib/utils";
 
 /*
@@ -18,23 +19,35 @@ import { cn } from "@/lib/utils";
  * and pixel art. Colors come from the `.syntiq` tokens in globals.css.
  */
 
-/** Numbered sections, in page order; drives the "[N.01/06]" labels. */
-export const NUMBERED_SECTIONS = [
-  "benefits",
-  "capabilities",
-  "installation",
+/** Every numbered section, in page order. */
+const ALL_NUMBERED_SECTIONS = [
+  "services",
+  "process",
+  "work",
+  "testimonials",
+  "library",
+  "mcp",
   "pricing",
-  "changelog",
   "faq",
 ] as const;
 
-export type NumberedSection = (typeof NUMBERED_SECTIONS)[number];
+export type NumberedSection = (typeof ALL_NUMBERED_SECTIONS)[number];
+
+/**
+ * The numbered sections on the page; drives the "[N.01/08]" labels. The
+ * testimonials section only shows once there are real quotes, so it only
+ * takes a number then.
+ */
+export const NUMBERED_SECTIONS: readonly NumberedSection[] =
+  ALL_NUMBERED_SECTIONS.filter(
+    (section) => section !== "testimonials" || CLIENT_TESTIMONIALS.length > 0,
+  );
 
 function pad(value: number) {
   return String(value).padStart(2, "0");
 }
 
-/** "[N.01/06] —— > LABEL ————" row that opens every numbered section. */
+/** The "[N.01/08] > LABEL" row, with its rules, that opens every numbered section. */
 export function SectionLabel({
   section,
   label,
