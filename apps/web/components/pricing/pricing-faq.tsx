@@ -10,6 +10,7 @@ import {
   formatUsd,
   PLAN_REFUND_DAYS,
 } from "@/lib/service-pricing";
+import { CHECKOUT_URLS } from "@/lib/site-config";
 
 import { CopyEmailButton } from "./copy-email-button";
 
@@ -164,7 +165,7 @@ const QUESTIONS: Question[] = [
   {
     icon: "plans",
     question: "How do Pro and Ultra work?",
-    answer: `Both are paid once, with no subscription. Pro is ${formatUsd(COMPONENT_PLAN_PRICES.pro)} for every component, and Ultra is ${formatUsd(COMPONENT_PLAN_PRICES.ultra)} for everything, including future components and templates. Checkout is not open yet, so the plan buttons ask for early access, and we email you when it opens.`,
+    answer: `Both are paid once, with no subscription. Pro is ${formatUsd(COMPONENT_PLAN_PRICES.pro)} for every component, and Ultra is ${formatUsd(COMPONENT_PLAN_PRICES.ultra)} for everything, including future components and templates. ${CHECKOUT_URLS.pro && CHECKOUT_URLS.ultra ? "The Buy buttons go straight to checkout." : "Until checkout opens, the Buy buttons open the contact form with your order written out, and you get a payment link by email."}`,
   },
   {
     icon: "license",
