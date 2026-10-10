@@ -77,15 +77,15 @@
   --ds-button-weight: var(--ds-weight-medium);
   --ds-button-transform: none;
   --ds-button-tracking: -0.005em;
-  --ds-button-shadow: none;
+  --ds-button-shadow: 0 0 #0000;
   --ds-input-radius: var(--ds-radius-md);
   --ds-input-h: 50px;
   --ds-input-px: 14px;
   --ds-input-bg: transparent;
-  --ds-input-shadow: none;
+  --ds-input-shadow: 0 0 #0000;
   --ds-card-radius: var(--ds-radius-md);
   --ds-card-padding: 16px;
-  --ds-card-shadow: none;
+  --ds-card-shadow: 0 0 #0000;
   --ds-card-border-width: 1px;
   --ds-card-bg: var(--muted);
   --ds-badge-radius: var(--ds-radius-full);
