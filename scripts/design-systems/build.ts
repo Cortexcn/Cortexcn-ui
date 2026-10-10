@@ -7,6 +7,7 @@ import { join, resolve } from "node:path";
 import { themeCss } from "../../design-systems/_schema/css";
 import { loadSystems } from "../../design-systems/_schema/load";
 import { formatFiles } from "./format";
+import { writeRegistry } from "./recipes-item";
 
 const ROOT = resolve(import.meta.dirname, "../../design-systems");
 
@@ -21,3 +22,7 @@ for (const { id, dir, tokens, meta } of loadSystems(ROOT)) {
   console.log(`theme.css ${id}`);
 }
 formatFiles(written);
+
+// The registry item that ships the recipe utilities to installs.
+writeRegistry();
+console.log("packages/ui/registry.json design-system-recipes");

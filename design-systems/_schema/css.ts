@@ -128,11 +128,15 @@ export function sharedDeclarations(tokens: DesignTokens): Declarations {
       "--ds-tabs-active-bg",
       c.tabs.style === "segmented" ? "var(--background)" : "transparent",
     ],
+    // Underline tabs show a bar under the active tab instead of a raised one.
+    ["--ds-tabs-underline", c.tabs.style === "underline" ? "1" : "0"],
+    [
+      "--ds-tabs-active-border",
+      c.tabs.style === "underline" ? "transparent" : "var(--input)",
+    ],
     [
       "--ds-tabs-active-shadow",
-      c.tabs.style === "segmented"
-        ? "var(--ds-shadow-1)"
-        : "inset 0 -2px 0 var(--foreground)",
+      c.tabs.style === "underline" ? "none" : "var(--ds-shadow-1)",
     ],
 
     ["--ds-accordion-divider-width", c.accordion.dividers ? "1px" : "0px"],

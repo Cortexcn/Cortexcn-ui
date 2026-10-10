@@ -26,6 +26,7 @@ import {
   type DesignTokens,
   tokensSchema,
 } from "../design-systems/_schema/tokens";
+import { registryInSync } from "./design-systems/recipes-item";
 
 const ROOT = resolve(import.meta.dirname, "../design-systems");
 const MIN_SYSTEMS = 25;
@@ -186,6 +187,12 @@ for (const id of ids) {
   for (const problem of problems) {
     console.error(`    ${problem}`);
   }
+}
+if (!registryInSync()) {
+  failed = true;
+  console.error(
+    "x packages/ui/registry.json: the design-system-recipes item or its dependents are out of date; run `bun run ds:build`",
+  );
 }
 if (ids.length < MIN_SYSTEMS) {
   failed = true;

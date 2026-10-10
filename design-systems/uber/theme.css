@@ -95,6 +95,8 @@
   --ds-tabs-radius: var(--ds-radius-xl);
   --ds-tabs-list-bg: var(--muted);
   --ds-tabs-active-bg: var(--background);
+  --ds-tabs-underline: 0;
+  --ds-tabs-active-border: var(--input);
   --ds-tabs-active-shadow: var(--ds-shadow-1);
   --ds-accordion-divider-width: 1px;
   --ds-accordion-weight: var(--ds-weight-medium);
