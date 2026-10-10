@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 /** Title and description come from the chart's docs page. */
 function chartInfo(slug: string) {
-  const doc = source.getPage(["components", slug]);
+  const doc = source.getPage(["charts", slug]);
   const fallback = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
