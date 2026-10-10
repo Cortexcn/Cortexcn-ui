@@ -54,6 +54,12 @@ const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 const cloudflareBeaconToken =
   process.env.NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
 const bingVerification = process.env.BING_SITE_VERIFICATION;
+/**
+ * Plausible: page views on both hosts, without cookies. The domain list is
+ * the site names in Plausible, such as "www.cortexcn.dev,ui.cortexcn.dev".
+ * Unset, the script stays off, as it does locally.
+ */
+const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -132,6 +138,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Script
             data-cf-beacon={JSON.stringify({ token: cloudflareBeaconToken })}
             src="https://static.cloudflareinsights.com/beacon.min.js"
+            strategy="afterInteractive"
+          />
+        ) : null}
+        {plausibleDomain ? (
+          <Script
+            data-domain={plausibleDomain}
+            src="https://plausible.io/js/script.outbound-links.js"
             strategy="afterInteractive"
           />
         ) : null}
