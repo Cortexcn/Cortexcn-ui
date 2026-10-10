@@ -21,7 +21,7 @@ function NativeSelect({
       data-slot="native-select-wrapper"
     >
       <select
-        className="h-9 w-full min-w-0 select-none appearance-none rounded-md border border-input bg-transparent py-1 pr-8 pl-2.5 text-sm shadow-xs outline-none transition-[color,box-shadow] selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-[size=sm]:h-8 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 dark:hover:bg-input/50"
+        className="h-input w-full min-w-0 select-none appearance-none rounded-input border border-input bg-input-fill py-1 pr-8 pl-input-x text-sm shadow-input outline-none transition-[color,box-shadow] selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-[size=sm]:h-8 dark:bg-input-fill-dark dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 dark:hover:bg-input/50"
         data-size={size}
         data-slot="native-select"
         {...props}
@@ -41,7 +41,7 @@ function NativeSelectOption({
 }: React.ComponentProps<"option">) {
   return (
     <option
-      className={cn("bg-[Canvas] text-[CanvasText]", className)}
+      className={cn("bg-system-canvas text-system-canvas-text", className)}
       data-slot="native-select-option"
       {...props}
     />
@@ -54,7 +54,7 @@ function NativeSelectOptGroup({
 }: React.ComponentProps<"optgroup">) {
   return (
     <optgroup
-      className={cn("bg-[Canvas] text-[CanvasText]", className)}
+      className={cn("bg-system-canvas text-system-canvas-text", className)}
       data-slot="native-select-optgroup"
       {...props}
     />
