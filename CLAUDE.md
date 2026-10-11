@@ -110,6 +110,14 @@ Follow `AGENTS.md`: source in `packages/ui/src/charts/`, the export in `index.ts
 
 After docs or catalog changes, run `node scripts/generate-llms.mjs` to regenerate `llms.txt` and `wiki/`.
 
+### Page metadata and share images
+
+- Every page builds its metadata with `pageMetadata()` from `apps/web/lib/seo.ts`. It sets the canonical URL, Open Graph, the X card, and a share image, so new docs pages, blocks, charts, and templates get one with no extra step.
+- The image is drawn on request by `apps/web/app/og/route.tsx` from the page's title and description. The card is `apps/web/components/og/og-card.tsx`, and the URL helpers are `apps/web/lib/og.ts`.
+- Pass `image` to `pageMetadata()` only to change what the card shows: a shorter `title`, the `section` label, the registry `item` for the install line, or a fixed `src`.
+- Don't write `openGraph` or `twitter` by hand. A page that does loses its image, and `bun run build` fails: `apps/web/scripts/check-og.mjs` runs after `next build` and names every indexable page without one.
+- To see a card, open `http://localhost:4410/og?title=...&description=...&path=/docs` while `bun run dev` runs.
+
 ## Licensing
 
 The registry redistributes source code publicly, so every file in it must be ours or under a license that allows that.
