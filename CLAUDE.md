@@ -113,7 +113,8 @@ After docs or catalog changes, run `node scripts/generate-llms.mjs` to regenerat
 ### Page metadata and share images
 
 - Every page builds its metadata with `pageMetadata()` from `apps/web/lib/seo.ts`. It sets the canonical URL, Open Graph, the X card, and a share image, so new docs pages, blocks, charts, and templates get one with no extra step.
-- The image is drawn on request by `apps/web/app/og/route.tsx` from the page's title and description. The card is `apps/web/components/og/og-card.tsx`, and the URL helpers are `apps/web/lib/og.ts`.
+- The image is drawn on request by `apps/web/app/og/route.tsx` from the page's title and description, on the page's own host. The URL helpers are `apps/web/lib/og.ts`.
+- Each site has its own card in `apps/web/components/og/`. `ui.cortexcn.dev` pages get `library-og-card.tsx`, in the library home's style: warm paper, a Sentient Light title, and a gradient panel. `www.cortexcn.dev` pages get the dark grid band in `og-card.tsx`. Sentient is fetched from Fontshare at runtime, never committed. The panel stays a gradient: don't put the home's paintings in share images.
 - Pass `image` to `pageMetadata()` only to change what the card shows: a shorter `title`, the `section` label, the registry `item` for the install line, or a fixed `src`.
 - Don't write `openGraph` or `twitter` by hand. A page that does loses its image, and `bun run build` fails: `apps/web/scripts/check-og.mjs` runs after `next build` and names every indexable page without one.
 - To see a card, open `http://localhost:4410/og?title=...&description=...&path=/docs` while `bun run dev` runs.
