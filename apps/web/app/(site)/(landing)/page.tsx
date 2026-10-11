@@ -23,6 +23,8 @@ export const metadata = pageMetadata({
   description: HOME_DESCRIPTION,
   path: "/",
   absoluteTitle: true,
+  // The card already shows the Cortexcn name.
+  image: { title: "Websites and web apps by Syed Moinuddin" },
 });
 
 /**
