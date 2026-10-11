@@ -20,6 +20,8 @@ Repo workflows live as Agent Skills in `.agents/skills/`. Read the relevant skil
 | MCP server                    | `apps/web/app/mcp/route.ts` and `apps/web/lib/mcp/`                                  |
 | Agent skills shipped to users | `packages/ui/src/agents/skills/`                                                     |
 | Host routing (ui vs www)      | `apps/web/lib/site-url.ts` and `apps/web/proxy.ts`                                   |
+| Page metadata (SEO)           | `apps/web/lib/seo.ts` (`pageMetadata()`, used by every page)                         |
+| Share images (`/og`)          | `apps/web/app/og/route.tsx`, `components/og/og-card.tsx`, and `lib/og.ts`            |
 
 ## Adding or changing a chart or component
 
