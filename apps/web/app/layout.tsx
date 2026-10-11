@@ -132,6 +132,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         GeistSans.className,
       )}
       lang="en"
+      // Declares the Open Graph vocabulary, as ogp.me's examples do; some
+      // validators look for it before they read the og: tags.
+      prefix="og: https://ogp.me/ns#"
       suppressHydrationWarning
     >
       <body className="relative flex min-h-screen flex-col">
