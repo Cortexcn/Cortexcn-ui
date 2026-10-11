@@ -1,12 +1,14 @@
+import { LibraryOgCard } from "@/components/og/library-og-card";
 import type { OgImage } from "@/lib/og";
 import { shadcnAddItem } from "@/lib/registry-links";
 import { canonicalUrlFor, DOCS_URL } from "@/lib/site-url";
 
 /*
- * The share image card, drawn by Satori through next/og. Satori supports
- * flexbox and a subset of CSS, so every element with children sets
- * `display: flex`. Colors and the grid follow app/opengraph-image.png, the
- * hand-made card for the library home.
+ * Share image cards, drawn by Satori through next/og. Satori supports flexbox
+ * and a subset of CSS, so every element with children sets `display: flex`.
+ * Each host has its own card: ui.cortexcn.dev pages get the library card
+ * (library-og-card.tsx), and www.cortexcn.dev pages get the one below, which
+ * follows the services home's dark grid band (components/landing/hero-section.tsx).
  */
 
 const COLORS = {
@@ -122,19 +124,28 @@ interface OgCardProps {
   image: OgImage;
   /** The Cortexcn mark as a data URL; Satori can't read files itself. */
   logoSrc: string;
+  /** The library card's title font: Sentient when it loaded, Geist otherwise. */
+  titleFont?: string;
 }
 
-/** A page's share image: the brand band, then its title, description, and install line. */
-export function OgCard({ image, logoSrc }: OgCardProps) {
+/** A page's share image, in the style of the site that serves the page. */
+export function OgCard({ image, logoSrc, titleFont = "Geist" }: OgCardProps) {
   const url = new URL(canonicalUrlFor(image.path));
-  const isLibrary = url.host === LIBRARY_HOST;
   const address = `${url.host}${url.pathname === "/" ? "" : url.pathname}`;
+  if (url.host === LIBRARY_HOST) {
+    return (
+      <LibraryOgCard
+        address={address}
+        image={image}
+        logoSrc={logoSrc}
+        titleFont={titleFont}
+      />
+    );
+  }
+
   const footer = image.item
     ? `npx shadcn add ${shadcnAddItem(image.item)}`
     : address;
-  const tagline = isLibrary
-    ? "Components · Charts · Blocks"
-    : "Built by Syed Moinuddin";
 
   return (
     <div
@@ -281,7 +292,7 @@ export function OgCard({ image, logoSrc }: OgCardProps) {
               textTransform: "uppercase",
             }}
           >
-            {tagline}
+            Built by Syed Moinuddin
           </div>
         </div>
       </div>
