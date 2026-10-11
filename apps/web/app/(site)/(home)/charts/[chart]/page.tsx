@@ -41,6 +41,7 @@ export async function generateMetadata({
       description ??
       `Live ${name} examples for React and shadcn/ui. Copy the code for any example.`,
     path: `/charts/${chart}`,
+    image: { item: chart },
   });
 }
 
