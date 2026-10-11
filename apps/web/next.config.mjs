@@ -22,6 +22,8 @@ const nextConfig = {
     "/llms.md/[[...slug]]": ["./content/docs/**"],
     // The MCP server reads the docs and the published registry files.
     "/mcp": ["./content/docs/**", "./public/r/**"],
+    // The share image route reads its fonts and the Cortexcn mark.
+    "/og": ["./lib/og-fonts/**", "./public/img/cortexcn/icon-dark.png"],
   },
   experimental: {
     // Keeps dev/prod from pulling the entire charts package per MDX page.
