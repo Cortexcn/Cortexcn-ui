@@ -15,6 +15,11 @@ export const metadata = pageMetadata({
     "React components for shadcn/ui: charts, blocks, backgrounds, and motion. Install them with the shadcn CLI or your AI agent, and own the code.",
   path: LIBRARY_HOME_ROUTE,
   absoluteTitle: true,
+  // The hand-made library card in app/, rather than a drawn one.
+  image: {
+    src: "/opengraph-image.png",
+    alt: "Cortexcn: your AI agent ships landing pages from real shadcn/ui components.",
+  },
 });
 
 export default function LibraryHomePage() {
