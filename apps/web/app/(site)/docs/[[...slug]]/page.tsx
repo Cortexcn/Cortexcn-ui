@@ -25,6 +25,7 @@ import {
   docsArticleJsonLd,
   pageMetadata,
   SITE_DESCRIPTION,
+  shareImageUrl,
 } from "@/lib/seo";
 import { canonicalUrlFor } from "@/lib/site-url";
 import { source } from "@/lib/source";
@@ -42,6 +43,31 @@ function docsCrumbs(slugs: string[], title: string, url: string): Crumb[] {
     crumbs.push({ name: title, path: url });
   }
   return crumbs;
+}
+
+/**
+ * What a docs page is shared with. The card is labeled with the page's
+ * folder, such as "Docs / Cortex", and a component page shows its install
+ * command, since each one is named after the registry item it installs.
+ */
+function docsShare(
+  slugs: string[],
+  page: { url: string; data: { title?: string; description?: string } },
+) {
+  const [folder = ""] = slugs;
+  const section =
+    slugs.length > 1
+      ? `Docs / ${folder.charAt(0).toUpperCase()}${folder.slice(1)}`
+      : "Docs";
+  return {
+    title: page.data.title ?? "Docs",
+    description: page.data.description ?? SITE_DESCRIPTION,
+    path: page.url,
+    image: {
+      section,
+      item: componentGroupOf(page.url) ? slugs.at(-1) : undefined,
+    },
+  };
 }
 
 // Extended page data types from fumadocs-mdx
@@ -94,6 +120,7 @@ export default async function Page(props: {
           title: data.title,
           description: data.description,
           path: page.url,
+          image: shareImageUrl(docsShare(params.slug ?? [], page)),
         })}
       />
       <article className="w-full max-w-[790px] px-10 pt-24 pb-16">
@@ -160,9 +187,7 @@ export async function generateMetadata(props: {
   }
 
   const metadata = pageMetadata({
-    title: page.data.title ?? "Docs",
-    description: page.data.description ?? SITE_DESCRIPTION,
-    path: page.url,
+    ...docsShare(params.slug ?? [], page),
     type: "article",
   });
   return {
