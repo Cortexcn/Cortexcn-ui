@@ -84,7 +84,7 @@ export function shareImageUrl({
   image = {},
 }: Pick<PageMetadataInput, "title" | "description" | "path" | "image">) {
   if (image.src) {
-    return new URL(image.src, SITE_URL).href;
+    return new URL(image.src, canonicalUrlFor(path)).href;
   }
   return ogImageUrl({
     title: image.title ?? title,
