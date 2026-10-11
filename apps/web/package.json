@@ -6,7 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "dev:webpack": "node scripts/dev.mjs --webpack",
     "dev:docs": "bun run build && bun run start",
-    "build": "next build",
+    "build": "next build && node scripts/check-og.mjs",
     "start": "next start",
     "lint": "next lint",
     "check-types": "tsc --noEmit"
