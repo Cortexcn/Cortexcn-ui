@@ -19,6 +19,7 @@ import {
   SITE_KEYWORDS,
   SITE_NAME,
   SITE_TITLE,
+  X_HANDLE,
 } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
@@ -98,6 +99,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    creator: X_HANDLE,
   },
   // Search Console and Bing Webmaster verification tokens, set per deployment.
   verification: {
