@@ -8,7 +8,6 @@ import { OG_IMAGE_SIZE, parseOgImageParams } from "@/lib/og";
 /*
  * Draws a page's share image from the title and description in its query.
  * pageMetadata() in lib/seo.ts writes the URL, so every page links one.
- * ImageResponse caches each image for a year, and new text is a new URL.
  * The fonts and the mark ship with this route (next.config.mjs).
  */
 
@@ -40,10 +39,19 @@ const [geistRegular, geistMedium, geistMono, mark] = await Promise.all([
 
 const MARK_SRC = `data:image/png;base64,${mark.toString("base64")}`;
 
+/**
+ * Next sends `max-age=0` by default, which would draw the image on every
+ * crawler visit. The text is in the URL, so a cached image is never stale:
+ * browsers keep it a day, and Vercel's CDN until the next deployment.
+ */
+const CACHE_CONTROL =
+  "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=86400";
+
 export function GET(request: NextRequest) {
   const image = parseOgImageParams(request.nextUrl.searchParams);
   return new ImageResponse(<OgCard image={image} logoSrc={MARK_SRC} />, {
     ...OG_IMAGE_SIZE,
+    headers: { "Cache-Control": CACHE_CONTROL },
     fonts: [
       { name: "Geist", data: geistRegular, weight: 400, style: "normal" },
       { name: "Geist", data: geistMedium, weight: 500, style: "normal" },
