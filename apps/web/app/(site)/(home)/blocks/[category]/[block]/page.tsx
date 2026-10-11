@@ -39,6 +39,11 @@ export async function generateMetadata({
     title: `${block.title} ${block.categoryName.toLowerCase()} block`,
     description: block.description,
     path: block.href,
+    image: {
+      title: block.title,
+      section: `Blocks / ${block.categoryName}`,
+      item: block.slug,
+    },
   });
 }
 
