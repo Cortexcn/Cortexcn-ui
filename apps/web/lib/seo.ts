@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 
 import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/contact-details";
+import { OG_IMAGE_SIZE, ogImageUrl, ogSectionFor } from "@/lib/og";
 import { canonicalUrlFor, DOCS_URL, SITE_URL } from "@/lib/site-url";
 
 /*
  * Search and sharing metadata shared by every page. Titles use a hyphen, not a
  * dash, and every page gets an absolute canonical URL on the domain that owns
- * it (docs on ui.cortexcn.dev, everything else on www.cortexcn.dev).
+ * it (docs on ui.cortexcn.dev, everything else on www.cortexcn.dev), plus a
+ * share image drawn from its title and description (lib/og.ts).
  */
 
 export const SITE_NAME = "Cortexcn";
@@ -42,8 +44,25 @@ export const AUTHOR = {
   url: "https://syedmoinuddin.com",
 };
 
+/** The X account credited on large cards. */
+export const X_HANDLE = "@SyedMoin";
+
 /** Square brand mark (356 x 356), crawlable, for structured data. */
 export const LOGO_URL = `${SITE_URL}/img/cortexcn/icon-light.png`;
+
+/** What a page's share image shows, where it should differ from the page. */
+export interface ShareImageOptions {
+  /** The card's title, when the page title has words the card doesn't need. */
+  title?: string;
+  /** The label at the top of the card; by default, the page's section. */
+  section?: string;
+  /** The registry item the page installs, shown as its install command. */
+  item?: string;
+  /** A fixed image, such as "/opengraph-image.png", instead of a drawn card. */
+  src?: string;
+  /** Alt text for the image; by default, the page's share title. */
+  alt?: string;
+}
 
 interface PageMetadataInput {
   /** Page title; the root template adds " | Cortexcn". */
@@ -54,18 +73,43 @@ interface PageMetadataInput {
   /** Use the title as is, without the site suffix. */
   absoluteTitle?: boolean;
   type?: "website" | "article";
+  image?: ShareImageOptions;
 }
 
-/** Canonical, Open Graph, and Twitter metadata for one page. */
+/** Absolute URL of a page's share image, as pageMetadata() links it. */
+export function shareImageUrl({
+  title,
+  description,
+  path,
+  image = {},
+}: Pick<PageMetadataInput, "title" | "description" | "path" | "image">) {
+  if (image.src) {
+    return new URL(image.src, SITE_URL).href;
+  }
+  return ogImageUrl({
+    title: image.title ?? title,
+    description,
+    section: image.section ?? ogSectionFor(path),
+    path,
+    item: image.item,
+  });
+}
+
+/** Canonical, Open Graph, and Twitter metadata for one page, with its share image. */
 export function pageMetadata({
   title,
   description,
   path,
   absoluteTitle = false,
   type = "website",
+  image = {},
 }: PageMetadataInput): Metadata {
   const url = canonicalUrlFor(path);
   const shareTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  const shareImage = {
+    url: shareImageUrl({ title, description, path, image }),
+    alt: image.alt ?? shareTitle,
+  };
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -77,11 +121,14 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "en_US",
       type,
+      images: [{ ...shareImage, ...OG_IMAGE_SIZE, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: shareTitle,
       description,
+      creator: X_HANDLE,
+      images: [shareImage],
     },
   };
 }
@@ -184,10 +231,13 @@ export function docsArticleJsonLd({
   title,
   description,
   path,
+  image,
 }: {
   title: string;
   description?: string;
   path: string;
+  /** The page's share image, from shareImageUrl(). */
+  image?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -195,6 +245,7 @@ export function docsArticleJsonLd({
     headline: title,
     description,
     url: canonicalUrlFor(path),
+    image,
     inLanguage: "en",
     author: { "@type": "Person", name: AUTHOR.name, url: AUTHOR.url },
     publisher: {
