@@ -1,4 +1,4 @@
-import { LIBRARY_HOME_ROUTE, SITE_URL } from "@/lib/site-url";
+import { canonicalUrlFor, LIBRARY_HOME_ROUTE } from "@/lib/site-url";
 
 /*
  * Share images (Open Graph and X cards). app/og/route.tsx draws each one on
@@ -10,7 +10,7 @@ import { LIBRARY_HOME_ROUTE, SITE_URL } from "@/lib/site-url";
 /** The size Open Graph and X large cards expect. */
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const;
 
-/** Drawn on www.cortexcn.dev, the host metadataBase points at. */
+/** Served on both hosts (proxy.ts); each page links the one on its own host. */
 const OG_ROUTE = "/og";
 
 /** Longest text the card fits; longer text is cut at a word. */
@@ -72,7 +72,10 @@ function clamp(text: string, max: number) {
   return `${words.replace(TRAILING_PUNCTUATION_RE, "")}…`;
 }
 
-/** Absolute URL of a page's share image. */
+/**
+ * Absolute URL of a page's share image, on the page's own host: docs pages
+ * get ui.cortexcn.dev/og, and the www pages get www.cortexcn.dev/og.
+ */
 export function ogImageUrl({
   title,
   description,
@@ -91,7 +94,7 @@ export function ogImageUrl({
   if (item) {
     params.set("item", item);
   }
-  return `${SITE_URL}${OG_ROUTE}?${params}`;
+  return `${new URL(OG_ROUTE, canonicalUrlFor(path)).href}?${params}`;
 }
 
 /**
