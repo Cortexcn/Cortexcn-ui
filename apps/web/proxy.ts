@@ -26,8 +26,9 @@ const DEV_LIBRARY_PORTS = new Set([
 ]);
 const DEV_COMPONENTS_PORT = String(devPorts.components);
 
-// Read by crawlers, so they answer on whichever host asked.
-const HOST_AGNOSTIC_PATH_RE = /^\/(?:robots\.txt|sitemap\.xml)$/;
+// Read by crawlers, so they answer on whichever host asked. Each host serves
+// its own pages' share images from /og.
+const HOST_AGNOSTIC_PATH_RE = /^\/(?:robots\.txt|sitemap\.xml|og)$/;
 
 /** Paths that mean the library home, which only ever shows as `/` on its host. */
 const LIBRARY_HOME_ALIASES = new Set([LIBRARY_HOME_ROUTE, "/components"]);
