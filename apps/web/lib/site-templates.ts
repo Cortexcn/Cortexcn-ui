@@ -124,7 +124,7 @@ export const SITE_TEMPLATES: SiteTemplate[] = [
       "Builds as a Next.js app or a static site for any host, with a share image, sitemap, and robots file.",
     ],
     customize:
-      "Put your product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors in app/globals.css.",
+      "Replace the placeholder product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors in app/globals.css.",
     screenshots: {
       card: { light: marketingCardLight, dark: marketingCardDark },
       desktop: { light: marketingDesktopLight, dark: marketingDesktopDark },
@@ -134,9 +134,9 @@ export const SITE_TEMPLATES: SiteTemplate[] = [
   },
   {
     slug: "legal-ai",
-    name: "Legal AI",
+    name: "Marketing AI",
     summary:
-      "A launch site for an AI platform for law firms, with cited research mockups, watercolor panels painted in code, and a calm off-white and charcoal palette",
+      "A sample launch site for an AI platform for marketing teams, with campaign insight mockups, watercolor panels painted in code, and a calm off-white and charcoal palette. All content is placeholder",
     price: 99,
     stack: ["Next.js 16", "React 19", "Tailwind CSS 4", "Motion", "TypeScript"],
     sections: [
@@ -157,14 +157,14 @@ export const SITE_TEMPLATES: SiteTemplate[] = [
     ],
     features: [
       "Every word, link, plan, and quote comes from one file, config/site.ts.",
-      "A research card where each numbered citation brings its highlighted passage forward in the source document, above a hero dashboard mockup.",
-      "Watercolor landscapes painted in SVG from seeded scenes, and product mockups built in HTML and CSS: a review table, a redline, and a precedent search.",
-      "A floating pill header, a sticky how-it-works list, tabs for law firms, in-house teams, and small practices, customer stories that stack as you scroll, and pricing with a monthly and annual toggle.",
+      "An insights card where each numbered highlight brings its figure forward in the sample campaign recap, above a hero dashboard mockup.",
+      "Watercolor landscapes painted in SVG from seeded scenes, and product mockups built in HTML and CSS: a campaign scorecard, a copy edit, and a brand library search.",
+      "A floating pill header, a sticky how-it-works list, tabs for agencies, in-house brand teams, and small businesses, customer stories that stack as you scroll, and pricing with a monthly and annual toggle.",
       "Light and dark mode, a mobile menu, corners set by one radius token, and reduced motion respected everywhere.",
       "Builds as a Next.js app or a static site for any host, with a share image, sitemap, and robots file.",
     ],
     customize:
-      "Put your product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors and radius in app/globals.css.",
+      "Replace the placeholder product name, copy, plans, and quotes in config/site.ts, swap the mark in components/logo.tsx, and change the colors and radius in app/globals.css.",
     screenshots: {
       card: { light: legalCardLight, dark: legalCardDark },
       desktop: { light: legalDesktopLight, dark: legalDesktopDark },
@@ -201,7 +201,7 @@ export const SITE_TEMPLATES: SiteTemplate[] = [
       "Builds as a Next.js app or a static site for any host, with a share image, sitemap, and robots file.",
     ],
     customize:
-      "Put your product name, copy, plans, and quotes in config/site.ts, swap the brand mark in components/logo.tsx, and change the accent color in app/globals.css.",
+      "Replace the placeholder product name, copy, plans, and quotes in config/site.ts, swap the brand mark in components/logo.tsx, and change the accent color in app/globals.css.",
     screenshots: {
       card: { light: saasCardLight, dark: saasCardDark },
       desktop: { light: saasDesktopLight, dark: saasDesktopDark },
