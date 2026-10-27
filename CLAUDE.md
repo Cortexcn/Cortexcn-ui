@@ -174,6 +174,8 @@ These apply to the site, docs, changelog, READMEs, and commit messages:
 
 The header menus for both sites are built in `apps/web/lib/nav-menus.ts`, and the docs sidebar's sections in `apps/web/lib/docs-sidebar-groups.ts`. New library pages go in the library menus there and in `apps/web/lib/library-nav-links.ts`, not in the www nav.
 
+**Embeds.** `/embed/<slug>` shows one component's live demo for another site to frame; the Components section of syedmoinuddin.com uses it. The slugs and the theme script are in `apps/web/lib/embeds.ts`, the demos in `apps/web/components/embed/component-embed.tsx`, and the sites allowed to frame it in `EMBED_FRAME_ANCESTORS` in `apps/web/next.config.mjs`. Every other page refuses to be framed. Keep a slug's embed working while the portfolio lists it.
+
 **Templates:**
 
 - Free templates live in `templates/<slug>`. Paid ones live in the private `../cortexcn-templates` repo, checked out next to this one.
