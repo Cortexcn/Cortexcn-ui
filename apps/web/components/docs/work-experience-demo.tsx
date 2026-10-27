@@ -4,37 +4,47 @@ import {
   WorkExperience,
 } from "@cortexcn/ui/components/work-experience";
 
-/** Trimmed from the experience section of syedmoinuddin.com. */
+/** Sample data: a placeholder company and a generic degree. */
 const WORK_EXPERIENCE: ExperienceItemType[] = [
   {
-    id: "virallens",
-    companyName: "Virallens",
+    id: "acme",
+    companyName: "Acme Inc.",
     positions: [
       {
-        id: "software-engineer",
-        title: "Software Engineer",
+        id: "senior-frontend-engineer",
+        title: "Senior Frontend Engineer",
         employmentPeriod: {
-          start: "06.2025",
+          start: "03.2024",
         },
         employmentType: "Full-time",
         icon: <Icon name="IconCode" />,
-        description: `I build complete digital products end to end, where AI meets polished software people use every day.
+        description: `Leads the web app's front end, from the design system to the release.
 
-- **Citera:** Built the pipeline that extracts factual claims from any text, link, or file and verifies each one against trusted sources with word-for-word evidence.
-- **L-K Drop Analysis:** Built the front-end over the analysis engine, with hover-to-source citations and a live AI chat that streams its reasoning.
-- **Perssonify Website 3:** Shipped a responsive, animated site for four brands from one codebase with a shared design system.`,
+- **Design system:** Built the shared component library the product and marketing sites use.
+- **Analytics dashboard:** Shipped live charts, filters, and exports for the customer dashboard.
+- **Performance:** Cut the app's first load by splitting routes and streaming data.`,
         skills: [
           "TypeScript",
-          "React 19",
-          "Next.js 16",
+          "React",
+          "Next.js",
           "Tailwind CSS",
           "shadcn/ui",
-          "Framer Motion",
-          "Node.js",
-          "Vercel AI SDK",
-          "Turborepo",
+          "Motion",
         ],
         isExpanded: true,
+      },
+      {
+        id: "frontend-engineer",
+        title: "Frontend Engineer",
+        employmentPeriod: {
+          start: "06.2022",
+          end: "02.2024",
+        },
+        employmentType: "Full-time",
+        icon: <Icon name="IconCode" />,
+        description:
+          "Built onboarding, billing, and settings pages, and the tests that cover them.",
+        skills: ["React", "TypeScript", "Playwright"],
       },
     ],
     isCurrentEmployer: true,
@@ -44,16 +54,15 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
     companyName: "Education",
     positions: [
       {
-        id: "reva-university",
-        title: "REVA University",
+        id: "university",
+        title: "State University",
         employmentPeriod: {
-          start: "08.2019",
-          end: "08.2023",
+          start: "08.2018",
+          end: "05.2022",
         },
         icon: <Icon name="IconGraduateCap" />,
-        description:
-          "Bachelor of Technology, Mechatronics, Robotics, and Automation Engineering.",
-        skills: ["C++", "Python", "Control Systems", "Embedded Systems"],
+        description: "Bachelor of Science, Computer Science.",
+        skills: ["Algorithms", "Databases", "Human-Computer Interaction"],
       },
     ],
   },
