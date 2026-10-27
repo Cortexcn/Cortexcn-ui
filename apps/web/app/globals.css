@@ -75,6 +75,14 @@
   --radius-2xl: var(--ds-radius-xl, calc(var(--radius) + 8px));
   --radius-3xl: var(--ds-radius-xl, calc(var(--radius) + 12px));
   --radius-4xl: var(--ds-radius-xl, calc(var(--radius) + 16px));
+  /*
+   * The site shell (header, menus, docs sidebar, and cards) is rounded.
+   * Registry components keep --radius, so previews show what installs.
+   */
+  --radius-shell-sm: 0.5rem;
+  --radius-shell: 0.75rem;
+  --radius-shell-lg: 1rem;
+  --radius-shell-xl: 1.25rem;
   --font-heading: var(--font-geist-sans);
   --font-display: var(--font-instrument-serif);
   --font-pixel: var(--font-geist-pixel-square);
@@ -224,7 +232,7 @@
 
 :root {
   /* Site-only tokens (the shared palette is in packages/ui cortexcn-tokens.css) */
-  --site-header-height: 3.5rem;
+  --site-header-height: 4rem;
 
   /* Text selection */
   --text-highlight-background: var(--color-indigo-500);
@@ -386,6 +394,21 @@ html::-webkit-scrollbar {
 
 .component-preview-dark {
   @apply bg-background;
+}
+
+/* The dot grid behind a docs page's title, fading out toward the content. */
+.docs-hero-dots {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--foreground) 20%, transparent) 1px,
+    transparent 1.5px
+  );
+  background-size: 14px 14px;
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgb(0 0 0 / 0.45) 50%,
+    transparent 100%
+  );
 }
 
 /*
