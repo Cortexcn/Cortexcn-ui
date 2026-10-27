@@ -34,14 +34,15 @@ Write the entry in the same change as the work, not later.
 
 ### A new Cortex component (a docs page)
 
-It touches six places:
+It touches seven places:
 
 1. `packages/ui/src/components/<name>.tsx`, importing `@/lib/utils`.
 2. An item in `packages/ui/registry.json` with `categories: ["cortex"]` and `registryDependencies: ["@cortexcn/utils"]`.
 3. A demo in `apps/web/components/docs/<name>-demo.tsx`, importing from `@cortexcn/ui/components/<name>`.
 4. `apps/web/content/docs/cortex/<name>.mdx`, with `<ComponentPreview>` and `<InstallationTabs name="<name>" />`.
 5. The sidebar, `apps/web/content/docs/cortex/meta.json`, after its `---Cortex---` separator.
-6. The `cortexComponents` list in `apps/web/components/docs/site-header.tsx`.
+6. The `cortexComponents` list in `apps/web/components/docs/site-header.tsx`, for the mobile menu.
+7. A line drawing in `apps/web/components/docs/component-art.tsx`, keyed by the slug. It shows on the component's card on `/docs/cortex` and in the Components menu. Without one, the card falls back to the family's drawing.
 
 Then add a changelog entry with kind `"components"` and rebuild the registry (see below).
 
@@ -138,7 +139,9 @@ The registry redistributes source code publicly, so every file in it must be our
 
 ## Design rules
 
-- **Square corners.** `--radius` is `0`. Cortexcn UI isn't rounded, so don't add `rounded-*` classes that bypass the radius tokens.
+- **Corners.**
+  - Registry components are square: `--radius` is `0` in `cortexcn-tokens.css`, so previews show what installs. Don't add `rounded-*` classes to components that bypass the radius tokens.
+  - The site shell is rounded: the header and its menus, the docs sidebar, the overview cards, and the right rail. It uses the `rounded-shell-sm`, `rounded-shell`, `rounded-shell-lg`, and `rounded-shell-xl` tokens in `apps/web/app/globals.css`, never fixed values.
 - **Colors** come from the theme tokens in `cortexcn-tokens.css`.
   - Every change works in light and dark mode.
   - Text meets WCAG AA contrast. `--muted-foreground` and `--destructive` were tuned for that, so recheck if you change them.
@@ -169,7 +172,7 @@ These apply to the site, docs, changelog, READMEs, and commit messages:
 
 `bun run dev` runs one Next.js server on the site port and forwards the other two ports to it (`apps/web/scripts/dev.mjs`). The ports live in `apps/web/dev-ports.json`, and `http://ui.localhost:4410` still works as the library host.
 
-New library pages go in `apps/web/lib/library-nav-links.ts`, not in the www nav.
+The header menus for both sites are built in `apps/web/lib/nav-menus.ts`, and the docs sidebar's sections in `apps/web/lib/docs-sidebar-groups.ts`. New library pages go in the library menus there and in `apps/web/lib/library-nav-links.ts`, not in the www nav.
 
 **Templates:**
 

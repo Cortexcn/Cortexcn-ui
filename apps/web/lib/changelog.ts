@@ -42,6 +42,19 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-27",
+    kind: "site",
+    title: "A new docs layout and header menus",
+    summary:
+      "The header on both sites now opens menus with a grid of links and a featured card: Components, Blocks, Charts, and Resources on the library, and Services and Library on the services site. The docs have a sidebar of collapsible sections, a title band with a breadcrumb, and a right rail with the page's headings. Each component overview shows a card with a line drawing for every component.",
+    items: [
+      { label: "Components", href: "/docs/components" },
+      { label: "Cortex", href: "/docs/cortex" },
+      { label: "Backgrounds", href: "/docs/backgrounds" },
+      { label: "Charts", href: "/docs/charts" },
+    ],
+  },
+  {
     date: "2026-10-10",
     kind: "blocks",
     title: "Feature Mockup Grid block",
