@@ -423,6 +423,20 @@ html::-webkit-scrollbar {
   }
 }
 
+/*
+ * The live component previews at /embed/<slug>, framed by other sites. The
+ * page stays transparent so the demo sits on the parent's own surface, and
+ * the site's fixed dot grid and scrollbar stay out of the frame.
+ */
+html:has([data-cortexcn-embed]),
+html:has([data-cortexcn-embed]) body {
+  background: transparent !important;
+}
+
+body:has([data-cortexcn-embed]) :is(.site-left-dot-grid, .page-scrollbar) {
+  display: none;
+}
+
 /* The dot grid behind a docs page's title, fading out toward the content. */
 .docs-hero-dots {
   background-image: radial-gradient(
