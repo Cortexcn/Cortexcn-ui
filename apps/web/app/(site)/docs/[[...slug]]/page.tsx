@@ -19,6 +19,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { componentGroupOf } from "@/lib/component-groups";
 import { sidebarTreeFor } from "@/lib/docs-sidebar";
 import { stripMdxComments } from "@/lib/llms";
+import { templatesPromo } from "@/lib/nav-menus";
 import {
   breadcrumbJsonLd,
   type Crumb,
@@ -29,6 +30,7 @@ import {
 } from "@/lib/seo";
 import { canonicalUrlFor } from "@/lib/site-url";
 import { source } from "@/lib/source";
+import { cn } from "@/lib/utils";
 
 /** Docs home, then every parent page that exists, then this page. */
 function docsCrumbs(slugs: string[], title: string, url: string): Crumb[] {
@@ -95,7 +97,7 @@ export default async function Page(props: {
     sidebarTreeFor(source.pageTree, page.url),
     page.url,
   );
-  const group = componentGroupOf(page.url);
+  const crumbs = docsCrumbs(params.slug ?? [], data.title, page.url);
 
   // Read raw MDX content for copy functionality
   const slugPath = params.slug?.join("/") || "index";
@@ -109,12 +111,8 @@ export default async function Page(props: {
   }
 
   return (
-    <div className="flex w-full justify-center">
-      <JsonLd
-        data={breadcrumbJsonLd(
-          docsCrumbs(params.slug ?? [], data.title, page.url),
-        )}
-      />
+    <div className="relative flex w-full justify-center">
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <JsonLd
         data={docsArticleJsonLd({
           title: data.title,
@@ -123,33 +121,61 @@ export default async function Page(props: {
           image: shareImageUrl(docsShare(params.slug ?? [], page)),
         })}
       />
-      <article className="w-full max-w-[790px] px-10 pt-24 pb-16">
-        <header className="mb-8">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              {group ? (
-                <Link
-                  className="mb-3 inline-flex rounded-md border border-border px-2 py-0.5 font-medium font-mono text-muted-foreground text-xs uppercase tracking-wide transition-colors hover:text-foreground"
-                  href={group.href}
-                  title={group.description}
-                >
-                  {group.name}
-                </Link>
-              ) : null}
-              <h1 className="m-0 font-bold text-3xl text-foreground leading-tight">
-                {data.title}
-              </h1>
-              {data.description && (
-                <p className="mt-2 text-lg text-muted-foreground">
-                  {data.description}
-                </p>
-              )}
-            </div>
+      <div
+        aria-hidden="true"
+        className="docs-hero-dots pointer-events-none absolute inset-x-0 top-0 h-72"
+      />
+      <article className="relative w-full max-w-[50rem] px-5 pt-8 pb-16 sm:px-8 lg:pt-12">
+        <header className="mb-10">
+          <div className="mb-8 flex min-h-9 items-center justify-between gap-4">
+            <nav aria-label="Breadcrumb" className="min-w-0">
+              <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0 text-muted-foreground text-sm">
+                {crumbs.map((crumb, index) => {
+                  const last = index === crumbs.length - 1;
+                  return (
+                    <li className="flex items-center gap-1.5" key={crumb.path}>
+                      {last ? (
+                        <span aria-current="page" className="text-foreground">
+                          {crumb.name}
+                        </span>
+                      ) : (
+                        <>
+                          <Link
+                            className="no-underline transition-colors hover:text-foreground"
+                            href={crumb.path}
+                          >
+                            {crumb.name}
+                          </Link>
+                          <span aria-hidden="true" className="text-border">
+                            /
+                          </span>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </nav>
             <CopyPageButton
               content={rawContent}
               title={data.title}
               url={page.url}
             />
+          </div>
+          <div
+            className={cn(
+              "grid gap-3",
+              data.description && "md:grid-cols-2 md:gap-10",
+            )}
+          >
+            <h1 className="m-0 text-balance font-semibold text-3xl text-foreground leading-tight tracking-tight sm:text-[2.125rem]">
+              {data.title}
+            </h1>
+            {data.description && (
+              <p className="m-0 text-pretty text-base text-muted-foreground leading-relaxed md:pt-1">
+                {data.description}
+              </p>
+            )}
           </div>
         </header>
         <div className="prose prose-neutral dark:prose-invert max-w-none">
@@ -168,7 +194,7 @@ export default async function Page(props: {
         </div>
         <PageFooter next={neighbours.next} previous={neighbours.previous} />
       </article>
-      <TableOfContents items={data.toc} />
+      <TableOfContents items={data.toc} promo={templatesPromo()} />
     </div>
   );
 }
