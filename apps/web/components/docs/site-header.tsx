@@ -1,48 +1,40 @@
 "use client";
 
+import { Icon } from "@cortexcn/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import {
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { UserMenu } from "@/components/auth/user-menu";
-import { ActionLink } from "@/components/landing/kit";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
   COMPONENT_GROUPS,
   type ComponentGroup,
 } from "@/lib/component-families";
 import { familyForPath } from "@/lib/docs-sidebar";
+import type { NavCta, NavItem, NavMenu } from "@/lib/nav-menus";
 import { isLibraryPath } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 import { CortexcnLogo } from "../icons/cortexcn";
 import { Button } from "../ui/button";
 import { DocsSearchTrigger } from "./docs-search-trigger";
-import { HeaderNav } from "./header-nav";
-import { NavLinkLabel } from "./nav-link-label";
-
-interface NavLink {
-  text: string;
-  url: string;
-  active?: "url" | "nested-url";
-}
+import { HeaderNav, isMenuActive } from "./header-nav";
+import { NavLinkLabel, NewMark } from "./nav-link-label";
 
 interface SiteHeaderProps {
-  links?: NavLink[];
+  /** Nav for the services site on www.cortexcn.dev. */
+  items?: NavItem[];
+  cta?: NavCta;
   /**
    * Nav for the component library pages (docs, blocks, and charts), which
    * belong to ui.cortexcn.dev rather than the services site.
    */
-  libraryLinks?: NavLink[];
+  libraryItems?: NavItem[];
+  libraryCta?: NavCta;
   /**
-   * Header style. By default the landing-kit pages get the boxed landing
-   * header and every other page the plain one; pass it where the URL alone
-   * cannot tell, such as a page served at `/` through a rewrite.
+   * Theme scope. By default the landing-kit pages take the landing theme and
+   * every other page the plain one; pass it where the URL alone cannot tell,
+   * such as a page served at `/` through a rewrite.
    */
   variant?: "landing" | "plain";
 }
@@ -201,9 +193,14 @@ const FAMILY_LINKS: MobileMenuSection = {
   })),
 };
 
-function mobileMenuSections(pathname: string) {
+/** Inside a component family, its pages; elsewhere in the docs, the families. */
+function mobileMenuSections(pathname: string): MobileMenuSection[] {
   const family = familyForPath(pathname);
-  return family ? FAMILY_SECTIONS[family.category] : [FAMILY_LINKS];
+  if (family) {
+    return FAMILY_SECTIONS[family.category];
+  }
+  const inDocs = pathname === "/docs" || pathname.startsWith("/docs/");
+  return inDocs ? [FAMILY_LINKS] : [];
 }
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -235,11 +232,7 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-const STAGGER_DURATION = 650; // Total duration for all staggered items (ms)
-
-const HEADER_SCROLL_THRESHOLD = 8;
-
-/** Pages built from the landing kit, which get the boxed landing header. */
+/** Pages built from the landing kit, which take the landing theme. */
 const LANDING_PATHS = new Set([
   "/",
   "/about",
@@ -263,86 +256,99 @@ function hasDocsSearch(pathname: string) {
   );
 }
 
-/**
- * Whether a nav link stands for the section the page is in, so its tab stays
- * lit on every page inside it: Docs covers /docs, except the component family
- * sections (Components, Cortex, Backgrounds, and Charts, with the chart
- * utilities), which belong to Components, and Charts covers the whole /charts
- * gallery.
- */
+/** Whether a plain nav link stands for the section the page is in. */
 function isNavLinkActive(url: string, pathname: string) {
-  const inDocs = pathname === "/docs" || pathname.startsWith("/docs/");
-  const inComponents = familyForPath(pathname) !== undefined;
-  if (url.startsWith("/docs/components")) {
-    return inComponents;
-  }
-  if (url.startsWith("/docs")) {
-    return inDocs && !inComponents;
-  }
   const section = `/${url.split("/")[1] ?? ""}`;
   return pathname === section || pathname.startsWith(`${section}/`);
 }
 
-const activeMenuItemClassName = "bg-muted text-foreground";
-
-/**
- * Classes that depend on where the header swaps its nav for the menu button.
- * The library nav keeps the menu button until lg, where the docs sidebar
- * also appears. The landing nav has seven tabs plus the account menu, so it
- * keeps the menu button until xl.
- */
-const MENU_BREAKPOINT = {
-  xl: {
-    hideMenu: "xl:hidden",
-    menuOpenBackground: "max-xl:bg-background",
-    menuOpenFullWidth: "max-xl:max-w-none",
-  },
-  lg: {
-    hideMenu: "lg:hidden",
-    menuOpenBackground: "max-lg:bg-background",
-    menuOpenFullWidth: "max-lg:max-w-none",
-  },
-} as const;
-
-function menuBreakpoint(landing?: boolean) {
-  return MENU_BREAKPOINT[landing ? "xl" : "lg"];
-}
+const mobileLinkClassName =
+  "flex h-10 items-center rounded-shell-sm px-3 text-foreground/80 text-sm outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 aria-[current=page]:bg-muted aria-[current=page]:font-medium aria-[current=page]:text-foreground";
 
 /** A mobile menu section heading, which links to that section's overview. */
 const sectionHeadingClassName =
-  "mb-1 block px-3 font-medium text-muted-foreground text-xs uppercase tracking-wider outline-none transition-[opacity,transform,color] duration-300 ease-out hover:text-foreground focus-visible:text-foreground focus-visible:underline aria-[current=page]:text-foreground";
+  "mb-1 block px-3 font-medium text-muted-foreground text-xs outline-none transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:underline aria-[current=page]:text-foreground";
 
-function getScrollTop() {
-  return (
-    window.scrollY ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop ||
-    0
+/** Every link a menu holds, for the mobile menu, which lists them in place. */
+function menuLinks(menu: NavMenu) {
+  const links = menu.panels.flatMap((panel) => [
+    ...panel.links,
+    ...(panel.footer ? [panel.footer] : []),
+  ]);
+  return [...links, ...(menu.strip?.links ?? [])].filter(
+    (link, index, all) =>
+      all.findIndex((other) => other.href === link.href) === index,
   );
 }
 
-function subscribeToScroll(onStoreChange: () => void) {
-  window.addEventListener("scroll", onStoreChange, { passive: true });
-  return () => window.removeEventListener("scroll", onStoreChange);
-}
-
-function getIsScrolled() {
-  return getScrollTop() > HEADER_SCROLL_THRESHOLD;
-}
-
-function useIsScrolled() {
-  return useSyncExternalStore(subscribeToScroll, getIsScrolled, () => false);
+function MobileMenuGroup({
+  menu,
+  pathname,
+  onClose,
+}: {
+  menu: NavMenu;
+  pathname: string;
+  onClose: () => void;
+}) {
+  const [open, setOpen] = useState(() => isMenuActive(menu, pathname));
+  const panelId = `mobile-menu-${menu.id}`;
+  return (
+    <div>
+      <button
+        aria-controls={panelId}
+        aria-expanded={open}
+        className={cn(
+          mobileLinkClassName,
+          "w-full justify-between font-medium text-foreground",
+        )}
+        onClick={() => setOpen(!open)}
+        type="button"
+      >
+        {menu.label}
+        <Icon
+          className={cn(
+            "size-4 text-muted-foreground transition-transform duration-200 motion-reduce:transition-none",
+            open && "rotate-180",
+          )}
+          name="IconChevronDownSmall"
+        />
+      </button>
+      <div
+        className={cn(
+          "grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+        )}
+        id={panelId}
+        inert={!open}
+      >
+        <ul className="m-0 ml-4 min-h-0 list-none overflow-hidden border-border border-l p-0 pl-2">
+          {menuLinks(menu).map((link) => (
+            <li key={link.href}>
+              <Link
+                aria-current={pathname === link.href ? "page" : undefined}
+                className={cn(mobileLinkClassName, "h-9 gap-1.5")}
+                href={link.href}
+                onClick={onClose}
+              >
+                {link.label}
+                {link.isNew ? <NewMark /> : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 interface MobileMenuProps {
-  links: NavLink[];
+  items: NavItem[];
+  cta?: NavCta;
   isOpen: boolean;
   onClose: () => void;
-  /** Adopt the landing page theme (fonts and palette). */
-  landing?: boolean;
 }
 
-function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
+function MobileMenu({ items, cta, isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   useEffect(() => {
     if (!isOpen) {
@@ -357,22 +363,7 @@ function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
     };
   }, [isOpen]);
 
-  const breakpoint = menuBreakpoint(landing);
   const sections = mobileMenuSections(pathname);
-  // Stagger order: the main links, then each section's heading and pages.
-  const sectionStarts: number[] = [];
-  let totalItems = links.length;
-  for (const section of sections) {
-    sectionStarts.push(totalItems + 1);
-    totalItems += 1 + section.items.length;
-  }
-  const staggerDelay = totalItems > 1 ? STAGGER_DURATION / (totalItems - 1) : 0;
-
-  const getStaggerStyle = (index: number) => ({
-    opacity: isOpen ? 1 : 0,
-    transform: isOpen ? "translateY(0)" : "translateY(4px)",
-    transitionDelay: isOpen ? `${index * staggerDelay}ms` : "0ms",
-  });
 
   return (
     <>
@@ -380,8 +371,7 @@ function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
       <div
         aria-hidden="true"
         className={cn(
-          "fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300",
-          breakpoint.hideMenu,
+          "fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden",
           isOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0",
@@ -392,98 +382,82 @@ function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
       {/* Sheet */}
       <div
         className={cn(
-          "fixed inset-x-0 top-(--site-header-height) bottom-0 z-50 flex flex-col overflow-hidden border-border border-b bg-background transition-[transform,opacity] duration-300 ease-out",
-          breakpoint.hideMenu,
-          landing && "syntiq",
+          "fixed inset-x-2 top-[calc(var(--site-header-height)+0.5rem)] bottom-2 z-50 flex flex-col overflow-hidden rounded-shell-xl border border-border bg-popover shadow-2xl transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden",
           isOpen
             ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-4 opacity-0",
+            : "pointer-events-none -translate-y-2 opacity-0",
         )}
+        inert={!isOpen}
       >
-        <nav className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3 pb-[max(1.5rem,env(safe-area-inset-bottom))] [-webkit-overflow-scrolling:touch]">
-          {/* Main links */}
-          <div className="flex flex-col gap-0.5">
-            {links.map((link, index) => {
-              const active = isNavLinkActive(link.url, pathname);
-              return (
-                <Link
-                  aria-current={active ? "page" : undefined}
-                  className="transition-[opacity,transform] duration-300 ease-out"
-                  href={link.url}
-                  key={link.url}
-                  onClick={onClose}
-                  style={getStaggerStyle(index)}
-                >
-                  <Button
-                    className={cn(
-                      "h-10 w-full justify-start px-3",
-                      active && activeMenuItemClassName,
-                    )}
-                    size="default"
-                    variant="ghost"
-                  >
-                    <NavLinkLabel text={link.text} url={link.url} />
-                  </Button>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* The family the page is in, or one link per family */}
-          {sections.map((section, sectionIndex) => {
-            const start = sectionStarts[sectionIndex] ?? 0;
-            return (
-              <div
-                className="mt-3 border-border border-t pt-3"
-                key={section.title}
+        <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain p-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          {items.map((item) =>
+            item.kind === "menu" ? (
+              <MobileMenuGroup
+                key={item.menu.id}
+                menu={item.menu}
+                onClose={onClose}
+                pathname={pathname}
+              />
+            ) : (
+              <Link
+                aria-current={
+                  isNavLinkActive(item.url, pathname) ? "page" : undefined
+                }
+                className={cn(mobileLinkClassName, "font-medium")}
+                href={item.url}
+                key={item.url}
+                onClick={onClose}
               >
-                {section.href ? (
-                  <Link
-                    aria-current={
-                      pathname === section.href ? "page" : undefined
-                    }
-                    className={sectionHeadingClassName}
-                    href={section.href}
-                    onClick={onClose}
-                    style={getStaggerStyle(start - 1)}
-                  >
-                    {section.title}
-                  </Link>
-                ) : (
-                  <span
-                    className={sectionHeadingClassName}
-                    style={getStaggerStyle(start - 1)}
-                  >
-                    {section.title}
-                  </span>
-                )}
-                <div className="flex flex-col gap-0.5">
-                  {section.items.map((item, index) => (
+                <NavLinkLabel text={item.text} url={item.url} />
+              </Link>
+            ),
+          )}
+
+          {sections.map((section) => (
+            <div
+              className="mt-3 border-border border-t pt-3"
+              key={section.title}
+            >
+              {section.href ? (
+                <Link
+                  aria-current={pathname === section.href ? "page" : undefined}
+                  className={sectionHeadingClassName}
+                  href={section.href}
+                  onClick={onClose}
+                >
+                  {section.title}
+                </Link>
+              ) : (
+                <span className={sectionHeadingClassName}>{section.title}</span>
+              )}
+              <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                {section.items.map((link) => (
+                  <li key={link.url}>
                     <Link
-                      aria-current={pathname === item.url ? "page" : undefined}
-                      className="transition-[opacity,transform] duration-300 ease-out"
-                      href={item.url}
-                      key={item.url}
+                      aria-current={pathname === link.url ? "page" : undefined}
+                      className={cn(mobileLinkClassName, "h-9")}
+                      href={link.url}
                       onClick={onClose}
-                      style={getStaggerStyle(start + index)}
                     >
-                      <Button
-                        className={cn(
-                          "h-10 w-full justify-start px-3",
-                          pathname === item.url && activeMenuItemClassName,
-                        )}
-                        size="default"
-                        variant="ghost"
-                      >
-                        {item.text}
-                      </Button>
+                      {link.text}
                     </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </nav>
+        {cta ? (
+          <div className="border-border border-t p-3">
+            <Link
+              className="flex h-10 items-center justify-center rounded-shell-sm bg-foreground font-medium text-background text-sm outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring/50"
+              href={cta.href}
+              onClick={onClose}
+            >
+              {cta.label}
+            </Link>
+          </div>
+        ) : null}
       </div>
     </>
   );
@@ -492,22 +466,17 @@ function MobileMenu({ links, isOpen, onClose, landing }: MobileMenuProps) {
 function MobileMenuButton({
   open,
   onToggle,
-  className,
-  landing,
 }: {
   open: boolean;
   onToggle: () => void;
-  className?: string;
-  /** On the landing header, which collapses at xl rather than lg. */
-  landing?: boolean;
 }) {
   return (
     <Button
       aria-expanded={open}
       aria-label={open ? "Close menu" : "Open menu"}
-      className={cn(menuBreakpoint(landing).hideMenu, className)}
+      className="rounded-shell-sm lg:hidden"
       onClick={onToggle}
-      size="default"
+      size="icon"
       variant="ghost"
     >
       <MenuIcon open={open} />
@@ -515,98 +484,38 @@ function MobileMenuButton({
   );
 }
 
-/** Landing header: a brand tab, joined nav tabs, and boxed utilities. */
-function LandingHeaderItems({
-  links,
-  menuButton,
-}: {
-  links: NavLink[];
-  menuButton: ReactNode;
-}) {
-  const pathname = usePathname();
-  const tabClassName =
-    "inline-flex h-9 items-center border-border border-y border-r bg-background px-3 font-mono text-foreground text-sm uppercase transition-colors hover:bg-primary hover:text-primary-foreground";
-
-  return (
-    <>
-      <div className="flex items-center">
-        <Link
-          className="inline-flex h-9 items-center gap-2 bg-primary px-3 font-medium font-mono text-primary-foreground text-sm uppercase transition-opacity hover:opacity-90"
-          href="/"
-        >
-          <CortexcnLogo size={18} theme="dark" />
-          Cortexcn
-        </Link>
-        <nav className="hidden items-center xl:flex">
-          {links.map((link) => {
-            const active = isNavLinkActive(link.url, pathname);
-            return (
-              <Link
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  tabClassName,
-                  // The page you are on stays filled in, like a pressed key.
-                  active &&
-                    "border-foreground bg-foreground text-background hover:bg-foreground hover:text-background",
-                )}
-                href={link.url}
-                key={link.url}
-              >
-                <NavLinkLabel text={link.text} url={link.url} />
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <div className="flex h-9 items-center gap-0.5 border border-border bg-background px-0.5">
-          {/* From lg up: at tablet widths the nav tabs need the room. */}
-          {hasDocsSearch(pathname) && (
-            <DocsSearchTrigger
-              className="hidden w-30 justify-between lg:inline-flex"
-              hideIfDisabled
-            />
-          )}
-          <ModeToggle />
-          {menuButton}
-        </div>
-        {/* Same page as the Docs tab, so it only joins once everything fits. */}
-        <ActionLink
-          className="hidden 2xl:inline-flex"
-          href="/docs/installation"
-          label="Get started"
-          size="sm"
-          variant="outline"
-        />
-        <UserMenu />
-      </div>
-    </>
-  );
-}
-
+/**
+ * The header on every page of both sites: the logo, the nav with its menus,
+ * search on the docs, the theme toggle, the account menu, and one call to
+ * action. Below lg the nav moves into a menu sheet.
+ */
 export function SiteHeader({
-  links: siteLinks = [],
-  libraryLinks,
+  items: siteItems = [],
+  cta: siteCta,
+  libraryItems,
+  libraryCta,
   variant,
 }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const isScrolled = useIsScrolled();
   const headerRef = useRef<HTMLElement>(null);
   const { resolvedTheme } = useTheme();
   const pathname = usePathname();
-  // The landing-styled pages open on a grid band, so their header draws every
-  // item as a solid box that stays readable on the band in either theme.
-  const isHome = variant ? variant === "landing" : isLandingPath(pathname);
-  const breakpoint = menuBreakpoint(isHome);
-  const links =
-    libraryLinks && isLibraryPath(pathname) ? libraryLinks : siteLinks;
+  const isLanding = variant ? variant === "landing" : isLandingPath(pathname);
+  const isLibrary = Boolean(libraryItems) && isLibraryPath(pathname);
+  const items = isLibrary && libraryItems ? libraryItems : siteItems;
+  const cta = isLibrary ? libraryCta : siteCta;
 
   // Wait for mount to avoid hydration mismatch with theme
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // The menu closes when the page changes.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: runs on navigation.
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -635,90 +544,59 @@ export function SiteHeader({
     <>
       <header
         className={cn(
-          // Stays put on scroll: it only gains a backdrop so the page reads under it.
-          "fixed top-0 right-0 left-0 z-50 border-b px-2.5 transition-[background-color,border-color] duration-200 ease-out motion-reduce:transition-none",
-          isScrolled
-            ? "border-border bg-background/85 backdrop-blur-sm"
-            : "border-transparent",
-          isHome && "syntiq",
-          mobileMenuOpen && breakpoint.menuOpenBackground,
+          "fixed top-0 right-0 left-0 z-50 border-border border-b bg-background/95 text-foreground backdrop-blur-xl",
+          isLanding && "syntiq",
+          mobileMenuOpen && "max-lg:bg-background",
         )}
-        data-scrolled={isScrolled ? "" : undefined}
         ref={headerRef}
       >
         <div
-          className={cn(
-            // On the landing page, line items up with the page's Container
-            // (1264px wide with 16/24/32px gutters) after the header's own 10px inset.
-            isHome
-              ? "mx-auto w-full max-w-[1244px] px-1.5 sm:px-3.5 lg:px-5.5"
-              : "container mx-auto",
-            mobileMenuOpen && breakpoint.menuOpenFullWidth,
-          )}
+          className="flex h-16 items-center gap-4 px-4 sm:px-6 lg:gap-6 lg:px-8"
+          style={{ viewTransitionName: "site-header" }}
         >
-          <div
-            className={cn(
-              "flex items-center justify-between gap-6 border border-transparent py-4",
-              mobileMenuOpen && breakpoint.menuOpenBackground,
-            )}
-            style={{ viewTransitionName: "site-header" }}
+          <Link
+            className="inline-flex shrink-0 items-center gap-2 rounded-shell-sm font-semibold text-[17px] text-foreground tracking-tight no-underline outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring/50"
+            href="/"
           >
-            {isHome ? (
-              <LandingHeaderItems
-                links={links}
-                menuButton={
-                  <MobileMenuButton
-                    className="size-8"
-                    landing
-                    onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    open={mobileMenuOpen}
-                  />
-                }
+            <CortexcnLogo size={22} theme={logoTheme} />
+            <span>Cortexcn</span>
+          </Link>
+
+          <HeaderNav
+            isLinkActive={(url) => isNavLinkActive(url, pathname)}
+            items={items}
+            pathname={pathname}
+          />
+
+          <div className="ml-auto flex items-center gap-1.5">
+            {hasDocsSearch(pathname) && (
+              <DocsSearchTrigger
+                className="hidden w-44 md:inline-flex xl:w-52"
+                hideIfDisabled
               />
-            ) : (
-              <>
-                <div className="flex items-center gap-2">
-                  <Link
-                    className="mr-2 inline-flex items-center gap-2 font-semibold text-foreground text-lg tracking-tight no-underline transition-opacity hover:opacity-80"
-                    href="/"
-                  >
-                    <CortexcnLogo size={24} theme={logoTheme} />
-                    <span>Cortexcn</span>
-                  </Link>
-
-                  {/* Desktop nav, with the Components menu */}
-                  <HeaderNav
-                    activeClassName={activeMenuItemClassName}
-                    isActive={(url) => isNavLinkActive(url, pathname)}
-                    links={links}
-                  />
-                </div>
-
-                <div className="flex items-center gap-1">
-                  {/* From lg up, as an icon until xl, where the full nav leaves room for the shortcut too. */}
-                  {hasDocsSearch(pathname) && (
-                    <DocsSearchTrigger
-                      className="hidden lg:inline-flex xl:w-30 xl:justify-between [&_kbd]:hidden xl:[&_kbd]:inline-flex"
-                      hideIfDisabled
-                    />
-                  )}
-                  <ModeToggle />
-                  <UserMenu />
-                  <MobileMenuButton
-                    onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    open={mobileMenuOpen}
-                  />
-                </div>
-              </>
             )}
+            <ModeToggle />
+            <UserMenu />
+            {cta ? (
+              <Link
+                className="ml-1.5 hidden h-9 items-center rounded-shell-sm bg-foreground px-4 font-medium text-background text-sm shadow-sm outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+                href={cta.href}
+              >
+                {cta.label}
+              </Link>
+            ) : null}
+            <MobileMenuButton
+              onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+              open={mobileMenuOpen}
+            />
           </div>
         </div>
       </header>
 
       <MobileMenu
+        cta={cta}
         isOpen={mobileMenuOpen}
-        landing={isHome}
-        links={links}
+        items={items}
         onClose={() => setMobileMenuOpen(false)}
       />
     </>

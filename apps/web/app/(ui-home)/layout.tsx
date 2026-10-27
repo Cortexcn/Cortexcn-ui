@@ -4,7 +4,7 @@ import { ScrollToTopOnNavigate } from "@/components/docs/scroll-to-top-on-naviga
 import { SiteHeader } from "@/components/docs/site-header";
 import { onest, SENTIENT_STYLESHEET } from "@/components/ui-home/fonts";
 import { LibraryFooter } from "@/components/ui-home/library-footer";
-import { libraryNavLinks } from "@/lib/library-nav-links";
+import { LIBRARY_CTA, libraryNavItems } from "@/lib/nav-menus";
 import { cn } from "@/lib/utils";
 
 /** Keeps revealed content visible for visitors without JavaScript. */
@@ -28,7 +28,7 @@ export default function LibraryHomeLayout({
       <link href={SENTIENT_STYLESHEET} precedence="default" rel="stylesheet" />
       <ScrollToTopOnNavigate />
       {/* The page is served at `/` through a rewrite, so the URL cannot pick the style. */}
-      <SiteHeader links={[...libraryNavLinks]} variant="plain" />
+      <SiteHeader cta={LIBRARY_CTA} items={libraryNavItems()} variant="plain" />
       <div className="flex-1">{children}</div>
       <LibraryFooter />
       <noscript>
