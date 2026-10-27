@@ -23,7 +23,7 @@ export function NavLinkLabel({ text, url }: { text: string; url: string }) {
  * A raised "New" in violet with a light sweeping across it, and a small
  * spark, so a fresh section reads as news rather than as another badge.
  */
-function NewMark() {
+export function NewMark() {
   return (
     <span className="inline-flex -translate-y-1.5 items-center gap-0.5 font-mono font-semibold text-[9px] normal-case leading-none tracking-wider">
       <svg
