@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 
 // Twenty live demos are heavy, so the canvas loads in the browser after the
 // hero's text has painted.
@@ -10,5 +11,9 @@ const HeroCanvas = dynamic(
 );
 
 export function HeroCanvasLoader({ className }: { className?: string }) {
-  return <HeroCanvas className={className} />;
+  return (
+    <div className={cn("relative", className)}>
+      <HeroCanvas className="absolute inset-0" />
+    </div>
+  );
 }

@@ -51,7 +51,7 @@ const enterClassName =
 export function HeroSection() {
   return (
     <section className="pb-16 md:pb-20" id="hero">
-      <div className="relative overflow-hidden">
+      <div className="relative">
         <Container className="relative z-10 flex items-center pt-28 pb-10 md:pt-36 lg:min-h-[min(880px,100svh)] lg:pt-24 lg:pb-16">
           <div className="flex w-full min-w-0 flex-col items-start lg:max-w-[min(38rem,42vw)]">
             <Link
@@ -132,8 +132,11 @@ export function HeroSection() {
           </div>
         </Container>
 
-        {/* Beside the text from lg up, below the header; under the text on phones. */}
-        <HeroCanvasLoader className="h-[62svh] min-h-[440px] w-full lg:absolute lg:top-16 lg:right-0 lg:bottom-0 lg:h-auto lg:min-h-0 lg:w-[55%]" />
+        {/*
+          The component wall: beside the text from lg up, running to the page's
+          right edge; under the text on phones.
+        */}
+        <HeroCanvasLoader className="h-[60svh] min-h-[440px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:left-[50%] lg:h-auto lg:min-h-0 lg:w-auto" />
       </div>
 
       <StackTicker />
