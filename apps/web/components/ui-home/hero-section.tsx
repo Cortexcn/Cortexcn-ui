@@ -1,5 +1,7 @@
 import Link from "next/link";
-
+import { BLOCK_CATEGORIES } from "@/blocks/categories";
+import { CopyButton } from "@/components/copy-button";
+import { COMPONENT_GROUPS } from "@/lib/component-families";
 import { cn } from "@/lib/utils";
 
 import { HeroCanvasLoader } from "./hero-canvas-loader";
@@ -12,16 +14,35 @@ import {
 import { HeadingWords } from "./reveal";
 import { StackTicker } from "./stack-ticker";
 
+const MCP_DOCS = "/docs/integration/mcp";
+
+/** The one-line setup from the MCP docs, for Claude Code. */
+const MCP_COMMAND =
+  "claude mcp add --transport http cortexcn https://ui.cortexcn.dev/mcp";
+
 const ANNOUNCEMENT = {
   tag: "New",
-  text: "Command Search and Number Ticker are live",
-  href: "/docs/cortex/command-search",
+  text: "Connect your AI agent with the Cortexcn MCP server",
+  href: MCP_DOCS,
 };
 
 const HEADLINE = [
-  { text: "The component library" },
-  { text: "that lives in your repo.", muted: true },
+  { text: "Charts, blocks, and motion," },
+  { text: "one prompt away.", muted: true },
 ];
+
+/** Counted from the docs and the block categories, so the copy stays true. */
+const COMPONENT_COUNT = COMPONENT_GROUPS.reduce(
+  (count, group) => count + group.slugs.length,
+  0,
+);
+const CHART_COUNT =
+  COMPONENT_GROUPS.find((group) => group.category === "charts")?.slugs.length ??
+  0;
+const BLOCK_COUNT = BLOCK_CATEGORIES.reduce(
+  (count, category) => count + category.blocks.length,
+  0,
+);
 
 /** CSS-only entrance, so the copy animates in before hydration finishes. */
 const enterClassName =
@@ -32,10 +53,10 @@ export function HeroSection() {
     <section className="pb-16 md:pb-20" id="hero">
       <div className="relative overflow-hidden">
         <Container className="relative z-10 flex items-center pt-28 pb-10 md:pt-36 lg:min-h-[min(880px,100svh)] lg:pt-24 lg:pb-16">
-          <div className="flex flex-col items-start lg:max-w-[min(30rem,38vw)]">
+          <div className="flex w-full min-w-0 flex-col items-start lg:max-w-[min(30rem,38vw)]">
             <Link
               className={cn(
-                "group mb-7 inline-flex items-center gap-2.5 text-base text-body",
+                "group mb-7 inline-flex max-w-full items-center gap-2.5 text-body text-sm sm:text-base",
                 enterClassName,
               )}
               href={ANNOUNCEMENT.href}
@@ -63,9 +84,10 @@ export function HeroSection() {
                 enterClassName,
               )}
             >
-              Charts, blocks, and motion components for shadcn/ui. Add them with
-              the shadcn CLI or your AI agent, then change the code however you
-              like.
+              {COMPONENT_COUNT} components, {CHART_COUNT} of them charts, and{" "}
+              {BLOCK_COUNT} page blocks for shadcn/ui. Connect the Cortexcn MCP
+              server once, then ask Claude, Cursor, or VS Code to add any of
+              them. The code lands in your repo, ready to change.
             </p>
 
             <div
@@ -74,12 +96,32 @@ export function HeroSection() {
                 enterClassName,
               )}
             >
-              <PrimaryLink href="/docs/components">
+              <PrimaryLink href={MCP_DOCS}>Install the MCP server</PrimaryLink>
+              <SecondaryLink href="/docs/components">
                 Browse components
-              </PrimaryLink>
-              <SecondaryLink href="/docs/installation">
-                Read the docs
               </SecondaryLink>
+            </div>
+
+            {/* The setup command itself, for readers already in Claude Code. */}
+            <div
+              className={cn(
+                "mt-5 flex w-full max-w-[30rem] items-center gap-2 rounded-xl border border-border bg-muted/50 py-1 pr-1 pl-3 delay-700",
+                enterClassName,
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className="font-mono text-muted-foreground text-xs"
+              >
+                $
+              </span>
+              <code className="min-w-0 flex-1 truncate font-mono text-foreground/80 text-xs">
+                {MCP_COMMAND}
+              </code>
+              <CopyButton
+                aria-label="Copy the MCP setup command"
+                text={MCP_COMMAND}
+              />
             </div>
           </div>
         </Container>
