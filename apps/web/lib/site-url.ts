@@ -26,12 +26,13 @@ export const DEV_DOCS_HOSTNAME = "ui.localhost";
 export const LIBRARY_HOME_ROUTE = "/ui-home";
 
 const LIBRARY_PATH_RE =
-  /^\/(?:docs|blocks|charts|changelog|templates|previews|mcp|sign-in|admin|design-systems)(?:\/|$)/;
+  /^\/(?:docs|blocks|charts|changelog|templates|previews|mcp|sign-in|admin|design-systems|embed)(?:\/|$)/;
 
 /**
  * Pages of the component library site: the docs, the two galleries, the
  * changelog, the templates with their live previews, the MCP server,
- * sign-in, the admin dashboard, and the design systems showcase.
+ * sign-in, the admin dashboard, the design systems showcase, and the
+ * component previews other sites embed.
  */
 export function isLibraryPath(pathname: string) {
   return LIBRARY_PATH_RE.test(pathname);
