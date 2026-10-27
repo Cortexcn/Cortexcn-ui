@@ -44,6 +44,20 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-27",
     kind: "site",
+    title: "A live component wall in the library hero",
+    summary:
+      "The library home's hero now shows twenty live components and charts in place of the painting. A camera rests on one card, which comes forward in full color, then glides to the next while the others stay faded. It stays still for visitors who prefer less motion.",
+    items: [
+      { label: "Command Search", href: "/docs/cortex/command-search" },
+      { label: "Number Ticker", href: "/docs/cortex/number-ticker" },
+      { label: "FAQ Tabs Card", href: "/docs/cortex/faq-tabs-card" },
+      { label: "Line Nav", href: "/docs/cortex/line-nav" },
+      { label: "Gooey Nav", href: "/docs/cortex/gooey-nav" },
+    ],
+  },
+  {
+    date: "2026-10-27",
+    kind: "site",
     title: "A new docs layout and header menus",
     summary:
       "The header on both sites now opens menus with a grid of links and a featured card: Components, Blocks, Charts, and Resources on the library, and Services and Library on the services site. The docs have a sidebar of collapsible sections, a title band with a breadcrumb, and a right rail with the page's headings. Each component overview shows a card with a line drawing for every component.",
