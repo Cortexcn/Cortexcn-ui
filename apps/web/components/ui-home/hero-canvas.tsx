@@ -8,7 +8,6 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
-  type CSSProperties,
   type ReactNode,
   useCallback,
   useEffect,
@@ -42,15 +41,17 @@ import { cn } from "@/lib/utils";
 /** How long the camera rests on a card. */
 const HOLD_MS = 4400;
 /** The flight between two cards, in seconds. */
-const FLY_SECONDS = 2.2;
+const FLY_SECONDS = 2;
 /** How far the camera pulls back halfway through a flight. */
-const ZOOM_DIP = 0.24;
+const ZOOM_DIP = 0.42;
 const FLY_EASE = [0.45, 0, 0.55, 1] as const;
 /** The canvas zoom at rest, so a few cards show around the focused one. */
-const REST_SCALE = 0.82;
+const REST_SCALE = 1.05;
 /** Panels narrower than this zoom out further, down to MIN_FIT. */
-const FIT_WIDTH = 760;
-const MIN_FIT = 0.62;
+const FIT_WIDTH = 780;
+const MIN_FIT = 0.55;
+/** How far past the wall's top or bottom the camera may show, of the panel's height. */
+const EDGE_SLACK = 0.2;
 
 interface CanvasCard {
   slug: string;
@@ -223,26 +224,6 @@ const TOUR = [
   "live-line-chart",
 ];
 
-/** Room around the highlighted card inside the spotlight's window. */
-const SPOT_PADDING = 28;
-
-/**
- * The veil around the spotlight, in the page's color: nearly opaque while
- * the camera rests, a little lighter while it glides so the motion reads.
- */
-function spotVeil(flying: boolean) {
-  const strength = flying ? 70 : 82;
-  return `0 0 0 2400px color-mix(in oklab, var(--background) ${strength}%, transparent)`;
-}
-
-/** Soft edges on all four sides, so the canvas sits inside its panel. */
-const PANEL_MASK: CSSProperties = {
-  maskImage:
-    "linear-gradient(to right, transparent, black 22%, black 80%, transparent), linear-gradient(to bottom, transparent, black 18%, black 82%, transparent)",
-  maskComposite: "intersect",
-  WebkitMaskComposite: "source-in",
-};
-
 function pick<T>(values: T[], index: number): T {
   return values[index % values.length] as T;
 }
@@ -253,10 +234,11 @@ interface Point {
 }
 
 /**
- * The library home's hero canvas: a wall of live Cortexcn components. A
- * camera rests on one card, which sits in a spotlight while the rest of the
- * wall stays under a veil, then glides to the next with a slight pull back,
- * the way a map flies between places.
+ * The library home's hero canvas: a wall of live Cortexcn components beside
+ * the hero text, dissolving into the page along its left and top edges. A
+ * camera rests on one card, which shows in full while the others dim, then
+ * pulls back so the whole wall lights up and flies in to the next, the way
+ * a map flies between places.
  * It rests while off screen, while the tab is hidden, and for visitors who
  * prefer less motion. It is decorative, so it is inert and hidden from
  * assistive technology.
@@ -273,14 +255,11 @@ export function HeroCanvas({ className }: { className?: string }) {
   const [focus, setFocus] = useState(0);
   // The card shown in full color, which switches halfway through a flight.
   const [highlight, setHighlight] = useState(0);
-  // The card the spotlight frames: the destination, from the moment the
-  // camera sets off.
-  const [target, setTarget] = useState(0);
+  // While the camera flies, the whole wall lights up; at rest only the
+  // highlighted card does.
   const [flying, setFlying] = useState(false);
   const [ready, setReady] = useState(false);
   const [tabHidden, setTabHidden] = useState(false);
-  // The spotlight's opening, sized to the highlighted card as it shows.
-  const [spot, setSpot] = useState({ width: 0, height: 0 });
 
   const running = ready && reduceMotion === false && !(offscreen || tabHidden);
 
@@ -311,16 +290,22 @@ export function HeroCanvas({ className }: { className?: string }) {
 
   /**
    * Moves the camera so a canvas point sits at the middle of the panel,
-   * inside the spotlight.
+   * without showing far past the wall's top or bottom edge.
    */
   const place = useCallback(
     (point: Point, nextScale: number) => {
       const panel = panelRef.current;
-      if (!panel) {
+      const canvas = canvasRef.current;
+      if (!(panel && canvas)) {
         return;
       }
+      // A little empty room at either end is fine: the edges fade out there.
+      const slack = panel.clientHeight * EDGE_SLACK;
+      const lowest =
+        panel.clientHeight - canvas.offsetHeight * nextScale - slack;
+      const centeredY = panel.clientHeight / 2 - nextScale * point.y;
       x.set(panel.clientWidth / 2 - nextScale * point.x);
-      y.set(panel.clientHeight / 2 - nextScale * point.y);
+      y.set(Math.min(slack, Math.max(lowest, centeredY)));
       scale.set(nextScale);
     },
     [panelRef, scale, x, y],
@@ -362,25 +347,6 @@ export function HeroCanvas({ className }: { className?: string }) {
     return () => observer.disconnect();
   }, [panelRef, place, pointOf, restScale]);
 
-  // Size the spotlight to the card it frames, and follow it as it resizes.
-  useLayoutEffect(() => {
-    const card = cardRefs.current.get(pick(TOUR, target));
-    if (!card) {
-      return;
-    }
-    const measure = () => {
-      const rest = restScale();
-      setSpot({
-        width: card.offsetWidth * rest,
-        height: card.offsetHeight * rest,
-      });
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(card);
-    return () => observer.disconnect();
-  }, [target, restScale]);
-
   // Rest on the focused card, then glide to the next one.
   useEffect(() => {
     if (!running) {
@@ -399,7 +365,6 @@ export function HeroCanvas({ className }: { className?: string }) {
       const rest = restScale();
       flyingRef.current = true;
       setFlying(true);
-      setTarget((focus + 1) % TOUR.length);
       flight = animate(0, 1, {
         duration: FLY_SECONDS,
         ease: FLY_EASE,
@@ -433,7 +398,6 @@ export function HeroCanvas({ className }: { className?: string }) {
         flyingRef.current = false;
         setFlying(false);
         setHighlight(focus);
-        setTarget(focus);
         const point = pointOf(from);
         if (point) {
           place(point, restScale());
@@ -447,10 +411,9 @@ export function HeroCanvas({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={cn("relative overflow-hidden", className)}
+      className={cn("hero-wall-mask isolate overflow-hidden", className)}
       inert
       ref={panelRef}
-      style={PANEL_MASK}
     >
       <motion.div
         className={cn(
@@ -474,10 +437,11 @@ export function HeroCanvas({ className }: { className?: string }) {
               return (
                 <div
                   className={cn(
-                    "rounded-[20px] border p-1.5 transition-[opacity,box-shadow,border-color,filter] duration-700 ease-out motion-reduce:transition-none",
-                    active
-                      ? "border-foreground/15 bg-linear-to-b from-muted to-card opacity-100 shadow-[0_40px_80px_-32px_rgb(28_26_21/0.5),0_0_0_1px_rgb(255_255_255/0.04)_inset] dark:shadow-[0_40px_80px_-24px_rgb(0_0_0/0.9),0_0_0_1px_rgb(255_255_255/0.06)_inset]"
-                      : "border-border bg-card opacity-55 saturate-75",
+                    "rounded-[22px] border bg-card p-2 transition-[opacity,box-shadow,border-color] duration-700 ease-out motion-reduce:transition-none",
+                    active &&
+                      "border-foreground/15 opacity-100 shadow-[0_40px_80px_-32px_rgb(28_26_21/0.5)] dark:shadow-[0_40px_80px_-24px_rgb(0_0_0/0.95)]",
+                    !active && "border-border",
+                    !active && (flying ? "opacity-75" : "opacity-30"),
                   )}
                   key={card.slug}
                   ref={(element) => {
@@ -488,14 +452,14 @@ export function HeroCanvas({ className }: { className?: string }) {
                     }
                   }}
                 >
-                  <div className="flex min-h-24 items-center justify-center overflow-hidden rounded-[14px] border border-border bg-background p-4 text-foreground">
+                  <div className="flex min-h-24 items-center justify-center overflow-hidden rounded-[14px] border border-border bg-background p-5 text-foreground">
                     {card.demo}
                   </div>
-                  <div className="flex items-center justify-between gap-3 px-2 pt-2.5 pb-1.5">
+                  <div className="flex items-center justify-between gap-3 px-2 pt-3 pb-1.5">
                     <span className="truncate font-medium text-foreground text-sm">
                       {card.title}
                     </span>
-                    <span className="shrink-0 rounded-md border border-border bg-muted px-1.5 py-0.5 text-[11px] text-muted-foreground">
+                    <span className="shrink-0 rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-[11px] text-muted-foreground">
                       {card.kind}
                     </span>
                   </div>
@@ -505,21 +469,6 @@ export function HeroCanvas({ className }: { className?: string }) {
           </div>
         ))}
       </motion.div>
-
-      {/*
-       * The spotlight: a veil in the page's own color over the whole wall,
-       * with a window cut to the highlighted card. It eases to each new
-       * card's size, so only the card in focus reads clearly.
-       */}
-      <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[30px] transition-[width,height,opacity,box-shadow] duration-700 ease-out motion-reduce:transition-none"
-        style={{
-          width: spot.width + SPOT_PADDING,
-          height: spot.height + SPOT_PADDING,
-          opacity: spot.width > 0 ? 1 : 0,
-          boxShadow: spotVeil(flying),
-        }}
-      />
     </div>
   );
 }

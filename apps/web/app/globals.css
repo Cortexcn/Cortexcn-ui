@@ -396,6 +396,33 @@ html::-webkit-scrollbar {
   @apply bg-background;
 }
 
+/*
+ * The library home's component wall dissolves into the page along its left
+ * and top edges (and its bottom, into the next section). The mask is a
+ * blurred rectangle with a little noise displacement, which dithers the fade
+ * so it never shows bands. On phones the wall sits under the text, so only
+ * the top and bottom fade.
+ */
+.hero-wall-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 12%,
+    #000 86%,
+    transparent
+  );
+}
+
+@media (min-width: 64rem) {
+  .hero-wall-mask {
+    mask-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='d' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='24' result='b'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='3' result='n'/%3E%3CfeDisplacementMap in='b' in2='n' scale='12' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3Crect x='64' y='72' width='200%25' height='200%25' rx='40' fill='white' filter='url(%23d)'/%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #000 82%, transparent);
+    mask-size: 100% 100%;
+    mask-composite: intersect;
+  }
+}
+
 /* The dot grid behind a docs page's title, fading out toward the content. */
 .docs-hero-dots {
   background-image: radial-gradient(
