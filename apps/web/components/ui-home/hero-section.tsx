@@ -53,7 +53,7 @@ export function HeroSection() {
     <section className="pb-16 md:pb-20" id="hero">
       <div className="relative overflow-hidden">
         <Container className="relative z-10 flex items-center pt-28 pb-10 md:pt-36 lg:min-h-[min(880px,100svh)] lg:pt-24 lg:pb-16">
-          <div className="flex w-full min-w-0 flex-col items-start lg:max-w-[min(30rem,38vw)]">
+          <div className="flex w-full min-w-0 flex-col items-start lg:max-w-[min(38rem,42vw)]">
             <Link
               className={cn(
                 "group mb-7 inline-flex max-w-full items-center gap-2.5 text-body text-sm sm:text-base",
@@ -70,8 +70,14 @@ export function HeroSection() {
               <ChevronRightIcon className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
 
-            <h1 className="text-balance font-light font-sentient text-[46px] leading-[1.05] tracking-[-0.05em] md:text-5xl lg:text-[56px]">
+            {/*
+              Two rows, each kept whole. The first row is about 11.4 times the
+              font size wide, so the size follows the column: the screen width
+              on phones, and the text column beside the canvas from lg up.
+            */}
+            <h1 className="whitespace-nowrap font-light font-sentient text-[min(3.25rem,calc((100vw-3rem)/11.8))] leading-[1.08] tracking-[-0.05em] lg:text-[min(3.25rem,3.6vw)]">
               <HeadingWords
+                breakLines
                 enterOnLoad
                 lines={HEADLINE}
                 mutedClassName="text-body"
@@ -127,7 +133,7 @@ export function HeroSection() {
         </Container>
 
         {/* Beside the text from lg up, below the header; under the text on phones. */}
-        <HeroCanvasLoader className="h-[62svh] min-h-[440px] w-full lg:absolute lg:top-16 lg:right-0 lg:bottom-0 lg:h-auto lg:min-h-0 lg:w-[58%]" />
+        <HeroCanvasLoader className="h-[62svh] min-h-[440px] w-full lg:absolute lg:top-16 lg:right-0 lg:bottom-0 lg:h-auto lg:min-h-0 lg:w-[55%]" />
       </div>
 
       <StackTicker />
