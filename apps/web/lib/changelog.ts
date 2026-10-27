@@ -46,7 +46,7 @@ export const CHANGELOG: ChangelogRelease[] = [
     kind: "site",
     title: "A live component wall in the library hero",
     summary:
-      "The library home's hero now shows twenty live components and charts in place of the painting. A camera rests on one card, which comes forward in full color, then glides to the next while the others stay faded. It stays still for visitors who prefer less motion.",
+      "The library home's hero now shows twenty live components and charts in place of the painting. A camera rests on one card in a spotlight while the rest of the wall sits under a veil, then glides to the next. It stays still for visitors who prefer less motion.",
     items: [
       { label: "Command Search", href: "/docs/cortex/command-search" },
       { label: "Number Ticker", href: "/docs/cortex/number-ticker" },

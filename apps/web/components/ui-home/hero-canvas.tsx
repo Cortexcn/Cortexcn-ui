@@ -54,6 +54,8 @@ const MIN_FIT = 0.62;
 
 interface CanvasCard {
   slug: string;
+  title: string;
+  kind: "Chart" | "Cortex" | "Component";
   demo: ReactNode;
 }
 
@@ -63,44 +65,144 @@ const COLUMNS: { width: string; offset: string; cards: CanvasCard[] }[] = [
     width: "w-[400px]",
     offset: "mt-0",
     cards: [
-      { slug: "bar-chart", demo: <BarChartGradientDemo /> },
-      { slug: "command-search", demo: <CommandSearchDemo /> },
-      { slug: "area-chart", demo: <AreaChartPatternDemo /> },
-      { slug: "accordion", demo: <AccordionBasic /> },
+      {
+        slug: "bar-chart",
+        title: "Bar Chart",
+        kind: "Chart",
+        demo: <BarChartGradientDemo />,
+      },
+      {
+        slug: "command-search",
+        title: "Command Search",
+        kind: "Cortex",
+        demo: <CommandSearchDemo />,
+      },
+      {
+        slug: "area-chart",
+        title: "Area Chart",
+        kind: "Chart",
+        demo: <AreaChartPatternDemo />,
+      },
+      {
+        slug: "accordion",
+        title: "Accordion",
+        kind: "Component",
+        demo: <AccordionBasic />,
+      },
     ],
   },
   {
     width: "w-[340px]",
     offset: "mt-28",
     cards: [
-      { slug: "number-ticker", demo: <NumberTickerDemo /> },
-      { slug: "pie-chart", demo: <PieChartDonutDemo /> },
-      { slug: "line-nav", demo: <LineNavDemo /> },
-      { slug: "gauge-chart", demo: <GaugeChartDemo /> },
-      { slug: "scatter-chart", demo: <ScatterChartDemo /> },
+      {
+        slug: "number-ticker",
+        title: "Number Ticker",
+        kind: "Cortex",
+        demo: <NumberTickerDemo />,
+      },
+      {
+        slug: "pie-chart",
+        title: "Pie Chart",
+        kind: "Chart",
+        demo: <PieChartDonutDemo />,
+      },
+      {
+        slug: "line-nav",
+        title: "Line Nav",
+        kind: "Cortex",
+        demo: <LineNavDemo />,
+      },
+      {
+        slug: "gauge-chart",
+        title: "Gauge",
+        kind: "Chart",
+        demo: <GaugeChartDemo />,
+      },
+      {
+        slug: "scatter-chart",
+        title: "Scatter Chart",
+        kind: "Chart",
+        demo: <ScatterChartDemo />,
+      },
     ],
   },
   {
     width: "w-[400px]",
     offset: "mt-12",
     cards: [
-      { slug: "faq-tabs-card", demo: <FaqTabsCardDemo /> },
-      { slug: "candlestick-chart", demo: <CandlestickChartDemo /> },
-      { slug: "logos-carousel", demo: <LogosCarouselDemo /> },
-      { slug: "radar-chart", demo: <RadarChartBasicDemo /> },
-      { slug: "work-experience", demo: <WorkExperienceDemo /> },
+      {
+        slug: "faq-tabs-card",
+        title: "FAQ Tabs Card",
+        kind: "Cortex",
+        demo: <FaqTabsCardDemo />,
+      },
+      {
+        slug: "candlestick-chart",
+        title: "Candlestick Chart",
+        kind: "Chart",
+        demo: <CandlestickChartDemo />,
+      },
+      {
+        slug: "logos-carousel",
+        title: "Logos Carousel",
+        kind: "Cortex",
+        demo: <LogosCarouselDemo />,
+      },
+      {
+        slug: "radar-chart",
+        title: "Radar Chart",
+        kind: "Chart",
+        demo: <RadarChartBasicDemo />,
+      },
+      {
+        slug: "work-experience",
+        title: "Work Experience",
+        kind: "Cortex",
+        demo: <WorkExperienceDemo />,
+      },
     ],
   },
   {
     width: "w-[340px]",
     offset: "mt-40",
     cards: [
-      { slug: "ring-chart", demo: <RingChartBasicDemo /> },
-      { slug: "gooey-nav", demo: <GooeyNavCompactDemo /> },
-      { slug: "sankey-chart", demo: <SankeyNoLabelsDemo /> },
-      { slug: "live-line-chart", demo: <LiveLineChartDemo /> },
-      { slug: "sunburst-chart", demo: <SunburstChartDemo /> },
-      { slug: "marquee", demo: <MarqueeDemo /> },
+      {
+        slug: "ring-chart",
+        title: "Ring Chart",
+        kind: "Chart",
+        demo: <RingChartBasicDemo />,
+      },
+      {
+        slug: "gooey-nav",
+        title: "Gooey Nav",
+        kind: "Cortex",
+        demo: <GooeyNavCompactDemo />,
+      },
+      {
+        slug: "sankey-chart",
+        title: "Sankey Chart",
+        kind: "Chart",
+        demo: <SankeyNoLabelsDemo />,
+      },
+      {
+        slug: "live-line-chart",
+        title: "Live Line Chart",
+        kind: "Chart",
+        demo: <LiveLineChartDemo />,
+      },
+      {
+        slug: "sunburst-chart",
+        title: "Sunburst Chart",
+        kind: "Chart",
+        demo: <SunburstChartDemo />,
+      },
+      {
+        slug: "marquee",
+        title: "Marquee",
+        kind: "Cortex",
+        demo: <MarqueeDemo />,
+      },
     ],
   },
 ];
@@ -121,10 +223,22 @@ const TOUR = [
   "live-line-chart",
 ];
 
+/** Room around the highlighted card inside the spotlight's window. */
+const SPOT_PADDING = 28;
+
+/**
+ * The veil around the spotlight, in the page's color: nearly opaque while
+ * the camera rests, a little lighter while it glides so the motion reads.
+ */
+function spotVeil(flying: boolean) {
+  const strength = flying ? 70 : 82;
+  return `0 0 0 2400px color-mix(in oklab, var(--background) ${strength}%, transparent)`;
+}
+
 /** Soft edges on all four sides, so the canvas sits inside its panel. */
 const PANEL_MASK: CSSProperties = {
   maskImage:
-    "linear-gradient(to right, transparent, black 14%, black 86%, transparent), linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)",
+    "linear-gradient(to right, transparent, black 22%, black 80%, transparent), linear-gradient(to bottom, transparent, black 18%, black 82%, transparent)",
   maskComposite: "intersect",
   WebkitMaskComposite: "source-in",
 };
@@ -140,8 +254,9 @@ interface Point {
 
 /**
  * The library home's hero canvas: a wall of live Cortexcn components. A
- * camera rests on one card, which comes forward in full color, then glides
- * to the next with a slight pull back, the way a map flies between places.
+ * camera rests on one card, which sits in a spotlight while the rest of the
+ * wall stays under a veil, then glides to the next with a slight pull back,
+ * the way a map flies between places.
  * It rests while off screen, while the tab is hidden, and for visitors who
  * prefer less motion. It is decorative, so it is inert and hidden from
  * assistive technology.
@@ -158,8 +273,14 @@ export function HeroCanvas({ className }: { className?: string }) {
   const [focus, setFocus] = useState(0);
   // The card shown in full color, which switches halfway through a flight.
   const [highlight, setHighlight] = useState(0);
+  // The card the spotlight frames: the destination, from the moment the
+  // camera sets off.
+  const [target, setTarget] = useState(0);
+  const [flying, setFlying] = useState(false);
   const [ready, setReady] = useState(false);
   const [tabHidden, setTabHidden] = useState(false);
+  // The spotlight's opening, sized to the highlighted card as it shows.
+  const [spot, setSpot] = useState({ width: 0, height: 0 });
 
   const running = ready && reduceMotion === false && !(offscreen || tabHidden);
 
@@ -190,19 +311,16 @@ export function HeroCanvas({ className }: { className?: string }) {
 
   /**
    * Moves the camera so a canvas point sits at the middle of the panel,
-   * without showing past the canvas's top or bottom edge.
+   * inside the spotlight.
    */
   const place = useCallback(
     (point: Point, nextScale: number) => {
       const panel = panelRef.current;
-      const canvas = canvasRef.current;
-      if (!(panel && canvas)) {
+      if (!panel) {
         return;
       }
-      const lowest = panel.clientHeight - canvas.offsetHeight * nextScale;
-      const centeredY = panel.clientHeight / 2 - nextScale * point.y;
       x.set(panel.clientWidth / 2 - nextScale * point.x);
-      y.set(Math.min(0, Math.max(lowest, centeredY)));
+      y.set(panel.clientHeight / 2 - nextScale * point.y);
       scale.set(nextScale);
     },
     [panelRef, scale, x, y],
@@ -244,6 +362,25 @@ export function HeroCanvas({ className }: { className?: string }) {
     return () => observer.disconnect();
   }, [panelRef, place, pointOf, restScale]);
 
+  // Size the spotlight to the card it frames, and follow it as it resizes.
+  useLayoutEffect(() => {
+    const card = cardRefs.current.get(pick(TOUR, target));
+    if (!card) {
+      return;
+    }
+    const measure = () => {
+      const rest = restScale();
+      setSpot({
+        width: card.offsetWidth * rest,
+        height: card.offsetHeight * rest,
+      });
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [target, restScale]);
+
   // Rest on the focused card, then glide to the next one.
   useEffect(() => {
     if (!running) {
@@ -261,6 +398,8 @@ export function HeroCanvas({ className }: { className?: string }) {
       }
       const rest = restScale();
       flyingRef.current = true;
+      setFlying(true);
+      setTarget((focus + 1) % TOUR.length);
       flight = animate(0, 1, {
         duration: FLY_SECONDS,
         ease: FLY_EASE,
@@ -275,6 +414,7 @@ export function HeroCanvas({ className }: { className?: string }) {
         },
         onComplete: () => {
           flyingRef.current = false;
+          setFlying(false);
           setFocus((current) => (current + 1) % TOUR.length);
         },
       });
@@ -291,7 +431,9 @@ export function HeroCanvas({ className }: { className?: string }) {
         // Paused mid-flight: settle back on the card it left.
         flight.stop();
         flyingRef.current = false;
+        setFlying(false);
         setHighlight(focus);
+        setTarget(focus);
         const point = pointOf(from);
         if (point) {
           place(point, restScale());
@@ -332,10 +474,10 @@ export function HeroCanvas({ className }: { className?: string }) {
               return (
                 <div
                   className={cn(
-                    "rounded-2xl border border-border bg-muted/70 p-1.5 transition-[opacity,box-shadow,filter] duration-700 ease-out motion-reduce:transition-none",
+                    "rounded-[20px] border p-1.5 transition-[opacity,box-shadow,border-color,filter] duration-700 ease-out motion-reduce:transition-none",
                     active
-                      ? "opacity-100 shadow-[0_32px_64px_-28px_rgb(28_26_21/0.45),0_2px_6px_rgb(28_26_21/0.06)] dark:shadow-[0_32px_64px_-28px_rgb(0_0_0/0.85)]"
-                      : "opacity-35 saturate-50",
+                      ? "border-foreground/15 bg-linear-to-b from-muted to-card opacity-100 shadow-[0_40px_80px_-32px_rgb(28_26_21/0.5),0_0_0_1px_rgb(255_255_255/0.04)_inset] dark:shadow-[0_40px_80px_-24px_rgb(0_0_0/0.9),0_0_0_1px_rgb(255_255_255/0.06)_inset]"
+                      : "border-border bg-card opacity-55 saturate-75",
                   )}
                   key={card.slug}
                   ref={(element) => {
@@ -346,15 +488,16 @@ export function HeroCanvas({ className }: { className?: string }) {
                     }
                   }}
                 >
-                  <div className="flex items-center gap-2 px-2.5 pt-1 pb-2 font-mono text-[11px] text-muted-foreground">
-                    <span className="size-1.5 rounded-full bg-current" />
-                    <span>
-                      <span className="opacity-60">@cortexcn/</span>
-                      {card.slug}
-                    </span>
-                  </div>
-                  <div className="flex min-h-24 items-center justify-center overflow-hidden rounded-xl border border-border bg-card p-4 text-card-foreground">
+                  <div className="flex min-h-24 items-center justify-center overflow-hidden rounded-[14px] border border-border bg-background p-4 text-foreground">
                     {card.demo}
+                  </div>
+                  <div className="flex items-center justify-between gap-3 px-2 pt-2.5 pb-1.5">
+                    <span className="truncate font-medium text-foreground text-sm">
+                      {card.title}
+                    </span>
+                    <span className="shrink-0 rounded-md border border-border bg-muted px-1.5 py-0.5 text-[11px] text-muted-foreground">
+                      {card.kind}
+                    </span>
                   </div>
                 </div>
               );
@@ -362,6 +505,21 @@ export function HeroCanvas({ className }: { className?: string }) {
           </div>
         ))}
       </motion.div>
+
+      {/*
+       * The spotlight: a veil in the page's own color over the whole wall,
+       * with a window cut to the highlighted card. It eases to each new
+       * card's size, so only the card in focus reads clearly.
+       */}
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[30px] transition-[width,height,opacity,box-shadow] duration-700 ease-out motion-reduce:transition-none"
+        style={{
+          width: spot.width + SPOT_PADDING,
+          height: spot.height + SPOT_PADDING,
+          opacity: spot.width > 0 ? 1 : 0,
+          boxShadow: spotVeil(flying),
+        }}
+      />
     </div>
   );
 }
