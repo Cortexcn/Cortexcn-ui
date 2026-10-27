@@ -44,6 +44,14 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-27",
     kind: "site",
+    title: "A sponsor card in the docs",
+    summary:
+      "The right rail on every docs page now has a card under the templates card that opens Cortexcn's GitHub Sponsors page.",
+    items: [{ label: "Components docs", href: "/docs/components" }],
+  },
+  {
+    date: "2026-10-27",
+    kind: "site",
     title: "A live component wall in the library hero",
     summary:
       "The library home's hero now shows twenty live components and charts in place of the painting. A camera rests on one card in a spotlight while the rest of the wall sits under a veil, then glides to the next. It stays still for visitors who prefer less motion.",
