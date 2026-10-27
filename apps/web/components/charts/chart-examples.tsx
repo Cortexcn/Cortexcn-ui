@@ -7232,6 +7232,22 @@ const chartExamplesRegistry: Record<string, RegistryEntry> = {
 
 const chartsPageContentClassName = "container mx-auto w-full overflow-visible";
 
+/** Whether the gallery has examples for a chart, so it can be previewed alone. */
+export function hasChartExamples(chartSlug: string) {
+  return chartSlug in chartExamplesRegistry;
+}
+
+/**
+ * A chart's featured example on its own, without the gallery's card: the
+ * hero when the chart has one, otherwise its first example. Used by the
+ * embeddable previews at /embed/<slug>.
+ */
+export function ChartExamplePreview({ chartSlug }: { chartSlug: string }) {
+  const entry = chartExamplesRegistry[chartSlug];
+  const example = entry?.hero?.() ?? entry?.factory()[0];
+  return example ? example.render() : null;
+}
+
 export function ChartExamplesGrid({ chartSlug }: { chartSlug: string }) {
   const entry = chartExamplesRegistry[chartSlug];
 

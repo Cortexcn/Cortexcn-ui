@@ -6,6 +6,30 @@ const withMDX = createMDX();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const BASELINE_HEADERS = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
+];
+
+/**
+ * Sites allowed to show /embed/<slug> in an iframe: the portfolio, plus any
+ * local port while developing it next to this app.
+ */
+const EMBED_FRAME_ANCESTORS = [
+  "'self'",
+  "https://syedmoinuddin.com",
+  "https://*.syedmoinuddin.com",
+  ...(process.env.NODE_ENV === "development" ? ["http://localhost:*"] : []),
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -123,20 +147,25 @@ const nextConfig = {
       {
         // Baseline hardening for every page.
         source: "/:path*",
+        headers: BASELINE_HEADERS,
+      },
+      {
+        // Pages stay out of other sites' frames, except the embeds below.
+        source: "/:path((?!embed/).*)",
         headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
-          },
-          {
-            key: "Permissions-Policy",
-            value:
-              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
-          },
           { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        ],
+      },
+      {
+        // Live component previews, framed by the sites in EMBED_FRAME_ANCESTORS.
+        source: "/embed/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `frame-ancestors ${EMBED_FRAME_ANCESTORS.join(" ")}`,
+          },
+          { key: "X-Robots-Tag", value: "noindex" },
         ],
       },
       {

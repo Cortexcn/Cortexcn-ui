@@ -7,7 +7,7 @@ export function SiteLeftDotGrid() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-y-0 left-0 z-0 w-[300px]"
+      className="site-left-dot-grid pointer-events-none fixed inset-y-0 left-0 z-0 w-[300px]"
     >
       <DotGridBackground className={siteLeftDotGridFadeClass} />
     </div>

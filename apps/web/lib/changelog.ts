@@ -44,6 +44,17 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-27",
     kind: "site",
+    title: "Live component previews for other sites",
+    summary:
+      "Every chart and several Cortex components now have a page at /embed/<name> that shows just its live demo, sized to fit any frame and themed from ?theme=dark or ?theme=light. Only the allowed sites can frame it, starting with syedmoinuddin.com, and the pages stay out of search results.",
+    items: [
+      { label: "Charts", href: "/docs/charts" },
+      { label: "Cortex", href: "/docs/cortex" },
+    ],
+  },
+  {
+    date: "2026-10-27",
+    kind: "site",
     title: "The library home leads with the MCP server",
     summary:
       "The hero's main button now opens the MCP server setup, with Browse components beside it, and the one-line Claude Code command sits below with a copy button. The copy counts the components, charts, and blocks from the docs, so it stays current.",
