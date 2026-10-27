@@ -1,215 +1,192 @@
 "use client";
 
-import Link from "fumadocs-core/link";
-import type * as PageTree from "fumadocs-core/page-tree";
+import { Icon } from "@cortexcn/icons";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DocsScrollArea } from "@/components/docs/docs-scroll-area";
-import { NavLinkLabel } from "@/components/docs/nav-link-label";
-import { COMPONENT_GROUPS } from "@/lib/component-families";
-import { sidebarTreeFor } from "@/lib/docs-sidebar";
+import type { SidebarGroup, SidebarLink } from "@/lib/docs-sidebar-groups";
 import { cn } from "@/lib/utils";
+import { NewMark } from "./nav-link-label";
 
-const linkStyles = {
-  base: "flex w-fit items-center gap-2 rounded-md px-3 py-1.5 font-medium text-xs no-underline",
-  active: "bg-muted text-card-foreground",
-  inactive: "text-foreground dark:text-accent-foreground",
-  heading:
-    "ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md px-2 text-xs outline-hidden transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0 group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 text-muted-foreground font-medium",
-};
-
-interface NavLink {
-  text: string;
-  url: string;
-  active?: "url" | "nested-url";
+function linkPath(url: string) {
+  return url.split("?")[0] ?? url;
 }
 
-interface SidebarProps {
-  tree: PageTree.Root;
-  links?: NavLink[];
-}
-
-export function Sidebar({ tree, links = [] }: SidebarProps) {
-  const pathname = usePathname();
-  // A family's pages list only that family, not every component.
-  const pageTree = useMemo(
-    () => sidebarTreeFor(tree, pathname),
-    [tree, pathname],
-  );
-
-  return (
-    <aside className="fixed top-(--site-header-height) left-0 hidden h-[calc(100vh-var(--site-header-height))] w-80 overflow-hidden bg-background lg:block">
-      <DocsScrollArea className="h-full py-4 pt-16" showEdgeGradient>
-        <nav className="p-10 pl-16">
-          {/* Top-level navigation links */}
-          {links.length > 0 && (
-            <ul className="m-0 mb-4 list-none space-y-0.5 p-0">
-              <li className={linkStyles.heading}>Getting Started</li>
-              {links.map((link) => {
-                // Only exact match for sidebar top-level links
-                const isActive = pathname === link.url;
-                return (
-                  <li key={link.url}>
-                    <Link
-                      className={cn(
-                        linkStyles.base,
-                        isActive ? linkStyles.active : linkStyles.inactive,
-                      )}
-                      href={link.url}
-                    >
-                      <NavLinkLabel text={link.text} url={link.url} />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-          <SidebarNodes nodes={pageTree.children} />
-        </nav>
-      </DocsScrollArea>
-    </aside>
+function containsPage(links: SidebarLink[], pathname: string): boolean {
+  return links.some(
+    (link) =>
+      linkPath(link.url) === pathname ||
+      (link.children ? containsPage(link.children, pathname) : false),
   );
 }
 
-function SidebarNodes({ nodes }: { nodes: PageTree.Node[] }) {
+/** The groups that start open: the one holding this page, or Getting started. */
+function initialOpen(groups: SidebarGroup[], pathname: string) {
+  const current = groups.find((group) => containsPage(group.links, pathname));
+  return new Set([current?.id ?? "getting-started"]);
+}
+
+function SidebarLinks({
+  links,
+  pathname,
+  depth = 0,
+}: {
+  links: SidebarLink[];
+  pathname: string;
+  depth?: number;
+}) {
   return (
-    <ul className="m-0 list-none p-0">
-      {nodes.map((node, index) => (
-        <SidebarNode key={node.$id ?? index} node={node} />
-      ))}
+    <ul
+      className={cn(
+        "m-0 list-none p-0",
+        depth === 0 ? "ml-[1.125rem] border-border border-l" : "ml-3",
+      )}
+    >
+      {links.map((link) => {
+        const active = !link.url.includes("?") && link.url === pathname;
+        return (
+          <li key={link.url}>
+            <Link
+              aria-current={active ? "page" : undefined}
+              className={cn(
+                "-ml-px flex items-center gap-1.5 border-l py-[0.3125rem] pr-2 pl-4 text-[13.5px] no-underline outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/50",
+                active
+                  ? "border-foreground font-medium text-foreground"
+                  : "border-transparent text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+              )}
+              href={link.url}
+            >
+              <span className="truncate">{link.name}</span>
+              {link.isNew ? <NewMark /> : null}
+            </Link>
+            {link.children && link.children.length > 0 ? (
+              <SidebarLinks
+                depth={depth + 1}
+                links={link.children}
+                pathname={pathname}
+              />
+            ) : null}
+          </li>
+        );
+      })}
     </ul>
   );
 }
 
-function SidebarNode({ node }: { node: PageTree.Node }) {
-  const pathname = usePathname();
-
-  if (node.type === "separator") {
-    // A component family's heading links to that family's overview page.
-    const family = COMPONENT_GROUPS.find((group) => group.name === node.name);
-    return (
-      <li className={cn(linkStyles.heading, "mt-4 pt-3 first:mt-0 first:pt-0")}>
-        {node.icon}
-        {family ? (
-          <Link
-            className={cn(
-              "no-underline transition-colors hover:text-foreground",
-              pathname === family.href && "text-foreground",
-            )}
-            href={family.href}
-          >
-            {node.name}
-          </Link>
-        ) : (
-          <span>{node.name}</span>
-        )}
-      </li>
-    );
-  }
-
-  if (node.type === "folder") {
-    return <SidebarFolder node={node} pathname={pathname} />;
-  }
-
-  if (node.type === "page") {
-    const isActive = pathname === node.url;
-    return (
-      <li>
-        <Link
-          className={cn(
-            linkStyles.base,
-            isActive ? linkStyles.active : linkStyles.inactive,
-          )}
-          href={node.url}
-        >
-          {node.icon}
-          <span>{node.name}</span>
-        </Link>
-      </li>
-    );
-  }
-
-  return null;
-}
-
-function SidebarFolder({
-  node,
+function SidebarGroupItem({
+  group,
+  open,
   pathname,
+  onToggle,
 }: {
-  node: PageTree.Folder;
+  group: SidebarGroup;
+  open: boolean;
   pathname: string;
+  onToggle: () => void;
 }) {
-  const isChildActive = hasActiveChild(node, pathname);
-  const [isOpen, setIsOpen] = useState(node.defaultOpen ?? isChildActive);
-
-  const indexPage = node.index;
-  const isIndexActive = indexPage?.url === pathname;
-
+  const panelId = `sidebar-group-${group.id}`;
   return (
     <li className="list-none">
-      <div className="flex items-center">
-        {indexPage ? (
-          <Link
-            className={cn(
-              linkStyles.base,
-              isIndexActive ? linkStyles.active : linkStyles.inactive,
-            )}
-            href={indexPage.url}
-          >
-            {node.icon}
-            <span>{node.name}</span>
-          </Link>
-        ) : (
-          <button
-            className={cn(linkStyles.base, linkStyles.inactive)}
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-          >
-            {node.icon}
-            <span>{node.name}</span>
-          </button>
+      <button
+        aria-controls={panelId}
+        aria-expanded={open}
+        className="flex w-full items-center gap-2.5 rounded-shell-sm px-2 py-1.5 text-left font-medium text-foreground/90 text-sm outline-none transition-colors hover:bg-muted/70 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+        onClick={onToggle}
+        type="button"
+      >
+        <Icon
+          className="size-4 shrink-0 text-muted-foreground"
+          name={group.icon}
+        />
+        <span className="flex-1 truncate">{group.name}</span>
+        <Icon
+          className={cn(
+            "size-4 shrink-0 text-muted-foreground transition-transform duration-200 motion-reduce:transition-none",
+            open ? "rotate-0" : "-rotate-90",
+          )}
+          name="IconChevronDownSmall"
+        />
+      </button>
+      <div
+        className={cn(
+          "grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
-        {node.children.length > 0 && (
-          <button
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Collapse" : "Expand"}
-            className="flex size-7 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className={`size-4 transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
-        )}
-      </div>
-      {isOpen && node.children.length > 0 && (
-        <div className="ml-3 border-border border-l pl-3">
-          <SidebarNodes nodes={node.children} />
+        id={panelId}
+        inert={!open}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="pt-1 pb-3">
+            <SidebarLinks links={group.links} pathname={pathname} />
+          </div>
         </div>
-      )}
+      </div>
     </li>
   );
 }
 
-function hasActiveChild(folder: PageTree.Folder, pathname: string): boolean {
-  for (const child of folder.children) {
-    if (child.type === "page" && child.url === pathname) {
-      return true;
+/**
+ * The docs sidebar: one collapsible group per section, with the group that
+ * holds the current page open. It scrolls on its own, beside the page.
+ */
+export function Sidebar({ groups }: { groups: SidebarGroup[] }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(() => initialOpen(groups, pathname));
+  const navRef = useRef<HTMLElement>(null);
+
+  // Opening a page in a closed group opens that group too.
+  useEffect(() => {
+    const current = groups.find((group) => containsPage(group.links, pathname));
+    if (current) {
+      setOpen((previous) =>
+        previous.has(current.id)
+          ? previous
+          : new Set([...previous, current.id]),
+      );
     }
-    if (child.type === "folder" && hasActiveChild(child, pathname)) {
-      return true;
-    }
-  }
-  if (folder.index?.url === pathname) {
-    return true;
-  }
-  return false;
+  }, [groups, pathname]);
+
+  // Bring the current page into view in a long group.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: runs on navigation.
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      navRef.current
+        ?.querySelector('[aria-current="page"]')
+        ?.scrollIntoView({ block: "nearest" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname]);
+
+  const toggle = (id: string) => {
+    setOpen((previous) => {
+      const next = new Set(previous);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  return (
+    <aside className="fixed top-(--site-header-height) left-0 hidden h-[calc(100vh-var(--site-header-height))] w-72 border-border border-r bg-background lg:block">
+      <DocsScrollArea className="h-full" showEdgeGradient>
+        <nav aria-label="Docs" className="px-4 pt-5 pb-10" ref={navRef}>
+          <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+            {groups.map((group) => (
+              <SidebarGroupItem
+                group={group}
+                key={group.id}
+                onToggle={() => toggle(group.id)}
+                open={open.has(group.id)}
+                pathname={pathname}
+              />
+            ))}
+          </ul>
+        </nav>
+      </DocsScrollArea>
+    </aside>
+  );
 }

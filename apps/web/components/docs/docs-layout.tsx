@@ -1,29 +1,22 @@
-import type * as PageTree from "fumadocs-core/page-tree";
 import type { ReactNode } from "react";
+import type { SidebarGroup } from "@/lib/docs-sidebar-groups";
 import { Sidebar } from "./sidebar";
 import { SiteFooter } from "./site-footer";
 
-interface NavLink {
-  text: string;
-  url: string;
-  active?: "url" | "nested-url";
-}
-
 interface DocsLayoutProps {
   children: ReactNode;
-  tree: PageTree.Root;
-  nav?: {
-    links?: NavLink[];
-  };
+  /** The sidebar's sections, from `docsSidebarGroups()`. */
+  groups: SidebarGroup[];
 }
 
-export function DocsLayout({ children, tree, nav }: DocsLayoutProps) {
+/** Docs pages: the sidebar on the left, the page, and room for the right rail. */
+export function DocsLayout({ children, groups }: DocsLayoutProps) {
   return (
     <div className="min-h-full w-full">
-      <Sidebar links={nav?.links} tree={tree} />
-      <main className="w-full lg:pl-80 xl:pr-[300px]">
+      <Sidebar groups={groups} />
+      <main className="w-full lg:pl-72 xl:pr-72">
         {children}
-        <SiteFooter className="lg:pl-80 xl:pr-[300px]" />
+        <SiteFooter className="lg:pl-72 xl:pr-72" />
       </main>
     </div>
   );
