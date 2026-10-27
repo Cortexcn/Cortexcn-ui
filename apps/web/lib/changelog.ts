@@ -44,9 +44,25 @@ export const CHANGELOG: ChangelogRelease[] = [
   {
     date: "2026-10-27",
     kind: "site",
+    title: "The library home leads with the MCP server",
+    summary:
+      "The hero's main button now opens the MCP server setup, with Browse components beside it, and the one-line Claude Code command sits below with a copy button. The copy counts the components, charts, and blocks from the docs, so it stays current.",
+    items: [{ label: "MCP Server", href: "/docs/integration/mcp" }],
+  },
+  {
+    date: "2026-10-27",
+    kind: "site",
+    title: "A sponsor card in the docs",
+    summary:
+      "The right rail on every docs page now has a card under the templates card that opens Cortexcn's GitHub Sponsors page.",
+    items: [{ label: "Components docs", href: "/docs/components" }],
+  },
+  {
+    date: "2026-10-27",
+    kind: "site",
     title: "A live component wall in the library hero",
     summary:
-      "The library home's hero now shows twenty live components and charts in place of the painting. A camera rests on one card in a spotlight while the rest of the wall sits under a veil, then glides to the next. It stays still for visitors who prefer less motion.",
+      "The library home's hero now shows 41 live components, charts, and shadcn/ui examples in place of the painting, on a wall that fades into the page beside the text. A camera rests on one card while the others dim, then pulls back and zooms in to the next. It stays still for visitors who prefer less motion.",
     items: [
       { label: "Command Search", href: "/docs/cortex/command-search" },
       { label: "Number Ticker", href: "/docs/cortex/number-ticker" },

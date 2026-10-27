@@ -138,20 +138,20 @@ import {
 
 const WORK_EXPERIENCE: ExperienceItemType[] = [
   {
-    id: "virallens",
-    companyName: "Virallens",
+    id: "acme",
+    companyName: "Acme Inc.",
     positions: [
       {
-        id: "software-engineer",
-        title: "Software Engineer",
-        employmentPeriod: { start: "06.2025" },
+        id: "senior-frontend-engineer",
+        title: "Senior Frontend Engineer",
+        employmentPeriod: { start: "03.2024" },
         employmentType: "Full-time",
         icon: <CodeXmlIcon />,
-        description: \`I build complete digital products end to end.
+        description: \`Leads the web app's front end, from the design system to the release.
 
-- **Citera:** Built the claim-verification pipeline.
-- **L-K Drop Analysis:** Built the front-end over the analysis engine.\`,
-        skills: ["TypeScript", "React 19", "Next.js 16", "Tailwind CSS"],
+- **Design system:** Built the shared component library.
+- **Analytics dashboard:** Shipped live charts, filters, and exports.\`,
+        skills: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
         isExpanded: true,
       },
     ],
@@ -162,12 +162,12 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
     companyName: "Education",
     positions: [
       {
-        id: "reva-university",
-        title: "REVA University",
-        employmentPeriod: { start: "08.2019", end: "08.2023" },
+        id: "university",
+        title: "State University",
+        employmentPeriod: { start: "08.2018", end: "05.2022" },
         icon: <GraduationCapIcon />,
-        description: "Bachelor of Technology, Mechatronics, Robotics, and Automation Engineering.",
-        skills: ["C++", "Python", "Control Systems"],
+        description: "Bachelor of Science, Computer Science.",
+        skills: ["Algorithms", "Databases"],
       },
     ],
   },

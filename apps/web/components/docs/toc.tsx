@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@cortexcn/icons";
 import {
   AnchorProvider,
   ScrollProvider,
@@ -9,6 +10,7 @@ import {
 import Link from "next/link";
 import { useRef } from "react";
 import type { RailPromo } from "@/lib/nav-menus";
+import { SPONSOR_URL } from "@/lib/site-config";
 import { FeatureVisual } from "./header-nav";
 
 interface TableOfContentsProps {
@@ -46,7 +48,45 @@ function PromoCard({ promo }: { promo: RailPromo }) {
   );
 }
 
-/** The right rail: the page's headings, then the templates card. */
+/** A card that asks readers to back the library on GitHub Sponsors. */
+function SponsorCard() {
+  return (
+    <a
+      className="group/sponsor block shrink-0 rounded-shell-xl border border-border bg-card p-4 no-underline shadow-sm outline-none transition-[border-color,box-shadow] duration-200 hover:border-pink-500/40 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring/50 motion-reduce:transition-none [@media(max-height:620px)]:hidden"
+      href={SPONSOR_URL}
+      rel="noopener"
+      target="_blank"
+    >
+      <span className="flex items-center gap-3">
+        <span className="grid size-9 shrink-0 place-items-center rounded-shell-sm bg-pink-500/10 text-pink-500 ring-1 ring-pink-500/25">
+          <Icon className="size-4.5" name="IconHeart" />
+        </span>
+        <span className="flex min-w-0 flex-col">
+          <span className="font-semibold text-foreground text-sm tracking-tight">
+            Sponsor Cortexcn
+          </span>
+          <span className="text-muted-foreground text-xs">
+            On GitHub Sponsors
+          </span>
+        </span>
+      </span>
+      <span className="mt-3 block text-muted-foreground text-xs leading-relaxed">
+        Sponsoring helps fund new components, charts, and blocks, and keeps
+        these docs up to date.
+      </span>
+      <span className="mt-3 flex h-9 items-center justify-center gap-1.5 rounded-shell-sm border border-border bg-background font-medium text-foreground text-sm transition-colors group-hover/sponsor:bg-muted motion-reduce:transition-none">
+        <Icon className="size-4 text-pink-500" name="IconHeart" />
+        Become a sponsor
+        <Icon
+          className="size-3.5 text-muted-foreground"
+          name="IconArrowUpRight"
+        />
+      </span>
+    </a>
+  );
+}
+
+/** The right rail: the page's headings, then the templates and sponsor cards. */
 export function TableOfContents({ items, promo }: TableOfContentsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -87,6 +127,7 @@ export function TableOfContents({ items, promo }: TableOfContentsProps) {
           <div className="flex-1" />
         )}
         {promo ? <PromoCard promo={promo} /> : null}
+        <SponsorCard />
       </div>
     </aside>
   );

@@ -16,7 +16,7 @@ export const metadata = pageMetadata({
   path: LIBRARY_HOME_ROUTE,
   absoluteTitle: true,
   // The hero's headline, on the library card.
-  image: { title: "The component library that lives in your repo." },
+  image: { title: "Charts, blocks, and motion, one prompt away." },
 });
 
 export default function LibraryHomePage() {

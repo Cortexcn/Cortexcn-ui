@@ -35,6 +35,9 @@ export const CHECKOUT_URLS = {
   ultra: "",
 };
 
+/** GitHub Sponsors, the same account as .github/FUNDING.yml. */
+export const SPONSOR_URL = "https://github.com/sponsors/SyedMoin-lab";
+
 export interface TrustedByLogo {
   name: string;
   /** A file in /public, such as "/logos/clients/acme.svg". */
