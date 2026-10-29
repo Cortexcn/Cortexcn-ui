@@ -97,6 +97,7 @@ const baseComponents = [
 ];
 
 const cortexComponents = [
+  { text: "ASCII Reveal", url: "/docs/cortex/ascii-reveal" },
   { text: "Command Search", url: "/docs/cortex/command-search" },
   { text: "Fan-Out Diagram", url: "/docs/cortex/fan-out-diagram" },
   { text: "FAQ Tabs Card", url: "/docs/cortex/faq-tabs-card" },
