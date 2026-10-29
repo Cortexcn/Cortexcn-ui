@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ComponentEmbed } from "@/components/embed/component-embed";
 import { componentDocsUrl } from "@/lib/component-families";
-import { EMBED_SLUGS, EMBED_THEME_SCRIPT, isEmbedSlug } from "@/lib/embeds";
+import {
+  EMBED_CHART_LOADING,
+  EMBED_SLUGS,
+  EMBED_THEME_SCRIPT,
+  isEmbedSlug,
+} from "@/lib/embeds";
 import { pageMetadata } from "@/lib/seo";
 import { canonicalUrlFor } from "@/lib/site-url";
 
@@ -36,7 +41,11 @@ export async function generateMetadata({
     }),
     // The component's docs page is the one to index.
     robots: { index: false, follow: true },
-    alternates: { canonical: canonicalUrlFor(componentDocsUrl(slug)) },
+    alternates: {
+      canonical: canonicalUrlFor(
+        componentDocsUrl(EMBED_CHART_LOADING.get(slug)?.chart ?? slug),
+      ),
+    },
   };
 }
 
