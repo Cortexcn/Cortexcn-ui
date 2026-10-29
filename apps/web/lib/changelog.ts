@@ -40,7 +40,47 @@ const AI_ASSISTANT_BLOCK_LINKS: ChangelogLink[] = [
   { label: "Shimmer", href: "/blocks/ai-assistant/ai-shimmer-01" },
 ];
 
+const ASCII_REVEAL_URL = componentDocsUrl("ascii-reveal");
+
 export const CHANGELOG: ChangelogRelease[] = [
+  {
+    date: "2026-10-29",
+    kind: "components",
+    title: "ASCII Reveal, a loader drawn in glyphs",
+    summary:
+      "AsciiReveal decodes text, images, and cards into place through a character grid when `loading` turns false, and AsciiSkeleton holds the space in dither, scan, braille, or terminal glyphs while data loads. Wrapped around a page, it reveals each section as it scrolls into view. It installs with the ascii-reveal package.",
+    items: [
+      { label: "ASCII Reveal", href: ASCII_REVEAL_URL },
+      {
+        label: "Profile card loader",
+        href: `${ASCII_REVEAL_URL}#profile-card`,
+      },
+      { label: "Live stats loader", href: `${ASCII_REVEAL_URL}#live-stats` },
+      { label: "Article loader", href: `${ASCII_REVEAL_URL}#article` },
+      {
+        label: "Command output loader",
+        href: `${ASCII_REVEAL_URL}#command-output`,
+      },
+      { label: "Mascot loader", href: `${ASCII_REVEAL_URL}#mascot` },
+      {
+        label: "Page sections loader",
+        href: `${ASCII_REVEAL_URL}#page-sections`,
+      },
+    ],
+  },
+  {
+    date: "2026-10-29",
+    kind: "site",
+    title: "Chart loading states as live previews",
+    summary:
+      "The area, bar, line, and heatmap charts' loading states each have a page at /embed/<chart>-loading, so the allowed sites can frame them like any other preview.",
+    items: componentLinks([
+      ["Area Chart", "area-chart"],
+      ["Bar Chart", "bar-chart"],
+      ["Line Chart", "line-chart"],
+      ["Heatmap Chart", "heatmap-chart"],
+    ]),
+  },
   {
     date: "2026-10-27",
     kind: "site",
