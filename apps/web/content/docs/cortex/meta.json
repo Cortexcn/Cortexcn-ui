@@ -2,6 +2,7 @@
   "title": "Cortex",
   "pages": [
     "---Cortex---",
+    "ascii-reveal",
     "command-search",
     "fan-out-diagram",
     "faq-tabs-card",
