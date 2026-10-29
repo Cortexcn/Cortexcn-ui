@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ascii-reveal",
+  "title": "ASCII Reveal",
+  "description": "A loader that decodes text, images, and cards into place through a character grid, with glyph skeletons while data loads.",
+  "dependencies": [
+    "ascii-reveal"
+  ],
+  "registryDependencies": [
+    "@cortexcn/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ascii-reveal.tsx",
+      "content": "\"use client\";\n\nimport {\n  type AsciiRevealHandle,\n  AsciiReveal as AsciiRevealPrimitive,\n  type AsciiRevealProps,\n  AsciiSkeleton as AsciiSkeletonPrimitive,\n  type AsciiSkeletonProps,\n} from \"ascii-reveal\";\nimport { forwardRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Decodes the text, images, and canvases inside it into place through a\n * character grid: on mount, after `loading` turns false, and section by\n * section as the page scrolls. Glyphs take the theme's primary color.\n */\nexport const AsciiReveal = forwardRef<AsciiRevealHandle, AsciiRevealProps>(\n  function AsciiReveal({ className, ...props }, ref) {\n    return (\n      <AsciiRevealPrimitive\n        className={cn(\"[--ascii-accent:var(--primary)]\", className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\n\n/**\n * A placeholder drawn in glyphs, as plain markup that paints before any\n * JavaScript runs. Square, in the muted text color, like the rest of the\n * registry.\n */\nexport function AsciiSkeleton({ className, ...props }: AsciiSkeletonProps) {\n  return (\n    <AsciiSkeletonPrimitive\n      className={cn(\n        \"[--ars-radius:0] [--ascii-skeleton:var(--muted-foreground)]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport type {\n  AsciiRevealHandle,\n  AsciiRevealProps,\n  AsciiSkeletonProps,\n} from \"ascii-reveal\";\n",
+      "type": "registry:component",
+      "target": "components/ascii-reveal.tsx"
+    }
+  ],
+  "categories": [
+    "cortex"
+  ],
+  "type": "registry:component"
+}
