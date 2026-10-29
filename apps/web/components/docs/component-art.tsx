@@ -1251,6 +1251,24 @@ const ARTS: Record<string, () => ReactNode> = {
   ),
 
   /* Cortex */
+  "ascii-reveal": () => (
+    <>
+      <B h={136} r={14} w={196} x={22} y={22} />
+      <B f="well" h={28} r={4} w={28} x={40} y={42} />
+      <L f="strong" h={6} w={92} x={80} y={47} />
+      <L w={64} x={80} y={60} />
+      <P d="M22 86h196" s="faint" />
+      <T anchor="start" f="strong" mono x={40} y={108}>
+        {"Load#%&*+=-:."}
+      </T>
+      <T anchor="start" f="text" mono x={40} y={126}>
+        {"░▒▓█▓▒░▒▓█▓▒░"}
+      </T>
+      <T anchor="start" f="faint" mono x={40} y={144}>
+        {"░░▒░░▒░░▒░░▒░"}
+      </T>
+    </>
+  ),
   "command-search": () => (
     <>
       <B h={136} r={14} w={196} x={22} y={22} />
