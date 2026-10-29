@@ -2136,6 +2136,28 @@
       ]
     },
     {
+      "name": "ascii-reveal",
+      "type": "registry:component",
+      "title": "ASCII Reveal",
+      "description": "A loader that decodes text, images, and cards into place through a character grid, with glyph skeletons while data loads.",
+      "categories": [
+        "cortex"
+      ],
+      "registryDependencies": [
+        "@cortexcn/utils"
+      ],
+      "dependencies": [
+        "ascii-reveal"
+      ],
+      "files": [
+        {
+          "path": "src/components/ascii-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/ascii-reveal.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-utils",
       "type": "registry:lib",
       "title": "Chart Utilities",
