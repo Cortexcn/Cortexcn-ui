@@ -3874,6 +3874,204 @@ These components are built for Cortexcn and are not part of shadcn/ui. Each one 
 <ComponentsList category="Cortex" />
 </doc>
 
+<doc title="ASCII Reveal" path="../apps/web/content/docs/cortex/ascii-reveal.mdx">
+import {
+  AsciiRevealArticleDemo,
+  AsciiRevealDemo,
+  AsciiRevealMascotDemo,
+  AsciiRevealStatsDemo,
+  AsciiRevealTerminalDemo,
+  AsciiSkeletonVariantsDemo,
+} from "@/components/docs/ascii-reveal-demo";
+
+<ComponentPreview>
+  <AsciiRevealDemo />
+</ComponentPreview>
+
+## Installation
+
+<InstallationTabs name="ascii-reveal" dependencies={["ascii-reveal"]} />
+
+## Usage
+
+```tsx
+import { AsciiReveal, AsciiSkeleton } from "@/components/ascii-reveal";
+```
+
+```tsx
+<AsciiReveal loading={!data}>
+  {data ? <Profile data={data} /> : <AsciiSkeleton lines={3} />}
+</AsciiReveal>
+```
+
+While `loading` is true, the skeleton holds the space. When it turns false, the real content decodes in through a character grid in about 400 ms. Your content stays in the DOM in its real position, and the scramble is drawn on a canvas above it, so nothing shifts.
+
+The component wraps the [`ascii-reveal`](https://github.com/quanhoangindex/ascii-reveal) package and themes it: glyphs take `--primary`, and skeletons take `--muted-foreground` with square corners.
+
+## Examples
+
+### Profile card
+
+The example above: a glyph skeleton in the card's shape, then the profile decodes in.
+
+```tsx
+<AsciiReveal loading={!user}>
+  {user ? (
+    <ProfileCard user={user} />
+  ) : (
+    <div className="flex items-center gap-3">
+      <AsciiSkeleton height={44} rows={5} width={44} />
+      <AsciiSkeleton className="flex-1" lines={2} />
+    </div>
+  )}
+</AsciiReveal>
+```
+
+### Live stats
+
+`selector` limits the effect to the values, so the labels stay put. On each refresh the old numbers scramble out, a shimmer runs, and the new numbers decode in.
+
+<ComponentPreview>
+  <AsciiRevealStatsDemo />
+</ComponentPreview>
+
+```tsx
+<AsciiReveal
+  as="dl"
+  loading={isFetching}
+  revealOnMount={false}
+  selector="[data-value]"
+>
+  <dt>Latency</dt>
+  <dd data-value>{data?.latency ?? "-"}</dd>
+</AsciiReveal>
+```
+
+### Article
+
+The `scan` skeleton matches the default `decode` preset, so the headline and body read as one wave.
+
+<ComponentPreview>
+  <AsciiRevealArticleDemo />
+</ComponentPreview>
+
+```tsx
+<AsciiReveal loading={!post}>
+  {post ? (
+    <Article post={post} />
+  ) : (
+    <>
+      <AsciiSkeleton lines={1} variant="scan" widths={["64%"]} />
+      <AsciiSkeleton lines={3} variant="scan" />
+    </>
+  )}
+</AsciiReveal>
+```
+
+### Command output
+
+The `terminal` preset leads each character with a cursor and scrambles through 0s and 1s.
+
+<ComponentPreview>
+  <AsciiRevealTerminalDemo />
+</ComponentPreview>
+
+```tsx
+<AsciiReveal loading={running} preset="terminal">
+  {running ? <AsciiSkeleton lines={4} variant="terminal" /> : <Log lines={lines} />}
+</AsciiReveal>
+```
+
+### Mascot
+
+A mascot drawn in glyphs plays in place of the shimmer, then dissolves as the content decodes in. Pick `spider`, `ghost`, `pumpkin`, or `bat`, or pass an SVG.
+
+<ComponentPreview>
+  <AsciiRevealMascotDemo />
+</ComponentPreview>
+
+```tsx
+<AsciiReveal loading={isLoading} mascot="ghost">
+  <Notifications items={items} />
+</AsciiReveal>
+```
+
+### Page sections
+
+Wrap a page's sections in one `AsciiReveal`. The sections on screen decode as the page loads, and each one below the fold decodes when it scrolls into view. Server-rendered content stays visible on hydration unless you set `revealOnHydrate`.
+
+```tsx
+<AsciiReveal revealOnHydrate>
+  <About />
+  <Experience />
+  <Projects />
+</AsciiReveal>
+```
+
+### Skeleton styles
+
+<ComponentPreview>
+  <AsciiSkeletonVariantsDemo />
+</ComponentPreview>
+
+```tsx
+<AsciiSkeleton variant="dither" lines={3} />
+<AsciiSkeleton variant="scan" lines={3} />
+<AsciiSkeleton variant="braille" lines={3} />
+<AsciiSkeleton variant="terminal" lines={3} />
+```
+
+## Marking elements
+
+| Attribute              | Effect                                                         |
+| ---------------------- | -------------------------------------------------------------- |
+| `data-ascii="surface"` | Cards and panels: a dot field and corner frame, then a fade in |
+| `data-ascii="fade"`    | Buttons, chips, and badges fade in on the wave                 |
+| `data-ascii="media"`   | Draws any element as a glyph texture                           |
+| `data-ascii="skip"`    | Leaves the subtree alone, such as a toolbar that must stay usable |
+
+## Behavior
+
+- Screen readers read the real text the whole time, and the wrapper sets `aria-busy` while loading.
+- With reduced motion, the reveal becomes a short fade and the skeleton shimmer stops.
+- Skeletons are plain markup and CSS, so they render on the server and paint before any JavaScript runs.
+- On slow devices the animation finishes early and uses a short fade for the next 10 seconds.
+
+## Props
+
+### AsciiReveal
+
+| Prop               | Type                                                        | Default    | Description                                             |
+| ------------------ | ----------------------------------------------------------- | ---------- | ------------------------------------------------------- |
+| `loading`          | `boolean`                                                   | -          | Scramble out and shimmer while true, decode in when false |
+| `preset`           | `"decode" \| "dither" \| "terminal" \| "blueprint"`         | `"decode"` | Glyph set, timing, and image style                      |
+| `duration`         | `"fast" \| "cinematic"`                                     | `"fast"`   | `fast` is readable in about 400 ms                      |
+| `speed`            | `number`                                                    | `1`        | Playback speed multiplier                               |
+| `origin`           | `"center" \| "top-left" \| "pointer" \| { x, y }`           | `"center"` | Where the wave starts                                   |
+| `selector`         | `string`                                                    | -          | Only animate content inside matching elements           |
+| `revealOnMount`    | `boolean`                                                   | `true`     | Reveal when the component mounts                        |
+| `revealOnHydrate`  | `boolean`                                                   | `false`    | Also reveal server-rendered content                     |
+| `lazy`             | `boolean`                                                   | `true`     | Reveal sections below the fold as they scroll in        |
+| `shimmer`          | `boolean`                                                   | `true`     | Show the glyph shimmer while loading                    |
+| `mascot`           | `"spider" \| "ghost" \| "pumpkin" \| "bat" \| string`       | -          | A mascot in place of the shimmer while loading          |
+| `onRevealComplete` | `() => void`                                                | -          | Called when a reveal finishes                           |
+| `as`               | `ElementType`                                               | `"div"`    | The wrapper element                                     |
+
+### AsciiSkeleton
+
+| Prop      | Type                                              | Default    | Description                                  |
+| --------- | ------------------------------------------------- | ---------- | -------------------------------------------- |
+| `variant` | `"dither" \| "scan" \| "braille" \| "terminal"`   | `"dither"` | Glyph style                                  |
+| `lines`   | `number`                                          | `3`        | Number of text lines                         |
+| `widths`  | `(string \| number)[]`                            | -          | Line widths                                  |
+| `rows`    | `number`                                          | -          | Draw a block of this many rows, for media    |
+| `width`   | `string \| number`                                | -          | Block width                                  |
+| `height`  | `string \| number`                                | -          | Block height                                 |
+| `circle`  | `boolean`                                         | `false`    | Round block, for an avatar                   |
+| `seed`    | `number`                                          | `1`        | Varies the glyph pattern between skeletons   |
+| `animate` | `boolean`                                         | `true`     | Shimmer; turn off for long lists             |
+</doc>
+
 <doc title="Command Search" path="../apps/web/content/docs/cortex/command-search.mdx">
 import { CommandSearchDemo } from "@/components/docs/command-search-demo";
 
