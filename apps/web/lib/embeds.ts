@@ -25,9 +25,33 @@ export const EMBED_DEMO_SLUGS = [
 
 export type EmbedDemoSlug = (typeof EMBED_DEMO_SLUGS)[number];
 
+/**
+ * Chart loading states, each previewed by its example from the chart's
+ * gallery, found by title.
+ */
+export const EMBED_CHART_LOADING: ReadonlyMap<
+  string,
+  { chart: string; example: string }
+> = new Map([
+  [
+    "area-chart-loading",
+    { chart: "area-chart", example: "Area Chart - Loading" },
+  ],
+  ["bar-chart-loading", { chart: "bar-chart", example: "Bar Chart - Loading" }],
+  [
+    "line-chart-loading",
+    { chart: "line-chart", example: "Line Chart - Loading (Sweep)" },
+  ],
+  [
+    "heatmap-chart-loading",
+    { chart: "heatmap-chart", example: "Heatmap Chart - Loading" },
+  ],
+]);
+
 export const EMBED_SLUGS: string[] = [
   ...EMBED_CHART_SLUGS,
   ...EMBED_DEMO_SLUGS,
+  ...EMBED_CHART_LOADING.keys(),
 ];
 
 export function isEmbedSlug(slug: string) {
