@@ -10,7 +10,11 @@ import { MarqueeDemo } from "@/components/docs/marquee-demo";
 import { PerspectiveMarqueeDemo } from "@/components/docs/perspective-marquee-demo";
 import { ThemeToggleEffectDemo } from "@/components/docs/theme-toggle-effect-demo";
 import { WorkExperienceDemo } from "@/components/docs/work-experience-demo";
-import { EMBED_CHART_SLUGS, type EmbedDemoSlug } from "@/lib/embeds";
+import {
+  EMBED_CHART_LOADING,
+  EMBED_CHART_SLUGS,
+  type EmbedDemoSlug,
+} from "@/lib/embeds";
 
 /** The docs demo for each embeddable component that is not a chart. */
 const DEMOS: Record<EmbedDemoSlug, () => ReactNode> = {
@@ -63,12 +67,6 @@ export function ComponentEmbed({ slug }: { slug: string }) {
     };
   }, []);
 
-  const demo = EMBED_CHART_SLUGS.has(slug) ? (
-    <ChartExamplePreview chartSlug={slug} />
-  ) : (
-    DEMOS[slug as EmbedDemoSlug]?.()
-  );
-
   return (
     <div className="flex h-svh w-full items-center justify-center overflow-hidden">
       <div
@@ -80,8 +78,27 @@ export function ComponentEmbed({ slug }: { slug: string }) {
           transformOrigin: "center",
         }}
       >
-        <div className="w-full">{demo}</div>
+        <div className="w-full">
+          <EmbedDemo slug={slug} />
+        </div>
       </div>
     </div>
   );
+}
+
+/** A chart's featured example, a chart's loading state, or a docs demo. */
+function EmbedDemo({ slug }: { slug: string }) {
+  if (EMBED_CHART_SLUGS.has(slug)) {
+    return <ChartExamplePreview chartSlug={slug} />;
+  }
+  const chartLoading = EMBED_CHART_LOADING.get(slug);
+  if (chartLoading) {
+    return (
+      <ChartExamplePreview
+        chartSlug={chartLoading.chart}
+        exampleTitle={chartLoading.example}
+      />
+    );
+  }
+  return DEMOS[slug as EmbedDemoSlug]?.() ?? null;
 }
