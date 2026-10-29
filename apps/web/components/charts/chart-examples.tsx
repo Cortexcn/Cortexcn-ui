@@ -7238,13 +7238,21 @@ export function hasChartExamples(chartSlug: string) {
 }
 
 /**
- * A chart's featured example on its own, without the gallery's card: the
- * hero when the chart has one, otherwise its first example. Used by the
- * embeddable previews at /embed/<slug>.
+ * A chart's example on its own, without the gallery's card: the one titled
+ * `exampleTitle`, or else the hero when the chart has one, otherwise its
+ * first example. Used by the embeddable previews at /embed/<slug>.
  */
-export function ChartExamplePreview({ chartSlug }: { chartSlug: string }) {
+export function ChartExamplePreview({
+  chartSlug,
+  exampleTitle,
+}: {
+  chartSlug: string;
+  exampleTitle?: string;
+}) {
   const entry = chartExamplesRegistry[chartSlug];
-  const example = entry?.hero?.() ?? entry?.factory()[0];
+  const example = exampleTitle
+    ? entry?.factory().find((item) => item.title === exampleTitle)
+    : (entry?.hero?.() ?? entry?.factory()[0]);
   return example ? example.render() : null;
 }
 
