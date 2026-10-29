@@ -74,6 +74,7 @@ For coding agents there is a read-only MCP server at `https://ui.cortexcn.dev/mc
 ## Cortexcn Components
 
 - [Cortex](./apps/web/content/docs/cortex/index.mdx): Cortexcn originals you won't find in shadcn/ui, for motion, navigation, and theming.
+- [ASCII Reveal](./apps/web/content/docs/cortex/ascii-reveal.mdx): A loader that decodes text, images, and cards into place through a character grid, with glyph skeletons while data loads.
 - [Command Search](./apps/web/content/docs/cortex/command-search.mdx): A command palette that types queries and live-filters grouped results, with keyboard navigation.
 - [Fan-Out Diagram](./apps/web/content/docs/cortex/fan-out-diagram.mdx): An animated architecture diagram where one source feeds a hub that fans out to many nodes, each with a live status.
 - [FAQ Tabs Card](./apps/web/content/docs/cortex/faq-tabs-card.mdx): A tabbed FAQ card with animated accordion answers and a support footer.
