@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Cortexcn
-description: A square, quiet interface system for React and Tailwind CSS. Neutral surfaces, hairline borders, no rounded corners, and one set of tokens for light and dark mode.
+description: A quiet interface system for React and Tailwind CSS. Neutral surfaces, hairline borders, softly rounded corners, and one set of tokens for light and dark mode.
 colors:
   background: "oklch(0.97 0 0)"
   background-dark: "oklch(0.14 0.005 264)"
@@ -100,10 +100,10 @@ typography:
     letterSpacing: 0em
 rounded:
   none: 0px
-  sm: 0px
-  md: 0px
-  lg: 0px
-  xl: 0px
+  sm: 6px
+  md: 8px
+  lg: 10px
+  xl: 14px
   full: 9999px
 spacing:
   xs: 4px
@@ -202,12 +202,12 @@ components:
   card:
     backgroundColor: "{colors.card}"
     textColor: "{colors.card-foreground}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.xl}"
     padding: 24px
   card-dark:
     backgroundColor: "{colors.card-dark}"
     textColor: "{colors.card-foreground-dark}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.xl}"
     padding: 24px
   popover:
     backgroundColor: "{colors.popover}"
@@ -303,7 +303,7 @@ components:
 
 ## Overview
 
-Cortexcn is a set of React components, page blocks, and charts built with Tailwind CSS and shadcn conventions. The look is square and quiet: neutral surfaces, one-pixel borders, no rounded corners, and color used for meaning rather than decoration. Everything is driven by CSS custom properties, so the same components work in light and dark mode and follow a project's own theme.
+Cortexcn is a set of React components, page blocks, and charts built with Tailwind CSS and shadcn conventions. The look is quiet: neutral surfaces, one-pixel borders, softly rounded corners, and color used for meaning rather than decoration. Everything is driven by CSS custom properties, so the same components work in light and dark mode and follow a project's own theme.
 
 This file is generated from `cortexcn-tokens.css`. The front matter holds the tokens; the sections below explain how to use them. When a request conflicts with these rules, follow the rules and say so.
 
@@ -366,7 +366,7 @@ Depth comes from borders and surface color first. A card is `bg-card` with `bord
 
 ## Shapes
 
-Corners are square. `--radius` is `0`, and every `rounded-*` utility (`rounded-sm` to `rounded-4xl`) is derived from it, so components written with the radius scale come out square. Use the scale classes, never a hard-coded radius such as `rounded-[12px]`, so a theme can change the radius in one place. `rounded-full` stays round and is for avatars, status dots, and switches.
+Corners are softly rounded. `--radius` is `0.625rem` (10px), and every `rounded-*` utility is a multiple of it: `rounded-sm` is 0.6×, `rounded-md` 0.8×, `rounded-lg` 1×, and `rounded-xl` 1.4×, up to `rounded-4xl` at 2.6×. Buttons, inputs, menus, and tooltips use `rounded-md`; menu items `rounded-sm`; tabs and alerts `rounded-lg`; cards and dialogs `rounded-xl`; badges `rounded-4xl`. Use the scale classes, never a hard-coded radius such as `rounded-[12px]`, so a theme can change the radius in one place. `rounded-full` is for avatars, status dots, and switches.
 
 ## Components
 
@@ -390,6 +390,6 @@ Do:
 Don't:
 
 - Don't write hex, rgb, or oklch values in components, or add per-component dark colors.
-- Don't round corners by hand or mix rounded and square elements.
+- Don't round corners by hand or mix rounded and square controls.
 - Don't use color alone to carry meaning; pair it with text or an icon.
 - Don't animate layout properties such as width and height when a transform does the job.
