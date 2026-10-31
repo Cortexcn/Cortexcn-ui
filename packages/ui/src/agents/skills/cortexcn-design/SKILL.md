@@ -25,7 +25,7 @@ Or read it from the `cortexcn` MCP server with `get_design_guide`.
 ## Rules
 
 - **Color**: only theme tokens, as Tailwind classes such as `bg-background`, `text-foreground`, `bg-card`, `bg-muted`, `text-muted-foreground`, `border-border`, `bg-primary`, `text-primary-foreground`, `bg-destructive`, and `ring-ring`. Data uses `--chart-1` to `--chart-5`. Tints use opacity on a token (`bg-primary/10`), never a new hex value.
-- **Corners**: square. The radius scale (`rounded-sm` to `rounded-4xl`) is derived from `--radius`, which is `0`. Use the scale classes so a theme can change it in one place; never hard-code a radius.
+- **Corners**: softly rounded. The radius scale (`rounded-sm` to `rounded-4xl`) is derived from `--radius`, which is `0.625rem` (10px): `rounded-md` for buttons, inputs, and menus, `rounded-xl` for cards and dialogs. Use the scale classes so a theme can change it in one place; never hard-code a radius.
 - **Borders and depth**: one-pixel `border-border` lines separate surfaces. Shadows are rare and soft (`shadow-xs`, `shadow-sm`); prefer a border or a `bg-muted` panel.
 - **Type**: the project's sans font for interface text, `font-medium` for labels and buttons, `text-sm` as the default control size, `text-muted-foreground` for secondary text. Headings use tight tracking (`tracking-tight`) and `text-balance`.
 - **Spacing**: Tailwind's 4 px scale. Controls are `h-9` by default (`h-8` small, `h-10` large); gaps inside controls are `gap-1.5`.

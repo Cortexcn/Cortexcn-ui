@@ -41,7 +41,7 @@ const BASE_ENTRY: ListEntry = {
   name: "Cortexcn",
   tags: ["default"],
   description:
-    "Cortexcn's own tokens: square corners, neutral surfaces, Geist.",
+    "Cortexcn's own tokens: rounded corners, neutral surfaces, Geist.",
 };
 
 function readStoredSystem() {

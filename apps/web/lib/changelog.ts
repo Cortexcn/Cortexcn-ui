@@ -44,6 +44,14 @@ const ASCII_REVEAL_URL = componentDocsUrl("ascii-reveal");
 
 export const CHANGELOG: ChangelogRelease[] = [
   {
+    date: "2026-10-31",
+    kind: "site",
+    title: "Live previews on the components overview",
+    summary:
+      "Each card on the components overview now shows the component itself, rendered live and scaled to fit, instead of a drawing. Menus, dialogs, and toasts are shown open in place, and the cards no longer zoom on hover.",
+    items: [{ label: "Components", href: "/docs/components" }],
+  },
+  {
     date: "2026-10-29",
     kind: "components",
     title: "ASCII Reveal, a loader drawn in glyphs",

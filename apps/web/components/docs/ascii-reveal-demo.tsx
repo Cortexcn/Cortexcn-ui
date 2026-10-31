@@ -58,7 +58,7 @@ export function AsciiRevealDemo() {
   return (
     <DemoFrame loading={loading} onReload={reload}>
       <AsciiReveal className="w-full" loading={loading}>
-        <div className="flex w-full items-center gap-3 border border-border p-4">
+        <div className="flex w-full items-center gap-3 rounded-xl border border-border p-4">
           {loading ? (
             <>
               <AsciiSkeleton height={44} rows={5} width={44} />
@@ -70,7 +70,7 @@ export function AsciiRevealDemo() {
             </>
           ) : (
             <>
-              <div className="flex size-11 shrink-0 items-center justify-center bg-muted font-medium text-sm">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-muted font-medium text-sm">
                 JL
               </div>
               <div className="min-w-0">
@@ -101,7 +101,7 @@ export function AsciiRevealStatsDemo() {
     <DemoFrame loading={loading} onReload={reload}>
       <AsciiReveal
         as="dl"
-        className="grid w-full border border-border sm:grid-cols-3"
+        className="grid w-full rounded-xl border border-border sm:grid-cols-3"
         loading={loading}
         revealOnMount={false}
         selector="[data-value]"
@@ -162,7 +162,7 @@ export function AsciiRevealTerminalDemo() {
   return (
     <DemoFrame loading={loading} onReload={reload}>
       <AsciiReveal
-        className="w-full border border-border bg-muted/40 p-4 font-mono text-xs"
+        className="w-full rounded-xl border border-border bg-muted/40 p-4 font-mono text-xs"
         loading={loading}
         preset="terminal"
       >
@@ -194,7 +194,7 @@ export function AsciiRevealMascotDemo() {
     <DemoFrame loading={loading} onReload={reload}>
       <AsciiReveal
         as="ul"
-        className="w-full border border-border"
+        className="w-full rounded-xl border border-border"
         loading={loading}
         mascot="ghost"
       >

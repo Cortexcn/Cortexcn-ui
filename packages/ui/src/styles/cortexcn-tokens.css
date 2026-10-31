@@ -28,8 +28,8 @@
   --chart-3: var(--color-stone-400);
   --chart-4: var(--color-stone-300);
   --chart-5: var(--color-stone-100);
-  /* Square corners: every rounded-* utility resolves from this. */
-  --radius: 0;
+  /* Rounded corners: every rounded-* utility resolves from this. */
+  --radius: 0.625rem;
   --sidebar: oklch(0.987 0.002 196);
   --sidebar-foreground: oklch(0.15 0.004 230);
   --sidebar-primary: oklch(0.19 0 0);

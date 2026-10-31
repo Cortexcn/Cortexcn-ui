@@ -68,16 +68,16 @@
   --color-card: var(--card);
   /* A design system (design-systems/<id>/theme.css) can set its own scale. */
   --radius-xs: var(--ds-radius-xs, 0.125rem);
-  --radius-sm: var(--ds-radius-sm, calc(var(--radius) - 4px));
-  --radius-md: var(--ds-radius-md, calc(var(--radius) - 2px));
+  --radius-sm: var(--ds-radius-sm, calc(var(--radius) * 0.6));
+  --radius-md: var(--ds-radius-md, calc(var(--radius) * 0.8));
   --radius-lg: var(--ds-radius-lg, var(--radius));
-  --radius-xl: var(--ds-radius-xl, calc(var(--radius) + 4px));
-  --radius-2xl: var(--ds-radius-xl, calc(var(--radius) + 8px));
-  --radius-3xl: var(--ds-radius-xl, calc(var(--radius) + 12px));
-  --radius-4xl: var(--ds-radius-xl, calc(var(--radius) + 16px));
+  --radius-xl: var(--ds-radius-xl, calc(var(--radius) * 1.4));
+  --radius-2xl: var(--ds-radius-xl, calc(var(--radius) * 1.8));
+  --radius-3xl: var(--ds-radius-xl, calc(var(--radius) * 2.2));
+  --radius-4xl: var(--ds-radius-xl, calc(var(--radius) * 2.6));
   /*
-   * The site shell (header, menus, docs sidebar, and cards) is rounded.
-   * Registry components keep --radius, so previews show what installs.
+   * The site shell (header, menus, docs sidebar, and cards) has its own
+   * radius. Registry components use --radius, so previews show what installs.
    */
   --radius-shell-sm: 0.5rem;
   --radius-shell: 0.75rem;

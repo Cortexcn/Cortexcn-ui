@@ -30,14 +30,14 @@ export const AsciiReveal = forwardRef<AsciiRevealHandle, AsciiRevealProps>(
 
 /**
  * A placeholder drawn in glyphs, as plain markup that paints before any
- * JavaScript runs. Square, in the muted text color, like the rest of the
- * registry.
+ * JavaScript runs. In the muted text color, with the same corners as
+ * Skeleton.
  */
 export function AsciiSkeleton({ className, ...props }: AsciiSkeletonProps) {
   return (
     <AsciiSkeletonPrimitive
       className={cn(
-        "[--ars-radius:0] [--ascii-skeleton:var(--muted-foreground)]",
+        "[--ars-radius:var(--radius-md)] [--ascii-skeleton:var(--muted-foreground)]",
         className,
       )}
       {...props}

@@ -3906,7 +3906,7 @@ import { AsciiReveal, AsciiSkeleton } from "@/components/ascii-reveal";
 
 While `loading` is true, the skeleton holds the space. When it turns false, the real content decodes in through a character grid in about 400 ms. Your content stays in the DOM in its real position, and the scramble is drawn on a canvas above it, so nothing shifts.
 
-The component wraps the [`ascii-reveal`](https://github.com/quanhoangindex/ascii-reveal) package and themes it: glyphs take `--primary`, and skeletons take `--muted-foreground` with square corners.
+The component wraps the [`ascii-reveal`](https://github.com/quanhoangindex/ascii-reveal) package and themes it: glyphs take `--primary`, and skeletons take `--muted-foreground` with the `rounded-md` corner.
 
 ## Examples
 
