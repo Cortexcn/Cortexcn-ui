@@ -140,7 +140,7 @@ The registry redistributes source code publicly, so every file in it must be our
 ## Design rules
 
 - **Corners.**
-  - Registry components are square: `--radius` is `0` in `cortexcn-tokens.css`, so previews show what installs. Don't add `rounded-*` classes to components that bypass the radius tokens.
+  - Registry components are rounded: `--radius` is `0.625rem` in `cortexcn-tokens.css`, and every `rounded-*` step is a multiple of it (sm 0.6, md 0.8, lg 1, xl 1.4, up to 4xl 2.6). Use the scale and the `rounded-button`, `rounded-card`, ... tokens in `cortexcn-recipes.css`; never hard-code a radius that bypasses them.
   - The site shell is rounded: the header and its menus, the docs sidebar, the overview cards, and the right rail. It uses the `rounded-shell-sm`, `rounded-shell`, `rounded-shell-lg`, and `rounded-shell-xl` tokens in `apps/web/app/globals.css`, never fixed values.
 - **Colors** come from the theme tokens in `cortexcn-tokens.css`.
   - Every change works in light and dark mode.
