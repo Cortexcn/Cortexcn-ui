@@ -69,10 +69,10 @@ The CLI installs the item's npm dependencies and the other registry items it nee
 
 ## Look and feel
 
-Cortexcn has a square, quiet look. Follow the project's `DESIGN.md` if it has one (install it with `npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json`, or read it from `get_design_guide`). In short:
+Cortexcn has a quiet look with softly rounded corners. Follow the project's `DESIGN.md` if it has one (install it with `npx shadcn@latest add https://ui.cortexcn.dev/r/design-md.json`, or read it from `get_design_guide`). In short:
 
 - Colors come from theme tokens only: `bg-background`, `text-foreground`, `bg-muted`, `text-muted-foreground`, `border-border`, `bg-primary`, `text-primary-foreground`, `ring-ring`, and `--chart-1` to `--chart-5` for data. No hard-coded hex values.
-- Corners come from the radius scale (`rounded-md`, `rounded-lg`), which Cortexcn sets to square with `--radius: 0`. Do not hard-code a radius such as `rounded-[12px]`.
+- Corners come from the radius scale (`rounded-md`, `rounded-lg`), which Cortexcn derives from `--radius: 0.625rem`. Do not hard-code a radius such as `rounded-[12px]`.
 - Every interactive element keeps a visible focus ring (`focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50`).
 - Light and dark mode both work from the same tokens; dark mode is the `.dark` class.
 - Motion is short (100 to 300 ms), eases out, and stops when the user prefers reduced motion.
