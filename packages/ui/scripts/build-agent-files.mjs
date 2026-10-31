@@ -164,7 +164,7 @@ const COMPONENTS = [
   [
     "card",
     { backgroundColor: "card", textColor: "card-foreground" },
-    { rounded: "{rounded.lg}", padding: "24px" },
+    { rounded: "{rounded.xl}", padding: "24px" },
   ],
   [
     "popover",
@@ -220,6 +220,31 @@ function componentTokens() {
   ]).join("\n");
 }
 
+/** The radius scale, as multiples of `--radius`, the way the site's theme builds it. */
+const RADIUS_STEPS = [
+  ["sm", 0.6],
+  ["md", 0.8],
+  ["lg", 1],
+  ["xl", 1.4],
+];
+
+/** `--radius` in pixels, from a rem or px value. */
+function radiusPx(light) {
+  const value = light.get("radius") ?? "0";
+  const number = Number.parseFloat(value);
+  if (Number.isNaN(number)) {
+    throw new Error(`--radius in ${tokensPath} is not a length: ${value}`);
+  }
+  return value.endsWith("rem") ? number * 16 : number;
+}
+
+function radiusScale(light) {
+  const base = radiusPx(light);
+  return RADIUS_STEPS.map(
+    ([name, factor]) => `  ${name}: ${Math.round(base * factor * 100) / 100}px`,
+  ).join("\n");
+}
+
 function frontMatter(light, dark) {
   const colors = COLOR_ROLES.flatMap(([name]) => [
     `  ${name}: ${yamlString(light.get(name))}`,
@@ -228,7 +253,7 @@ function frontMatter(light, dark) {
   return `---
 version: alpha
 name: Cortexcn
-description: A square, quiet interface system for React and Tailwind CSS. Neutral surfaces, hairline borders, no rounded corners, and one set of tokens for light and dark mode.
+description: A quiet interface system for React and Tailwind CSS. Neutral surfaces, hairline borders, softly rounded corners, and one set of tokens for light and dark mode.
 colors:
 ${colors.join("\n")}
 typography:
@@ -282,10 +307,7 @@ typography:
     letterSpacing: 0em
 rounded:
   none: 0px
-  sm: 0px
-  md: 0px
-  lg: 0px
-  xl: 0px
+${radiusScale(light)}
   full: 9999px
 spacing:
   xs: 4px
@@ -319,7 +341,7 @@ function body(light, dark) {
 
 ## Overview
 
-Cortexcn is a set of React components, page blocks, and charts built with Tailwind CSS and shadcn conventions. The look is square and quiet: neutral surfaces, one-pixel borders, no rounded corners, and color used for meaning rather than decoration. Everything is driven by CSS custom properties, so the same components work in light and dark mode and follow a project's own theme.
+Cortexcn is a set of React components, page blocks, and charts built with Tailwind CSS and shadcn conventions. The look is quiet: neutral surfaces, one-pixel borders, softly rounded corners, and color used for meaning rather than decoration. Everything is driven by CSS custom properties, so the same components work in light and dark mode and follow a project's own theme.
 
 This file is generated from \`cortexcn-tokens.css\`. The front matter holds the tokens; the sections below explain how to use them. When a request conflicts with these rules, follow the rules and say so.
 
@@ -358,7 +380,7 @@ Depth comes from borders and surface color first. A card is \`bg-card\` with \`b
 
 ## Shapes
 
-Corners are square. \`--radius\` is \`0\`, and every \`rounded-*\` utility (\`rounded-sm\` to \`rounded-4xl\`) is derived from it, so components written with the radius scale come out square. Use the scale classes, never a hard-coded radius such as \`rounded-[12px]\`, so a theme can change the radius in one place. \`rounded-full\` stays round and is for avatars, status dots, and switches.
+Corners are softly rounded. \`--radius\` is \`${light.get("radius")}\` (${radiusPx(light)}px), and every \`rounded-*\` utility is a multiple of it: \`rounded-sm\` is 0.6×, \`rounded-md\` 0.8×, \`rounded-lg\` 1×, and \`rounded-xl\` 1.4×, up to \`rounded-4xl\` at 2.6×. Buttons, inputs, menus, and tooltips use \`rounded-md\`; menu items \`rounded-sm\`; tabs and alerts \`rounded-lg\`; cards and dialogs \`rounded-xl\`; badges \`rounded-4xl\`. Use the scale classes, never a hard-coded radius such as \`rounded-[12px]\`, so a theme can change the radius in one place. \`rounded-full\` is for avatars, status dots, and switches.
 
 ## Components
 
@@ -382,7 +404,7 @@ Do:
 Don't:
 
 - Don't write hex, rgb, or oklch values in components, or add per-component dark colors.
-- Don't round corners by hand or mix rounded and square elements.
+- Don't round corners by hand or mix rounded and square controls.
 - Don't use color alone to carry meaning; pair it with text or an icon.
 - Don't animate layout properties such as width and height when a transform does the job.
 `;
